@@ -24,8 +24,8 @@ from datetime import datetime
 # Add tools directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent / 'tools'))
 
-from tracker_bridge import ActivityTrackerBridge
-from idle_detection import IdleDetector
+from tracker_bridge import ActivityTrackerBridge  # type: ignore
+from idle_detection import IdleDetector  # type: ignore
 
 
 class IntegratedActivityTracker:
