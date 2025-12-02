@@ -1,0 +1,21 @@
+{
+  "tracking": {
+    "daily_start_hour": 6,
+    "daily_start_minute": 0,
+    "reset_hour": 0,
+    "reset_minute": 0,
+    "timezone": "America/Chicago",
+    "enable_running_log": true,
+    "log_directory": "logs/daily",
+    "archive_directory": "logs/archive"
+  },
+  "report": {
+    "coverage_start": "06:00",
+    "coverage_end": "23:59",
+    "remove_cutoff_label": true
+  },
+  "retention": {
+    "keep_daily_logs_days": 30,
+    "keep_reports_days": 365
+  }
+}

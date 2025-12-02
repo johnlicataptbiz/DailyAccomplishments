@@ -1,0 +1,2 @@
+{"type": "metadata", "data": {"date": "2025-12-02", "start_time": "2025-12-02T06:00:00-06:00", "timezone": "America/Chicago", "coverage_start": "06:00", "coverage_end": "23:59", "initialized_at": "2025-12-02T07:38:48.153844-06:00"}}
+{"type": "focus_change", "timestamp": "2025-12-02T07:38:48.154909-06:00", "data": {"app": "Example App", "window_title": "Example Window", "duration_seconds": 60}}
