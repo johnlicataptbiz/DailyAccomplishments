@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Generate CSV exports and charts from ActivityReport JSON."""
+"""Generate CSV exports and charts from ActivityReport JSON or JSONL logs."""
 import json
+import sys
 from pathlib import Path
+from datetime import datetime
+from zoneinfo import ZoneInfo
 import csv
 
 BASE = Path(__file__).resolve().parents[1]
-INPUT = BASE / 'ActivityReport-2025-12-01.json'
+# Try to read from JSONL log first, fallback to JSON
+DEFAULT_DATE = datetime.now(ZoneInfo('America/Chicago')).strftime('%Y-%m-%d')
+JSONL_INPUT = BASE / 'logs' / 'daily' / f'{DEFAULT_DATE}.jsonl'
+JSON_INPUT = BASE / f'ActivityReport-{DEFAULT_DATE}.json'
 OUT_DIR = BASE
 
 def hhmm_to_minutes(s):
@@ -26,8 +32,161 @@ def write_csv(path, rows, headers):
         for r in rows:
             w.writerow(r)
 
+def load_from_jsonl(jsonl_path: Path) -> dict:
+    """Load and convert JSONL log to report format"""
+    print(f"Loading from JSONL: {jsonl_path}")
+    
+    if not jsonl_path.exists():
+        return None
+    
+    events = []
+    metadata = None
+    
+    try:
+        with open(jsonl_path, 'r') as f:
+            for line in f:
+                if line.strip():
+                    try:
+                        event = json.loads(line)
+                        if event.get('type') == 'metadata':
+                            metadata = event.get('data', {})
+                        else:
+                            events.append(event)
+                    except json.JSONDecodeError:
+                        continue
+    except Exception as e:
+        print(f"Error reading JSONL: {e}")
+        return None
+    
+    # Convert events to report format
+    # This is a simplified converter - full implementation would
+    # aggregate by category, project, hourly buckets, etc.
+    report = {
+        'date': metadata.get('date') if metadata else DEFAULT_DATE,
+        'overview': {
+            'focus_time': '00:00',
+            'meetings_time': '00:00',
+            'appointments': 0,
+            'projects_count': 0,
+            'coverage_window': metadata.get('coverage_start', '06:00') + '–' + metadata.get('coverage_end', '23:59') if metadata else '06:00–23:59'
+        },
+        'by_category': {},
+        'browser_highlights': {'top_domains': [], 'top_pages': []},
+        'hourly_focus': []
+    }
+    
+    # Initialize hourly buckets
+    for hour in range(24):
+        report['hourly_focus'].append({
+            'hour': hour,
+            'time': '00:00',
+            'pct': '0%'
+        })
+    
+    # Aggregate events
+    hourly_seconds = [0] * 24
+    category_seconds = {}
+    total_focus_seconds = 0
+    total_meeting_seconds = 0
+    
+    for event in events:
+        event_type = event.get('type')
+        data = event.get('data', {})
+        timestamp = event.get('timestamp', '')
+        
+        try:
+            dt = datetime.fromisoformat(timestamp)
+            hour = dt.hour
+        except:
+            hour = 0
+        
+        if event_type == 'focus_change':
+            duration = data.get('duration_seconds', 0)
+            total_focus_seconds += duration
+            hourly_seconds[hour] += duration
+            
+            # Categorize by app (simple heuristic)
+            app = data.get('app', '')
+            category = categorize_app(app)
+            category_seconds[category] = category_seconds.get(category, 0) + duration
+        
+        elif event_type in ['meeting_start', 'meeting_end']:
+            if event_type == 'meeting_end':
+                duration = data.get('duration_seconds', 0)
+                total_meeting_seconds += duration
+    
+    # Convert to HH:MM format
+    report['overview']['focus_time'] = seconds_to_hhmm(total_focus_seconds)
+    report['overview']['meetings_time'] = seconds_to_hhmm(total_meeting_seconds)
+    
+    # Fill category distribution
+    for cat, secs in category_seconds.items():
+        report['by_category'][cat] = seconds_to_hhmm(secs)
+    
+    # Fill hourly focus
+    max_seconds = max(hourly_seconds) if hourly_seconds else 1
+    for hour in range(24):
+        secs = hourly_seconds[hour]
+        report['hourly_focus'][hour]['time'] = seconds_to_hhmm(secs)
+        report['hourly_focus'][hour]['pct'] = f"{int(100 * secs / max_seconds) if max_seconds else 0}%"
+    
+    return report
+
+def seconds_to_hhmm(seconds: int) -> str:
+    """Convert seconds to HH:MM format"""
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    return f"{hours:02d}:{minutes:02d}"
+
+def categorize_app(app: str) -> str:
+    """Simple app categorization"""
+    app_lower = app.lower()
+    
+    if any(word in app_lower for word in ['chrome', 'firefox', 'safari', 'browser']):
+        return 'Research'
+    elif any(word in app_lower for word in ['code', 'terminal', 'iterm', 'pycharm', 'intellij']):
+        return 'Coding'
+    elif any(word in app_lower for word in ['slack', 'zoom', 'teams', 'meet']):
+        return 'Meetings'
+    elif any(word in app_lower for word in ['mail', 'outlook', 'gmail', 'messages']):
+        return 'Communication'
+    elif any(word in app_lower for word in ['word', 'excel', 'sheets', 'docs', 'notion']):
+        return 'Docs'
+    else:
+        return 'Other'
+
+def load_data(date: str = None) -> dict:
+    """Load data from JSONL or JSON file"""
+    if date:
+        jsonl_path = BASE / 'logs' / 'daily' / f'{date}.jsonl'
+        json_path = BASE / f'ActivityReport-{date}.json'
+    else:
+        jsonl_path = JSONL_INPUT
+        json_path = JSON_INPUT
+    
+    # Try JSONL first
+    if jsonl_path.exists():
+        data = load_from_jsonl(jsonl_path)
+        if data:
+            return data
+    
+    # Fallback to JSON
+    if json_path.exists():
+        print(f"Loading from JSON: {json_path}")
+        return json.loads(json_path.read_text())
+    
+    raise FileNotFoundError(f"No data found for date {date or DEFAULT_DATE}")
+
 def main():
-    data = json.loads(INPUT.read_text())
+    """Main entry point"""
+    # Support command line argument for date
+    date = sys.argv[1] if len(sys.argv) > 1 else None
+    
+    try:
+        data = load_data(date)
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        sys.exit(1)
 
     # Hourly focus CSV
     hf = data.get('hourly_focus', [])
