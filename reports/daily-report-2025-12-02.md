@@ -11,7 +11,7 @@
 
 ## Key Metrics
 
-- Total Focus Time: 14 minutes
+- Total Focus Time: 16 minutes
 - Deep Work Time: 0 minutes (0.0%)
 - Deep Work Sessions: 0
 - Total Interruptions: 8
@@ -23,10 +23,10 @@ _No deep work sessions detected (minimum 25 minutes)_
 
 ## Time by Category
 
-- **Coding**: 8min (57.1%)
-- **Other**: 2min (14.3%)
-- **Research**: 2min (14.3%)
-- **Meetings**: 2min (14.3%)
+- **Coding**: 10min (62.5%)
+- **Other**: 2min (12.5%)
+- **Research**: 2min (12.5%)
+- **Meetings**: 2min (12.5%)
 
 ## Interruption Analysis
 
@@ -49,4 +49,4 @@ _No deep work sessions detected (minimum 25 minutes)_
 - **09:00–23:00** (14h) — Excellent (0 interruptions)
 
 ---
-*Generated: 2025-12-02 14:21:55*
+*Generated: 2025-12-02 16:33:35*

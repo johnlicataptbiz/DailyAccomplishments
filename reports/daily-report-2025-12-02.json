@@ -20,7 +20,7 @@
     },
     "metrics": {
       "total_deep_minutes": 0,
-      "total_work_minutes": 14.0,
+      "total_work_minutes": 16.0,
       "deep_work_percentage": 0.0,
       "deep_sessions_count": 0
     },
@@ -30,34 +30,34 @@
     "categories": [
       {
         "category": "Coding",
-        "time_minutes": 8.0,
-        "percentage": 57.1,
-        "event_count": 7,
-        "avg_duration_minutes": 1.1
+        "time_minutes": 10.0,
+        "percentage": 62.5,
+        "event_count": 8,
+        "avg_duration_minutes": 1.2
       },
       {
         "category": "Other",
         "time_minutes": 2.0,
-        "percentage": 14.3,
+        "percentage": 12.5,
         "event_count": 2,
         "avg_duration_minutes": 1.0
       },
       {
         "category": "Research",
         "time_minutes": 2.0,
-        "percentage": 14.3,
+        "percentage": 12.5,
         "event_count": 2,
         "avg_duration_minutes": 1.0
       },
       {
         "category": "Meetings",
         "time_minutes": 2.0,
-        "percentage": 14.3,
+        "percentage": 12.5,
         "event_count": 2,
         "avg_duration_minutes": 1.0
       }
     ],
-    "total_time_minutes": 14.0,
+    "total_time_minutes": 16.0,
     "top_category": "Coding",
     "category_count": 4
   },
@@ -88,13 +88,13 @@
     }
   ],
   "raw_events": {
-    "total_events": 30,
+    "total_events": 32,
     "event_types": {
       "metadata": 1,
-      "focus_change": 13,
+      "focus_change": 14,
       "break_start": 1,
       "break_end": 1,
-      "browser_visit": 3,
+      "browser_visit": 4,
       "app_switch": 8,
       "manual_entry": 2,
       "meeting_start": 1
