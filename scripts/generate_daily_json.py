@@ -41,11 +41,25 @@ CATEGORY_MAP = {
 }
 
 def parse_activity_log(date_str):
-    """Parse a day's activity log file."""
+    """Parse a day's activity log file. Checks multiple locations."""
+    # Try primary location first
     log_file = LOGS_DIR / f"activity-{date_str}.jsonl"
     
+    # Fallback to logs/daily/ directory
     if not log_file.exists():
+        log_file = LOGS_DIR / "daily" / f"{date_str}.jsonl"
+    
+    # Another fallback pattern
+    if not log_file.exists():
+        log_file = LOGS_DIR / "daily" / f"activity-{date_str}.jsonl"
+    
+    if not log_file.exists():
+        print(f"No log file found for {date_str}")
+        print(f"  Checked: {LOGS_DIR}/activity-{date_str}.jsonl")
+        print(f"  Checked: {LOGS_DIR}/daily/{date_str}.jsonl")
         return []
+    
+    print(f"Reading: {log_file}")
     
     activities = []
     with open(log_file, 'r') as f:
