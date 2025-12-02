@@ -15,8 +15,7 @@
   ],
   "executive_summary": [
     "Worked across 3 applications",
-    "Top category: Coding",
-    "HubSpot: 1 deals updated"
+    "Top category: Coding"
   ],
   "client_summary": [],
   "accomplishments_today": [
@@ -215,34 +214,5 @@
     "appointments_today": [],
     "meetings_today": []
   },
-  "foot": "Auto-generated",
-  "hubspot": {
-    "date": "2025-12-02",
-    "meetings": [],
-    "deals": [
-      {
-        "id": "9144421280",
-        "name": "Shana Blackman",
-        "amount": "18000",
-        "stage": "closedlost",
-        "pipeline": "default",
-        "close_date": "2022-06-28T16:04:36.371Z",
-        "modified": "2025-12-02T00:25:33.300Z",
-        "created_today": false,
-        "type": "deal"
-      }
-    ],
-    "contacts": [],
-    "calls": [],
-    "tasks": [],
-    "emails": [],
-    "summary": {
-      "meetings_count": 0,
-      "deals_updated": 1,
-      "new_contacts": 0,
-      "calls_made": 0,
-      "tasks_due": 0,
-      "emails_sent": 0
-    }
-  }
+  "foot": "Auto-generated"
 }
