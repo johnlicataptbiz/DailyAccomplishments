@@ -8,7 +8,7 @@ Configure credentials in config.json.
 
 import json
 import smtplib
-import requests
+import requests  # type: ignore
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime, timedelta
