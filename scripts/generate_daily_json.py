@@ -11,6 +11,7 @@ import json
 import os
 import re
 from collections import defaultdict
+from typing import Optional
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -43,7 +44,7 @@ CATEGORY_MAP = {
     'google.com': 'Research',
 }
 
-def _normalize_event(obj: dict) -> dict | None:
+def _normalize_event(obj: dict) -> Optional[dict]:
     """Normalize various event schemas to a flat activity dict.
 
     Returns a dict with at least: timestamp (ISO), app (str), window (str or "").
