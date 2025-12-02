@@ -3,3 +3,9 @@ logs/
 
 # Config with secrets (API tokens)
 config.json
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
