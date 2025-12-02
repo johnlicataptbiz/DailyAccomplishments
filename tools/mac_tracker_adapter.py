@@ -475,6 +475,32 @@ class TrackerAdapter:
         print()
 
 
+    def reset_day(self, for_date: Optional[str] = None) -> bool:
+        """
+        Reset/delete a day's log file.
+        
+        Args:
+            for_date: Date string (YYYY-MM-DD) or None for today
+        
+        Returns:
+            True if reset successful, False otherwise
+        """
+        target_date = for_date or self.current_date
+        log_file = self.logs_dir / f"{target_date}.jsonl"
+        
+        if log_file.exists():
+            try:
+                log_file.unlink()
+                print(f"✓ Reset log for {target_date}")
+                return True
+            except Exception as e:
+                print(f"✗ Failed to reset: {e}")
+                return False
+        else:
+            print(f"No log file for {target_date}")
+            return True
+
+
 # Example usage / self-test
 if __name__ == "__main__":
     print("Mac Tracker Adapter - Test Mode")
