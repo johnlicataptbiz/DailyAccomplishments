@@ -5,26 +5,25 @@
   "overview": {
     "focus_time": "06:09",
     "meetings_time": "01:15",
-    "appointments": 1,
+     "appointments": 2,
     "projects_count": 11,
     "coverage_window": "12:22–17:51 CST"
   },
   "prepared_for_manager": [
-    "Total focused time: 06:09 (Coverage: 12:22–17:51 CST)",
-    "Top projects: Email/CRM (00:11), PT Biz: Calendar (00:06), Google Workspace (00:05)",
+     "Total focused time: 06:09 (Coverage: 12:22–17:51 CST)",
+     "Top projects: Email/CRM (00:11), PT Biz: Calendar (00:06), Google Workspace (00:05)",
     "Key tickets: profile:Profile 6 (02:52), weekly-2025 (01:07), ab-9390 (00:00)",
-    "Top apps: Google Chrome (03:54), Terminal (01:38), Messages (00:26)"
+     "Top apps: Google Chrome (03:54), Terminal (01:38), Messages (00:26)",
+     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)"
   ],
   "executive_summary": [
-    "Set 1 appt(s): [solid] Brad Neitzel",
-    "Meeting: Sales Call (01:00)",
-    "Meeting: Game Plan Call With Jack and Banfield Smith (00:15)",
-    "Primary doc: Google Sheets — Project_783_updated_fit — (00:01)"
+     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
+     "Meeting: Sales Call (01:00)",
+     "Primary doc: Google Sheets — Project_783_updated_fit — (00:01)"
   ],
   "client_summary": [
-    "Set 1 appt(s): [solid] Brad Neitzel",
-    "Meeting: Sales Call (01:00)",
-    "Meeting: Game Plan Call With Jack and Banfield Smith (00:15)"
+     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
+     "Meeting: Sales Call (01:00)"
   ],
   "accomplishments_today": [
     "Worked on Email/CRM (00:11)",
@@ -165,11 +164,14 @@
     "Set appointment with Brad Neitzel: Sales Call (HubSpot 25 visits)"
   ],
   "debug_appointments": {
-    "contact_visits_top":[{"name":"Brad Neitzel","visits":25}],
-    "meetings_today":[
-      {"name":"Sales Call","time":"09:30–10:30"},
-      {"name":"Game Plan Call With Jack and Banfield Smith","time":"11:00–11:15"}
-    ]
+     "contact_visits_top":[{"name":"Brad Neitzel","visits":25}],
+     "appointments_today":[
+       {"name":"Brad Neitzel","time":"Sales Call"},
+       {"name":"Discovery — Banfield Smith","time":"moved from Game Plan Call"}
+     ],
+     "meetings_today":[
+       {"name":"Sales Call","time":"09:30–10:30"}
+     ]
   },
   "confidence_legend": {
     "solid":"high evidence (HubSpot visits well above threshold + meeting keyword)",
