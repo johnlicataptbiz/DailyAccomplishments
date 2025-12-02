@@ -17,5 +17,22 @@
   "retention": {
     "keep_daily_logs_days": 30,
     "keep_reports_days": 365
+  },
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "username": "your-email@gmail.com",
+      "password": "your-app-password",
+      "from_email": "your-email@gmail.com",
+      "to_emails": ["recipient@example.com"]
+    },
+    "slack": {
+      "enabled": false,
+      "webhook_url": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
+      "channel": "#productivity",
+      "username": "Productivity Bot"
+    }
   }
 }

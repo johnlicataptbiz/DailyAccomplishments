@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .date-selector {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .date-selector input, .date-selector button {
+            padding: 10px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .date-selector button {
+            background: #667eea;
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background 0.3s;
+        }
+
+        .date-selector button:hover {
+            background: #5a67d8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            margin-top: 8px;
+        }
+
+        .stat-change.positive {
+            color: #48bb78;
+        }
+
+        .stat-change.negative {
+            color: #f56565;
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .score-card .stat-value {
+            color: white;
+        }
+
+        .score-rating {
+            font-size: 1.25rem;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .chart-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .sessions-list {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .session-item {
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            background: #f7fafc;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .session-duration {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .session-quality {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.875rem;
+        }
+
+        .session-details {
+            font-size: 0.875rem;
+            color: #718096;
+        }
+
+        .focus-windows {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .window-item {
+            padding: 15px;
+            background: #f7fafc;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+        }
+
+        .window-time {
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .window-quality {
+            display: inline-block;
+            background: #48bb78;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: 300px !important;
+        }
+
+        .refresh-btn {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 10px;
+        }
+
+        .refresh-btn:hover {
+            background: #38a169;
+        }
+
+        @media (max-width: 768px) {
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Productivity Dashboard</h1>
+            <div class="date-selector">
+                <input type="date" id="dateInput" />
+                <button onclick="loadData()">Load Date</button>
+                <button class="refresh-btn" onclick="loadData()">🔄 Refresh</button>
+            </div>
+        </header>
+
+        <div id="loading" class="loading">Loading dashboard...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="dashboard" style="display: none;">
+            <div class="stats-grid">
+                <div class="stat-card score-card">
+                    <div class="stat-label">Productivity Score</div>
+                    <div class="stat-value" id="overallScore">--</div>
+                    <div class="score-rating" id="scoreRating">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Deep Work Time</div>
+                    <div class="stat-value" id="deepWorkTime">--</div>
+                    <div class="stat-change" id="deepWorkChange">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total Focus Time</div>
+                    <div class="stat-value" id="totalFocusTime">--</div>
+                    <div class="stat-change" id="focusChange">--</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Interruptions</div>
+                    <div class="stat-value" id="interruptions">--</div>
+                    <div class="stat-change" id="interruptionChange">--</div>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-card">
+                    <div class="chart-title">Hourly Focus Distribution</div>
+                    <canvas id="hourlyChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-title">Time by Category</div>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+
+            <div class="sessions-list">
+                <div class="chart-title">Deep Work Sessions</div>
+                <div id="sessionsList"></div>
+            </div>
+
+            <div class="focus-windows">
+                <div class="chart-title">💡 Suggested Focus Windows</div>
+                <div id="focusWindowsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+        let hourlyChart = null;
+        let categoryChart = null;
+
+        // Set today's date by default
+        document.getElementById('dateInput').valueAsDate = new Date();
+
+        async function loadData() {
+            const dateInput = document.getElementById('dateInput').value;
+            const date = dateInput || new Date().toISOString().split('T')[0];
+            
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+
+            try {
+                // Load report data
+                const response = await fetch(`/reports/daily-report-${date}.json`);
+                
+                if (!response.ok) {
+                    throw new Error(`Report not found for ${date}. Generate it first: python3 tools/auto_report.py --type daily --date ${date}`);
+                }
+
+                const data = await response.json();
+                renderDashboard(data);
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = error.message;
+            }
+        }
+
+        function renderDashboard(data) {
+            // Render stats
+            const score = data.productivity_score;
+            document.getElementById('overallScore').textContent = Math.round(score.overall_score);
+            document.getElementById('scoreRating').textContent = score.rating;
+            
+            const deepMin = Math.round(score.metrics.total_deep_minutes);
+            document.getElementById('deepWorkTime').textContent = `${deepMin}m`;
+            document.getElementById('deepWorkChange').textContent = `${score.metrics.deep_sessions_count} sessions`;
+            
+            const focusMin = Math.round(score.metrics.total_work_minutes);
+            document.getElementById('totalFocusTime').textContent = `${focusMin}m`;
+            document.getElementById('focusChange').textContent = `${score.metrics.deep_work_percentage.toFixed(1)}% deep work`;
+            
+            document.getElementById('interruptions').textContent = data.interruption_analysis.total_interruptions;
+            document.getElementById('interruptionChange').textContent = `${data.interruption_analysis.context_switch_cost_minutes.toFixed(0)}m lost`;
+            document.getElementById('interruptionChange').className = 'stat-change negative';
+
+            // Render hourly chart
+            renderHourlyChart(data);
+            
+            // Render category chart
+            renderCategoryChart(data);
+            
+            // Render sessions list
+            renderSessions(data.deep_work_sessions);
+            
+            // Render focus windows
+            renderFocusWindows(data.focus_windows);
+        }
+
+        function renderHourlyChart(data) {
+            const ctx = document.getElementById('hourlyChart').getContext('2d');
+            
+            // Prepare data - extract from interruption analysis or hourly focus
+            const hours = Array.from({length: 24}, (_, i) => i);
+            const labels = hours.map(h => `${h}:00`);
+            
+            // Get interruptions per hour
+            const interruptions = data.interruption_analysis.interruptions_per_hour;
+            const interruptionData = hours.map(h => interruptions[h] || 0);
+            
+            if (hourlyChart) {
+                hourlyChart.destroy();
+            }
+
+            hourlyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Interruptions',
+                        data: interruptionData,
+                        backgroundColor: 'rgba(239, 68, 68, 0.7)',
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderCategoryChart(data) {
+            const ctx = document.getElementById('categoryChart').getContext('2d');
+            
+            const categories = data.category_trends.categories;
+            const labels = categories.map(c => c.category);
+            const values = categories.map(c => c.time_minutes);
+            
+            const colors = [
+                'rgba(102, 126, 234, 0.8)',
+                'rgba(118, 75, 162, 0.8)',
+                'rgba(72, 187, 120, 0.8)',
+                'rgba(237, 137, 54, 0.8)',
+                'rgba(229, 62, 62, 0.8)',
+                'rgba(49, 151, 149, 0.8)'
+            ];
+            
+            if (categoryChart) {
+                categoryChart.destroy();
+            }
+
+            categoryChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors,
+                        borderWidth: 2,
+                        borderColor: 'white'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderSessions(sessions) {
+            const container = document.getElementById('sessionsList');
+            
+            if (!sessions || sessions.length === 0) {
+                container.innerHTML = '<p style="color: #718096;">No deep work sessions detected (minimum 25 minutes)</p>';
+                return;
+            }
+
+            container.innerHTML = sessions.map((session, i) => {
+                const startTime = session.start_time.split('T')[1].substring(0, 5);
+                const quality = Math.round(session.quality_score);
+                const qualityColor = quality >= 80 ? '#48bb78' : quality >= 60 ? '#ed8936' : '#f56565';
+                
+                return `
+                    <div class="session-item">
+                        <div class="session-header">
+                            <span class="session-duration">${Math.round(session.duration_minutes)} minutes</span>
+                            <span class="session-quality" style="background: ${qualityColor};">
+                                Quality: ${quality}/100
+                            </span>
+                        </div>
+                        <div class="session-details">
+                            Started at ${startTime} • ${session.app} • ${session.interruptions} interruptions
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderFocusWindows(windows) {
+            const container = document.getElementById('focusWindowsList');
+            
+            if (!windows || windows.length === 0) {
+                container.innerHTML = '<p style="color: #718096;">No quiet windows identified</p>';
+                return;
+            }
+
+            container.innerHTML = windows.map(window => `
+                <div class="window-item">
+                    <div class="window-time">${window.start_time} - ${window.end_time}</div>
+                    <span class="window-quality">${window.quality}</span>
+                    <span style="color: #718096; font-size: 0.875rem; margin-left: 10px;">
+                        ${window.duration_hours}h • ${window.total_interruptions} interruptions
+                    </span>
+                    <div style="margin-top: 8px; color: #4a5568; font-size: 0.875rem;">
+                        💡 ${window.recommendation}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Auto-load on page load
+        window.addEventListener('load', loadData);
+        
+        // Auto-refresh every 5 minutes
+        setInterval(loadData, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
