@@ -1,6 +1,23 @@
 {
   "date": "2025-12-01",
-  "deep_work_sessions": [],
+  "deep_work_sessions": [
+    {
+      "start_time": "2025-12-01T12:00:00-06:00",
+      "end_time": "2025-12-01T12:36:00-06:00",
+      "duration_minutes": 36.0,
+      "app": "Work Session",
+      "interruptions": 0,
+      "quality_score": 100
+    },
+    {
+      "start_time": "2025-12-01T13:00:00-06:00",
+      "end_time": "2025-12-01T20:50:00-06:00",
+      "duration_minutes": 495.0,
+      "app": "Work Session",
+      "interruptions": 0,
+      "quality_score": 100
+    }
+  ],
   "interruption_analysis": {
     "interruptions_per_hour": {},
     "most_disruptive_hour": null,
@@ -10,31 +27,39 @@
     "average_per_hour": 0
   },
   "productivity_score": {
-    "overall_score": 30.0,
+    "overall_score": 100.0,
     "components": {
-      "deep_work_score": 0.0,
+      "deep_work_score": 40,
       "interruption_score": 30,
-      "quality_score": 0.0
+      "quality_score": 30.0
     },
     "metrics": {
-      "total_deep_minutes": 0,
-      "total_work_minutes": 0.0,
-      "deep_work_percentage": 0,
-      "deep_sessions_count": 0
+      "total_deep_minutes": 531.0,
+      "total_work_minutes": 531.0,
+      "deep_work_percentage": 100.0,
+      "deep_sessions_count": 2
     },
-    "rating": "Needs Improvement"
+    "rating": "Excellent"
   },
   "category_trends": {
-    "categories": [],
-    "total_time_minutes": 0.0,
-    "top_category": null,
-    "category_count": 0
+    "categories": [
+      {
+        "category": "Other",
+        "time_minutes": 531.0,
+        "percentage": 100.0,
+        "event_count": 9,
+        "avg_duration_minutes": 59.0
+      }
+    ],
+    "total_time_minutes": 531.0,
+    "top_category": "Other",
+    "category_count": 1
   },
   "meeting_efficiency": {
     "total_meeting_minutes": 0.0,
     "meeting_count": 0,
     "average_duration_minutes": 0.0,
-    "meeting_vs_focus_ratio": 0,
+    "meeting_vs_focus_ratio": 0.0,
     "meetings": [],
     "recommendation": "Good balance between meetings and focus work"
   },
@@ -49,7 +74,11 @@
     }
   ],
   "raw_events": {
-    "total_events": 0,
-    "event_types": {}
+    "total_events": 12,
+    "event_types": {
+      "metadata": 1,
+      "meeting_start": 2,
+      "focus_change": 9
+    }
   }
 }

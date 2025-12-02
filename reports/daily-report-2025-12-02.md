@@ -2,19 +2,19 @@
 
 ## Overall Score
 
-**22.0/100** (Needs Improvement)
+**18.0/100** (Needs Improvement)
 
 ### Components
 - Deep Work: 0.0/40
-- Interruptions: 22.0/30
+- Interruptions: 18.0/30
 - Quality: 0.0/30
 
 ## Key Metrics
 
-- Total Focus Time: 14 minutes
+- Total Focus Time: 21 minutes
 - Deep Work Time: 0 minutes (0.0%)
 - Deep Work Sessions: 0
-- Total Interruptions: 8
+- Total Interruptions: 12
 - Meeting Time: 0 minutes
 
 ## Deep Work Sessions
@@ -23,17 +23,17 @@ _No deep work sessions detected (minimum 25 minutes)_
 
 ## Time by Category
 
-- **Coding**: 8min (57.1%)
-- **Other**: 2min (14.3%)
-- **Research**: 2min (14.3%)
-- **Meetings**: 2min (14.3%)
+- **Coding**: 13min (61.9%)
+- **Research**: 3min (14.3%)
+- **Meetings**: 3min (14.3%)
+- **Other**: 2min (9.5%)
 
 ## Interruption Analysis
 
-- Total: 8 interruptions
-- Average per hour: 0.3
+- Total: 12 interruptions
+- Average per hour: 0.5
 - Most disruptive hour: 8:00 (8 interruptions)
-- Estimated time lost: 8 minutes
+- Estimated time lost: 12 minutes
 
 ## Meeting Efficiency
 
@@ -46,7 +46,7 @@ _No deep work sessions detected (minimum 25 minutes)_
 ## Suggested Focus Windows
 
 - **06:00–08:00** (2h) — Excellent (0 interruptions)
-- **09:00–23:00** (14h) — Excellent (0 interruptions)
+- **11:00–23:00** (12h) — Excellent (0 interruptions)
 
 ---
-*Generated: 2025-12-02 14:21:55*
+*Generated: 2025-12-02 16:38:40*
