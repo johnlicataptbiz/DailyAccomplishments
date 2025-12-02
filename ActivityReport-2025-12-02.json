@@ -1,23 +1,36 @@
 {
-  "source_file": "ActivityReport-2025-12-02.html",
+  "source_file": "ActivityReport-2025-12-02.json",
   "date": "2025-12-02",
-  "title": "Daily Accomplishments — 2025-12-02",
+  "title": "Daily Accomplishments \u2014 2025-12-02",
   "overview": {
-    "focus_time": "00:00",
+    "focus_time": "06:22",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 0,
-    "coverage_window": "In progress..."
+    "projects_count": 4,
+    "coverage_window": "07:38\u201310:37 CST"
   },
   "prepared_for_manager": [
-    "Day in progress — data collection active"
+    "Total focused time: 06:22 (Coverage: 07:38\u201310:37 CST)",
+    "Top apps: Manual Entry (06:00), VS Code (00:09), Terminal (00:04)"
   ],
   "executive_summary": [
-    "Day in progress — check back later for full summary"
+    "Worked across 7 applications",
+    "Top category: Coding"
   ],
   "client_summary": [],
-  "accomplishments_today": [],
-  "by_category": {},
+  "accomplishments_today": [
+    "Focused on Manual Entry (06:00)",
+    "Focused on VS Code (00:09)",
+    "Focused on Terminal (00:04)",
+    "Focused on Safari (00:03)",
+    "Focused on Slack (00:03)"
+  ],
+  "by_category": {
+    "Coding": "00:01",
+    "Other": "00:01",
+    "Research": "00:00",
+    "Communication": "00:00"
+  },
   "by_project": {},
   "google_workspace": {
     "Google": "00:00",
@@ -29,43 +42,163 @@
   },
   "browser_highlights": {
     "top_domains": [],
-    "top_pages": []
+    "top_pages": [
+      {
+        "page": "Python Documentation",
+        "visits": 3
+      }
+    ]
   },
   "hourly_focus": [
-    {"hour":0,"time":"00:00","pct":"0%"},
-    {"hour":1,"time":"00:00","pct":"0%"},
-    {"hour":2,"time":"00:00","pct":"0%"},
-    {"hour":3,"time":"00:00","pct":"0%"},
-    {"hour":4,"time":"00:00","pct":"0%"},
-    {"hour":5,"time":"00:00","pct":"0%"},
-    {"hour":6,"time":"00:00","pct":"0%"},
-    {"hour":7,"time":"00:00","pct":"0%"},
-    {"hour":8,"time":"00:00","pct":"0%"},
-    {"hour":9,"time":"00:00","pct":"0%"},
-    {"hour":10,"time":"00:00","pct":"0%"},
-    {"hour":11,"time":"00:00","pct":"0%"},
-    {"hour":12,"time":"00:00","pct":"0%"},
-    {"hour":13,"time":"00:00","pct":"0%"},
-    {"hour":14,"time":"00:00","pct":"0%"},
-    {"hour":15,"time":"00:00","pct":"0%"},
-    {"hour":16,"time":"00:00","pct":"0%"},
-    {"hour":17,"time":"00:00","pct":"0%"},
-    {"hour":18,"time":"00:00","pct":"0%"},
-    {"hour":19,"time":"00:00","pct":"0%"},
-    {"hour":20,"time":"00:00","pct":"0%"},
-    {"hour":21,"time":"00:00","pct":"0%"},
-    {"hour":22,"time":"00:00","pct":"0%"},
-    {"hour":23,"time":"00:00","pct":"0%"}
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:02",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "04:13",
+      "pct": "100%"
+    },
+    {
+      "hour": 9,
+      "time": "00:02",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "02:05",
+      "pct": "49%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
   ],
   "suggested_tasks": [],
   "next_up": [],
-  "top_apps": {},
-  "top_windows_preview": [],
+  "top_apps": {
+    "Manual Entry": "06:00",
+    "VS Code": "00:09",
+    "Terminal": "00:04",
+    "Safari": "00:03",
+    "Slack": "00:03",
+    "Example App": "00:02",
+    "Unknown": "00:00"
+  },
+  "top_windows_preview": [
+    "Manual Entry \u2014 Development - Focus Session: 06:00",
+    "Terminal \u2014 ~/code: 00:04",
+    "VS Code \u2014 main.py \u2014 DailyAccomplishments: 00:03",
+    "Safari \u2014 Python Documentation: 00:03",
+    "VS Code \u2014 tracker_bridge.py: 00:03",
+    "Slack \u2014 #engineering: 00:03",
+    "VS Code \u2014 analytics.py: 00:03",
+    "Example App \u2014 Example Window: 00:02",
+    "Unknown: 00:00",
+    "VS Code: 00:00"
+  ],
   "notes": [],
   "debug_appointments": {
     "contact_visits_top": [],
     "appointments_today": [],
     "meetings_today": []
   },
-  "foot": "Day in progress"
+  "foot": "Auto-generated"
 }

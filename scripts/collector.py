@@ -18,37 +18,29 @@ LOGS_DIR = REPO_ROOT / "logs"
 LOGS_DIR.mkdir(exist_ok=True)
 
 def get_active_window():
-    """Get the currently active application and window title using AppleScript."""
-    script = '''
-    tell application "System Events"
-        set frontApp to name of first application process whose frontmost is true
-        set frontAppId to bundle identifier of first application process whose frontmost is true
-    end tell
-    
-    try
-        tell application frontApp
-            if frontApp is "Google Chrome" then
-                set windowTitle to title of active tab of front window
-            else if frontApp is "Safari" then
-                set windowTitle to name of front document
-            else
-                set windowTitle to name of front window
-            end if
-        end tell
-    on error
-        set windowTitle to ""
-    end try
-    
-    return frontApp & "|" & frontAppId & "|" & windowTitle
-    '''
-    
+    """Get the currently active application and window title using System Events only.
+
+    This avoids sending AppleEvents directly to the frontmost app (which can
+    require extra Automation permissions) and instead queries UI elements via
+    System Events, improving reliability under launchd.
+    """
     try:
-        result = subprocess.run(
-            ['osascript', '-e', script],
-            capture_output=True,
-            text=True,
-            timeout=5
-        )
+        # Use multiple -e segments to avoid quoting issues
+        cmd = [
+            '/usr/bin/osascript',
+            '-e', 'tell application "System Events"',
+            '-e', 'set P to (first process whose frontmost is true)',
+            '-e', 'set frontApp to name of P',
+            '-e', 'set frontAppId to bundle identifier of P',
+            '-e', 'if (exists window 1 of P) then',
+            '-e', 'set windowTitle to name of window 1 of P',
+            '-e', 'else',
+            '-e', 'set windowTitle to ""',
+            '-e', 'end if',
+            '-e', 'return frontApp & "|" & frontAppId & "|" & windowTitle',
+            '-e', 'end tell',
+        ]
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=5)
         if result.returncode == 0:
             parts = result.stdout.strip().split('|')
             if len(parts) >= 3:
@@ -59,14 +51,14 @@ def get_active_window():
                 }
     except Exception as e:
         print(f"Error getting active window: {e}")
-    
+
     return None
 
 def get_idle_time():
     """Get system idle time in seconds."""
     try:
         result = subprocess.run(
-            ['ioreg', '-c', 'IOHIDSystem'],
+            ['/usr/sbin/ioreg', '-c', 'IOHIDSystem'],
             capture_output=True,
             text=True,
             timeout=5

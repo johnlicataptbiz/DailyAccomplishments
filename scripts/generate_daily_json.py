@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
 Generate Daily JSON Report from activity logs.
-Reads logs/activity-YYYY-MM-DD.jsonl and produces ActivityReport-YYYY-MM-DD.json
+
+Prefers logs/activity-YYYY-MM-DD.jsonl (collector output).
+Falls back to logs/daily/YYYY-MM-DD.jsonl (legacy/event-style logs) if needed.
+Outputs ActivityReport-YYYY-MM-DD.json at repo root.
 """
 
 import json
@@ -40,37 +43,87 @@ CATEGORY_MAP = {
     'google.com': 'Research',
 }
 
+def _normalize_event(obj: dict) -> dict | None:
+    """Normalize various event schemas to a flat activity dict.
+
+    Returns a dict with at least: timestamp (ISO), app (str), window (str or "").
+    Optionally includes duration_seconds (float) if present in source.
+    """
+    # Flat schema: already has keys
+    if all(k in obj for k in ("timestamp",)) and (
+        ("app" in obj) or ("window" in obj)
+    ):
+        return {
+            "timestamp": obj.get("timestamp"),
+            "app": obj.get("app", "Unknown"),
+            "window": obj.get("window", obj.get("window_title", "")),
+            **({"duration_seconds": obj.get("duration_seconds")} if obj.get("duration_seconds") else {}),
+        }
+
+    # Legacy event schema: {"type": ..., "timestamp": ..., "data": {...}}
+    if "timestamp" in obj and isinstance(obj.get("data"), dict):
+        data = obj["data"]
+        app = (
+            data.get("app")
+            or data.get("from_app")
+            or data.get("to_app")
+            or ("Manual Entry" if obj.get("type") == "manual_entry" else "Unknown")
+        )
+        window = (
+            data.get("window_title")
+            or data.get("window")
+            or data.get("description", "")
+        )
+        out = {
+            "timestamp": obj["timestamp"],
+            "app": app,
+            "window": window or "",
+        }
+        if isinstance(data.get("duration_seconds"), (int, float)):
+            out["duration_seconds"] = float(data["duration_seconds"])
+        return out
+
+    return None
+
+
 def parse_activity_log(date_str):
-    """Parse a day's activity log file. Checks multiple locations."""
-    # Try primary location first
-    log_file = LOGS_DIR / f"activity-{date_str}.jsonl"
-    
-    # Fallback to logs/daily/ directory
-    if not log_file.exists():
-        log_file = LOGS_DIR / "daily" / f"{date_str}.jsonl"
-    
-    # Another fallback pattern
-    if not log_file.exists():
-        log_file = LOGS_DIR / "daily" / f"activity-{date_str}.jsonl"
-    
-    if not log_file.exists():
+    """Parse a day's activity log file with fallback to legacy locations."""
+    # Preferred collector output
+    primary = LOGS_DIR / f"activity-{date_str}.jsonl"
+    # Legacy/event-style logs
+    fallback = LOGS_DIR / "daily" / f"{date_str}.jsonl"
+    # Older legacy pattern
+    fallback_alt = LOGS_DIR / "daily" / f"activity-{date_str}.jsonl"
+
+    if primary.exists():
+        log_file = primary
+    elif fallback.exists():
+        log_file = fallback
+    elif fallback_alt.exists():
+        log_file = fallback_alt
+    else:
         print(f"No log file found for {date_str}")
         print(f"  Checked: {LOGS_DIR}/activity-{date_str}.jsonl")
         print(f"  Checked: {LOGS_DIR}/daily/{date_str}.jsonl")
+        print(f"  Checked: {LOGS_DIR}/daily/activity-{date_str}.jsonl")
         return []
-    
+
     print(f"Reading: {log_file}")
-    
+
     activities = []
     with open(log_file, 'r') as f:
         for line in f:
             line = line.strip()
-            if line:
-                try:
-                    activities.append(json.loads(line))
-                except json.JSONDecodeError:
-                    continue
-    
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            norm = _normalize_event(obj)
+            if norm:
+                activities.append(norm)
+
     return activities
 
 def categorize_activity(app, window):
@@ -146,7 +199,8 @@ def generate_report(date_str=None):
     first_ts = None
     last_ts = None
     
-    # Process activities (5-second intervals = 5/60 minutes each)
+    # Process activities
+    # Default interval if no explicit duration is available (5 seconds)
     interval_minutes = 5 / 60
     
     for activity in activities:
@@ -162,8 +216,15 @@ def generate_report(date_str=None):
             last_ts = ts
         
         # Aggregate
-        app_time[app] += interval_minutes
-        hourly_minutes[hour] += interval_minutes
+        # Use explicit duration if provided, else assume fixed sample interval
+        dur_min = (
+            float(activity.get("duration_seconds", 0)) / 60.0
+            if activity.get("duration_seconds")
+            else interval_minutes
+        )
+
+        app_time[app] += dur_min
+        hourly_minutes[hour] += dur_min
         
         category = categorize_activity(app, window)
         category_time[category] += interval_minutes
@@ -178,7 +239,7 @@ def generate_report(date_str=None):
         
         # Track window time
         window_key = f"{app} — {window[:50]}" if window else app
-        window_time[window_key] += interval_minutes
+        window_time[window_key] += dur_min
     
     # Build hourly focus array
     hourly_focus = []
