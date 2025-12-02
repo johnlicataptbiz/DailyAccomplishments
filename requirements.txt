@@ -1,0 +1,13 @@
+# Daily Accomplishments Tracker - Python Dependencies
+
+# Core dependencies
+matplotlib>=3.9.0
+requests>=2.31.0
+
+# Optional but recommended
+# Install with: pip install -r requirements.txt
+
+# For development/testing
+# pytest>=7.0.0
+# black>=23.0.0
+# flake8>=6.0.0
