@@ -726,8 +726,8 @@
     </div>
 
     <script>
-        // State - default to 2025-12-01 if no data for today
-        let currentDate = '2025-12-01';
+        // State - default to today's date
+        let currentDate = new Date().toISOString().split('T')[0];
         let data = null;
 
         // DOM
@@ -740,22 +740,9 @@
         const summaryLink = document.getElementById('summaryLink');
         const footer = document.getElementById('footer');
 
-        // Init - try today first, fallback to 2025-12-01
-        async function init() {
-            const today = new Date().toISOString().split('T')[0];
-            // Try today's data first
-            try {
-                const resp = await fetch(`ActivityReport-${today}.json`, { method: 'HEAD' });
-                if (resp.ok) {
-                    currentDate = today;
-                }
-            } catch (e) {
-                // Use default date
-            }
-            dateInput.value = currentDate;
-            loadData(currentDate);
-        }
-        init();
+        // Init
+        dateInput.value = currentDate;
+        loadData(currentDate);
 
         // Events
         dateInput.addEventListener('change', (e) => {
