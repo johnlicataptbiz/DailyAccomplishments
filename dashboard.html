@@ -341,8 +341,8 @@
             document.getElementById('error').style.display = 'none';
 
             try {
-                // Load report data
-                const response = await fetch(`/reports/daily-report-${date}.json`);
+                // Load report data - use relative path for GitHub Pages subdirectory
+                const response = await fetch(`reports/daily-report-${date}.json`);
                 
                 if (!response.ok) {
                     throw new Error(`Report not found for ${date}. Generate it first: python3 tools/auto_report.py --type daily --date ${date}`);
