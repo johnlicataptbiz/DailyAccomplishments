@@ -1,2 +1,5 @@
 # Ignore runtime logs
 logs/
+
+# Config with secrets (API tokens)
+config.json
