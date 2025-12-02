@@ -2,23 +2,25 @@
   "date": "2025-12-02",
   "deep_work_sessions": [],
   "interruption_analysis": {
-    "interruptions_per_hour": {},
-    "most_disruptive_hour": null,
-    "max_interruptions": 0,
-    "total_interruptions": 0,
-    "context_switch_cost_minutes": 0.0,
-    "average_per_hour": 0
+    "interruptions_per_hour": {
+      "8": 8
+    },
+    "most_disruptive_hour": 8,
+    "max_interruptions": 8,
+    "total_interruptions": 8,
+    "context_switch_cost_minutes": 8.0,
+    "average_per_hour": 0.3
   },
   "productivity_score": {
-    "overall_score": 30.0,
+    "overall_score": 22.0,
     "components": {
       "deep_work_score": 0.0,
-      "interruption_score": 30,
+      "interruption_score": 22,
       "quality_score": 0.0
     },
     "metrics": {
       "total_deep_minutes": 0,
-      "total_work_minutes": 2.0,
+      "total_work_minutes": 14.0,
       "deep_work_percentage": 0.0,
       "deep_sessions_count": 0
     },
@@ -27,16 +29,37 @@
   "category_trends": {
     "categories": [
       {
+        "category": "Coding",
+        "time_minutes": 8.0,
+        "percentage": 57.1,
+        "event_count": 7,
+        "avg_duration_minutes": 1.1
+      },
+      {
         "category": "Other",
         "time_minutes": 2.0,
-        "percentage": 100.0,
+        "percentage": 14.3,
+        "event_count": 2,
+        "avg_duration_minutes": 1.0
+      },
+      {
+        "category": "Research",
+        "time_minutes": 2.0,
+        "percentage": 14.3,
+        "event_count": 2,
+        "avg_duration_minutes": 1.0
+      },
+      {
+        "category": "Meetings",
+        "time_minutes": 2.0,
+        "percentage": 14.3,
         "event_count": 2,
         "avg_duration_minutes": 1.0
       }
     ],
-    "total_time_minutes": 2.0,
-    "top_category": "Other",
-    "category_count": 1
+    "total_time_minutes": 14.0,
+    "top_category": "Coding",
+    "category_count": 4
   },
   "meeting_efficiency": {
     "total_meeting_minutes": 0.0,
@@ -49,20 +72,32 @@
   "focus_windows": [
     {
       "start_time": "06:00",
-      "end_time": "23:00",
-      "duration_hours": 17,
+      "end_time": "08:00",
+      "duration_hours": 2,
       "total_interruptions": 0,
       "quality": "Excellent",
-      "recommendation": "Schedule deep work during 06:00-23:00"
+      "recommendation": "Schedule deep work during 06:00-08:00"
+    },
+    {
+      "start_time": "09:00",
+      "end_time": "23:00",
+      "duration_hours": 14,
+      "total_interruptions": 0,
+      "quality": "Excellent",
+      "recommendation": "Schedule deep work during 09:00-23:00"
     }
   ],
   "raw_events": {
-    "total_events": 5,
+    "total_events": 30,
     "event_types": {
       "metadata": 1,
-      "focus_change": 2,
+      "focus_change": 13,
       "break_start": 1,
-      "break_end": 1
+      "break_end": 1,
+      "browser_visit": 3,
+      "app_switch": 8,
+      "manual_entry": 2,
+      "meeting_start": 1
     }
   }
 }

@@ -3,3 +3,28 @@
 {"type": "focus_change", "timestamp": "2025-12-02T07:52:58.586093-06:00", "data": {"app": "Example App", "window_title": "Example Window", "duration_seconds": 60}}
 {"type": "break_start", "timestamp": "2025-12-02T07:59:33.248900-06:00", "data": {"break_type": "short", "duration_minutes": 5, "manual": true}}
 {"type": "break_end", "timestamp": "2025-12-02T07:59:35.251381-06:00", "data": {"break_type": "short", "planned_duration_minutes": 5, "actual_duration_seconds": 2, "manual": true}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:20:19.198188-06:00", "data": {"app": "Terminal", "window_title": "~/code", "duration_seconds": 120}}
+{"type": "browser_visit", "timestamp": "2025-12-02T08:20:19.200241-06:00", "data": {"domain": "github.com", "url": "https://github.com", "page_title": "GitHub"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:05.091317-06:00", "data": {"app": "VS Code", "window_title": "main.py \u2014 DailyAccomplishments", "duration_seconds": 60}}
+{"type": "app_switch", "timestamp": "2025-12-02T08:21:06.094256-06:00", "data": {"from_app": "VS Code", "to_app": "Safari"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:06.096972-06:00", "data": {"app": "Safari", "window_title": "Python Documentation", "duration_seconds": 60}}
+{"type": "browser_visit", "timestamp": "2025-12-02T08:21:06.098543-06:00", "data": {"domain": "docs.python.org", "url": "https://docs.python.org/3/library/datetime.html", "page_title": "datetime \u2014 Basic date and time types"}}
+{"type": "app_switch", "timestamp": "2025-12-02T08:21:07.100337-06:00", "data": {"from_app": "Safari", "to_app": "VS Code"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:07.102624-06:00", "data": {"app": "VS Code", "window_title": "tracker_bridge.py", "duration_seconds": 60}}
+{"type": "app_switch", "timestamp": "2025-12-02T08:21:08.104555-06:00", "data": {"from_app": "VS Code", "to_app": "Slack"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:08.106910-06:00", "data": {"app": "Slack", "window_title": "#engineering", "duration_seconds": 60}}
+{"type": "app_switch", "timestamp": "2025-12-02T08:21:09.108721-06:00", "data": {"from_app": "Slack", "to_app": "VS Code"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:09.111200-06:00", "data": {"app": "VS Code", "window_title": "analytics.py", "duration_seconds": 60}}
+{"type": "manual_entry", "timestamp": "2025-12-02T08:21:09.113129-06:00", "data": {"description": "Development - Focus Session", "duration_seconds": 7200, "category": "Development"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:32.114957-06:00", "data": {"app": "VS Code", "window_title": "main.py \u2014 DailyAccomplishments", "duration_seconds": 60}}
+{"type": "app_switch", "timestamp": "2025-12-02T08:21:33.117493-06:00", "data": {"from_app": "VS Code", "to_app": "Safari"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:33.119644-06:00", "data": {"app": "Safari", "window_title": "Python Documentation", "duration_seconds": 60}}
+{"type": "browser_visit", "timestamp": "2025-12-02T08:21:33.121501-06:00", "data": {"domain": "docs.python.org", "url": "https://docs.python.org/3/library/datetime.html", "page_title": "datetime \u2014 Basic date and time types"}}
+{"type": "app_switch", "timestamp": "2025-12-02T08:21:34.123687-06:00", "data": {"from_app": "Safari", "to_app": "VS Code"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:34.126047-06:00", "data": {"app": "VS Code", "window_title": "tracker_bridge.py", "duration_seconds": 60}}
+{"type": "app_switch", "timestamp": "2025-12-02T08:21:35.127748-06:00", "data": {"from_app": "VS Code", "to_app": "Slack"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:35.130139-06:00", "data": {"app": "Slack", "window_title": "#engineering", "duration_seconds": 60}}
+{"type": "app_switch", "timestamp": "2025-12-02T08:21:36.132393-06:00", "data": {"from_app": "Slack", "to_app": "VS Code"}}
+{"type": "focus_change", "timestamp": "2025-12-02T08:21:36.135591-06:00", "data": {"app": "VS Code", "window_title": "analytics.py", "duration_seconds": 60}}
+{"type": "manual_entry", "timestamp": "2025-12-02T08:21:36.138339-06:00", "data": {"description": "Development - Focus Session", "duration_seconds": 7200, "category": "Development"}}
+{"type": "meeting_start", "timestamp": "2025-12-02T08:21:38.146064-06:00", "data": {"name": "Daily Standup", "scheduled_duration_seconds": 900}}
