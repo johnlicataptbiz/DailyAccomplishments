@@ -17,6 +17,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from collections import defaultdict
 from urllib.parse import urlparse
+from typing import Optional
 
 # Chrome stores timestamps as microseconds since 1601-01-01
 CHROME_EPOCH = datetime(1601, 1, 1)
@@ -45,7 +46,7 @@ def safari_time_to_datetime(safari_timestamp: float) -> datetime:
     return SAFARI_EPOCH + timedelta(seconds=safari_timestamp)
 
 
-def copy_db_safely(db_path: Path) -> str:
+def copy_db_safely(db_path: Path) -> Optional[str]:
     """Copy database to temp location (browsers lock their DBs)."""
     if not db_path.exists():
         return None
@@ -306,6 +307,7 @@ def update_activity_report(date_str: str, browser_data: dict, repo_path: Path):
     """Update the ActivityReport JSON with browser data."""
     report_file = repo_path / f"ActivityReport-{date_str}.json"
     
+    report: dict  # type hint for Pylance
     if report_file.exists():
         with open(report_file) as f:
             report = json.load(f)
@@ -331,35 +333,33 @@ def update_activity_report(date_str: str, browser_data: dict, repo_path: Path):
     }
     
     # Merge category data
-    existing_categories = report.get('by_category', {})
+    if 'by_category' not in report:
+        report['by_category'] = {}
+    existing_categories = report['by_category']
     for cat, count in browser_data.get('by_category', {}).items():
         # Convert visit count to rough time estimate (30 sec per visit)
         minutes = count // 2
         time_str = f"{minutes // 60:02d}:{minutes % 60:02d}"
-        if cat in existing_categories:
-            # Add to existing
-            pass  # Keep existing time-based data
-        else:
+        if cat not in existing_categories:
             existing_categories[cat] = time_str
-    report['by_category'] = existing_categories
     
     # Update coverage window to include browser data
     if browser_data.get('coverage_window'):
-        existing_coverage = report.get('overview', {}).get('coverage_window', '')
+        if 'overview' not in report:
+            report['overview'] = {}
+        overview = report['overview']
+        existing_coverage = overview.get('coverage_window', '')
         browser_coverage = browser_data['coverage_window']
-        if existing_coverage and existing_coverage != 'In progress...':
-            # Merge coverage windows
-            # Parse both and take earliest start, latest end
-            pass  # Keep existing for now, browser data is supplementary
-        else:
-            report['overview']['coverage_window'] = f"{browser_coverage} (browser)"
+        if not existing_coverage or existing_coverage == 'In progress...':
+            overview['coverage_window'] = f"{browser_coverage} (browser)"
     
     # Add browser stats to executive summary
-    exec_summary = report.get('executive_summary', [])
+    if 'executive_summary' not in report:
+        report['executive_summary'] = []
+    exec_summary = report['executive_summary']
     browser_summary = f"Visited {browser_data.get('unique_domains', 0)} unique domains ({browser_data.get('total_visits', 0)} page views)"
     if browser_summary not in exec_summary:
         exec_summary.append(browser_summary)
-    report['executive_summary'] = exec_summary
     
     # Save
     with open(report_file, 'w') as f:

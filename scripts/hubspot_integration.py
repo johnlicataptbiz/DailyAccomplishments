@@ -40,7 +40,7 @@ class HubSpotClient:
             "Content-Type": "application/json"
         }
     
-    def _get(self, endpoint: str, params: dict = None) -> dict:
+    def _get(self, endpoint: str, params: Optional[dict] = None) -> dict:
         """Make a GET request to HubSpot API."""
         url = f"{HUBSPOT_API}{endpoint}"
         response = requests.get(url, headers=self.headers, params=params)
@@ -331,6 +331,7 @@ def update_activity_report(date_str: str, hubspot_data: dict, repo_path: Path):
     """Update ActivityReport with HubSpot data."""
     report_file = repo_path / f"ActivityReport-{date_str}.json"
     
+    report: dict  # type hint for Pylance
     if report_file.exists():
         with open(report_file) as f:
             report = json.load(f)
@@ -347,24 +348,27 @@ def update_activity_report(date_str: str, hubspot_data: dict, repo_path: Path):
     report['hubspot'] = hubspot_data
     
     # Update meetings
-    debug_appts = report.get('debug_appointments', {})
-    meetings = debug_appts.get('meetings_today', [])
+    if 'debug_appointments' not in report:
+        report['debug_appointments'] = {'meetings_today': [], 'appointments_today': []}
+    debug_appts = report['debug_appointments']
+    if 'meetings_today' not in debug_appts:
+        debug_appts['meetings_today'] = []
+    meetings_list = debug_appts['meetings_today']
     
     for meeting in hubspot_data.get('meetings', []):
-        meetings.append({
+        meetings_list.append({
             "name": meeting['title'],
             "time": meeting['time'],
             "source": "HubSpot"
         })
     
-    debug_appts['meetings_today'] = meetings
-    report['debug_appointments'] = debug_appts
-    
     # Update overview
     overview = report.get('overview', {})
     
     # Add HubSpot stats to executive summary
-    exec_summary = report.get('executive_summary', [])
+    if 'executive_summary' not in report:
+        report['executive_summary'] = []
+    exec_summary = report['executive_summary']
     
     stats = []
     if hubspot_data.get('deals'):
