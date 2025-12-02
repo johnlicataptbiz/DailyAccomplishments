@@ -1,11 +1,11 @@
 {
   "source_file": "ActivityReport-2025-12-01.html",
   "date": "2025-12-01",
-  "title": "Daily Accomplishments — 2025-12-01 (cutoff 4pm CST/CDT)",
+  "title": "Daily Accomplishments — 2025-12-01",
   "overview": {
     "focus_time": "06:09",
     "meetings_time": "01:15",
-     "appointments": 2,
+    "appointments": 2,
     "projects_count": 11,
     "coverage_window": "12:22–17:51 CST"
   },
@@ -17,13 +17,15 @@
      "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)"
   ],
   "executive_summary": [
-     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
-     "Meeting: Sales Call (01:00)",
-     "Primary doc: Google Sheets — Project_783_updated_fit — (00:01)"
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
+    "Meeting: Slack Huddle (08:00; 00:15)",
+    "Meeting: Sales Call (01:00)",
+    "Primary doc: Google Sheets — Project_783_updated_fit — (00:01)"
   ],
   "client_summary": [
-     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
-     "Meeting: Sales Call (01:00)"
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
+    "Meeting: Slack Huddle (08:00; 00:15)",
+    "Meeting: Sales Call (01:00)"
   ],
   "accomplishments_today": [
     "Worked on Email/CRM (00:11)",
@@ -157,7 +159,7 @@
   ],
   "notes": [
     "Meeting: Sales Call (01:00)",
-    "Meeting: Game Plan Call With Jack and Banfield Smith (00:15)",
+    "Meeting: Slack Huddle (08:00; 00:15)",
     "Worked on Google Sheets: Project_783_updated_fit (00:01)",
     "HubSpot browsing: app.hubspot.com (87 visits)",
     "Google Workspace browsing: docs.google.com (74 visits)",
