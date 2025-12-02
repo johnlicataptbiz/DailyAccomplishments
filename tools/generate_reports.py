@@ -33,8 +33,19 @@ def main():
     hf = data.get('hourly_focus', [])
     hf_rows = []
     for item in hf:
-        minutes = hhmm_to_minutes(item.get('time', '00:00'))
-        hf_rows.append([item.get('hour'), item.get('time'), item.get('pct'), minutes])
+        time_str = item.get('time', '00:00')
+        minutes = hhmm_to_minutes(time_str)
+        # Cap minutes at 60 per hour (the data appears to show cumulative or scaled values)
+        # We'll use the percentage to derive actual minutes if time exceeds 60
+        pct_str = item.get('pct', '0%').rstrip('%')
+        try:
+            pct = int(pct_str)
+        except:
+            pct = 0
+        # If minutes > 60, use percentage-based calculation relative to max of 60
+        if minutes > 60:
+            minutes = min(60, int(60 * pct / 100))
+        hf_rows.append([item.get('hour'), time_str, item.get('pct'), minutes])
     write_csv(OUT_DIR / 'hourly_focus.csv', hf_rows, ['hour', 'time', 'pct', 'minutes'])
 
     # Top domains CSV
@@ -60,7 +71,18 @@ def main():
 
     # Hourly bar chart
     hours = [int(x['hour']) for x in hf]
-    minutes = [hhmm_to_minutes(x['time']) for x in hf]
+    # Apply same capping logic as CSV: if minutes > 60, use percentage-based calc
+    minutes = []
+    for x in hf:
+        m = hhmm_to_minutes(x['time'])
+        if m > 60:
+            pct_str = x.get('pct', '0%').rstrip('%')
+            try:
+                pct = int(pct_str)
+                m = min(60, int(60 * pct / 100))
+            except:
+                m = min(60, m)
+        minutes.append(m)
     plt.figure(figsize=(10,4))
     plt.bar(hours, minutes, color='#2563eb')
     plt.xlabel('Hour')
