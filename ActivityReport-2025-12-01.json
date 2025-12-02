@@ -3,18 +3,19 @@
   "date": "2025-12-01",
   "title": "Daily Accomplishments — 2025-12-01",
   "overview": {
-    "focus_time": "06:09",
+    "focus_time": "08:54",
     "meetings_time": "01:15",
     "appointments": 2,
-    "projects_count": 11,
-    "coverage_window": "12:22–17:51 CST"
+    "projects_count": 12,
+    "coverage_window": "08:00–20:45 CST"
   },
   "prepared_for_manager": [
-     "Total focused time: 06:09 (Coverage: 12:22–17:51 CST)",
-     "Top projects: Email/CRM (00:11), PT Biz: Calendar (00:06), Google Workspace (00:05)",
+     "Total focused time: 08:54 (Coverage: 08:00–20:45 CST)",
+     "Top projects: Email/CRM (00:11), DailyAccomplishments (02:45), PT Biz: Calendar (00:06)",
     "Key tickets: profile:Profile 6 (02:52), weekly-2025 (01:07), ab-9390 (00:00)",
-     "Top apps: Google Chrome (03:54), Terminal (01:38), Messages (00:26)",
-     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)"
+     "Top apps: Google Chrome (03:54), VS Code (02:45), Terminal (01:38)",
+     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
+     "Evening session: Built DailyAccomplishments static site with GitHub Pages deployment"
   ],
   "executive_summary": [
     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
@@ -114,9 +115,9 @@
     {"hour":15,"time":"01:23","pct":"100%"},
     {"hour":16,"time":"00:58","pct":"70%"},
     {"hour":17,"time":"00:56","pct":"68%"},
-    {"hour":18,"time":"00:00","pct":"0%"},
-    {"hour":19,"time":"00:00","pct":"0%"},
-    {"hour":20,"time":"00:00","pct":"0%"},
+    {"hour":18,"time":"00:55","pct":"66%"},
+    {"hour":19,"time":"01:00","pct":"72%"},
+    {"hour":20,"time":"00:50","pct":"60%"},
     {"hour":21,"time":"00:00","pct":"0%"},
     {"hour":22,"time":"00:00","pct":"0%"},
     {"hour":23,"time":"00:00","pct":"0%"}
@@ -172,6 +173,7 @@
        {"name":"Discovery — Banfield Smith","time":"moved from Game Plan Call"}
      ],
      "meetings_today":[
+       {"name":"Slack Huddle","time":"08:00–08:15"},
        {"name":"Sales Call","time":"09:30–10:30"}
      ]
   },
