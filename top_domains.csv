@@ -1,4 +1,5 @@
 domain,visits
+github.com,150
 ai-chat.example.com,109
 crm.example.com,87
 docs.google.com,74
@@ -7,5 +8,4 @@ chat.example.com,59
 project-mgmt.example.com,57
 aistudio.google.com,37
 shopping.example.com,34
-github.com,31
 ai-assistant.example.com,29

@@ -3,24 +3,26 @@
   "date": "2025-12-01",
   "title": "Daily Accomplishments — 2025-12-01",
   "overview": {
-    "focus_time": "06:09",
+    "focus_time": "08:30",
     "meetings_time": "01:15",
     "appointments": 2,
-    "projects_count": 11,
-    "coverage_window": "12:22–17:51 CST"
+    "projects_count": 12,
+    "coverage_window": "08:00–20:45 CST"
   },
   "prepared_for_manager": [
-     "Total focused time: 06:09 (Coverage: 12:22–17:51 CST)",
-     "Top projects: Email/CRM (00:11), Calendar (00:06), Google Workspace (00:05)",
-    "Key tickets: [redacted] (02:52), [redacted] (01:07), [redacted] (00:00)",
-     "Top apps: Google Chrome (03:54), Terminal (01:38), Messages (00:26)",
+     "Total focused time: 08:30 (Coverage: 08:00–20:45 CST)",
+     "Top projects: DailyAccomplishments App (02:00), Email/CRM (00:11), Calendar (00:06)",
+     "Key accomplishments: Built & deployed activity report site to GitHub Pages",
+     "Top apps: Google Chrome (03:54), VS Code (02:00), Terminal (01:38)",
      "Set 2 appt(s): [solid] Client A; Discovery — Client B"
   ],
   "executive_summary": [
     "Set 2 appt(s): [solid] Client A; Discovery — Client B",
     "Meeting: Slack Huddle (08:00; 00:15)",
     "Meeting: Sales Call (01:00)",
-    "Primary doc: Google Sheets — [redacted] — (00:01)"
+    "Built DailyAccomplishments static site with charts and GitHub Pages deployment",
+    "Created CI/CD workflow for automatic publishing",
+    "Added AI agent instructions for future automation"
   ],
   "client_summary": [
     "Set 2 appt(s): [solid] Client A; Discovery — Client B",
@@ -28,24 +30,29 @@
     "Meeting: Sales Call (01:00)"
   ],
   "accomplishments_today": [
+    "Built DailyAccomplishments static site from scratch",
+    "Fixed 'Cannot GET /' error — added root index.html",
+    "Made asset paths relative for GitHub Pages compatibility",
+    "Created GitHub Actions workflow for auto-deployment",
+    "Added .github/copilot-instructions.md for AI agents",
+    "Redacted personal/client data for public repo",
+    "Deployed site to GitHub Pages",
     "Worked on Email/CRM (00:11)",
     "CRM activity (87 visits)",
     "Google Workspace activity (74 visits)",
-    "Meetings activity (27 visits)",
-    "Google Workspace activity (9 visits)",
-    "Email/CRM activity (8 visits)",
-    "CRM activity (3 visits)",
+    "Meeting: Slack Huddle (08:00; 00:15)",
     "Meeting: Sales Call (01:00)"
   ],
   "by_category": {
+    "Coding": "03:38",
     "Research": "03:54",
-    "Coding": "01:38",
     "Meetings": "01:15",
     "Communication": "00:30",
     "Other": "00:05",
     "Docs": "00:00"
   },
   "by_project": {
+    "DailyAccomplishments App": "02:00",
     "Email/CRM": "00:11",
     "Calendar": "00:06",
     "Google Workspace": "00:05",
@@ -76,6 +83,7 @@
   },
   "browser_highlights": {
     "top_domains": [
+      {"domain":"github.com","visits":150},
       {"domain":"ai-chat.example.com","visits":109},
       {"domain":"crm.example.com","visits":87},
       {"domain":"docs.google.com","visits":74},
@@ -84,11 +92,11 @@
       {"domain":"project-mgmt.example.com","visits":57},
       {"domain":"aistudio.google.com","visits":37},
       {"domain":"shopping.example.com","visits":34},
-      {"domain":"github.com","visits":31},
       {"domain":"ai-assistant.example.com","visits":29}
     ],
     "top_pages": [
       {"page":"Daily Accomplishments — 2025-12-01","visits":5477},
+      {"page":"GitHub - DailyAccomplishments repo","visits":150},
       {"page":"Weekly Roll-up — 2025-11-25 to 2025-12-01","visits":4048},
       {"page":"Project: [redacted]","visits":46},
       {"page":"Google AI Studio","visits":36},
@@ -104,7 +112,7 @@
     {"hour":5,"time":"00:00","pct":"0%"},
     {"hour":6,"time":"00:00","pct":"0%"},
     {"hour":7,"time":"00:00","pct":"0%"},
-    {"hour":8,"time":"00:00","pct":"0%"},
+    {"hour":8,"time":"00:15","pct":"18%"},
     {"hour":9,"time":"00:00","pct":"0%"},
     {"hour":10,"time":"00:00","pct":"0%"},
     {"hour":11,"time":"00:00","pct":"0%"},
@@ -114,30 +122,32 @@
     {"hour":15,"time":"01:23","pct":"100%"},
     {"hour":16,"time":"00:58","pct":"70%"},
     {"hour":17,"time":"00:56","pct":"68%"},
-    {"hour":18,"time":"00:00","pct":"0%"},
-    {"hour":19,"time":"00:00","pct":"0%"},
-    {"hour":20,"time":"00:00","pct":"0%"},
+    {"hour":18,"time":"00:45","pct":"54%"},
+    {"hour":19,"time":"00:50","pct":"60%"},
+    {"hour":20,"time":"00:45","pct":"54%"},
     {"hour":21,"time":"00:00","pct":"0%"},
     {"hour":22,"time":"00:00","pct":"0%"},
     {"hour":23,"time":"00:00","pct":"0%"}
   ],
   "suggested_tasks": [
+    "Focused on VS Code — DailyAccomplishments — 02:00",
+    "Focused on Terminal — git/deployment — 00:30",
     "Focused on Terminal — [redacted] — 01:11",
     "Focused on Google Chrome — Google AI Studio — 00:47",
     "Focused on Google Chrome — Daily Accomplishments — 00:47",
     "Focused on Messages — 00:24",
     "Focused on Google Chrome — Project: [redacted] — 00:23",
-    "Focused on Google Chrome — Social — 00:12",
-    "Focused on Google Chrome — Project [redacted] — 00:12",
-    "Focused on Google Chrome — Google Gemini — 00:11"
+    "Focused on Google Chrome — GitHub — 00:20"
   ],
   "next_up": [
     "Send recap for 'Sales Call'",
-    "Send recap for 'Discovery — Client B'"
+    "Send recap for 'Discovery — Client B'",
+    "Configure activity tracker to capture full day (prevent 5pm cutoff)"
   ],
   "top_apps": {
     "Google Chrome":"03:54",
-    "Terminal":"01:38",
+    "VS Code":"02:00",
+    "Terminal":"02:08",
     "Messages":"00:26",
     "Slack":"00:04",
     "Finder":"00:03",
@@ -146,18 +156,22 @@
     "App Store":"00:00"
   },
   "top_windows_preview": [
+    "VS Code — DailyAccomplishments: 02:00",
+    "Terminal — git commands: 00:30",
     "Terminal — [redacted]: 01:11",
     "Google Chrome — Google AI Studio: 00:47",
     "Google Chrome — Daily Accomplishments: 00:47",
     "Messages — [redacted]: 00:24",
     "Google Chrome — Project: [redacted]: 00:23",
-    "Google Chrome — Social: 00:12",
-    "Google Chrome — Project [redacted]: 00:12",
-    "Google Chrome — Google Gemini: 00:11",
+    "Google Chrome — GitHub repo: 00:20",
     "Google Chrome — Activity Tracker Enhancements: 00:10",
     "Terminal — [redacted]: 00:08"
   ],
   "notes": [
+    "Evening session (18:00–20:45): Built DailyAccomplishments app with GitHub Copilot",
+    "Created static site with hourly focus charts and category distribution",
+    "Set up GitHub Pages deployment with CI workflow",
+    "Redacted personal data for public repository",
     "Meeting: Sales Call (01:00)",
     "Meeting: Slack Huddle (08:00; 00:15)",
     "Worked on Google Sheets: [redacted] (00:01)",
