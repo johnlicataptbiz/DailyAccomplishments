@@ -69,6 +69,7 @@ def main():
     plt.xticks(hours)
     plt.tight_layout()
     plt.savefig(OUT_DIR / 'hourly_focus.png')
+    plt.savefig(OUT_DIR / 'hourly_focus.svg')
     plt.close()
 
     # Category pie chart
@@ -80,6 +81,7 @@ def main():
         plt.title('Time by Category — 2025-12-01')
         plt.tight_layout()
         plt.savefig(OUT_DIR / 'category_distribution.png')
+        plt.savefig(OUT_DIR / 'category_distribution.svg')
         plt.close()
 
     print('CSVs and charts written to', OUT_DIR)
