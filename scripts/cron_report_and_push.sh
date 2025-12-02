@@ -1,6 +1,6 @@
 #!/bin/bash
 # Cron Report and Push - Run every 15 minutes by LaunchAgent
-# Generates daily JSON report and pushes to GitHub
+# Generates daily JSON report and optionally pushes to GitHub
 
 set -e
 
@@ -25,24 +25,21 @@ if git diff --quiet && git diff --cached --quiet; then
     exit 0
 fi
 
-# Commit and push
+# Commit locally (always works)
 DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M)
 
 git add -A
 git commit -m "Auto-update: $DATE $TIME" || true
 
-# Push to both branches
-git push origin main 2>/dev/null || echo "Failed to push to main"
+echo "[$(date)] Changes committed locally"
 
-# Copy to gh-pages deploy folder and push
-if [ -d "/tmp/gh-pages-deploy" ]; then
-    cp ActivityReport-*.json /tmp/gh-pages-deploy/ 2>/dev/null || true
-    cp *.svg *.csv /tmp/gh-pages-deploy/ 2>/dev/null || true
-    cd /tmp/gh-pages-deploy
-    git add -A
-    git commit -m "Auto-update: $DATE $TIME" 2>/dev/null || true
-    git push origin gh-pages 2>/dev/null || echo "Failed to push to gh-pages"
+# Try to push - but don't fail if auth isn't set up
+# This allows the LaunchAgent to keep running even without push access
+if git push origin main 2>/dev/null; then
+    echo "[$(date)] Pushed to main"
+else
+    echo "[$(date)] Push skipped (no credentials or offline). Run 'git push' manually when ready."
 fi
 
 echo "[$(date)] Report generation complete"
