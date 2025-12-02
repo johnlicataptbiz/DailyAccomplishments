@@ -122,7 +122,8 @@ class IdleDetector:
         """Get idle time on Windows using ctypes"""
         try:
             import ctypes
-            from ctypes import Structure, windll, c_uint, sizeof, byref
+            from ctypes import Structure, c_uint, sizeof, byref
+            windll = ctypes.windll  # type: ignore[attr-defined]
             
             class LASTINPUTINFO(Structure):
                 _fields_ = [
@@ -272,7 +273,8 @@ class BreakTracker:
             logger.warning("No break in progress")
             return False
         
-        actual_duration = (datetime.now() - self.current_break['start_time']).total_seconds()
+        start_time: datetime = self.current_break['start_time']  # type: ignore[assignment]
+        actual_duration = (datetime.now() - start_time).total_seconds()
         
         # Log break end
         success = log_activity('break_end', {

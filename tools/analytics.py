@@ -26,12 +26,12 @@ logger = logging.getLogger(__name__)
 class ProductivityAnalytics:
     """Analyze productivity patterns from daily logs"""
     
-    def __init__(self, date: datetime = None):
+    def __init__(self, date: Optional[datetime] = None):
         """Initialize analytics for a specific date"""
         self.config = load_config()
         self.tz = ZoneInfo(self.config['tracking']['timezone'])
         self.date = date or datetime.now(self.tz)
-        self.events = read_daily_log(self.date)
+        self.events: List[Dict[str, Any]] = read_daily_log(self.date)
         
         # Thresholds (configurable)
         self.deep_work_threshold_minutes = 25  # Minimum for deep work
@@ -47,15 +47,18 @@ class ProductivityAnalytics:
         - app, activity_type
         - interruption_count
         """
-        sessions = []
-        current_session = None
+        sessions: List[Dict[str, Any]] = []
+        current_session: Optional[Dict[str, Any]] = None
         
         for event in self.events:
             if event.get('type') == 'metadata':
                 continue
             
             event_type = event.get('type')
-            timestamp = datetime.fromisoformat(event.get('timestamp'))
+            ts_str = event.get('timestamp')
+            if not ts_str:
+                continue
+            timestamp = datetime.fromisoformat(ts_str)
             data = event.get('data', {})
             
             if event_type == 'focus_change':
@@ -74,16 +77,19 @@ class ProductivityAnalytics:
                     }
                 else:
                     # Check if this continues the session (within 5 min)
-                    gap = (timestamp - current_session['end_time']).total_seconds()
+                    end_time: datetime = current_session['end_time']
+                    gap = (timestamp - end_time).total_seconds()
                     
                     if gap <= self.interruption_window_seconds:
                         # Continue session
                         current_session['end_time'] = timestamp + timedelta(seconds=duration)
                         current_session['total_seconds'] += duration
-                        current_session['events'].append(event)
+                        events_list: List[Dict[str, Any]] = current_session['events']
+                        events_list.append(event)
                     else:
                         # Gap too large, end current session
-                        if current_session['total_seconds'] >= self.deep_work_threshold_minutes * 60:
+                        total_secs: int = current_session['total_seconds']
+                        if total_secs >= self.deep_work_threshold_minutes * 60:
                             sessions.append(self._finalize_session(current_session))
                         
                         # Start new session
@@ -99,11 +105,14 @@ class ProductivityAnalytics:
             elif event_type in ['app_switch', 'window_change']:
                 # Count as interruption if in a session
                 if current_session:
-                    current_session['interruptions'] += 1
+                    interrupts: int = current_session['interruptions']
+                    current_session['interruptions'] = interrupts + 1
         
         # Finalize last session
-        if current_session and current_session['total_seconds'] >= self.deep_work_threshold_minutes * 60:
-            sessions.append(self._finalize_session(current_session))
+        if current_session:
+            total_secs_final: int = current_session['total_seconds']
+            if total_secs_final >= self.deep_work_threshold_minutes * 60:
+                sessions.append(self._finalize_session(current_session))
         
         return sessions
     
@@ -163,7 +172,10 @@ class ProductivityAnalytics:
             event_type = event.get('type')
             
             if event_type in ['app_switch', 'window_change']:
-                timestamp = datetime.fromisoformat(event.get('timestamp'))
+                ts_str = event.get('timestamp')
+                if not ts_str:
+                    continue
+                timestamp = datetime.fromisoformat(ts_str)
                 hour = timestamp.hour
                 interruptions_by_hour[hour] += 1
                 total_interruptions += 1

@@ -136,7 +136,7 @@ class ActivityTrackerBridge:
     def on_meeting_start(self, name: str, scheduled_duration: Optional[int] = None) -> bool:
         """Called when a meeting starts"""
         try:
-            data = {'name': name}
+            data: Dict[str, Any] = {'name': name}
             if scheduled_duration:
                 data['scheduled_duration_seconds'] = scheduled_duration
             

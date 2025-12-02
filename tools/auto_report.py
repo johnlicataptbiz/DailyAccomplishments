@@ -49,8 +49,8 @@ def generate_daily_report(date: Optional[datetime] = None, output_dir: Optional[
     
     for event in events:
         et = event.get('type', 'unknown')
-        report_data['raw_events']['event_types'][et] = \
-            report_data['raw_events']['event_types'].get(et, 0) + 1
+        event_types = report_data['raw_events']['event_types']  # type: ignore[index]
+        event_types[et] = event_types.get(et, 0) + 1  # type: ignore[union-attr]
     
     # Save JSON report
     report_path = output_dir / f"daily-report-{date.strftime('%Y-%m-%d')}.json"

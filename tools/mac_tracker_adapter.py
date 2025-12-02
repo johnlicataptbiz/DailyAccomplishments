@@ -231,7 +231,7 @@ class TrackerAdapter:
             sys.path.insert(0, str(self.base_dir / "tools"))
             from analytics import ProductivityAnalytics
             
-            analytics = ProductivityAnalytics(str(self.log_file))
+            analytics = ProductivityAnalytics()  # Uses current date by default
             report = analytics.generate_report()
             
             # Save report
