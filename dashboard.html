@@ -7,618 +7,629 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <style>
         :root {
-            --bg-primary: #0d1117;
-            --bg-secondary: #161b22;
-            --bg-tertiary: #21262d;
-            --border-color: #30363d;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --text-muted: #6e7681;
-            --accent-blue: #58a6ff;
-            --accent-green: #3fb950;
-            --accent-yellow: #d29922;
-            --accent-orange: #db6d28;
-            --accent-red: #f85149;
-            --accent-purple: #a371f7;
-            --accent-pink: #db61a2;
-            --gradient-green: linear-gradient(135deg, #238636, #3fb950);
-            --gradient-blue: linear-gradient(135deg, #1f6feb, #58a6ff);
-            --gradient-purple: linear-gradient(135deg, #8957e5, #a371f7);
+            --bg: #0f172a;
+            --bg-card: #0b1220;
+            --bg-glass: rgba(255,255,255,0.03);
+            --bg-glass-hover: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.04);
+            --text: #e6eef8;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --accent: #7c3aed;
+            --accent-light: #a78bfa;
+            --green: #22c55e;
+            --green-dim: rgba(34, 197, 94, 0.15);
+            --blue: #3b82f6;
+            --blue-dim: rgba(59, 130, 246, 0.15);
+            --yellow: #eab308;
+            --yellow-dim: rgba(234, 179, 8, 0.15);
+            --orange: #f97316;
+            --red: #ef4444;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            min-height: 100vh;
+        html, body {
+            min-height: 100%;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(180deg, #071029 0%, #071b2a 100%);
+            color: var(--text);
             line-height: 1.5;
         }
 
         .container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 24px;
+            padding: 28px 24px;
         }
 
         /* Header */
-        .header {
+        header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 32px;
+            align-items: flex-start;
+            margin-bottom: 24px;
             flex-wrap: wrap;
             gap: 16px;
         }
 
-        .header h1 {
-            font-size: 28px;
+        header h1 {
+            font-size: 22px;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            margin-bottom: 4px;
         }
 
-        .header h1::before {
-            content: '📊';
-            font-size: 32px;
+        .sub {
+            color: var(--text-muted);
+            font-size: 13px;
         }
 
         .date-nav {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .date-nav button {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            padding: 8px 16px;
-            border-radius: 6px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px 14px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.2s;
         }
 
         .date-nav button:hover {
-            background: var(--accent-blue);
-            border-color: var(--accent-blue);
+            background: var(--accent);
+            border-color: var(--accent);
         }
 
         .date-nav input {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            color: var(--text);
             padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        /* Score Hero Section */
-        .score-hero {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 32px;
-            margin-bottom: 24px;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .score-ring {
-            position: relative;
-            width: 180px;
-            height: 180px;
-        }
-
-        .score-ring svg {
-            width: 100%;
-            height: 100%;
-            transform: rotate(-90deg);
-        }
-
-        .score-ring-bg {
-            fill: none;
-            stroke: var(--bg-tertiary);
-            stroke-width: 12;
-        }
-
-        .score-ring-progress {
-            fill: none;
-            stroke-width: 12;
-            stroke-linecap: round;
-            transition: stroke-dashoffset 1s ease-in-out;
-        }
-
-        .score-value {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .score-value .number {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .score-value .label {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-
-        .score-details {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .score-stat {
-            text-align: center;
-            padding: 20px;
-            background: var(--bg-tertiary);
-            border-radius: 12px;
-        }
-
-        .score-stat .icon {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .score-stat .value {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .score-stat .label {
-            font-size: 13px;
-            color: var(--text-secondary);
-        }
-
-        /* Timeline Section */
-        .timeline-section {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 24px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .timeline-container {
-            position: relative;
-            height: 120px;
-            background: var(--bg-tertiary);
             border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .timeline-hours {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 12px;
-            font-size: 11px;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .timeline-track {
-            position: relative;
-            height: 80px;
-            padding: 8px 12px;
-        }
-
-        .timeline-block {
-            position: absolute;
-            height: 24px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            padding: 0 8px;
-            font-size: 11px;
-            font-weight: 500;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .timeline-block:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-
-        .timeline-block.deep-work {
-            background: var(--gradient-green);
-            top: 8px;
-        }
-
-        .timeline-block.meeting {
-            background: var(--gradient-blue);
-            top: 36px;
-        }
-
-        .timeline-block.break {
-            background: var(--gradient-purple);
-            top: 8px;
-        }
-
-        .timeline-legend {
-            display: flex;
-            gap: 24px;
-            margin-top: 16px;
-            justify-content: center;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
             font-size: 13px;
-            color: var(--text-secondary);
         }
 
-        .legend-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 3px;
+        .topnav {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 8px;
         }
 
-        /* Two Column Layout */
-        .two-columns {
+        .topnav a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Grid Layout */
+        .main-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 24px;
+            grid-template-columns: 320px 1fr;
+            gap: 20px;
         }
 
-        @media (max-width: 1200px) {
-            .two-columns {
+        @media (max-width: 1000px) {
+            .main-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* App Usage Section */
-        .app-usage-section {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
+        /* Sidebar Snapshot */
+        .snapshot {
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
         }
 
-        .app-list {
+        .snapshot-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .big-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .big-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .snapshot-stats {
+            text-align: right;
+        }
+
+        .snapshot-stat {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .snapshot-stat .num {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .snapshot-stat .lbl {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .kpis {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .kpi {
+            background: var(--bg-glass);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .kpi-val {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .kpi-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .snapshot-list {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .snapshot-list h3 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+        .snapshot-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .snapshot-list li {
+            font-size: 13px;
+            color: var(--text-muted);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .snapshot-list li:last-child {
+            border-bottom: none;
+        }
+
+        .snapshot-list strong {
+            color: var(--text);
+        }
+
+        /* Main Content */
+        .main-content {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 18px;
         }
 
-        .app-item {
+        /* Cards Grid */
+        .cards-row {
             display: grid;
-            grid-template-columns: 40px 1fr auto;
+            grid-template-columns: repeat(2, 1fr);
             gap: 16px;
-            align-items: center;
-            padding: 12px;
-            background: var(--bg-tertiary);
-            border-radius: 8px;
-            transition: background 0.2s;
         }
 
-        .app-item:hover {
-            background: var(--bg-primary);
+        @media (max-width: 768px) {
+            .cards-row {
+                grid-template-columns: 1fr;
+            }
         }
 
-        .app-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
+        .card {
+            background: var(--bg-glass);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 8px;
+        }
+
+        .card-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Chart containers */
+        .chart-wrapper {
+            position: relative;
+            height: 200px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .chart-wrapper canvas {
+            max-height: 100%;
+        }
+
+        /* SVG charts (from generate_reports.py) */
+        img.chart-svg {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            background: #fff;
+            padding: 8px;
+        }
+
+        /* Downloads */
+        .downloads {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            background: linear-gradient(90deg, var(--accent), #5b21b6);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 12px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+        }
+
+        /* Summary Section */
+        .summary-content {
+            color: #dbeafe;
+        }
+
+        .summary-content h3 {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .summary-content ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .summary-content li {
+            margin: 8px 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* Data Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+
+        .data-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .data-table tr:hover td {
+            background: var(--bg-glass);
+        }
+
+        .domain-bar {
+            height: 6px;
+            background: var(--accent);
+            border-radius: 3px;
+            transition: width 0.5s ease-out;
+        }
+
+        /* Appointments & Meetings */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .event-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-glass);
+            border-radius: 8px;
+            border-left: 3px solid var(--green);
+        }
+
+        .event-item.meeting {
+            border-left-color: var(--blue);
+        }
+
+        .event-icon {
             font-size: 20px;
         }
 
-        .app-info {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
+        .event-details {
+            flex: 1;
         }
 
-        .app-name {
+        .event-name {
             font-weight: 500;
             font-size: 14px;
         }
 
+        .event-time {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .event-badge {
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .badge-solid { background: var(--green-dim); color: var(--green); }
+        .badge-likely { background: var(--yellow-dim); color: var(--yellow); }
+        .badge-meeting { background: var(--blue-dim); color: var(--blue); }
+
+        /* Top Apps List */
+        .app-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .app-row:last-child {
+            border-bottom: none;
+        }
+
+        .app-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: var(--bg-glass);
+        }
+
+        .app-info {
+            flex: 1;
+        }
+
+        .app-name {
+            font-size: 13px;
+            font-weight: 500;
+        }
+
         .app-bar-container {
-            height: 6px;
-            background: var(--bg-primary);
-            border-radius: 3px;
+            height: 4px;
+            background: var(--bg-glass);
+            border-radius: 2px;
+            margin-top: 4px;
             overflow: hidden;
         }
 
         .app-bar {
             height: 100%;
-            border-radius: 3px;
-            transition: width 1s ease-out;
+            border-radius: 2px;
+            transition: width 0.5s ease-out;
         }
 
         .app-time {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
-            color: var(--text-secondary);
-            min-width: 60px;
+            color: var(--text-muted);
+        }
+
+        /* Category Pills */
+        .category-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+        }
+
+        .category-name {
+            width: 100px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .category-bar-container {
+            flex: 1;
+            height: 20px;
+            background: var(--bg-glass);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .category-bar {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 8px;
+            font-size: 11px;
+            font-weight: 500;
+            color: white;
+            transition: width 0.5s ease-out;
+        }
+
+        .category-time {
+            font-size: 13px;
+            font-weight: 600;
+            width: 50px;
             text-align: right;
         }
 
-        /* Hourly Heatmap */
-        .heatmap-section {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-        }
-
-        .heatmap-grid {
+        /* Hourly Focus Grid */
+        .hourly-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            gap: 6px;
+            gap: 4px;
         }
 
-        .heatmap-cell {
+        .hour-cell {
             aspect-ratio: 1;
-            border-radius: 6px;
+            border-radius: 4px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
+            font-size: 10px;
             transition: transform 0.2s;
+            cursor: pointer;
         }
 
-        .heatmap-cell:hover {
+        .hour-cell:hover {
             transform: scale(1.1);
+            z-index: 1;
         }
 
-        .heatmap-cell .hour {
+        .hour-cell .h {
+            color: var(--text-muted);
+            font-size: 9px;
+        }
+
+        .hour-cell .t {
+            font-weight: 600;
             font-size: 11px;
-            color: var(--text-muted);
-            margin-bottom: 2px;
         }
 
-        .heatmap-cell .minutes {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .heatmap-scale {
+        /* Top Pages & Windows */
+        .page-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-top: 16px;
-            padding: 0 4px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
         }
 
-        .heatmap-scale-label {
-            font-size: 12px;
-            color: var(--text-muted);
+        .page-item:last-child {
+            border-bottom: none;
         }
 
-        .heatmap-scale-bar {
+        .page-title {
             flex: 1;
-            height: 8px;
-            margin: 0 12px;
-            border-radius: 4px;
-            background: linear-gradient(to right, var(--bg-tertiary), var(--accent-green));
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-right: 12px;
         }
 
-        /* Focus Sessions */
-        .sessions-section {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 24px;
+        .page-visits {
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
-        .sessions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 16px;
-        }
-
-        .session-card {
-            background: var(--bg-tertiary);
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 4px solid var(--accent-green);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .session-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-        }
-
-        .session-card.meeting {
-            border-left-color: var(--accent-blue);
-        }
-
-        .session-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-
-        .session-title {
-            font-weight: 600;
-            font-size: 15px;
+        /* Next Actions */
+        .next-action {
             display: flex;
             align-items: center;
-            gap: 8px;
-        }
-
-        .session-time {
+            gap: 10px;
+            padding: 10px 12px;
+            background: var(--bg-glass);
+            border-radius: 8px;
+            margin-bottom: 8px;
             font-size: 13px;
-            color: var(--text-secondary);
         }
 
-        .session-duration {
-            background: var(--accent-green);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .session-card.meeting .session-duration {
-            background: var(--accent-blue);
-        }
-
-        .session-apps {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .session-app-tag {
-            background: var(--bg-primary);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        /* Charts Section */
-        .charts-section {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 24px;
-            margin-bottom: 24px;
-        }
-
-        @media (max-width: 1000px) {
-            .charts-section {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .chart-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-        }
-
-        .chart-container {
-            position: relative;
-            height: 280px;
-        }
-
-        /* Insights Section */
-        .insights-section {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 24px;
-        }
-
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .insight-card {
-            background: var(--bg-tertiary);
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-        }
-
-        .insight-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        .insight-icon.green { background: rgba(63, 185, 80, 0.2); }
-        .insight-icon.blue { background: rgba(88, 166, 255, 0.2); }
-        .insight-icon.yellow { background: rgba(210, 153, 34, 0.2); }
-        .insight-icon.purple { background: rgba(163, 113, 247, 0.2); }
-
-        .insight-content h4 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .insight-content p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.5;
+        .next-action::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: bold;
         }
 
         /* Footer */
-        .footer {
-            text-align: center;
-            padding: 24px;
+        footer {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
             color: var(--text-muted);
             font-size: 13px;
         }
 
-        /* Loading State */
+        footer a {
+            color: #9ae6b4;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Loading & Error States */
         .loading {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 400px;
-            font-size: 18px;
-            color: var(--text-secondary);
+            height: 300px;
+            font-size: 16px;
+            color: var(--text-muted);
         }
 
         .loading::before {
             content: '';
-            width: 24px;
-            height: 24px;
-            border: 3px solid var(--border-color);
-            border-top-color: var(--accent-blue);
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-top-color: var(--accent);
             border-radius: 50%;
             margin-right: 12px;
             animation: spin 1s linear infinite;
@@ -628,73 +639,112 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Error State */
         .error {
-            background: rgba(248, 81, 73, 0.1);
-            border: 1px solid var(--accent-red);
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--red);
             border-radius: 12px;
             padding: 24px;
             text-align: center;
-            color: var(--accent-red);
+            color: var(--red);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .score-hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+        /* Accomplishments List */
+        .accomplishment-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
 
-            .score-ring {
-                margin: 0 auto;
-            }
+        .accomplishment-item:last-child {
+            border-bottom: none;
+        }
 
-            .score-details {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .accomplishment-item::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: bold;
+        }
 
-            .heatmap-grid {
-                grid-template-columns: repeat(6, 1fr);
-            }
+        /* Google Workspace */
+        .gws-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .gws-icon {
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Notes */
+        .note-item {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .note-item:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1>Daily Accomplishments</h1>
-            <nav class="date-nav">
-                <button id="prevDay">← Previous</button>
-                <input type="date" id="dateInput">
-                <button id="nextDay">Next →</button>
-            </nav>
+        <header>
+            <div>
+                <h1>Daily Accomplishments</h1>
+                <div class="sub" id="headerSub">Loading...</div>
+                <nav class="topnav">
+                    <a href="./">All Reports</a> · 
+                    <a href="#" id="jsonLink">Raw JSON</a> · 
+                    <a href="#" id="summaryLink">Summary</a>
+                </nav>
+            </div>
+            <div style="text-align: right;">
+                <div class="date-nav">
+                    <button id="prevDay">← Prev</button>
+                    <input type="date" id="dateInput">
+                    <button id="nextDay">Next →</button>
+                </div>
+            </div>
         </header>
 
-        <main id="dashboard">
+        <div id="dashboard">
             <div class="loading">Loading dashboard...</div>
-        </main>
+        </div>
 
-        <footer class="footer">
-            Daily Accomplishments Dashboard • Powered by your productivity data
+        <footer id="footer">
+            Files: Loading...
         </footer>
     </div>
 
     <script>
         // State
         let currentDate = new Date().toISOString().split('T')[0];
-        let reportData = null;
+        let data = null;
 
-        // DOM Elements
+        // DOM
         const dashboard = document.getElementById('dashboard');
         const dateInput = document.getElementById('dateInput');
         const prevDay = document.getElementById('prevDay');
         const nextDay = document.getElementById('nextDay');
+        const headerSub = document.getElementById('headerSub');
+        const jsonLink = document.getElementById('jsonLink');
+        const summaryLink = document.getElementById('summaryLink');
+        const footer = document.getElementById('footer');
 
-        // Initialize
+        // Init
         dateInput.value = currentDate;
         loadData(currentDate);
 
-        // Event Listeners
+        // Events
         dateInput.addEventListener('change', (e) => {
             currentDate = e.target.value;
             loadData(currentDate);
@@ -720,591 +770,633 @@
             dashboard.innerHTML = '<div class="loading">Loading dashboard...</div>';
 
             try {
-                // Try JSONL format first
-                let response = await fetch(`reports/daily-report-${date}.json`);
+                // Try ActivityReport format first (the rich format)
+                let response = await fetch(`ActivityReport-${date}.json`);
                 
                 if (!response.ok) {
-                    // Try legacy ActivityReport format
-                    response = await fetch(`ActivityReport-${date}.json`);
-                    if (response.ok) {
-                        const legacyData = await response.json();
-                        reportData = convertLegacyData(legacyData);
-                    } else {
-                        throw new Error('Report not found');
-                    }
-                } else {
-                    reportData = await response.json();
+                    // Try reports folder
+                    response = await fetch(`reports/daily-report-${date}.json`);
+                }
+                
+                if (!response.ok) {
+                    throw new Error('Report not found');
                 }
 
-                renderDashboard(reportData);
+                data = await response.json();
+                
+                // Update header
+                const coverage = data.overview?.coverage_window || 'Unknown';
+                headerSub.textContent = `Report date: ${date} — Coverage: ${coverage}`;
+                jsonLink.href = `ActivityReport-${date}.json`;
+                summaryLink.href = `SUMMARY-${date}.md`;
+                
+                // Update footer
+                footer.innerHTML = `Files: <a href="ActivityReport-${date}.json">ActivityReport-${date}.json</a> · <a href="SUMMARY-${date}.md">SUMMARY-${date}.md</a>`;
+                
+                renderDashboard(data);
             } catch (error) {
-                console.error('Failed to load data:', error);
+                console.error('Failed to load:', error);
                 dashboard.innerHTML = `
                     <div class="error">
                         <h3>📭 No report found for ${date}</h3>
-                        <p style="margin-top: 12px; color: var(--text-secondary);">
+                        <p style="margin-top: 12px; color: var(--text-muted);">
                             Try selecting a different date or check if data collection is running.
                         </p>
                     </div>
                 `;
+                headerSub.textContent = `Report date: ${date} — No data`;
             }
         }
 
-        function convertLegacyData(legacy) {
-            // Convert ActivityReport format to dashboard format
-            const focusMinutes = parseInt(legacy.overview?.focus_time?.match(/\d+/)?.[0] || 0);
-            const meetingMinutes = parseInt(legacy.overview?.meetings_time?.match(/\d+/)?.[0] || 0);
+        function renderDashboard(d) {
+            const focusTime = d.overview?.focus_time || '00:00';
+            const meetingsTime = d.overview?.meetings_time || '00:00';
+            const appointments = d.overview?.appointments || 0;
+            const meetings = d.debug_appointments?.meetings_today?.length || 0;
+            const coverage = d.overview?.coverage_window || 'Unknown';
             
-            return {
-                date: legacy.date || currentDate,
-                productivity_score: legacy.productivity_score || 100,
-                focus_time_minutes: focusMinutes,
-                meeting_time_minutes: meetingMinutes,
-                total_active_minutes: focusMinutes + meetingMinutes,
-                deep_work_minutes: focusMinutes,
-                interruptions: 0,
-                coverage_window: legacy.overview?.coverage_window || 'Not available',
-                sessions: (legacy.debug_appointments?.appointments_today || []).map((apt, i) => ({
-                    id: i + 1,
-                    type: 'focus',
-                    title: apt.name,
-                    start_time: apt.time,
-                    duration_minutes: 60,
-                    apps: []
-                })),
-                meetings: (legacy.debug_appointments?.meetings_today || []).map((mtg, i) => ({
-                    id: i + 1,
-                    title: mtg.name,
-                    start_time: mtg.time,
-                    duration_minutes: 30,
-                    platform: 'Unknown'
-                })),
-                hourly_breakdown: generateHourlyFromLegacy(legacy),
-                app_usage: generateAppUsageFromLegacy(legacy),
-                category_breakdown: legacy.category_breakdown || {
-                    'Deep Work': focusMinutes,
-                    'Meetings': meetingMinutes
-                },
-                executive_summary: legacy.executive_summary || [],
-                insights: legacy.client_summary || []
-            };
-        }
-
-        function generateHourlyFromLegacy(legacy) {
-            const hourly = {};
-            const focusMinutes = parseInt(legacy.overview?.focus_time?.match(/\d+/)?.[0] || 0);
+            // Get top domain
+            const topDomain = d.browser_highlights?.top_domains?.[0] || { domain: 'N/A', visits: 0 };
             
-            // Distribute focus time across working hours
-            const workHours = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
-            const perHour = Math.floor(focusMinutes / workHours.length);
+            // Get top project
+            const projects = d.by_project || {};
+            const topProject = Object.entries(projects).sort((a, b) => timeToMinutes(b[1]) - timeToMinutes(a[1]))[0];
             
-            for (let h = 0; h < 24; h++) {
-                hourly[h] = workHours.includes(h) ? perHour : 0;
-            }
+            // Get top apps
+            const apps = d.top_apps || {};
+            const topApps = Object.entries(apps).slice(0, 3);
             
-            return hourly;
-        }
-
-        function generateAppUsageFromLegacy(legacy) {
-            // Create sample app usage from summary
-            const apps = [];
-            const focusMinutes = parseInt(legacy.overview?.focus_time?.match(/\d+/)?.[0] || 0);
-            
-            if (focusMinutes > 0) {
-                apps.push({ name: 'VS Code', minutes: Math.floor(focusMinutes * 0.6), icon: '💻', color: '#007ACC' });
-                apps.push({ name: 'Browser', minutes: Math.floor(focusMinutes * 0.25), icon: '🌐', color: '#4285F4' });
-                apps.push({ name: 'Terminal', minutes: Math.floor(focusMinutes * 0.15), icon: '⌨️', color: '#2D2D2D' });
-            }
-            
-            return apps;
-        }
-
-        function renderDashboard(data) {
-            const score = data.productivity_score || 0;
-            const scoreColor = score >= 80 ? 'var(--accent-green)' : score >= 60 ? 'var(--accent-yellow)' : 'var(--accent-red)';
-            const circumference = 2 * Math.PI * 70;
-            const offset = circumference - (score / 100) * circumference;
+            // Hourly peak
+            const hourlyPeak = d.hourly_focus?.reduce((max, h) => 
+                timeToMinutes(h.time) > timeToMinutes(max.time) ? h : max, 
+                { hour: 0, time: '00:00' }
+            ) || { hour: 0, time: '00:00' };
 
             dashboard.innerHTML = `
-                <!-- Score Hero -->
-                <section class="score-hero">
-                    <div class="score-ring">
-                        <svg viewBox="0 0 160 160">
-                            <circle class="score-ring-bg" cx="80" cy="80" r="70"/>
-                            <circle class="score-ring-progress" cx="80" cy="80" r="70"
-                                stroke="${scoreColor}"
-                                stroke-dasharray="${circumference}"
-                                stroke-dashoffset="${offset}"/>
-                        </svg>
-                        <div class="score-value">
-                            <div class="number" style="color: ${scoreColor}">${score}</div>
-                            <div class="label">Productivity Score</div>
-                        </div>
-                    </div>
-                    <div class="score-details">
-                        <div class="score-stat">
-                            <div class="icon">🎯</div>
-                            <div class="value">${formatTime(data.deep_work_minutes || data.focus_time_minutes || 0)}</div>
-                            <div class="label">Deep Work</div>
-                        </div>
-                        <div class="score-stat">
-                            <div class="icon">📅</div>
-                            <div class="value">${formatTime(data.meeting_time_minutes || 0)}</div>
-                            <div class="label">Meetings</div>
-                        </div>
-                        <div class="score-stat">
-                            <div class="icon">⏱️</div>
-                            <div class="value">${formatTime(data.total_active_minutes || (data.focus_time_minutes || 0) + (data.meeting_time_minutes || 0))}</div>
-                            <div class="label">Total Active</div>
-                        </div>
-                        <div class="score-stat">
-                            <div class="icon">🔔</div>
-                            <div class="value">${data.interruptions || 0}</div>
-                            <div class="label">Interruptions</div>
-                        </div>
-                    </div>
-                </section>
+                <div class="main-grid">
+                    <!-- Sidebar Snapshot -->
+                    <aside>
+                        <div class="snapshot">
+                            <div class="snapshot-header">
+                                <div>
+                                    <div class="big-number">${focusTime}</div>
+                                    <div class="big-label">Total Focused Time</div>
+                                </div>
+                                <div class="snapshot-stats">
+                                    <div class="snapshot-stat">
+                                        <span class="num">${meetings}</span>
+                                        <span class="lbl">Meeting${meetings !== 1 ? 's' : ''}</span>
+                                    </div>
+                                    <div class="snapshot-stat">
+                                        <span class="num">${appointments}</span>
+                                        <span class="lbl">Appointment${appointments !== 1 ? 's' : ''}</span>
+                                    </div>
+                                </div>
+                            </div>
 
-                <!-- Activity Timeline -->
-                <section class="timeline-section">
-                    <div class="section-header">
-                        <h2 class="section-title">📈 Activity Timeline</h2>
-                        <span style="color: var(--text-secondary); font-size: 13px;">
-                            Coverage: ${data.coverage_window || 'Full day'}
-                        </span>
-                    </div>
-                    <div class="timeline-container">
-                        <div class="timeline-hours">
-                            ${Array.from({length: 13}, (_, i) => `<span>${(i + 6)}:00</span>`).join('')}
-                        </div>
-                        <div class="timeline-track" id="timelineTrack">
-                            <!-- Blocks rendered by JS -->
-                        </div>
-                    </div>
-                    <div class="timeline-legend">
-                        <div class="legend-item">
-                            <div class="legend-dot" style="background: var(--gradient-green)"></div>
-                            <span>Deep Work</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-dot" style="background: var(--gradient-blue)"></div>
-                            <span>Meetings</span>
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-dot" style="background: var(--gradient-purple)"></div>
-                            <span>Breaks</span>
-                        </div>
-                    </div>
-                </section>
+                            <div class="kpis">
+                                <div class="kpi">
+                                    <div class="kpi-val">${topDomain.visits}</div>
+                                    <div class="kpi-label">Top domain (${topDomain.domain})</div>
+                                </div>
+                                <div class="kpi">
+                                    <div class="kpi-val">${topProject ? topProject[0] : 'N/A'}</div>
+                                    <div class="kpi-label">Top project${topProject ? ` (${topProject[1]})` : ''}</div>
+                                </div>
+                            </div>
 
-                <!-- Two Column: App Usage & Hourly Heatmap -->
-                <div class="two-columns">
-                    <section class="app-usage-section">
-                        <div class="section-header">
-                            <h2 class="section-title">🖥️ Application Usage</h2>
-                        </div>
-                        <div class="app-list" id="appList">
-                            <!-- App items rendered by JS -->
-                        </div>
-                    </section>
+                            <div class="snapshot-list">
+                                <h3>📊 Quick Stats</h3>
+                                <ul>
+                                    <li><strong>Top Apps:</strong> ${topApps.map(([n, t]) => `${n} (${t})`).join(', ') || 'N/A'}</li>
+                                    <li><strong>Hourly Peak:</strong> ${hourlyPeak.hour}:00 (${hourlyPeak.time} focused)</li>
+                                    <li><strong>Meetings:</strong> ${meetingsTime}</li>
+                                    <li><strong>Coverage:</strong> ${coverage}</li>
+                                </ul>
+                            </div>
 
-                    <section class="heatmap-section">
-                        <div class="section-header">
-                            <h2 class="section-title">🔥 Hourly Activity</h2>
+                            ${d.debug_appointments?.appointments_today?.length ? `
+                            <div class="snapshot-list">
+                                <h3>📅 Appointments</h3>
+                                <ul>
+                                    ${d.debug_appointments.appointments_today.map(a => 
+                                        `<li><strong>${a.name}</strong> — ${a.time}</li>`
+                                    ).join('')}
+                                </ul>
+                            </div>
+                            ` : ''}
                         </div>
-                        <div class="heatmap-grid" id="heatmapGrid">
-                            <!-- Heatmap cells rendered by JS -->
+                    </aside>
+
+                    <!-- Main Content -->
+                    <main class="main-content">
+                        <!-- Charts Row -->
+                        <div class="cards-row">
+                            <div class="card">
+                                <h2>📈 Hourly Focus</h2>
+                                <img class="chart-svg" src="hourly_focus.svg" alt="Hourly focus chart" 
+                                     onerror="this.parentElement.querySelector('.chart-wrapper').style.display='block';this.style.display='none';">
+                                <div class="chart-wrapper" style="display:none;">
+                                    <canvas id="hourlyChart"></canvas>
+                                </div>
+                                <div class="downloads">
+                                    <a class="btn" href="hourly_focus.csv">Download CSV</a>
+                                    <a class="btn btn-secondary" href="hourly_focus.svg">Download SVG</a>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <h2>🥧 Category Distribution</h2>
+                                <img class="chart-svg" src="category_distribution.svg" alt="Category distribution" 
+                                     onerror="this.parentElement.querySelector('.chart-wrapper').style.display='block';this.style.display='none';">
+                                <div class="chart-wrapper" style="display:none;">
+                                    <canvas id="categoryChart"></canvas>
+                                </div>
+                                <div class="downloads">
+                                    <a class="btn" href="category_distribution.csv">Download CSV</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="heatmap-scale">
-                            <span class="heatmap-scale-label">Less active</span>
-                            <div class="heatmap-scale-bar"></div>
-                            <span class="heatmap-scale-label">More active</span>
+
+                        <!-- Top Domains -->
+                        <div class="card">
+                            <h2>🌐 Top Domains</h2>
+                            ${renderTopDomains(d.browser_highlights?.top_domains || [])}
+                            <div class="downloads">
+                                <a class="btn" href="top_domains.csv">Download CSV</a>
+                            </div>
                         </div>
-                    </section>
+
+                        <!-- Categories Breakdown -->
+                        <div class="card">
+                            <h2>📊 Time by Category</h2>
+                            ${renderCategories(d.by_category || {})}
+                        </div>
+
+                        <!-- Top Apps -->
+                        <div class="card">
+                            <h2>💻 Top Applications</h2>
+                            ${renderTopApps(d.top_apps || {})}
+                        </div>
+
+                        <!-- Meetings & Appointments -->
+                        <div class="cards-row">
+                            <div class="card">
+                                <h2>📅 Meetings Today</h2>
+                                ${renderMeetings(d.debug_appointments?.meetings_today || [])}
+                            </div>
+
+                            <div class="card">
+                                <h2>🤝 Appointments Set</h2>
+                                ${renderAppointments(d.debug_appointments?.appointments_today || [])}
+                            </div>
+                        </div>
+
+                        <!-- Hourly Heatmap -->
+                        <div class="card">
+                            <h2>🔥 Hourly Activity Heatmap</h2>
+                            ${renderHourlyHeatmap(d.hourly_focus || [])}
+                        </div>
+
+                        <!-- Top Windows -->
+                        <div class="card">
+                            <h2>🪟 Top Windows</h2>
+                            ${renderTopWindows(d.top_windows_preview || [])}
+                        </div>
+
+                        <!-- Top Pages -->
+                        <div class="card">
+                            <h2>📄 Top Pages Visited</h2>
+                            ${renderTopPages(d.browser_highlights?.top_pages || [])}
+                        </div>
+
+                        <!-- Google Workspace -->
+                        ${d.google_workspace ? `
+                        <div class="card">
+                            <h2>📎 Google Workspace</h2>
+                            ${renderGoogleWorkspace(d.google_workspace)}
+                        </div>
+                        ` : ''}
+
+                        <!-- Projects -->
+                        <div class="card">
+                            <h2>📁 Projects</h2>
+                            ${renderProjects(d.by_project || {})}
+                        </div>
+
+                        <!-- Summary -->
+                        <div class="card">
+                            <h2>📝 Summary</h2>
+                            <div class="summary-content">
+                                <h3>Daily Accomplishments — ${d.date || currentDate}</h3>
+                                <ul>
+                                    <li><strong>Total Focused Time:</strong> ${focusTime} (Coverage: ${coverage})</li>
+                                    <li><strong>Meetings:</strong> ${meetings} — ${d.debug_appointments?.meetings_today?.map(m => `${m.name} (${m.time})`).join('; ') || 'None'}</li>
+                                    <li><strong>Appointments:</strong> ${appointments} — ${d.debug_appointments?.appointments_today?.map(a => a.name).join('; ') || 'None'}</li>
+                                    <li><strong>Top Activity (domains):</strong> ${(d.browser_highlights?.top_domains || []).slice(0, 3).map(d => `${d.domain} (${d.visits})`).join('; ')}</li>
+                                    <li><strong>Top Apps:</strong> ${topApps.map(([n, t]) => `${n} (${t})`).join('; ')}</li>
+                                    <li><strong>Hourly Peak:</strong> ${hourlyPeak.hour}:00 (${hourlyPeak.time} focused)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Next Actions -->
+                        ${d.next_up?.length ? `
+                        <div class="card">
+                            <h2>➡️ Next Actions</h2>
+                            ${d.next_up.map(action => `<div class="next-action">${action}</div>`).join('')}
+                        </div>
+                        ` : ''}
+
+                        <!-- Accomplishments -->
+                        ${d.accomplishments_today?.length ? `
+                        <div class="card">
+                            <h2>✅ Accomplishments</h2>
+                            ${d.accomplishments_today.map(a => `<div class="accomplishment-item">${a}</div>`).join('')}
+                        </div>
+                        ` : ''}
+
+                        <!-- Executive Summary -->
+                        ${d.executive_summary?.length ? `
+                        <div class="card">
+                            <h2>📋 Executive Summary</h2>
+                            <ul style="margin: 0; padding-left: 20px;">
+                                ${d.executive_summary.map(s => `<li style="margin: 8px 0; font-size: 13px;">${s}</li>`).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+
+                        <!-- Manager Summary -->
+                        ${d.prepared_for_manager?.length ? `
+                        <div class="card">
+                            <h2>👔 Prepared for Manager</h2>
+                            <ul style="margin: 0; padding-left: 20px;">
+                                ${d.prepared_for_manager.map(s => `<li style="margin: 8px 0; font-size: 13px;">${s}</li>`).join('')}
+                            </ul>
+                        </div>
+                        ` : ''}
+
+                        <!-- Notes -->
+                        ${d.notes?.length ? `
+                        <div class="card">
+                            <h2>📝 Notes</h2>
+                            ${d.notes.map(n => `<div class="note-item">${n}</div>`).join('')}
+                        </div>
+                        ` : ''}
+
+                        <!-- Suggested Tasks -->
+                        ${d.suggested_tasks?.length ? `
+                        <div class="card">
+                            <h2>💡 Suggested Tasks</h2>
+                            ${d.suggested_tasks.map(t => `<div class="note-item">${t}</div>`).join('')}
+                        </div>
+                        ` : ''}
+                    </main>
                 </div>
-
-                <!-- Focus Sessions -->
-                <section class="sessions-section">
-                    <div class="section-header">
-                        <h2 class="section-title">🎯 Focus Sessions & Meetings</h2>
-                    </div>
-                    <div class="sessions-grid" id="sessionsGrid">
-                        <!-- Session cards rendered by JS -->
-                    </div>
-                </section>
-
-                <!-- Charts -->
-                <section class="charts-section">
-                    <div class="chart-card">
-                        <div class="section-header">
-                            <h2 class="section-title">📊 Hourly Breakdown</h2>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="hourlyChart"></canvas>
-                        </div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="section-header">
-                            <h2 class="section-title">🥧 Category Distribution</h2>
-                        </div>
-                        <div class="chart-container">
-                            <canvas id="categoryChart"></canvas>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Insights -->
-                <section class="insights-section">
-                    <div class="section-header">
-                        <h2 class="section-title">💡 Insights & Summary</h2>
-                    </div>
-                    <div class="insights-grid" id="insightsGrid">
-                        <!-- Insight cards rendered by JS -->
-                    </div>
-                </section>
             `;
 
-            // Render sub-components
-            renderTimeline(data);
-            renderAppUsage(data);
-            renderHeatmap(data);
-            renderSessions(data);
-            renderHourlyChart(data);
-            renderCategoryChart(data);
-            renderInsights(data);
-        }
-
-        function renderTimeline(data) {
-            const track = document.getElementById('timelineTrack');
-            if (!track) return;
-
-            const blocks = [];
-            const dayStart = 6; // 6 AM
-            const dayEnd = 18; // 6 PM
-            const totalHours = dayEnd - dayStart;
-
-            // Add focus sessions
-            (data.sessions || []).forEach(session => {
-                const startHour = parseTimeToHour(session.start_time);
-                if (startHour >= dayStart && startHour < dayEnd) {
-                    const left = ((startHour - dayStart) / totalHours) * 100;
-                    const width = (session.duration_minutes / 60 / totalHours) * 100;
-                    blocks.push(`
-                        <div class="timeline-block deep-work" 
-                             style="left: ${left}%; width: ${Math.max(width, 3)}%;"
-                             title="${session.title}: ${session.duration_minutes} min">
-                            ${session.title}
-                        </div>
-                    `);
+            // Render fallback charts if SVGs don't load
+            setTimeout(() => {
+                if (document.getElementById('hourlyChart')?.parentElement.style.display === 'block') {
+                    renderHourlyChart(d.hourly_focus || []);
                 }
-            });
-
-            // Add meetings
-            (data.meetings || []).forEach(meeting => {
-                const startHour = parseTimeToHour(meeting.start_time);
-                if (startHour >= dayStart && startHour < dayEnd) {
-                    const left = ((startHour - dayStart) / totalHours) * 100;
-                    const width = ((meeting.duration_minutes || 30) / 60 / totalHours) * 100;
-                    blocks.push(`
-                        <div class="timeline-block meeting" 
-                             style="left: ${left}%; width: ${Math.max(width, 3)}%;"
-                             title="${meeting.title}: ${meeting.duration_minutes || 30} min">
-                            ${meeting.title}
-                        </div>
-                    `);
+                if (document.getElementById('categoryChart')?.parentElement.style.display === 'block') {
+                    renderCategoryChart(d.by_category || {});
                 }
-            });
-
-            track.innerHTML = blocks.join('');
+            }, 100);
         }
 
-        function renderAppUsage(data) {
-            const container = document.getElementById('appList');
-            if (!container) return;
+        function renderTopDomains(domains) {
+            if (!domains.length) return '<p style="color: var(--text-muted);">No domain data</p>';
+            const max = domains[0]?.visits || 1;
+            
+            return `
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">#</th>
+                            <th>Domain</th>
+                            <th style="width: 80px;">Visits</th>
+                            <th style="width: 200px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${domains.slice(0, 10).map((d, i) => `
+                            <tr>
+                                <td>${i + 1}</td>
+                                <td>${d.domain}</td>
+                                <td>${d.visits}</td>
+                                <td>
+                                    <div class="domain-bar" style="width: ${(d.visits / max) * 100}%;"></div>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
 
-            const apps = data.app_usage || [];
-            const maxMinutes = Math.max(...apps.map(a => a.minutes), 1);
-
-            container.innerHTML = apps.map(app => `
-                <div class="app-item">
-                    <div class="app-icon" style="background: ${app.color}20;">
-                        ${app.icon || '📱'}
-                    </div>
-                    <div class="app-info">
-                        <div class="app-name">${app.name}</div>
-                        <div class="app-bar-container">
-                            <div class="app-bar" style="width: ${(app.minutes / maxMinutes) * 100}%; background: ${app.color || 'var(--accent-blue)'}"></div>
+        function renderCategories(categories) {
+            const entries = Object.entries(categories);
+            if (!entries.length) return '<p style="color: var(--text-muted);">No category data</p>';
+            
+            const colors = ['#22c55e', '#3b82f6', '#8b5cf6', '#eab308', '#f97316', '#ec4899'];
+            const maxMinutes = Math.max(...entries.map(([, t]) => timeToMinutes(t)), 1);
+            
+            return entries.map(([name, time], i) => {
+                const minutes = timeToMinutes(time);
+                const pct = (minutes / maxMinutes) * 100;
+                const color = colors[i % colors.length];
+                
+                return `
+                    <div class="category-row">
+                        <div class="category-name">${name}</div>
+                        <div class="category-bar-container">
+                            <div class="category-bar" style="width: ${pct}%; background: ${color};">${name}</div>
                         </div>
+                        <div class="category-time">${time}</div>
                     </div>
-                    <div class="app-time">${formatTime(app.minutes)}</div>
-                </div>
-            `).join('') || '<p style="color: var(--text-secondary); text-align: center; padding: 20px;">No app usage data available</p>';
+                `;
+            }).join('');
         }
 
-        function renderHeatmap(data) {
-            const grid = document.getElementById('heatmapGrid');
-            if (!grid) return;
-
-            const hourly = data.hourly_breakdown || {};
-            const maxMinutes = Math.max(...Object.values(hourly), 1);
-
-            const cells = [];
-            for (let h = 6; h <= 17; h++) {
-                const minutes = hourly[h] || 0;
-                const intensity = minutes / maxMinutes;
-                const bg = intensity > 0 
-                    ? `rgba(63, 185, 80, ${0.2 + intensity * 0.8})`
-                    : 'var(--bg-tertiary)';
-
-                cells.push(`
-                    <div class="heatmap-cell" style="background: ${bg}" title="${h}:00 - ${minutes} min active">
-                        <span class="hour">${h}</span>
-                        <span class="minutes">${minutes}</span>
-                    </div>
-                `);
-            }
-
-            grid.innerHTML = cells.join('');
-        }
-
-        function renderSessions(data) {
-            const grid = document.getElementById('sessionsGrid');
-            if (!grid) return;
-
-            const allSessions = [
-                ...(data.sessions || []).map(s => ({ ...s, type: 'focus' })),
-                ...(data.meetings || []).map(m => ({ ...m, type: 'meeting', title: m.title }))
-            ].sort((a, b) => {
-                const aHour = parseTimeToHour(a.start_time);
-                const bHour = parseTimeToHour(b.start_time);
-                return aHour - bHour;
-            });
-
-            grid.innerHTML = allSessions.map(session => `
-                <div class="session-card ${session.type === 'meeting' ? 'meeting' : ''}">
-                    <div class="session-header">
-                        <div>
-                            <div class="session-title">
-                                ${session.type === 'meeting' ? '📅' : '🎯'} ${session.title}
+        function renderTopApps(apps) {
+            const entries = Object.entries(apps);
+            if (!entries.length) return '<p style="color: var(--text-muted);">No app data</p>';
+            
+            const icons = {
+                'Google Chrome': '🌐',
+                'Terminal': '⌨️',
+                'VS Code': '💻',
+                'Code': '💻',
+                'Slack': '💬',
+                'Messages': '💬',
+                'Finder': '📁',
+                'Safari': '🧭',
+                'Mail': '📧',
+                'Calendar': '📅',
+                'Notes': '📝',
+                'Preview': '🖼️',
+                'System Preferences': '⚙️',
+                'TextEdit': '📄',
+                'App Store': '🛍️',
+            };
+            
+            const colors = ['#22c55e', '#3b82f6', '#8b5cf6', '#eab308', '#f97316', '#ec4899', '#06b6d4', '#f43f5e'];
+            const maxMinutes = Math.max(...entries.map(([, t]) => timeToMinutes(t)), 1);
+            
+            return entries.slice(0, 8).map(([name, time], i) => {
+                const minutes = timeToMinutes(time);
+                const pct = (minutes / maxMinutes) * 100;
+                const icon = icons[name] || '📱';
+                const color = colors[i % colors.length];
+                
+                return `
+                    <div class="app-row">
+                        <div class="app-icon">${icon}</div>
+                        <div class="app-info">
+                            <div class="app-name">${name}</div>
+                            <div class="app-bar-container">
+                                <div class="app-bar" style="width: ${pct}%; background: ${color};"></div>
                             </div>
-                            <div class="session-time">${session.start_time || 'Unknown time'}</div>
                         </div>
-                        <div class="session-duration">${session.duration_minutes || 30} min</div>
+                        <div class="app-time">${time}</div>
                     </div>
-                    ${session.apps && session.apps.length > 0 ? `
-                        <div class="session-apps">
-                            ${session.apps.map(app => `<span class="session-app-tag">${app}</span>`).join('')}
-                        </div>
-                    ` : ''}
-                </div>
-            `).join('') || '<p style="color: var(--text-secondary); text-align: center; padding: 20px; grid-column: 1 / -1;">No sessions recorded</p>';
+                `;
+            }).join('');
         }
 
-        function renderHourlyChart(data) {
+        function renderMeetings(meetings) {
+            if (!meetings.length) return '<p style="color: var(--text-muted);">No meetings scheduled</p>';
+            
+            return `
+                <div class="event-list">
+                    ${meetings.map(m => `
+                        <div class="event-item meeting">
+                            <div class="event-icon">📅</div>
+                            <div class="event-details">
+                                <div class="event-name">${m.name}</div>
+                                <div class="event-time">${m.time}</div>
+                            </div>
+                            <span class="event-badge badge-meeting">Meeting</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function renderAppointments(appointments) {
+            if (!appointments.length) return '<p style="color: var(--text-muted);">No appointments set</p>';
+            
+            return `
+                <div class="event-list">
+                    ${appointments.map(a => `
+                        <div class="event-item">
+                            <div class="event-icon">🤝</div>
+                            <div class="event-details">
+                                <div class="event-name">${a.name}</div>
+                                <div class="event-time">${a.time}</div>
+                            </div>
+                            <span class="event-badge badge-solid">Set</span>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function renderHourlyHeatmap(hourly) {
+            if (!hourly.length) return '<p style="color: var(--text-muted);">No hourly data</p>';
+            
+            // Filter to working hours (6am - 11pm)
+            const workHours = hourly.filter(h => h.hour >= 6 && h.hour <= 22);
+            const maxMinutes = Math.max(...workHours.map(h => timeToMinutes(h.time)), 1);
+            
+            return `
+                <div class="hourly-grid">
+                    ${workHours.map(h => {
+                        const minutes = timeToMinutes(h.time);
+                        const intensity = minutes / maxMinutes;
+                        const bg = intensity > 0 
+                            ? `rgba(34, 197, 94, ${0.2 + intensity * 0.8})`
+                            : 'rgba(255,255,255,0.03)';
+                        const textColor = intensity > 0.5 ? '#fff' : 'var(--text-muted)';
+                        
+                        return `
+                            <div class="hour-cell" style="background: ${bg};" title="${h.hour}:00 - ${h.time}">
+                                <span class="h">${h.hour}</span>
+                                <span class="t" style="color: ${textColor}">${h.time}</span>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        function renderTopWindows(windows) {
+            if (!windows.length) return '<p style="color: var(--text-muted);">No window data</p>';
+            
+            return windows.slice(0, 10).map(w => `
+                <div class="page-item">
+                    <div class="page-title">${w}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderTopPages(pages) {
+            if (!pages.length) return '<p style="color: var(--text-muted);">No page data</p>';
+            
+            return pages.slice(0, 10).map(p => `
+                <div class="page-item">
+                    <div class="page-title">${p.page}</div>
+                    <div class="page-visits">${p.visits} visits</div>
+                </div>
+            `).join('');
+        }
+
+        function renderGoogleWorkspace(gws) {
+            const icons = {
+                'Google': '🔍',
+                'Google Sheets': '📊',
+                'Google Calendar': '📅',
+                'Gmail': '📧',
+                'Google Drive': '📁',
+                'Google Docs': '📄',
+            };
+            
+            const entries = Object.entries(gws).filter(([k]) => k !== 'top_documents');
+            const docs = gws.top_documents || [];
+            
+            return `
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <h4 style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;">Usage</h4>
+                        ${entries.map(([name, time]) => `
+                            <div class="gws-item">
+                                <div class="gws-icon">${icons[name] || '📎'}</div>
+                                <div style="flex: 1;">${name}</div>
+                                <div style="color: var(--text-muted);">${time}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div>
+                        <h4 style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;">Top Documents</h4>
+                        ${docs.slice(0, 5).map(d => `
+                            <div style="font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--border);">
+                                ${d}
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderProjects(projects) {
+            const entries = Object.entries(projects).filter(([, t]) => t !== '00:00');
+            if (!entries.length) return '<p style="color: var(--text-muted);">No project data</p>';
+            
+            const maxMinutes = Math.max(...entries.map(([, t]) => timeToMinutes(t)), 1);
+            
+            return `
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Project</th>
+                            <th style="width: 80px;">Time</th>
+                            <th style="width: 150px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${entries.slice(0, 10).map(([name, time]) => `
+                            <tr>
+                                <td>${name}</td>
+                                <td>${time}</td>
+                                <td>
+                                    <div class="domain-bar" style="width: ${(timeToMinutes(time) / maxMinutes) * 100}%; background: var(--purple);"></div>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function renderHourlyChart(hourly) {
             const ctx = document.getElementById('hourlyChart');
             if (!ctx) return;
 
-            const hourly = data.hourly_breakdown || {};
-            const labels = [];
-            const values = [];
-
-            for (let h = 6; h <= 18; h++) {
-                labels.push(`${h}:00`);
-                values.push(hourly[h] || 0);
-            }
+            const labels = hourly.filter(h => h.hour >= 6 && h.hour <= 22).map(h => `${h.hour}:00`);
+            const values = hourly.filter(h => h.hour >= 6 && h.hour <= 22).map(h => timeToMinutes(h.time));
 
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: labels,
+                    labels,
                     datasets: [{
-                        label: 'Focus Time (minutes)',
+                        label: 'Focus (min)',
                         data: values,
                         backgroundColor: values.map(v => {
-                            if (v >= 45) return 'rgba(63, 185, 80, 0.8)';
-                            if (v >= 30) return 'rgba(210, 153, 34, 0.8)';
-                            if (v > 0) return 'rgba(88, 166, 255, 0.8)';
-                            return 'rgba(110, 118, 129, 0.3)';
+                            if (v >= 45) return 'rgba(34, 197, 94, 0.8)';
+                            if (v >= 30) return 'rgba(234, 179, 8, 0.8)';
+                            if (v > 0) return 'rgba(59, 130, 246, 0.8)';
+                            return 'rgba(100, 116, 139, 0.3)';
                         }),
-                        borderRadius: 6,
-                        borderSkipped: false,
+                        borderRadius: 4,
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: 'rgba(22, 27, 34, 0.95)',
-                            titleColor: '#f0f6fc',
-                            bodyColor: '#8b949e',
-                            borderColor: 'rgba(48, 54, 61, 0.8)',
-                            borderWidth: 1,
-                            padding: 12,
-                            cornerRadius: 8,
-                        }
-                    },
+                    plugins: { legend: { display: false } },
                     scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 60,
-                            grid: {
-                                color: 'rgba(48, 54, 61, 0.5)',
-                                drawBorder: false,
-                            },
-                            ticks: {
-                                color: '#8b949e',
-                                callback: v => `${v}m`
-                            }
-                        },
-                        x: {
-                            grid: { display: false },
-                            ticks: { color: '#8b949e' }
-                        }
+                        y: { beginAtZero: true, max: 60 },
+                        x: { grid: { display: false } }
                     }
                 }
             });
         }
 
-        function renderCategoryChart(data) {
+        function renderCategoryChart(categories) {
             const ctx = document.getElementById('categoryChart');
             if (!ctx) return;
 
-            const categories = data.category_breakdown || {};
             const labels = Object.keys(categories);
-            const values = Object.values(categories);
-
-            const colors = [
-                'rgba(63, 185, 80, 0.8)',
-                'rgba(88, 166, 255, 0.8)',
-                'rgba(163, 113, 247, 0.8)',
-                'rgba(210, 153, 34, 0.8)',
-                'rgba(219, 97, 162, 0.8)',
-                'rgba(248, 81, 73, 0.8)',
-            ];
+            const values = Object.values(categories).map(timeToMinutes);
 
             new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: labels,
+                    labels,
                     datasets: [{
                         data: values,
-                        backgroundColor: colors.slice(0, labels.length),
-                        borderColor: 'rgba(22, 27, 34, 0.8)',
-                        borderWidth: 3,
+                        backgroundColor: [
+                            'rgba(34, 197, 94, 0.8)',
+                            'rgba(59, 130, 246, 0.8)',
+                            'rgba(139, 92, 246, 0.8)',
+                            'rgba(234, 179, 8, 0.8)',
+                            'rgba(249, 115, 22, 0.8)',
+                            'rgba(236, 72, 153, 0.8)',
+                        ],
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    cutout: '65%',
+                    cutout: '60%',
                     plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#8b949e',
-                                padding: 16,
-                                usePointStyle: true,
-                                pointStyle: 'circle',
-                            }
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(22, 27, 34, 0.95)',
-                            titleColor: '#f0f6fc',
-                            bodyColor: '#8b949e',
-                            borderColor: 'rgba(48, 54, 61, 0.8)',
-                            borderWidth: 1,
-                            padding: 12,
-                            cornerRadius: 8,
-                            callbacks: {
-                                label: (ctx) => `${ctx.label}: ${formatTime(ctx.raw)}`
-                            }
-                        }
+                        legend: { position: 'bottom' }
                     }
                 }
             });
         }
 
-        function renderInsights(data) {
-            const grid = document.getElementById('insightsGrid');
-            if (!grid) return;
-
-            const insights = [];
-
-            // Generate insights from data
-            const focusMinutes = data.focus_time_minutes || data.deep_work_minutes || 0;
-            const meetingMinutes = data.meeting_time_minutes || 0;
-
-            if (focusMinutes >= 480) {
-                insights.push({
-                    icon: '🏆',
-                    iconClass: 'green',
-                    title: 'Outstanding Focus',
-                    text: `You achieved ${formatTime(focusMinutes)} of deep work today - excellent productivity!`
-                });
-            } else if (focusMinutes >= 240) {
-                insights.push({
-                    icon: '✅',
-                    iconClass: 'blue',
-                    title: 'Good Focus Day',
-                    text: `${formatTime(focusMinutes)} of focus time is solid. Keep building on this momentum.`
-                });
+        // Utilities
+        function timeToMinutes(timeStr) {
+            if (!timeStr || timeStr === '00:00') return 0;
+            const parts = timeStr.split(':');
+            if (parts.length === 2) {
+                return parseInt(parts[0]) * 60 + parseInt(parts[1]);
             }
-
-            if (meetingMinutes > 0) {
-                const ratio = focusMinutes / (meetingMinutes || 1);
-                insights.push({
-                    icon: '⚖️',
-                    iconClass: 'purple',
-                    title: 'Work Balance',
-                    text: `Focus to meeting ratio: ${ratio.toFixed(1)}:1. ${ratio >= 2 ? 'Great balance!' : 'Consider protecting more focus time.'}`
-                });
-            }
-
-            // Add summary insights if available
-            (data.executive_summary || data.insights || []).slice(0, 2).forEach(line => {
-                insights.push({
-                    icon: '💡',
-                    iconClass: 'yellow',
-                    title: 'Daily Highlight',
-                    text: line
-                });
-            });
-
-            grid.innerHTML = insights.map(insight => `
-                <div class="insight-card">
-                    <div class="insight-icon ${insight.iconClass}">${insight.icon}</div>
-                    <div class="insight-content">
-                        <h4>${insight.title}</h4>
-                        <p>${insight.text}</p>
-                    </div>
-                </div>
-            `).join('') || '<p style="color: var(--text-secondary); text-align: center; padding: 20px;">No insights available</p>';
-        }
-
-        // Utility Functions
-        function formatTime(minutes) {
-            if (!minutes || minutes <= 0) return '0m';
-            const hours = Math.floor(minutes / 60);
-            const mins = minutes % 60;
-            if (hours === 0) return `${mins}m`;
-            if (mins === 0) return `${hours}h`;
-            return `${hours}h ${mins}m`;
-        }
-
-        function parseTimeToHour(timeStr) {
-            if (!timeStr) return 9;
-            const match = timeStr.match(/(\d{1,2}):?(\d{2})?\s*(AM|PM)?/i);
-            if (!match) return 9;
-            
-            let hour = parseInt(match[1]);
-            const isPM = match[3]?.toUpperCase() === 'PM';
-            
-            if (isPM && hour !== 12) hour += 12;
-            if (!isPM && hour === 12) hour = 0;
-            
-            return hour;
+            return 0;
         }
     </script>
 </body>
