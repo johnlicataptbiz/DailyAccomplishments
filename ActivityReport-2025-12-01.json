@@ -4,18 +4,17 @@
   "title": "Daily Accomplishments — 2025-12-01 (cutoff 4pm CST/CDT)",
   "overview": {
     "focus_time": "06:09",
-    "meetings_time": "01:15",
+    "appointments": 2,
     "appointments": 1,
     "projects_count": 11,
     "coverage_window": "12:22–17:51 CST"
   },
-  "prepared_for_manager": [
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
     "Total focused time: 06:09 (Coverage: 12:22–17:51 CST)",
-    "Top projects: Email/CRM (00:11), PT Biz: Calendar (00:06), Google Workspace (00:05)",
     "Key tickets: profile:Profile 6 (02:52), weekly-2025 (01:07), ab-9390 (00:00)",
     "Top apps: Google Chrome (03:54), Terminal (01:38), Messages (00:26)"
   ],
-  "executive_summary": [
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
     "Set 1 appt(s): [solid] Brad Neitzel",
     "Meeting: Sales Call (01:00)",
     "Meeting: Game Plan Call With Jack and Banfield Smith (00:15)",
@@ -26,15 +25,16 @@
     "Meeting: Sales Call (01:00)",
     "Meeting: Game Plan Call With Jack and Banfield Smith (00:15)"
   ],
-  "accomplishments_today": [
+    "Meeting: Sales Call (01:00)",
+    "Discovery: Banfield Smith (moved from Game Plan Call)"
     "Worked on Email/CRM (00:11)",
     "HubSpot activity (87 visits)",
     "Google Workspace activity (74 visits)",
-    "Meetings activity (27 visits)",
+    "Send recap for 'Discovery — Banfield Smith'"
     "Google Workspace activity (9 visits)",
     "Email/CRM activity (8 visits)",
     "HubSpot activity (3 visits)",
-    "Meeting: Sales Call (01:00)"
+    "Discovery: Banfield Smith (moved from Game Plan Call)",
   ],
   "by_category": {
     "Research": "03:54",
@@ -43,6 +43,8 @@
     "Communication": "00:30",
     "Other": "00:05",
     "Docs": "00:00"
+      {"name":"Brad Neitzel","time":"Sales Call"},
+      {"name":"Discovery — Banfield Smith","time":"moved from Game Plan Call"}
   },
   "by_project": {
     "Email/CRM": "00:11",
