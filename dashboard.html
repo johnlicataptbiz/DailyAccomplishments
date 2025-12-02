@@ -729,6 +729,8 @@
         // State - default to today's date
         let currentDate = new Date().toISOString().split('T')[0];
         let data = null;
+        let hourlyChartInstance = null;
+        let categoryChartInstance = null;
 
         // DOM
         const dashboard = document.getElementById('dashboard');
@@ -893,23 +895,18 @@
                         <!-- Charts Row -->
                         <div class="cards-row">
                             <div class="card">
-                                <h2>📈 Hourly Focus</h2>
-                                <img class="chart-svg" src="hourly_focus.svg" alt="Hourly focus chart" 
-                                     onerror="this.parentElement.querySelector('.chart-wrapper').style.display='block';this.style.display='none';">
-                                <div class="chart-wrapper" style="display:none;">
+                                <h2>📈 Hourly Focus — ${currentDate}</h2>
+                                <div class="chart-wrapper">
                                     <canvas id="hourlyChart"></canvas>
                                 </div>
                                 <div class="downloads">
                                     <a class="btn" href="hourly_focus.csv">Download CSV</a>
-                                    <a class="btn btn-secondary" href="hourly_focus.svg">Download SVG</a>
                                 </div>
                             </div>
 
                             <div class="card">
-                                <h2>🥧 Category Distribution</h2>
-                                <img class="chart-svg" src="category_distribution.svg" alt="Category distribution" 
-                                     onerror="this.parentElement.querySelector('.chart-wrapper').style.display='block';this.style.display='none';">
-                                <div class="chart-wrapper" style="display:none;">
+                                <h2>🥧 Category Distribution — ${currentDate}</h2>
+                                <div class="chart-wrapper">
                                     <canvas id="categoryChart"></canvas>
                                 </div>
                                 <div class="downloads">
@@ -1055,14 +1052,10 @@
                 </div>
             `;
 
-            // Render fallback charts if SVGs don't load
+            // Render Chart.js charts from JSON data
             setTimeout(() => {
-                if (document.getElementById('hourlyChart')?.parentElement.style.display === 'block') {
-                    renderHourlyChart(d.hourly_focus || []);
-                }
-                if (document.getElementById('categoryChart')?.parentElement.style.display === 'block') {
-                    renderCategoryChart(d.by_category || {});
-                }
+                renderHourlyChart(d.hourly_focus || []);
+                renderCategoryChart(d.by_category || {});
             }, 100);
         }
 
@@ -1324,10 +1317,15 @@
             const ctx = document.getElementById('hourlyChart');
             if (!ctx) return;
 
+            // Destroy existing chart if any
+            if (hourlyChartInstance) {
+                hourlyChartInstance.destroy();
+            }
+
             const labels = hourly.filter(h => h.hour >= 6 && h.hour <= 22).map(h => `${h.hour}:00`);
             const values = hourly.filter(h => h.hour >= 6 && h.hour <= 22).map(h => timeToMinutes(h.time));
 
-            new Chart(ctx, {
+            hourlyChartInstance = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels,
@@ -1359,10 +1357,15 @@
             const ctx = document.getElementById('categoryChart');
             if (!ctx) return;
 
+            // Destroy existing chart if any
+            if (categoryChartInstance) {
+                categoryChartInstance.destroy();
+            }
+
             const labels = Object.keys(categories);
             const values = Object.values(categories).map(timeToMinutes);
 
-            new Chart(ctx, {
+            categoryChartInstance = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels,
