@@ -40,6 +40,36 @@ xdg-open dashboard.html  # Linux
 
 ---
 
+## Daily Window & Reset
+
+This system tracks each day from 6:00 AM to midnight (local time) and performs a reset at midnight.
+
+- Start: 06:00 local (America/Chicago by default)
+- Reset: 00:00 local (midnight)
+- Running log: JSONL at `logs/daily/YYYY-MM-DD.jsonl`
+
+You can change these in `config.json`:
+
+```json
+{
+  "tracking": {
+    "daily_start_hour": 6,
+    "daily_start_minute": 0,
+    "reset_hour": 0,
+    "reset_minute": 0,
+    "timezone": "America/Chicago"
+  },
+  "report": {
+    "coverage_start": "06:00",
+    "coverage_end": "24:00"
+  }
+}
+```
+
+Note: If you prefer a different window, update the `tracking.*` and `report.coverage_*` values accordingly.
+
+---
+
 ## Integrating with Existing Tracker
 
 Your existing `activity_tracker.py` (3600 lines) can send events to the new system using `tracker_bridge.py`.
@@ -419,9 +449,9 @@ Create `~/Library/LaunchAgents/com.dailyaccomplishments.report.plist`:
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
-        <integer>23</integer>
+        <integer>0</integer>
         <key>Minute</key>
-        <integer>55</integer>
+        <integer>0</integer>
     </dict>
     
     <key>StandardOutPath</key>
@@ -439,7 +469,7 @@ Load the job:
 launchctl load ~/Library/LaunchAgents/com.dailyaccomplishments.report.plist
 ```
 
-### Schedule Notifications (11:55 PM daily)
+### Schedule Notifications (12:02 AM daily)
 
 Create `~/Library/LaunchAgents/com.dailyaccomplishments.notify.plist`:
 
@@ -460,9 +490,9 @@ Create `~/Library/LaunchAgents/com.dailyaccomplishments.notify.plist`:
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
-        <integer>23</integer>
+        <integer>0</integer>
         <key>Minute</key>
-        <integer>55</integer>
+        <integer>2</integer>
     </dict>
     
     <key>StandardOutPath</key>
@@ -487,11 +517,11 @@ launchctl load ~/Library/LaunchAgents/com.dailyaccomplishments.notify.plist
 crontab -e
 
 # Add these lines:
-# Generate report at 11:55 PM
-55 23 * * * /usr/bin/python3 /path/to/DailyAccomplishments/tools/auto_report.py
+# Generate report at midnight
+0 0 * * * /usr/bin/python3 /path/to/DailyAccomplishments/tools/auto_report.py
 
-# Send notifications at 11:58 PM
-58 23 * * * /usr/bin/python3 /path/to/DailyAccomplishments/tools/notifications.py
+# Send notifications at 12:02 AM
+2 0 * * * /usr/bin/python3 /path/to/DailyAccomplishments/tools/notifications.py
 ```
 
 ---
@@ -514,7 +544,7 @@ Here's the complete end-to-end workflow:
 4. **Idle Detection**: Breaks tracked every 5 minutes
 5. **Focus Sessions**: Deep work periods identified
 
-### Evening (11:55 PM)
+### Midnight Reset (12:00 AM)
 
 1. **Auto Report Generation**: `auto_report.py` runs via launchd/cron
 2. **Analytics Processing**: 
