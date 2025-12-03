@@ -1,141 +1,55 @@
 {
   "date": "2025-12-03",
   "overview": {
-    "focus_time": "11:03",
+    "focus_time": "11:20",
     "meetings_time": "00:00",
     "appointments": 0,
-    "coverage_window": "01:18\u201316:40 CST"
+    "coverage_window": "01:18\u201316:57 CST"
   },
   "debug_appointments": {
     "appointments_today": [],
     "meetings_today": []
   },
   "by_category": {
-    "Research": "08:53",
-    "Communication": "01:09",
-    "Coding": "00:50",
-    "Other": "00:10",
+    "Research": "08:09",
+    "Communication": "01:55",
+    "Coding": "00:51",
+    "Other": "00:22",
     "Docs": "00:00"
   },
-  "top_apps": [
-    {
-      "name": "Google Chrome",
-      "time": "08:53"
-    },
-    {
-      "name": "Messages",
-      "time": "01:09"
-    },
-    {
-      "name": "Terminal",
-      "time": "00:50"
-    },
-    {
-      "name": "app_mode_loader",
-      "time": "00:07"
-    },
-    {
-      "name": "Finder",
-      "time": "00:03"
-    },
-    {
-      "name": "TextEdit",
-      "time": "00:00"
-    },
-    {
-      "name": "Preview",
-      "time": "00:00"
-    },
-    {
-      "name": "System Preferences",
-      "time": "00:00"
-    },
-    {
-      "name": "Photos",
-      "time": "00:00"
-    },
-    {
-      "name": "Archive Utility",
-      "time": "00:00"
-    }
-  ],
-  "top_windows": [
-    {
-      "app": "Google Chrome",
-      "title": "",
-      "time": "03:38"
-    },
-    {
-      "app": "Messages",
-      "title": "+1 (817) 505-7977",
-      "time": "01:07"
-    },
-    {
-      "app": "Terminal",
-      "title": "jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724",
-      "time": "00:48"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "applications (Channel) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com",
-      "time": "00:35"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "HubSpot AI Optimizer: Features and Analysis - Grok - Google Chrome - physicalthe",
-      "time": "00:28"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "Test website features - Google Chrome - physicaltherapybiz.com",
-      "time": "00:12"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "Banfield Smith - Google Chrome - physicaltherapybiz.com",
-      "time": "00:11"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "Property settings - Google Chrome - physicaltherapybiz.com",
-      "time": "00:11"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "\ud83d\udfe2 Sales Team Calls - Google Chrome - physicaltherapybiz.com",
-      "time": "00:10"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "Journey Analytics - Google Chrome - physicaltherapybiz.com",
-      "time": "00:09"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "Jack Set Calls - Google Chrome - physicaltherapybiz.com",
-      "time": "00:08"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "Google AI Studio - Google Chrome - physicaltherapybiz.com",
-      "time": "00:07"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "Reports - Google Chrome - physicaltherapybiz.com",
-      "time": "00:07"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "HS-Biz-Agent | Railway - Google Chrome - physicaltherapybiz.com",
-      "time": "00:07"
-    },
-    {
-      "app": "Google Chrome",
-      "title": "PT ENTREPRENEURS | \ud83d\udc4b **Welcome to the PT Biz Community | Facebook - Google Chrom",
-      "time": "00:07"
-    }
-  ],
+  "by_project": {
+    "physicaltherapybiz.com": "05:15",
+    "GitHub": "00:00"
+  },
+  "top_apps": {
+    "Google Chrome": "08:55",
+    "Messages": "01:09",
+    "Terminal": "00:51",
+    "app_mode_loader": "00:19",
+    "Finder": "00:03",
+    "TextEdit": "00:00",
+    "Preview": "00:00",
+    "System Preferences": "00:00",
+    "Photos": "00:00",
+    "Archive Utility": "00:00"
+  },
+  "top_windows": {
+    "Google Chrome \u2014 (no title)": "03:38",
+    "Messages \u2014 +1 (817) 505-7977": "01:07",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724": "00:48",
+    "Google Chrome \u2014 applications (Channel) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com": "00:35",
+    "Google Chrome \u2014 HubSpot AI Optimizer: Features and Analysis - Grok - Google Chrome - physicalthe": "00:28",
+    "app_mode_loader \u2014 missing value": "00:19",
+    "Google Chrome \u2014 Test website features - Google Chrome - physicaltherapybiz.com": "00:12",
+    "Google Chrome \u2014 Banfield Smith - Google Chrome - physicaltherapybiz.com": "00:11",
+    "Google Chrome \u2014 Property settings - Google Chrome - physicaltherapybiz.com": "00:11",
+    "Google Chrome \u2014 \ud83d\udfe2 Sales Team Calls - Google Chrome - physicaltherapybiz.com": "00:10",
+    "Google Chrome \u2014 Journey Analytics - Google Chrome - physicaltherapybiz.com": "00:09",
+    "Google Chrome \u2014 Jack Set Calls - Google Chrome - physicaltherapybiz.com": "00:08",
+    "Google Chrome \u2014 Google AI Studio - Google Chrome - physicaltherapybiz.com": "00:07",
+    "Google Chrome \u2014 Reports - Google Chrome - physicaltherapybiz.com": "00:07",
+    "Google Chrome \u2014 HS-Biz-Agent | Railway - Google Chrome - physicaltherapybiz.com": "00:07"
+  },
   "hourly_focus": [
     {
       "hour": 1,
@@ -189,11 +103,12 @@
     },
     {
       "hour": 16,
-      "time": "00:38",
-      "pct": "64%"
+      "time": "00:55",
+      "pct": "92%"
     }
   ],
-  "browser": {
-    "top_domains": []
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
   }
 }
