@@ -1,23 +1,33 @@
 {
-  "source_file": "ActivityReport-2025-12-02.html",
+  "source_file": "ActivityReport-2025-12-02.json",
   "date": "2025-12-02",
-  "title": "Daily Accomplishments — 2025-12-02",
+  "title": "Daily Accomplishments \u2014 2025-12-02",
   "overview": {
-    "focus_time": "00:00",
+    "focus_time": "00:04",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 0,
-    "coverage_window": "In progress..."
+    "projects_count": 3,
+    "coverage_window": "13:13\u201313:24 CST"
   },
   "prepared_for_manager": [
-    "Day in progress — data collection active"
+    "Total focused time: 00:04 (Coverage: 13:13\u201313:24 CST)",
+    "Top apps: Google Chrome (00:01), app_mode_loader (00:01), Terminal (00:01)"
   ],
   "executive_summary": [
-    "Day in progress — check back later for full summary"
+    "Worked across 3 applications",
+    "Top category: Coding"
   ],
   "client_summary": [],
-  "accomplishments_today": [],
-  "by_category": {},
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:01)",
+    "Focused on app_mode_loader (00:01)",
+    "Focused on Terminal (00:01)"
+  ],
+  "by_category": {
+    "Coding": "00:02",
+    "Other": "00:01",
+    "Research": "00:01"
+  },
   "by_project": {},
   "google_workspace": {
     "Google": "00:00",
@@ -28,44 +38,181 @@
     "top_documents": []
   },
   "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+    "top_domains": [
+      {
+        "domain": "physicaltherapybiz.com",
+        "visits": 13
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "HS-Biz-Agent ",
+        "visits": 9
+      },
+      {
+        "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
+        "visits": 8
+      },
+      {
+        "page": "502 Bad Gateway - Google Chrome - physicaltherapybiz.com",
+        "visits": 2
+      },
+      {
+        "page": "cron_report_and_push.sh \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Vis",
+        "visits": 2
+      },
+      {
+        "page": "orange-palm-tree-q7j77pgg9wjp2pj-3001.app.github.dev - Network error - Google Ch",
+        "visits": 1
+      }
+    ]
   },
   "hourly_focus": [
-    {"hour":0,"time":"00:00","pct":"0%"},
-    {"hour":1,"time":"00:00","pct":"0%"},
-    {"hour":2,"time":"00:00","pct":"0%"},
-    {"hour":3,"time":"00:00","pct":"0%"},
-    {"hour":4,"time":"00:00","pct":"0%"},
-    {"hour":5,"time":"00:00","pct":"0%"},
-    {"hour":6,"time":"00:00","pct":"0%"},
-    {"hour":7,"time":"00:00","pct":"0%"},
-    {"hour":8,"time":"00:00","pct":"0%"},
-    {"hour":9,"time":"00:00","pct":"0%"},
-    {"hour":10,"time":"00:00","pct":"0%"},
-    {"hour":11,"time":"00:00","pct":"0%"},
-    {"hour":12,"time":"00:00","pct":"0%"},
-    {"hour":13,"time":"00:00","pct":"0%"},
-    {"hour":14,"time":"00:00","pct":"0%"},
-    {"hour":15,"time":"00:00","pct":"0%"},
-    {"hour":16,"time":"00:00","pct":"0%"},
-    {"hour":17,"time":"00:00","pct":"0%"},
-    {"hour":18,"time":"00:00","pct":"0%"},
-    {"hour":19,"time":"00:00","pct":"0%"},
-    {"hour":20,"time":"00:00","pct":"0%"},
-    {"hour":21,"time":"00:00","pct":"0%"},
-    {"hour":22,"time":"00:00","pct":"0%"},
-    {"hour":23,"time":"00:00","pct":"0%"}
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:04",
+      "pct": "100%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
   ],
   "suggested_tasks": [],
   "next_up": [],
-  "top_apps": {},
-  "top_windows_preview": [],
+  "top_apps": {
+    "Google Chrome": "00:01",
+    "app_mode_loader": "00:01",
+    "Terminal": "00:01"
+  },
+  "top_windows_preview": [
+    "app_mode_loader \u2014 missing value: 00:01",
+    "Google Chrome \u2014 HS-Biz-Agent : 00:00",
+    "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 bash \u25c2 codex \u2014: 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 sleep \u25c2 codex : 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 sed \u25c2 codex \u2014 : 00:00",
+    "Google Chrome \u2014 502 Bad Gateway - Google Chrome - physicaltherapyb: 00:00",
+    "Google Chrome \u2014 cron_report_and_push.sh \u2014 DailyAccomplishments [Co: 00:00",
+    "Google Chrome: 00:00"
+  ],
   "notes": [],
   "debug_appointments": {
     "contact_visits_top": [],
     "appointments_today": [],
     "meetings_today": []
   },
-  "foot": "Day in progress"
+  "foot": "Auto-generated"
 }
