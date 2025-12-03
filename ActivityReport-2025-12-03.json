@@ -3,11 +3,16 @@
   "overview": {
     "focus_time": "11:25",
     "meetings_time": "00:00",
-    "appointments": 0,
+    "appointments": 1,
     "coverage_window": "01:18\u201317:02 CST"
   },
   "debug_appointments": {
-    "appointments_today": [],
+    "appointments_today": [
+      {
+        "name": "Rodney Carter - Discovery Call",
+        "time": "Dec 4 @ 12:00 PM ET"
+      }
+    ],
     "meetings_today": []
   },
   "by_category": {
