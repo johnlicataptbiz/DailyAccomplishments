@@ -280,12 +280,18 @@ def push_to_github():
     subprocess.run(["git", "commit", "-m", f"Auto-sync report {datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=False)
     subprocess.run(["git", "push"], check=False)
     
-    # Push gh-pages
-    if GH_PAGES_PATH.exists():
-        os.chdir(GH_PAGES_PATH)
-        subprocess.run(["git", "add", "ActivityReport-*.json"], check=False)
-        subprocess.run(["git", "commit", "-m", f"Auto-sync report {datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=False)
-        subprocess.run(["git", "push", "origin", "gh-pages"], check=False)
+    # Try to push gh-pages if it's a proper git worktree (not a submodule)
+    gh_pages_git = GH_PAGES_PATH / ".git"
+    if GH_PAGES_PATH.exists() and gh_pages_git.exists():
+        # Check if it's a worktree (file) or submodule (directory)
+        if gh_pages_git.is_file():
+            # It's a proper worktree
+            os.chdir(GH_PAGES_PATH)
+            subprocess.run(["git", "add", "ActivityReport-*.json"], check=False)
+            subprocess.run(["git", "commit", "-m", f"Auto-sync report {datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=False)
+            subprocess.run(["git", "push", "origin", "gh-pages"], check=False)
+        else:
+            print("Note: gh-pages is a submodule, skipping local push. Report will be synced via GitHub Actions.")
     
     print("\n✅ Done! Your report is now live at:")
     print("https://johnlicataptbiz.github.io/DailyAccomplishments/dashboard.html")
