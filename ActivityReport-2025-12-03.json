@@ -1,0 +1,199 @@
+{
+  "date": "2025-12-03",
+  "overview": {
+    "focus_time": "11:03",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "coverage_window": "01:18\u201316:40 CST"
+  },
+  "debug_appointments": {
+    "appointments_today": [],
+    "meetings_today": []
+  },
+  "by_category": {
+    "Research": "08:53",
+    "Communication": "01:09",
+    "Coding": "00:50",
+    "Other": "00:10",
+    "Docs": "00:00"
+  },
+  "top_apps": [
+    {
+      "name": "Google Chrome",
+      "time": "08:53"
+    },
+    {
+      "name": "Messages",
+      "time": "01:09"
+    },
+    {
+      "name": "Terminal",
+      "time": "00:50"
+    },
+    {
+      "name": "app_mode_loader",
+      "time": "00:07"
+    },
+    {
+      "name": "Finder",
+      "time": "00:03"
+    },
+    {
+      "name": "TextEdit",
+      "time": "00:00"
+    },
+    {
+      "name": "Preview",
+      "time": "00:00"
+    },
+    {
+      "name": "System Preferences",
+      "time": "00:00"
+    },
+    {
+      "name": "Photos",
+      "time": "00:00"
+    },
+    {
+      "name": "Archive Utility",
+      "time": "00:00"
+    }
+  ],
+  "top_windows": [
+    {
+      "app": "Google Chrome",
+      "title": "",
+      "time": "03:38"
+    },
+    {
+      "app": "Messages",
+      "title": "+1 (817) 505-7977",
+      "time": "01:07"
+    },
+    {
+      "app": "Terminal",
+      "title": "jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724",
+      "time": "00:48"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "applications (Channel) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com",
+      "time": "00:35"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "HubSpot AI Optimizer: Features and Analysis - Grok - Google Chrome - physicalthe",
+      "time": "00:28"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "Test website features - Google Chrome - physicaltherapybiz.com",
+      "time": "00:12"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "Banfield Smith - Google Chrome - physicaltherapybiz.com",
+      "time": "00:11"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "Property settings - Google Chrome - physicaltherapybiz.com",
+      "time": "00:11"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "\ud83d\udfe2 Sales Team Calls - Google Chrome - physicaltherapybiz.com",
+      "time": "00:10"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "Journey Analytics - Google Chrome - physicaltherapybiz.com",
+      "time": "00:09"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "Jack Set Calls - Google Chrome - physicaltherapybiz.com",
+      "time": "00:08"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "Google AI Studio - Google Chrome - physicaltherapybiz.com",
+      "time": "00:07"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "Reports - Google Chrome - physicaltherapybiz.com",
+      "time": "00:07"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "HS-Biz-Agent | Railway - Google Chrome - physicaltherapybiz.com",
+      "time": "00:07"
+    },
+    {
+      "app": "Google Chrome",
+      "title": "PT ENTREPRENEURS | \ud83d\udc4b **Welcome to the PT Biz Community | Facebook - Google Chrom",
+      "time": "00:07"
+    }
+  ],
+  "hourly_focus": [
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "1%"
+    },
+    {
+      "hour": 3,
+      "time": "01:56",
+      "pct": "100%"
+    },
+    {
+      "hour": 7,
+      "time": "01:38",
+      "pct": "100%"
+    },
+    {
+      "hour": 9,
+      "time": "00:56",
+      "pct": "94%"
+    },
+    {
+      "hour": 10,
+      "time": "00:57",
+      "pct": "96%"
+    },
+    {
+      "hour": 11,
+      "time": "01:06",
+      "pct": "100%"
+    },
+    {
+      "hour": 12,
+      "time": "01:04",
+      "pct": "100%"
+    },
+    {
+      "hour": 13,
+      "time": "00:45",
+      "pct": "76%"
+    },
+    {
+      "hour": 14,
+      "time": "00:59",
+      "pct": "98%"
+    },
+    {
+      "hour": 15,
+      "time": "00:58",
+      "pct": "97%"
+    },
+    {
+      "hour": 16,
+      "time": "00:38",
+      "pct": "64%"
+    }
+  ],
+  "browser": {
+    "top_domains": []
+  }
+}
