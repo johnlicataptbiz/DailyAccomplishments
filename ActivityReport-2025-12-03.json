@@ -4,7 +4,14 @@
     "focus_time": "11:25",
     "meetings_time": "00:00",
     "appointments": 1,
-    "coverage_window": "01:18\u201317:02 CST"
+    "coverage_window": "01:18\u201317:02 CST",
+    "tasks_updated": 10,
+    "updates_made": 0,
+    "calls_made": 0,
+    "calls_received": 0,
+    "talk_time": "0:00:00",
+    "slack_messages_sent": 0,
+    "slack_channels_active": 0
   },
   "debug_appointments": {
     "appointments_today": [
@@ -202,5 +209,288 @@
         "visits": 1
       }
     ]
+  },
+  "hubspot": {
+    "date": "2025-12-03",
+    "meetings": [],
+    "deals": [
+      {
+        "id": "8986934629",
+        "name": "Morgan Riggins - New Deal",
+        "amount": "5800",
+        "stage": "closedwon",
+        "pipeline": "default",
+        "close_date": "2022-06-19T23:27:19.589Z",
+        "modified": "2025-12-03T21:35:14.154Z",
+        "created_today": false,
+        "type": "deal"
+      },
+      {
+        "id": "9011007340",
+        "name": "Kim Manlangit",
+        "amount": "18000",
+        "stage": "closedwon",
+        "pipeline": "default",
+        "close_date": "2022-06-06T23:10:00.784Z",
+        "modified": "2025-12-03T23:35:57.856Z",
+        "created_today": false,
+        "type": "deal"
+      },
+      {
+        "id": "9015405433",
+        "name": "Luke Barhorst",
+        "amount": "18000",
+        "stage": "closedwon",
+        "pipeline": "default",
+        "close_date": "2022-06-18T13:45:08.670Z",
+        "modified": "2025-12-03T19:10:34.376Z",
+        "created_today": false,
+        "type": "deal"
+      },
+      {
+        "id": "9083033522",
+        "name": "Katherine Orr and Adrienne Blaj",
+        "amount": "5800",
+        "stage": "closedwon",
+        "pipeline": "default",
+        "close_date": "2022-06-09T00:43:23.571Z",
+        "modified": "2025-12-03T19:58:01.442Z",
+        "created_today": false,
+        "type": "deal"
+      },
+      {
+        "id": "9094571100",
+        "name": "Kelly Hobbs",
+        "amount": null,
+        "stage": "closedlost",
+        "pipeline": "default",
+        "close_date": "2022-06-06T12:31:29.226Z",
+        "modified": "2025-12-03T22:41:16.649Z",
+        "created_today": false,
+        "type": "deal"
+      },
+      {
+        "id": "9101241930",
+        "name": "Eric Summerford",
+        "amount": "18000",
+        "stage": "closedwon",
+        "pipeline": "default",
+        "close_date": "2022-06-10T00:18:22.525Z",
+        "modified": "2025-12-03T19:59:12.495Z",
+        "created_today": false,
+        "type": "deal"
+      },
+      {
+        "id": "9135121925",
+        "name": "Stephanie Irwin",
+        "amount": "18000",
+        "stage": "closedlost",
+        "pipeline": "default",
+        "close_date": "2022-06-28T16:05:10.239Z",
+        "modified": "2025-12-03T23:17:53.324Z",
+        "created_today": false,
+        "type": "deal"
+      },
+      {
+        "id": "9262011219",
+        "name": "Davida Murray - Discovery Call",
+        "amount": "5800",
+        "stage": "closedwon",
+        "pipeline": "default",
+        "close_date": "2022-06-24T01:03:37.043Z",
+        "modified": "2025-12-03T19:10:20.906Z",
+        "created_today": false,
+        "type": "deal"
+      }
+    ],
+    "contacts": [],
+    "calls": [],
+    "tasks": [],
+    "booked_appointments": [],
+    "emails": [],
+    "summary": {
+      "meetings_count": 0,
+      "deals_updated": 8,
+      "new_contacts": 0,
+      "calls_made": 0,
+      "tasks_due": 0,
+      "emails_sent": 0
+    }
+  },
+  "executive_summary": [
+    "HubSpot: 8 deals updated",
+    "Monday.com: 10 tasks updated, across 3 boards"
+  ],
+  "monday": {
+    "date": "2025-12-03",
+    "items": [
+      {
+        "id": "10682815086",
+        "name": "Fix Aloware Opportunity Failsafe",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Done",
+        "state": "active",
+        "created_at": "2025-12-02T15:32:30Z",
+        "updated_at": "2025-12-03T22:35:02Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10696473837",
+        "name": "Alan Barb",
+        "board": "2025 Winter Virtual Event-FINAL",
+        "board_id": "18298003054",
+        "status": "Yes",
+        "state": "active",
+        "created_at": "2025-12-03T19:24:38Z",
+        "updated_at": "2025-12-03T19:24:38Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10698041826",
+        "name": "Marisol Clark",
+        "board": "2025 Winter Virtual Event-FINAL",
+        "board_id": "18298003054",
+        "status": "Yes",
+        "state": "active",
+        "created_at": "2025-12-03T21:43:24Z",
+        "updated_at": "2025-12-03T21:43:24Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681316865",
+        "name": "Banfield Smith",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:31:24Z",
+        "updated_at": "2025-12-03T17:22:40Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681316653",
+        "name": "Brad Neitzel",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:31:30Z",
+        "updated_at": "2025-12-03T17:20:49Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10694901826",
+        "name": "Ashleigh Miller",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-03T17:18:42Z",
+        "updated_at": "2025-12-03T17:25:54Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10694902610",
+        "name": "Leann Panconi",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-03T17:18:42Z",
+        "updated_at": "2025-12-03T17:30:05Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10694917158",
+        "name": "Matt Morici",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-03T17:18:43Z",
+        "updated_at": "2025-12-03T17:28:02Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10694901828",
+        "name": "Blake Matlock",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-03T17:18:43Z",
+        "updated_at": "2025-12-03T17:26:10Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10694900805",
+        "name": "Rodney Carter",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-03T17:18:44Z",
+        "updated_at": "2025-12-03T17:24:43Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      }
+    ],
+    "items_updated": 10,
+    "updates_count": 0,
+    "by_board": {
+      "JUSTIN - Project Management": [
+        "Fix Aloware Opportunity Failsafe"
+      ],
+      "2025 Winter Virtual Event-FINAL": [
+        "Alan Barb",
+        "Marisol Clark"
+      ],
+      "Jack Set Calls": [
+        "Banfield Smith",
+        "Brad Neitzel",
+        "Ashleigh Miller",
+        "Leann Panconi",
+        "Matt Morici",
+        "Blake Matlock",
+        "Rodney Carter"
+      ]
+    }
+  },
+  "aloware": {
+    "calls": [],
+    "sms": [],
+    "stats": {
+      "total_calls": 0,
+      "outbound_calls": 0,
+      "inbound_calls": 0,
+      "connected_calls": 0,
+      "total_talk_time_seconds": 0,
+      "total_talk_time_formatted": "0:00:00",
+      "avg_call_duration": 0,
+      "total_sms": 0,
+      "outbound_sms": 0,
+      "inbound_sms": 0
+    }
+  },
+  "slack": {
+    "stats": {
+      "total_sent": 0,
+      "total_received": 39,
+      "channels_active": 0,
+      "dms_active": 0
+    },
+    "channel_activity": {},
+    "dm_activity": {},
+    "top_channels": {}
   }
 }
