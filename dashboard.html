@@ -782,6 +782,37 @@
         const summaryLink = document.getElementById('summaryLink');
         const footer = document.getElementById('footer');
 
+        // Normalize data to handle different JSON formats
+        function normalizeData(d) {
+            // Convert top_apps from array to object if needed
+            if (Array.isArray(d.top_apps)) {
+                const appsObj = {};
+                d.top_apps.forEach(app => {
+                    appsObj[app.name] = app.time;
+                });
+                d.top_apps = appsObj;
+            }
+            
+            // Convert top_windows from array to object if needed
+            if (Array.isArray(d.top_windows)) {
+                const windowsObj = {};
+                d.top_windows.forEach(w => {
+                    const key = w.app + ' — ' + (w.title || '(no title)');
+                    windowsObj[key] = w.time;
+                });
+                d.top_windows = windowsObj;
+            }
+            
+            // Normalize browser data
+            if (d.browser?.top_domains && !d.browser_highlights) {
+                d.browser_highlights = {
+                    top_domains: d.browser.top_domains
+                };
+            }
+            
+            return d;
+        }
+
         // Init
         dateInput.value = currentDate;
         loadData(currentDate);
@@ -831,6 +862,9 @@
                 }
 
                 data = await response.json();
+                
+                // Normalize data format (handle both array and object formats)
+                data = normalizeData(data);
                 
                 // Update header
                 const coverage = data.overview?.coverage_window || 'Unknown';
