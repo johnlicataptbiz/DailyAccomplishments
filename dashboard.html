@@ -968,6 +968,12 @@
                         ${renderCategories(d.by_category || {})}
                     </div>
 
+                    <!-- Projects -->
+                    <div class="card">
+                        <h2><span class="icon">📁</span> Projects</h2>
+                        ${renderProjects(d.by_project || {})}
+                    </div>
+
                     <!-- Top Apps -->
                     <div class="card">
                         <h2><span class="icon">💻</span> Top Applications</h2>
@@ -1109,6 +1115,47 @@
                         <div class="category-name">${name}</div>
                         <div class="category-bar-container">
                             <div class="category-bar" style="width: ${pct}%; background: ${gradient};">${name}</div>
+                        </div>
+                        <div class="category-time">${time}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderProjects(projects) {
+            const entries = Object.entries(projects);
+            if (!entries.length) return '<p style="color: var(--text-muted);">No project data</p>';
+            
+            const icons = {
+                'physicaltherapybiz.com': '🏥',
+                'Email/CRM': '📧',
+                'Slack': '💬',
+                'Facebook Community': '👥',
+                'GitHub': '🐙',
+                'Railway': '🚂',
+                'AI Research': '🤖',
+            };
+            
+            const gradients = [
+                'linear-gradient(135deg, #667eea, #764ba2)',
+                'linear-gradient(135deg, #f093fb, #f5576c)',
+                'linear-gradient(135deg, #4facfe, #00f2fe)',
+                'linear-gradient(135deg, #11998e, #38ef7d)',
+                'linear-gradient(135deg, #fa709a, #fee140)',
+            ];
+            const maxMinutes = Math.max(...entries.map(([, t]) => timeToMinutes(t)), 1);
+            
+            return entries.slice(0, 8).map(([name, time], i) => {
+                const minutes = timeToMinutes(time);
+                const pct = (minutes / maxMinutes) * 100;
+                const icon = icons[name] || '📁';
+                const gradient = gradients[i % gradients.length];
+                
+                return `
+                    <div class="category-row">
+                        <div class="category-name">${icon} ${name}</div>
+                        <div class="category-bar-container">
+                            <div class="category-bar" style="width: ${pct}%; background: ${gradient};"></div>
                         </div>
                         <div class="category-time">${time}</div>
                     </div>
@@ -1260,7 +1307,8 @@
             
             return pages.slice(0, 10).map(p => `
                 <div class="page-item">
-                    <div class="page-title">${p.page}</div>
+                    <div class="page-domain">${p.domain || ''}</div>
+                    <div class="page-title">${p.title || p.page || 'Unknown'}</div>
                     <div class="page-visits">${p.visits} visits</div>
                 </div>
             `).join('');
