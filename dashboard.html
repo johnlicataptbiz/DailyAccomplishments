@@ -5,498 +5,370 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Accomplishments Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f172a;
-            --bg-card: #0b1220;
-            --bg-glass: rgba(255,255,255,0.03);
-            --bg-glass-hover: rgba(255,255,255,0.06);
-            --border: rgba(255,255,255,0.04);
-            --text: #e6eef8;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            --bg-card-hover: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+            --border: rgba(255,255,255,0.06);
+            --border-glow: rgba(139, 92, 246, 0.3);
+            --text: #f1f5f9;
             --text-muted: #94a3b8;
             --text-dim: #64748b;
-            --accent: #7c3aed;
-            --accent-light: #a78bfa;
-            --green: #22c55e;
-            --green-dim: rgba(34, 197, 94, 0.15);
+            
+            /* Gradient accents */
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            --gradient-info: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-warning: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+            --gradient-orange: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --gradient-blue: linear-gradient(135deg, #0061ff 0%, #60efff 100%);
+            
+            --green: #10b981;
             --blue: #3b82f6;
-            --blue-dim: rgba(59, 130, 246, 0.15);
-            --yellow: #eab308;
-            --yellow-dim: rgba(234, 179, 8, 0.15);
-            --orange: #f97316;
-            --red: #ef4444;
             --purple: #8b5cf6;
             --pink: #ec4899;
             --cyan: #06b6d4;
+            --orange: #f97316;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html, body {
-            min-height: 100%;
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
-            background: linear-gradient(180deg, #071029 0%, #071b2a 100%);
+            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            background-image: 
+                radial-gradient(ellipse at 20% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 0% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
             color: var(--text);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 28px 24px;
+            padding: 32px 40px;
         }
 
         /* Header */
         header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
             gap: 16px;
         }
 
+        .logo {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+        }
+
         header h1 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 4px;
+            font-size: 26px;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .sub {
             color: var(--text-muted);
             font-size: 13px;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .topnav {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-top: 6px;
+        }
+
+        .topnav a {
+            color: var(--purple);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .topnav a:hover {
+            color: var(--pink);
         }
 
         .date-nav {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .date-nav button {
-            background: var(--bg-glass);
+            background: var(--bg-card);
             border: 1px solid var(--border);
             color: var(--text);
-            padding: 8px 14px;
-            border-radius: 8px;
+            padding: 10px 18px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 13px;
-            transition: all 0.2s;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
         .date-nav button:hover {
-            background: var(--accent);
-            border-color: var(--accent);
+            background: var(--gradient-primary);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+
+        .date-nav button.today-btn {
+            background: var(--gradient-success);
+            border: none;
+            box-shadow: 0 4px 16px rgba(17, 153, 142, 0.3);
+        }
+
+        .date-nav button.today-btn:hover {
+            box-shadow: 0 8px 32px rgba(56, 239, 125, 0.4);
         }
 
         .date-nav input {
-            background: var(--bg-glass);
+            background: rgba(255,255,255,0.03);
             border: 1px solid var(--border);
             color: var(--text);
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 13px;
-        }
-
-        .topnav {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 8px;
-        }
-
-        .topnav a {
-            color: var(--accent-light);
-            text-decoration: none;
-        }
-
-        .topnav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Main Grid Layout */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 20px;
-        }
-
-        @media (max-width: 1000px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Sidebar Snapshot */
-        .snapshot {
-            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-            padding: 20px;
+            padding: 10px 14px;
             border-radius: 12px;
-            border: 1px solid var(--border);
+            font-size: 13px;
+            font-family: inherit;
+            transition: all 0.3s;
         }
 
-        .snapshot-header {
+        .date-nav input:focus {
+            outline: none;
+            border-color: var(--purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        /* Stats Hero */
+        .stats-hero {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .stat-card:nth-child(1)::before { background: var(--gradient-success); }
+        .stat-card:nth-child(2)::before { background: var(--gradient-info); }
+        .stat-card:nth-child(3)::before { background: var(--gradient-purple); }
+        .stat-card:nth-child(4)::before { background: var(--gradient-warning); }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-glow);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
             margin-bottom: 16px;
         }
 
-        .big-number {
-            font-size: 32px;
+        .stat-card:nth-child(1) .stat-icon { background: linear-gradient(135deg, rgba(17, 153, 142, 0.2), rgba(56, 239, 125, 0.1)); }
+        .stat-card:nth-child(2) .stat-icon { background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.1)); }
+        .stat-card:nth-child(3) .stat-icon { background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(217, 70, 239, 0.1)); }
+        .stat-card:nth-child(4) .stat-icon { background: linear-gradient(135deg, rgba(240, 147, 251, 0.2), rgba(245, 87, 108, 0.1)); }
+
+        .stat-value {
+            font-size: 36px;
             font-weight: 700;
-            color: var(--green);
-        }
-
-        .big-label {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .snapshot-stats {
-            text-align: right;
-        }
-
-        .snapshot-stat {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 8px;
+            letter-spacing: -1px;
             margin-bottom: 4px;
         }
 
-        .snapshot-stat .num {
-            font-weight: 600;
-            font-size: 18px;
-        }
+        .stat-card:nth-child(1) .stat-value { background: var(--gradient-success); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-card:nth-child(2) .stat-value { background: var(--gradient-info); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-card:nth-child(3) .stat-value { background: var(--gradient-purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-card:nth-child(4) .stat-value { background: var(--gradient-warning); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .snapshot-stat .lbl {
-            font-size: 12px;
+        .stat-label {
+            font-size: 13px;
             color: var(--text-muted);
+            font-weight: 500;
         }
 
-        .kpis {
+        /* Main Grid */
+        .main-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 16px 0;
+            gap: 24px;
         }
 
-        .kpi {
-            background: var(--bg-glass);
-            padding: 12px;
-            border-radius: 8px;
-        }
-
-        .kpi-val {
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .kpi-label {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        .snapshot-list {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
-        }
-
-        .snapshot-list h3 {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-        }
-
-        .snapshot-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .snapshot-list li {
-            font-size: 13px;
-            color: var(--text-muted);
-            padding: 6px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .snapshot-list li:last-child {
-            border-bottom: none;
-        }
-
-        .snapshot-list strong {
-            color: var(--text);
-        }
-
-        /* Main Content */
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-
-        /* Cards Grid */
-        .cards-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+        @media (max-width: 1200px) {
+            .stats-hero { grid-template-columns: repeat(2, 1fr); }
+            .main-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .cards-row {
-                grid-template-columns: 1fr;
-            }
+            .stats-hero { grid-template-columns: 1fr; }
+            .container { padding: 20px; }
+            header { flex-direction: column; gap: 20px; text-align: center; }
         }
 
+        /* Cards */
         .card {
-            background: var(--bg-glass);
-            padding: 18px;
-            border-radius: 12px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.3s ease;
         }
 
-        .card h2 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .card:hover {
+            border-color: rgba(139, 92, 246, 0.2);
         }
 
         .card-full {
             grid-column: 1 / -1;
         }
 
+        .card h2 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+        }
+
+        .card h2 .icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
         /* Chart containers */
         .chart-wrapper {
             position: relative;
-            height: 200px;
-            background: #fff;
-            border-radius: 8px;
-            padding: 10px;
-        }
-
-        .chart-wrapper canvas {
-            max-height: 100%;
-        }
-
-        /* SVG charts (from generate_reports.py) */
-        img.chart-svg {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            background: #fff;
-            padding: 8px;
+            height: 220px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 16px;
+            padding: 16px;
         }
 
         /* Downloads */
         .downloads {
             display: flex;
-            gap: 8px;
-            margin-top: 12px;
-            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 8px 12px;
-            background: linear-gradient(90deg, var(--accent), #5b21b6);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 18px;
+            background: var(--gradient-primary);
             color: white;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
-            font-size: 12px;
-            transition: transform 0.2s;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
         }
 
         .btn-secondary {
-            background: var(--bg-glass);
+            background: rgba(255,255,255,0.05);
+            box-shadow: none;
             border: 1px solid var(--border);
         }
 
-        /* Summary Section */
-        .summary-content {
-            color: #dbeafe;
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            box-shadow: none;
         }
 
-        .summary-content h3 {
-            font-size: 15px;
-            margin-bottom: 12px;
-        }
-
-        .summary-content ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-
-        .summary-content li {
-            margin: 8px 0;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        /* Data Tables */
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .data-table th,
-        .data-table td {
-            padding: 10px 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-            font-size: 13px;
-        }
-
-        .data-table th {
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 12px;
-        }
-
-        .data-table tr:hover td {
-            background: var(--bg-glass);
-        }
-
-        .domain-bar {
-            height: 6px;
-            background: var(--accent);
-            border-radius: 3px;
-            transition: width 0.5s ease-out;
-        }
-
-        /* Appointments & Meetings */
-        .event-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .event-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 12px;
-            background: var(--bg-glass);
-            border-radius: 8px;
-            border-left: 3px solid var(--green);
-        }
-
-        .event-item.meeting {
-            border-left-color: var(--blue);
-        }
-
-        .event-icon {
-            font-size: 20px;
-        }
-
-        .event-details {
-            flex: 1;
-        }
-
-        .event-name {
-            font-weight: 500;
-            font-size: 14px;
-        }
-
-        .event-time {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin-top: 2px;
-        }
-
-        .event-badge {
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 500;
-        }
-
-        .badge-solid { background: var(--green-dim); color: var(--green); }
-        .badge-likely { background: var(--yellow-dim); color: var(--yellow); }
-        .badge-meeting { background: var(--blue-dim); color: var(--blue); }
-
-        /* Top Apps List */
-        .app-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .app-row:last-child {
-            border-bottom: none;
-        }
-
-        .app-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            background: var(--bg-glass);
-        }
-
-        .app-info {
-            flex: 1;
-        }
-
-        .app-name {
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .app-bar-container {
-            height: 4px;
-            background: var(--bg-glass);
-            border-radius: 2px;
-            margin-top: 4px;
-            overflow: hidden;
-        }
-
-        .app-bar {
-            height: 100%;
-            border-radius: 2px;
-            transition: width 0.5s ease-out;
-        }
-
-        .app-time {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
-
-        /* Category Pills */
+        /* Category bars */
         .category-row {
             display: flex;
             align-items: center;
-            gap: 12px;
-            padding: 8px 0;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
         }
 
+        .category-row:last-child { border-bottom: none; }
+
         .category-name {
-            width: 100px;
-            font-size: 13px;
+            width: 110px;
+            font-size: 14px;
             font-weight: 500;
+            color: var(--text);
         }
 
         .category-bar-container {
             flex: 1;
-            height: 20px;
-            background: var(--bg-glass);
-            border-radius: 4px;
+            height: 28px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
             overflow: hidden;
         }
 
@@ -504,114 +376,294 @@
             height: 100%;
             display: flex;
             align-items: center;
-            padding-left: 8px;
-            font-size: 11px;
-            font-weight: 500;
+            padding-left: 12px;
+            font-size: 12px;
+            font-weight: 600;
             color: white;
-            transition: width 0.5s ease-out;
+            border-radius: 8px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .category-time {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
-            width: 50px;
+            width: 55px;
             text-align: right;
+            color: var(--text-muted);
         }
 
-        /* Hourly Focus Grid */
+        /* Top Apps */
+        .app-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .app-row:last-child { border-bottom: none; }
+
+        .app-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: var(--gradient-primary);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .app-info { flex: 1; }
+
+        .app-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .app-bar-container {
+            height: 6px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .app-bar {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .app-time {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* Domain table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-size: 13px;
+        }
+
+        .data-table th {
+            color: var(--text-dim);
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table tr:hover td {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .domain-bar {
+            height: 8px;
+            border-radius: 4px;
+            transition: width 0.6s ease-out;
+        }
+
+        /* Events */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .event-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 14px;
+            border-left: 3px solid;
+            transition: all 0.3s;
+        }
+
+        .event-item:hover {
+            background: rgba(255,255,255,0.04);
+            transform: translateX(4px);
+        }
+
+        .event-item.meeting { border-left-color: var(--blue); }
+        .event-item.appointment { border-left-color: var(--green); }
+
+        .event-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .event-item.meeting .event-icon { background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.1)); }
+        .event-item.appointment .event-icon { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(56, 239, 125, 0.1)); }
+
+        .event-details { flex: 1; }
+        .event-name { font-weight: 500; font-size: 14px; }
+        .event-time { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+        .event-badge {
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-meeting { background: rgba(59, 130, 246, 0.15); color: var(--blue); }
+        .badge-set { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+
+        /* Hourly Heatmap */
         .hourly-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 4px;
+            grid-template-columns: repeat(17, 1fr);
+            gap: 6px;
         }
 
         .hour-cell {
             aspect-ratio: 1;
-            border-radius: 4px;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-            transition: transform 0.2s;
+            font-size: 11px;
+            transition: all 0.3s;
             cursor: pointer;
+            position: relative;
         }
 
         .hour-cell:hover {
-            transform: scale(1.1);
-            z-index: 1;
+            transform: scale(1.15);
+            z-index: 10;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
         }
 
-        .hour-cell .h {
-            color: var(--text-muted);
-            font-size: 9px;
-        }
+        .hour-cell .h { color: var(--text-dim); font-size: 10px; font-weight: 500; }
+        .hour-cell .t { font-weight: 700; font-size: 12px; margin-top: 2px; }
 
-        .hour-cell .t {
-            font-weight: 600;
-            font-size: 11px;
-        }
-
-        /* Top Pages & Windows */
+        /* Page items */
         .page-item {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
             font-size: 13px;
         }
 
-        .page-item:last-child {
-            border-bottom: none;
-        }
+        .page-item:last-child { border-bottom: none; }
 
         .page-title {
             flex: 1;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            padding-right: 12px;
+            padding-right: 16px;
+            color: var(--text);
         }
 
         .page-visits {
             color: var(--text-muted);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 12px;
+            background: rgba(255,255,255,0.05);
+            padding: 4px 10px;
+            border-radius: 6px;
         }
 
-        /* Next Actions */
-        .next-action {
+        /* Summary */
+        .summary-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .summary-content li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .summary-content li:last-child { border-bottom: none; }
+
+        .summary-content strong {
+            color: var(--purple);
+        }
+
+        /* Accomplishments */
+        .accomplishment-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            font-size: 14px;
+        }
+
+        .accomplishment-item::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: bold;
+            background: rgba(16, 185, 129, 0.1);
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
-            background: var(--bg-glass);
-            border-radius: 8px;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .next-action::before {
-            content: '→';
-            color: var(--accent);
-            font-weight: bold;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         /* Footer */
         footer {
-            margin-top: 24px;
-            padding-top: 16px;
+            margin-top: 48px;
+            padding: 32px 0;
             border-top: 1px solid var(--border);
-            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dim);
             font-size: 13px;
         }
 
         footer a {
-            color: #9ae6b4;
+            color: var(--purple);
             text-decoration: none;
+            transition: color 0.2s;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        footer a:hover { color: var(--pink); }
+
+        .creator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .creator-badge {
+            background: var(--gradient-primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
         }
 
         /* Loading & Error States */
@@ -619,20 +671,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 300px;
+            height: 400px;
             font-size: 16px;
             color: var(--text-muted);
         }
 
         .loading::before {
             content: '';
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--border);
-            border-top-color: var(--accent);
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--border);
+            border-top-color: var(--purple);
             border-radius: 50%;
-            margin-right: 12px;
-            animation: spin 1s linear infinite;
+            margin-right: 14px;
+            animation: spin 0.8s linear infinite;
         }
 
         @keyframes spin {
@@ -640,79 +692,62 @@
         }
 
         .error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid var(--red);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            color: var(--red);
-        }
-
-        /* Accomplishments List */
-        .accomplishment-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 13px;
-        }
-
-        .accomplishment-item:last-child {
-            border-bottom: none;
-        }
-
-        .accomplishment-item::before {
-            content: '✓';
-            color: var(--green);
-            font-weight: bold;
-        }
-
-        /* Google Workspace */
-        .gws-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 0;
-            font-size: 13px;
-        }
-
-        .gws-icon {
-            width: 24px;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 20px;
+            padding: 48px;
             text-align: center;
         }
 
-        /* Notes */
+        .error h3 { color: #f87171; font-size: 20px; margin-bottom: 12px; }
+        .error p { color: var(--text-muted); }
+
+        /* Note items */
         .note-item {
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
             font-size: 13px;
             color: var(--text-muted);
         }
 
-        .note-item:last-child {
-            border-bottom: none;
+        .note-item:last-child { border-bottom: none; }
+
+        /* GWS */
+        .gws-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .gws-icon {
+            width: 28px;
+            text-align: center;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div>
-                <h1>Daily Accomplishments</h1>
-                <div class="sub" id="headerSub">Loading...</div>
-                <nav class="topnav">
-                    <a href="./">All Reports</a> · 
-                    <a href="#" id="jsonLink">Raw JSON</a> · 
-                    <a href="#" id="summaryLink">Summary</a>
-                </nav>
-            </div>
-            <div style="text-align: right;">
-                <div class="date-nav">
-                    <button id="prevDay">← Prev</button>
-                    <input type="date" id="dateInput">
-                    <button id="nextDay">Next →</button>
+            <div class="brand">
+                <div class="logo">📊</div>
+                <div>
+                    <h1>Daily Accomplishments</h1>
+                    <div class="sub" id="headerSub">Loading...</div>
+                    <nav class="topnav">
+                        <a href="./">All Reports</a> · 
+                        <a href="#" id="jsonLink">Raw JSON</a> · 
+                        <a href="#" id="summaryLink">Summary</a>
+                    </nav>
                 </div>
+            </div>
+            <div class="date-nav">
+                <button id="prevDay">← Prev</button>
+                <input type="date" id="dateInput">
+                <button id="nextDay">Next →</button>
+                <button id="todayBtn" class="today-btn">Today</button>
             </div>
         </header>
 
@@ -720,8 +755,12 @@
             <div class="loading">Loading dashboard...</div>
         </div>
 
-        <footer id="footer">
-            Files: Loading...
+        <footer>
+            <div id="footer">Files: Loading...</div>
+            <div class="creator">
+                <span>Created by</span>
+                <span class="creator-badge">Jack Licata</span>
+            </div>
         </footer>
     </div>
 
@@ -737,10 +776,42 @@
         const dateInput = document.getElementById('dateInput');
         const prevDay = document.getElementById('prevDay');
         const nextDay = document.getElementById('nextDay');
+        const todayBtn = document.getElementById('todayBtn');
         const headerSub = document.getElementById('headerSub');
         const jsonLink = document.getElementById('jsonLink');
         const summaryLink = document.getElementById('summaryLink');
         const footer = document.getElementById('footer');
+
+        // Normalize data to handle different JSON formats
+        function normalizeData(d) {
+            // Convert top_apps from array to object if needed
+            if (Array.isArray(d.top_apps)) {
+                const appsObj = {};
+                d.top_apps.forEach(app => {
+                    appsObj[app.name] = app.time;
+                });
+                d.top_apps = appsObj;
+            }
+            
+            // Convert top_windows from array to object if needed
+            if (Array.isArray(d.top_windows)) {
+                const windowsObj = {};
+                d.top_windows.forEach(w => {
+                    const key = w.app + ' — ' + (w.title || '(no title)');
+                    windowsObj[key] = w.time;
+                });
+                d.top_windows = windowsObj;
+            }
+            
+            // Normalize browser data
+            if (d.browser?.top_domains && !d.browser_highlights) {
+                d.browser_highlights = {
+                    top_domains: d.browser.top_domains
+                };
+            }
+            
+            return d;
+        }
 
         // Init
         dateInput.value = currentDate;
@@ -768,6 +839,12 @@
             loadData(currentDate);
         });
 
+        todayBtn.addEventListener('click', () => {
+            currentDate = new Date().toISOString().split('T')[0];
+            dateInput.value = currentDate;
+            loadData(currentDate);
+        });
+
         async function loadData(date) {
             dashboard.innerHTML = '<div class="loading">Loading dashboard...</div>';
 
@@ -785,6 +862,9 @@
                 }
 
                 data = await response.json();
+                
+                // Normalize data format (handle both array and object formats)
+                data = normalizeData(data);
                 
                 // Update header
                 const coverage = data.overview?.coverage_window || 'Unknown';
@@ -835,224 +915,146 @@
             ) || { hour: 0, time: '00:00' };
 
             dashboard.innerHTML = `
+                <!-- Stats Hero Cards -->
+                <div class="stats-hero">
+                    <div class="stat-card">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-value">${focusTime}</div>
+                        <div class="stat-label">Total Focus Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value">${meetings}</div>
+                        <div class="stat-label">Meetings (${meetingsTime})</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🤝</div>
+                        <div class="stat-value">${appointments}</div>
+                        <div class="stat-label">Appointments Set</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🌐</div>
+                        <div class="stat-value">${topDomain.visits}</div>
+                        <div class="stat-label">Top: ${topDomain.domain}</div>
+                    </div>
+                </div>
+
+                <!-- Main Grid -->
                 <div class="main-grid">
-                    <!-- Sidebar Snapshot -->
-                    <aside>
-                        <div class="snapshot">
-                            <div class="snapshot-header">
-                                <div>
-                                    <div class="big-number">${focusTime}</div>
-                                    <div class="big-label">Total Focused Time</div>
-                                </div>
-                                <div class="snapshot-stats">
-                                    <div class="snapshot-stat">
-                                        <span class="num">${meetings}</span>
-                                        <span class="lbl">Meeting${meetings !== 1 ? 's' : ''}</span>
-                                    </div>
-                                    <div class="snapshot-stat">
-                                        <span class="num">${appointments}</span>
-                                        <span class="lbl">Appointment${appointments !== 1 ? 's' : ''}</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="kpis">
-                                <div class="kpi">
-                                    <div class="kpi-val">${topDomain.visits}</div>
-                                    <div class="kpi-label">Top domain (${topDomain.domain})</div>
-                                </div>
-                                <div class="kpi">
-                                    <div class="kpi-val">${topProject ? topProject[0] : 'N/A'}</div>
-                                    <div class="kpi-label">Top project${topProject ? ` (${topProject[1]})` : ''}</div>
-                                </div>
-                            </div>
-
-                            <div class="snapshot-list">
-                                <h3>📊 Quick Stats</h3>
-                                <ul>
-                                    <li><strong>Top Apps:</strong> ${topApps.map(([n, t]) => `${n} (${t})`).join(', ') || 'N/A'}</li>
-                                    <li><strong>Hourly Peak:</strong> ${hourlyPeak.hour}:00 (${hourlyPeak.time} focused)</li>
-                                    <li><strong>Meetings:</strong> ${meetingsTime}</li>
-                                    <li><strong>Coverage:</strong> ${coverage}</li>
-                                </ul>
-                            </div>
-
-                            ${d.debug_appointments?.appointments_today?.length ? `
-                            <div class="snapshot-list">
-                                <h3>📅 Appointments</h3>
-                                <ul>
-                                    ${d.debug_appointments.appointments_today.map(a => 
-                                        `<li><strong>${a.name}</strong> — ${a.time}</li>`
-                                    ).join('')}
-                                </ul>
-                            </div>
-                            ` : ''}
+                    <!-- Charts -->
+                    <div class="card">
+                        <h2><span class="icon">📈</span> Hourly Focus</h2>
+                        <div class="chart-wrapper">
+                            <canvas id="hourlyChart"></canvas>
                         </div>
-                    </aside>
-
-                    <!-- Main Content -->
-                    <main class="main-content">
-                        <!-- Charts Row -->
-                        <div class="cards-row">
-                            <div class="card">
-                                <h2>📈 Hourly Focus — ${currentDate}</h2>
-                                <div class="chart-wrapper">
-                                    <canvas id="hourlyChart"></canvas>
-                                </div>
-                                <div class="downloads">
-                                    <a class="btn" href="hourly_focus.csv">Download CSV</a>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <h2>🥧 Category Distribution — ${currentDate}</h2>
-                                <div class="chart-wrapper">
-                                    <canvas id="categoryChart"></canvas>
-                                </div>
-                                <div class="downloads">
-                                    <a class="btn" href="category_distribution.csv">Download CSV</a>
-                                </div>
-                            </div>
+                        <div class="downloads">
+                            <a class="btn" href="hourly_focus.csv">📥 Download CSV</a>
                         </div>
+                    </div>
 
-                        <!-- Top Domains -->
-                        <div class="card">
-                            <h2>🌐 Top Domains</h2>
-                            ${renderTopDomains(d.browser_highlights?.top_domains || [])}
-                            <div class="downloads">
-                                <a class="btn" href="top_domains.csv">Download CSV</a>
-                            </div>
+                    <div class="card">
+                        <h2><span class="icon">🥧</span> Category Distribution</h2>
+                        <div class="chart-wrapper">
+                            <canvas id="categoryChart"></canvas>
                         </div>
-
-                        <!-- Categories Breakdown -->
-                        <div class="card">
-                            <h2>📊 Time by Category</h2>
-                            ${renderCategories(d.by_category || {})}
+                        <div class="downloads">
+                            <a class="btn" href="category_distribution.csv">📥 Download CSV</a>
                         </div>
+                    </div>
 
-                        <!-- Top Apps -->
-                        <div class="card">
-                            <h2>💻 Top Applications</h2>
-                            ${renderTopApps(d.top_apps || {})}
-                        </div>
+                    <!-- Time by Category -->
+                    <div class="card">
+                        <h2><span class="icon">📊</span> Time by Category</h2>
+                        ${renderCategories(d.by_category || {})}
+                    </div>
 
-                        <!-- Meetings & Appointments -->
-                        <div class="cards-row">
-                            <div class="card">
-                                <h2>📅 Meetings Today</h2>
-                                ${renderMeetings(d.debug_appointments?.meetings_today || [])}
-                            </div>
+                    <!-- Projects -->
+                    <div class="card">
+                        <h2><span class="icon">📁</span> Projects</h2>
+                        ${renderProjects(d.by_project || {})}
+                    </div>
 
-                            <div class="card">
-                                <h2>🤝 Appointments Set</h2>
-                                ${renderAppointments(d.debug_appointments?.appointments_today || [])}
-                            </div>
-                        </div>
+                    <!-- Top Apps -->
+                    <div class="card">
+                        <h2><span class="icon">💻</span> Top Applications</h2>
+                        ${renderTopApps(d.top_apps || {})}
+                    </div>
 
-                        <!-- Hourly Heatmap -->
-                        <div class="card">
-                            <h2>🔥 Hourly Activity Heatmap</h2>
-                            ${renderHourlyHeatmap(d.hourly_focus || [])}
-                        </div>
+                    <!-- Top Domains -->
+                    <div class="card card-full">
+                        <h2><span class="icon">🌐</span> Top Domains</h2>
+                        ${renderTopDomains(d.browser_highlights?.top_domains || [])}
+                    </div>
 
-                        <!-- Top Windows -->
-                        <div class="card">
-                            <h2>🪟 Top Windows</h2>
-                            ${renderTopWindows(d.top_windows_preview || [])}
-                        </div>
+                    <!-- Meetings & Appointments -->
+                    <div class="card">
+                        <h2><span class="icon">📅</span> Meetings Today</h2>
+                        ${renderMeetings(d.debug_appointments?.meetings_today || [])}
+                    </div>
 
-                        <!-- Top Pages -->
-                        <div class="card">
-                            <h2>📄 Top Pages Visited</h2>
-                            ${renderTopPages(d.browser_highlights?.top_pages || [])}
-                        </div>
+                    <div class="card">
+                        <h2><span class="icon">🤝</span> Appointments Set</h2>
+                        ${renderAppointments(d.debug_appointments?.appointments_today || [])}
+                    </div>
 
-                        <!-- Google Workspace -->
-                        ${d.google_workspace ? `
-                        <div class="card">
-                            <h2>📎 Google Workspace</h2>
-                            ${renderGoogleWorkspace(d.google_workspace)}
-                        </div>
-                        ` : ''}
+                    <!-- Hourly Heatmap -->
+                    <div class="card card-full">
+                        <h2><span class="icon">🔥</span> Hourly Activity Heatmap</h2>
+                        ${renderHourlyHeatmap(d.hourly_focus || [])}
+                    </div>
 
-                        <!-- Projects -->
-                        <div class="card">
-                            <h2>📁 Projects</h2>
-                            ${renderProjects(d.by_project || {})}
-                        </div>
+                    <!-- Top Windows -->
+                    <div class="card">
+                        <h2><span class="icon">🪟</span> Top Windows</h2>
+                        ${renderTopWindows(d.top_windows_preview || [])}
+                    </div>
 
-                        <!-- Summary -->
-                        <div class="card">
-                            <h2>📝 Summary</h2>
-                            <div class="summary-content">
-                                <h3>Daily Accomplishments — ${d.date || currentDate}</h3>
-                                <ul>
-                                    <li><strong>Total Focused Time:</strong> ${focusTime} (Coverage: ${coverage})</li>
-                                    <li><strong>Meetings:</strong> ${meetings} — ${d.debug_appointments?.meetings_today?.map(m => `${m.name} (${m.time})`).join('; ') || 'None'}</li>
-                                    <li><strong>Appointments:</strong> ${appointments} — ${d.debug_appointments?.appointments_today?.map(a => a.name).join('; ') || 'None'}</li>
-                                    <li><strong>Top Activity (domains):</strong> ${(d.browser_highlights?.top_domains || []).slice(0, 3).map(d => `${d.domain} (${d.visits})`).join('; ')}</li>
-                                    <li><strong>Top Apps:</strong> ${topApps.map(([n, t]) => `${n} (${t})`).join('; ')}</li>
-                                    <li><strong>Hourly Peak:</strong> ${hourlyPeak.hour}:00 (${hourlyPeak.time} focused)</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <!-- Top Pages -->
+                    <div class="card">
+                        <h2><span class="icon">📄</span> Top Pages</h2>
+                        ${renderTopPages(d.browser_highlights?.top_pages || [])}
+                    </div>
 
-                        <!-- Next Actions -->
-                        ${d.next_up?.length ? `
-                        <div class="card">
-                            <h2>➡️ Next Actions</h2>
-                            ${d.next_up.map(action => `<div class="next-action">${action}</div>`).join('')}
-                        </div>
-                        ` : ''}
-
-                        <!-- Accomplishments -->
-                        ${d.accomplishments_today?.length ? `
-                        <div class="card">
-                            <h2>✅ Accomplishments</h2>
-                            ${d.accomplishments_today.map(a => `<div class="accomplishment-item">${a}</div>`).join('')}
-                        </div>
-                        ` : ''}
-
-                        <!-- Executive Summary -->
-                        ${d.executive_summary?.length ? `
-                        <div class="card">
-                            <h2>📋 Executive Summary</h2>
-                            <ul style="margin: 0; padding-left: 20px;">
-                                ${d.executive_summary.map(s => `<li style="margin: 8px 0; font-size: 13px;">${s}</li>`).join('')}
+                    <!-- Summary -->
+                    <div class="card card-full">
+                        <h2><span class="icon">📝</span> Daily Summary</h2>
+                        <div class="summary-content">
+                            <ul>
+                                <li><strong>Focus:</strong> ${focusTime} (${coverage})</li>
+                                <li><strong>Peak Hour:</strong> ${hourlyPeak.hour}:00 with ${hourlyPeak.time} focused</li>
+                                <li><strong>Top Apps:</strong> ${topApps.map(([n, t]) => `${n} (${t})`).join(', ') || 'N/A'}</li>
+                                <li><strong>Meetings:</strong> ${meetings} — ${d.debug_appointments?.meetings_today?.map(m => `${m.name} (${m.time})`).join('; ') || 'None'}</li>
+                                <li><strong>Appointments:</strong> ${appointments} — ${d.debug_appointments?.appointments_today?.map(a => a.name).join('; ') || 'None'}</li>
                             </ul>
                         </div>
-                        ` : ''}
+                    </div>
 
-                        <!-- Manager Summary -->
-                        ${d.prepared_for_manager?.length ? `
-                        <div class="card">
-                            <h2>👔 Prepared for Manager</h2>
-                            <ul style="margin: 0; padding-left: 20px;">
-                                ${d.prepared_for_manager.map(s => `<li style="margin: 8px 0; font-size: 13px;">${s}</li>`).join('')}
-                            </ul>
-                        </div>
-                        ` : ''}
+                    ${d.accomplishments_today?.length ? `
+                    <div class="card card-full">
+                        <h2><span class="icon">✅</span> Accomplishments</h2>
+                        ${d.accomplishments_today.slice(0, 8).map(a => `<div class="accomplishment-item">${a}</div>`).join('')}
+                    </div>
+                    ` : ''}
 
-                        <!-- Notes -->
-                        ${d.notes?.length ? `
-                        <div class="card">
-                            <h2>📝 Notes</h2>
-                            ${d.notes.map(n => `<div class="note-item">${n}</div>`).join('')}
-                        </div>
-                        ` : ''}
+                    ${d.executive_summary?.length ? `
+                    <div class="card">
+                        <h2><span class="icon">📋</span> Executive Summary</h2>
+                        <ul style="margin: 0; padding-left: 20px;">
+                            ${d.executive_summary.map(s => `<li style="margin: 8px 0; font-size: 13px;">${s}</li>`).join('')}
+                        </ul>
+                    </div>
+                    ` : ''}
 
-                        <!-- Suggested Tasks -->
-                        ${d.suggested_tasks?.length ? `
-                        <div class="card">
-                            <h2>💡 Suggested Tasks</h2>
-                            ${d.suggested_tasks.map(t => `<div class="note-item">${t}</div>`).join('')}
-                        </div>
-                        ` : ''}
-                    </main>
+                    ${d.next_up?.length ? `
+                    <div class="card">
+                        <h2><span class="icon">➡️</span> Next Actions</h2>
+                        ${d.next_up.map(action => `<div class="note-item" style="padding-left: 16px; border-left: 2px solid var(--purple);">${action}</div>`).join('')}
+                    </div>
+                    ` : ''}
                 </div>
             `;
 
-            // Render Chart.js charts from JSON data
+            // Render Chart.js charts
             setTimeout(() => {
                 renderHourlyChart(d.hourly_focus || []);
                 renderCategoryChart(d.by_category || {});
@@ -1080,7 +1082,7 @@
                                 <td>${d.domain}</td>
                                 <td>${d.visits}</td>
                                 <td>
-                                    <div class="domain-bar" style="width: ${(d.visits / max) * 100}%;"></div>
+                                    <div class="domain-bar" style="width: ${(d.visits / max) * 100}%; background: var(--gradient-primary);"></div>
                                 </td>
                             </tr>
                         `).join('')}
@@ -1093,19 +1095,67 @@
             const entries = Object.entries(categories);
             if (!entries.length) return '<p style="color: var(--text-muted);">No category data</p>';
             
-            const colors = ['#22c55e', '#3b82f6', '#8b5cf6', '#eab308', '#f97316', '#ec4899'];
+            const gradients = [
+                'linear-gradient(135deg, #11998e, #38ef7d)',
+                'linear-gradient(135deg, #4facfe, #00f2fe)',
+                'linear-gradient(135deg, #8b5cf6, #d946ef)',
+                'linear-gradient(135deg, #f093fb, #f5576c)',
+                'linear-gradient(135deg, #fa709a, #fee140)',
+                'linear-gradient(135deg, #667eea, #764ba2)'
+            ];
             const maxMinutes = Math.max(...entries.map(([, t]) => timeToMinutes(t)), 1);
             
             return entries.map(([name, time], i) => {
                 const minutes = timeToMinutes(time);
                 const pct = (minutes / maxMinutes) * 100;
-                const color = colors[i % colors.length];
+                const gradient = gradients[i % gradients.length];
                 
                 return `
                     <div class="category-row">
                         <div class="category-name">${name}</div>
                         <div class="category-bar-container">
-                            <div class="category-bar" style="width: ${pct}%; background: ${color};">${name}</div>
+                            <div class="category-bar" style="width: ${pct}%; background: ${gradient};">${name}</div>
+                        </div>
+                        <div class="category-time">${time}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderProjects(projects) {
+            const entries = Object.entries(projects);
+            if (!entries.length) return '<p style="color: var(--text-muted);">No project data</p>';
+            
+            const icons = {
+                'physicaltherapybiz.com': '🏥',
+                'Email/CRM': '📧',
+                'Slack': '💬',
+                'Facebook Community': '👥',
+                'GitHub': '🐙',
+                'Railway': '🚂',
+                'AI Research': '🤖',
+            };
+            
+            const gradients = [
+                'linear-gradient(135deg, #667eea, #764ba2)',
+                'linear-gradient(135deg, #f093fb, #f5576c)',
+                'linear-gradient(135deg, #4facfe, #00f2fe)',
+                'linear-gradient(135deg, #11998e, #38ef7d)',
+                'linear-gradient(135deg, #fa709a, #fee140)',
+            ];
+            const maxMinutes = Math.max(...entries.map(([, t]) => timeToMinutes(t)), 1);
+            
+            return entries.slice(0, 8).map(([name, time], i) => {
+                const minutes = timeToMinutes(time);
+                const pct = (minutes / maxMinutes) * 100;
+                const icon = icons[name] || '📁';
+                const gradient = gradients[i % gradients.length];
+                
+                return `
+                    <div class="category-row">
+                        <div class="category-name">${icon} ${name}</div>
+                        <div class="category-bar-container">
+                            <div class="category-bar" style="width: ${pct}%; background: ${gradient};"></div>
                         </div>
                         <div class="category-time">${time}</div>
                     </div>
@@ -1135,22 +1185,31 @@
                 'App Store': '🛍️',
             };
             
-            const colors = ['#22c55e', '#3b82f6', '#8b5cf6', '#eab308', '#f97316', '#ec4899', '#06b6d4', '#f43f5e'];
+            const gradients = [
+                'linear-gradient(135deg, #11998e, #38ef7d)',
+                'linear-gradient(135deg, #4facfe, #00f2fe)',
+                'linear-gradient(135deg, #8b5cf6, #d946ef)',
+                'linear-gradient(135deg, #f093fb, #f5576c)',
+                'linear-gradient(135deg, #fa709a, #fee140)',
+                'linear-gradient(135deg, #667eea, #764ba2)',
+                'linear-gradient(135deg, #06b6d4, #3b82f6)',
+                'linear-gradient(135deg, #f43f5e, #ec4899)'
+            ];
             const maxMinutes = Math.max(...entries.map(([, t]) => timeToMinutes(t)), 1);
             
             return entries.slice(0, 8).map(([name, time], i) => {
                 const minutes = timeToMinutes(time);
                 const pct = (minutes / maxMinutes) * 100;
                 const icon = icons[name] || '📱';
-                const color = colors[i % colors.length];
+                const gradient = gradients[i % gradients.length];
                 
                 return `
                     <div class="app-row">
-                        <div class="app-icon">${icon}</div>
+                        <div class="app-icon" style="background: ${gradient};">${icon}</div>
                         <div class="app-info">
                             <div class="app-name">${name}</div>
                             <div class="app-bar-container">
-                                <div class="app-bar" style="width: ${pct}%; background: ${color};"></div>
+                                <div class="app-bar" style="width: ${pct}%; background: ${gradient};"></div>
                             </div>
                         </div>
                         <div class="app-time">${time}</div>
@@ -1184,13 +1243,13 @@
             return `
                 <div class="event-list">
                     ${appointments.map(a => `
-                        <div class="event-item">
+                        <div class="event-item appointment">
                             <div class="event-icon">🤝</div>
                             <div class="event-details">
                                 <div class="event-name">${a.name}</div>
                                 <div class="event-time">${a.time}</div>
                             </div>
-                            <span class="event-badge badge-solid">Set</span>
+                            <span class="event-badge badge-set">Set</span>
                         </div>
                     `).join('')}
                 </div>
@@ -1200,7 +1259,7 @@
         function renderHourlyHeatmap(hourly) {
             if (!hourly.length) return '<p style="color: var(--text-muted);">No hourly data</p>';
             
-            // Filter to working hours (6am - 11pm)
+            // Filter to working hours (6am - 10pm)
             const workHours = hourly.filter(h => h.hour >= 6 && h.hour <= 22);
             const maxMinutes = Math.max(...workHours.map(h => timeToMinutes(h.time)), 1);
             
@@ -1209,10 +1268,18 @@
                     ${workHours.map(h => {
                         const minutes = timeToMinutes(h.time);
                         const intensity = minutes / maxMinutes;
-                        const bg = intensity > 0 
-                            ? `rgba(34, 197, 94, ${0.2 + intensity * 0.8})`
-                            : 'rgba(255,255,255,0.03)';
-                        const textColor = intensity > 0.5 ? '#fff' : 'var(--text-muted)';
+                        // Use gradient colors based on intensity
+                        let bg;
+                        if (intensity === 0) {
+                            bg = 'rgba(255,255,255,0.03)';
+                        } else if (intensity < 0.3) {
+                            bg = `linear-gradient(135deg, rgba(79, 172, 254, ${0.3 + intensity}), rgba(0, 242, 254, ${0.2 + intensity}))`;
+                        } else if (intensity < 0.7) {
+                            bg = `linear-gradient(135deg, rgba(139, 92, 246, ${0.4 + intensity * 0.6}), rgba(217, 70, 239, ${0.3 + intensity * 0.6}))`;
+                        } else {
+                            bg = `linear-gradient(135deg, rgba(17, 153, 142, ${0.5 + intensity * 0.5}), rgba(56, 239, 125, ${0.4 + intensity * 0.6}))`;
+                        }
+                        const textColor = intensity > 0.3 ? '#fff' : 'var(--text-muted)';
                         
                         return `
                             <div class="hour-cell" style="background: ${bg};" title="${h.hour}:00 - ${h.time}">
@@ -1240,7 +1307,8 @@
             
             return pages.slice(0, 10).map(p => `
                 <div class="page-item">
-                    <div class="page-title">${p.page}</div>
+                    <div class="page-domain">${p.domain || ''}</div>
+                    <div class="page-title">${p.title || p.page || 'Unknown'}</div>
                     <div class="page-visits">${p.visits} visits</div>
                 </div>
             `).join('');

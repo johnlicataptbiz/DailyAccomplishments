@@ -12,10 +12,12 @@ Usage:
 
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlparse
 
 # Paths on Mac
 TRACKER_BASE = Path.home() / "Library" / "Application Support" / "ActivityTracker"
@@ -52,49 +54,107 @@ def load_jsonl_events(date_str: str) -> list[dict]:
     return events
 
 
+def extract_domain(url: str) -> str:
+    """Extract domain from URL."""
+    try:
+        parsed = urlparse(url)
+        return parsed.netloc or ""
+    except Exception:
+        return ""
+
+
+def detect_project(app: str, title: str, url: str) -> str:
+    """Detect project from app, title, or URL."""
+    title_lower = (title or "").lower()
+    url_lower = (url or "").lower()
+    
+    # Project detection rules
+    if "physicaltherapybiz" in title_lower or "physicaltherapybiz" in url_lower:
+        return "physicaltherapybiz.com"
+    if "hubspot" in url_lower or "hubspot" in title_lower:
+        return "Email/CRM"
+    if "slack" in url_lower or "slack" in title_lower:
+        return "Slack"
+    if "facebook" in url_lower or "facebook" in title_lower:
+        return "Facebook Community"
+    if "gmail" in url_lower or "mail.google" in url_lower:
+        return "Email/CRM"
+    if "github" in url_lower or "github" in title_lower:
+        return "GitHub"
+    if "railway" in url_lower:
+        return "Railway"
+    if "grok" in url_lower:
+        return "AI Research"
+    if "aistudio.google" in url_lower or "chatgpt" in url_lower:
+        return "AI Research"
+    
+    return ""
+
+
 def aggregate_events(events: list[dict]) -> dict:
-    """Aggregate events into summary data."""
+    """Aggregate events into summary data matching Mac tracker's rich format."""
     total_seconds = 0
     by_app: dict[str, int] = {}
     by_category: dict[str, int] = {}
     by_hour: dict[int, int] = {}
     by_window: dict[tuple, int] = {}
+    by_project: dict[str, int] = {}
     browser_domains: dict[str, int] = {}
+    browser_pages: dict[tuple, int] = {}  # (domain, title) -> visits
     first_ts = None
     last_ts = None
     
     # Category mapping (from the Mac tracker)
     app_categories = {
         "Terminal": "Coding", "iTerm2": "Coding", "Visual Studio Code": "Coding",
-        "Xcode": "Coding", "PyCharm": "Coding", "DataGrip": "Coding",
+        "Code": "Coding", "Xcode": "Coding", "PyCharm": "Coding", "DataGrip": "Coding",
         "Google Chrome": "Research", "Safari": "Research", "Arc": "Research", "Firefox": "Research",
         "Slack": "Communication", "Messages": "Communication", "Mail": "Communication",
         "Calendar": "Meetings", "Zoom": "Meetings", "Microsoft Teams": "Meetings",
-        "TextEdit": "Docs", "Notes": "Docs"
+        "TextEdit": "Docs", "Notes": "Docs", "Preview": "Docs",
     }
     
     for event in events:
         seconds = int(event.get("seconds", 0) or 0)
+        app = event.get("app", "Unknown")
+        title = event.get("title", "") or ""
+        url = event.get("url", "") or ""
+        start_str = event.get("start", "")
+        
+        # Always process for browser stats even if seconds is 0
+        if url:
+            domain = extract_domain(url)
+            if domain:
+                browser_domains[domain] = browser_domains.get(domain, 0) + 1
+                # Track page visits
+                page_title = title[:80] if title else domain
+                browser_pages[(domain, page_title)] = browser_pages.get((domain, page_title), 0) + 1
+        
         if seconds <= 0:
             continue
         
         total_seconds += seconds
-        app = event.get("app", "Unknown")
-        title = event.get("title", "")
         
         # Track by app
         by_app[app] = by_app.get(app, 0) + seconds
         
-        # Track by category
+        # Track by category - also check title for Slack in browser
         category = app_categories.get(app, "Other")
+        if "slack" in title.lower() or "slack" in url.lower():
+            category = "Communication"
         by_category[category] = by_category.get(category, 0) + seconds
         
-        # Track by window
-        key = (app, title[:80] if title else "")
+        # Track by window (truncate title)
+        window_title = title[:80] if title else ""
+        key = (app, window_title)
         by_window[key] = by_window.get(key, 0) + seconds
         
+        # Track by project
+        project = detect_project(app, title, url)
+        if project:
+            by_project[project] = by_project.get(project, 0) + seconds
+        
         # Track by hour
-        start_str = event.get("start", "")
         if start_str:
             try:
                 dt = datetime.fromisoformat(start_str)
@@ -107,17 +167,6 @@ def aggregate_events(events: list[dict]) -> dict:
                     last_ts = dt
             except ValueError:
                 pass
-        
-        # Track browser domains
-        url = event.get("url", "")
-        if url:
-            try:
-                from urllib.parse import urlparse
-                domain = urlparse(url).netloc
-                if domain:
-                    browser_domains[domain] = browser_domains.get(domain, 0) + 1
-            except Exception:
-                pass
     
     return {
         "total_seconds": total_seconds,
@@ -125,19 +174,33 @@ def aggregate_events(events: list[dict]) -> dict:
         "by_category": by_category,
         "by_hour": by_hour,
         "by_window": by_window,
+        "by_project": by_project,
         "browser_domains": browser_domains,
+        "browser_pages": browser_pages,
         "first_ts": first_ts,
         "last_ts": last_ts,
     }
 
 
 def generate_activity_report_json(date_str: str) -> dict:
-    """Generate ActivityReport JSON in the dashboard format."""
+    """Generate ActivityReport JSON in the dashboard format with rich data."""
     events = load_jsonl_events(date_str)
     if not events:
         return {}
     
     agg = aggregate_events(events)
+    
+    # Build top domains list
+    top_domains = [
+        {"domain": dom, "visits": cnt}
+        for dom, cnt in sorted(agg["browser_domains"].items(), key=lambda x: x[1], reverse=True)[:20]
+    ]
+    
+    # Build top pages list
+    top_pages = [
+        {"domain": dom, "title": title, "visits": cnt}
+        for (dom, title), cnt in sorted(agg["browser_pages"].items(), key=lambda x: x[1], reverse=True)[:15]
+    ]
     
     # Build the report structure matching dashboard.html expectations
     report = {
@@ -145,7 +208,7 @@ def generate_activity_report_json(date_str: str) -> dict:
         "overview": {
             "focus_time": seconds_to_hhmm(agg["total_seconds"]),
             "meetings_time": seconds_to_hhmm(agg["by_category"].get("Meetings", 0)),
-            "appointments": 0,
+            "appointments": 0,  # TODO: integrate with Slack/Calendar
             "coverage_window": (
                 f"{agg['first_ts'].strftime('%H:%M')}–{agg['last_ts'].strftime('%H:%M')} CST"
                 if agg["first_ts"] and agg["last_ts"] else "—"
@@ -159,23 +222,25 @@ def generate_activity_report_json(date_str: str) -> dict:
             cat: seconds_to_hhmm(sec)
             for cat, sec in sorted(agg["by_category"].items(), key=lambda x: x[1], reverse=True)
         },
-        "top_apps": [
-            {"name": app, "time": seconds_to_hhmm(sec)}
+        "by_project": {
+            proj: seconds_to_hhmm(sec)
+            for proj, sec in sorted(agg["by_project"].items(), key=lambda x: x[1], reverse=True)
+        },
+        "top_apps": {
+            app: seconds_to_hhmm(sec)
             for app, sec in sorted(agg["by_app"].items(), key=lambda x: x[1], reverse=True)[:10]
-        ],
-        "top_windows": [
-            {"app": app, "title": title, "time": seconds_to_hhmm(sec)}
+        },
+        "top_windows": {
+            f"{app} — {title or '(no title)'}": seconds_to_hhmm(sec)
             for (app, title), sec in sorted(agg["by_window"].items(), key=lambda x: x[1], reverse=True)[:15]
-        ],
+        },
         "hourly_focus": [
             {"hour": h, "time": seconds_to_hhmm(sec), "pct": f"{min(100, sec * 100 // 3600)}%"}
             for h, sec in sorted(agg["by_hour"].items())
         ],
-        "browser": {
-            "top_domains": [
-                {"domain": dom, "visits": cnt}
-                for dom, cnt in sorted(agg["browser_domains"].items(), key=lambda x: x[1], reverse=True)[:20]
-            ]
+        "browser_highlights": {
+            "top_domains": top_domains,
+            "top_pages": top_pages,
         },
     }
     
