@@ -310,6 +310,82 @@ class HubSpotClient:
         
         return emails
 
+    def get_booked_appointments(self, date: datetime) -> list:
+        """Detect appointments set from emails containing booking confirmation patterns."""
+        appointments = []
+        
+        start_of_day = datetime(date.year, date.month, date.day)
+        end_of_day = start_of_day + timedelta(days=1)
+        
+        start_ms = int(start_of_day.timestamp() * 1000)
+        end_ms = int(end_of_day.timestamp() * 1000)
+        
+        # Patterns that indicate an appointment was booked
+        import re
+        booked_patterns = [
+            r"all set",
+            r"calendar invite",
+            r"zoom link",
+            r"call booked",
+            r"discovery call",
+            r"game\s*plan",
+            r"strategy call",
+            r"confirmed.*call",
+            r"see you (on|at)",
+            r"looking forward to.*call",
+        ]
+        booked_regex = re.compile("|".join(booked_patterns), re.IGNORECASE)
+        
+        try:
+            data = self._get("/engagements/v1/engagements/paged", {
+                "limit": 250
+            })
+            
+            for result in data.get("results", []):
+                engagement = result.get("engagement", {})
+                metadata = result.get("metadata", {})
+                associations = result.get("associations", {})
+                
+                if engagement.get("type") == "EMAIL":
+                    email_time = engagement.get("timestamp", 0)
+                    
+                    if start_ms <= email_time < end_ms:
+                        # Check email body for booking patterns
+                        body = metadata.get("body", "") or metadata.get("text", "") or ""
+                        subject = metadata.get("subject", "") or ""
+                        
+                        if booked_regex.search(body) or booked_regex.search(subject):
+                            email_dt = datetime.fromtimestamp(email_time / 1000)
+                            
+                            # Try to get contact name
+                            contact_name = "Unknown Contact"
+                            contact_ids = associations.get("contactIds", [])
+                            if contact_ids:
+                                try:
+                                    contact_data = self._get(f"/crm/v3/objects/contacts/{contact_ids[0]}", {
+                                        "properties": "firstname,lastname,email"
+                                    })
+                                    props = contact_data.get("properties", {})
+                                    contact_name = f"{props.get('firstname', '')} {props.get('lastname', '')}".strip()
+                                    if not contact_name:
+                                        contact_name = props.get("email", "Unknown Contact")
+                                except:
+                                    pass
+                            
+                            appointments.append({
+                                "id": engagement.get("id"),
+                                "name": f"{contact_name} - Discovery Call",
+                                "time": email_dt.strftime("%H:%M"),
+                                "datetime": email_dt.isoformat(),
+                                "source": "email_booked",
+                                "subject": subject[:50],
+                                "type": "appointment"
+                            })
+        except Exception as e:
+            print(f"Error fetching booked appointments: {e}")
+        
+        return appointments
+
 
 def load_config() -> dict:
     """Load config from config.json."""
@@ -362,8 +438,24 @@ def update_activity_report(date_str: str, hubspot_data: dict, repo_path: Path):
             "source": "HubSpot"
         })
     
-    # Update overview
+    # Update appointments from booked emails
+    if 'appointments_today' not in debug_appts:
+        debug_appts['appointments_today'] = []
+    appointments_list = debug_appts['appointments_today']
+    
+    for appt in hubspot_data.get('booked_appointments', []):
+        # Avoid duplicates
+        existing_names = [a.get('name', '').lower() for a in appointments_list]
+        if appt['name'].lower() not in existing_names:
+            appointments_list.append({
+                "name": appt['name'],
+                "time": appt['time'],
+                "source": "HubSpot Email"
+            })
+    
+    # Update appointment count in overview
     overview = report.get('overview', {})
+    overview['appointments'] = len(appointments_list)
     
     # Add HubSpot stats to executive summary
     if 'executive_summary' not in report:
@@ -371,6 +463,9 @@ def update_activity_report(date_str: str, hubspot_data: dict, repo_path: Path):
     exec_summary = report['executive_summary']
     
     stats = []
+    if hubspot_data.get('booked_appointments'):
+        stats.append(f"{len(hubspot_data['booked_appointments'])} appointments set")
+    
     if hubspot_data.get('deals'):
         new_deals = sum(1 for d in hubspot_data['deals'] if d.get('created_today'))
         stats.append(f"{new_deals} new deals" if new_deals else f"{len(hubspot_data['deals'])} deals updated")
@@ -464,6 +559,10 @@ def main():
     emails = client.get_emails_for_date(target_date)
     print(f"    Found {len(emails)} emails")
     
+    print("  Fetching booked appointments from emails...")
+    booked_appointments = client.get_booked_appointments(target_date)
+    print(f"    Found {len(booked_appointments)} booked appointments")
+    
     # Compile data
     hubspot_data = {
         'date': date_str,
@@ -472,6 +571,7 @@ def main():
         'contacts': contacts,
         'calls': calls,
         'tasks': tasks,
+        'booked_appointments': booked_appointments,
         'emails': emails,
         'summary': {
             'meetings_count': len(meetings),
