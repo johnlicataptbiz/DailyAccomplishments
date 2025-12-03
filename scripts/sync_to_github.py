@@ -91,6 +91,54 @@ def detect_project(app: str, title: str, url: str) -> str:
     return ""
 
 
+def extract_domain_from_title(title: str) -> str:
+    """Extract domain from window title patterns like 'Page - Google Chrome - domain.com'."""
+    if not title:
+        return ""
+    
+    # Common patterns in Chrome window titles
+    # Pattern: "Page Title - Google Chrome - profile" or "Page - Site Name"
+    parts = title.split(" - ")
+    
+    # Look for known domains in the title
+    domain_patterns = [
+        (r'hubspot\.com', 'app.hubspot.com'),
+        (r'grok\.com', 'grok.com'),
+        (r'slack\.com', 'app.slack.com'),
+        (r'gmail|mail\.google', 'mail.google.com'),
+        (r'github\.com', 'github.com'),
+        (r'railway\.', 'railway.com'),
+        (r'facebook\.com', 'www.facebook.com'),
+        (r'aistudio\.google', 'aistudio.google.com'),
+        (r'chatgpt', 'chatgpt.com'),
+        (r'aloware', 'talk.aloware.com'),
+        (r'monday\.com', 'monday.com'),
+        (r'google\.com/search|Google Search', 'google.com'),
+        (r'youtube\.com', 'youtube.com'),
+        (r'linkedin\.com', 'linkedin.com'),
+    ]
+    
+    title_lower = title.lower()
+    for pattern, domain in domain_patterns:
+        if re.search(pattern, title_lower):
+            return domain
+    
+    return ""
+
+
+def extract_page_title(title: str) -> str:
+    """Extract the actual page title from window title."""
+    if not title:
+        return ""
+    
+    # Remove common suffixes like "- Google Chrome - profile"
+    parts = title.split(" - ")
+    if len(parts) >= 1:
+        # First part is usually the page title
+        return parts[0].strip()[:60]
+    return title[:60]
+
+
 def aggregate_events(events: list[dict]) -> dict:
     """Aggregate events into summary data matching Mac tracker's rich format."""
     total_seconds = 0
@@ -121,14 +169,18 @@ def aggregate_events(events: list[dict]) -> dict:
         url = event.get("url", "") or ""
         start_str = event.get("start", "")
         
-        # Always process for browser stats even if seconds is 0
+        # Extract domain from URL or window title
+        domain = ""
         if url:
             domain = extract_domain(url)
-            if domain:
-                browser_domains[domain] = browser_domains.get(domain, 0) + 1
-                # Track page visits
-                page_title = title[:80] if title else domain
-                browser_pages[(domain, page_title)] = browser_pages.get((domain, page_title), 0) + 1
+        elif app in ("Google Chrome", "Safari", "Arc", "Firefox") and title:
+            domain = extract_domain_from_title(title)
+        
+        # Track browser stats (count each event as a "visit")
+        if domain:
+            browser_domains[domain] = browser_domains.get(domain, 0) + 1
+            page_title = extract_page_title(title) if title else domain
+            browser_pages[(domain, page_title)] = browser_pages.get((domain, page_title), 0) + 1
         
         if seconds <= 0:
             continue
