@@ -4,6 +4,10 @@ logs/
 # Config with secrets (API tokens)
 config.json
 
+# Credentials directory (OAuth tokens, API keys)
+credentials/
+!credentials/README.md
+
 # Python virtual environment
 .venv/
 venv/
