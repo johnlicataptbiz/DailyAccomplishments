@@ -71,6 +71,11 @@ python3 "$SCRIPT_DIR/generate_daily_json.py" 2>/dev/null || true
 TODAY=$(date +%F)
 python3 "$SCRIPT_DIR/import_screentime.py" --date "$TODAY" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
 
+# Merge Calendar (ICS) meetings if credentials/calendar.ics exists
+if [ -f "$REPO_ROOT/credentials/calendar.ics" ]; then
+    python3 "$SCRIPT_DIR/import_calendar_ics.py" --date "$TODAY" --ics "$REPO_ROOT/credentials/calendar.ics" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
+fi
+
 # Enrich report with Browser History for today (Chrome/Safari)
 python3 "$SCRIPT_DIR/import_browser_history.py" --date "$TODAY" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
 
