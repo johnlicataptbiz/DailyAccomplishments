@@ -1354,6 +1354,19 @@
             const sSent = sStats.total_sent || 0;
             const sRecv = sStats.total_received || 0;
             const appts = d.debug_appointments?.appointments_today || [];
+            let topChanLines = '';
+            try {
+                const topCh = slack.top_channels || {};
+                let entries = Object.entries(topCh);
+                if (!entries.length) {
+                    const ca = slack.channel_activity || {};
+                    entries = Object.entries(ca).map(([k, v]) => [k, (typeof v === 'number') ? v : (Array.isArray(v) ? v.length : 0)]);
+                }
+                if (entries.length) {
+                    entries.sort((a,b)=> (b[1]||0)-(a[1]||0));
+                    topChanLines = entries.slice(0,3).map(([name,count]) => `<div class="integration-detail">#${name} — ${count}</div>`).join('');
+                }
+            } catch {}
             if (sSent || sRecv || appts.length) {
                 cards.push(`
                     <div class="integration-card">
@@ -1361,6 +1374,7 @@
                         <div class="integration-title">Slack</div>
                         <div class="integration-value">${appts.length} appt${appts.length==1?'':'s'}</div>
                         <div class="integration-detail">${sSent} sent • ${sRecv} received</div>
+                        ${topChanLines}
                     </div>
                 `);
             }
@@ -1368,6 +1382,13 @@
             const monday = d.monday || {};
             const itemsUpdated = monday.items_updated || 0;
             const boards = Object.keys(monday.by_board || {});
+            let topBoards = '';
+            try {
+                const byBoard = monday.by_board || {};
+                let arr = Object.entries(byBoard).map(([name, items]) => [name, Array.isArray(items) ? items.length : 0]);
+                arr.sort((a,b)=> (b[1]||0)-(a[1]||0));
+                topBoards = arr.slice(0,3).map(([name,count]) => `<div class="integration-detail">${name} — ${count}</div>`).join('');
+            } catch {}
             if (itemsUpdated || boards.length) {
                 cards.push(`
                     <div class="integration-card">
@@ -1375,6 +1396,7 @@
                         <div class="integration-title">Monday</div>
                         <div class="integration-value">${itemsUpdated} tasks</div>
                         <div class="integration-detail">${boards.length} board${boards.length==1?'':'s'} touched</div>
+                        ${topBoards}
                     </div>
                 `);
             }
@@ -1382,13 +1404,20 @@
             const hubspot = d.hubspot || {};
             const hsCalls = (hubspot.calls || []).length;
             const hsEmails = (hubspot.emails || []).length;
-            if (hsCalls || hsEmails) {
+            let topDeals = '';
+            try {
+                const deals = Array.isArray(hubspot.deals) ? hubspot.deals : [];
+                deals.sort((a,b)=> new Date(b.modified||0) - new Date(a.modified||0));
+                topDeals = deals.slice(0,3).map(x => `<div class="integration-detail">${(x.name||'Deal')} — ${(x.stage||'')}</div>`).join('');
+            } catch {}
+            if (hsCalls || hsEmails || topDeals) {
                 cards.push(`
                     <div class="integration-card">
                         <div class="integration-accent" style="background: linear-gradient(90deg, #ff7a59, #ffb199);"></div>
                         <div class="integration-title">HubSpot</div>
                         <div class="integration-value">${hsCalls} calls</div>
                         <div class="integration-detail">${hsEmails} emails</div>
+                        ${topDeals}
                     </div>
                 `);
             }
