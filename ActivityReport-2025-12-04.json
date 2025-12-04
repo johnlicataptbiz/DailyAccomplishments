@@ -7,7 +7,7 @@
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 1,
-    "coverage_window": "02:51\u201302:52 CST"
+    "coverage_window": "00:00\u201308:20"
   },
   "prepared_for_manager": [
     "Total focused time: 00:00 (Coverage: 02:51\u201302:52 CST)",
@@ -15,14 +15,17 @@
   ],
   "executive_summary": [
     "Worked across 1 applications",
-    "Top category: Coding"
+    "Top category: Coding",
+    "Screen Time: ~741 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
     "Focused on Terminal (00:00)"
   ],
   "by_category": {
-    "Coding": "00:00"
+    "Coding": "03:06",
+    "Research": "00:58",
+    "Other": "00:02"
   },
   "by_project": {},
   "google_workspace": {
@@ -40,47 +43,47 @@
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:00",
+      "time": "00:16",
       "pct": "0%"
     },
     {
       "hour": 1,
-      "time": "00:00",
+      "time": "00:27",
       "pct": "0%"
     },
     {
       "hour": 2,
-      "time": "00:00",
-      "pct": "100%"
+      "time": "00:43",
+      "pct": "0%"
     },
     {
       "hour": 3,
-      "time": "00:00",
+      "time": "00:45",
       "pct": "0%"
     },
     {
       "hour": 4,
-      "time": "00:00",
+      "time": "00:50",
       "pct": "0%"
     },
     {
       "hour": 5,
-      "time": "00:00",
+      "time": "00:11",
       "pct": "0%"
     },
     {
       "hour": 6,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     },
     {
       "hour": 7,
-      "time": "00:00",
+      "time": "00:35",
       "pct": "0%"
     },
     {
       "hour": 8,
-      "time": "00:00",
+      "time": "00:14",
       "pct": "0%"
     },
     {
@@ -162,7 +165,10 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Terminal": "00:00"
+    "Terminal": "02:20",
+    "Google Chrome": "00:58",
+    "VS Code": "00:46",
+    "Messages": "00:02"
   },
   "top_windows_preview": [
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:00"
@@ -173,5 +179,14 @@
     "appointments_today": [],
     "meetings_today": []
   },
-  "foot": "Auto-generated"
+  "foot": "Auto-generated",
+  "deep_work": [
+    {
+      "start": "07:03",
+      "end": "07:50",
+      "minutes": 30,
+      "category": "Coding",
+      "label": "Terminal"
+    }
+  ]
 }
