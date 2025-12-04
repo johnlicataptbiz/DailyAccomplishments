@@ -33,7 +33,8 @@
   },
   "executive_summary": [
     "Screen Time: ~674 min foreground app usage",
-    "Screen Time: ~45 min foreground app usage"
+    "Screen Time: ~45 min foreground app usage",
+    "Screen Time: ~112 min foreground app usage"
   ],
   "monday": {
     "date": "2025-12-04",
@@ -43,8 +44,8 @@
     "by_board": {}
   },
   "by_category": {
-    "Research": "01:51",
-    "Coding": "05:53",
+    "Research": "01:55",
+    "Coding": "06:43",
     "Other": "00:04"
   },
   "hourly_focus": [
@@ -170,7 +171,16 @@
     }
   ],
   "top_apps": {
-    "Terminal": "00:27",
-    "Google Chrome": "00:01"
-  }
+    "Terminal": "00:50",
+    "Google Chrome": "00:04"
+  },
+  "deep_work": [
+    {
+      "start": "01:03",
+      "end": "01:50",
+      "minutes": 30,
+      "category": "Coding",
+      "label": "Terminal"
+    }
+  ]
 }
