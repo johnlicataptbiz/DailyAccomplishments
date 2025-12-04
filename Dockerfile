@@ -13,6 +13,5 @@ RUN npm i -g serve
 ENV PORT=8080
 EXPOSE 8080
 
-# Serve the current directory statically
-CMD ["sh", "-c", "serve -n -s -l ${PORT} ."]
-
+# Serve the current directory statically (no SPA rewrites)
+CMD ["sh", "-c", "serve -n -l ${PORT} ."]
