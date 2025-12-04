@@ -17,6 +17,7 @@
             --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             --gradient-warning: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-active: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --green: #10b981;
             --blue: #3b82f6;
             --purple: #8b5cf6;
@@ -176,6 +177,12 @@
 
         .metric.highlight-metric .metric-value {
             background: var(--gradient-success);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .metric.active-metric .metric-value {
+            background: var(--gradient-active);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -1089,7 +1096,7 @@
                             <div class="metric-value">${formatMinutes(analysis.focusMins)}</div>
                             <div class="metric-label">Focus ${baseline?.days ? `· ${deltaBadge(analysis.focusMins, baseline.focusAvg)}` : ''}</div>
                         </div>
-                        <div class="metric">
+                        <div class="metric active-metric">
                             <div class="metric-value">${formatMinutes(analysis.activeMins)}</div>
                             <div class="metric-label">Active</div>
                         </div>
