@@ -64,7 +64,7 @@ if git diff --quiet && git diff --cached --quiet; then
 else
     DATE=$(date +%Y-%m-%d)
     TIME=$(date +%H:%M)
-    git add -A
+    git add ActivityReport-*.json reports/ gh-pages/
     git commit -m "Auto-update: $DATE $TIME" || true
     echo "[$(date)] Changes committed to main"
 
@@ -82,7 +82,7 @@ if [ -d "$GH_PAGES" ] && [ -f "$GH_PAGES/.git" ]; then
     if ! git diff --quiet || ! git diff --cached --quiet; then
         DATE=$(date +%Y-%m-%d)
         TIME=$(date +%H:%M)
-        git add -A
+        git add .
         git commit -m "Dashboard update: $DATE $TIME" || true
         if git push origin gh-pages 2>/dev/null; then
             echo "[$(date)] Pushed to gh-pages"

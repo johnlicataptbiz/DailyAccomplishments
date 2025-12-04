@@ -3,10 +3,6 @@
 This document tracks planned improvements to the Daily Accomplishments dashboard and data pipeline. Items are organized so we can implement and ship in small, testable steps.
 
 ## Guiding Principles
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 - Story-first: lead with wins and outcomes, not raw stats.
 - Multi-source truth: Screen Time, Browser History, Slack, Monday, HubSpot, Calendar, Aloware.
 - Privacy-by-default: clear indicators and filters, no accidental exposure.
@@ -14,10 +10,6 @@ This document tracks planned improvements to the Daily Accomplishments dashboard
 - Incremental: each change should be independently valuable and safe to roll out.
 
 ## Phase 1 — Baseline & Screen Time (in progress)
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 - [x] Integrate Screen Time (KnowledgeC) into daily report
 - [x] Add Top Applications from Screen Time to report and UI
 - [x] Privacy filters (exclude/anonymize) for both Screen Time and browser history
@@ -29,10 +21,6 @@ This document tracks planned improvements to the Daily Accomplishments dashboard
 Files touched: `scripts/import_screentime.py`, `scripts/import_browser_history.py`, `scripts/cron_report_and_push.sh`, `dashboard.html`.
 
 ## Phase 2 — Deep Work Timeline Overlay
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 Goal: Visualize contiguous focused blocks (>= 25 min) with labels.
 
 - [ ] Extract deep work blocks from hourly_focus (detect contiguous >= 25 min)
@@ -43,10 +31,6 @@ Goal: Visualize contiguous focused blocks (>= 25 min) with labels.
 Files: `tools/generate_reports.py` (optional), `dashboard.html` (render + styles).
 
 ## Phase 3 — Integration Highlights Grid
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 Goal: Surface actionable KPIs per integration.
 
 - [ ] Slack: appointments set (names), messages sent/received, active channels
@@ -59,10 +43,6 @@ Goal: Surface actionable KPIs per integration.
 Files: `dashboard.html` (analysis + render), data shaping in report if needed.
 
 ## Phase 4 — Trends & Sparklines (7-day)
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 Goal: Show trajectory for key metrics.
 
 - [ ] 7-day sparklines: Focus, Meetings, Appointments, Messages, Tasks
@@ -72,10 +52,6 @@ Goal: Show trajectory for key metrics.
 Files: `dashboard.html` (fetch last 7 reports + mini charts).
 
 ## Phase 5 — Filters & Privacy Controls
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 Goal: Let users tailor the view without changing the underlying data.
 
 - [ ] Category toggles (Coding, Research, Communication, Meetings, Private)
@@ -86,10 +62,6 @@ Goal: Let users tailor the view without changing the underlying data.
 Files: `dashboard.html` (state + re-render), minor CSS.
 
 ## Phase 6 — Drilldowns & Reporting
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 Goal: Click-through exploration and shareable summaries.
 
 - [ ] Click a category/app to see top hours and recent sessions/pages
@@ -99,10 +71,6 @@ Goal: Click-through exploration and shareable summaries.
 Files: `dashboard.html` (modals or expanders), small export utility.
 
 ## Phase 7 — Performance, Accessibility, Mobile
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 - [ ] Lazy-load secondary charts and lists
 - [ ] Improve semantic structure, tab order, contrast
 - [ ] Mobile layout tweaks (single column, stacked metrics)
@@ -111,19 +79,11 @@ Files: `dashboard.html` (modals or expanders), small export utility.
 Files: `dashboard.html` (layout + CSS), image sizing.
 
 ## Data & Pipeline Enhancements
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 - [ ] Nightly consolidated JSON for last 7 days to speed baselines
 - [ ] Optional: hourly meetings overlay (Calendar -> report.hourly_meetings)
 - [ ] Optional: deeper “top apps” normalization map
 
 ## Deployment — Railway (Fix + Permanent Link)
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 Goal: Reliable, shareable deployment that updates on push without breakage.
 
 - [ ] Investigate failing Railway builds and capture logs
@@ -136,19 +96,11 @@ Goal: Reliable, shareable deployment that updates on push without breakage.
 Files: `scripts/generate_daily_json.py`, `tools/generate_reports.py` (if needed).
 
 ## Open Questions
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 - Weights for “Impact Score” vs. productivity; ensure alignment with goals.
 - Deep work threshold (25 vs. 30 vs. 45 min) and per-category heuristics.
 - Which integrations are “authoritative” for appointments and closes?
 
 ## Rollout Plan
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 1. Ship Phase 2 (Deep Work overlay) behind a small flag in the UI.
 2. Ship Phase 3 (Integration Highlights) – minimal KPIs first.
 3. Ship Phase 4 (Trends) with Focus/Meetings only; expand later.
@@ -156,10 +108,6 @@ Files: `scripts/generate_daily_json.py`, `tools/generate_reports.py` (if needed)
 5. Monitor load time and browser console; add feature flags as needed.
 
 ## Acceptance Checklist (per feature)
-<<<<<<< HEAD
-=======
-
->>>>>>> 3fad6d1 (fix: resolve JS duplicate 'hourly' identifier, add inline favicon, add ActivityReport-2025-12-04.json, and include sample extension for testing message listener)
 - [ ] User story stated in PR description
 - [ ] Screenshots for desktop/mobile
 - [ ] Privacy behavior validated (exclude/anonymize)
