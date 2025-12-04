@@ -45,11 +45,11 @@
     "Meeting: Sales Call (01:00)"
   ],
   "by_category": {
-    "Research": "53:33",
-    "Coding": "08:41",
+    "Research": "61:19",
+    "Coding": "10:50",
     "Meetings": "01:15",
-    "Communication": "00:54",
-    "Other": "01:41",
+    "Communication": "00:57",
+    "Other": "02:00",
     "Docs": "00:00"
   },
   "by_project": {
@@ -185,27 +185,27 @@
     },
     {
       "hour": 7,
-      "time": "00:47",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 8,
-      "time": "00:32",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:31",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:54",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:53",
+      "time": "01:00",
       "pct": "0%"
     },
     {
