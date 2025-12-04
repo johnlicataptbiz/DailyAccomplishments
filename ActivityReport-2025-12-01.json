@@ -3,11 +3,11 @@
   "date": "2025-12-01",
   "title": "Daily Accomplishments \u2014 2025-12-01",
   "overview": {
-    "focus_time": "08:54",
+    "focus_time": "10:17",
     "meetings_time": "01:15",
     "appointments": 2,
     "projects_count": 12,
-    "coverage_window": "08:00\u201320:45",
+    "coverage_window": "07:09\u201323:14",
     "tasks_updated": 40,
     "updates_made": 3
   },
@@ -26,7 +26,8 @@
     "Primary doc: Google Sheets \u2014 Project_783_updated_fit \u2014 (00:01)",
     "HubSpot: 1 deals updated",
     "Monday.com: 40 tasks updated, 3 updates, across 10 boards",
-    "Screen Time: ~821 min foreground app usage"
+    "Screen Time: ~821 min foreground app usage",
+    "Screen Time: ~1254 min foreground app usage"
   ],
   "client_summary": [
     "Set 2 appt(s): [solid] Brad Neitzel; Discovery \u2014 Banfield Smith (moved from Game Plan Call)",
@@ -44,11 +45,11 @@
     "Meeting: Sales Call (01:00)"
   ],
   "by_category": {
-    "Research": "45:47",
-    "Coding": "06:32",
+    "Research": "53:33",
+    "Coding": "08:41",
     "Meetings": "01:15",
-    "Communication": "00:51",
-    "Other": "01:22",
+    "Communication": "00:54",
+    "Other": "01:41",
     "Docs": "00:00"
   },
   "by_project": {
@@ -184,32 +185,32 @@
     },
     {
       "hour": 7,
-      "time": "00:00",
+      "time": "00:47",
       "pct": "0%"
     },
     {
       "hour": 8,
-      "time": "00:00",
+      "time": "00:32",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:00",
+      "time": "00:31",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:00",
+      "time": "00:54",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:00",
+      "time": "00:53",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:36",
+      "time": "01:00",
       "pct": "0%"
     },
     {
@@ -283,10 +284,13 @@
     "Send recap for 'Game Plan Call With Jack and Banfield Smith'"
   ],
   "top_apps": {
-    "Google Chrome": "05:59",
-    "Terminal": "00:42",
-    "Messages": "00:11",
-    "Slack": "00:03"
+    "Google Chrome": "07:46",
+    "VS Code": "01:22",
+    "Terminal": "00:47",
+    "Messages": "00:17",
+    "Slack": "00:03",
+    "com.github.GitHubClient": "00:01",
+    "Finder": "00:01"
   },
   "top_windows_preview": [
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 01:11",
@@ -941,16 +945,30 @@
   },
   "deep_work": [
     {
-      "start": "15:33",
-      "end": "16:56",
+      "start": "09:33",
+      "end": "10:56",
       "minutes": 77,
       "category": "Research",
       "label": "Google Chrome"
     },
     {
-      "start": "13:09",
-      "end": "13:56",
+      "start": "07:09",
+      "end": "07:56",
       "minutes": 47,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "19:05",
+      "end": "19:46",
+      "minutes": 34,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "18:32",
+      "end": "19:03",
+      "minutes": 29,
       "category": "Research",
       "label": "Google Chrome"
     }

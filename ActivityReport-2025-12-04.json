@@ -32,7 +32,8 @@
     }
   },
   "executive_summary": [
-    "Screen Time: ~674 min foreground app usage"
+    "Screen Time: ~674 min foreground app usage",
+    "Screen Time: ~45 min foreground app usage"
   ],
   "monday": {
     "date": "2025-12-04",
@@ -42,19 +43,19 @@
     "by_board": {}
   },
   "by_category": {
-    "Research": "01:50",
-    "Coding": "05:26",
+    "Research": "01:51",
+    "Coding": "05:53",
     "Other": "00:04"
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:32",
+      "time": "00:37",
       "pct": "0%"
     },
     {
       "hour": 1,
-      "time": "00:54",
+      "time": "01:00",
       "pct": "0%"
     },
     {
@@ -169,9 +170,7 @@
     }
   ],
   "top_apps": {
-    "Terminal": "01:57",
-    "Google Chrome": "00:55",
-    "VS Code": "00:46",
-    "Messages": "00:02"
+    "Terminal": "00:27",
+    "Google Chrome": "00:01"
   }
 }
