@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Accomplishments</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <!-- Small inline favicon to avoid /favicon.ico 404 in local preview -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext x='0' y='12'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -480,6 +482,64 @@
         }
 
         .error h3 { color: #f87171; margin-bottom: 12px; }
+        /* Data Sources Panel */
+        .data-sources-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 28px;
+        }
+        .data-sources-panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .data-sources-panel-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding-top: 0;
+        }
+        .data-sources-panel-content.expanded {
+            max-height: 1000px; /* Adjust as needed */
+            padding-top: 16px;
+        }
+        .data-sources-panel-header .toggle-arrow {
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+        .data-sources-panel-header.expanded .toggle-arrow {
+            transform: rotate(90deg);
+        }
+        .data-source-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .data-source-table th,
+        .data-source-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            text-align: left;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .data-source-table th {
+            color: var(--text-dim);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+        .data-source-summary-item {
+            padding: 6px 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
     </style>
 </head>
 <body>
@@ -594,18 +654,28 @@
             currentDate = date;
             dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
 
+            console.log(`[loadData] Attempting to load data for date: ${date}`);
+
             try {
-                let response = await fetch(`/ActivityReport-${date}.json`);
-                if (!response.ok) response = await fetch(`/reports/daily-report-${date}.json`);
-                if (!response.ok) throw new Error('Report not found');
+                console.log(`[loadData] Attempting to fetch ActivityReport-${date}.json`);
+                let response = await fetch(`ActivityReport-${date}.json`);
+                if (!response.ok) {
+                    console.log(`[loadData] ActivityReport-${date}.json not found (status: ${response.status}). Trying reports/daily-report-${date}.json`);
+                    response = await fetch(`reports/daily-report-${date}.json`);
+                }
+                if (!response.ok) {
+                    throw new Error(`Report not found. Status: ${response.status} ${response.statusText}`);
+                }
 
                 data = await response.json();
+                console.log('[loadData] Data fetched successfully:', data);
                 document.getElementById('headerSub').textContent = formatDateFriendly(date);
                 document.getElementById('jsonLink').href = `/ActivityReport-${date}.json`;
                 const baseline = await loadBaseline(date);
                 renderDashboard(data, date, baseline);
             } catch (error) {
-                dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet.</p></div>`;
+                console.error('[loadData] Failed to load dashboard data:', error);
+                dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
             }
         }
 
@@ -729,8 +799,8 @@
             const hubspotEmails = hubspot.emails?.length || 0;
             
             // Hourly analysis - extended 5am to midnight
-            const hourly = d.hourly_focus || [];
-            const workHours = hourly.filter(h => h.hour >= 5 && h.hour <= 23);
+            const hourlyData = d.hourly_focus || [];
+            const workHours = hourlyData.filter(h => h.hour >= 5 && h.hour <= 23);
             const peakHour = workHours.reduce((max, h) => timeToMinutes(h.time) > timeToMinutes(max.time) ? h : max, { hour: 0, time: '00:00' });
             const morningFocus = workHours.filter(h => h.hour >= 5 && h.hour < 12).reduce((sum, h) => sum + timeToMinutes(h.time), 0);
             const afternoonFocus = workHours.filter(h => h.hour >= 12 && h.hour < 17).reduce((sum, h) => sum + timeToMinutes(h.time), 0);
@@ -1183,20 +1253,204 @@
                     <div class="section-title">📊 Time by Category</div>
                     ${renderBars(d.by_category || {})}
                 </div>
+
+                <!-- Data Sources Panel -->
+                <div class="data-sources-panel">
+                    <div class="data-sources-panel-header">
+                        <span>🔍 Data Sources</span>
+                        <span class="toggle-arrow">▶</span>
+                    </div>
+                    <div class="data-sources-panel-content">
+                        <!-- Content will be injected by JS -->
+                    </div>
+                </div>
             `;
 
             setTimeout(() => {
                 renderHourlyChart(d.hourly_focus || [], d);
                 renderCategoryChart(d.by_category || {});
-                attachDeepWorkTooltips();
+                // Attach optional deep-work tooltips if available
+                if (typeof attachDeepWorkTooltips === 'function') {
+                    try { attachDeepWorkTooltips(); } catch (err) { console.warn('attachDeepWorkTooltips error', err); }
+                }
+                // Setup data sources panel
+                try { setupDataSourcesPanel(d); } catch (err) { console.warn('setupDataSourcesPanel error', err); }
             }, 100);
         }
 
-        function renderHourlyTimeline(hours) {
+        function setupDataSourcesPanel(d) {
+            const header = document.querySelector('.data-sources-panel-header');
+            const content = document.querySelector('.data-sources-panel-content');
+            if (!header || !content) return;
+
+            header.addEventListener('click', () => {
+                content.classList.toggle('expanded');
+                header.classList.toggle('expanded');
+            });
+
+            // Render the content for the data sources panel
+            content.innerHTML = renderDataSourcesContent(d);
+        }
+
+        function renderDataSourcesContent(d) {
+            const analysis = analyzeDay(d);
+            let html = '<h4>Per-Hour Focus (from report)</h4>';
+            html += `
+                <table class="data-source-table">
+                    <thead>
+                        <tr>
+                            <th>Hour</th>
+                            <th>Minutes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${analysis.workHours.map(h => `
+                            <tr>
+                                <td>${h.hour}:00</td>
+                                <td>${timeToMinutes(h.time)}</td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+
+            html += '<h4 style="margin-top: 20px;">Integration Totals (best-effort)</h4>';
+            html += `<div class="data-source-summary-item">Slack messages (sent/recv): ${analysis.slackSent}/${analysis.slackReceived}</div>`;
+            html += `<div class="data-source-summary-item">Monday items updated: ${analysis.tasksUpdated}</div>`;
+            html += `<div class="data-source-summary-item">HubSpot deals today: ${analysis.yourClosedDeals}</div>`;
+            html += `<div class="data-source-summary-item">Top domain visits (sum): ${analysis.workHours.length > 0 ? d.browser_highlights?.top_domains?.reduce((sum, d) => sum + d.visits, 0) : 0}</div>`;
+            html += `<div class="data-source-summary-item">Meetings: ${analysis.meetings}  Appointments: ${analysis.appointments}</div>`;
+
+            return html;
+        }
+
+        function renderHourlyChart(hourlyData) {
+            const ctx = document.getElementById('hourlyChart');
+            if (!ctx) return;
+
+            // Destroy existing chart if any
+            if (hourlyChart) hourlyChart.destroy();
+
+            // Extended hours: 5am to midnight
+            const fullHours = [];
+            for (let h = 5; h <= 23; h++) {
+                const existing = hourlyData.find(x => x.hour === h);
+                fullHours.push(existing || { hour: h, time: '00:00', pct: '0%' });
+            }
+
+            hourlyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: fullHours.map(h => `${h.hour}`),
+                    datasets: [{
+                        data: fullHours.map(h => timeToMinutes(h.time)),
+                        backgroundColor: fullHours.map(h => {
+                            const v = timeToMinutes(h.time);
+                            return v >= 45 ? 'rgba(34, 197, 94, 0.8)' : 
+                                   v >= 30 ? 'rgba(139, 92, 246, 0.8)' : 
+                                   v > 0 ? 'rgba(59, 130, 246, 0.6)' : 
+                                   'rgba(100, 116, 139, 0.2)';
+                        }),
+                        borderRadius: 4,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, max: 60, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function renderCategoryChart(data) {
+            const ctx = document.getElementById('categoryChart');
+            if (!ctx) return;
+
+            // Destroy existing chart if any
+            if (categoryChart) categoryChart.destroy();
+
+            const labels = Object.keys(data);
+            const values = Object.values(data).map(v => timeToMinutes(v));
+
+            categoryChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: labels.map((_, i) => `rgba(103, 126, 234, ${0.6 - i * 0.1})`),
+                        borderColor: 'rgba(255, 255, 255, 0.1)',
+                        borderWidth: 2,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                color: 'var(--text)',
+                                font: { size: 14 }
+                            }},
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    const category = tooltipItem.label;
+                                    const timeSpent = timeToMinutes(data[category]);
+                                    return [`${category}`, `Time: ${formatMinutes(timeSpent)}`];
+                                }
+                            }},
+                    }
+                }
+            });
+        }
+
+        function renderHourlyHeatmap(hourlyData) {
+            if (!hourlyData.length) return '<p style="color: var(--text-muted);">No hourly data</p>';
+            
+            // Filter to working hours (6am - 10pm)
+            const workHours = hourlyData.filter(h => h.hour >= 6 && h.hour <= 22);
+            const maxMinutes = Math.max(...workHours.map(h => timeToMinutes(h.time)), 1);
+            
+            return `
+                <div class="hourly-grid">
+                    ${workHours.map(h => {
+                        const minutes = timeToMinutes(h.time);
+                        const intensity = minutes / maxMinutes;
+                        // Use gradient colors based on intensity
+                        let bg;
+                        if (intensity === 0) {
+                            bg = 'rgba(255,255,255,0.03)';
+                        } else if (intensity < 0.3) {
+                            bg = `linear-gradient(135deg, rgba(79, 172, 254, ${0.3 + intensity}), rgba(0, 242, 254, ${0.2 + intensity}))`;
+                        } else if (intensity < 0.7) {
+                            bg = `linear-gradient(135deg, rgba(139, 92, 246, ${0.4 + intensity * 0.6}), rgba(217, 70, 239, ${0.3 + intensity * 0.6}))`;
+                        } else {
+                            bg = `linear-gradient(135deg, rgba(17, 153, 142, ${0.5 + intensity * 0.5}), rgba(56, 239, 125, ${0.4 + intensity * 0.6}))`;
+                        }
+                        const textColor = intensity > 0.3 ? '#fff' : 'var(--text-muted)';
+                        
+                        return `
+                            <div class="hour-cell" style="background: ${bg};" title="${h.hour}:00 - ${h.time}">
+                                <span class="h">${h.hour}</span>
+                                <span class="t" style="color: ${textColor}">${h.time}</span>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        function renderHourlyTimeline(hourlyData) {
             // Ensure full coverage from 5am to midnight (5-23)
             const fullHours = [];
             for (let h = 5; h <= 23; h++) {
-                const existing = hours.find(x => x.hour === h);
+                const existing = hourlyData.find(x => x.hour === h);
                 fullHours.push(existing || { hour: h, time: '00:00', pct: '0%' });
             }
             
