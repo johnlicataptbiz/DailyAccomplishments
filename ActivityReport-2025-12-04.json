@@ -3,47 +3,42 @@
   "date": "2025-12-04",
   "title": "Daily Accomplishments \u2014 2025-12-04",
   "overview": {
+    "focus_time": "00:00",
+    "meetings_time": "00:00",
     "appointments": 0,
-    "tasks_updated": 0,
-    "updates_made": 0,
+    "projects_count": 1,
     "coverage_window": "00:00\u201308:20"
   },
-  "debug_appointments": {
-    "meetings_today": [],
-    "appointments_today": []
-  },
-  "hubspot": {
-    "date": "2025-12-04",
-    "meetings": [],
-    "deals": [],
-    "contacts": [],
-    "calls": [],
-    "tasks": [],
-    "booked_appointments": [],
-    "emails": [],
-    "summary": {
-      "meetings_count": 0,
-      "deals_updated": 0,
-      "new_contacts": 0,
-      "calls_made": 0,
-      "tasks_due": 0,
-      "emails_sent": 0
-    }
-  },
+  "prepared_for_manager": [
+    "Total focused time: 00:00 (Coverage: 02:51\u201302:52 CST)",
+    "Top apps: Terminal (00:00)"
+  ],
   "executive_summary": [
+    "Worked across 1 applications",
+    "Top category: Coding",
     "Screen Time: ~741 min foreground app usage"
   ],
-  "monday": {
-    "date": "2025-12-04",
-    "items": [],
-    "items_updated": 0,
-    "updates_count": 0,
-    "by_board": {}
-  },
+  "client_summary": [],
+  "accomplishments_today": [
+    "Focused on Terminal (00:00)"
+  ],
   "by_category": {
-    "Research": "00:58",
     "Coding": "03:06",
+    "Research": "00:58",
     "Other": "00:02"
+  },
+  "by_project": {},
+  "google_workspace": {
+    "Google": "00:00",
+    "Google Sheets": "00:00",
+    "Google Calendar": "00:00",
+    "Gmail": "00:00",
+    "Google Drive": "00:00",
+    "top_documents": []
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
   },
   "hourly_focus": [
     {
@@ -167,12 +162,24 @@
       "pct": "0%"
     }
   ],
+  "suggested_tasks": [],
+  "next_up": [],
   "top_apps": {
     "Terminal": "02:20",
     "Google Chrome": "00:58",
     "VS Code": "00:46",
     "Messages": "00:02"
   },
+  "top_windows_preview": [
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:00"
+  ],
+  "notes": [],
+  "debug_appointments": {
+    "contact_visits_top": [],
+    "appointments_today": [],
+    "meetings_today": []
+  },
+  "foot": "Auto-generated",
   "deep_work": [
     {
       "start": "07:03",
