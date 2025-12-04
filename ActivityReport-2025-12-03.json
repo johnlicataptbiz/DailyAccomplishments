@@ -23,10 +23,10 @@
     "meetings_today": []
   },
   "by_category": {
-    "Research": "37:04",
+    "Research": "42:51",
     "Communication": "01:55",
-    "Coding": "03:02",
-    "Other": "01:02",
+    "Coding": "03:28",
+    "Other": "01:09",
     "Docs": "00:00"
   },
   "by_project": {
@@ -58,7 +58,7 @@
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:35",
+      "time": "00:42",
       "pct": "0%"
     },
     {
@@ -148,7 +148,7 @@
     },
     {
       "hour": 18,
-      "time": "00:25",
+      "time": "00:30",
       "pct": "0%"
     },
     {

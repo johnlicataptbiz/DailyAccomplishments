@@ -3,18 +3,19 @@
   "date": "2025-11-27",
   "title": "Daily Accomplishments \u2014 2025-11-27",
   "overview": {
-    "coverage_window": "00:01\u201320:20"
+    "coverage_window": "00:01\u201320:20",
+    "focus_time": "03:44"
   },
   "browser_highlights": {},
   "by_category": {
-    "Coding": "01:30",
-    "Research": "02:10",
-    "Other": "00:04"
+    "Coding": "03:00",
+    "Research": "04:20",
+    "Other": "00:08"
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:27",
+      "time": "00:54",
       "pct": "0%"
     },
     {
@@ -84,37 +85,37 @@
     },
     {
       "hour": 14,
-      "time": "00:23",
+      "time": "00:46",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:38",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:30",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:37",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:06",
+      "time": "00:12",
       "pct": "0%"
     },
     {
       "hour": 19,
-      "time": "00:47",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:16",
+      "time": "00:32",
       "pct": "0%"
     },
     {
@@ -135,5 +136,40 @@
   ],
   "executive_summary": [
     "Screen Time: ~435 min foreground app usage"
+  ],
+  "top_apps": {
+    "Google Chrome": "02:10",
+    "Terminal": "01:30",
+    "Messages": "00:04"
+  },
+  "deep_work": [
+    {
+      "start": "17:12",
+      "end": "17:51",
+      "minutes": 31,
+      "category": "Coding",
+      "label": "Terminal"
+    },
+    {
+      "start": "19:37",
+      "end": "20:07",
+      "minutes": 30,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:32",
+      "minutes": 27,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:59",
+      "end": "15:32",
+      "minutes": 27,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
   ]
 }
