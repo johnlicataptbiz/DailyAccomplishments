@@ -434,7 +434,9 @@
     </div>
 
     <script>
-        let currentDate = new Date().toISOString().split('T')[0];
+        // Support shareable URLs: dashboard.html?date=2025-12-01
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentDate = urlParams.get('date') || new Date().toISOString().split('T')[0];
         let data = null;
         let hourlyChart = null;
         let categoryChart = null;
@@ -443,21 +445,42 @@
         const dateInput = document.getElementById('dateInput');
         dateInput.value = currentDate;
         loadData(currentDate);
+        
+        // Update URL when date changes (without reload)
+        function updateUrl(date) {
+            const url = new URL(window.location);
+            url.searchParams.set('date', date);
+            window.history.pushState({date}, '', url);
+        }
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', (e) => {
+            if (e.state?.date) {
+                currentDate = e.state.date;
+                dateInput.value = currentDate;
+                loadData(currentDate);
+            }
+        });
 
         document.getElementById('prevDay').addEventListener('click', () => changeDate(-1));
         document.getElementById('nextDay').addEventListener('click', () => changeDate(1));
         document.getElementById('todayBtn').addEventListener('click', () => {
             currentDate = new Date().toISOString().split('T')[0];
             dateInput.value = currentDate;
+            updateUrl(currentDate);
             loadData(currentDate);
         });
-        dateInput.addEventListener('change', (e) => loadData(e.target.value));
+        dateInput.addEventListener('change', (e) => {
+            updateUrl(e.target.value);
+            loadData(e.target.value);
+        });
 
         function changeDate(delta) {
             const date = new Date(currentDate);
             date.setDate(date.getDate() + delta);
             currentDate = date.toISOString().split('T')[0];
             dateInput.value = currentDate;
+            updateUrl(currentDate);
             loadData(currentDate);
         }
 
