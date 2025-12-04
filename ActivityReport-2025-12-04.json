@@ -3,34 +3,29 @@
   "date": "2025-12-04",
   "title": "Daily Accomplishments \u2014 2025-12-04",
   "overview": {
-    "focus_time": "07:05",
+    "focus_time": "01:31",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 4,
-    "coverage_window": "00:02\u201323:45"
+    "projects_count": 2,
+    "coverage_window": "00:02\u201310:02"
   },
   "prepared_for_manager": [
-    "Total focused time: 01:43 (Coverage: 02:57\u201323:45 CST)",
-    "Top apps: Google Chrome (01:02), app_mode_loader (00:26), Terminal (00:10)"
+    "Total focused time: 00:08 (Coverage: 02:57\u201310:02 CST)",
+    "Top apps: Terminal (00:04), Google Chrome (00:03)"
   ],
   "executive_summary": [
-    "Worked across 8 applications",
-    "Top category: Research",
-    "Screen Time: ~938 min foreground app usage"
+    "Worked across 2 applications",
+    "Top category: Coding",
+    "Screen Time: ~175 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:02)",
-    "Focused on app_mode_loader (00:26)",
-    "Focused on Terminal (00:10)",
-    "Focused on Finder (00:01)",
-    "Focused on System Preferences (00:01)"
+    "Focused on Terminal (00:04)",
+    "Focused on Google Chrome (00:03)"
   ],
   "by_category": {
-    "Research": "06:11",
-    "Other": "00:31",
-    "Coding": "02:03",
-    "Communication": "00:00"
+    "Coding": "01:29",
+    "Research": "00:09"
   },
   "by_project": {},
   "google_workspace": {
@@ -44,54 +39,50 @@
   "browser_highlights": {
     "top_domains": [
       {
-        "domain": "jack (physicaltherapybiz.com)",
-        "visits": 434
-      },
-      {
         "domain": "physicaltherapybiz.com",
-        "visits": 198
+        "visits": 32
       }
     ],
     "top_pages": [
       {
-        "page": "Debug rebase issues - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 208
-      },
-      {
-        "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
-        "visits": 43
-      },
-      {
         "page": "Daily Accomplishments - Google Chrome - physicaltherapybiz.com",
-        "visits": 37
-      },
-      {
-        "page": "Prospecting Agent ",
-        "visits": 28
-      },
-      {
-        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 26
-      },
-      {
-        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
-        "visits": 23
-      },
-      {
-        "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
-        "visits": 18
-      },
-      {
-        "page": "Google AI Studio - Google Chrome - physicaltherapybiz.com",
-        "visits": 17
-      },
-      {
-        "page": "COMMIT_EDITMSG \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
         "visits": 16
       },
       {
-        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - physicaltherapybiz.com",
-        "visits": 14
+        "page": "Prospecting Agent ",
+        "visits": 3
+      },
+      {
+        "page": "Google Calendar API overview \u00a0",
+        "visits": 2
+      },
+      {
+        "page": "Credentials \u2013 APIs & Services \u2013 ActivityTracker \u2013 Google Cloud console - Google ",
+        "visits": 2
+      },
+      {
+        "page": "dailyaccomplishments-production.up.railway.app/ActivityReport-2025-12-01.json - ",
+        "visits": 2
+      },
+      {
+        "page": "Physical Therapy Biz - Calendar - General settings - Google Chrome - physicalthe",
+        "visits": 2
+      },
+      {
+        "page": "Physical Therapy Biz - Calendar - Calendar settings for Jack Licata - Google Chr",
+        "visits": 2
+      },
+      {
+        "page": "acquisition (Channel) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com",
+        "visits": 2
+      },
+      {
+        "page": "Configure the OAuth consent screen and choose scopes \u00a0",
+        "visits": 1
+      },
+      {
+        "page": "Create access credentials \u00a0",
+        "visits": 1
       }
     ]
   },
@@ -143,37 +134,37 @@
     },
     {
       "hour": 9,
-      "time": "00:09",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:41",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:33",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:49",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:46",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:26",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:18",
+      "time": "00:00",
       "pct": "0%"
     },
     {
@@ -183,22 +174,22 @@
     },
     {
       "hour": 17,
-      "time": "00:23",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:35",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 19,
-      "time": "00:09",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:20",
+      "time": "00:00",
       "pct": "0%"
     },
     {
@@ -208,7 +199,7 @@
     },
     {
       "hour": 22,
-      "time": "00:25",
+      "time": "00:00",
       "pct": "0%"
     },
     {
@@ -220,21 +211,20 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "05:22",
-    "Terminal": "01:41",
-    "System Settings": "00:02"
+    "Terminal": "01:25",
+    "Google Chrome": "00:06"
   },
   "top_windows_preview": [
-    "app_mode_loader \u2014 missing value: 00:26",
-    "Google Chrome \u2014 Debug rebase issues - Google Chrome - Jack (physic: 00:17",
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:05",
-    "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:03",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:03",
-    "Google Chrome: 00:02",
-    "Google Chrome \u2014 Prospecting Agent : 00:02",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:02",
-    "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:01",
-    "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:01"
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:03",
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:01",
+    "Google Chrome: 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 ssh \u25c2 codex \u2014 : 00:00",
+    "Google Chrome \u2014 Prospecting Agent : 00:00",
+    "Google Chrome \u2014 Google Calendar API overview \u00a0: 00:00",
+    "Google Chrome \u2014 Credentials \u2013 APIs & Services \u2013 ActivityTracker \u2013 : 00:00",
+    "Google Chrome \u2014 dailyaccomplishments-production.up.railway.app/Act: 00:00",
+    "Google Chrome \u2014 Physical Therapy Biz - Calendar - General settings: 00:00",
+    "Google Chrome \u2014 Physical Therapy Biz - Calendar - Calendar setting: 00:00"
   ],
   "notes": [],
   "debug_appointments": {
@@ -244,34 +234,6 @@
   },
   "foot": "Auto-generated",
   "deep_work": [
-    {
-      "start": "11:30",
-      "end": "13:33",
-      "minutes": 92,
-      "category": "Research",
-      "label": "Google Chrome"
-    },
-    {
-      "start": "13:34",
-      "end": "14:54",
-      "minutes": 49,
-      "category": "Research",
-      "label": "Google Chrome"
-    },
-    {
-      "start": "09:46",
-      "end": "10:42",
-      "minutes": 43,
-      "category": "Research",
-      "label": "Google Chrome"
-    },
-    {
-      "start": "17:37",
-      "end": "18:24",
-      "minutes": 35,
-      "category": "Research",
-      "label": "Google Chrome"
-    },
     {
       "start": "01:54",
       "end": "02:39",
@@ -285,20 +247,6 @@
       "minutes": 30,
       "category": "Coding",
       "label": "Terminal"
-    },
-    {
-      "start": "19:55",
-      "end": "20:29",
-      "minutes": 25,
-      "category": "Research",
-      "label": "Google Chrome"
-    },
-    {
-      "start": "22:27",
-      "end": "22:58",
-      "minutes": 25,
-      "category": "Research",
-      "label": "Google Chrome"
     }
   ]
 }
