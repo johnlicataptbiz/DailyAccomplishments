@@ -174,6 +174,12 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .metric.highlight-metric .metric-value {
+            background: var(--gradient-success);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .metric-label {
             font-size: 12px;
             color: var(--text-muted);
@@ -533,18 +539,39 @@
             const appointments = d.overview?.appointments || 0;
             const meetings = d.debug_appointments?.meetings_today?.length || 0;
             
-            // HubSpot analysis
-            const deals = d.hubspot?.deals || [];
-            const wonDeals = deals.filter(x => x.stage === 'closedwon');
-            const revenue = wonDeals.reduce((sum, x) => sum + (parseFloat(x.amount) || 0), 0);
+            // YOUR Monday.com boards - the stuff that matters
+            const monday = d.monday || {};
+            const byBoard = monday.by_board || {};
+            const allItems = monday.items || [];
             
-            // Monday analysis
-            const tasksUpdated = d.monday?.items_updated || 0;
-            const boards = Object.keys(d.monday?.by_board || {});
+            // Jack Set Calls - YOUR appointments
+            const jackSetCalls = byBoard['Jack Set Calls'] || [];
+            const jackSetItems = allItems.filter(i => i.board === 'Jack Set Calls');
+            const jackWonCalls = jackSetItems.filter(i => i.status === 'WON');
+            const jackMovedToDiscovery = jackSetItems.filter(i => i.status === 'Moved to Discovery');
+            
+            // Sales Team Calls with "Set by Jack Licata" - YOUR closed deals
+            const salesTeamCalls = allItems.filter(i => 
+                i.board?.toLowerCase().includes('sales') && 
+                i.board?.toLowerCase().includes('call')
+            );
+            
+            // Q4 Modular Tracker - prospects you're managing
+            const modularTracker = byBoard['Q4 Modular Tracker'] || [];
+            
+            // General task updates
+            const tasksUpdated = monday.items_updated || 0;
+            const boards = Object.keys(byBoard);
+            const updatesCount = monday.updates_count || 0;
             
             // Slack analysis
             const slackSent = d.slack?.stats?.total_sent || 0;
             const slackReceived = d.slack?.stats?.total_received || 0;
+            
+            // HubSpot - DE-PRIORITIZED (not your closes unless tagged)
+            const hubspot = d.hubspot || {};
+            const hubspotCalls = hubspot.calls?.length || 0;
+            const hubspotEmails = hubspot.emails?.length || 0;
             
             // Hourly analysis - extended 5am to midnight
             const hourly = d.hourly_focus || [];
@@ -562,169 +589,225 @@
             const apps = d.top_apps || {};
             const topApp = Object.entries(apps).sort((a, b) => timeToMinutes(b[1]) - timeToMinutes(a[1]))[0];
             
-            // Inferences
-            const productivityScore = Math.min(100, Math.round((focusMins / 480) * 100)); // 8h = 100%
-            const isHighOutput = focusMins >= 360; // 6+ hours
-            const isMeetingHeavy = meetingMins >= 120; // 2+ hours meetings
-            const isClosingDeals = wonDeals.length > 0;
-            const isProspecting = appointments > 0;
-            const isDeepWork = peakHour && timeToMinutes(peakHour.time) >= 45;
+            // YOUR metrics - what actually matters
+            const yourClosedDeals = jackWonCalls.length; // Deals YOU closed via Jack Set Calls
+            const yourAppointmentsSet = jackSetCalls.length; // Calls YOU set
+            const yourProspectsManaged = modularTracker.length;
+            const yourMeetings = meetings;
+            
+            // Productivity based on YOUR contributions, not just screen time
+            const contributionScore = Math.min(100, 
+                (yourClosedDeals * 30) + // Each close is huge
+                (yourAppointmentsSet * 10) + // Each appt set matters
+                (tasksUpdated * 2) + // Task throughput
+                (Math.min(focusMins / 480, 1) * 20) + // Up to 20% for focus time
+                (updatesCount * 5) // Engagement
+            );
+            
+            // Story flags
+            const hasClosedDeals = yourClosedDeals > 0;
+            const hasActiveProspecting = yourAppointmentsSet >= 3;
+            const hasStrongEngagement = tasksUpdated >= 10;
+            const hasDeepWork = peakHour && timeToMinutes(peakHour.time) >= 45;
             const isMorningPerson = morningFocus > afternoonFocus && morningFocus > eveningFocus;
-            const isEveningWorker = eveningFocus > 60;
             const isCollaborative = slackSent > 20 || meetings > 2;
+            const hasLimitedTracking = focusMins < 30; // Tracker may not have been running
             
             return {
                 focusMins, meetingMins, appointments, meetings,
-                deals, wonDeals, revenue, tasksUpdated, boards,
-                slackSent, slackReceived,
+                // YOUR contributions (what we highlight)
+                yourClosedDeals, yourAppointmentsSet, yourProspectsManaged,
+                jackSetCalls, jackWonCalls, jackMovedToDiscovery,
+                modularTracker, salesTeamCalls,
+                // Monday.com
+                tasksUpdated, boards, updatesCount, allItems, byBoard,
+                // Communication
+                slackSent, slackReceived, hubspotCalls, hubspotEmails,
+                // Time analysis
                 workHours, peakHour, morningFocus, afternoonFocus, eveningFocus,
                 categories, topCategory, apps, topApp,
-                productivityScore, isHighOutput, isMeetingHeavy, isClosingDeals,
-                isProspecting, isDeepWork, isMorningPerson, isEveningWorker, isCollaborative
+                // Scores
+                contributionScore,
+                // Flags
+                hasClosedDeals, hasActiveProspecting, hasStrongEngagement,
+                hasDeepWork, isMorningPerson, isCollaborative, hasLimitedTracking
             };
         }
 
         function generateHeadline(analysis, date) {
             const dayName = new Date(date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long' });
             
-            if (analysis.isClosingDeals && analysis.revenue > 0) {
-                return `A <span class="highlight">$${analysis.revenue.toLocaleString()} day</span> — closed ${analysis.wonDeals.length} deal${analysis.wonDeals.length > 1 ? 's' : ''} and stayed productive`;
+            // YOUR wins first
+            if (analysis.hasClosedDeals) {
+                const names = analysis.jackWonCalls.map(i => i.name).join(', ');
+                return `🎯 <span class="highlight">Closed ${analysis.yourClosedDeals} deal${analysis.yourClosedDeals > 1 ? 's' : ''}</span> — ${names}`;
             }
             
-            if (analysis.isHighOutput && analysis.isProspecting) {
-                return `<span class="highlight">Strong ${dayName}</span> — ${formatMinutes(analysis.focusMins)} focused with ${analysis.appointments} appointment${analysis.appointments > 1 ? 's' : ''} booked`;
+            if (analysis.hasActiveProspecting) {
+                return `📞 <span class="highlight">${analysis.yourAppointmentsSet} appointments</span> managed in Jack Set Calls`;
             }
             
-            if (analysis.isHighOutput && analysis.isDeepWork) {
-                return `<span class="highlight">Deep work day</span> — ${formatMinutes(analysis.focusMins)} of focused productivity`;
+            if (analysis.hasStrongEngagement && analysis.tasksUpdated >= 20) {
+                return `🚀 High-output ${dayName} — <span class="highlight">${analysis.tasksUpdated} tasks</span> across ${analysis.boards.length} boards`;
             }
             
-            if (analysis.isMeetingHeavy) {
-                return `<span class="highlight-warn">Meeting-heavy ${dayName}</span> — ${formatMinutes(analysis.meetingMins)} in meetings, ${formatMinutes(analysis.focusMins)} focused`;
+            if (analysis.yourProspectsManaged > 0) {
+                return `📊 ${dayName} — Managing <span class="highlight">${analysis.yourProspectsManaged} prospects</span> in the pipeline`;
+            }
+            
+            if (analysis.hasDeepWork && !analysis.hasLimitedTracking) {
+                return `🧠 Deep work ${dayName} — ${formatMinutes(analysis.focusMins)} of focused productivity`;
             }
             
             if (analysis.isCollaborative) {
-                return `<span class="highlight">Collaborative ${dayName}</span> — high engagement across teams and tools`;
+                return `💬 Collaborative ${dayName} — high engagement across teams`;
             }
             
-            if (analysis.focusMins >= 240) {
-                return `Solid ${dayName} — <span class="highlight">${formatMinutes(analysis.focusMins)}</span> of productive work`;
+            if (analysis.hasLimitedTracking && analysis.tasksUpdated > 0) {
+                return `📋 ${dayName} — ${analysis.tasksUpdated} tasks updated (tracker starting up)`;
             }
             
-            return `${dayName} overview — ${formatMinutes(analysis.focusMins)} tracked focus time`;
+            if (analysis.tasksUpdated > 0) {
+                return `${dayName} — ${analysis.tasksUpdated} tasks updated, ${analysis.boards.length} boards touched`;
+            }
+            
+            return `${dayName} overview`;
         }
 
         function generateSummary(analysis) {
             const parts = [];
             
-            // Work pattern
-            if (analysis.isMorningPerson) {
-                parts.push(`You were most productive in the morning, with ${formatMinutes(analysis.morningFocus)} before noon.`);
-            } else if (analysis.eveningFocus > analysis.morningFocus) {
-                parts.push(`Your energy picked up later in the day, with ${formatMinutes(analysis.eveningFocus)} of evening focus.`);
+            // YOUR sales contributions first
+            if (analysis.jackSetCalls.length > 0) {
+                const statuses = {};
+                analysis.jackSetCalls.forEach(name => {
+                    const item = analysis.allItems.find(i => i.name === name);
+                    if (item?.status) {
+                        statuses[item.status] = (statuses[item.status] || 0) + 1;
+                    }
+                });
+                const statusParts = Object.entries(statuses).map(([s, c]) => `${c} ${s}`).join(', ');
+                if (statusParts) {
+                    parts.push(`Jack Set Calls: ${statusParts}.`);
+                }
             }
             
-            // Peak hour
-            if (analysis.peakHour && timeToMinutes(analysis.peakHour.time) > 0) {
-                parts.push(`Peak focus was at ${analysis.peakHour.hour}:00 with ${analysis.peakHour.time} of deep work.`);
+            // Modular tracker activity
+            if (analysis.modularTracker.length > 0) {
+                parts.push(`Managed ${analysis.modularTracker.length} prospects in Q4 Modular Tracker.`);
             }
             
-            // Main activity
-            if (analysis.topCategory) {
-                parts.push(`Most time went to ${analysis.topCategory[0]} (${analysis.topCategory[1]}).`);
+            // Board activity
+            const activeBoards = analysis.boards.filter(b => 
+                !b.includes('Subitems') && 
+                (analysis.byBoard[b]?.length || 0) >= 2
+            );
+            if (activeBoards.length > 0 && activeBoards.length <= 3) {
+                parts.push(`Active on: ${activeBoards.join(', ')}.`);
             }
             
-            // Sales activity
-            if (analysis.deals.length > 0) {
-                parts.push(`${analysis.deals.length} deal${analysis.deals.length > 1 ? 's' : ''} touched in HubSpot${analysis.revenue > 0 ? ` with $${analysis.revenue.toLocaleString()} closed` : ''}.`);
+            // Limited tracking notice
+            if (analysis.hasLimitedTracking) {
+                parts.push(`Screen tracking was limited (${formatMinutes(analysis.focusMins)}) — integration data tells the full story.`);
+            } else if (analysis.focusMins > 0) {
+                // Work pattern
+                if (analysis.isMorningPerson && analysis.morningFocus > 60) {
+                    parts.push(`Most productive before noon with ${formatMinutes(analysis.morningFocus)} of focus.`);
+                }
             }
             
-            // Tasks
-            if (analysis.tasksUpdated > 0) {
-                parts.push(`${analysis.tasksUpdated} task${analysis.tasksUpdated > 1 ? 's' : ''} updated across ${analysis.boards.length} Monday board${analysis.boards.length > 1 ? 's' : ''}.`);
-            }
-            
-            return parts.join(' ');
+            return parts.join(' ') || 'Integration data shows your activity across platforms.';
         }
 
         function generateInsights(analysis) {
             const insights = [];
             
-            // Productivity score
-            insights.push({
-                icon: '📈',
-                title: 'Productivity Score',
-                value: `${analysis.productivityScore}%`,
-                detail: analysis.productivityScore >= 75 ? 'Excellent output today' : 
-                        analysis.productivityScore >= 50 ? 'Solid productive day' : 
-                        'Room for more focus time',
-                class: analysis.productivityScore >= 75 ? 'highlight' : ''
-            });
-            
-            // Peak performance
-            if (analysis.peakHour && timeToMinutes(analysis.peakHour.time) > 0) {
+            // YOUR closed deals - the most important metric
+            if (analysis.yourClosedDeals > 0) {
                 insights.push({
-                    icon: '⚡',
-                    title: 'Peak Hour',
-                    value: `${analysis.peakHour.hour}:00`,
-                    detail: `${analysis.peakHour.time} of focused work — your most productive hour`,
+                    icon: '🎯',
+                    title: 'Deals Closed',
+                    value: analysis.yourClosedDeals.toString(),
+                    detail: analysis.jackWonCalls.map(i => i.name).join(', '),
+                    class: 'highlight'
+                });
+            }
+            
+            // YOUR appointments set
+            if (analysis.yourAppointmentsSet > 0) {
+                insights.push({
+                    icon: '📞',
+                    title: 'Appointments Managed',
+                    value: analysis.yourAppointmentsSet.toString(),
+                    detail: `In Jack Set Calls board`,
+                    class: analysis.yourAppointmentsSet >= 5 ? 'highlight' : ''
+                });
+            }
+            
+            // Prospects you're managing
+            if (analysis.yourProspectsManaged > 0) {
+                insights.push({
+                    icon: '📊',
+                    title: 'Prospects',
+                    value: analysis.yourProspectsManaged.toString(),
+                    detail: 'Active in Q4 Modular Tracker',
                     class: ''
                 });
             }
             
-            // Revenue if any
-            if (analysis.revenue > 0) {
-                insights.push({
-                    icon: '💰',
-                    title: 'Revenue Closed',
-                    value: `$${analysis.revenue.toLocaleString()}`,
-                    detail: `${analysis.wonDeals.length} deal${analysis.wonDeals.length > 1 ? 's' : ''} closed won`,
-                    class: 'highlight'
-                });
-            }
-            
-            // Appointments
-            if (analysis.appointments > 0) {
-                insights.push({
-                    icon: '🤝',
-                    title: 'Appointments Set',
-                    value: analysis.appointments.toString(),
-                    detail: 'New opportunities added to the pipeline',
-                    class: 'highlight'
-                });
-            }
-            
-            // Communication load
-            if (analysis.slackSent > 0 || analysis.slackReceived > 0) {
-                const total = analysis.slackSent + analysis.slackReceived;
-                insights.push({
-                    icon: '💬',
-                    title: 'Communication',
-                    value: `${total} messages`,
-                    detail: `${analysis.slackSent} sent, ${analysis.slackReceived} received`,
-                    class: total > 50 ? 'warning' : ''
-                });
-            }
+            // Contribution score (replaces productivity score)
+            insights.push({
+                icon: '⚡',
+                title: 'Impact Score',
+                value: `${analysis.contributionScore}%`,
+                detail: analysis.contributionScore >= 70 ? 'High-impact day' : 
+                        analysis.contributionScore >= 40 ? 'Solid contributions' : 
+                        'Building momentum',
+                class: analysis.contributionScore >= 70 ? 'highlight' : ''
+            });
             
             // Task throughput
             if (analysis.tasksUpdated > 0) {
                 insights.push({
                     icon: '✅',
-                    title: 'Tasks Touched',
+                    title: 'Tasks Updated',
                     value: analysis.tasksUpdated.toString(),
-                    detail: `Across ${analysis.boards.length} Monday.com board${analysis.boards.length > 1 ? 's' : ''}`,
+                    detail: `Across ${analysis.boards.length} Monday board${analysis.boards.length > 1 ? 's' : ''}`,
+                    class: analysis.tasksUpdated >= 20 ? 'highlight' : ''
+                });
+            }
+            
+            // Communication
+            if (analysis.slackSent > 0 || analysis.slackReceived > 0) {
+                const total = analysis.slackSent + analysis.slackReceived;
+                insights.push({
+                    icon: '💬',
+                    title: 'Messages',
+                    value: total.toString(),
+                    detail: `${analysis.slackSent} sent, ${analysis.slackReceived} received`,
                     class: ''
                 });
             }
             
-            // Meeting load
+            // Focus time only if meaningful
+            if (analysis.focusMins >= 60) {
+                insights.push({
+                    icon: '🧠',
+                    title: 'Focus Time',
+                    value: formatMinutes(analysis.focusMins),
+                    detail: analysis.peakHour ? `Peak at ${analysis.peakHour.hour}:00` : 'Screen time tracked',
+                    class: analysis.focusMins >= 240 ? 'highlight' : ''
+                });
+            }
+            
+            // Meetings
             if (analysis.meetings > 0) {
                 insights.push({
                     icon: '📅',
                     title: 'Meetings',
                     value: analysis.meetings.toString(),
-                    detail: `${formatMinutes(analysis.meetingMins)} total meeting time`,
-                    class: analysis.isMeetingHeavy ? 'warning' : ''
+                    detail: `${formatMinutes(analysis.meetingMins)} total`,
+                    class: ''
                 });
             }
             
@@ -734,46 +817,66 @@
         function generateWins(d, analysis) {
             const wins = [];
             
-            // Revenue wins
-            analysis.wonDeals.forEach(deal => {
+            // YOUR closed deals first
+            analysis.jackWonCalls.forEach(item => {
                 wins.push({
-                    icon: '💰',
+                    icon: '🎯',
                     iconBg: 'rgba(16, 185, 129, 0.2)',
-                    title: `Closed ${deal.name}`,
-                    detail: deal.amount ? `$${parseFloat(deal.amount).toLocaleString()} revenue` : 'Deal closed won'
+                    title: `Closed: ${item.name}`,
+                    detail: 'Deal won from Jack Set Calls'
                 });
             });
             
-            // Appointments
+            // Moved to Discovery (pipeline progress)
+            if (analysis.jackMovedToDiscovery.length > 0) {
+                wins.push({
+                    icon: '📈',
+                    iconBg: 'rgba(59, 130, 246, 0.2)',
+                    title: `${analysis.jackMovedToDiscovery.length} moved to Discovery`,
+                    detail: analysis.jackMovedToDiscovery.slice(0, 3).map(i => i.name).join(', ')
+                });
+            }
+            
+            // High prospect management
+            if (analysis.yourProspectsManaged >= 5) {
+                wins.push({
+                    icon: '📊',
+                    iconBg: 'rgba(139, 92, 246, 0.2)',
+                    title: 'Pipeline Management',
+                    detail: `${analysis.yourProspectsManaged} prospects updated in Modular Tracker`
+                });
+            }
+            
+            // High task throughput
+            if (analysis.tasksUpdated >= 20) {
+                wins.push({
+                    icon: '🚀',
+                    iconBg: 'rgba(249, 115, 22, 0.2)',
+                    title: 'High Output',
+                    detail: `${analysis.tasksUpdated} tasks updated across boards`
+                });
+            }
+            
+            // Deep work achievement (only if tracker was running)
+            if (analysis.hasDeepWork && !analysis.hasLimitedTracking) {
+                wins.push({
+                    icon: '🧠',
+                    iconBg: 'rgba(139, 92, 246, 0.2)',
+                    title: 'Deep Work Session',
+                    detail: `${analysis.peakHour.time} focused at ${analysis.peakHour.hour}:00`
+                });
+            }
+            
+            // Appointments from debug_appointments
             const appts = d.debug_appointments?.appointments_today || [];
             appts.forEach(a => {
                 wins.push({
                     icon: '🤝',
                     iconBg: 'rgba(59, 130, 246, 0.2)',
                     title: a.name,
-                    detail: a.time || 'Appointment scheduled'
+                    detail: a.time || 'Appointment'
                 });
             });
-            
-            // Deep work achievement
-            if (analysis.isDeepWork) {
-                wins.push({
-                    icon: '🧠',
-                    iconBg: 'rgba(139, 92, 246, 0.2)',
-                    title: 'Deep Work Session',
-                    detail: `${analysis.peakHour.time} of uninterrupted focus at ${analysis.peakHour.hour}:00`
-                });
-            }
-            
-            // High output
-            if (analysis.focusMins >= 360) {
-                wins.push({
-                    icon: '🔥',
-                    iconBg: 'rgba(249, 115, 22, 0.2)',
-                    title: 'High Output Day',
-                    detail: `${formatMinutes(analysis.focusMins)} of productive work tracked`
-                });
-            }
             
             return wins.slice(0, 5);
         }
@@ -793,25 +896,25 @@
                     <p class="story-summary">${summary}</p>
                     
                     <div class="story-metrics">
-                        <div class="metric">
-                            <div class="metric-value">${d.overview?.focus_time || '00:00'}</div>
-                            <div class="metric-label">Focus Time</div>
+                        <div class="metric ${analysis.yourClosedDeals > 0 ? 'highlight-metric' : ''}">
+                            <div class="metric-value">${analysis.yourClosedDeals}</div>
+                            <div class="metric-label">Deals Closed</div>
                         </div>
-                        <div class="metric">
-                            <div class="metric-value">${analysis.meetings}</div>
-                            <div class="metric-label">Meetings</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">${analysis.appointments}</div>
+                        <div class="metric ${analysis.yourAppointmentsSet >= 5 ? 'highlight-metric' : ''}">
+                            <div class="metric-value">${analysis.yourAppointmentsSet}</div>
                             <div class="metric-label">Appts Set</div>
                         </div>
                         <div class="metric">
-                            <div class="metric-value">${analysis.deals.length}</div>
-                            <div class="metric-label">Deals Touched</div>
+                            <div class="metric-value">${analysis.yourProspectsManaged}</div>
+                            <div class="metric-label">Prospects</div>
                         </div>
                         <div class="metric">
                             <div class="metric-value">${analysis.tasksUpdated}</div>
                             <div class="metric-label">Tasks</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${analysis.boards.length}</div>
+                            <div class="metric-label">Boards</div>
                         </div>
                     </div>
                 </div>
