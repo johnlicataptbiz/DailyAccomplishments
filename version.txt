@@ -1,3 +1,3 @@
-commit: 0411953
-date: 2025-12-04T07:56Z
-note: Active metric + Coverage duration; meetings overlay from Screen Time
+commit: 14ffddd
+date: 2025-12-04T08:00Z
+note: Screentime timezone fix; refreshed 2025-12-03 hourly focus
