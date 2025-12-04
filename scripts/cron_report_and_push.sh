@@ -64,7 +64,7 @@ if git diff --quiet && git diff --cached --quiet; then
 else
     DATE=$(date +%Y-%m-%d)
     TIME=$(date +%H:%M)
-    git add ActivityReport-*.json reports/ gh-pages/
+    git add ActivityReport-*.json reports/ *.csv *.svg dashboard.html
     git commit -m "Auto-update: $DATE $TIME" || true
     echo "[$(date)] Changes committed to main"
 

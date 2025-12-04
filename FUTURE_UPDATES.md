@@ -104,17 +104,15 @@ Files: `scripts/generate_daily_json.py`, `tools/generate_reports.py` (if needed)
 1. Ship Phase 2 (Deep Work overlay) behind a small flag in the UI.
 2. Ship Phase 3 (Integration Highlights) – minimal KPIs first.
 3. Ship Phase 4 (Trends) with Focus/Meetings only; expand later.
-4. Phase 5 filters, then Phase 6 drilldowns, then Phase 7 polish.
+4. Ship Phase 5 (Filters) with category toggles and privacy switch.
 5. Monitor load time and browser console; add feature flags as needed.
 
 ## Acceptance Checklist (per feature)
 - [ ] User story stated in PR description
 - [ ] Screenshots for desktop/mobile
 - [ ] Privacy behavior validated (exclude/anonymize)
-- [ ] No PII in logs or screenshots
-- [ ] Load performance unchanged or improved
-- [ ] Unit/integration tests where sensible (data shaping)
-
----
-Owner: jacklicataptbiz
-Last updated: 2025-12-04
+- [ ] Tested against empty and large (>1000 event) log files
+- [ ] Passes `scripts/validate_schemas.py`
+- [ ] Dashboard renders correctly with new data
+- [ ] Team lead/stakeholder review
+- [ ] QA sign-off
