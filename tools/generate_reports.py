@@ -229,7 +229,9 @@ def main():
         return
 
     # Hourly bar chart
-    hours = [int(x['hour']) for x in hf]
+    # Use the date from the data, falling back to the CLI arg or default
+    title_date = data.get('date') or date or DEFAULT_DATE
+    hours = [int(x.get('hour', 0)) for x in hf]
     # Apply same capping logic as CSV: if minutes > 60, use percentage-based calc
     minutes = []
     for x in hf:
@@ -246,7 +248,7 @@ def main():
     plt.bar(hours, minutes, color='#2563eb')
     plt.xlabel('Hour')
     plt.ylabel('Focused minutes')
-    plt.title('Hourly Focus — 2025-12-01')
+    plt.title(f'Hourly Focus — {title_date}')
     plt.xticks(hours)
     plt.tight_layout()
     plt.savefig(OUT_DIR / 'hourly_focus.png')
@@ -259,7 +261,7 @@ def main():
     if any(sizes):
         plt.figure(figsize=(6,6))
         plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
-        plt.title('Time by Category — 2025-12-01')
+        plt.title(f'Time by Category — {title_date}')
         plt.tight_layout()
         plt.savefig(OUT_DIR / 'category_distribution.png')
         plt.savefig(OUT_DIR / 'category_distribution.svg')

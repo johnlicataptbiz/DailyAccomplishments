@@ -4,7 +4,7 @@
     "focus_time": "11:25",
     "meetings_time": "00:00",
     "appointments": 1,
-    "coverage_window": "01:18\u201317:02 CST",
+    "coverage_window": "00:07\u201317:02",
     "tasks_updated": 10,
     "updates_made": 0,
     "calls_made": 0,
@@ -23,10 +23,10 @@
     "meetings_today": []
   },
   "by_category": {
-    "Research": "08:09",
+    "Research": "31:17",
     "Communication": "01:55",
-    "Coding": "00:52",
-    "Other": "00:27",
+    "Coding": "02:36",
+    "Other": "00:55",
     "Docs": "00:00"
   },
   "by_project": {
@@ -34,16 +34,9 @@
     "GitHub": "00:00"
   },
   "top_apps": {
-    "Google Chrome": "08:55",
-    "Messages": "01:09",
-    "Terminal": "00:52",
-    "app_mode_loader": "00:23",
-    "Finder": "00:03",
-    "TextEdit": "00:00",
-    "Preview": "00:00",
-    "System Preferences": "00:00",
-    "Photos": "00:00",
-    "Archive Utility": "00:00"
+    "Google Chrome": "05:47",
+    "Terminal": "00:26",
+    "Messages": "00:07"
   },
   "top_windows": {
     "Google Chrome \u2014 (no title)": "03:38",
@@ -64,64 +57,124 @@
   },
   "hourly_focus": [
     {
+      "hour": 0,
+      "time": "00:28",
+      "pct": "0%"
+    },
+    {
       "hour": 1,
-      "time": "00:00",
-      "pct": "1%"
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 3,
-      "time": "01:56",
-      "pct": "100%"
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 7,
-      "time": "01:38",
-      "pct": "100%"
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:56",
-      "pct": "94%"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:57",
-      "pct": "96%"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "01:06",
-      "pct": "100%"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "01:04",
-      "pct": "100%"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:45",
-      "pct": "76%"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:59",
-      "pct": "98%"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:58",
-      "pct": "97%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:58",
-      "pct": "97%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:01",
-      "pct": "2%"
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:20",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "01:00",
+      "pct": "0%"
     }
   ],
   "browser_highlights": {
@@ -319,7 +372,8 @@
   },
   "executive_summary": [
     "HubSpot: 8 deals updated",
-    "Monday.com: 10 tasks updated, across 3 boards"
+    "Monday.com: 10 tasks updated, across 3 boards",
+    "Screen Time: ~832 min foreground app usage"
   ],
   "monday": {
     "date": "2025-12-03",
@@ -492,5 +546,28 @@
     "channel_activity": {},
     "dm_activity": {},
     "top_channels": {}
-  }
+  },
+  "deep_work": [
+    {
+      "start": "15:02",
+      "end": "17:15",
+      "minutes": 132,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "20:17",
+      "end": "21:04",
+      "minutes": 32,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "19:47",
+      "end": "20:17",
+      "minutes": 25,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ]
 }

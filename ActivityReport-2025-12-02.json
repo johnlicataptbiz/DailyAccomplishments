@@ -7,7 +7,7 @@
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 3,
-    "coverage_window": "13:13\u201313:24 CST",
+    "coverage_window": "00:02\u201313:50",
     "tasks_updated": 39,
     "updates_made": 2
   },
@@ -19,7 +19,9 @@
     "Worked across 3 applications",
     "Top category: Coding",
     "HubSpot: 1 deals updated",
-    "Monday.com: 39 tasks updated, 2 updates, across 8 boards"
+    "Monday.com: 39 tasks updated, 2 updates, across 8 boards",
+    "Visited 10 unique domains (68 page views)",
+    "Screen Time: ~1875 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
@@ -28,9 +30,10 @@
     "Focused on Terminal (00:01)"
   ],
   "by_category": {
-    "Coding": "00:02",
-    "Other": "00:01",
-    "Research": "00:01"
+    "Coding": "06:34",
+    "Other": "00:37",
+    "Research": "29:41",
+    "Communication": "00:15"
   },
   "by_project": {},
   "google_workspace": {
@@ -42,64 +45,198 @@
     "top_documents": []
   },
   "browser_highlights": {
+    "total_visits": 68,
+    "unique_domains": 10,
     "top_domains": [
       {
-        "domain": "physicaltherapybiz.com",
-        "visits": 13
+        "domain": "chatgpt.com",
+        "visits": 79,
+        "sample_title": "ChatGPT"
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 63,
+        "sample_title": "Dave (DM) - better. - Slack"
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 21,
+        "sample_title": "Sign in - Google Accounts"
+      },
+      {
+        "domain": "auth.openai.com",
+        "visits": 8,
+        "sample_title": "Log in or sign up - OpenAI"
+      },
+      {
+        "domain": "accounts.youtube.com",
+        "visits": 7,
+        "sample_title": "Redirecting"
+      },
+      {
+        "domain": "pt-biz-workspace.slack.com",
+        "visits": 5,
+        "sample_title": "Enter your authentication code | Slack"
+      },
+      {
+        "domain": "slack.com",
+        "visits": 4,
+        "sample_title": "Sign in - Google Accounts"
+      },
+      {
+        "domain": "thebetterbiz.slack.com",
+        "visits": 2,
+        "sample_title": "Slack"
+      },
+      {
+        "domain": "",
+        "visits": 1,
+        "sample_title": "Daily Accomplishments \u2014 2025-12-02"
+      },
+      {
+        "domain": "oauth2.slack.com",
+        "visits": 1,
+        "sample_title": "Login | Slack"
       }
     ],
     "top_pages": [
       {
-        "page": "HS-Biz-Agent ",
-        "visits": 9
-      },
-      {
-        "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
-        "visits": 8
-      },
-      {
-        "page": "502 Bad Gateway - Google Chrome - physicaltherapybiz.com",
+        "page": "ChatGPT",
+        "url": "https://auth.openai.com/api/oauth/oauth2/auth?audience=https%3A%2F%2Fapi.openai.com%2Fv1&auth_sessio",
         "visits": 2
       },
       {
-        "page": "cron_report_and_push.sh \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Vis",
+        "page": "Redirecting",
+        "url": "https://accounts.google.com/CheckCookie?continue=https://accounts.google.com/signin/oauth/consent?au",
         "visits": 2
       },
       {
-        "page": "orange-palm-tree-q7j77pgg9wjp2pj-3001.app.github.dev - Network error - Google Ch",
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hANePFec2mLZ6XDmlr4D662wMGFmR2n",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/InteractiveLogin?authuser=0&continue=https://accounts.google.com/signin/",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/o/oauth2/v2/auth?client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/v3/signin/accountchooser?access_type=offline&client_id=606092904014-s1u3",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y",
+        "visits": 2
+      },
+      {
+        "page": "Daily Accomplishments \u2014 2025-12-02",
+        "url": "file:///Users/jacklicatamacbook/Library/Application%20Support/ActivityTracker/reports/2025-12-02.htm",
+        "visits": 1
+      },
+      {
+        "page": "* acquisition (Channel) - PT Biz - Slack",
+        "url": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
+        "visits": 1
+      },
+      {
+        "page": "Slack Biz (DM) - PT Biz - Slack",
+        "url": "https://app.slack.com/client/TJ3QQ76KV/D09TMCWS1M1",
+        "visits": 1
+      },
+      {
+        "page": "Zoom (DM) - PT Biz - Slack",
+        "url": "https://app.slack.com/client/TJ3QQ76KV/D0A0M3CNDGB",
+        "visits": 1
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://chatgpt.com/#settings/Connectors?connector=connector_0f9c9d4592e54d0a9a12b3f44a1e2010",
+        "visits": 1
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://chatgpt.com/#settings/Connectors",
+        "visits": 1
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://chatgpt.com/#settings",
+        "visits": 1
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://chatgpt.com/",
+        "visits": 1
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://chatgpt.com/?refresh_account=true",
+        "visits": 1
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://chatgpt.com/#settings/DataControls",
+        "visits": 1
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=799222349882-ne3i0s9jdm5s0",
+        "visits": 1
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://auth.openai.com/api/accounts/callback/google?state=875befdb-911b-45dd-aa2e-8748398c7f6f&code",
+        "visits": 1
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://auth.openai.com/api/accounts/consent?consent_challenge=vqJOhq2h7fkKRNlgb74EFw1YHSihxSyTlmLVM",
         "visits": 1
       }
-    ]
+    ],
+    "by_category": {
+      "Other": 36,
+      "Communication": 30,
+      "Research": 2
+    },
+    "coverage_window": "13:19\u201313:50"
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 1,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 2,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 3,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 4,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 5,
-      "time": "00:00",
+      "time": "00:20",
       "pct": "0%"
     },
     {
@@ -139,66 +276,70 @@
     },
     {
       "hour": 13,
-      "time": "00:04",
-      "pct": "100%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:00",
+      "time": "00:44",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 19,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:00",
+      "time": "00:52",
       "pct": "0%"
     },
     {
       "hour": 21,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 22,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 23,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     }
   ],
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "00:01",
-    "app_mode_loader": "00:01",
-    "Terminal": "00:01"
+    "Google Chrome": "07:25",
+    "VS Code": "01:22",
+    "Terminal": "00:16",
+    "Messages": "00:06",
+    "com.github.GitHubClient": "00:01",
+    "Finder": "00:01",
+    "System Settings": "00:01"
   },
   "top_windows_preview": [
     "app_mode_loader \u2014 missing value: 00:01",
@@ -792,5 +933,42 @@
         "LIVE! September 2026; 23-25"
       ]
     }
-  }
+  },
+  "deep_work": [
+    {
+      "start": "14:45",
+      "end": "15:37",
+      "minutes": 46,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:53",
+      "end": "14:44",
+      "minutes": 45,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "01:05",
+      "end": "01:46",
+      "minutes": 34,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "15:41",
+      "end": "16:20",
+      "minutes": 33,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "00:32",
+      "end": "01:03",
+      "minutes": 29,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ]
 }

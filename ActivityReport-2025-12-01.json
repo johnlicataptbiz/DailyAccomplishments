@@ -7,7 +7,7 @@
     "meetings_time": "01:15",
     "appointments": 2,
     "projects_count": 12,
-    "coverage_window": "08:00\u201320:45 CST",
+    "coverage_window": "08:00\u201320:45",
     "tasks_updated": 40,
     "updates_made": 3
   },
@@ -25,7 +25,8 @@
     "Meeting: Sales Call (01:00)",
     "Primary doc: Google Sheets \u2014 Project_783_updated_fit \u2014 (00:01)",
     "HubSpot: 1 deals updated",
-    "Monday.com: 40 tasks updated, 3 updates, across 10 boards"
+    "Monday.com: 40 tasks updated, 3 updates, across 10 boards",
+    "Screen Time: ~821 min foreground app usage"
   ],
   "client_summary": [
     "Set 2 appt(s): [solid] Brad Neitzel; Discovery \u2014 Banfield Smith (moved from Game Plan Call)",
@@ -43,11 +44,11 @@
     "Meeting: Sales Call (01:00)"
   ],
   "by_category": {
-    "Research": "03:54",
-    "Coding": "01:38",
+    "Research": "27:50",
+    "Coding": "04:26",
     "Meetings": "01:15",
-    "Communication": "00:30",
-    "Other": "00:05",
+    "Communication": "00:42",
+    "Other": "00:49",
     "Docs": "00:00"
   },
   "by_project": {
@@ -209,61 +210,61 @@
     {
       "hour": 12,
       "time": "00:36",
-      "pct": "43%"
+      "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:58",
-      "pct": "70%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "01:15",
-      "pct": "90%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "01:23",
-      "pct": "100%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:58",
-      "pct": "70%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:56",
-      "pct": "68%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:55",
-      "pct": "66%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 19,
       "time": "01:00",
-      "pct": "72%"
+      "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:50",
-      "pct": "60%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 21,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 22,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 23,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     }
   ],
@@ -282,14 +283,10 @@
     "Send recap for 'Game Plan Call With Jack and Banfield Smith'"
   ],
   "top_apps": {
-    "Google Chrome": "03:54",
-    "Terminal": "01:38",
-    "Messages": "00:26",
-    "Slack": "00:04",
-    "Finder": "00:03",
-    "System Preferences": "00:01",
-    "TextEdit": "00:00",
-    "App Store": "00:00"
+    "Google Chrome": "05:59",
+    "Terminal": "00:42",
+    "Messages": "00:11",
+    "Slack": "00:03"
   },
   "top_windows_preview": [
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 01:11",
@@ -941,5 +938,21 @@
         "Kelli Fernicola"
       ]
     }
-  }
+  },
+  "deep_work": [
+    {
+      "start": "15:33",
+      "end": "16:56",
+      "minutes": 77,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:09",
+      "end": "13:56",
+      "minutes": 47,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ]
 }

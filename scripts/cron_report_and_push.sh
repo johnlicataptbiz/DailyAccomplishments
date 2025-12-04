@@ -14,6 +14,13 @@ echo "[$(date)] Starting report generation..."
 # Generate the daily JSON report from local activity logs
 python3 "$SCRIPT_DIR/generate_daily_json.py" 2>/dev/null || true
 
+# Enrich report with Screen Time (KnowledgeC) data if accessible
+TODAY=$(date +%F)
+python3 "$SCRIPT_DIR/import_screentime.py" --date "$TODAY" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
+
+# Enrich report with Browser History for today (Chrome/Safari)
+python3 "$SCRIPT_DIR/import_browser_history.py" --date "$TODAY" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
+
 # Sync all integrations (HubSpot, Monday, Slack, Google Calendar, Aloware)
 if [ -f "$SCRIPT_DIR/sync_all.py" ]; then
     echo "[$(date)] Syncing integrations..."
@@ -23,6 +30,10 @@ fi
 # Generate charts if matplotlib is available
 if python3 -c "import matplotlib" 2>/dev/null; then
     python3 tools/generate_reports.py 2>/dev/null || true
+
+
+# Archive today
+"$SCRIPT_DIR"/archive_outputs.sh "$TODAY" 2>/dev/null || true
 fi
 
 # Copy files to gh-pages worktree if it exists

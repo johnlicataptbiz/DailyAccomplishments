@@ -17,7 +17,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from collections import defaultdict
 from urllib.parse import urlparse
-from typing import Optional
+from typing import Optional, Dict, Any
 
 # Chrome stores timestamps as microseconds since 1601-01-01
 CHROME_EPOCH = datetime(1601, 1, 1)
@@ -231,7 +231,56 @@ def categorize_url(url: str, title: str) -> str:
     return 'Other'
 
 
-def analyze_history(history: list) -> dict:
+def load_privacy_config(repo_path: Path) -> Dict[str, Any]:
+    """Load privacy settings from config.json if present.
+
+    Structure:
+      {
+        "privacy": {
+          "mode": "exclude" | "anonymize",
+          "blocked_domains": ["example.com", ...],
+          "blocked_keywords": ["porn", "xxx", ...]
+        }
+      }
+    Defaults to exclude and a small adult keyword set.
+    """
+    defaults = {
+        "mode": "exclude",
+        "blocked_domains": [],
+        "blocked_keywords": [
+            "porn", "xxx", "nsfw", "onlyfans", "xvideos", "xnxx",
+            "redtube", "youporn", "pornhub", "brazzers", "camgirl",
+            "camwhores", "hentai"
+        ],
+    }
+    candidates = [repo_path / 'config.json', Path.home() / 'DailyAccomplishments' / 'config.json']
+    for c in candidates:
+        try:
+            if c.exists():
+                with open(c) as f:
+                    cfg = json.load(f)
+                p = cfg.get('privacy') or {}
+                return {
+                    "mode": p.get('mode', defaults['mode']),
+                    "blocked_domains": p.get('blocked_domains', defaults['blocked_domains']),
+                    "blocked_keywords": p.get('blocked_keywords', defaults['blocked_keywords']),
+                }
+        except Exception:
+            continue
+    return defaults
+
+
+def is_unsavory(domain: str, title: str, privacy: Dict[str, Any]) -> bool:
+    d = (domain or '').lower()
+    t = (title or '').lower()
+    if any(bd in d for bd in (privacy.get('blocked_domains') or [])):
+        return True
+    if any(kw in d or kw in t for kw in (privacy.get('blocked_keywords') or [])):
+        return True
+    return False
+
+
+def analyze_history(history: list, privacy: Dict[str, Any]) -> dict:
     """Analyze browser history and generate stats."""
     if not history:
         return {}
@@ -254,8 +303,17 @@ def analyze_history(history: list) -> dict:
     for item in history:
         domain = extract_domain(item['url'])
         title = item['title']
+        if is_unsavory(domain, title, privacy):
+            # Drop or anonymize
+            if privacy.get('mode') == 'anonymize':
+                domain = 'private'
+                title = 'Private'
+            else:
+                continue
         hour = item['hour']
         category = categorize_url(item['url'], title)
+        if domain == 'private':
+            category = 'Private'
         
         domain_visits[domain] += item.get('visit_count', 1)
         domain_titles[domain] = title
@@ -303,6 +361,34 @@ def analyze_history(history: list) -> dict:
     }
 
 
+def _parse_coverage_window(s: str):
+    """Extract HH:MM start/end from a coverage window string.
+
+    Accepts formats like "HH:MM–HH:MM", optionally with timezone or notes.
+    Returns (start_min, end_min) or (None, None) if not found.
+    """
+    import re
+    if not s:
+        return (None, None)
+    # Find first two HH:MM occurrences
+    times = re.findall(r"(\d{2}:\d{2})", s)
+    if len(times) < 2:
+        return (None, None)
+    def to_min(t):
+        h, m = map(int, t.split(':'))
+        return h*60 + m
+    return to_min(times[0]), to_min(times[1])
+
+
+def _format_coverage_window(start_min: int, end_min: int):
+    """Format minutes since midnight as HH:MM–HH:MM."""
+    def fmt(m):
+        h = m // 60
+        mm = m % 60
+        return f"{h:02d}:{mm:02d}"
+    return f"{fmt(start_min)}–{fmt(end_min)}"
+
+
 def update_activity_report(date_str: str, browser_data: dict, repo_path: Path):
     """Update the ActivityReport JSON with browser data."""
     report_file = repo_path / f"ActivityReport-{date_str}.json"
@@ -343,15 +429,24 @@ def update_activity_report(date_str: str, browser_data: dict, repo_path: Path):
         if cat not in existing_categories:
             existing_categories[cat] = time_str
     
-    # Update coverage window to include browser data
+    # Update coverage window to include browser data (union of windows)
     if browser_data.get('coverage_window'):
         if 'overview' not in report:
             report['overview'] = {}
         overview = report['overview']
         existing_coverage = overview.get('coverage_window', '')
         browser_coverage = browser_data['coverage_window']
-        if not existing_coverage or existing_coverage == 'In progress...':
-            overview['coverage_window'] = f"{browser_coverage} (browser)"
+
+        e_start, e_end = _parse_coverage_window(existing_coverage)
+        b_start, b_end = _parse_coverage_window(browser_coverage)
+
+        if b_start is not None and b_end is not None:
+            if e_start is None or e_end is None:
+                # No existing coverage, adopt browser coverage
+                overview['coverage_window'] = _format_coverage_window(b_start, b_end)
+            else:
+                # Union of time ranges
+                overview['coverage_window'] = _format_coverage_window(min(e_start, b_start), max(e_end, b_end))
     
     # Add browser stats to executive summary
     if 'executive_summary' not in report:
@@ -405,7 +500,8 @@ def main():
         return
     
     # Analyze
-    analysis = analyze_history(all_history)
+    privacy = load_privacy_config(Path(args.repo))
+    analysis = analyze_history(all_history, privacy)
     
     # Output
     if args.output:

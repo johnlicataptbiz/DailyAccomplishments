@@ -246,6 +246,27 @@
             line-height: 1.6;
         }
 
+        /* Integration Highlights */
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        @media (max-width: 1200px) { .integrations-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 800px) { .integrations-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .integrations-grid { grid-template-columns: 1fr; } }
+        .integration-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px;
+        }
+        .integration-title { font-size: 12px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+        .integration-value { font-size: 22px; font-weight: 700; }
+        .integration-detail { font-size: 12px; color: var(--text-muted); margin-top: 6px; min-height: 16px; }
+        .integration-accent { height: 4px; border-radius: 4px; margin-bottom: 10px; }
+
         /* Activity Timeline */
         .timeline-section {
             background: var(--bg-card);
@@ -286,6 +307,31 @@
         .hour-block .time { font-size: 11px; color: var(--text-dim); margin-bottom: 6px; }
         .hour-block .focus { font-size: 14px; font-weight: 600; }
         .hour-block .label { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+
+        /* Deep Work chips */
+        .deepwork-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .dw-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.03);
+            font-size: 12px;
+            color: var(--text);
+        }
+        .dw-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
 
         /* Wins & Actions */
         .wins-section {
@@ -502,10 +548,33 @@
                 data = await response.json();
                 document.getElementById('headerSub').textContent = formatDateFriendly(date);
                 document.getElementById('jsonLink').href = `ActivityReport-${date}.json`;
-                renderDashboard(data, date);
+                const baseline = await loadBaseline(date);
+                renderDashboard(data, date, baseline);
             } catch (error) {
                 dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet.</p></div>`;
             }
+        }
+
+        async function loadBaseline(dateStr) {
+            const base = { days: 0, focusMins: 0, meetingMins: 0 };
+            const d = new Date(dateStr + 'T12:00:00');
+            for (let i = 1; i <= 6; i++) {
+                const dd = new Date(d);
+                dd.setDate(d.getDate() - i);
+                const key = dd.toISOString().split('T')[0];
+                try {
+                    let r = await fetch(`ActivityReport-${key}.json`);
+                    if (!r.ok) r = await fetch(`reports/daily-report-${key}.json`);
+                    if (!r.ok) continue;
+                    const j = await r.json();
+                    base.focusMins += timeToMinutes(j.overview?.focus_time || '00:00');
+                    base.meetingMins += timeToMinutes(j.overview?.meetings_time || '00:00');
+                    base.days++;
+                } catch {}
+            }
+            base.focusAvg = base.days ? Math.round(base.focusMins / base.days) : 0;
+            base.meetingAvg = base.days ? Math.round(base.meetingMins / base.days) : 0;
+            return base;
         }
 
         function formatDateFriendly(dateStr) {
@@ -637,7 +706,9 @@
                 contributionScore,
                 // Flags
                 hasClosedDeals, hasActiveProspecting, hasStrongEngagement,
-                hasDeepWork, isMorningPerson, isCollaborative, hasLimitedTracking
+                hasDeepWork, isMorningPerson, isCollaborative, hasLimitedTracking,
+                // Deep work
+                deepWorkBlocks: d.deep_work || []
             };
         }
 
@@ -895,7 +966,7 @@
             return wins.slice(0, 5);
         }
 
-        function renderDashboard(d, date) {
+        function renderDashboard(d, date, baseline) {
             const analysis = analyzeDay(d);
             const headline = generateHeadline(analysis, date);
             const summary = generateSummary(analysis);
@@ -931,6 +1002,26 @@
                             <div class="metric-label">Boards</div>
                         </div>
                     </div>
+
+                    <div class="story-metrics" style="margin-top:16px;">
+                        <div class="metric highlight-metric">
+                            <div class="metric-value">${formatMinutes(analysis.focusMins)}</div>
+                            <div class="metric-label">Focus ${baseline?.days ? `· ${deltaBadge(analysis.focusMins, baseline.focusAvg)}` : ''}</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${formatMinutes(analysis.meetingMins)}</div>
+                            <div class="metric-label">Meetings ${baseline?.days ? `· ${deltaBadge(analysis.meetingMins, baseline.meetingAvg, true)}` : ''}</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${d.overview?.coverage_window || '—'}</div>
+                            <div class="metric-label">Coverage</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${(analysis.deepWorkBlocks && analysis.deepWorkBlocks.length) || analysis.workHours.filter(h => timeToMinutes(h.time) >= 25).length}</div>
+                            <div class="metric-label">Deep Work Blocks</div>
+                        </div>
+                    </div>
+                    ${privacyPill(d)}
                 </div>
 
                 <!-- Insights Grid -->
@@ -945,12 +1036,19 @@
                     `).join('')}
                 </div>
 
+                <!-- Integration Highlights -->
+                <div class="timeline-section">
+                    <div class="section-title">🔗 Integration Highlights</div>
+                    <div class="integrations-grid">${renderIntegrationHighlights(d)}</div>
+                </div>
+
                 <!-- Activity Timeline -->
                 <div class="timeline-section">
                     <div class="section-title">📊 Daily Activity (5am – Midnight)</div>
                     <div class="hourly-timeline">
                         ${renderHourlyTimeline(analysis.workHours)}
                     </div>
+                    ${renderDeepWorkChips(analysis.deepWorkBlocks)}
                 </div>
 
                 <!-- Wins & Details -->
@@ -1144,6 +1242,119 @@
                     }
                 }
             });
+        }
+
+        function renderDeepWorkChips(blocks) {
+            if (!blocks || !blocks.length) return '';
+            const longest = blocks.reduce((m, b) => (b.minutes > (m?.minutes||0) ? b : m), null);
+            const chips = blocks.slice(0, 8).map(b => {
+                const cat = (b.category || '').toLowerCase();
+                let color = '#3b82f6';
+                if (cat.includes('coding')) color = '#10b981';
+                else if (cat.includes('research')) color = '#8b5cf6';
+                else if (cat.includes('docs')) color = '#eab308';
+                else if (cat.includes('private')) color = '#64748b';
+                const trophy = (longest && b.minutes === longest.minutes && b.start === longest.start && b.end === longest.end) ? ' 🏆' : '';
+                const tt = `${b.label || b.category} — ${b.start}–${b.end} (${b.minutes}m)`;
+                return `
+                    <span class="dw-chip" title="${tt}">
+                        <span class="dw-dot" style="background:${color}"></span>
+                        ${b.label || b.category || 'Deep Work'} • ${b.start}–${b.end} (${b.minutes}m)${trophy}
+                    </span>
+                `;
+            }).join('');
+            return `<div class="deepwork-row">${chips}</div>`;
+        }
+
+        function renderIntegrationHighlights(d) {
+            const cards = [];
+            // Slack
+            const slack = d.slack || {};
+            const sStats = slack.stats || {};
+            const sSent = sStats.total_sent || 0;
+            const sRecv = sStats.total_received || 0;
+            const appts = d.debug_appointments?.appointments_today || [];
+            if (sSent || sRecv || appts.length) {
+                cards.push(`
+                    <div class="integration-card">
+                        <div class="integration-accent" style="background: linear-gradient(90deg, #36C5F0, #2EB67D);"></div>
+                        <div class="integration-title">Slack</div>
+                        <div class="integration-value">${appts.length} appt${appts.length==1?'':'s'}</div>
+                        <div class="integration-detail">${sSent} sent • ${sRecv} received</div>
+                    </div>
+                `);
+            }
+            // Monday
+            const monday = d.monday || {};
+            const itemsUpdated = monday.items_updated || 0;
+            const boards = Object.keys(monday.by_board || {});
+            if (itemsUpdated || boards.length) {
+                cards.push(`
+                    <div class="integration-card">
+                        <div class="integration-accent" style="background: linear-gradient(90deg, #0073ea, #00c875);"></div>
+                        <div class="integration-title">Monday</div>
+                        <div class="integration-value">${itemsUpdated} tasks</div>
+                        <div class="integration-detail">${boards.length} board${boards.length==1?'':'s'} touched</div>
+                    </div>
+                `);
+            }
+            // HubSpot
+            const hubspot = d.hubspot || {};
+            const hsCalls = (hubspot.calls || []).length;
+            const hsEmails = (hubspot.emails || []).length;
+            if (hsCalls || hsEmails) {
+                cards.push(`
+                    <div class="integration-card">
+                        <div class="integration-accent" style="background: linear-gradient(90deg, #ff7a59, #ffb199);"></div>
+                        <div class="integration-title">HubSpot</div>
+                        <div class="integration-value">${hsCalls} calls</div>
+                        <div class="integration-detail">${hsEmails} emails</div>
+                    </div>
+                `);
+            }
+            // Calendar (from overview meetings_time)
+            const meetingStr = d.overview?.meetings_time || '00:00';
+            if (meetingStr && meetingStr !== '00:00') {
+                cards.push(`
+                    <div class="integration-card">
+                        <div class="integration-accent" style="background: linear-gradient(90deg, #34a853, #9be15d);"></div>
+                        <div class="integration-title">Calendar</div>
+                        <div class="integration-value">${meetingStr}</div>
+                        <div class="integration-detail">Meeting minutes</div>
+                    </div>
+                `);
+            }
+            // Aloware
+            const aloware = d.aloware || {};
+            const aCalls = (aloware.calls || []).length || aloware.total_calls || 0;
+            const aTalk = aloware.talk_time || '';
+            if (aCalls || aTalk) {
+                cards.push(`
+                    <div class="integration-card">
+                        <div class="integration-accent" style="background: linear-gradient(90deg, #ffcc00, #ff9900);"></div>
+                        <div class="integration-title">Aloware</div>
+                        <div class="integration-value">${aCalls} calls</div>
+                        <div class="integration-detail">${aTalk ? (aTalk + ' talk') : ''}</div>
+                    </div>
+                `);
+            }
+            if (!cards.length) return '<div style="color: var(--text-muted);">No integration data</div>';
+            return cards.join('');
+        }
+
+        function privacyPill(d) {
+            const hasPrivate = (d.by_category && d.by_category['Private'] && d.by_category['Private'] !== '00:00');
+            if (!hasPrivate) return '';
+            return `<div style="margin-top:12px;color:var(--text-muted);font-size:12px;">🔒 Privacy filters active</div>`;
+        }
+
+        function deltaBadge(today, avg, invert=false) {
+            if (!avg || avg <= 0) return '';
+            const change = Math.round(((today - avg) / Math.max(1, avg)) * 100);
+            const upGood = invert ? change < 0 : change > 0;
+            const arrow = change === 0 ? '•' : (change > 0 ? '▲' : '▼');
+            const color = upGood ? '#22c55e' : '#f97316';
+            return `<span style="color:${color}">${arrow} ${Math.abs(change)}%</span>`;
         }
     </script>
 </body>
