@@ -7,7 +7,7 @@
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 3,
-    "coverage_window": "00:02\u201313:50",
+    "coverage_window": "00:02\u201320:44",
     "tasks_updated": 39,
     "updates_made": 2
   },
@@ -21,7 +21,8 @@
     "HubSpot: 1 deals updated",
     "Monday.com: 39 tasks updated, 2 updates, across 8 boards",
     "Visited 10 unique domains (68 page views)",
-    "Screen Time: ~1875 min foreground app usage"
+    "Screen Time: ~1875 min foreground app usage",
+    "Screen Time: ~1526 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
@@ -30,9 +31,9 @@
     "Focused on Terminal (00:01)"
   ],
   "by_category": {
-    "Coding": "13:06",
-    "Other": "01:13",
-    "Research": "59:21",
+    "Coding": "13:19",
+    "Other": "01:16",
+    "Research": "66:04",
     "Communication": "00:15"
   },
   "by_project": {},
@@ -246,32 +247,32 @@
     },
     {
       "hour": 7,
-      "time": "00:00",
+      "time": "00:41",
       "pct": "0%"
     },
     {
       "hour": 8,
-      "time": "00:00",
+      "time": "00:54",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:00",
+      "time": "00:46",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:00",
+      "time": "00:31",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:00",
+      "time": "00:11",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:00",
+      "time": "00:22",
       "pct": "0%"
     },
     {
@@ -333,12 +334,9 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "07:25",
-    "VS Code": "01:22",
-    "Terminal": "00:16",
-    "Messages": "00:06",
-    "com.github.GitHubClient": "00:01",
-    "Finder": "00:01",
+    "Google Chrome": "06:43",
+    "Terminal": "00:13",
+    "Messages": "00:02",
     "System Settings": "00:01"
   },
   "top_windows_preview": [
@@ -936,37 +934,30 @@
   },
   "deep_work": [
     {
-      "start": "14:45",
-      "end": "15:37",
+      "start": "08:45",
+      "end": "09:37",
       "minutes": 46,
       "category": "Research",
       "label": "Google Chrome"
     },
     {
-      "start": "13:53",
-      "end": "14:44",
+      "start": "07:53",
+      "end": "08:44",
       "minutes": 45,
       "category": "Research",
       "label": "Google Chrome"
     },
     {
-      "start": "01:05",
-      "end": "01:46",
+      "start": "17:38",
+      "end": "18:14",
       "minutes": 34,
-      "category": "Coding",
-      "label": "VS Code"
-    },
-    {
-      "start": "15:41",
-      "end": "16:20",
-      "minutes": 33,
       "category": "Research",
       "label": "Google Chrome"
     },
     {
-      "start": "00:32",
-      "end": "01:03",
-      "minutes": 29,
+      "start": "09:41",
+      "end": "10:20",
+      "minutes": 33,
       "category": "Research",
       "label": "Google Chrome"
     }
