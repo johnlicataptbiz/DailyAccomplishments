@@ -629,9 +629,14 @@
             // Meeting overlay per hour (0s when not available)
             const meetingArr = computeMeetingsByHour(d);
             const meetingOverlayMins = meetingArr.reduce((a,b)=>a+(b||0),0);
-            // Compute focus excluding meetings where overlay is available
-            const focusExclMeet = focusByHour.reduce((sum, v, h) => sum + Math.max(0, (v || 0) - (meetingArr[h] || 0)), 0);
-            const focusMins = focusExclMeet > 0 ? focusExclMeet : focusByHour.reduce((a,b)=>a+(b||0),0);
+            // Meeting credit: count a portion of meeting time toward Focus (gentler)
+            const MEETING_CREDIT = 0.5; // 50% of meetings count as focus
+            const focusAdj = focusByHour.reduce((sum, v, h) => {
+                const meet = meetingArr[h] || 0;
+                const subtract = Math.max(0, Math.round(meet * (1 - MEETING_CREDIT)));
+                return sum + Math.max(0, (v || 0) - subtract);
+            }, 0);
+            const focusMins = focusAdj > 0 ? focusAdj : focusByHour.reduce((a,b)=>a+(b||0),0);
             // Prefer overlay sum for meeting minutes; fallback to overview
             const meetingMins = meetingOverlayMins || timeToMinutes(d.overview?.meetings_time || '00:00');
             // Active time = per-hour union of focus + meetings overlay (capped at 60 per hour)
