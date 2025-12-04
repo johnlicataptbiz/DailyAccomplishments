@@ -650,6 +650,8 @@
             loadData(currentDate);
         }
 
+        const RAW_BASE = 'https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/';
+
         async function loadData(date) {
             currentDate = date;
             dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
@@ -658,10 +660,21 @@
 
             try {
                 console.log(`[loadData] Attempting to fetch ActivityReport-${date}.json`);
-                let response = await fetch(`ActivityReport-${date}.json`);
+                // Try same-origin first (works for GitHub Pages / local preview)
+                const cacheSuffix = `?t=${Date.now()}`;
+                let response = await fetch(`/ActivityReport-${date}.json${cacheSuffix}`, { cache: 'no-store' });
+                let usedUrl = `/ActivityReport-${date}.json`;
                 if (!response.ok) {
                     console.log(`[loadData] ActivityReport-${date}.json not found (status: ${response.status}). Trying reports/daily-report-${date}.json`);
-                    response = await fetch(`reports/daily-report-${date}.json`);
+                    response = await fetch(`/reports/daily-report-${date}.json${cacheSuffix}`, { cache: 'no-store' });
+                    usedUrl = `/reports/daily-report-${date}.json`;
+                }
+                // Fallback to GitHub raw if Railway or host doesn't serve the JSON
+                if (!response.ok) {
+                    const rawUrl = `${RAW_BASE}ActivityReport-${date}.json${cacheSuffix}`;
+                    console.log(`[loadData] Falling back to GitHub raw: ${rawUrl}`);
+                    response = await fetch(rawUrl, { cache: 'no-store' });
+                    usedUrl = rawUrl;
                 }
                 if (!response.ok) {
                     throw new Error(`Report not found. Status: ${response.status} ${response.statusText}`);
@@ -670,7 +683,8 @@
                 data = await response.json();
                 console.log('[loadData] Data fetched successfully:', data);
                 document.getElementById('headerSub').textContent = formatDateFriendly(date);
-                document.getElementById('jsonLink').href = `/ActivityReport-${date}.json`;
+                // Set the raw data link to whichever URL actually succeeded
+                document.getElementById('jsonLink').href = usedUrl;
                 const baseline = await loadBaseline(date);
                 renderDashboard(data, date, baseline);
             } catch (error) {
@@ -682,13 +696,18 @@
         async function loadBaseline(dateStr) {
             const base = { days: 0, focusMins: 0, meetingMins: 0 };
             const d = new Date(dateStr + 'T12:00:00');
+            const cacheSuffix = `?t=${Date.now()}`;
             for (let i = 1; i <= 6; i++) {
                 const dd = new Date(d);
                 dd.setDate(d.getDate() - i);
                 const key = localDateKey(dd);
                 try {
-                    let r = await fetch(`/ActivityReport-${key}.json`);
-                    if (!r.ok) r = await fetch(`/reports/daily-report-${key}.json`);
+                    let r = await fetch(`/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' });
+                    if (!r.ok) r = await fetch(`/reports/daily-report-${key}.json${cacheSuffix}`, { cache: 'no-store' });
+                    if (!r.ok) {
+                        const rawUrl = `${RAW_BASE}ActivityReport-${key}.json${cacheSuffix}`;
+                        r = await fetch(rawUrl, { cache: 'no-store' });
+                    }
                     if (!r.ok) continue;
                     const j = await r.json();
                     base.focusMins += timeToMinutes(j.overview?.focus_time || '00:00');
