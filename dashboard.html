@@ -622,6 +622,18 @@
             // Prefer union from hourly buckets (capped at 60 per hour) to avoid double counting
             const focusMins = (d.hourly_focus || []).reduce((sum, h) => sum + timeToMinutes(h.time || '00:00'), 0);
             const meetingMins = timeToMinutes(d.overview?.meetings_time || '00:00');
+            // Coverage minutes from coverage_window (e.g., "07:12–23:05")
+            let coverageMins = 0;
+            try {
+                const cov = String(d.overview?.coverage_window || '');
+                const parts = cov.split(/\s*[–—-]\s*/);
+                if (parts.length === 2) {
+                    const toMin = (s)=>{ const [h,m]=s.split(':').map(Number); return (isNaN(h)||isNaN(m))?0:h*60+m; };
+                    const a = toMin(parts[0]);
+                    const b = toMin(parts[1]);
+                    if (b > a) coverageMins = b - a;
+                }
+            } catch {}
             const appointments = d.overview?.appointments || 0;
             const meetings = d.debug_appointments?.meetings_today?.length || 0;
             
@@ -725,7 +737,8 @@
                 hasClosedDeals, hasActiveProspecting, hasStrongEngagement,
                 hasDeepWork, isMorningPerson, isCollaborative, hasLimitedTracking,
                 // Deep work
-                deepWorkBlocks: d.deep_work || []
+                deepWorkBlocks: d.deep_work || [],
+                coverageMins
             };
         }
 
@@ -1030,8 +1043,8 @@
                             <div class="metric-label">Meetings ${baseline?.days ? `· ${deltaBadge(analysis.meetingMins, baseline.meetingAvg, true)}` : ''}</div>
                         </div>
                         <div class="metric">
-                            <div class="metric-value">${d.overview?.coverage_window || '—'}</div>
-                            <div class="metric-label">Coverage</div>
+                            <div class="metric-value">${analysis.coverageMins ? formatMinutes(analysis.coverageMins) : (d.overview?.coverage_window || '—')}</div>
+                            <div class="metric-label">Coverage ${d.overview?.coverage_window ? `· ${d.overview.coverage_window}` : ''}</div>
                         </div>
                         <div class="metric">
                             <div class="metric-value">${(analysis.deepWorkBlocks && analysis.deepWorkBlocks.length) || analysis.workHours.filter(h => timeToMinutes(h.time) >= 25).length}</div>
