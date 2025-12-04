@@ -621,6 +621,15 @@
             // Use union of hourly buckets (cap 60 per hour) to avoid double counting
             const focusMins = (d.hourly_focus || []).reduce((sum, h) => sum + timeToMinutes(h.time || '00:00'), 0);
             const meetingMins = timeToMinutes(d.overview?.meetings_time || '00:00');
+            // Active time = per-hour union of focus + meetings overlay (capped at 60 per hour)
+            const meetingArr = computeMeetingsByHour(d);
+            const focusByHour = [];
+            for (let h = 0; h < 24; h++) {
+                const found = (d.hourly_focus || []).find(x => x.hour === h);
+                focusByHour[h] = found ? timeToMinutes(found.time || '00:00') : 0;
+            }
+            const activeMins = focusByHour.reduce((sum, v, h) => sum + Math.min(60, (v || 0) + (meetingArr[h] || 0)), 0);
+
             // Coverage minutes from coverage_window
             let coverageMins = 0;
             try {
@@ -732,7 +741,8 @@
                 hasDeepWork, isMorningPerson, isCollaborative, hasLimitedTracking,
                 // Deep work
                 deepWorkBlocks: d.deep_work || [],
-                coverageMins
+                coverageMins,
+                activeMins
             };
         }
 
@@ -950,6 +960,10 @@
                         <div class="metric highlight-metric">
                             <div class="metric-value">${formatMinutes(analysis.focusMins)}</div>
                             <div class="metric-label">Focus ${baseline?.days ? `· ${deltaBadge(analysis.focusMins, baseline.focusAvg)}` : ''}</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${formatMinutes(analysis.activeMins)}</div>
+                            <div class="metric-label">Active</div>
                         </div>
                         <div class="metric">
                             <div class="metric-value">${formatMinutes(analysis.meetingMins)}</div>
