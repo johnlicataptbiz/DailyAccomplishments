@@ -166,9 +166,10 @@ See `INTEGRATION_GUIDE.md` for complete examples.
 
 ---
 
-## Configuration
+### Configuration Files
 
-### `config.json` Structure
+- `config.json` - Tracking and notification settings
+ - `requirements.txt` - Python dependencies
 
 ```json
 {
@@ -399,19 +400,19 @@ See `INTEGRATION_GUIDE.md` for complete launchd/cron examples.
 
 ### Common Issues
 
-**Q: Email not sending**
+#### Q: Email not sending
 
 A: Check `INTEGRATION_GUIDE.md` → Troubleshooting → Email Not Sending
 
-**Q: Dashboard not loading data**
+#### Q: Dashboard not loading data
 
 A: Ensure report exists: `ls reports/daily-report-*.json`
 
-**Q: Slack webhook failing**
+#### Q: Slack webhook failing
 
 A: Verify webhook URL in `config.json`
 
-**Q: Events not being logged**
+#### Q: Events not being logged
 
 A: Check file permissions: `ls -la logs/daily/`
 
