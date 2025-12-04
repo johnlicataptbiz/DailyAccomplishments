@@ -1,3 +1,3 @@
-commit: 14ffddd
-date: 2025-12-04T08:00Z
-note: Screentime timezone fix; refreshed 2025-12-03 hourly focus
+commit: 1fb1e52
+date: 2025-12-04T08:05Z
+note: Timezone fix applied to 2025-12-02 as well
