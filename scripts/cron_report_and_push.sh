@@ -1,6 +1,6 @@
 #!/bin/bash
 # Cron Report and Push - Run every 15 minutes by LaunchAgent
-# Generates daily JSON report and optionally pushes to GitHub
+# Generates daily JSON report, syncs integrations, and optionally pushes to GitHub
 
 set -e
 
@@ -11,35 +11,66 @@ cd "$REPO_ROOT"
 
 echo "[$(date)] Starting report generation..."
 
-# Generate the daily JSON report
-python3 "$SCRIPT_DIR/generate_daily_json.py"
+# Generate the daily JSON report from local activity logs
+python3 "$SCRIPT_DIR/generate_daily_json.py" 2>/dev/null || true
+
+# Sync all integrations (HubSpot, Monday, Slack, Google Calendar, Aloware)
+if [ -f "$SCRIPT_DIR/sync_all.py" ]; then
+    echo "[$(date)] Syncing integrations..."
+    python3 "$SCRIPT_DIR/sync_all.py" 2>/dev/null || true
+fi
 
 # Generate charts if matplotlib is available
 if python3 -c "import matplotlib" 2>/dev/null; then
     python3 tools/generate_reports.py 2>/dev/null || true
 fi
 
-# Check if there are changes to commit
-if git diff --quiet && git diff --cached --quiet; then
-    echo "[$(date)] No changes to commit"
-    exit 0
+# Copy files to gh-pages worktree if it exists
+GH_PAGES="$REPO_ROOT/gh-pages"
+if [ -d "$GH_PAGES" ] && [ -f "$GH_PAGES/.git" ]; then
+    echo "[$(date)] Syncing to gh-pages..."
+    cp -f "$REPO_ROOT"/ActivityReport-*.json "$GH_PAGES/" 2>/dev/null || true
+    cp -f "$REPO_ROOT"/dashboard.html "$GH_PAGES/" 2>/dev/null || true
+    cp -f "$REPO_ROOT"/*.csv "$GH_PAGES/" 2>/dev/null || true
+    cp -f "$REPO_ROOT"/*.svg "$GH_PAGES/" 2>/dev/null || true
+    mkdir -p "$GH_PAGES/reports"
+    cp -f "$REPO_ROOT"/reports/*.json "$GH_PAGES/reports/" 2>/dev/null || true
+    cp -f "$REPO_ROOT"/reports/*.md "$GH_PAGES/reports/" 2>/dev/null || true
 fi
 
-# Commit locally (always works)
-DATE=$(date +%Y-%m-%d)
-TIME=$(date +%H:%M)
-
-git add -A
-git commit -m "Auto-update: $DATE $TIME" || true
-
-echo "[$(date)] Changes committed locally"
-
-# Try to push - but don't fail if auth isn't set up
-# This allows the LaunchAgent to keep running even without push access
-if git push origin main 2>/dev/null; then
-    echo "[$(date)] Pushed to main"
+# Check if there are changes to commit (main branch)
+if git diff --quiet && git diff --cached --quiet; then
+    echo "[$(date)] No changes to main"
 else
-    echo "[$(date)] Push skipped (no credentials or offline). Run 'git push' manually when ready."
+    DATE=$(date +%Y-%m-%d)
+    TIME=$(date +%H:%M)
+    git add -A
+    git commit -m "Auto-update: $DATE $TIME" || true
+    echo "[$(date)] Changes committed to main"
+
+    # Try to push main
+    if git push origin main 2>/dev/null; then
+        echo "[$(date)] Pushed to main"
+    else
+        echo "[$(date)] Main push skipped (no credentials or offline)"
+    fi
+fi
+
+# Push gh-pages if it has changes
+if [ -d "$GH_PAGES" ] && [ -f "$GH_PAGES/.git" ]; then
+    cd "$GH_PAGES"
+    if ! git diff --quiet || ! git diff --cached --quiet; then
+        DATE=$(date +%Y-%m-%d)
+        TIME=$(date +%H:%M)
+        git add -A
+        git commit -m "Dashboard update: $DATE $TIME" || true
+        if git push origin gh-pages 2>/dev/null; then
+            echo "[$(date)] Pushed to gh-pages"
+        else
+            echo "[$(date)] gh-pages push skipped"
+        fi
+    fi
+    cd "$REPO_ROOT"
 fi
 
 echo "[$(date)] Report generation complete"
