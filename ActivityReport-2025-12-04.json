@@ -3,11 +3,11 @@
   "date": "2025-12-04",
   "title": "Daily Accomplishments \u2014 2025-12-04",
   "overview": {
-    "focus_time": "00:54",
+    "focus_time": "01:31",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 1,
-    "coverage_window": "00:00\u201308:20"
+    "coverage_window": "00:00\u201309:45"
   },
   "prepared_for_manager": [
     "Total focused time: 00:00 (Coverage: 02:51\u201302:52 CST)",
@@ -17,7 +17,8 @@
     "Worked across 1 applications",
     "Top category: Coding",
     "Screen Time: ~741 min foreground app usage",
-    "Screen Time: ~112 min foreground app usage"
+    "Screen Time: ~112 min foreground app usage",
+    "Screen Time: ~175 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
@@ -54,12 +55,12 @@
     },
     {
       "hour": 2,
-      "time": "00:14",
+      "time": "00:37",
       "pct": "0%"
     },
     {
       "hour": 3,
-      "time": "00:00",
+      "time": "00:14",
       "pct": "0%"
     },
     {
@@ -166,8 +167,8 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Terminal": "00:50",
-    "Google Chrome": "00:04"
+    "Terminal": "01:25",
+    "Google Chrome": "00:06"
   },
   "top_windows_preview": [
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:00"
@@ -180,6 +181,13 @@
   },
   "foot": "Auto-generated",
   "deep_work": [
+    {
+      "start": "01:54",
+      "end": "02:39",
+      "minutes": 34,
+      "category": "Coding",
+      "label": "Terminal"
+    },
     {
       "start": "01:03",
       "end": "01:50",

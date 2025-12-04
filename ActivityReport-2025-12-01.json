@@ -45,12 +45,10 @@
     "Meeting: Sales Call (01:00)"
   ],
   "by_category": {
-    "Research": "84:37",
-    "Coding": "17:17",
-    "Meetings": "01:15",
-    "Communication": "01:06",
-    "Other": "02:57",
-    "Docs": "00:00"
+    "Research": "07:46",
+    "Communication": "00:03",
+    "Coding": "02:09",
+    "Other": "00:19"
   },
   "by_project": {
     "Email/CRM": "00:11",
