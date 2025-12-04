@@ -29,6 +29,16 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+                .creator-badge {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--text-muted);
+                    position: absolute;
+                    top: 16px;
+                    right: 32px;
+                    background: none;
+                    z-index: 10;
+                }
 
         html, body {
             min-height: 100vh;
@@ -559,6 +569,7 @@
                 <button id="todayBtn" class="today-btn">Today</button>
             </div>
         </header>
+        <span class="creator-badge">Created by <strong>Jack Licata</strong></span>
 
         <div id="dashboard"><div class="loading">Loading your day...</div></div>
 
@@ -569,6 +580,7 @@
     </div>
 
     <script>
+        console.log("[build] f8b45640 dashboard raw fallback enabled");
         // Support shareable URLs: dashboard.html?date=2025-12-01
         // Local date helper (avoid UTC date rollovers)
         function localDateKey(d = new Date()) {
