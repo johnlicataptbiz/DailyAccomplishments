@@ -1,84 +1,54 @@
-# Daily Accomplishments Tracker — Agent Instructions
+# Daily Accomplishments — Copilot / Agent Instructions
 
-## Overview
-Productivity tracking system: logs daily activities → generates JSON/Markdown reports → publishes static dashboard to GitHub Pages.
+Short, actionable guide for AI coding agents working in this repo. Focus on where to read, what to run, and project-specific rules.
 
-```
-External tracker (macOS) → JSONL logs → JSON reports → Charts/CSVs → GitHub Pages
-```
+- **Big picture**: Event producers (examples/activity_tracker, mac_adapter) write JSONL logs → `tools/daily_logger.py` manages daily JSONL (`logs/daily/YYYY-MM-DD.jsonl`) → analytics (`tools/analytics.py`) and report generators (`scripts/generate_daily_json.py`, `tools/generate_reports.py`, `tools/auto_report.py`) produce `ActivityReport-YYYY-MM-DD.json`, `reports/` and static assets under `gh-pages/`.
 
-## Architecture
+- **Key files to read first**:
+  - `tools/daily_logger.py` — file locking, schema validation, log rotation, health checks
+  - `tools/tracker_bridge.py` — integration API (use `ActivityTrackerBridge`) and deduplication (2s window)
+  - `tools/analytics.py` — deep-work detection and scoring (25-min default)
+  - `tools/auto_report.py` & `scripts/generate_daily_json.py` — report pipeline and CLI
+  - `examples/integration_example.py` — minimal (3-line) and full integration examples
+  - `config.json` — runtime knobs (timezone, daily window, notification creds)
 
-### Data Flow
-| Stage | Path | Purpose |
-|-------|------|---------|
-| **Input** | `logs/daily/YYYY-MM-DD.jsonl` | Raw event logs (focus_change, app_switch, browser_visit, meeting_*) |
-| **Canonical** | `ActivityReport-YYYY-MM-DD.json` | **Edit this** for manual corrections |
-| **Generated** | `reports/daily-report-*.json/md` | Report copies + `*.csv`, `*.svg` charts |
-| **Published** | `gh-pages/` | Git worktree → GitHub Pages |
+- **Developer workflows / commands** (most common):
+  - Install deps: `pip install -r requirements.txt` (Python 3.10+)
+  - Run minimal example: `python3 examples/integration_example.py simple` (writes `logs/daily/<date>.jsonl`)
+  - Generate canonical JSON: `python3 scripts/generate_daily_json.py <YYYY-MM-DD>`
+  - Full pipeline + notifications: `python3 tools/auto_report.py --date <YYYY-MM-DD>`
+  - Regenerate charts/CSVs: `python3 tools/generate_reports.py` then copy outputs to `gh-pages/` for pages
+  - Preview dashboard: `python3 -m http.server 8000` → open `dashboard.html`
 
-### Key Tools
-| Tool | Purpose |
-|------|---------|
-| `tools/tracker_bridge.py` | Integration API—use `ActivityTrackerBridge` class |
-| `tools/daily_logger.py` | JSONL logging with file locking & validation |
-| `tools/generate_reports.py` | Generate CSVs + SVG charts from reports |
-| `scripts/generate_daily_json.py` | Convert JSONL logs → ActivityReport JSON |
-| `tools/analytics.py` | Productivity scoring, deep work detection (25min threshold) |
-| `tools/auto_report.py` | End-to-end: logs → report → notifications |
+- **Project conventions & gotchas (do not change lightly):**
+  - Preferred log format: JSONL in `logs/daily/` with a `metadata` record as first line.
+  - `ActivityReport-YYYY-MM-DD.json` is treated as the canonical/manual-correction file; editing it requires re-running `tools/generate_reports.py` to regenerate charts.
+  - Timezone default: `America/Chicago` (check `config.json`); use `zoneinfo.ZoneInfo` for parsing.
+  - Durations in outputs use `HH:MM` format (never decimal hours).
+  - `coverage_window` must reflect actual first-to-last activity — avoid truncating it.
+  - Deduplication: identical events within 2 seconds are ignored by the bridge.
+  - File locking and retries are implemented in `tools/daily_logger.py`; avoid introducing concurrent write paths that bypass it.
 
-## Essential Commands
+- **Integration examples agents can use**:
+  - Minimal (3 lines):
+    ```py
+    from tools.tracker_bridge import ActivityTrackerBridge
+    bridge = ActivityTrackerBridge()
+    bridge.on_focus_change("Terminal", "~/code", 120)
+    ```
+  - Use `examples/integration_example.py` for a simulated day to validate pipeline end-to-end.
 
-```bash
-# Generate report from logs
-python3 scripts/generate_daily_json.py 2025-12-01
+- **When modifying code**:
+  - Run the example and pipeline locally: `examples/integration_example.py` → `tools/auto_report.py` → `python3 -m http.server 8000` to verify dashboard.
+  - Update `gh-pages/` only with generated assets (CSV/SVG/JSON) — `gh-pages` is a published worktree.
+  - Keep public API stable: methods on `ActivityTrackerBridge` (on_focus_change, on_app_switch, on_browser_visit, on_meeting_start/end, on_idle_start/end, on_manual_entry) return `bool` for success/failure; callers expect that.
 
-# Regenerate charts/CSVs after editing JSON
-python3 tools/generate_reports.py
+- **Troubleshooting quick tips**:
+  - Charts not rendering: `pip install matplotlib` and re-run `tools/generate_reports.py`.
+  - gh-pages push issues: run `git worktree list` to inspect the `gh-pages/` worktree.
+  - Missing logs: check both `logs/daily/` and legacy `logs/activity-*.jsonl`.
 
-# Local preview
-python3 -m http.server 8000  # → http://localhost:8000/dashboard.html
-
-# Full pipeline with notifications
-python3 tools/auto_report.py --date 2025-12-01
-```
-
-## Data Conventions
-
-### ActivityReport JSON (canonical format)
-```json
-{
-  "overview": {
-    "focus_time": "08:54",              // Always HH:MM format
-    "meetings_time": "01:15",
-    "appointments": 2,                   // Must match array length below
-    "coverage_window": "08:00–20:45 CST" // Actual activity span, no artificial cutoffs
-  },
-  "debug_appointments": {
-    "appointments_today": [{"name": "...", "time": "..."}],
-    "meetings_today": [{"name": "...", "time": "08:00–08:15"}]
-  },
-  "by_category": {"Coding": "01:38", "Research": "03:54"},
-  "hourly_focus": [{"hour": 12, "time": "00:36", "pct": "43%"}]
-}
-```
-
-### JSONL Event Types
-- `focus_change` — `{app, window_title, duration_seconds}`
-- `app_switch` — `{from_app, to_app}`
-- `browser_visit` — `{domain, url, page_title}`
-- `meeting_start/end` — `{name, duration_seconds}`
-- `idle_start/end` — Break detection
-
-### Timezone
-All timestamps: `America/Chicago` (CST/CDT). Configured in `config.json` → `tracking.timezone`.
-
-## Critical Rules
-
-1. **Never truncate `coverage_window`** — Must reflect actual first-to-last activity times
-2. **Keep counts in sync** — `overview.appointments` = length of `debug_appointments.appointments_today`
-3. **Always HH:MM format** — Never use decimal hours for durations
-4. **Regenerate after edits**: `python3 tools/generate_reports.py && cp *.csv *.svg gh-pages/`
+If any part of this is unclear or you want the agent to expand a specific section (examples, typical edits, or testing steps), tell me which area to expand.
 
 ## Integration API
 
