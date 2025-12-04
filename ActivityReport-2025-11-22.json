@@ -1,26 +1,21 @@
 {
-  "source_file": "ActivityReport-2025-11-27.json",
-  "date": "2025-11-27",
-  "title": "Daily Accomplishments \u2014 2025-11-27",
-  "overview": {
-    "coverage_window": "00:01\u201320:20",
-    "focus_time": "03:44"
+  "date": "2025-11-22",
+  "debug_appointments": {
+    "meetings_today": []
   },
-  "browser_highlights": {},
   "by_category": {
-    "Coding": "04:23",
-    "Research": "06:10",
-    "Other": "00:12"
+    "Research": "00:25",
+    "Coding": "00:02"
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:54",
+      "time": "00:01",
       "pct": "0%"
     },
     {
       "hour": 1,
-      "time": "00:00",
+      "time": "00:26",
       "pct": "0%"
     },
     {
@@ -55,67 +50,67 @@
     },
     {
       "hour": 8,
-      "time": "00:23",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:38",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:30",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:37",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:06",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:47",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "01:00",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "01:00",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "01:00",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "01:00",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:12",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 19,
-      "time": "01:00",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:32",
+      "time": "00:00",
       "pct": "0%"
     },
     {
@@ -134,39 +129,24 @@
       "pct": "0%"
     }
   ],
-  "executive_summary": [
-    "Screen Time: ~435 min foreground app usage",
-    "Screen Time: ~395 min foreground app usage"
-  ],
   "top_apps": {
-    "Google Chrome": "01:50",
-    "Terminal": "01:23",
-    "Messages": "00:04"
+    "Google Chrome": "00:25",
+    "Terminal": "00:02"
   },
   "deep_work": [
     {
-      "start": "11:12",
-      "end": "11:51",
-      "minutes": 31,
-      "category": "Coding",
-      "label": "Terminal"
-    },
-    {
-      "start": "13:37",
-      "end": "14:07",
-      "minutes": 30,
-      "category": "Research",
-      "label": "Google Chrome"
-    },
-    {
-      "start": "08:59",
-      "end": "09:32",
-      "minutes": 27,
+      "start": "00:58",
+      "end": "01:27",
+      "minutes": 25,
       "category": "Research",
       "label": "Google Chrome"
     }
   ],
-  "debug_appointments": {
-    "meetings_today": []
-  }
+  "overview": {
+    "focus_time": "00:27",
+    "coverage_window": "00:32\u201301:31"
+  },
+  "executive_summary": [
+    "Screen Time: ~44 min foreground app usage"
+  ]
 }

@@ -1,21 +1,17 @@
 {
-  "source_file": "ActivityReport-2025-11-27.json",
-  "date": "2025-11-27",
-  "title": "Daily Accomplishments \u2014 2025-11-27",
-  "overview": {
-    "coverage_window": "00:01\u201320:20",
-    "focus_time": "03:44"
+  "date": "2025-11-24",
+  "debug_appointments": {
+    "meetings_today": []
   },
-  "browser_highlights": {},
   "by_category": {
-    "Coding": "04:23",
-    "Research": "06:10",
-    "Other": "00:12"
+    "Research": "04:21",
+    "Coding": "01:46",
+    "Other": "00:01"
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:54",
+      "time": "00:00",
       "pct": "0%"
     },
     {
@@ -50,77 +46,77 @@
     },
     {
       "hour": 7,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     },
     {
       "hour": 8,
-      "time": "00:23",
+      "time": "00:49",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:38",
-      "pct": "0%"
-    },
-    {
-      "hour": 10,
-      "time": "00:30",
-      "pct": "0%"
-    },
-    {
-      "hour": 11,
-      "time": "00:37",
-      "pct": "0%"
-    },
-    {
-      "hour": 12,
-      "time": "00:06",
-      "pct": "0%"
-    },
-    {
-      "hour": 13,
       "time": "00:47",
       "pct": "0%"
     },
     {
+      "hour": 10,
+      "time": "00:44",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:40",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:25",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
       "hour": 14,
-      "time": "01:00",
+      "time": "00:45",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "01:00",
+      "time": "00:42",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "01:00",
+      "time": "00:14",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "01:00",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:12",
+      "time": "00:06",
       "pct": "0%"
     },
     {
       "hour": 19,
-      "time": "01:00",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:32",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 21,
-      "time": "00:00",
+      "time": "00:02",
       "pct": "0%"
     },
     {
@@ -134,39 +130,53 @@
       "pct": "0%"
     }
   ],
-  "executive_summary": [
-    "Screen Time: ~435 min foreground app usage",
-    "Screen Time: ~395 min foreground app usage"
-  ],
   "top_apps": {
-    "Google Chrome": "01:50",
-    "Terminal": "01:23",
-    "Messages": "00:04"
+    "Google Chrome": "04:21",
+    "Terminal": "01:46",
+    "Messages": "00:01"
   },
   "deep_work": [
     {
-      "start": "11:12",
-      "end": "11:51",
-      "minutes": 31,
+      "start": "09:41",
+      "end": "10:31",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:13",
+      "end": "15:07",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "10:54",
+      "end": "11:53",
+      "minutes": 41,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:32",
+      "end": "14:10",
+      "minutes": 32,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "15:22",
+      "end": "15:55",
+      "minutes": 26,
       "category": "Coding",
       "label": "Terminal"
-    },
-    {
-      "start": "13:37",
-      "end": "14:07",
-      "minutes": 30,
-      "category": "Research",
-      "label": "Google Chrome"
-    },
-    {
-      "start": "08:59",
-      "end": "09:32",
-      "minutes": 27,
-      "category": "Research",
-      "label": "Google Chrome"
     }
   ],
-  "debug_appointments": {
-    "meetings_today": []
-  }
+  "overview": {
+    "focus_time": "06:08",
+    "coverage_window": "07:13\u201321:22"
+  },
+  "executive_summary": [
+    "Screen Time: ~639 min foreground app usage"
+  ]
 }

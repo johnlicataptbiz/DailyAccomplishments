@@ -329,12 +329,16 @@
     ],
     "meetings_today": [
       {
-        "name": "Slack Huddle",
+        "name": "Meeting",
         "time": "08:00\u201308:15"
       },
       {
-        "name": "Sales Call",
+        "name": "Meeting",
         "time": "09:30\u201310:30"
+      },
+      {
+        "name": "Meeting",
+        "time": "11:00\u201311:15"
       }
     ]
   },
