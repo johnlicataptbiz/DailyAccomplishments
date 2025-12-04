@@ -24,16 +24,16 @@
       }
       for (const date of dates){
         try{
-          const res = await fetch(`ActivityReport-${date}.json`, {cache:'no-store'});
+          const res = await fetch(`/ActivityReport-${date}.json`, {cache:'no-store'});
           if (res.ok){
-            location.replace(`dashboard.html?date=${date}`);
+            location.replace(`/dashboard?date=${date}`);
             return;
           }
         }catch(e){}
       }
       // Fallback to today — dashboard will show a friendly message if missing
       const fallback = new Date().toISOString().split('T')[0];
-      location.replace(`dashboard.html?date=${fallback}`);
+      location.replace(`/dashboard?date=${fallback}`);
     }
     window.addEventListener('DOMContentLoaded', redirectToLatest);
   </script>
@@ -41,7 +41,7 @@
 <body>
   <div class="box">
     <div>Loading the latest dashboard…</div>
-    <div class="muted">If you are not redirected, <a href="dashboard.html">open dashboard</a> manually.</div>
+    <div class="muted">If you are not redirected, <a href="/dashboard">open dashboard</a> manually.</div>
     <div class="muted" style="margin-top:10px">Direct link example: <code>/dashboard.html?date=2025-12-03</code></div>
   </div>
 </body>

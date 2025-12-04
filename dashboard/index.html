@@ -1,0 +1,12 @@
+<!-- This file mirrors ../dashboard.html so hosts with pretty URLs serve /dashboard -->
+<!-- Generated copy: keep in sync with ../dashboard.html -->
+<!DOCTYPE html>
+<!--#include virtual="../dashboard.html" -->
+<script>
+// Fallback for servers that don't support SSI: fetch and inject ../dashboard.html
+fetch('../dashboard.html', {cache:'no-store'}).then(r=>r.text()).then(html=>{
+  document.open();
+  document.write(html);
+  document.close();
+});
+</script>
