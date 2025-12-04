@@ -503,8 +503,14 @@
 
     <script>
         // Support shareable URLs: dashboard.html?date=2025-12-01
+        // Local date helper (avoid UTC date rollovers)
+        function localDateKey(d = new Date()) {
+            const tz = d.getTimezoneOffset();
+            const local = new Date(d.getTime() - tz * 60000);
+            return local.toISOString().split('T')[0];
+        }
         const urlParams = new URLSearchParams(window.location.search);
-        let currentDate = urlParams.get('date') || new Date().toISOString().split('T')[0];
+        let currentDate = urlParams.get('date') || localDateKey();
         let data = null;
         let hourlyChart = null;
         let categoryChart = null;
@@ -533,7 +539,7 @@
         document.getElementById('prevDay').addEventListener('click', () => changeDate(-1));
         document.getElementById('nextDay').addEventListener('click', () => changeDate(1));
         document.getElementById('todayBtn').addEventListener('click', () => {
-            currentDate = new Date().toISOString().split('T')[0];
+            currentDate = localDateKey();
             dateInput.value = currentDate;
             updateUrl(currentDate);
             loadData(currentDate);
@@ -546,7 +552,7 @@
         function changeDate(delta) {
             const date = new Date(currentDate);
             date.setDate(date.getDate() + delta);
-            currentDate = date.toISOString().split('T')[0];
+            currentDate = localDateKey(date);
             dateInput.value = currentDate;
             updateUrl(currentDate);
             loadData(currentDate);
@@ -577,7 +583,7 @@
             for (let i = 1; i <= 6; i++) {
                 const dd = new Date(d);
                 dd.setDate(d.getDate() - i);
-                const key = dd.toISOString().split('T')[0];
+                const key = localDateKey(dd);
                 try {
                     let r = await fetch(`/ActivityReport-${key}.json`);
                     if (!r.ok) r = await fetch(`/reports/daily-report-${key}.json`);
@@ -599,8 +605,8 @@
             const yesterday = new Date(today);
             yesterday.setDate(yesterday.getDate() - 1);
             
-            if (dateStr === today.toISOString().split('T')[0]) return 'Today';
-            if (dateStr === yesterday.toISOString().split('T')[0]) return 'Yesterday';
+            if (dateStr === localDateKey(today)) return 'Today';
+            if (dateStr === localDateKey(yesterday)) return 'Yesterday';
             return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
         }
 
