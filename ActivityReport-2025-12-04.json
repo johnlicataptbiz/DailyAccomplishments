@@ -42,49 +42,49 @@
     "by_board": {}
   },
   "by_category": {
-    "Research": "00:55",
-    "Coding": "02:43",
-    "Other": "00:02"
+    "Research": "01:50",
+    "Coding": "05:26",
+    "Other": "00:04"
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:16",
+      "time": "00:32",
       "pct": "0%"
     },
     {
       "hour": 1,
-      "time": "00:27",
+      "time": "00:54",
       "pct": "0%"
     },
     {
       "hour": 2,
-      "time": "00:43",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 3,
-      "time": "00:45",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 4,
-      "time": "00:50",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 5,
-      "time": "00:11",
+      "time": "00:22",
       "pct": "0%"
     },
     {
       "hour": 6,
-      "time": "00:05",
+      "time": "00:10",
       "pct": "0%"
     },
     {
       "hour": 7,
-      "time": "00:23",
+      "time": "00:46",
       "pct": "0%"
     },
     {
