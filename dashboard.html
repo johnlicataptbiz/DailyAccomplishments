@@ -589,33 +589,40 @@
             const apps = d.top_apps || {};
             const topApp = Object.entries(apps).sort((a, b) => timeToMinutes(b[1]) - timeToMinutes(a[1]))[0];
             
-            // YOUR metrics - what actually matters
-            const yourClosedDeals = jackWonCalls.length; // Deals YOU closed via Jack Set Calls
-            const yourAppointmentsSet = jackSetCalls.length; // Calls YOU set
+            // SLACK appointments - authoritative source
+            const slackAppointments = d.debug_appointments?.appointments_today || [];
+            const slackAppointmentsCount = slackAppointments.length;
+            const slackAppointmentsNames = slackAppointments.map(a => a.name).join(', ');
+
+            // Monday/Jack Set Calls for context only
+            const yourClosedDeals = jackWonCalls.length;
+            const yourAppointmentsSet = slackAppointmentsCount; // Use Slack as main source
             const yourProspectsManaged = modularTracker.length;
             const yourMeetings = meetings;
-            
+
             // Productivity based on YOUR contributions, not just screen time
-            const contributionScore = Math.min(100, 
-                (yourClosedDeals * 30) + // Each close is huge
-                (yourAppointmentsSet * 10) + // Each appt set matters
-                (tasksUpdated * 2) + // Task throughput
-                (Math.min(focusMins / 480, 1) * 20) + // Up to 20% for focus time
-                (updatesCount * 5) // Engagement
+            const contributionScore = Math.min(100,
+                (yourClosedDeals * 30) +
+                (yourAppointmentsSet * 15) + // Slack appts weighted higher
+                (tasksUpdated * 2) +
+                (Math.min(focusMins / 480, 1) * 20) +
+                (updatesCount * 5)
             );
-            
+
             // Story flags
             const hasClosedDeals = yourClosedDeals > 0;
-            const hasActiveProspecting = yourAppointmentsSet >= 3;
+            const hasActiveProspecting = yourAppointmentsSet >= 1;
             const hasStrongEngagement = tasksUpdated >= 10;
             const hasDeepWork = peakHour && timeToMinutes(peakHour.time) >= 45;
             const isMorningPerson = morningFocus > afternoonFocus && morningFocus > eveningFocus;
             const isCollaborative = slackSent > 20 || meetings > 2;
-            const hasLimitedTracking = focusMins < 30; // Tracker may not have been running
-            
+            const hasLimitedTracking = focusMins < 30;
+
             return {
                 focusMins, meetingMins, appointments, meetings,
-                // YOUR contributions (what we highlight)
+                // SLACK appointments
+                slackAppointments, slackAppointmentsCount, slackAppointmentsNames,
+                // Monday.com context
                 yourClosedDeals, yourAppointmentsSet, yourProspectsManaged,
                 jackSetCalls, jackWonCalls, jackMovedToDiscovery,
                 modularTracker, salesTeamCalls,
@@ -637,14 +644,14 @@
         function generateHeadline(analysis, date) {
             const dayName = new Date(date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long' });
             
-            // YOUR wins first
+            // SLACK appointments headline first
+            if (analysis.slackAppointmentsCount > 0) {
+                return `📞 <span class="highlight">${analysis.slackAppointmentsCount} appt${analysis.slackAppointmentsCount > 1 ? 's' : ''} set</span> — ${analysis.slackAppointmentsNames}`;
+            }
+            // YOUR wins next
             if (analysis.hasClosedDeals) {
                 const names = analysis.jackWonCalls.map(i => i.name).join(', ');
                 return `🎯 <span class="highlight">Closed ${analysis.yourClosedDeals} deal${analysis.yourClosedDeals > 1 ? 's' : ''}</span> — ${names}`;
-            }
-            
-            if (analysis.hasActiveProspecting) {
-                return `📞 <span class="highlight">${analysis.yourAppointmentsSet} appointments</span> managed in Jack Set Calls`;
             }
             
             if (analysis.hasStrongEngagement && analysis.tasksUpdated >= 20) {
@@ -722,7 +729,17 @@
         function generateInsights(analysis) {
             const insights = [];
             
-            // YOUR closed deals - the most important metric
+            // SLACK appointments - most important
+            if (analysis.slackAppointmentsCount > 0) {
+                insights.push({
+                    icon: '📞',
+                    title: 'Appts Set (Slack)',
+                    value: analysis.slackAppointmentsCount.toString(),
+                    detail: analysis.slackAppointmentsNames,
+                    class: 'highlight'
+                });
+            }
+            // YOUR closed deals for context
             if (analysis.yourClosedDeals > 0) {
                 insights.push({
                     icon: '🎯',
@@ -730,17 +747,6 @@
                     value: analysis.yourClosedDeals.toString(),
                     detail: analysis.jackWonCalls.map(i => i.name).join(', '),
                     class: 'highlight'
-                });
-            }
-            
-            // YOUR appointments set
-            if (analysis.yourAppointmentsSet > 0) {
-                insights.push({
-                    icon: '📞',
-                    title: 'Appointments Managed',
-                    value: analysis.yourAppointmentsSet.toString(),
-                    detail: `In Jack Set Calls board`,
-                    class: analysis.yourAppointmentsSet >= 5 ? 'highlight' : ''
                 });
             }
             
@@ -817,7 +823,16 @@
         function generateWins(d, analysis) {
             const wins = [];
             
-            // YOUR closed deals first
+            // SLACK appointments first
+            analysis.slackAppointments.forEach(a => {
+                wins.push({
+                    icon: '📞',
+                    iconBg: 'rgba(59, 130, 246, 0.2)',
+                    title: a.name,
+                    detail: a.time || 'Appointment'
+                });
+            });
+            // YOUR closed deals for context
             analysis.jackWonCalls.forEach(item => {
                 wins.push({
                     icon: '🎯',
@@ -826,7 +841,6 @@
                     detail: 'Deal won from Jack Set Calls'
                 });
             });
-            
             // Moved to Discovery (pipeline progress)
             if (analysis.jackMovedToDiscovery.length > 0) {
                 wins.push({
