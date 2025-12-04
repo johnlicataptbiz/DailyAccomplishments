@@ -509,6 +509,11 @@
             const local = new Date(d.getTime() - tz * 60000);
             return local.toISOString().split('T')[0];
         }
+
+        function parseLocalDate(key) {
+            const [y, m, d] = key.split('-').map(Number);
+            return new Date(y, (m || 1) - 1, d || 1, 12, 0, 0);
+        }
         const urlParams = new URLSearchParams(window.location.search);
         let currentDate = urlParams.get('date') || localDateKey();
         let data = null;
@@ -548,7 +553,7 @@
         });
 
         function changeDate(delta) {
-            const date = new Date(currentDate);
+            const date = parseLocalDate(currentDate);
             date.setDate(date.getDate() + delta);
             currentDate = localDateKey(date);
             dateInput.value = currentDate;
