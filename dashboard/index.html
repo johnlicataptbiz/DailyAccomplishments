@@ -3,24 +3,13 @@
 <!DOCTYPE html>
 <!--#include virtual="../dashboard.html" -->
 <script>
-console.log("[build] f8b45640 dashboard wrapper fallback enabled");
-(async function(){
-  const rawUrl = 'https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/dashboard.html';
-  try {
-    // Try to fetch the local ../dashboard.html first (SSI fallback)
-    let r = await fetch('../dashboard.html', { cache: 'no-store' });
-    if (!r.ok) throw new Error('local fetch not ok: ' + r.status);
-    let html = await r.text();
-    document.open(); document.write(html); document.close();
-  } catch (err) {
-    console.warn('wrapper: local fetch failed, falling back to GitHub raw', err);
-    try {
-      let r2 = await fetch(rawUrl + '?t=' + Date.now(), { cache: 'no-store' });
-      let html2 = await r2.text();
-      document.open(); document.write(html2); document.close();
-    } catch (err2) {
-      console.error('wrapper: raw fetch failed', err2);
-    }
-  }
-})();
+  // Redirect-based wrapper: attempt local ../dashboard.html, otherwise go straight to GitHub raw.
+  const cacheBust = `?t=${Date.now()}`;
+  const localPath = '../dashboard.html' + cacheBust;
+  const raw = 'https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/dashboard.html' + cacheBust;
+  console.log('[build] f8b45640 dashboard wrapper redirect enabled');
+  fetch(localPath, { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(() => { window.location.replace(localPath); })
+    .catch(() => { window.location.replace(raw); });
 </script>

@@ -23,27 +23,26 @@
             --green: #10b981;
             --blue: #3b82f6;
             --purple: #8b5cf6;
-            --orange: #f97316;
             --hubspot: #ff7a59;
             --monday: #0073ea;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-                .creator-badge {
-                    font-size: 18px;
-                    font-weight: 600;
-                    color: var(--text-muted);
-                    background: none;
-                    margin-left: 16px;
-                    display: flex;
-                    align-items: center;
-                    gap: 6px;
-                }
-                .creator-badge strong {
-                    color: var(--text);
-                    font-weight: 700;
-                    font-size: 20px;
-                }
+        .creator-badge {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: none;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .creator-badge strong {
+            color: var(--text);
+            font-weight: 700;
+            font-size: 20px;
+        }
 
         html, body {
             min-height: 100vh;
@@ -65,6 +64,7 @@
             margin-bottom: 32px;
             padding-bottom: 24px;
             border-bottom: 1px solid var(--border);
+            gap: 16px;
         }
 
         .brand { display: flex; align-items: center; gap: 16px; }
@@ -573,10 +573,8 @@
                 <button id="nextDay">Next →</button>
                 <button id="todayBtn" class="today-btn">Today</button>
             </div>
+            <span class="creator-badge">Created by <strong>Jack Licata</strong></span>
         </header>
-        <!-- Creator badge moved into header for stable layout -->
-        <!-- (placed after header so it visually aligns right with flexbox) -->
-        <span class="creator-badge">Created by <strong>Jack Licata</strong></span>
 
         <div id="dashboard"><div class="loading">Loading your day...</div></div>
 
