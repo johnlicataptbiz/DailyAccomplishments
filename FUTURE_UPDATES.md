@@ -83,6 +83,16 @@ Files: `dashboard.html` (layout + CSS), image sizing.
 - [ ] Optional: hourly meetings overlay (Calendar -> report.hourly_meetings)
 - [ ] Optional: deeper “top apps” normalization map
 
+## Deployment — Railway (Fix + Permanent Link)
+Goal: Reliable, shareable deployment that updates on push without breakage.
+
+- [ ] Investigate failing Railway builds and capture logs
+- [ ] Add Dockerfile for static hosting (Nginx or Node `serve`) with proper cache headers
+- [ ] Add simple health endpoint and basePath handling if needed
+- [ ] Configure Railway service environment to serve `index.html` and `ActivityReport-*.json`/`reports/*`
+- [ ] Add `railway.json` or project config notes to repo
+- [ ] Acceptance: successful build/deploy on push, stable URL, dashboard loads all assets
+
 Files: `scripts/generate_daily_json.py`, `tools/generate_reports.py` (if needed).
 
 ## Open Questions

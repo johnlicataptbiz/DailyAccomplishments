@@ -25,11 +25,13 @@ import sqlite3
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from typing import Dict, List, Optional, Tuple
 
 
 KNOWLEDGEC = Path.home() / "Library/Application Support/Knowledge/knowledgeC.db"
+LOCAL_TZ = ZoneInfo("America/Chicago")
 
 
 @dataclass
@@ -58,7 +60,9 @@ def _copy_db_safely(src: Path) -> Optional[Path]:
 
 def _ts_from_apple_epoch(val: float) -> datetime:
     # Apple epoch: 2001-01-01 00:00:00 UTC
-    return datetime(2001, 1, 1) + timedelta(seconds=float(val))
+    # Convert to aware UTC, then to local timezone for correct day/hour bucketing
+    dt_utc = datetime(2001, 1, 1, tzinfo=timezone.utc) + timedelta(seconds=float(val))
+    return dt_utc.astimezone(LOCAL_TZ)
 
 
 def _within_day(start: datetime, end: datetime, day0: datetime, day1: datetime) -> Tuple[datetime, datetime]:
@@ -70,7 +74,8 @@ def _within_day(start: datetime, end: datetime, day0: datetime, day1: datetime) 
 
 
 def query_app_usage(db: Path, date_str: str) -> List[AppUsage]:
-    day0 = datetime.strptime(date_str, "%Y-%m-%d")
+    # Use local timezone day bounds
+    day0 = datetime.strptime(date_str, "%Y-%m-%d").replace(tzinfo=LOCAL_TZ)
     day1 = day0 + timedelta(days=1)
     results: List[AppUsage] = []
 
@@ -142,9 +147,10 @@ def query_app_usage(db: Path, date_str: str) -> List[AppUsage]:
     ]
 
     # Convert day bounds to Apple epoch seconds (2001)
-    apple_epoch = datetime(2001, 1, 1)
-    day0_apple = (day0 - apple_epoch).total_seconds()
-    day1_apple = (day1 - apple_epoch).total_seconds()
+    apple_epoch_utc = datetime(2001, 1, 1, tzinfo=timezone.utc)
+    # Convert local bounds to UTC seconds for DB filter
+    day0_apple = (day0.astimezone(timezone.utc) - apple_epoch_utc).total_seconds()
+    day1_apple = (day1.astimezone(timezone.utc) - apple_epoch_utc).total_seconds()
 
     for name, q in queries:
         try:
@@ -298,23 +304,13 @@ def merge_into_activity_report(date_str: str, usages: List[AppUsage], repo_path:
         cur = report['by_category'].get(cat, '00:00')
         report['by_category'][cat] = add_hhmm(cur, mins)
 
-    # Merge hourly_focus (additive, cap at 60)
-    hf = report.get('hourly_focus') or []
-    if not hf or len(hf) != 24:
-        hf = [{"hour": h, "time": "00:00", "pct": "0%"} for h in range(24)]
+    # Merge hourly_focus (union per hour, cap at 60)
+    # Replace hourly_focus entirely from Screen Time (authoritative), capping at 60 per hour
+    new_hf = []
     for h in range(24):
-        cur_m = 0
-        if ":" in str(hf[h].get('time', '')):
-            try:
-                hh, mm = str(hf[h]['time']).split(":")
-                cur_m = int(hh) * 60 + int(mm)
-            except Exception:
-                cur_m = 0
-        add_m = hourly[h]
-        new_m = min(60, cur_m + add_m)
-        hf[h]['time'] = minutes_to_time_str(new_m)
-        hf[h]['pct'] = "0%"  # will be recalculated downstream if needed
-    report['hourly_focus'] = hf
+        add_m = min(60, max(0, int(hourly[h])))
+        new_hf.append({"hour": h, "time": minutes_to_time_str(add_m), "pct": "0%"})
+    report['hourly_focus'] = new_hf
 
     # Merge top apps (HH:MM strings)
     if app_minutes:
@@ -403,6 +399,91 @@ def merge_into_activity_report(date_str: str, usages: List[AppUsage], repo_path:
         # Keep top 8 blocks by minutes
         deep_blocks.sort(key=lambda x: -x['minutes'])
         report['deep_work'] = deep_blocks[:8]
+
+    # Derive meeting intervals from Screen Time segments categorized as 'Meetings',
+    # and heuristically detect Slack Huddles (long contiguous Slack foreground usage).
+    # This provides overlay ranges when dedicated calendar data is absent.
+    try:
+        def merge_intervals(items, gap_limit_min=5):
+            items = sorted(items, key=lambda s: s['start'])
+            out = []
+            cur_s = None
+            cur_e = None
+            last = None
+            for it in items:
+                if cur_s is None:
+                    cur_s, cur_e = it['start'], it['end']
+                    last = it['end']
+                else:
+                    gap = int((it['start'] - last).total_seconds() // 60)
+                    if gap <= gap_limit_min:
+                        cur_e = max(cur_e, it['end'])
+                    else:
+                        out.append((cur_s, cur_e))
+                        cur_s, cur_e = it['start'], it['end']
+                    last = it['end']
+            if cur_s and cur_e:
+                out.append((cur_s, cur_e))
+            return out
+
+        # Zoom/Teams explicit 'Meetings' category
+        meet_raw = [s for s in segments if s.get('cat') == 'Meetings']
+        merged_meet = merge_intervals(meet_raw)
+
+        # Heuristic: Slack Huddles — long contiguous Slack usage (>= 15 min), small gaps allowed
+        slack_raw = [s for s in segments if (s.get('app') or '').lower() == 'slack']
+        merged_slack = merge_intervals(slack_raw, gap_limit_min=3)
+        slack_meet = [(a, b) for (a, b) in merged_slack if int((b - a).total_seconds() // 60) >= 15]
+
+        # Combine and normalize
+        combined = sorted(merged_meet + slack_meet, key=lambda x: x[0])
+        # Merge overlaps between the two sets
+        normalized = []
+        for s,e in combined:
+            if not normalized:
+                normalized.append([s,e])
+            else:
+                ps,pe = normalized[-1]
+                if s <= pe:
+                    normalized[-1][1] = max(pe, e)
+                else:
+                    normalized.append([s,e])
+
+        if normalized:
+            def fmt_dt(dt: datetime) -> str:
+                return f"{dt.hour:02d}:{dt.minute:02d}"
+            mt = [{
+                'name': 'Meeting',
+                'time': f"{fmt_dt(a)}–{fmt_dt(b)}"
+            } for a, b in normalized if b > a]
+            dbg = report.setdefault('debug_appointments', {})
+            dbg['meetings_today'] = mt
+    except Exception:
+        pass
+
+    # Update overview focus_time and meetings_time heuristically from Screen Time
+    # We prefer not to double-count other sources; take the max of existing and derived.
+    def parse_hhmm(s: str) -> int:
+        try:
+            hh, mm = str(s or '00:00').split(':')
+            return int(hh) * 60 + int(mm)
+        except Exception:
+            return 0
+    if usages:
+        ov = report.setdefault('overview', {})
+        # Derive Screen Time minutes by category we just calculated (avoid double counting existing data)
+        st_meeting_mins = int(by_cat_minutes.get('Meetings', 0))
+        st_focus_mins = int(sum(v for k, v in by_cat_minutes.items() if k != 'Meetings'))
+
+        # Update focus_time to at least Screen Time focus minutes
+        cur_focus_mins = parse_hhmm(ov.get('focus_time', '00:00'))
+        if st_focus_mins > cur_focus_mins:
+            ov['focus_time'] = minutes_to_time_str(st_focus_mins)
+
+        # Update meetings_time to at least Screen Time meetings minutes
+        cur_meet_mins = parse_hhmm(ov.get('meetings_time', '00:00'))
+        if st_meeting_mins > cur_meet_mins:
+            ov['meetings_time'] = minutes_to_time_str(st_meeting_mins)
 
     # Merge coverage window
     def parse_cov(s: str) -> Tuple[Optional[int], Optional[int]]:
