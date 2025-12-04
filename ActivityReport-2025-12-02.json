@@ -22,7 +22,8 @@
     "Monday.com: 39 tasks updated, 2 updates, across 8 boards",
     "Visited 10 unique domains (68 page views)",
     "Screen Time: ~1875 min foreground app usage",
-    "Screen Time: ~1526 min foreground app usage"
+    "Screen Time: ~1526 min foreground app usage",
+    "Visited 10 unique domains (76 page views)"
   ],
   "client_summary": [],
   "accomplishments_today": [
@@ -33,7 +34,8 @@
   "by_category": {
     "Research": "06:43",
     "Coding": "00:13",
-    "Other": "00:03"
+    "Other": "00:06",
+    "Communication": "00:13"
   },
   "by_project": {},
   "google_workspace": {
@@ -45,79 +47,69 @@
     "top_documents": []
   },
   "browser_highlights": {
-    "total_visits": 68,
+    "total_visits": 76,
     "unique_domains": 10,
     "top_domains": [
       {
-        "domain": "chatgpt.com",
-        "visits": 79,
-        "sample_title": "ChatGPT"
-      },
-      {
         "domain": "app.slack.com",
-        "visits": 63,
-        "sample_title": "Dave (DM) - better. - Slack"
+        "visits": 21,
+        "sample_title": "* acquisition (Channel) - PT Biz - Slack"
       },
       {
         "domain": "accounts.google.com",
         "visits": 21,
-        "sample_title": "Sign in - Google Accounts"
+        "sample_title": "ChatGPT"
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 13,
+        "sample_title": "ChatGPT"
       },
       {
         "domain": "auth.openai.com",
-        "visits": 8,
-        "sample_title": "Log in or sign up - OpenAI"
-      },
-      {
-        "domain": "accounts.youtube.com",
-        "visits": 7,
-        "sample_title": "Redirecting"
+        "visits": 6,
+        "sample_title": "ChatGPT"
       },
       {
         "domain": "pt-biz-workspace.slack.com",
         "visits": 5,
-        "sample_title": "Enter your authentication code | Slack"
+        "sample_title": "Slack"
       },
       {
         "domain": "slack.com",
         "visits": 4,
-        "sample_title": "Sign in - Google Accounts"
+        "sample_title": "Slack"
       },
       {
         "domain": "thebetterbiz.slack.com",
         "visits": 2,
-        "sample_title": "Slack"
+        "sample_title": "Sign in - Google Accounts"
       },
       {
-        "domain": "",
-        "visits": 1,
-        "sample_title": "Daily Accomplishments \u2014 2025-12-02"
+        "domain": "accounts.youtube.com",
+        "visits": 2,
+        "sample_title": "Sign in - Google Accounts"
       },
       {
         "domain": "oauth2.slack.com",
         "visits": 1,
         "sample_title": "Login | Slack"
+      },
+      {
+        "domain": "",
+        "visits": 1,
+        "sample_title": "Daily Accomplishments \u2014 2025-12-02"
       }
     ],
     "top_pages": [
       {
         "page": "ChatGPT",
-        "url": "https://auth.openai.com/api/oauth/oauth2/auth?audience=https%3A%2F%2Fapi.openai.com%2Fv1&auth_sessio",
-        "visits": 2
+        "url": "https://chatgpt.com/#settings/Connectors",
+        "visits": 4
       },
       {
-        "page": "Redirecting",
-        "url": "https://accounts.google.com/CheckCookie?continue=https://accounts.google.com/signin/oauth/consent?au",
-        "visits": 2
-      },
-      {
-        "page": "Sign in - Google Accounts",
-        "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hANePFec2mLZ6XDmlr4D662wMGFmR2n",
-        "visits": 2
-      },
-      {
-        "page": "Sign in - Google Accounts",
-        "url": "https://accounts.google.com/InteractiveLogin?authuser=0&continue=https://accounts.google.com/signin/",
+        "page": "Slack",
+        "url": "https://app.slack.com/client/T042BPAJ5TJ",
         "visits": 2
       },
       {
@@ -132,79 +124,88 @@
       },
       {
         "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/CheckCookie?continue=https://accounts.google.com/signin/oauth/consent?au",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
         "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y",
         "visits": 2
       },
       {
-        "page": "Daily Accomplishments \u2014 2025-12-02",
-        "url": "file:///Users/jacklicatamacbook/Library/Application%20Support/ActivityTracker/reports/2025-12-02.htm",
-        "visits": 1
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/InteractiveLogin?authuser=0&continue=https://accounts.google.com/signin/",
+        "visits": 2
       },
       {
-        "page": "* acquisition (Channel) - PT Biz - Slack",
-        "url": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
-        "visits": 1
-      },
-      {
-        "page": "Slack Biz (DM) - PT Biz - Slack",
-        "url": "https://app.slack.com/client/TJ3QQ76KV/D09TMCWS1M1",
-        "visits": 1
-      },
-      {
-        "page": "Zoom (DM) - PT Biz - Slack",
-        "url": "https://app.slack.com/client/TJ3QQ76KV/D0A0M3CNDGB",
-        "visits": 1
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hANePFec2mLZ6XDmlr4D662wMGFmR2n",
+        "visits": 2
       },
       {
         "page": "ChatGPT",
-        "url": "https://chatgpt.com/#settings/Connectors?connector=connector_0f9c9d4592e54d0a9a12b3f44a1e2010",
-        "visits": 1
-      },
-      {
-        "page": "ChatGPT",
-        "url": "https://chatgpt.com/#settings/Connectors",
-        "visits": 1
-      },
-      {
-        "page": "ChatGPT",
-        "url": "https://chatgpt.com/#settings",
-        "visits": 1
-      },
-      {
-        "page": "ChatGPT",
-        "url": "https://chatgpt.com/",
-        "visits": 1
-      },
-      {
-        "page": "ChatGPT",
-        "url": "https://chatgpt.com/?refresh_account=true",
-        "visits": 1
+        "url": "https://auth.openai.com/api/oauth/oauth2/auth?audience=https%3A%2F%2Fapi.openai.com%2Fv1&auth_sessio",
+        "visits": 2
       },
       {
         "page": "ChatGPT",
         "url": "https://chatgpt.com/#settings/DataControls",
-        "visits": 1
+        "visits": 2
       },
       {
         "page": "ChatGPT",
-        "url": "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=799222349882-ne3i0s9jdm5s0",
+        "url": "https://chatgpt.com/",
+        "visits": 2
+      },
+      {
+        "page": "Slack Biz (DM) - PT Biz - Slack",
+        "url": "https://app.slack.com/client/TJ3QQ76KV/D09TMCWS1M1",
+        "visits": 2
+      },
+      {
+        "page": "* acquisition (Channel) - PT Biz - Slack",
+        "url": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
+        "visits": 2
+      },
+      {
+        "page": "Dave (DM) - better. - Slack",
+        "url": "https://app.slack.com/client/T042BPAJ5TJ/search",
         "visits": 1
       },
       {
-        "page": "ChatGPT",
-        "url": "https://auth.openai.com/api/accounts/callback/google?state=875befdb-911b-45dd-aa2e-8748398c7f6f&code",
+        "page": "Slack",
+        "url": "https://thebetterbiz.slack.com/?redir=%2Fgantry%2Fclient",
         "visits": 1
       },
       {
-        "page": "ChatGPT",
-        "url": "https://auth.openai.com/api/accounts/consent?consent_challenge=vqJOhq2h7fkKRNlgb74EFw1YHSihxSyTlmLVM",
+        "page": "Sign in - Google Accounts",
+        "url": "https://thebetterbiz.slack.com/workspace-signin/oauth/google/start?redir=%2Fgantry%2Fclient&is_ssb_b",
+        "visits": 1
+      },
+      {
+        "page": "Sign in to continue to Slack",
+        "url": "https://accounts.google.com/v3/signin/identifier?access_type=offline&app_domain=https%3A%2F%2Foauth2",
+        "visits": 1
+      },
+      {
+        "page": "Hi Jack",
+        "url": "https://accounts.google.com/v3/signin/challenge/pwd?TL=ANzgctQjlK9sLLK1ZvgG-Q2qQqeY3qHT21yCO3-hmjplv",
+        "visits": 1
+      },
+      {
+        "page": "Redirecting",
+        "url": "https://accounts.youtube.com/accounts/SetSID?ssdc=1&sidt=ALWU2cuysQXk48o3JhV5Aewx0inMKKpL4Bw8v6CtNeF",
+        "visits": 1
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.youtube.com/accounts/SetSID",
         "visits": 1
       }
     ],
     "by_category": {
-      "Other": 36,
-      "Communication": 30,
-      "Research": 2
+      "Communication": 12.9,
+      "Other": 5.5
     },
     "coverage_window": "13:19\u201313:50"
   },
@@ -276,7 +277,7 @@
     },
     {
       "hour": 13,
-      "time": "00:17",
+      "time": "00:18",
       "pct": "0%"
     },
     {
