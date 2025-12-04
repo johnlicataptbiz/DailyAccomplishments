@@ -519,11 +519,29 @@
         let data = null;
         let hourlyChart = null;
         let categoryChart = null;
+        window.meetingCredit = 0.25; // default
 
         const dashboard = document.getElementById('dashboard');
         const dateInput = document.getElementById('dateInput');
         dateInput.value = currentDate;
-        loadData(currentDate);
+
+        async function loadSettings() {
+            try {
+                const r = await fetch('/config.json', { cache: 'no-store' });
+                if (!r.ok) return;
+                const cfg = await r.json();
+                const mc = cfg?.weights?.meeting_credit;
+                if (typeof mc === 'number' && mc >= 0 && mc <= 1) {
+                    window.meetingCredit = mc;
+                }
+            } catch {}
+        }
+
+        async function init() {
+            await loadSettings();
+            await loadData(currentDate);
+        }
+        init();
         
         function updateUrl(date) {
             const url = new URL(window.location);
@@ -639,7 +657,7 @@
             const meetingArr = computeMeetingsByHour(d);
             const meetingOverlayMins = meetingArr.reduce((a,b)=>a+(b||0),0);
             // Meeting credit: count a portion of meeting time toward Focus (gentler)
-            const MEETING_CREDIT = 0.5; // 50% of meetings count as focus
+            const MEETING_CREDIT = (typeof window.meetingCredit === 'number') ? window.meetingCredit : 0.25;
             const focusAdj = focusByHour.reduce((sum, v, h) => {
                 const meet = meetingArr[h] || 0;
                 const subtract = Math.max(0, Math.round(meet * (1 - MEETING_CREDIT)));
