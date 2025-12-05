@@ -3,7 +3,7 @@
   "date": "2025-12-04",
   "title": "Daily Accomplishments \u2014 2025-12-04",
   "overview": {
-    "focus_time": "06:11",
+    "focus_time": "06:40",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
@@ -16,7 +16,7 @@
   "executive_summary": [
     "Worked across 7 applications",
     "Top category: Research",
-    "Screen Time: ~848 min foreground app usage"
+    "Screen Time: ~884 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
@@ -27,7 +27,7 @@
     "Focused on System Preferences (00:01)"
   ],
   "by_category": {
-    "Research": "05:06",
+    "Research": "05:35",
     "Other": "00:31",
     "Coding": "01:56",
     "Communication": "00:00"
@@ -193,12 +193,12 @@
     },
     {
       "hour": 19,
-      "time": "00:00",
+      "time": "00:09",
       "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:00",
+      "time": "00:20",
       "pct": "0%"
     },
     {
@@ -220,7 +220,7 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "04:28",
+    "Google Chrome": "04:57",
     "Terminal": "01:41",
     "System Settings": "00:02"
   },
@@ -285,6 +285,13 @@
       "minutes": 30,
       "category": "Coding",
       "label": "Terminal"
+    },
+    {
+      "start": "19:55",
+      "end": "20:29",
+      "minutes": 25,
+      "category": "Research",
+      "label": "Google Chrome"
     }
   ]
 }
