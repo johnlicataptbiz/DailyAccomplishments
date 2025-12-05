@@ -3,35 +3,35 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "01:51",
+    "active_time": "01:53",
     "focus_time": "02:57",
     "meetings_time": "00:00",
-    "coverage_time": "12:59",
-    "coverage_window": "00:00\u201312:59",
+    "coverage_time": "13:14",
+    "coverage_window": "00:00\u201313:14",
     "appointments": 0,
     "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 01:51",
-    "Focus Time: 01:51",
+    "Active Time: 01:53",
+    "Focus Time: 01:53",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 01:51 | Focus: 01:51",
-    "Coverage: 00:00\u201312:59 CST",
-    "Screen Time: ~1233 min foreground app usage"
+    "Active: 01:53 | Focus: 01:53",
+    "Coverage: 00:00\u201313:14 CST",
+    "Screen Time: ~1276 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:04)",
-    "Focused on Terminal (00:44)",
+    "Focused on Google Chrome (01:06)",
+    "Focused on Terminal (00:45)",
     "Focused on Electron (00:00)",
     "Focused on TextEdit (00:00)",
     "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Coding": "00:55",
     "Research": "02:14",
+    "Coding": "00:55",
     "Other": "00:01",
     "Communication": "00:00"
   },
@@ -39,7 +39,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 723
+        "visits": 736
       }
     ],
     "top_pages": [
@@ -49,7 +49,7 @@
       },
       {
         "page": "Exit Vim editor - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 124
+        "visits": 132
       },
       {
         "page": "Google Gemini - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -69,7 +69,11 @@
       },
       {
         "page": "Assign agent using automated prospecting for contacts in specific list ",
-        "visits": 15
+        "visits": 17
+      },
+      {
+        "page": "Prospecting Agent ",
+        "visits": 13
       },
       {
         "page": "dashboard.html (Index) (dashboard.html) \u2014 DailyAccomplishments [Codespaces: fluf",
@@ -78,10 +82,6 @@
       {
         "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
         "visits": 9
-      },
-      {
-        "page": "Grok - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 8
       }
     ]
   },
@@ -153,7 +153,7 @@
     },
     {
       "hour": 13,
-      "time": "00:00",
+      "time": "00:02",
       "pct": "0%"
     },
     {
@@ -215,8 +215,8 @@
   "top_windows_preview": [
     "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:12",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:10",
-    "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:10",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:11",
+    "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
     "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:07",
     "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
     "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
