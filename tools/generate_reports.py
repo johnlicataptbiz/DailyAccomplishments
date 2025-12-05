@@ -69,46 +69,139 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
             'time': '00:00',
             'pct': '0%'
         })
-    # Aggregate: sort by timestamp, calculate durations
+    # Aggregate: build timeline intervals from successive events, then merge
     if len(events) < 2:
         print("Not enough events for duration calculation")
         return report
     events.sort(key=lambda e: e.get('timestamp', ''))
+
+    # Build raw intervals from consecutive events. Each interval uses the previous
+    # event's app and idle_seconds to determine whether it counts as active.
+    raw_intervals = []
+    prev = events[0]
+    for event in events[1:]:
+        t0 = prev.get('timestamp')
+        t1 = event.get('timestamp')
+        try:
+            dt0 = datetime.fromisoformat(t0)
+            dt1 = datetime.fromisoformat(t1)
+        except Exception:
+            prev = event
+            continue
+        duration = int((dt1 - dt0).total_seconds())
+        data_section = prev.get('data', {}) if isinstance(prev.get('data', {}), dict) else {}
+        app = prev.get('app') or data_section.get('app') or data_section.get('application') or 'Unknown'
+        idle = prev.get('idle_seconds', 0) or data_section.get('idle_seconds', 0)
+        if duration > 1 and (idle is None or int(idle) < 5):
+            cat = categorize_app(app)
+            raw_intervals.append({'start': dt0, 'end': dt1, 'secs': duration, 'app': app, 'category': cat})
+            print(f"Interval {dt0.isoformat()} -> {dt1.isoformat()} ({duration}s) app={app} cat={cat}")
+        prev = event
+
+    if not raw_intervals:
+        print("No active intervals found")
+        return report
+
+    # Merge intervals to create a timeline of non-overlapping active intervals
+    raw_intervals.sort(key=lambda r: r['start'])
+    merged = []
+    cur = raw_intervals[0].copy()
+    for r in raw_intervals[1:]:
+        if r['start'] <= cur['end']:
+            # overlapping; extend end if needed
+            if r['end'] > cur['end']:
+                cur['end'] = r['end']
+        else:
+            merged.append(cur)
+            cur = r.copy()
+    merged.append(cur)
+
+    # Compute totals
     hourly_seconds = [0] * 24
     category_seconds = {}
-    total_focus_seconds = 0
-    prev_timestamp = None
-    for event in events:
-        timestamp = event.get('timestamp', '')
-        # Support both collector formats: data may be nested under 'data'
-        data_section = event.get('data', {}) if isinstance(event.get('data', {}), dict) else {}
-        app = event.get('app') or data_section.get('app') or data_section.get('application') or 'Unknown'
-        idle = event.get('idle_seconds', 0) or data_section.get('idle_seconds', 0)
-        try:
-            dt = datetime.fromisoformat(timestamp)
-            hour = dt.hour
-        except:
-            hour = 0
-        if prev_timestamp:
-            duration = int((dt - datetime.fromisoformat(prev_timestamp)).total_seconds())
-            # Ignore idle time > 5s or very short durations
-            if duration > 1 and idle < 5:
-                total_focus_seconds += duration
-                hourly_seconds[hour] += duration
-                category = categorize_app(app)
-                category_seconds[category] = category_seconds.get(category, 0) + duration
-                print(f"Aggregated {duration}s to hour {hour}, category {category}")
-        prev_timestamp = timestamp
-    print(f"Total focus seconds: {total_focus_seconds}, categories: {list(category_seconds.keys())}")
-    # Fill report
+    active_seconds = 0
+    meeting_seconds = 0
+
+    # Sum category seconds from raw intervals
+    for r in raw_intervals:
+        secs = r['secs']
+        category_seconds[r['category']] = category_seconds.get(r['category'], 0) + secs
+        if r['category'].lower() == 'meetings':
+            meeting_seconds += secs
+
+    # Active seconds = sum of merged intervals
+    from datetime import timedelta
+    for m in merged:
+        secs = int((m['end'] - m['start']).total_seconds())
+        active_seconds += secs
+        # distribute into hourly buckets by overlap
+        s = m['start']
+        e = m['end']
+        cursor = s
+        while cursor < e:
+            hour_end = datetime(cursor.year, cursor.month, cursor.day, cursor.hour, 59, 59, tzinfo=cursor.tzinfo)
+            if hour_end > e:
+                hour_end = e
+            overlap = int((hour_end - cursor).total_seconds()) + 1
+            hourly_seconds[cursor.hour] += overlap
+            cursor = hour_end + timedelta(seconds=1)
+
+    # Compute focus as active - meetings (simple attribution rule)
+    total_focus_seconds = max(0, active_seconds - meeting_seconds)
+
+    # Coverage window: from first merged start to last merged end
+    coverage_start = merged[0]['start']
+    coverage_end = merged[-1]['end']
+    report['overview']['coverage_window'] = f"{coverage_start.strftime('%H:%M')}–{coverage_end.strftime('%H:%M')}"
     report['overview']['focus_time'] = seconds_to_hhmm(total_focus_seconds)
+    report['overview']['meetings_time'] = seconds_to_hhmm(meeting_seconds)
+    report['overview']['active_time'] = seconds_to_hhmm(active_seconds)
+
+    # By-category from category_seconds
     for cat, secs in category_seconds.items():
         report['by_category'][cat] = seconds_to_hhmm(secs)
-    max_seconds = max(hourly_seconds) if hourly_seconds else 1
+
+    max_seconds = max(hourly_seconds) if any(hourly_seconds) else 1
     for hour in range(24):
         secs = hourly_seconds[hour]
         report['hourly_focus'][hour]['time'] = seconds_to_hhmm(secs)
         report['hourly_focus'][hour]['pct'] = f"{int(100 * secs / max_seconds) if max_seconds else 0}%"
+
+    # Detect deep work blocks from raw intervals (non-meeting contiguous segments >=25min)
+    deep_blocks = []
+    threshold = 25 * 60
+    current_block_start = None
+    current_block_end = None
+    last_end = None
+    for r in raw_intervals:
+        if r['category'].lower() == 'meetings':
+            # finalize any current block
+            if current_block_start and (current_block_end - current_block_start).total_seconds() >= threshold:
+                deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(int((current_block_end - current_block_start).total_seconds()))})
+            current_block_start = None
+            current_block_end = None
+            last_end = r['end']
+            continue
+        if not current_block_start:
+            current_block_start = r['start']
+            current_block_end = r['end']
+        else:
+            gap = (r['start'] - last_end).total_seconds() if last_end else 0
+            if gap <= 60:
+                # extend block
+                current_block_end = r['end']
+            else:
+                # finalize previous
+                if (current_block_end - current_block_start).total_seconds() >= threshold:
+                    deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(int((current_block_end - current_block_start).total_seconds()))})
+                current_block_start = r['start']
+                current_block_end = r['end']
+        last_end = r['end']
+    # finalize tail
+    if current_block_start and (current_block_end - current_block_start).total_seconds() >= threshold:
+        deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(int((current_block_end - current_block_start).total_seconds()))})
+
+    report['deep_work_blocks'] = deep_blocks
     return report
 def seconds_to_hhmm(seconds: int) -> str:
     hours = seconds // 3600
@@ -155,6 +248,22 @@ def main():
 
     # Write canonical ActivityReport JSON into reports/<date>/
     try:
+        # Ensure `overview.focus_time` exists: if generator was run from an existing
+        # ActivityReport JSON that lacks `focus_time`, compute it from `hourly_focus`.
+        overview = data.get('overview', {}) or {}
+        if not overview.get('focus_time'):
+            hf = data.get('hourly_focus', [])
+            total_minutes = 0
+            for item in hf:
+                # items may be objects with a 'time' field or simple strings
+                if isinstance(item, dict):
+                    t = item.get('time', '00:00')
+                else:
+                    t = item or '00:00'
+                total_minutes += hhmm_to_minutes(t)
+            # convert minutes to seconds for seconds_to_hhmm
+            overview['focus_time'] = seconds_to_hhmm(total_minutes * 60)
+        data['overview'] = overview
         (out_dir / f'ActivityReport-{date_str}.json').write_text(json.dumps(data, indent=2))
         # Also write the dashboard fallback name
         (out_dir / f'daily-report-{date_str}.json').write_text(json.dumps(data, indent=2))
