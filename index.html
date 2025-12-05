@@ -591,13 +591,16 @@
             dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
 
             try {
-                let response = await fetch(`/ActivityReport-${date}.json`);
+                // Prefer per-date report under /reports/<date>/ActivityReport-<date>.json
+                let response = await fetch(`/reports/${date}/ActivityReport-${date}.json`);
+                if (!response.ok) response = await fetch(`/ActivityReport-${date}.json`);
                 if (!response.ok) response = await fetch(`/reports/daily-report-${date}.json`);
                 if (!response.ok) throw new Error('Report not found');
 
                 data = await response.json();
                 document.getElementById('headerSub').textContent = formatDateFriendly(date);
-                document.getElementById('jsonLink').href = `/ActivityReport-${date}.json`;
+                // Link to the actual JSON resource we fetched (falls back to relative paths)
+                try { document.getElementById('jsonLink').href = response.url || `/ActivityReport-${date}.json`; } catch(e) { document.getElementById('jsonLink').href = `/ActivityReport-${date}.json`; }
                 const baseline = await loadBaseline(date);
                 renderDashboard(data, date, baseline);
             } catch (error) {
@@ -613,7 +616,9 @@
                 dd.setDate(d.getDate() - i);
                 const key = localDateKey(dd);
                 try {
-                    let r = await fetch(`/ActivityReport-${key}.json`);
+                    // Prefer per-date report path first when loading baselines
+                    let r = await fetch(`/reports/${key}/ActivityReport-${key}.json`);
+                    if (!r.ok) r = await fetch(`/ActivityReport-${key}.json`);
                     if (!r.ok) r = await fetch(`/reports/daily-report-${key}.json`);
                     if (!r.ok) continue;
                     const j = await r.json();
