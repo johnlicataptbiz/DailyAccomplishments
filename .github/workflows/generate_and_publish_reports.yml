@@ -3,6 +3,9 @@ name: Generate and publish reports
 on:
   push:
     branches: [ main ]
+  schedule:
+    # Run nightly at 02:00 UTC to regenerate reports from logs
+    - cron: '0 2 * * *'
 
 jobs:
   generate-and-publish:

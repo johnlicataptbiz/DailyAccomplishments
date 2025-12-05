@@ -12,6 +12,8 @@ jobs:
       - name: Check recent reports and validate structure
         run: |
           set -euo pipefail
+          python3 -m pip install --upgrade pip
+          python3 -m pip install jsonschema
           missing=0
           for i in 0 1 2; do
             date=$(date -u -d "-$i day" +%F)
@@ -22,8 +24,7 @@ jobs:
               continue
             fi
             echo "FOUND: $path"
-            # Basic JSON structure check: overview.focus_time must exist
-            python3 .github/scripts/check_report.py "$path" || exit $?
+            python3 .github/scripts/validate_report_schema.py "$path" || exit $?
           done
           if [ "$missing" -ne 0 ]; then
             echo "Some recent reports are missing ($missing); failing workflow."
