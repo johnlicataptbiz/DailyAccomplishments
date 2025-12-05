@@ -47,8 +47,10 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         print(f"Error reading JSONL: {e}")
         return None
     # Aggregate for collector format: calculate durations from timestamps, categorize apps
+    # Use the JSONL filename (YYYY-MM-DD) as the canonical report date when available.
+    date_str = jsonl_path.stem if jsonl_path and jsonl_path.exists() else DEFAULT_DATE
     report = {
-        'date': DEFAULT_DATE,
+        'date': date_str,
         'overview': {
             'focus_time': '00:00',
             'meetings_time': '00:00',
@@ -78,8 +80,10 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
     prev_timestamp = None
     for event in events:
         timestamp = event.get('timestamp', '')
-        app = event.get('app', 'Unknown')
-        idle = event.get('idle_seconds', 0)
+        # Support both collector formats: data may be nested under 'data'
+        data_section = event.get('data', {}) if isinstance(event.get('data', {}), dict) else {}
+        app = event.get('app') or data_section.get('app') or data_section.get('application') or 'Unknown'
+        idle = event.get('idle_seconds', 0) or data_section.get('idle_seconds', 0)
         try:
             dt = datetime.fromisoformat(timestamp)
             hour = dt.hour
