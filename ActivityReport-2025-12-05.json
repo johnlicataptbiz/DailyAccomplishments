@@ -3,15 +3,15 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "focus_time": "00:00",
+    "focus_time": "00:02",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 1,
-    "coverage_window": "00:00\u201300:00 CST"
+    "coverage_window": "00:00\u201300:15 CST"
   },
   "prepared_for_manager": [
-    "Total focused time: 00:00 (Coverage: 00:00\u201300:00 CST)",
-    "Top apps: Google Chrome (00:00)"
+    "Total focused time: 00:02 (Coverage: 00:00\u201300:15 CST)",
+    "Top apps: Google Chrome (00:02)"
   ],
   "executive_summary": [
     "Worked across 1 applications",
@@ -19,10 +19,10 @@
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:00)"
+    "Focused on Google Chrome (00:02)"
   ],
   "by_category": {
-    "Research": "00:00"
+    "Research": "00:02"
   },
   "by_project": {},
   "google_workspace": {
@@ -37,12 +37,36 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1
+        "visits": 3
       }
     ],
     "top_pages": [
       {
+        "page": "Assign agent using automated prospecting for contacts in specific list ",
+        "visits": 14
+      },
+      {
+        "page": "Prospecting Agent ",
+        "visits": 4
+      },
+      {
+        "page": "Custom Events ",
+        "visits": 4
+      },
+      {
         "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 2
+      },
+      {
+        "page": "Workflows - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 1
+      },
+      {
+        "page": "AI Settings ",
+        "visits": 1
+      },
+      {
+        "page": "(2) PT ENTREPRENEURS ",
         "visits": 1
       }
     ]
@@ -172,10 +196,16 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "00:00"
+    "Google Chrome": "00:02"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:00"
+    "Google Chrome \u2014 Assign agent using automated prospecting for conta: 00:01",
+    "Google Chrome \u2014 Prospecting Agent : 00:00",
+    "Google Chrome \u2014 Custom Events : 00:00",
+    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:00",
+    "Google Chrome \u2014 Workflows - Google Chrome - Jack (physicaltherapyb: 00:00",
+    "Google Chrome \u2014 AI Settings : 00:00",
+    "Google Chrome \u2014 (2) PT ENTREPRENEURS : 00:00"
   ],
   "notes": [],
   "debug_appointments": {
