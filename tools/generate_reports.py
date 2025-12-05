@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
-"""Generate CSV exports and charts from ActivityReport JSON or JSONL logs."""
+"""Generate CSV exports and charts from ActivityReport JSON or JSONL logs - FIXED FOR COLLECTOR FORMAT."""
 import json
 import sys
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import csv
-
 BASE = Path(__file__).resolve().parents[1]
-# Try to read from JSONL log first, fallback to JSON
 DEFAULT_DATE = datetime.now(ZoneInfo('America/Chicago')).strftime('%Y-%m-%d')
 JSONL_INPUT = BASE / 'logs' / 'daily' / f'{DEFAULT_DATE}.jsonl'
 JSON_INPUT = BASE / f'ActivityReport-{DEFAULT_DATE}.json'
 OUT_DIR = BASE
-
 def hhmm_to_minutes(s):
     if not s or ':' not in s:
         return 0
@@ -24,57 +21,45 @@ def hhmm_to_minutes(s):
         return h*60 + m
     except Exception:
         return 0
-
 def write_csv(path, rows, headers):
+    print(f"Writing CSV to {path} with {len(rows)} rows")
     with open(path, 'w', newline='') as f:
         w = csv.writer(f)
         w.writerow(headers)
         for r in rows:
             w.writerow(r)
-
 def load_from_jsonl(jsonl_path: Path) -> dict:
-    """Load and convert JSONL log to report format"""
     print(f"Loading from JSONL: {jsonl_path}")
-    
     if not jsonl_path.exists():
         return None
-    
     events = []
-    metadata = None
-    
     try:
         with open(jsonl_path, 'r') as f:
             for line in f:
                 if line.strip():
                     try:
                         event = json.loads(line)
-                        if event.get('type') == 'metadata':
-                            metadata = event.get('data', {})
-                        else:
-                            events.append(event)
+                        events.append(event)
                     except json.JSONDecodeError:
                         continue
+        print(f"Loaded {len(events)} events")
     except Exception as e:
         print(f"Error reading JSONL: {e}")
         return None
-    
-    # Convert events to report format
-    # This is a simplified converter - full implementation would
-    # aggregate by category, project, hourly buckets, etc.
+    # Aggregate for collector format: calculate durations from timestamps, categorize apps
     report = {
-        'date': metadata.get('date') if metadata else DEFAULT_DATE,
+        'date': DEFAULT_DATE,
         'overview': {
             'focus_time': '00:00',
             'meetings_time': '00:00',
             'appointments': 0,
             'projects_count': 0,
-            'coverage_window': metadata.get('coverage_start', '06:00') + '–' + metadata.get('coverage_end', '23:59') if metadata else '06:00–23:59'
+            'coverage_window': '06:00–23:59'
         },
         'by_category': {},
         'browser_highlights': {'top_domains': [], 'top_pages': []},
         'hourly_focus': []
     }
-    
     # Initialize hourly buckets
     for hour in range(24):
         report['hourly_focus'].append({
@@ -82,157 +67,121 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
             'time': '00:00',
             'pct': '0%'
         })
-    
-    # Aggregate events
+    # Aggregate: sort by timestamp, calculate durations
+    if len(events) < 2:
+        print("Not enough events for duration calculation")
+        return report
+    events.sort(key=lambda e: e.get('timestamp', ''))
     hourly_seconds = [0] * 24
     category_seconds = {}
     total_focus_seconds = 0
-    total_meeting_seconds = 0
-    
+    prev_timestamp = None
     for event in events:
-        event_type = event.get('type')
-        data = event.get('data', {})
         timestamp = event.get('timestamp', '')
-        
+        app = event.get('app', 'Unknown')
+        idle = event.get('idle_seconds', 0)
         try:
             dt = datetime.fromisoformat(timestamp)
             hour = dt.hour
         except:
             hour = 0
-        
-        if event_type == 'focus_change':
-            duration = data.get('duration_seconds', 0)
-            total_focus_seconds += duration
-            hourly_seconds[hour] += duration
-            
-            # Categorize by app (simple heuristic)
-            app = data.get('app', '')
-            category = categorize_app(app)
-            category_seconds[category] = category_seconds.get(category, 0) + duration
-        
-        elif event_type in ['meeting_start', 'meeting_end']:
-            if event_type == 'meeting_end':
-                duration = data.get('duration_seconds', 0)
-                total_meeting_seconds += duration
-    
-    # Convert to HH:MM format
+        if prev_timestamp:
+            duration = int((dt - datetime.fromisoformat(prev_timestamp)).total_seconds())
+            # Ignore idle time > 5s or very short durations
+            if duration > 1 and idle < 5:
+                total_focus_seconds += duration
+                hourly_seconds[hour] += duration
+                category = categorize_app(app)
+                category_seconds[category] = category_seconds.get(category, 0) + duration
+                print(f"Aggregated {duration}s to hour {hour}, category {category}")
+        prev_timestamp = timestamp
+    print(f"Total focus seconds: {total_focus_seconds}, categories: {list(category_seconds.keys())}")
+    # Fill report
     report['overview']['focus_time'] = seconds_to_hhmm(total_focus_seconds)
-    report['overview']['meetings_time'] = seconds_to_hhmm(total_meeting_seconds)
-    
-    # Fill category distribution
     for cat, secs in category_seconds.items():
         report['by_category'][cat] = seconds_to_hhmm(secs)
-    
-    # Fill hourly focus
     max_seconds = max(hourly_seconds) if hourly_seconds else 1
     for hour in range(24):
         secs = hourly_seconds[hour]
         report['hourly_focus'][hour]['time'] = seconds_to_hhmm(secs)
         report['hourly_focus'][hour]['pct'] = f"{int(100 * secs / max_seconds) if max_seconds else 0}%"
-    
     return report
-
 def seconds_to_hhmm(seconds: int) -> str:
-    """Convert seconds to HH:MM format"""
     hours = seconds // 3600
     minutes = (seconds % 3600) // 60
     return f"{hours:02d}:{minutes:02d}"
-
 def categorize_app(app: str) -> str:
-    """Simple app categorization"""
     app_lower = app.lower()
-    
-    if any(word in app_lower for word in ['chrome', 'firefox', 'safari', 'browser']):
+    if any(word in app_lower for word in ['chrome', 'firefox', 'safari']):
         return 'Research'
-    elif any(word in app_lower for word in ['code', 'terminal', 'iterm', 'pycharm', 'intellij']):
+    elif any(word in app_lower for word in ['code', 'terminal', 'iterm']):
         return 'Coding'
-    elif any(word in app_lower for word in ['slack', 'zoom', 'teams', 'meet']):
+    elif any(word in app_lower for word in ['slack', 'zoom']):
         return 'Meetings'
-    elif any(word in app_lower for word in ['mail', 'outlook', 'gmail', 'messages']):
+    elif any(word in app_lower for word in ['mail', 'messages']):
         return 'Communication'
-    elif any(word in app_lower for word in ['word', 'excel', 'sheets', 'docs', 'notion']):
-        return 'Docs'
     else:
         return 'Other'
-
 def load_data(date: str = None) -> dict:
-    """Load data from JSONL or JSON file"""
     if date:
         jsonl_path = BASE / 'logs' / 'daily' / f'{date}.jsonl'
         json_path = BASE / f'ActivityReport-{date}.json'
     else:
         jsonl_path = JSONL_INPUT
         json_path = JSON_INPUT
-    
-    # Try JSONL first
     if jsonl_path.exists():
         data = load_from_jsonl(jsonl_path)
         if data:
             return data
-    
-    # Fallback to JSON
     if json_path.exists():
         print(f"Loading from JSON: {json_path}")
         return json.loads(json_path.read_text())
-    
     raise FileNotFoundError(f"No data found for date {date or DEFAULT_DATE}")
-
 def main():
-    """Main entry point"""
-    # Support command line argument for date
     date = sys.argv[1] if len(sys.argv) > 1 else None
-    
     try:
         data = load_data(date)
     except FileNotFoundError as e:
         print(f"Error: {e}")
         sys.exit(1)
-
     # Hourly focus CSV
     hf = data.get('hourly_focus', [])
     hf_rows = []
     for item in hf:
         time_str = item.get('time', '00:00')
         minutes = hhmm_to_minutes(time_str)
-        # Cap minutes at 60 per hour (the data appears to show cumulative or scaled values)
-        # We'll use the percentage to derive actual minutes if time exceeds 60
         pct_str = item.get('pct', '0%').rstrip('%')
         try:
             pct = int(pct_str)
         except:
             pct = 0
-        # If minutes > 60, use percentage-based calculation relative to max of 60
         if minutes > 60:
             minutes = min(60, int(60 * pct / 100))
         hf_rows.append([item.get('hour'), time_str, item.get('pct'), minutes])
-    write_csv(OUT_DIR / 'hourly_focus.csv', hf_rows, ['hour', 'time', 'pct', 'minutes'])
-
+    date_str = data.get('date') or date or DEFAULT_DATE
+    write_csv(OUT_DIR / f'hourly_focus-{date_str}.csv', hf_rows, ['hour', 'time', 'pct', 'minutes'])
     # Top domains CSV
     domains = data.get('browser_highlights', {}).get('top_domains', [])
     dom_rows = [[d.get('domain'), d.get('visits')] for d in domains]
-    write_csv(OUT_DIR / 'top_domains.csv', dom_rows, ['domain', 'visits'])
-
+    write_csv(OUT_DIR / f'top_domains-{date_str}.csv', dom_rows, ['domain', 'visits'])
     # Category distribution CSV
     cats = data.get('by_category', {})
     cat_rows = []
     for k, v in cats.items():
         cat_rows.append([k, v, hhmm_to_minutes(v)])
-    write_csv(OUT_DIR / 'category_distribution.csv', cat_rows, ['category', 'time', 'minutes'])
-
-    # Generate charts (matplotlib)
+    write_csv(OUT_DIR / f'category_distribution-{date_str}.csv', cat_rows, ['category', 'time', 'minutes'])
+    # Generate charts
     try:
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt
+        print("Matplotlib imported")
     except Exception as e:
         print('matplotlib required to generate charts:', e)
         return
-
     # Hourly bar chart
-    # Use the date from the data, falling back to the CLI arg or default
     title_date = data.get('date') or date or DEFAULT_DATE
     hours = [int(x.get('hour', 0)) for x in hf]
-    # Apply same capping logic as CSV: if minutes > 60, use percentage-based calc
     minutes = []
     for x in hf:
         m = hhmm_to_minutes(x['time'])
@@ -251,10 +200,10 @@ def main():
     plt.title(f'Hourly Focus — {title_date}')
     plt.xticks(hours)
     plt.tight_layout()
-    plt.savefig(OUT_DIR / 'hourly_focus.png')
-    plt.savefig(OUT_DIR / 'hourly_focus.svg')
+    plt.savefig(OUT_DIR / f'hourly_focus-{title_date}.png')
+    plt.savefig(OUT_DIR / f'hourly_focus-{title_date}.svg')
     plt.close()
-
+    print(f"Hourly chart saved for {title_date}")
     # Category pie chart
     labels = [r[0] for r in cat_rows]
     sizes = [r[2] for r in cat_rows]
@@ -263,11 +212,12 @@ def main():
         plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
         plt.title(f'Time by Category — {title_date}')
         plt.tight_layout()
-        plt.savefig(OUT_DIR / 'category_distribution.png')
-        plt.savefig(OUT_DIR / 'category_distribution.svg')
+        plt.savefig(OUT_DIR / f'category_distribution-{title_date}.png')
+        plt.savefig(OUT_DIR / f'category_distribution-{title_date}.svg')
         plt.close()
-
+        print(f"Category chart saved for {title_date}")
+    else:
+        print(f"No category data for {title_date}")
     print('CSVs and charts written to', OUT_DIR)
-
 if __name__ == '__main__':
     main()
