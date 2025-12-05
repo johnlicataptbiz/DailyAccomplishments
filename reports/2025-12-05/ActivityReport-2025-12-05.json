@@ -3,63 +3,69 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "focus_time": "01:16",
+    "active_time": "01:36",
+    "focus_time": "02:46",
     "meetings_time": "00:00",
+    "coverage_time": "12:13",
+    "coverage_window": "00:00\u201312:13",
     "appointments": 0,
-    "projects_count": 4,
-    "coverage_window": "00:00\u201309:00"
+    "projects_count": 4
   },
   "prepared_for_manager": [
-    "Total focused time: 00:18 (Coverage: 00:00\u201302:16 CST)",
-    "Top apps: Google Chrome (00:13), Terminal (00:03), Electron (00:00)"
+    "Active Time: 01:36",
+    "Focus Time: 01:36",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Worked across 4 applications",
-    "Top category: Research",
-    "Screen Time: ~129 min foreground app usage",
-    "Screen Time: ~181 min foreground app usage",
-    "Screen Time: ~231 min foreground app usage",
-    "Screen Time: ~258 min foreground app usage",
-    "Screen Time: ~307 min foreground app usage",
-    "Screen Time: ~353 min foreground app usage",
-    "Screen Time: ~438 min foreground app usage",
-    "Screen Time: ~480 min foreground app usage",
-    "Screen Time: ~569 min foreground app usage",
-    "Screen Time: ~621 min foreground app usage"
+    "Active: 01:36 | Focus: 01:36",
+    "Coverage: 00:00\u201312:13 CST",
+    "Screen Time: ~1017 min foreground app usage"
   ],
-  "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:13)",
-    "Focused on Terminal (00:03)",
+    "Focused on Google Chrome (00:56)",
+    "Focused on Terminal (00:37)",
     "Focused on Electron (00:00)",
+    "Focused on TextEdit (00:00)",
     "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Research": "15:14",
-    "Coding": "03:27",
-    "Other": "00:03",
+    "Coding": "00:48",
+    "Research": "02:03",
+    "Other": "00:01",
     "Communication": "00:00"
-  },
-  "by_project": {},
-  "google_workspace": {
-    "Google": "00:00",
-    "Google Sheets": "00:00",
-    "Google Calendar": "00:00",
-    "Gmail": "00:00",
-    "Google Drive": "00:00",
-    "top_documents": []
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 130
+        "visits": 630
       }
     ],
     "top_pages": [
       {
+        "page": "Troubleshooting Directory Navigation Git - Grok - Google Chrome - Jack (physical",
+        "visits": 210
+      },
+      {
+        "page": "Google Gemini - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 89
+      },
+      {
+        "page": "Code - Grok - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 86
+      },
+      {
         "page": "Git Rebase Stability Fixes - Grok - Google Chrome - Jack (physicaltherapybiz.com",
-        "visits": 73
+        "visits": 85
+      },
+      {
+        "page": "Exit Vim editor - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 46
+      },
+      {
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 22
       },
       {
         "page": "Assign agent using automated prospecting for contacts in specific list ",
@@ -74,35 +80,15 @@
         "visits": 9
       },
       {
-        "page": "Margoth Arias-Suarez - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 6
-      },
-      {
-        "page": "SuperAgent.agent.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
-        "visits": 6
-      },
-      {
-        "page": "Prospecting Agent ",
-        "visits": 5
-      },
-      {
-        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 4
-      },
-      {
-        "page": "Custom Events ",
-        "visits": 4
-      },
-      {
-        "page": "Workflows - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 2
+        "page": "Grok - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 8
       }
     ]
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:00",
+      "time": "00:03",
       "pct": "0%"
     },
     {
@@ -147,22 +133,22 @@
     },
     {
       "hour": 9,
-      "time": "00:00",
+      "time": "00:28",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:00",
+      "time": "00:41",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:00",
+      "time": "00:19",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     },
     {
@@ -221,30 +207,34 @@
       "pct": "0%"
     }
   ],
-  "suggested_tasks": [],
-  "next_up": [],
   "top_apps": {
-    "Google Chrome": "01:00",
-    "Terminal": "00:15",
+    "Google Chrome": "02:03",
+    "Terminal": "00:42",
     "Finder": "00:01"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:06",
-    "Google Chrome \u2014 Assign agent using automated prospecting for conta: 00:01",
-    "Terminal \u2014 DailyAccomplishments \u2014 -zsh \u2014 80\u00d724: 00:01",
-    "Google Chrome \u2014 dashboard.html (Index) (dashboard.html) \u2014 DailyAcc: 00:01",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:01",
-    "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:00",
-    "Google Chrome \u2014 Margoth Arias-Suarez - Google Chrome - Jack (physi: 00:00",
-    "Google Chrome \u2014 SuperAgent.agent.md \u2014 DailyAccomplishments [Codesp: 00:00",
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:00",
-    "Google Chrome \u2014 Prospecting Agent : 00:00"
+    "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:12",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:07",
+    "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:07",
+    "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
+    "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
+    "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:03",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 nano Activi: 00:02",
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:01"
   ],
-  "notes": [],
+  "foot": "Auto-generated (Redesign v1)",
+  "deep_work": [
+    {
+      "start": "10:09",
+      "end": "11:12",
+      "minutes": 43,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
   "debug_appointments": {
-    "contact_visits_top": [],
-    "appointments_today": [],
     "meetings_today": []
-  },
-  "foot": "Auto-generated"
+  }
 }
