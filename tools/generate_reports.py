@@ -122,46 +122,85 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
     active_seconds = 0
     meeting_seconds = 0
 
-    # Sum category seconds from raw intervals
+    # Build a cleaned timeline by splitting on all interval boundaries and assigning
+    # each small segment to a single category using a priority rule. This produces
+    # deterministic attribution and allows deep-work detection to operate on a
+    # reattributed timeline (meetings reattributed when foreground activity exists).
+    boundaries = set()
     for r in raw_intervals:
-        secs = r['secs']
-        category_seconds[r['category']] = category_seconds.get(r['category'], 0) + secs
-        if r['category'].lower() == 'meetings':
-            meeting_seconds += secs
+        boundaries.add(r['start'])
+        boundaries.add(r['end'])
+    boundaries = sorted(boundaries)
 
-    # Prefer foreground attribution when meetings overlap with high-priority non-meeting activity.
-    # If a meeting interval overlaps with a Coding interval, attribute the overlapped seconds to Coding.
-    # Build lists for overlap computation
-    meeting_intervals = [r for r in raw_intervals if r['category'].lower() == 'meetings']
-    non_meeting_intervals = [r for r in raw_intervals if r['category'].lower() != 'meetings']
-    from datetime import timedelta
-    for m in meeting_intervals:
-        overlaps = {}
-        m_start = m['start']
-        m_end = m['end']
-        m_len = int((m_end - m_start).total_seconds())
-        if m_len <= 0:
+    def category_priority(cat: str) -> int:
+        # lower number = higher priority
+        if not cat: return 100
+        c = cat.lower()
+        if 'code' in c or 'coding' in c: return 1
+        if 'research' in c: return 2
+        if 'communication' in c: return 3
+        if 'other' in c: return 4
+        if 'meetings' in c: return 10
+        return 50
+
+    cleaned = []
+    for i in range(len(boundaries) - 1):
+        s = boundaries[i]
+        e = boundaries[i+1]
+        if e <= s:
             continue
-        for n in non_meeting_intervals:
-            # Only consider high-priority non-meeting categories for foreground attribution
-            cat = n['category']
-            if cat.lower() not in ('coding', 'research', 'other', 'communication'):
-                continue
-            # compute overlap
-            s = max(m_start, n['start'])
-            e = min(m_end, n['end'])
-            if e > s:
-                ov = int((e - s).total_seconds())
-                overlaps[cat] = overlaps.get(cat, 0) + ov
-        if not overlaps:
+        # find raw intervals that cover [s,e]
+        covering = [r for r in raw_intervals if r['start'] <= s and r['end'] >= e]
+        if not covering:
             continue
-        # choose the non-meeting category with maximum overlap
-        best_cat, best_sec = max(overlaps.items(), key=lambda kv: kv[1])
-        # subtract from meeting_seconds and add to that category_seconds
-        move = min(best_sec, m_len)
-        if move > 0:
-            meeting_seconds = max(0, meeting_seconds - move)
-            category_seconds[best_cat] = category_seconds.get(best_cat, 0) + move
+        # choose category by highest priority non-meeting coverer, else meeting
+        chosen = None
+        best_pr = 999
+        for r in covering:
+            pr = category_priority(r['category'])
+            if pr < best_pr:
+                best_pr = pr
+                chosen = r['category']
+        secs = int((e - s).total_seconds())
+        cleaned.append({'start': s, 'end': e, 'secs': secs, 'category': chosen or 'Other', 'app': covering[0].get('app')})
+
+    # Merge adjacent cleaned segments with same category
+    merged_by_cat = []
+    if cleaned:
+        cur = cleaned[0].copy()
+        for seg in cleaned[1:]:
+            if seg['category'] == cur['category'] and seg['start'] == cur['end']:
+                cur['end'] = seg['end']
+                cur['secs'] += seg['secs']
+            else:
+                merged_by_cat.append(cur)
+                cur = seg.copy()
+        merged_by_cat.append(cur)
+
+    # Recompute totals from cleaned/merged timeline
+    hourly_seconds = [0] * 24
+    category_seconds = {}
+    active_seconds = 0
+    meeting_seconds = 0
+    for seg in merged_by_cat:
+        secs = seg['secs']
+        active_seconds += secs
+        cat = seg.get('category', 'Other')
+        category_seconds[cat] = category_seconds.get(cat, 0) + secs
+        if cat and cat.lower() == 'meetings':
+            meeting_seconds += secs
+        # distribute into hourly buckets by overlap
+        s = seg['start']
+        e = seg['end']
+        cursor = s
+        from datetime import timedelta
+        while cursor < e:
+            hour_end = datetime(cursor.year, cursor.month, cursor.day, cursor.hour, 59, 59, tzinfo=cursor.tzinfo)
+            if hour_end > e:
+                hour_end = e
+            overlap = int((hour_end - cursor).total_seconds()) + 1
+            hourly_seconds[cursor.hour] += overlap
+            cursor = hour_end + timedelta(seconds=1)
 
     # Active seconds = sum of merged intervals
     from datetime import timedelta
@@ -201,39 +240,39 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         report['hourly_focus'][hour]['time'] = seconds_to_hhmm(secs)
         report['hourly_focus'][hour]['pct'] = f"{int(100 * secs / max_seconds) if max_seconds else 0}%"
 
-    # Detect deep work blocks from raw intervals (non-meeting contiguous segments >=25min)
+    # Detect deep work blocks from the cleaned/merged timeline: non-meeting contiguous segments >=25min
     deep_blocks = []
     threshold = 25 * 60
     current_block_start = None
     current_block_end = None
-    last_end = None
-    for r in raw_intervals:
-        if r['category'].lower() == 'meetings':
+    for seg in merged_by_cat:
+        if seg['category'] and seg['category'].lower() == 'meetings':
             # finalize any current block
             if current_block_start and (current_block_end - current_block_start).total_seconds() >= threshold:
-                deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(int((current_block_end - current_block_start).total_seconds()))})
+                secs = int((current_block_end - current_block_start).total_seconds())
+                deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(secs), 'seconds': secs, 'minutes': int(secs/60)})
             current_block_start = None
             current_block_end = None
-            last_end = r['end']
             continue
+        # non-meeting segment
         if not current_block_start:
-            current_block_start = r['start']
-            current_block_end = r['end']
+            current_block_start = seg['start']
+            current_block_end = seg['end']
         else:
-            gap = (r['start'] - last_end).total_seconds() if last_end else 0
+            # if contiguous (no gap) extend, else finalize and start new
+            gap = (seg['start'] - current_block_end).total_seconds()
             if gap <= 60:
-                # extend block
-                current_block_end = r['end']
+                current_block_end = seg['end']
             else:
-                # finalize previous
                 if (current_block_end - current_block_start).total_seconds() >= threshold:
-                    deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(int((current_block_end - current_block_start).total_seconds()))})
-                current_block_start = r['start']
-                current_block_end = r['end']
-        last_end = r['end']
+                    secs = int((current_block_end - current_block_start).total_seconds())
+                    deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(secs), 'seconds': secs, 'minutes': int(secs/60)})
+                current_block_start = seg['start']
+                current_block_end = seg['end']
     # finalize tail
     if current_block_start and (current_block_end - current_block_start).total_seconds() >= threshold:
-        deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(int((current_block_end - current_block_start).total_seconds()))})
+        secs = int((current_block_end - current_block_start).total_seconds())
+        deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(secs), 'seconds': secs, 'minutes': int(secs/60)})
 
     report['deep_work_blocks'] = deep_blocks
     return report
