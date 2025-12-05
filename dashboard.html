@@ -72,11 +72,8 @@
 
         header {
             display: flex;
+            align-items: flex-start;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--border);
             gap: 16px;
         }
 
@@ -586,7 +583,10 @@
                 <button id="nextDay">Next →</button>
                 <button id="todayBtn" class="today-btn">Today</button>
             </div>
-            <span class="creator-badge">Created by <strong>Jack Licata</strong></span>
+            <div class="creator-badge">
+              <div class="creator-label">Created by</div>
+              <div class="creator-name">Jack Licata</div>
+            </div>
         </header>
 
         <div id="dashboard"><div class="loading">Loading your day...</div></div>
@@ -1597,6 +1597,8 @@
         function renderHourlyChart(hourly, fullData) {
             const ctx = document.getElementById('hourlyChart');
             if (!ctx) return;
+
+            // Destroy existing chart if any
             if (hourlyChart) hourlyChart.destroy();
 
             // Extended hours: 5am to midnight

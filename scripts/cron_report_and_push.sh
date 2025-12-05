@@ -1,3 +1,8 @@
+cd "/Users/jacklicatamacbook/DailyAccomplishments"
+
+git fetch origin
+git checkout -B main origin/main
+
 set -euo pipefail
 
 SCRIPT_SOURCE="${BASH_SOURCE[0]:-$0}"
