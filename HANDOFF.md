@@ -60,7 +60,8 @@ This is a fast onboarding for picking up where we left off. It summarizes setup,
   ```bash
   cd ~/DailyAccomplishments
   git checkout --theirs ActivityReport-2025-12-03.json
-  git add -A && git rebase --continue
+  git add ActivityReport-2025-12-03.json
+  git rebase --continue
   ```
 - Then regenerate:
   ```bash

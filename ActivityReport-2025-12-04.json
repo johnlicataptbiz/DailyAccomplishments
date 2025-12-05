@@ -3,32 +3,29 @@
   "date": "2025-12-04",
   "title": "Daily Accomplishments \u2014 2025-12-04",
   "overview": {
-    "focus_time": "02:07",
+    "focus_time": "01:31",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 1,
-    "coverage_window": "00:00\u201310:28"
+    "projects_count": 2,
+    "coverage_window": "00:02\u201310:02"
   },
   "prepared_for_manager": [
-    "Total focused time: 00:00 (Coverage: 02:51\u201302:52 CST)",
-    "Top apps: Terminal (00:00)"
+    "Total focused time: 00:08 (Coverage: 02:57\u201310:02 CST)",
+    "Top apps: Terminal (00:04), Google Chrome (00:03)"
   ],
   "executive_summary": [
-    "Worked across 1 applications",
+    "Worked across 2 applications",
     "Top category: Coding",
-    "Screen Time: ~741 min foreground app usage",
-    "Screen Time: ~112 min foreground app usage",
-    "Screen Time: ~175 min foreground app usage",
-    "Screen Time: ~230 min foreground app usage"
+    "Screen Time: ~175 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Terminal (00:00)"
+    "Focused on Terminal (00:04)",
+    "Focused on Google Chrome (00:03)"
   ],
   "by_category": {
-    "Coding": "03:56",
-    "Research": "01:02",
-    "Other": "00:02"
+    "Coding": "01:29",
+    "Research": "00:09"
   },
   "by_project": {},
   "google_workspace": {
@@ -40,8 +37,54 @@
     "top_documents": []
   },
   "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+    "top_domains": [
+      {
+        "domain": "physicaltherapybiz.com",
+        "visits": 32
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Daily Accomplishments - Google Chrome - physicaltherapybiz.com",
+        "visits": 16
+      },
+      {
+        "page": "Prospecting Agent ",
+        "visits": 3
+      },
+      {
+        "page": "Google Calendar API overview \u00a0",
+        "visits": 2
+      },
+      {
+        "page": "Credentials \u2013 APIs & Services \u2013 ActivityTracker \u2013 Google Cloud console - Google ",
+        "visits": 2
+      },
+      {
+        "page": "dailyaccomplishments-production.up.railway.app/ActivityReport-2025-12-01.json - ",
+        "visits": 2
+      },
+      {
+        "page": "Physical Therapy Biz - Calendar - General settings - Google Chrome - physicalthe",
+        "visits": 2
+      },
+      {
+        "page": "Physical Therapy Biz - Calendar - Calendar settings for Jack Licata - Google Chr",
+        "visits": 2
+      },
+      {
+        "page": "acquisition (Channel) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com",
+        "visits": 2
+      },
+      {
+        "page": "Configure the OAuth consent screen and choose scopes \u00a0",
+        "visits": 1
+      },
+      {
+        "page": "Create access credentials \u00a0",
+        "visits": 1
+      }
+    ]
   },
   "hourly_focus": [
     {
@@ -91,12 +134,12 @@
     },
     {
       "hour": 9,
-      "time": "00:09",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:27",
+      "time": "00:00",
       "pct": "0%"
     },
     {
@@ -168,11 +211,20 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Terminal": "01:37",
-    "Google Chrome": "00:30"
+    "Terminal": "01:25",
+    "Google Chrome": "00:06"
   },
   "top_windows_preview": [
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:00"
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:03",
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:01",
+    "Google Chrome: 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 ssh \u25c2 codex \u2014 : 00:00",
+    "Google Chrome \u2014 Prospecting Agent : 00:00",
+    "Google Chrome \u2014 Google Calendar API overview \u00a0: 00:00",
+    "Google Chrome \u2014 Credentials \u2013 APIs & Services \u2013 ActivityTracker \u2013 : 00:00",
+    "Google Chrome \u2014 dailyaccomplishments-production.up.railway.app/Act: 00:00",
+    "Google Chrome \u2014 Physical Therapy Biz - Calendar - General settings: 00:00",
+    "Google Chrome \u2014 Physical Therapy Biz - Calendar - Calendar setting: 00:00"
   ],
   "notes": [],
   "debug_appointments": {
@@ -182,13 +234,6 @@
   },
   "foot": "Auto-generated",
   "deep_work": [
-    {
-      "start": "09:46",
-      "end": "10:28",
-      "minutes": 36,
-      "category": "Research",
-      "label": "Google Chrome"
-    },
     {
       "start": "01:54",
       "end": "02:39",

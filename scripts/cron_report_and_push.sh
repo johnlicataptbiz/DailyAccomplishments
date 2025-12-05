@@ -1,23 +1,67 @@
+cd "/Users/jacklicatamacbook/DailyAccomplishments"
+
+git fetch origin
+git checkout -B main origin/main
+
+set -euo pipefail
+
+SCRIPT_SOURCE="${BASH_SOURCE[0]:-$0}"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_SOURCE")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$REPO_ROOT"
+
+# if not in a git worktree, bail loudly
+git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+    echo "[ERROR] Not inside git work tree. cwd=$(pwd) script=$SCRIPT_SOURCE"
+    exit 1
+}
+
+# ensure we're on main (avoid detached HEAD)
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$BRANCH" = "HEAD" ]; then
+    echo "[WARN] Detached HEAD detected; resetting to origin/main"
+    git fetch origin
+    git checkout -B main origin/main
+fi
 #!/bin/bash
 # Cron Report and Push - Run every 15 minutes by LaunchAgent
 # Generates daily JSON report, syncs integrations, and optionally pushes to GitHub
 
-set -e
+set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+# Robustly resolve script path and repo root
+SCRIPT_SOURCE="${BASH_SOURCE[0]:-$0}"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_SOURCE")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 cd "$REPO_ROOT"
+if [ ! -d .git ]; then
+    echo "[$(date)] ERROR: .git not found in $REPO_ROOT; aborting." >&2
+    exit 2
+fi
 
-echo "[$(date)] Starting report generation..."
+echo "[$(date)] DEBUG: cwd=$(pwd)"
+echo "[$(date)] DEBUG: script source=$SCRIPT_SOURCE"
+echo "[$(date)] DEBUG: script dir=$SCRIPT_DIR"
+echo "[$(date)] DEBUG: git work-tree=$(git rev-parse --is-inside-work-tree 2>/dev/null || echo 'no')"
+echo "[$(date)] DEBUG: branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo 'unknown')"
 
-# Ensure repo is up-to-date to avoid non-fast-forward push failures
+# Ensure repo is on `main` (LaunchAgent can run from a detached HEAD)
 if git rev-parse --git-dir >/dev/null 2>&1; then
-  git fetch origin >/dev/null 2>&1 || true
-  CUR=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
-  if [ "$CUR" = "main" ]; then
-    git pull --rebase origin main >/dev/null 2>&1 || true
-  fi
+    git fetch origin >/dev/null 2>&1 || true
+    CUR="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+    echo "[$(date)] current branch before guard: $CUR"
+
+    if [ "$CUR" = "HEAD" ] || [ -z "$CUR" ]; then
+        # detached or unknown: recover by checking out main from origin if possible
+        git checkout -B main origin/main >/dev/null 2>&1 || git checkout main >/dev/null 2>&1 || true
+        CUR="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+        echo "[$(date)] branch after recovery: $CUR"
+    fi
+
+    if [ "$CUR" = "main" ]; then
+        git pull --rebase origin main >/dev/null 2>&1 || true
+    fi
 fi
 
 # Generate the daily JSON report from local activity logs
@@ -26,6 +70,11 @@ python3 "$SCRIPT_DIR/generate_daily_json.py" 2>/dev/null || true
 # Enrich report with Screen Time (KnowledgeC) data if accessible
 TODAY=$(date +%F)
 python3 "$SCRIPT_DIR/import_screentime.py" --date "$TODAY" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
+
+# Merge Calendar (ICS) meetings if credentials/calendar.ics exists
+if [ -f "$REPO_ROOT/credentials/calendar.ics" ]; then
+    python3 "$SCRIPT_DIR/import_calendar_ics.py" --date "$TODAY" --ics "$REPO_ROOT/credentials/calendar.ics" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
+fi
 
 # Enrich report with Browser History for today (Chrome/Safari)
 python3 "$SCRIPT_DIR/import_browser_history.py" --date "$TODAY" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
@@ -39,11 +88,10 @@ fi
 # Generate charts if matplotlib is available
 if python3 -c "import matplotlib" 2>/dev/null; then
     python3 tools/generate_reports.py 2>/dev/null || true
-
+fi
 
 # Archive today
 "$SCRIPT_DIR"/archive_outputs.sh "$TODAY" 2>/dev/null || true
-fi
 
 # Copy files to gh-pages worktree if it exists
 GH_PAGES="$REPO_ROOT/gh-pages"
@@ -64,15 +112,20 @@ if git diff --quiet && git diff --cached --quiet; then
 else
     DATE=$(date +%Y-%m-%d)
     TIME=$(date +%H:%M)
-    git add -A
+    git add ActivityReport-*.json reports/ *.csv *.svg dashboard.html
     git commit -m "Auto-update: $DATE $TIME" || true
     echo "[$(date)] Changes committed to main"
 
-    # Try to push main
-    if git push origin main 2>/dev/null; then
-        echo "[$(date)] Pushed to main"
+    # Try to push main, but only if we're actually on main
+    CUR="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+    if [ "$CUR" != "main" ]; then
+        echo "[$(date)] Not on main (current: $CUR); skipping push"
     else
-        echo "[$(date)] Main push skipped (no credentials or offline)"
+        if git push origin main 2>/dev/null; then
+            echo "[$(date)] Pushed to main"
+        else
+            echo "[$(date)] Main push skipped (no credentials or offline)"
+        fi
     fi
 fi
 
@@ -82,7 +135,7 @@ if [ -d "$GH_PAGES" ] && [ -f "$GH_PAGES/.git" ]; then
     if ! git diff --quiet || ! git diff --cached --quiet; then
         DATE=$(date +%Y-%m-%d)
         TIME=$(date +%H:%M)
-        git add -A
+        git add .
         git commit -m "Dashboard update: $DATE $TIME" || true
         if git push origin gh-pages 2>/dev/null; then
             echo "[$(date)] Pushed to gh-pages"

@@ -1,65 +1,47 @@
 {
   "source_file": "ActivityReport-2025-12-05.json",
   "date": "2025-12-05",
-  "title": "Daily Accomplishments \u2014 2025-12-05",
+  "title": "Daily Accomplishments — 2025-12-05",
   "overview": {
-    "active_time": "00:11",
-    "focus_time": "00:11",
+    "active_time": "00:00",
+    "focus_time": "00:00",
     "meetings_time": "00:00",
-    "coverage_time": "00:26",
-    "coverage_window": "08:07\u201308:34 CST",
+    "coverage_time": "00:00",
+    "coverage_window": "06:00–23:59 CST",
     "appointments": 0,
-    "projects_count": 3
+    "projects_count": 0
   },
   "prepared_for_manager": [
-    "Active Time: 00:11",
-    "Focus Time: 00:11",
+    "Active Time: 00:00",
+    "Focus Time: 00:00",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, Terminal, Finder"
+    "Top Apps: Unknown"
   ],
   "executive_summary": [
-    "Active: 00:11 | Focus: 00:11",
-    "Coverage: 08:07\u201308:34 CST"
+    "Active: 00:00 | Focus: 00:00",
+    "Coverage: 06:00–23:59 CST"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:08)",
-    "Focused on Terminal (00:06)",
-    "Focused on Finder (00:00)"
+    "Focused on Unknown (00:00)"
   ],
-  "by_category": {
-    "Research": "00:08",
-    "Coding": "00:06",
-    "Other": "00:00"
+  "by_category": {},
+  "by_project": {},
+  "google_workspace": {
+    "Google": "00:00",
+    "Google Sheets": "00:00",
+    "Google Calendar": "00:00",
+    "Gmail": "00:00",
+    "Google Drive": "00:00",
+    "top_documents": []
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 105
+        "visits": 130
       }
     ],
-    "top_pages": [
-      {
-        "page": "Troubleshooting Directory Navigation Git - Grok - Google Chrome - Jack (physical",
-        "visits": 93
-      },
-      {
-        "page": "Google Docs - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 6
-      },
-      {
-        "page": "Slack - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 2
-      },
-      {
-        "page": "New Tab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 2
-      },
-      {
-        "page": "Untitled document - Google Docs - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 2
-      }
-    ]
+    "top_pages": []
   },
   "hourly_focus": [
     {
@@ -104,8 +86,8 @@
     },
     {
       "hour": 8,
-      "time": "00:15",
-      "pct": "100%"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 9,
@@ -184,21 +166,10 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:08",
-    "Terminal": "00:06",
-    "Finder": "00:00"
+    "Unknown": "00:00"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:07",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:04",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 osascript \u25c2: 00:00",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 Python scri: 00:00",
-    "Google Chrome \u2014 Google Docs - Google Chrome - Jack (physicaltherap: 00:00",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 Python tool: 00:00",
-    "Finder \u2014 Downloads: 00:00",
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:00",
-    "Google Chrome: 00:00",
-    "Google Chrome \u2014 Slack - Google Chrome - Jack (physicaltherapybiz.c: 00:00"
+    "Unknown: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)"
 }

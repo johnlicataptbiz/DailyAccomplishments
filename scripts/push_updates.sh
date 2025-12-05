@@ -18,7 +18,7 @@ fi
 DATE=$(date +%Y-%m-%d)
 TIME=$(date +%H:%M)
 
-git add -A
+git add ActivityReport-*.json reports/ *.csv *.svg dashboard.html
 git commit -m "Update: $DATE $TIME"
 git push origin main
 
