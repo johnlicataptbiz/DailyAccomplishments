@@ -613,6 +613,25 @@ class Tracker:
 
     def _write_event(self, event: dict) -> None:
         ts = datetime.fromisoformat(event["start"]).astimezone(CHICAGO_TZ) if CHICAGO_TZ else datetime.fromisoformat(event["start"]).astimezone()
+        # Prefer writing via the new bridge API (tools/tracker_bridge.py) so the
+        # event goes through the consolidated `daily_logger` with locking,
+        # deduplication and rotation. Fall back to legacy local JSONL + SQLite
+        # mirroring if the bridge is unavailable or errors.
+        try:
+            # Import lazily to avoid adding a hard dependency when not present
+            from tools.tracker_bridge import track_focus_change
+            # Use convenience function: app, title, duration_seconds
+            app = event.get("app", "")
+            title = event.get("title", "")
+            secs = int(event.get("seconds", 0) or 0)
+            ok = track_focus_change(app, title, secs)
+            if ok:
+                return
+        except Exception:
+            # Bridge not available or failed — continue to fallback
+            pass
+
+        # Fallback: write directly to JSONL and mirror to SQLite
         log_path = log_path_for(ts)
         log_path.parent.mkdir(parents=True, exist_ok=True)
         with log_path.open("a", encoding="utf-8") as f:
