@@ -3,43 +3,56 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "02:03",
-    "focus_time": "03:31",
+    "active_time": "02:08",
+    "focus_time": "03:46",
     "meetings_time": "00:00",
-    "coverage_time": "14:00",
-    "coverage_window": "00:00\u201314:00",
+    "coverage_time": "14:15",
+    "coverage_window": "00:00\u201314:15",
     "appointments": 0,
-    "projects_count": 4
+    "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 02:03",
-    "Focus Time: 02:03",
+    "Active Time: 02:08",
+    "Focus Time: 02:08",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 02:03 | Focus: 02:03",
-    "Coverage: 00:00\u201314:00 CST",
-    "Screen Time: ~1329 min foreground app usage"
+    "Active: 02:08 | Focus: 02:08",
+    "Coverage: 00:00\u201314:15 CST",
+    "Screen Time: ~1372 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:14)",
-    "Focused on Terminal (00:46)",
+    "Focused on Google Chrome (01:19)",
+    "Focused on Terminal (00:47)",
     "Focused on Electron (00:00)",
     "Focused on TextEdit (00:00)",
     "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Coding": "01:00",
-    "Research": "02:45",
+    "Research": "03:00",
+    "Coding": "01:02",
     "Other": "00:01",
-    "Communication": "00:00"
+    "Communication": "00:00",
+    "Email/CRM": "00:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 823
+        "visits": 842
+      },
+      {
+        "domain": "circle.so",
+        "visits": 3
+      },
+      {
+        "domain": "app.hubspot",
+        "visits": 1
+      },
+      {
+        "domain": "physicaltherapybiz.com",
+        "visits": 1
       }
     ],
     "top_pages": [
@@ -65,19 +78,19 @@
       },
       {
         "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
-        "visits": 39
+        "visits": 51
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 27
       },
       {
-        "page": "Assign agent using automated prospecting for contacts in specific list ",
-        "visits": 17
+        "page": "Prospecting Agent ",
+        "visits": 23
       },
       {
-        "page": "Prospecting Agent ",
-        "visits": 13
+        "page": "Assign agent using automated prospecting for contacts in specific list ",
+        "visits": 17
       },
       {
         "page": "dashboard.html (Index) (dashboard.html) \u2014 DailyAccomplishments [Codespaces: fluf",
@@ -153,12 +166,12 @@
     },
     {
       "hour": 13,
-      "time": "00:34",
+      "time": "00:49",
       "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     },
     {
@@ -208,19 +221,19 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "02:45",
+    "Google Chrome": "03:00",
     "Terminal": "00:45",
     "Finder": "00:01"
   },
   "top_windows_preview": [
     "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:12",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:13",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:11",
     "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
     "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:08",
     "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
     "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
-    "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:03",
+    "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:04",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:02",
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:02"
   ],
