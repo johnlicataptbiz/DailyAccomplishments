@@ -7,10 +7,10 @@
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:02\u201320:29"
+    "coverage_window": "00:02\u201322:30"
   },
   "prepared_for_manager": [
-    "Total focused time: 01:23 (Coverage: 02:57\u201320:29 CST)",
+    "Total focused time: 01:24 (Coverage: 02:57\u201322:30 CST)",
     "Top apps: Google Chrome (00:45), app_mode_loader (00:26), Terminal (00:08)"
   ],
   "executive_summary": [
@@ -45,7 +45,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 254
+        "visits": 260
       },
       {
         "domain": "physicaltherapybiz.com",
@@ -55,11 +55,11 @@
     "top_pages": [
       {
         "page": "Debug rebase issues - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 132
+        "visits": 135
       },
       {
         "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
-        "visits": 40
+        "visits": 42
       },
       {
         "page": "Daily Accomplishments - Google Chrome - physicaltherapybiz.com",
