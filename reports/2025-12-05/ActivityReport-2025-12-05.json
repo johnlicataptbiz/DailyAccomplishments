@@ -3,35 +3,35 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "01:36",
-    "focus_time": "02:46",
+    "active_time": "01:42",
+    "focus_time": "02:49",
     "meetings_time": "00:00",
-    "coverage_time": "12:13",
-    "coverage_window": "00:00\u201312:13",
+    "coverage_time": "12:28",
+    "coverage_window": "00:00\u201312:28",
     "appointments": 0,
     "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 01:36",
-    "Focus Time: 01:36",
+    "Active Time: 01:42",
+    "Focus Time: 01:42",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 01:36 | Focus: 01:36",
-    "Coverage: 00:00\u201312:13 CST",
-    "Screen Time: ~1017 min foreground app usage"
+    "Active: 01:42 | Focus: 01:42",
+    "Coverage: 00:00\u201312:28 CST",
+    "Screen Time: ~1105 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:56)",
-    "Focused on Terminal (00:37)",
+    "Focused on Google Chrome (00:59)",
+    "Focused on Terminal (00:40)",
     "Focused on Electron (00:00)",
     "Focused on TextEdit (00:00)",
     "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Coding": "00:48",
-    "Research": "02:03",
+    "Coding": "00:51",
+    "Research": "02:06",
     "Other": "00:01",
     "Communication": "00:00"
   },
@@ -39,7 +39,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 630
+        "visits": 665
       }
     ],
     "top_pages": [
@@ -61,7 +61,7 @@
       },
       {
         "page": "Exit Vim editor - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 46
+        "visits": 80
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -148,7 +148,7 @@
     },
     {
       "hour": 12,
-      "time": "00:05",
+      "time": "00:11",
       "pct": "0%"
     },
     {
@@ -208,18 +208,18 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "02:03",
+    "Google Chrome": "02:06",
     "Terminal": "00:42",
     "Finder": "00:01"
   },
   "top_windows_preview": [
     "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:12",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:07",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:08",
     "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:07",
     "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
     "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
-    "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:03",
+    "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:06",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 nano Activi: 00:02",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:01"
