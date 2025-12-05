@@ -5,14 +5,14 @@ Activity Tracker (privacy-safe)
 What it does:
 - Tracks your active application and front window title on macOS.
 - Writes compact JSONL session records with start/end/duration (running daily log).
-- Generates a daily summary for a configurable window (default: 6am–midnight CST/CDT).
+- Generates a daily summary for a configurable window (default: 6am–11pm CST/CDT).
 
 What it does NOT do:
 - No keystroke logging or input capture.
 - No screen recording or network transmission.
 
 Usage examples:
-- Run tracker with daily midnight summary: ./activity_tracker.py --daemon
+- Run tracker with daily 11pm summary: ./activity_tracker.py --daemon
 - Generate summary for a past date:       ./activity_tracker.py --summary 2025-01-31
 
 Data locations (macOS):
@@ -276,9 +276,9 @@ DEFAULT_CONFIG = {
     "story_enabled": True,
     "retention_days": 60,
     # Daily window configuration
-    # Start hour inclusive (e.g., 6 means 06:00 local), end hour exclusive (e.g., 24 means midnight)
+    # Start hour inclusive (e.g., 6 means 06:00 local), end hour exclusive (e.g., 24 means midnight; 23 means 23:00/11pm)
     "day_start_hour_local": 6,
-    "day_end_hour_local": 24
+    "day_end_hour_local": 23
 }
 
 
@@ -3205,14 +3205,16 @@ def generate_weekly_html(end_date: Optional[datetime] = None, days: int = 7) -> 
     return out
 
 
-# ----------------------- Scheduler (midnight) --------------------
+# ----------------------- Scheduler (daily cutoff / 11pm) --------------------
 
-def seconds_until_next_midnight_chicago(ref: Optional[datetime] = None) -> float:
+def seconds_until_next_midnight_chicago(ref: Optional[datetime] = None, cutoff_hour: int = 23) -> float:
     tz = CHICAGO_TZ or datetime.now().astimezone().tzinfo
     now_local = (ref or now_tz(CHICAGO_TZ)).astimezone(tz)
-    # Next midnight is tomorrow at 00:00 local
-    tomorrow = (now_local + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
-    return (tomorrow - now_local).total_seconds()
+    # Next cutoff is the next occurrence of cutoff_hour:00 local (today or tomorrow)
+    target = now_local.replace(hour=cutoff_hour, minute=0, second=0, microsecond=0)
+    if now_local >= target:
+        target = target + timedelta(days=1)
+    return (target - now_local).total_seconds()
 
 
 def run_daemon(poll_seconds: int) -> None:
@@ -3232,7 +3234,7 @@ def run_daemon(poll_seconds: int) -> None:
     t = threading.Thread(target=tracker.run, name="activity-tracker", daemon=True)
     t.start()
 
-    # Scheduler loop (generate at midnight)
+    # Scheduler loop (generate at configured daily cutoff, typically 11pm)
     try:
         while not stop_event.is_set():
             to_wait = max(1.0, seconds_until_next_midnight_chicago())
@@ -3240,9 +3242,9 @@ def run_daemon(poll_seconds: int) -> None:
             if stop_event.is_set():
                 break
 
-            # Cut current session at exactly midnight (Chicago) and generate summary for the prior day
+            # Cut current session at the configured cutoff (Chicago) and generate summary for the prior day
             now_local = now_tz(CHICAGO_TZ)
-            # We woke at (or extremely near) midnight; cut at current timestamp
+            # We woke at (or extremely near) the cutoff; cut at current timestamp
             cut_at = now_local.replace(microsecond=0)
 
             tracker.split_at(cut_at)
@@ -3269,7 +3271,7 @@ def main(argv: Optional[list[str]] = None) -> int:
     sub = parser.add_subparsers(dest="cmd")
 
     # Main flags (no subcommand)
-    parser.add_argument("--daemon", action="store_true", help="Run tracker and schedule daily midnight summary.")
+    parser.add_argument("--daemon", action="store_true", help="Run tracker and schedule daily 11pm summary.")
     parser.add_argument("--summary", metavar="YYYY-MM-DD", help="Generate summary for a specific date.")
     parser.add_argument("--html", action="store_true", help="With --summary, also generate HTML; alone does nothing.")
     parser.add_argument("--cutoff", type=int, help="Override cutoff hour (local) for daily summary (default: config day_end_hour_local)")
