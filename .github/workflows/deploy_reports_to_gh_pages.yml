@@ -12,11 +12,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Deploy reports to gh-pages
+      - name: Deploy reports to reports-gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./reports
-          publish_branch: gh-pages
+          publish_branch: reports-gh-pages
           user_name: 'github-actions[bot]'
           user_email: '41898282+github-actions[bot]@users.noreply.github.com'
