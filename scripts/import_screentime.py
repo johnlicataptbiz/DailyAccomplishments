@@ -298,19 +298,42 @@ def merge_into_activity_report(date_str: str, usages: List[AppUsage], repo_path:
                     app_minutes[app_label] = app_minutes.get(app_label, 0) + dur
                 start = segment_end
 
-    # Merge categories (additive)
-    report.setdefault('by_category', {})
+    # Merge categories using union semantics (avoid additive double counting)
+    def parse_hhmm(s: str) -> int:
+        try:
+            hh, mm = str(s or '00:00').split(':')
+            return int(hh) * 60 + int(mm)
+        except Exception:
+            return 0
+    existing = report.get('by_category') or {}
+    # If existing looks clearly corrupted (sum >> 24h), reset and prefer Screen Time
+    existing_total = sum(parse_hhmm(v) for v in existing.values())
+    if existing_total > 24 * 60:
+        merged = {}
+    else:
+        merged = dict(existing)
     for cat, mins in by_cat_minutes.items():
-        cur = report['by_category'].get(cat, '00:00')
-        report['by_category'][cat] = add_hhmm(cur, mins)
+        prev = parse_hhmm(merged.get(cat, '00:00'))
+        merged[cat] = minutes_to_time_str(max(prev, mins))
+    report['by_category'] = merged
 
     # Merge hourly_focus (union per hour, cap at 60)
-    # Replace hourly_focus entirely from Screen Time (authoritative), capping at 60 per hour
-    new_hf = []
+    # Merge hourly_focus as union per hour (keep existing collector minutes, add Screen Time where higher)
+    existing_hf = report.get('hourly_focus') or [{"hour": h, "time": "00:00", "pct": "0%"} for h in range(24)]
+    merged_hf = []
     for h in range(24):
-        add_m = min(60, max(0, int(hourly[h])))
-        new_hf.append({"hour": h, "time": minutes_to_time_str(add_m), "pct": "0%"})
-    report['hourly_focus'] = new_hf
+        # Existing minutes from report (collector)
+        cur_m = 0
+        try:
+            t = str(existing_hf[h].get('time', '00:00'))
+            hh, mm = t.split(':')
+            cur_m = int(hh) * 60 + int(mm)
+        except Exception:
+            cur_m = 0
+        st_m = min(60, max(0, int(hourly[h])))
+        merged_m = min(60, max(cur_m, st_m))
+        merged_hf.append({"hour": h, "time": minutes_to_time_str(merged_m), "pct": "0%"})
+    report['hourly_focus'] = merged_hf
 
     # Merge top apps (HH:MM strings)
     if app_minutes:

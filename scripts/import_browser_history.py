@@ -60,7 +60,7 @@ def copy_db_safely(db_path: Path) -> Optional[str]:
 
 
 def get_chrome_history(target_date: datetime) -> list:
-    """Get Chrome history for a specific date."""
+    """Get Chrome history VISITS for a specific date with timestamps."""
     history = []
     db_path = get_chrome_history_path()
     
@@ -84,22 +84,22 @@ def get_chrome_history(target_date: datetime) -> list:
         start_chrome = int((start_of_day - CHROME_EPOCH).total_seconds() * 1_000_000)
         end_chrome = int((end_of_day - CHROME_EPOCH).total_seconds() * 1_000_000)
         
-        cursor.execute("""
-            SELECT url, title, visit_count, last_visit_time
-            FROM urls
-            WHERE last_visit_time >= ? AND last_visit_time < ?
-            ORDER BY last_visit_time DESC
-        """, (start_chrome, end_chrome))
-        
-        for row in cursor.fetchall():
-            url, title, visit_count, last_visit_time = row
-            visit_dt = chrome_time_to_datetime(last_visit_time)
-            
+        cursor.execute(
+            """
+            SELECT v.visit_time, u.url, u.title
+            FROM visits v
+            JOIN urls u ON v.url = u.id
+            WHERE v.visit_time >= ? AND v.visit_time < ?
+            ORDER BY v.visit_time ASC
+            """,
+            (start_chrome, end_chrome),
+        )
+        for visit_time, url, title in cursor.fetchall():
+            visit_dt = chrome_time_to_datetime(int(visit_time))
             history.append({
                 'browser': 'Chrome',
                 'url': url,
                 'title': title or url,
-                'visit_count': visit_count,
                 'last_visit': visit_dt.isoformat(),
                 'hour': visit_dt.hour
             })
@@ -281,7 +281,7 @@ def is_unsavory(domain: str, title: str, privacy: Dict[str, Any]) -> bool:
 
 
 def analyze_history(history: list, privacy: Dict[str, Any]) -> dict:
-    """Analyze browser history and generate stats."""
+    """Analyze browser history and generate stats with inferred durations."""
     if not history:
         return {}
     
@@ -289,18 +289,19 @@ def analyze_history(history: list, privacy: Dict[str, Any]) -> dict:
     domain_visits = defaultdict(int)
     domain_titles = {}
     
-    # Hourly distribution
-    hourly_visits = defaultdict(int)
+    # Hourly minutes (inferred)
+    hourly_minutes = defaultdict(float)
     
-    # Category breakdown
-    category_visits = defaultdict(int)
+    # Category breakdown (minutes)
+    category_visits = defaultdict(float)
     category_domains = defaultdict(set)
     
     # Page visits
     page_visits = defaultdict(int)
     page_titles = {}
     
-    for item in history:
+    history_sorted = sorted(history, key=lambda x: x.get('last_visit', ''))
+    for idx, item in enumerate(history_sorted):
         domain = extract_domain(item['url'])
         title = item['title']
         if is_unsavory(domain, title, privacy):
@@ -310,19 +311,31 @@ def analyze_history(history: list, privacy: Dict[str, Any]) -> dict:
                 title = 'Private'
             else:
                 continue
-        hour = item['hour']
+        ts = datetime.fromisoformat(item['last_visit'])
+        hour = ts.hour
         category = categorize_url(item['url'], title)
         if domain == 'private':
             category = 'Private'
-        
-        domain_visits[domain] += item.get('visit_count', 1)
+        domain_visits[domain] += 1
         domain_titles[domain] = title
-        
-        hourly_visits[hour] += 1
-        
-        category_visits[category] += 1
-        category_domains[category].add(domain)
-        
+        # Infer dwell = delta to next visit, cap 10 minutes, split by hour
+        if idx + 1 < len(history_sorted):
+            next_ts = datetime.fromisoformat(history_sorted[idx + 1]['last_visit'])
+            delta_s = max(0, min(600, int((next_ts - ts).total_seconds())))
+        else:
+            delta_s = 60
+        if delta_s > 0:
+            end_ts = ts + timedelta(seconds=delta_s)
+            cur = ts
+            while cur < end_ts:
+                hour_end = (cur.replace(minute=0, second=0, microsecond=0) + timedelta(hours=1))
+                seg_end = min(end_ts, hour_end)
+                mins = (seg_end - cur).total_seconds() / 60.0
+                if mins > 0:
+                    hourly_minutes[cur.hour] += mins
+                    category_visits[category] += mins
+                    category_domains[category].add(domain)
+                cur = seg_end
         # Track individual pages (truncate long titles)
         page_key = item['url'][:100]
         page_visits[page_key] += 1
@@ -335,8 +348,8 @@ def analyze_history(history: list, privacy: Dict[str, Any]) -> dict:
     top_pages = sorted(page_visits.items(), key=lambda x: -x[1])[:20]
     
     # Coverage window
-    if history:
-        times = [datetime.fromisoformat(h['last_visit']) for h in history]
+    if history_sorted:
+        times = [datetime.fromisoformat(h['last_visit']) for h in history_sorted]
         earliest = min(times)
         latest = max(times)
         coverage = f"{earliest.strftime('%H:%M')}–{latest.strftime('%H:%M')}"
@@ -344,7 +357,7 @@ def analyze_history(history: list, privacy: Dict[str, Any]) -> dict:
         coverage = "No data"
     
     return {
-        'total_visits': len(history),
+        'total_visits': len(history_sorted),
         'unique_domains': len(domain_visits),
         'coverage_window': coverage,
         'top_domains': [
@@ -355,8 +368,8 @@ def analyze_history(history: list, privacy: Dict[str, Any]) -> dict:
             {'page': page_titles.get(url, url), 'url': url, 'visits': v}
             for url, v in top_pages
         ],
-        'hourly_distribution': dict(sorted(hourly_visits.items())),
-        'by_category': dict(sorted(category_visits.items(), key=lambda x: -x[1])),
+        'hourly_minutes': {int(k): round(v, 2) for k, v in sorted(hourly_minutes.items())},
+        'by_category': {k: round(v, 2) for k, v in sorted(category_visits.items(), key=lambda x: -x[1])},
         'category_domains': {k: list(v)[:5] for k, v in category_domains.items()}
     }
 
@@ -418,16 +431,38 @@ def update_activity_report(date_str: str, browser_data: dict, repo_path: Path):
         'coverage_window': browser_data.get('coverage_window', '')
     }
     
-    # Merge category data
+    # Merge category data (union per category)
     if 'by_category' not in report:
         report['by_category'] = {}
     existing_categories = report['by_category']
-    for cat, count in browser_data.get('by_category', {}).items():
-        # Convert visit count to rough time estimate (30 sec per visit)
-        minutes = count // 2
-        time_str = f"{minutes // 60:02d}:{minutes % 60:02d}"
-        if cat not in existing_categories:
-            existing_categories[cat] = time_str
+    def parse_hhmm(s: str) -> int:
+        try:
+            hh, mm = str(s or '00:00').split(':')
+            return int(hh) * 60 + int(mm)
+        except Exception:
+            return 0
+    for cat, minutes in browser_data.get('by_category', {}).items():
+        prev = parse_hhmm(existing_categories.get(cat, '00:00'))
+        m = int(round(minutes)) if isinstance(minutes, (int, float)) else 0
+        merged = max(prev, m)
+        existing_categories[cat] = f"{merged // 60:02d}:{merged % 60:02d}"
+
+    # Merge hourly presence (union with hourly_focus)
+    if browser_data.get('hourly_minutes'):
+        hf = report.get('hourly_focus') or [{"hour": h, "time": "00:00", "pct": "0%"} for h in range(24)]
+        new_hf = []
+        for h in range(24):
+            cur = 0
+            try:
+                t = str(hf[h].get('time', '00:00'))
+                hh, mm = t.split(':')
+                cur = int(hh) * 60 + int(mm)
+            except Exception:
+                cur = 0
+            br = int(round(browser_data['hourly_minutes'].get(h, 0)))
+            merged_m = min(60, max(cur, br))
+            new_hf.append({"hour": h, "time": f"{merged_m // 60:02d}:{merged_m % 60:02d}", "pct": "0%"})
+        report['hourly_focus'] = new_hf
     
     # Update coverage window to include browser data (union of windows)
     if browser_data.get('coverage_window'):

@@ -2,16 +2,18 @@
 """
 Generate Daily JSON Report from activity logs.
 
-Prefers logs/activity-YYYY-MM-DD.jsonl (collector output).
-Falls back to logs/daily/YYYY-MM-DD.jsonl (legacy/event-style logs) if needed.
-Outputs ActivityReport-YYYY-MM-DD.json at repo root.
+Implements 'Proposed Redesign' methodology:
+- Precise timeline intervals (no hourly buckets)
+- Explicit Meeting vs Focus separation
+- Active Time = Direct sum of usage
+- Coverage = First to Last activity
 """
 
 import json
 import os
 import re
 from collections import defaultdict
-from typing import Optional
+from typing import Optional, List, Dict, Any, Tuple
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -44,87 +46,194 @@ CATEGORY_MAP = {
     'google.com': 'Research',
 }
 
-def _normalize_event(obj: dict) -> Optional[dict]:
-    """Normalize various event schemas to a flat activity dict.
+# Apps that always count as "Focus" even if occurring during a meeting interval
+FOCUS_OVERRIDE_APPS = ['Coding', 'Docs', 'Research']
 
-    Returns a dict with at least: timestamp (ISO), app (str), window (str or "").
-    Optionally includes duration_seconds (float) if present in source.
-    """
-    # Flat schema: already has keys
-    if all(k in obj for k in ("timestamp",)) and (
-        ("app" in obj) or ("window" in obj)
-    ):
+class Timeline:
+    """Manages time intervals to calculate precise duration metrics."""
+    def __init__(self):
+        # List of (start_dt, end_dt, category, app_name, source_type)
+        self.intervals: List[Tuple[datetime, datetime, str, str, str]] = []
+
+    def add(self, start: datetime, duration_seconds: float, category: str, app: str, type: str):
+        if duration_seconds <= 0:
+            return
+        end = start + timedelta(seconds=duration_seconds)
+        self.intervals.append((start, end, category, app, type))
+
+    def _merge_intervals(self, interval_list):
+        """Merge overlapping intervals in a list."""
+        if not interval_list:
+            return []
+        # Sort by start time
+        sorted_intervals = sorted(interval_list, key=lambda x: x[0])
+        merged = []
+        current_start, current_end = sorted_intervals[0][0], sorted_intervals[0][1]
+
+        for next_start, next_end, *rest in sorted_intervals[1:]:
+            if next_start < current_end:  # Overlap
+                current_end = max(current_end, next_end)
+            else:
+                merged.append((current_start, current_end))
+                current_start, current_end = next_start, next_end
+        merged.append((current_start, current_end))
+        return merged
+
+    def calculate_metrics(self) -> Dict[str, float]:
+        """
+        Calculate Active, Meeting, and Focus time based on redesign logic.
+        Returns duration in minutes.
+        """
+        if not self.intervals:
+            return {'active': 0.0, 'meeting': 0.0, 'focus': 0.0}
+
+        # 1. Total Active Time: Union of all window activity
+        # Filter for direct user activity (window events) to determine "Active" presence
+        active_events = [x for x in self.intervals if x[4] != 'meeting_end'] 
+        
+        merged_active = self._merge_intervals(active_events)
+        total_active_sec = sum((end - start).total_seconds() for start, end in merged_active)
+
+        # 2. Meeting Time: Union of all Meeting category events OR Explicit meeting logs
+        meeting_events = [
+            x for x in self.intervals 
+            if x[2] == 'Meetings' or x[4] == 'meeting_end'
+        ]
+        merged_meeting = self._merge_intervals(meeting_events)
+        total_meeting_sec = sum((end - start).total_seconds() for start, end in merged_meeting)
+
+        # 3. Focus Time: Active Time excluding Meeting Intervals
+        # BUT: "If overlap: attribute to foreground app" (if foreground is Focus-y)
+        
+        # Create a unified timeline of points.
+        points = []
+        for start, end, cat, app, etype in self.intervals:
+            points.append((start, 'start', cat, app, etype))
+            points.append((end, 'end', cat, app, etype))
+        
+        points.sort(key=lambda x: x[0])
+        
+        focus_seconds = 0.0
+        
+        if points:
+            current_time = points[0][0]
+            
+            # State trackers
+            active_windows = [] # Stack of active window categories
+            active_meetings = 0
+            
+            for i in range(len(points)):
+                time, type, cat, app, etype = points[i]
+                
+                # Calculate duration from prev point
+                duration = (time - current_time).total_seconds()
+                
+                if duration > 0:
+                    # Determine state for this segment
+                    is_active = len(active_windows) > 0
+                    in_meeting = active_meetings > 0
+                    
+                    if is_active:
+                        foreground_cat = active_windows[-1] if active_windows else 'Other'
+                        
+                        if in_meeting:
+                            # Overlap case: Only count if foreground is a focus app
+                            if foreground_cat in FOCUS_OVERRIDE_APPS:
+                                focus_seconds += duration
+                        else:
+                            # Normal active case: Count as focus
+                            focus_seconds += duration
+
+                # Update state
+                if type == 'start':
+                    if etype == 'meeting_end': # It's a meeting block
+                        active_meetings += 1
+                    elif cat == 'Meetings': # Window is a meeting app
+                        active_meetings += 1
+                        active_windows.append(cat)
+                    else:
+                        active_windows.append(cat)
+                else: # end
+                    if etype == 'meeting_end':
+                        active_meetings -= 1
+                    elif cat == 'Meetings':
+                        active_meetings -= 1
+                        if cat in active_windows: active_windows.remove(cat) # Simple remove (stack-ish)
+                    else:
+                        if cat in active_windows: active_windows.remove(cat)
+                
+                current_time = time
+
         return {
-            "timestamp": obj.get("timestamp"),
-            "app": obj.get("app", "Unknown"),
-            "window": obj.get("window", obj.get("window_title", "")),
-            **({"duration_seconds": obj.get("duration_seconds")} if obj.get("duration_seconds") else {}),
+            'active_minutes': total_active_sec / 60.0,
+            'meeting_minutes': total_meeting_sec / 60.0,
+            'focus_minutes': focus_seconds / 60.0
         }
 
-    # Legacy event schema: {"type": ..., "timestamp": ..., "data": {...}}
-    if "timestamp" in obj and isinstance(obj.get("data"), dict):
-        data = obj["data"]
-        app = (
-            data.get("app")
-            or data.get("from_app")
-            or data.get("to_app")
-            or ("Manual Entry" if obj.get("type") == "manual_entry" else "Unknown")
-        )
-        window = (
-            data.get("window_title")
-            or data.get("window")
-            or data.get("description", "")
-        )
-        out = {
-            "timestamp": obj["timestamp"],
-            "app": app,
-            "window": window or "",
-        }
-        if isinstance(data.get("duration_seconds"), (int, float)):
-            out["duration_seconds"] = float(data["duration_seconds"])
-        return out
+def _normalize_event(obj: dict) -> Optional[dict]:
+    """Normalize various event schemas to a flat activity dict."""
+    
+    # Base extraction
+    res = {}
+    
+    # 1. Timestamp
+    if "timestamp" in obj:
+        res["timestamp"] = obj["timestamp"]
+    else:
+        return None
 
-    return None
+    # 2. Type & Duration
+    res["type"] = obj.get("type", "window_event")
+    
+    # Handle nested data
+    data = obj.get("data", {}) if isinstance(obj.get("data"), dict) else obj
+    
+    # Duration
+    if "duration_seconds" in data:
+        res["duration_seconds"] = float(data["duration_seconds"])
+    elif "duration_seconds" in obj:
+        res["duration_seconds"] = float(obj["duration_seconds"])
+    else:
+        # Default fallback for window polls if missing
+        res["duration_seconds"] = 5.0
 
+    # 3. App & Window
+    res["app"] = (
+        data.get("app") or data.get("from_app") or data.get("to_app") or 
+        ("Manual Entry" if obj.get("type") == "manual_entry" else "Unknown")
+    )
+    res["window"] = (
+        data.get("window_title") or data.get("window") or data.get("description", "")
+    )
+    
+    return res
 
 def parse_activity_log(date_str):
     """Parse a day's activity log file with fallback to legacy locations."""
-    # Preferred collector output
     primary = LOGS_DIR / f"activity-{date_str}.jsonl"
-    # Legacy/event-style logs
     fallback = LOGS_DIR / "daily" / f"{date_str}.jsonl"
-    # Older legacy pattern
     fallback_alt = LOGS_DIR / "daily" / f"activity-{date_str}.jsonl"
 
-    if primary.exists():
-        log_file = primary
-    elif fallback.exists():
-        log_file = fallback
-    elif fallback_alt.exists():
-        log_file = fallback_alt
-    else:
+    log_file = None
+    if primary.exists(): log_file = primary
+    elif fallback.exists(): log_file = fallback
+    elif fallback_alt.exists(): log_file = fallback_alt
+
+    if not log_file:
         print(f"No log file found for {date_str}")
-        print(f"  Checked: {LOGS_DIR}/activity-{date_str}.jsonl")
-        print(f"  Checked: {LOGS_DIR}/daily/{date_str}.jsonl")
-        print(f"  Checked: {LOGS_DIR}/daily/activity-{date_str}.jsonl")
         return []
 
     print(f"Reading: {log_file}")
-
     activities = []
     with open(log_file, 'r') as f:
         for line in f:
-            line = line.strip()
-            if not line:
-                continue
+            if not line.strip(): continue
             try:
                 obj = json.loads(line)
-            except json.JSONDecodeError:
-                continue
+            except json.JSONDecodeError: continue
+            
             norm = _normalize_event(obj)
-            if norm:
-                activities.append(norm)
-
+            if norm: activities.append(norm)
     return activities
 
 def categorize_activity(app, window):
@@ -132,43 +241,29 @@ def categorize_activity(app, window):
     app_lower = app.lower()
     window_lower = window.lower()
     
-    # Check app name
-    if 'terminal' in app_lower or 'iterm' in app_lower:
-        return 'Coding'
-    if 'code' in app_lower or 'vscode' in app_lower:
-        return 'Coding'
-    if 'slack' in app_lower:
-        return 'Communication'
-    if 'messages' in app_lower or 'mail' in app_lower:
-        return 'Communication'
-    if 'zoom' in app_lower or 'teams' in app_lower:
-        return 'Meetings'
-    if 'finder' in app_lower:
-        return 'Other'
+    if 'terminal' in app_lower or 'iterm' in app_lower: return 'Coding'
+    if 'code' in app_lower or 'vscode' in app_lower: return 'Coding'
+    if 'slack' in app_lower: return 'Communication'
+    if 'messages' in app_lower or 'mail' in app_lower: return 'Communication'
+    if 'zoom' in app_lower or 'teams' in app_lower: return 'Meetings'
+    if 'finder' in app_lower: return 'Other'
     
-    # Check window/URL for browser
     if 'chrome' in app_lower or 'safari' in app_lower or 'firefox' in app_lower:
         for domain, category in CATEGORY_MAP.items():
-            if domain in window_lower:
-                return category
+            if domain in window_lower: return category
         return 'Research'
     
     return 'Other'
 
 def extract_domain(window_title):
-    """Extract domain from browser window title if present."""
-    # Common patterns: "Page Title - Domain" or "Page Title | Domain"
+    """Extract domain from browser window title."""
     for sep in [' - ', ' | ', ' — ']:
         if sep in window_title:
             parts = window_title.rsplit(sep, 1)
             if len(parts) == 2 and '.' in parts[1]:
                 return parts[1].strip().lower()
-    
-    # Try to find domain pattern
     match = re.search(r'([a-zA-Z0-9-]+\.[a-zA-Z]{2,})', window_title)
-    if match:
-        return match.group(1).lower()
-    
+    if match: return match.group(1).lower()
     return None
 
 def minutes_to_time_str(minutes):
@@ -178,71 +273,63 @@ def minutes_to_time_str(minutes):
     return f"{hours:02d}:{mins:02d}"
 
 def generate_report(date_str=None):
-    """Generate the daily report JSON."""
+    """Generate the daily report JSON using precise timeline logic."""
     if date_str is None:
         date_str = datetime.now().strftime('%Y-%m-%d')
     
     activities = parse_activity_log(date_str)
+    if not activities: return None
     
-    if not activities:
-        print(f"No activity data for {date_str}")
-        return None
-    
-    # Aggregate data
-    app_time = defaultdict(float)  # minutes per app
+    # Initialize Aggregators
+    timeline = Timeline()
+    app_time = defaultdict(float)
     category_time = defaultdict(float)
     domain_visits = defaultdict(int)
     page_visits = defaultdict(int)
-    hourly_minutes = defaultdict(float)
     window_time = defaultdict(float)
+    hourly_minutes = defaultdict(float)
     
-    # Track coverage
     first_ts = None
     last_ts = None
     
-    # Process activities
-    # Default interval if no explicit duration is available (5 seconds)
-    interval_minutes = 5 / 60
-    
+    # Process Activities
     for activity in activities:
         ts = datetime.fromisoformat(activity['timestamp'])
-        hour = ts.hour
+        duration = activity.get('duration_seconds', 0)
         app = activity.get('app', 'Unknown')
         window = activity.get('window', '')
+        etype = activity.get('type', 'window_event')
         
-        # Track coverage window
-        if first_ts is None or ts < first_ts:
-            first_ts = ts
-        if last_ts is None or ts > last_ts:
-            last_ts = ts
-        
-        # Aggregate
-        # Use explicit duration if provided, else assume fixed sample interval
-        dur_min = (
-            float(activity.get("duration_seconds", 0)) / 60.0
-            if activity.get("duration_seconds")
-            else interval_minutes
-        )
-
-        app_time[app] += dur_min
-        hourly_minutes[hour] += dur_min
+        # Coverage
+        if first_ts is None or ts < first_ts: first_ts = ts
+        if last_ts is None or ts > last_ts: last_ts = ts
         
         category = categorize_activity(app, window)
-        category_time[category] += interval_minutes
         
-        # Track domains and pages for browsers
-        if 'chrome' in app.lower() or 'safari' in app.lower():
-            domain = extract_domain(window)
-            if domain:
-                domain_visits[domain] += 1
-            if window:
-                page_visits[window] += 1
+        # Add to Timeline
+        timeline.add(ts, duration, category, app, etype)
         
-        # Track window time
+        # Standard Aggregates (Keep for breakdowns)
+        dur_min = duration / 60.0
+        hour = ts.hour
+        
+        app_time[app] += dur_min
+        category_time[category] += dur_min
+        hourly_minutes[hour] += dur_min
+        
         window_key = f"{app} — {window[:50]}" if window else app
         window_time[window_key] += dur_min
+
+        # Browser stats
+        if 'chrome' in app.lower() or 'safari' in app.lower():
+            domain = extract_domain(window)
+            if domain: domain_visits[domain] += 1
+            if window: page_visits[window] += 1
+
+    # Calculate Precise Metrics
+    metrics = timeline.calculate_metrics()
     
-    # Build hourly focus array
+    # Hourly Focus for Chart
     hourly_focus = []
     max_hourly = max(hourly_minutes.values()) if hourly_minutes else 1
     for hour in range(24):
@@ -254,37 +341,40 @@ def generate_report(date_str=None):
             'pct': f"{pct}%"
         })
     
-    # Calculate totals
-    total_focus = sum(app_time.values())
-    meetings_time = category_time.get('Meetings', 0) + category_time.get('Communication', 0) * 0.3
-    
-    # Coverage window
+    # Coverage String
     if first_ts and last_ts:
         coverage = f"{first_ts.strftime('%H:%M')}–{last_ts.strftime('%H:%M')} CST"
+        coverage_dur = (last_ts - first_ts).total_seconds() / 60
     else:
         coverage = "Unknown"
-    
-    # Build report
+        coverage_dur = 0
+
+    # Build Report
     report = {
         "source_file": f"ActivityReport-{date_str}.json",
         "date": date_str,
         "title": f"Daily Accomplishments — {date_str}",
         "overview": {
-            "focus_time": minutes_to_time_str(total_focus),
-            "meetings_time": minutes_to_time_str(meetings_time),
+            # UI: Rename "Active" to "Total Active Time" in frontend if needed, 
+            # but here we provide the precise data.
+            "active_time": minutes_to_time_str(metrics['active_minutes']),
+            "focus_time": minutes_to_time_str(metrics['focus_minutes']),
+            "meetings_time": minutes_to_time_str(metrics['meeting_minutes']),
+            "coverage_time": minutes_to_time_str(coverage_dur),
+            "coverage_window": coverage,
             "appointments": 0,
-            "projects_count": len(set(categorize_activity(a.get('app', ''), a.get('window', '')) for a in activities)),
-            "coverage_window": coverage
+            "projects_count": len(category_time)
         },
         "prepared_for_manager": [
-            f"Total focused time: {minutes_to_time_str(total_focus)} (Coverage: {coverage})",
-            f"Top apps: {', '.join(f'{k} ({minutes_to_time_str(v)})' for k, v in sorted(app_time.items(), key=lambda x: -x[1])[:3])}"
+            f"Active Time: {minutes_to_time_str(metrics['active_minutes'])}",
+            f"Focus Time: {minutes_to_time_str(metrics['focus_minutes'])}",
+            f"Meeting Time: {minutes_to_time_str(metrics['meeting_minutes'])}",
+            f"Top Apps: {', '.join(f'{k}' for k, v in sorted(app_time.items(), key=lambda x: -x[1])[:3])}"
         ],
         "executive_summary": [
-            f"Worked across {len(app_time)} applications",
-            f"Top category: {max(category_time.items(), key=lambda x: x[1])[0] if category_time else 'N/A'}"
+            f"Active: {minutes_to_time_str(metrics['active_minutes'])} | Focus: {minutes_to_time_str(metrics['focus_minutes'])}",
+            f"Coverage: {coverage}",
         ],
-        "client_summary": [],
         "accomplishments_today": [
             f"Focused on {app} ({minutes_to_time_str(mins)})" 
             for app, mins in sorted(app_time.items(), key=lambda x: -x[1])[:5]
@@ -292,15 +382,6 @@ def generate_report(date_str=None):
         "by_category": {
             cat: minutes_to_time_str(mins) 
             for cat, mins in sorted(category_time.items(), key=lambda x: -x[1])
-        },
-        "by_project": {},
-        "google_workspace": {
-            "Google": "00:00",
-            "Google Sheets": "00:00",
-            "Google Calendar": "00:00",
-            "Gmail": "00:00",
-            "Google Drive": "00:00",
-            "top_documents": []
         },
         "browser_highlights": {
             "top_domains": [
@@ -313,8 +394,6 @@ def generate_report(date_str=None):
             ]
         },
         "hourly_focus": hourly_focus,
-        "suggested_tasks": [],
-        "next_up": [],
         "top_apps": {
             app: minutes_to_time_str(mins)
             for app, mins in sorted(app_time.items(), key=lambda x: -x[1])[:8]
@@ -323,16 +402,9 @@ def generate_report(date_str=None):
             f"{w}: {minutes_to_time_str(t)}"
             for w, t in sorted(window_time.items(), key=lambda x: -x[1])[:10]
         ],
-        "notes": [],
-        "debug_appointments": {
-            "contact_visits_top": [],
-            "appointments_today": [],
-            "meetings_today": []
-        },
-        "foot": "Auto-generated"
+        "foot": "Auto-generated (Redesign v1)"
     }
     
-    # Write report
     output_file = REPO_ROOT / f"ActivityReport-{date_str}.json"
     with open(output_file, 'w') as f:
         json.dump(report, f, indent=2)
