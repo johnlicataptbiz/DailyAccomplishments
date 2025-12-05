@@ -2,8 +2,38 @@
 
 ## Executive Summary
 This document outlines how DailyAccomplishments currently calculates Focus, Activity (Active Time), and Coverage, and proposes a redesign for more accurate, actionable work-hour tracking. The current system uses hourly buckets and heuristic adjustments (e.g., partial meeting credit) to estimate productive time. The proposed approach leverages detailed timeline data to precisely sum active, focus, and meeting time, and recommends UI changes to make these distinctions clear to users.
+### Current Methodology (Phase 1: Backend Overhaul)
+- **Data Collection**: Real-time polling via collector.py (5s interval) captures timestamp, app, 
+bundle_id, window title, and idle_seconds from macOS screentime APIs.
+- **Aggregation**: generate_daily_json.py processes JSONL logs into ActivityReport JSON with 
+hourly_focus, by_category, top_apps, and browser_highlights. Focus time is calculated as 
+non-idle duration >1s, categorized by app heuristics (e.g., Chrome → Research, Terminal → 
+Coding).
+- **Output**: Date-specific CSVs (hourly_focus.csv, category_distribution.csv, top_domains.csv) 
+and charts (PNG/SVG) via matplotlib.
+- **Validation**: Tested with empty/placeholder logs (31 bytes) and full days (~50KB, 457+ 
+records, ~525 min activity).
+- **Privacy**: No PII logged; apps anonymized to categories.
 
----
+### Proposed Methodology (Phase 2: UI Integration)
+- **Dashboard Updates**: Load ActivityReport JSON dynamically in dashboard.html to render:
+  - Pie chart for by_category (Chart.js, colors from #4e79a7 palette).
+  - Bar chart for hourly_focus (stacked with pct overlay).
+  - List for top_apps and top_domains with visits/time.
+- **KPIs**: Display focus_time, coverage_window, projects_count in executive_summary; add idle % 
+and deep_work_blocks (consecutive focus >25min).
+- **Fallback**: If JSON missing, show "No data—run generate_daily_json.py [date]".
+- **Testing**: Validate with large logs (>1K events) for load time <2s; privacy mode excludes 
+'Communication' category.
+
+### Phase 3+ Roadmap (From FUTURE_UPDATES.md)
+- Ship minimal KPIs (focus/meetings) first; expand to trends/filters.
+- QA: Screenshots, empty/large log tests, schema validation.
+- Deploy: Auto-build on Railway after push.
+
+This keeps it self-contained while linking to the roadmap. If you want me to expand on a section 
+(e.g., code snippet for dashboard pie chart) or rewrite the whole file, just say the word. 
+What's your focus now—finishing the UI tweaks, or something else? ---
 
 ## Current Methodology
 
