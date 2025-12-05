@@ -3,11 +3,11 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "focus_time": "00:50",
+    "focus_time": "00:54",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:00\u201307:44"
+    "coverage_window": "00:00\u201307:56"
   },
   "prepared_for_manager": [
     "Total focused time: 00:18 (Coverage: 00:00\u201302:16 CST)",
@@ -20,7 +20,8 @@
     "Screen Time: ~181 min foreground app usage",
     "Screen Time: ~231 min foreground app usage",
     "Screen Time: ~258 min foreground app usage",
-    "Screen Time: ~307 min foreground app usage"
+    "Screen Time: ~307 min foreground app usage",
+    "Screen Time: ~353 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
@@ -30,8 +31,8 @@
     "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Research": "11:03",
-    "Coding": "02:18",
+    "Research": "11:48",
+    "Coding": "02:27",
     "Other": "00:00",
     "Communication": "00:00"
   },
@@ -132,7 +133,7 @@
     },
     {
       "hour": 7,
-      "time": "00:09",
+      "time": "00:13",
       "pct": "0%"
     },
     {
@@ -219,8 +220,8 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "00:44",
-    "Terminal": "00:06"
+    "Google Chrome": "00:45",
+    "Terminal": "00:09"
   },
   "top_windows_preview": [
     "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:06",
