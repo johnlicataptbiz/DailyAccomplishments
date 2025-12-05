@@ -3,33 +3,33 @@
   "date": "2025-12-04",
   "title": "Daily Accomplishments \u2014 2025-12-04",
   "overview": {
-    "focus_time": "05:57",
+    "focus_time": "06:11",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:02\u201318:56"
+    "coverage_window": "00:02\u201319:44"
   },
   "prepared_for_manager": [
-    "Total focused time: 01:20 (Coverage: 02:57\u201318:56 CST)",
-    "Top apps: Google Chrome (00:42), app_mode_loader (00:26), Terminal (00:08)"
+    "Total focused time: 01:21 (Coverage: 02:57\u201319:44 CST)",
+    "Top apps: Google Chrome (00:43), app_mode_loader (00:26), Terminal (00:08)"
   ],
   "executive_summary": [
     "Worked across 7 applications",
     "Top category: Research",
-    "Screen Time: ~797 min foreground app usage"
+    "Screen Time: ~848 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:42)",
+    "Focused on Google Chrome (00:43)",
     "Focused on app_mode_loader (00:26)",
     "Focused on Terminal (00:08)",
     "Focused on Finder (00:01)",
     "Focused on System Preferences (00:01)"
   ],
   "by_category": {
-    "Research": "04:52",
+    "Research": "05:06",
     "Other": "00:31",
-    "Coding": "01:53",
+    "Coding": "01:54",
     "Communication": "00:00"
   },
   "by_project": {},
@@ -45,7 +45,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 223
+        "visits": 229
       },
       {
         "domain": "physicaltherapybiz.com",
@@ -74,16 +74,16 @@
         "visits": 17
       },
       {
+        "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
+        "visits": 15
+      },
+      {
         "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - physicaltherapybiz.com",
         "visits": 14
       },
       {
         "page": "DailyAccomplishments ",
         "visits": 12
-      },
-      {
-        "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
-        "visits": 10
       },
       {
         "page": "Kait Wilcox (DM) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com",
@@ -188,7 +188,7 @@
     },
     {
       "hour": 18,
-      "time": "00:21",
+      "time": "00:35",
       "pct": "0%"
     },
     {
@@ -220,7 +220,7 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "04:14",
+    "Google Chrome": "04:28",
     "Terminal": "01:41",
     "System Settings": "00:02"
   },
@@ -233,8 +233,8 @@
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Google Chrome \u2014 Prospecting Agent : 00:01",
     "Google Chrome \u2014 Google AI Studio - Google Chrome - physicaltherapy: 00:01",
-    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - physi: 00:01",
-    "Google Chrome \u2014 DailyAccomplishments : 00:01"
+    "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:01",
+    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - physi: 00:01"
   ],
   "notes": [],
   "debug_appointments": {
