@@ -1,89 +1,36 @@
 {
-  "date": "2025-12-04",
-  "deep_work_sessions": [],
-  "interruption_analysis": {
-    "interruptions_per_hour": {},
-    "most_disruptive_hour": null,
-    "max_interruptions": 0,
-    "total_interruptions": 0,
-    "context_switch_cost_minutes": 0.0,
-    "average_per_hour": 0
-  },
-  "productivity_score": {
-    "overall_score": 30.0,
-    "components": {
-      "deep_work_score": 0.0,
-      "interruption_score": 30,
-      "quality_score": 0.0
-    },
-    "metrics": {
-      "total_deep_minutes": 0,
-      "total_work_minutes": 0.0,
-      "deep_work_percentage": 0,
-      "deep_sessions_count": 0
-    },
-    "rating": "Needs Improvement"
-  },
-  "category_trends": {
-    "categories": [],
-    "total_time_minutes": 0.0,
-    "top_category": null,
-    "category_count": 0
-  },
-  "meeting_efficiency": {
-    "total_meeting_minutes": 0.0,
-    "meeting_count": 0,
-    "average_duration_minutes": 0.0,
-    "meeting_vs_focus_ratio": 0,
-    "meetings": [],
-    "recommendation": "Good balance between meetings and focus work"
-  },
-  "focus_windows": [
-    {
-      "start_time": "06:00",
-      "end_time": "23:00",
-      "duration_hours": 17,
-      "total_interruptions": 0,
-      "quality": "Excellent",
-      "recommendation": "Schedule deep work during 06:00-23:00"
-    }
-  ],
-  "raw_events": {
-    "total_events": 0,
-    "event_types": {}
-  }
-}
-{
   "source_file": "ActivityReport-2025-12-04.json",
   "date": "2025-12-04",
   "title": "Daily Accomplishments \u2014 2025-12-04",
   "overview": {
-    "focus_time": "02:07",
+    "focus_time": "05:57",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 1,
-    "coverage_window": "00:00\u201310:28"
+    "projects_count": 4,
+    "coverage_window": "00:02\u201318:44"
   },
   "prepared_for_manager": [
-    "Total focused time: 00:00 (Coverage: 02:51\u201302:52 CST)",
-    "Top apps: Terminal (00:00)"
+    "Total focused time: 01:20 (Coverage: 02:57\u201318:44 CST)",
+    "Top apps: Google Chrome (00:42), app_mode_loader (00:26), Terminal (00:08)"
   ],
   "executive_summary": [
-    "Worked across 1 applications",
-    "Top category: Coding",
-    "Screen Time: ~741 min foreground app usage",
-    "Screen Time: ~112 min foreground app usage",
-    "Screen Time: ~175 min foreground app usage",
-    "Screen Time: ~230 min foreground app usage"
+    "Worked across 7 applications",
+    "Top category: Research",
+    "Screen Time: ~797 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Terminal (00:00)"
+    "Focused on Google Chrome (00:42)",
+    "Focused on app_mode_loader (00:26)",
+    "Focused on Terminal (00:08)",
+    "Focused on Finder (00:01)",
+    "Focused on System Preferences (00:01)"
   ],
   "by_category": {
-    "Coding": "03:56",
-    "Research": "01:02",
-    "Other": "00:02"
+    "Research": "04:52",
+    "Other": "00:31",
+    "Coding": "01:53",
+    "Communication": "00:00"
   },
   "by_project": {},
   "google_workspace": {
@@ -95,8 +42,58 @@
     "top_documents": []
   },
   "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 218
+      },
+      {
+        "domain": "physicaltherapybiz.com",
+        "visits": 198
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Debug rebase issues - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 132
+      },
+      {
+        "page": "Daily Accomplishments - Google Chrome - physicaltherapybiz.com",
+        "visits": 37
+      },
+      {
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 19
+      },
+      {
+        "page": "Prospecting Agent ",
+        "visits": 18
+      },
+      {
+        "page": "Google AI Studio - Google Chrome - physicaltherapybiz.com",
+        "visits": 17
+      },
+      {
+        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - physicaltherapybiz.com",
+        "visits": 14
+      },
+      {
+        "page": "DailyAccomplishments ",
+        "visits": 12
+      },
+      {
+        "page": "Kait Wilcox (DM) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com",
+        "visits": 8
+      },
+      {
+        "page": "johnlicataptbiz/DailyAccomplishments - Google Chrome - Jack (physicaltherapybiz.",
+        "visits": 8
+      },
+      {
+        "page": "Railway - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 8
+      }
+    ]
   },
   "hourly_focus": [
     {
@@ -151,32 +148,32 @@
     },
     {
       "hour": 10,
-      "time": "00:27",
+      "time": "00:41",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:00",
+      "time": "00:33",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:00",
+      "time": "00:49",
       "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:00",
+      "time": "00:46",
       "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:00",
+      "time": "00:26",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:00",
+      "time": "00:18",
       "pct": "0%"
     },
     {
@@ -186,12 +183,12 @@
     },
     {
       "hour": 17,
-      "time": "00:00",
+      "time": "00:23",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:00",
+      "time": "00:21",
       "pct": "0%"
     },
     {
@@ -223,11 +220,21 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Terminal": "01:37",
-    "Google Chrome": "00:30"
+    "Google Chrome": "04:14",
+    "Terminal": "01:41",
+    "System Settings": "00:02"
   },
   "top_windows_preview": [
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:00"
+    "app_mode_loader \u2014 missing value: 00:26",
+    "Google Chrome \u2014 Debug rebase issues - Google Chrome - Jack (physic: 00:11",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:05",
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:03",
+    "Google Chrome: 00:02",
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
+    "Google Chrome \u2014 Prospecting Agent : 00:01",
+    "Google Chrome \u2014 Google AI Studio - Google Chrome - physicaltherapy: 00:01",
+    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - physi: 00:01",
+    "Google Chrome \u2014 DailyAccomplishments : 00:01"
   ],
   "notes": [],
   "debug_appointments": {
@@ -238,9 +245,30 @@
   "foot": "Auto-generated",
   "deep_work": [
     {
+      "start": "11:30",
+      "end": "13:33",
+      "minutes": 92,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:34",
+      "end": "14:54",
+      "minutes": 49,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
       "start": "09:46",
-      "end": "10:28",
-      "minutes": 36,
+      "end": "10:42",
+      "minutes": 43,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "17:37",
+      "end": "18:24",
+      "minutes": 35,
       "category": "Research",
       "label": "Google Chrome"
     },
