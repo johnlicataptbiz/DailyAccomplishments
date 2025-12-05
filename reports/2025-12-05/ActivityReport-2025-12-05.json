@@ -7,11 +7,11 @@
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:00\u201302:10"
+    "coverage_window": "00:00\u201302:16"
   },
   "prepared_for_manager": [
-    "Total focused time: 00:16 (Coverage: 00:00\u201302:10 CST)",
-    "Top apps: Google Chrome (00:12), Terminal (00:03), Electron (00:00)"
+    "Total focused time: 00:18 (Coverage: 00:00\u201302:16 CST)",
+    "Top apps: Google Chrome (00:13), Terminal (00:03), Electron (00:00)"
   ],
   "executive_summary": [
     "Worked across 4 applications",
@@ -20,13 +20,13 @@
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:12)",
+    "Focused on Google Chrome (00:13)",
     "Focused on Terminal (00:03)",
     "Focused on Electron (00:00)",
     "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Research": "00:24",
+    "Research": "00:25",
     "Coding": "00:09",
     "Other": "00:00",
     "Communication": "00:00"
@@ -44,13 +44,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 120
+        "visits": 130
       }
     ],
     "top_pages": [
       {
         "page": "Git Rebase Stability Fixes - Grok - Google Chrome - Jack (physicaltherapybiz.com",
-        "visits": 67
+        "visits": 73
       },
       {
         "page": "Assign agent using automated prospecting for contacts in specific list ",
@@ -58,7 +58,7 @@
       },
       {
         "page": "dashboard.html (Index) (dashboard.html) \u2014 DailyAccomplishments [Codespaces: fluf",
-        "visits": 12
+        "visits": 13
       },
       {
         "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
@@ -219,12 +219,12 @@
     "Terminal": "00:03"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:05",
+    "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:06",
     "Google Chrome \u2014 Assign agent using automated prospecting for conta: 00:01",
     "Terminal \u2014 DailyAccomplishments \u2014 -zsh \u2014 80\u00d724: 00:01",
     "Google Chrome \u2014 dashboard.html (Index) (dashboard.html) \u2014 DailyAcc: 00:01",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:01",
     "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:00",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:00",
     "Google Chrome \u2014 Margoth Arias-Suarez - Google Chrome - Jack (physi: 00:00",
     "Google Chrome \u2014 SuperAgent.agent.md \u2014 DailyAccomplishments [Codesp: 00:00",
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:00",
