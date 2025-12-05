@@ -140,7 +140,7 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         if 'research' in c: return 2
         if 'communication' in c: return 3
         if 'other' in c: return 4
-        if 'meetings' in c: return 10
+        if 'meetings' in c: return 100
         return 50
 
     cleaned = []
@@ -201,6 +201,21 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
             overlap = int((hour_end - cursor).total_seconds()) + 1
             hourly_seconds[cursor.hour] += overlap
             cursor = hour_end + timedelta(seconds=1)
+
+    # Export cleaned timeline segments into report for UI rendering
+    timeline_export = []
+    for seg in merged_by_cat:
+        secs = seg['secs']
+        mins = int(secs / 60)
+        timeline_export.append({
+            'start': seg['start'].strftime('%H:%M'),
+            'end': seg['end'].strftime('%H:%M'),
+            'seconds': secs,
+            'minutes': mins,
+            'category': seg.get('category', 'Other'),
+            'app': seg.get('app') or ''
+        })
+    report['timeline'] = timeline_export
 
     # Active seconds = sum of merged intervals
     from datetime import timedelta
