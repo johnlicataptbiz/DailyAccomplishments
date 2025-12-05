@@ -3,33 +3,33 @@
   "date": "2025-12-04",
   "title": "Daily Accomplishments \u2014 2025-12-04",
   "overview": {
-    "focus_time": "06:40",
+    "focus_time": "07:05",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:02\u201322:45"
+    "coverage_window": "00:02\u201322:59"
   },
   "prepared_for_manager": [
-    "Total focused time: 01:27 (Coverage: 02:57\u201322:45 CST)",
-    "Top apps: Google Chrome (00:48), app_mode_loader (00:26), Terminal (00:09)"
+    "Total focused time: 01:32 (Coverage: 02:57\u201322:59 CST)",
+    "Top apps: Google Chrome (00:52), app_mode_loader (00:26), Terminal (00:10)"
   ],
   "executive_summary": [
     "Worked across 7 applications",
     "Top category: Research",
-    "Screen Time: ~884 min foreground app usage"
+    "Screen Time: ~938 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:48)",
+    "Focused on Google Chrome (00:52)",
     "Focused on app_mode_loader (00:26)",
-    "Focused on Terminal (00:09)",
+    "Focused on Terminal (00:10)",
     "Focused on Finder (00:01)",
     "Focused on System Preferences (00:01)"
   ],
   "by_category": {
-    "Research": "05:37",
+    "Research": "06:04",
     "Other": "00:31",
-    "Coding": "01:58",
+    "Coding": "02:01",
     "Communication": "00:00"
   },
   "by_project": {},
@@ -45,7 +45,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 292
+        "visits": 341
       },
       {
         "domain": "physicaltherapybiz.com",
@@ -55,7 +55,7 @@
     "top_pages": [
       {
         "page": "Debug rebase issues - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 149
+        "visits": 171
       },
       {
         "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
@@ -67,7 +67,11 @@
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 19
+        "visits": 21
+      },
+      {
+        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
+        "visits": 21
       },
       {
         "page": "Prospecting Agent ",
@@ -82,16 +86,12 @@
         "visits": 14
       },
       {
-        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
-        "visits": 14
-      },
-      {
         "page": "DailyAccomplishments ",
         "visits": 12
       },
       {
-        "page": "Kait Wilcox (DM) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com",
-        "visits": 8
+        "page": "COMMIT_EDITMSG \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
+        "visits": 10
       }
     ]
   },
@@ -208,7 +208,7 @@
     },
     {
       "hour": 22,
-      "time": "00:00",
+      "time": "00:25",
       "pct": "0%"
     },
     {
@@ -220,21 +220,21 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "04:57",
+    "Google Chrome": "05:22",
     "Terminal": "01:41",
     "System Settings": "00:02"
   },
   "top_windows_preview": [
     "app_mode_loader \u2014 missing value: 00:26",
-    "Google Chrome \u2014 Debug rebase issues - Google Chrome - Jack (physic: 00:12",
+    "Google Chrome \u2014 Debug rebase issues - Google Chrome - Jack (physic: 00:14",
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:05",
     "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:03",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:03",
     "Google Chrome: 00:02",
+    "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:01",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Google Chrome \u2014 Prospecting Agent : 00:01",
-    "Google Chrome \u2014 Google AI Studio - Google Chrome - physicaltherapy: 00:01",
-    "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:01"
+    "Google Chrome \u2014 Google AI Studio - Google Chrome - physicaltherapy: 00:01"
   ],
   "notes": [],
   "debug_appointments": {
@@ -289,6 +289,13 @@
     {
       "start": "19:55",
       "end": "20:29",
+      "minutes": 25,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "22:27",
+      "end": "22:58",
       "minutes": 25,
       "category": "Research",
       "label": "Google Chrome"
