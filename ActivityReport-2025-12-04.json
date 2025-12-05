@@ -7,11 +7,11 @@
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:02\u201320:14"
+    "coverage_window": "00:02\u201320:29"
   },
   "prepared_for_manager": [
-    "Total focused time: 01:22 (Coverage: 02:57\u201320:14 CST)",
-    "Top apps: Google Chrome (00:44), app_mode_loader (00:26), Terminal (00:08)"
+    "Total focused time: 01:23 (Coverage: 02:57\u201320:29 CST)",
+    "Top apps: Google Chrome (00:45), app_mode_loader (00:26), Terminal (00:08)"
   ],
   "executive_summary": [
     "Worked across 7 applications",
@@ -20,7 +20,7 @@
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:44)",
+    "Focused on Google Chrome (00:45)",
     "Focused on app_mode_loader (00:26)",
     "Focused on Terminal (00:08)",
     "Focused on Finder (00:01)",
@@ -29,7 +29,7 @@
   "by_category": {
     "Research": "05:06",
     "Other": "00:31",
-    "Coding": "01:55",
+    "Coding": "01:56",
     "Communication": "00:00"
   },
   "by_project": {},
@@ -45,7 +45,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 244
+        "visits": 254
       },
       {
         "domain": "physicaltherapybiz.com",
@@ -58,12 +58,12 @@
         "visits": 132
       },
       {
-        "page": "Daily Accomplishments - Google Chrome - physicaltherapybiz.com",
-        "visits": 37
+        "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
+        "visits": 40
       },
       {
-        "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
-        "visits": 30
+        "page": "Daily Accomplishments - Google Chrome - physicaltherapybiz.com",
+        "visits": 37
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -228,9 +228,9 @@
     "app_mode_loader \u2014 missing value: 00:26",
     "Google Chrome \u2014 Debug rebase issues - Google Chrome - Jack (physic: 00:11",
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:05",
+    "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:03",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:03",
     "Google Chrome: 00:02",
-    "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:02",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Google Chrome \u2014 Prospecting Agent : 00:01",
     "Google Chrome \u2014 Google AI Studio - Google Chrome - physicaltherapy: 00:01",
