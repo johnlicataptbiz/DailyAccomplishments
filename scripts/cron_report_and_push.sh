@@ -1,21 +1,45 @@
+set -euo pipefail
+
+SCRIPT_SOURCE="${BASH_SOURCE[0]:-$0}"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_SOURCE")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$REPO_ROOT"
+
+# if not in a git worktree, bail loudly
+git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
+    echo "[ERROR] Not inside git work tree. cwd=$(pwd) script=$SCRIPT_SOURCE"
+    exit 1
+}
+
+# ensure we're on main (avoid detached HEAD)
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$BRANCH" = "HEAD" ]; then
+    echo "[WARN] Detached HEAD detected; resetting to origin/main"
+    git fetch origin
+    git checkout -B main origin/main
+fi
 #!/bin/bash
 # Cron Report and Push - Run every 15 minutes by LaunchAgent
 # Generates daily JSON report, syncs integrations, and optionally pushes to GitHub
 
-set -e
+set -euo pipefail
 
-# Prefer ${BASH_SOURCE[0]} so the script resolves correctly when invoked
-# from a symlink, sourced context, or via LaunchAgent. Fall back to $0.
+# Robustly resolve script path and repo root
 SCRIPT_SOURCE="${BASH_SOURCE[0]:-$0}"
 SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_SOURCE")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 cd "$REPO_ROOT"
+if [ ! -d .git ]; then
+    echo "[$(date)] ERROR: .git not found in $REPO_ROOT; aborting." >&2
+    exit 2
+fi
 
-echo "[$(date)] Starting report generation..."
-echo "[$(date)] script source: $SCRIPT_SOURCE"
-echo "[$(date)] cwd: $(pwd)"
-echo "[$(date)] script dir: $SCRIPT_DIR"
+echo "[$(date)] DEBUG: cwd=$(pwd)"
+echo "[$(date)] DEBUG: script source=$SCRIPT_SOURCE"
+echo "[$(date)] DEBUG: script dir=$SCRIPT_DIR"
+echo "[$(date)] DEBUG: git work-tree=$(git rev-parse --is-inside-work-tree 2>/dev/null || echo 'no')"
+echo "[$(date)] DEBUG: branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo 'unknown')"
 
 # Ensure repo is on `main` (LaunchAgent can run from a detached HEAD)
 if git rev-parse --git-dir >/dev/null 2>&1; then
