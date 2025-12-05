@@ -4,22 +4,30 @@
 
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+# Prefer ${BASH_SOURCE[0]} so the script resolves correctly when invoked
+# from a symlink, sourced context, or via LaunchAgent. Fall back to $0.
+SCRIPT_SOURCE="${BASH_SOURCE[0]:-$0}"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_SOURCE")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 cd "$REPO_ROOT"
 
 echo "[$(date)] Starting report generation..."
+echo "[$(date)] script source: $SCRIPT_SOURCE"
+echo "[$(date)] cwd: $(pwd)"
+echo "[$(date)] script dir: $SCRIPT_DIR"
 
 # Ensure repo is on `main` (LaunchAgent can run from a detached HEAD)
 if git rev-parse --git-dir >/dev/null 2>&1; then
     git fetch origin >/dev/null 2>&1 || true
     CUR="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+    echo "[$(date)] current branch before guard: $CUR"
 
     if [ "$CUR" = "HEAD" ] || [ -z "$CUR" ]; then
         # detached or unknown: recover by checking out main from origin if possible
         git checkout -B main origin/main >/dev/null 2>&1 || git checkout main >/dev/null 2>&1 || true
         CUR="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+        echo "[$(date)] branch after recovery: $CUR"
     fi
 
     if [ "$CUR" = "main" ]; then
@@ -46,11 +54,10 @@ fi
 # Generate charts if matplotlib is available
 if python3 -c "import matplotlib" 2>/dev/null; then
     python3 tools/generate_reports.py 2>/dev/null || true
-
+fi
 
 # Archive today
 "$SCRIPT_DIR"/archive_outputs.sh "$TODAY" 2>/dev/null || true
-fi
 
 # Copy files to gh-pages worktree if it exists
 GH_PAGES="$REPO_ROOT/gh-pages"
