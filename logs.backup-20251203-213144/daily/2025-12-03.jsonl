@@ -1,4 +1,0 @@
-{"type": "focus_change", "timestamp": "2025-12-03T19:47:34.307521-06:00", "data": {"app": "Terminal", "window_title": "~/code", "duration_seconds": 120}}
-{"type": "browser_visit", "timestamp": "2025-12-03T19:47:34.309102-06:00", "data": {"domain": "github.com", "url": "https://github.com", "page_title": "GitHub"}}
-{"type": "focus_change", "timestamp": "2025-12-03T19:47:51.070069-06:00", "data": {"app": "Terminal", "window_title": "~/code", "duration_seconds": 120}}
-{"type": "browser_visit", "timestamp": "2025-12-03T19:47:51.071296-06:00", "data": {"domain": "github.com", "url": "https://github.com", "page_title": "GitHub"}}

@@ -1,3 +1,0 @@
-commit: 94d275b
-date: 2025-12-04T08:18Z
-note: timezone-correct screentime across 11/27..12/04
