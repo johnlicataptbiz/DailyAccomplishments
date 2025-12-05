@@ -79,6 +79,21 @@ bridge.on_focus_change("VS Code", "main.py", 120)  # 2 minutes
 
 **That's it!** Events are now logged to `logs/daily/YYYY-MM-DD.jsonl`
 
+## ✨ Advanced Features
+
+### Timeline-Based Aggregation
+- **High-Fidelity Reporting**: Instead of bucketing events into hourly chunks, the system now constructs a precise timeline of your activity. It intelligently merges overlapping events and re-attributes time based on activity priority (e.g., coding in the foreground during a meeting).
+- **Accurate Metrics**: This results in highly accurate `focus_time`, `meetings_time`, and `active_time` calculations.
+
+### SVG Activity Timeline
+- **Visual Overview**: The dashboard now features a dynamic SVG timeline visualization that shows your entire day at a glance.
+- **Color-Coded Categories**: Each activity segment is color-coded by category (Coding, Research, Meetings, etc.) for easy identification.
+- **Deep Work Overlay**: Contiguous deep work sessions are highlighted as a translucent overlay, making it easy to spot your most productive periods.
+
+### Configurable Category Priority
+- **Flexible Attribution**: You can now control how overlapping activities are attributed by defining a priority order for categories.
+- **Easy Configuration**: Simply edit the `category_priority` array in your `config.json` file. The generator will use this order to decide which activity "wins" when overlaps occur.
+
 ## 📖 Documentation
 
 | Document | Description |
