@@ -3,35 +3,35 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "02:00",
-    "focus_time": "02:57",
+    "active_time": "02:03",
+    "focus_time": "03:31",
     "meetings_time": "00:00",
-    "coverage_time": "13:44",
-    "coverage_window": "00:00\u201313:45",
+    "coverage_time": "14:00",
+    "coverage_window": "00:00\u201314:00",
     "appointments": 0,
     "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 02:00",
-    "Focus Time: 02:00",
+    "Active Time: 02:03",
+    "Focus Time: 02:03",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 02:00 | Focus: 02:00",
-    "Coverage: 00:00\u201313:45 CST",
-    "Screen Time: ~1276 min foreground app usage"
+    "Active: 02:03 | Focus: 02:03",
+    "Coverage: 00:00\u201314:00 CST",
+    "Screen Time: ~1329 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:13)",
-    "Focused on Terminal (00:45)",
+    "Focused on Google Chrome (01:14)",
+    "Focused on Terminal (00:46)",
     "Focused on Electron (00:00)",
     "Focused on TextEdit (00:00)",
     "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Research": "02:14",
-    "Coding": "00:58",
+    "Coding": "01:00",
+    "Research": "02:45",
     "Other": "00:01",
     "Communication": "00:00"
   },
@@ -39,7 +39,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 800
+        "visits": 823
       }
     ],
     "top_pages": [
@@ -64,12 +64,12 @@
         "visits": 85
       },
       {
-        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 27
+        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
+        "visits": 39
       },
       {
-        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
-        "visits": 18
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 27
       },
       {
         "page": "Assign agent using automated prospecting for contacts in specific list ",
@@ -153,7 +153,7 @@
     },
     {
       "hour": 13,
-      "time": "00:09",
+      "time": "00:34",
       "pct": "0%"
     },
     {
@@ -208,8 +208,8 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "02:14",
-    "Terminal": "00:42",
+    "Google Chrome": "02:45",
+    "Terminal": "00:45",
     "Finder": "00:01"
   },
   "top_windows_preview": [
@@ -220,9 +220,9 @@
     "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:08",
     "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
     "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
+    "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:03",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:02",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 nano Activi: 00:02",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 nano dashbo: 00:02"
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:02"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
@@ -230,6 +230,13 @@
       "start": "10:09",
       "end": "11:12",
       "minutes": 43,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:00",
+      "end": "13:38",
+      "minutes": 33,
       "category": "Research",
       "label": "Google Chrome"
     }
