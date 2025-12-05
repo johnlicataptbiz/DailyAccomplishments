@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check recent reports
+      - name: Check recent reports and validate structure
         run: |
           set -euo pipefail
           missing=0
@@ -19,9 +19,11 @@ jobs:
             if [ ! -f "$path" ]; then
               echo "MISSING: $path"
               missing=$((missing+1))
-            else
-              echo "OK: $path"
+              continue
             fi
+            echo "FOUND: $path"
+            # Basic JSON structure check: overview.focus_time must exist
+            python3 .github/scripts/check_report.py "$path" || exit $?
           done
           if [ "$missing" -ne 0 ]; then
             echo "Some recent reports are missing ($missing); failing workflow."
