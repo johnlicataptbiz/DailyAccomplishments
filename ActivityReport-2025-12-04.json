@@ -7,29 +7,29 @@
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:02\u201323:30"
+    "coverage_window": "00:02\u201323:45"
   },
   "prepared_for_manager": [
-    "Total focused time: 01:39 (Coverage: 02:57\u201323:30 CST)",
-    "Top apps: Google Chrome (00:59), app_mode_loader (00:26), Terminal (00:10)"
+    "Total focused time: 01:43 (Coverage: 02:57\u201323:45 CST)",
+    "Top apps: Google Chrome (01:02), app_mode_loader (00:26), Terminal (00:10)"
   ],
   "executive_summary": [
-    "Worked across 7 applications",
+    "Worked across 8 applications",
     "Top category: Research",
     "Screen Time: ~938 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:59)",
+    "Focused on Google Chrome (01:02)",
     "Focused on app_mode_loader (00:26)",
     "Focused on Terminal (00:10)",
     "Focused on Finder (00:01)",
     "Focused on System Preferences (00:01)"
   ],
   "by_category": {
-    "Research": "06:09",
+    "Research": "06:11",
     "Other": "00:31",
-    "Coding": "02:02",
+    "Coding": "02:03",
     "Communication": "00:00"
   },
   "by_project": {},
@@ -45,7 +45,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 408
+        "visits": 434
       },
       {
         "domain": "physicaltherapybiz.com",
@@ -55,7 +55,7 @@
     "top_pages": [
       {
         "page": "Debug rebase issues - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 202
+        "visits": 208
       },
       {
         "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
@@ -66,16 +66,20 @@
         "visits": 37
       },
       {
+        "page": "Prospecting Agent ",
+        "visits": 28
+      },
+      {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 26
       },
       {
-        "page": "Prospecting Agent ",
-        "visits": 24
-      },
-      {
         "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
         "visits": 23
+      },
+      {
+        "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
+        "visits": 18
       },
       {
         "page": "Google AI Studio - Google Chrome - physicaltherapybiz.com",
@@ -88,10 +92,6 @@
       {
         "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - physicaltherapybiz.com",
         "visits": 14
-      },
-      {
-        "page": "DailyAccomplishments ",
-        "visits": 12
       }
     ]
   },
@@ -226,15 +226,15 @@
   },
   "top_windows_preview": [
     "app_mode_loader \u2014 missing value: 00:26",
-    "Google Chrome \u2014 Debug rebase issues - Google Chrome - Jack (physic: 00:16",
+    "Google Chrome \u2014 Debug rebase issues - Google Chrome - Jack (physic: 00:17",
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:05",
     "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:03",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:03",
     "Google Chrome: 00:02",
+    "Google Chrome \u2014 Prospecting Agent : 00:02",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:02",
-    "Google Chrome \u2014 Prospecting Agent : 00:01",
     "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:01",
-    "Google Chrome \u2014 Google AI Studio - Google Chrome - physicaltherapy: 00:01"
+    "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:01"
   ],
   "notes": [],
   "debug_appointments": {
