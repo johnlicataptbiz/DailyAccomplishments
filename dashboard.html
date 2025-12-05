@@ -777,11 +777,21 @@
                 const subtract = Math.max(0, Math.round(meet * (1 - MEETING_CREDIT)));
                 return sum + Math.max(0, (v || 0) - subtract);
             }, 0);
-            const focusMins = focusAdj > 0 ? focusAdj : focusByHour.reduce((a,b)=>a+(b||0),0);
+            let focusMins = focusAdj > 0 ? focusAdj : focusByHour.reduce((a,b)=>a+(b||0),0);
+            // If report provides authoritative overview fields, prefer them (they come from timeline aggregation)
+            if (d.overview && d.overview.focus_time) {
+                focusMins = timeToMinutes(d.overview.focus_time || '00:00');
+            }
             // Prefer overlay sum for meeting minutes; fallback to overview
-            const meetingMins = meetingOverlayMins || timeToMinutes(d.overview?.meetings_time || '00:00');
+            let meetingMins = meetingOverlayMins || timeToMinutes(d.overview?.meetings_time || '00:00');
+            if (d.overview && d.overview.meetings_time) {
+                meetingMins = timeToMinutes(d.overview.meetings_time || '00:00');
+            }
             // Active time = per-hour union of focus + meetings overlay (capped at 60 per hour)
-            const activeMins = focusByHour.reduce((sum, v, h) => sum + Math.min(60, (v || 0) + (meetingArr[h] || 0)), 0);
+            let activeMins = focusByHour.reduce((sum, v, h) => sum + Math.min(60, (v || 0) + (meetingArr[h] || 0)), 0);
+            if (d.overview && d.overview.active_time) {
+                activeMins = timeToMinutes(d.overview.active_time || '00:00');
+            }
             // Coverage minutes from coverage_window (e.g., "07:12–23:05")
             let coverageMins = 0;
             try {
@@ -897,7 +907,7 @@
                 hasClosedDeals, hasActiveProspecting, hasStrongEngagement,
                 hasDeepWork, isMorningPerson, isCollaborative, hasLimitedTracking,
                 // Deep work
-                deepWorkBlocks: d.deep_work || [],
+                deepWorkBlocks: d.deep_work || d.deep_work_blocks || [],
                 coverageMins,
                 activeMins
             };
@@ -1217,6 +1227,20 @@
                         </div>
                     </div>
                     ${privacyPill(d)}
+                    
+                    <!-- Deep Work Chips -->
+                    <div style="margin-top:16px;">
+                        <div class="section-title">🧠 Deep Work Blocks</div>
+                        <div class="deepwork-row">
+                            ${((d.deep_work_blocks && d.deep_work_blocks.length) ? d.deep_work_blocks : (d.deep_work || [])).map(b => `
+                                <span class="dw-chip">
+                                    <span class="dw-dot" style="background: var(--gradient-success);"></span>
+                                    ${b.start}–${b.end} · ${b.duration}
+                                </span>
+                            `).join('')}
+                            ${(((d.deep_work_blocks && d.deep_work_blocks.length) || (d.deep_work && d.deep_work.length)) ? '' : '<span style="color:var(--text-muted);">No deep work blocks detected</span>')}
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Insights Grid -->

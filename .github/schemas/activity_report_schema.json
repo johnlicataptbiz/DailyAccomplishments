@@ -11,6 +11,8 @@
         "focus_time": {"type": "string"}
       }
     },
+    "active_time": {"type": "string"},
+    "meetings_time": {"type": "string"},
     "hourly_focus": {
       "type": "array",
       "minItems": 24,
@@ -40,3 +42,4 @@
     }
   }
 }
+
