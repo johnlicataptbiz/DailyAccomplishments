@@ -1,18 +1,3 @@
-<!-- This file mirrors ../dashboard.html so hosts with pretty URLs serve /dashboard -->
-<!-- Generated copy: keep in sync with ../dashboard.html -->
-<!DOCTYPE html>
-<!--#include virtual="../dashboard.html" -->
-<script>
-  // Redirect-based wrapper: attempt local ../dashboard.html, otherwise go straight to GitHub raw.
-  const cacheBust = `?t=${Date.now()}`;
-  const localPath = '../dashboard.html' + cacheBust;
-  const raw = 'https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/dashboard.html' + cacheBust;
-  console.log('[build] f8b45640 dashboard wrapper redirect enabled');
-  fetch(localPath, { cache: 'no-store' })
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
-    .then(() => { window.location.replace(localPath); })
-    .catch(() => { window.location.replace(raw); });
-</script>
 <!doctype html>
 <html>
   <head>
