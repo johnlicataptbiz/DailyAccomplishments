@@ -12,5 +12,9 @@
         "cursor-global": true,
         "cursor-workspace": true
     },
-    "chat.mcp.gallery.enabled": true
+    "chat.mcp.gallery.enabled": true,
+    "chat.agent.thinking.collapsedTools": "all",
+    "chat.agent.thinkingStyle": "collapsedPreview",
+    "chat.customAgentInSubagent.enabled": true,
+    "chat.todoListTool.writeOnly": true
 }
