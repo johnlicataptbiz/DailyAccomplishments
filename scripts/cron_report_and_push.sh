@@ -11,13 +11,20 @@ cd "$REPO_ROOT"
 
 echo "[$(date)] Starting report generation..."
 
-# Ensure repo is up-to-date to avoid non-fast-forward push failures
+# Ensure repo is on `main` (LaunchAgent can run from a detached HEAD)
 if git rev-parse --git-dir >/dev/null 2>&1; then
-  git fetch origin >/dev/null 2>&1 || true
-  CUR=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
-  if [ "$CUR" = "main" ]; then
-    git pull --rebase origin main >/dev/null 2>&1 || true
-  fi
+    git fetch origin >/dev/null 2>&1 || true
+    CUR="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+
+    if [ "$CUR" = "HEAD" ] || [ -z "$CUR" ]; then
+        # detached or unknown: recover by checking out main from origin if possible
+        git checkout -B main origin/main >/dev/null 2>&1 || git checkout main >/dev/null 2>&1 || true
+        CUR="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+    fi
+
+    if [ "$CUR" = "main" ]; then
+        git pull --rebase origin main >/dev/null 2>&1 || true
+    fi
 fi
 
 # Generate the daily JSON report from local activity logs
@@ -68,11 +75,16 @@ else
     git commit -m "Auto-update: $DATE $TIME" || true
     echo "[$(date)] Changes committed to main"
 
-    # Try to push main
-    if git push origin main 2>/dev/null; then
-        echo "[$(date)] Pushed to main"
+    # Try to push main, but only if we're actually on main
+    CUR="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
+    if [ "$CUR" != "main" ]; then
+        echo "[$(date)] Not on main (current: $CUR); skipping push"
     else
-        echo "[$(date)] Main push skipped (no credentials or offline)"
+        if git push origin main 2>/dev/null; then
+            echo "[$(date)] Pushed to main"
+        else
+            echo "[$(date)] Main push skipped (no credentials or offline)"
+        fi
     fi
 fi
 
