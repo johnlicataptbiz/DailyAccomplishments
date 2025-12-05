@@ -3,29 +3,32 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "focus_time": "00:06",
+    "focus_time": "00:18",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 3,
-    "coverage_window": "00:00\u201301:30 CST"
+    "projects_count": 4,
+    "coverage_window": "00:00\u201302:10"
   },
   "prepared_for_manager": [
-    "Total focused time: 00:06 (Coverage: 00:00\u201301:30 CST)",
-    "Top apps: Google Chrome (00:06), Messages (00:00), Terminal (00:00)"
+    "Total focused time: 00:16 (Coverage: 00:00\u201302:10 CST)",
+    "Top apps: Google Chrome (00:12), Terminal (00:03), Electron (00:00)"
   ],
   "executive_summary": [
-    "Worked across 3 applications",
-    "Top category: Research"
+    "Worked across 4 applications",
+    "Top category: Research",
+    "Screen Time: ~129 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:06)",
-    "Focused on Messages (00:00)",
-    "Focused on Terminal (00:00)"
+    "Focused on Google Chrome (00:12)",
+    "Focused on Terminal (00:03)",
+    "Focused on Electron (00:00)",
+    "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Research": "00:04",
-    "Coding": "00:01",
+    "Research": "00:24",
+    "Coding": "00:09",
+    "Other": "00:00",
     "Communication": "00:00"
   },
   "by_project": {},
@@ -41,21 +44,25 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 50
+        "visits": 120
       }
     ],
     "top_pages": [
+      {
+        "page": "Git Rebase Stability Fixes - Grok - Google Chrome - Jack (physicaltherapybiz.com",
+        "visits": 67
+      },
       {
         "page": "Assign agent using automated prospecting for contacts in specific list ",
         "visits": 15
       },
       {
-        "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
-        "visits": 9
+        "page": "dashboard.html (Index) (dashboard.html) \u2014 DailyAccomplishments [Codespaces: fluf",
+        "visits": 12
       },
       {
-        "page": "Git Rebase Stability Fixes - Grok - Google Chrome - Jack (physicaltherapybiz.com",
-        "visits": 8
+        "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
+        "visits": 9
       },
       {
         "page": "Margoth Arias-Suarez - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -70,19 +77,15 @@
         "visits": 5
       },
       {
+        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 4
+      },
+      {
         "page": "Custom Events ",
         "visits": 4
       },
       {
-        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 3
-      },
-      {
         "page": "Workflows - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 2
-      },
-      {
-        "page": "Grok - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 2
       }
     ]
@@ -95,12 +98,12 @@
     },
     {
       "hour": 1,
-      "time": "00:00",
+      "time": "00:15",
       "pct": "0%"
     },
     {
       "hour": 2,
-      "time": "00:00",
+      "time": "00:03",
       "pct": "0%"
     },
     {
@@ -212,21 +215,20 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "00:06",
-    "Messages": "00:00",
-    "Terminal": "00:00"
+    "Google Chrome": "00:15",
+    "Terminal": "00:03"
   },
   "top_windows_preview": [
+    "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:05",
     "Google Chrome \u2014 Assign agent using automated prospecting for conta: 00:01",
+    "Terminal \u2014 DailyAccomplishments \u2014 -zsh \u2014 80\u00d724: 00:01",
+    "Google Chrome \u2014 dashboard.html (Index) (dashboard.html) \u2014 DailyAcc: 00:01",
     "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:00",
-    "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:00",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:00",
     "Google Chrome \u2014 Margoth Arias-Suarez - Google Chrome - Jack (physi: 00:00",
     "Google Chrome \u2014 SuperAgent.agent.md \u2014 DailyAccomplishments [Codesp: 00:00",
-    "Google Chrome \u2014 Prospecting Agent : 00:00",
-    "Google Chrome \u2014 Custom Events : 00:00",
-    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:00",
-    "Messages \u2014 Lover Bird: 00:00",
-    "Google Chrome \u2014 Workflows - Google Chrome - Jack (physicaltherapyb: 00:00"
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:00",
+    "Google Chrome \u2014 Prospecting Agent : 00:00"
   ],
   "notes": [],
   "debug_appointments": {
