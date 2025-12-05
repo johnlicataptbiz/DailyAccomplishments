@@ -42,6 +42,37 @@ def validate_file(path, validator):
             path = ".".join(map(str, e.path)) if e.path else "<root>"
             print(f" - {path}: {e.message}")
         return False
+    # Additional stricter checks beyond Draft7 schema to make CI failures clearer
+    # Ensure overview contains expected timing fields
+    ok = True
+    if 'overview' not in data or not isinstance(data['overview'], dict):
+        print(f" - overview: missing or not an object in {p}")
+        ok = False
+    else:
+        for key in ('focus_time', 'coverage_window'):
+            if key not in data['overview']:
+                print(f" - overview.{key}: missing in {p}")
+                ok = False
+    # Validate deep_work_blocks items if present
+    if 'deep_work_blocks' in data:
+        if not isinstance(data['deep_work_blocks'], list):
+            print(f" - deep_work_blocks: expected array in {p}")
+            ok = False
+        else:
+            for i, item in enumerate(data['deep_work_blocks']):
+                if not isinstance(item, dict):
+                    print(f" - deep_work_blocks[{i}]: not an object in {p}")
+                    ok = False
+                    continue
+                for rk in ('start', 'end', 'duration', 'seconds'):
+                    if rk not in item:
+                        print(f" - deep_work_blocks[{i}].{rk}: missing in {p}")
+                        ok = False
+                if 'seconds' in item and not isinstance(item['seconds'], (int, float)):
+                    print(f" - deep_work_blocks[{i}].seconds: must be number in {p}")
+                    ok = False
+    if not ok:
+        return False
     print(f"VALID: {p}")
     return True
 
