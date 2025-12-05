@@ -7,10 +7,10 @@
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:02\u201319:44"
+    "coverage_window": "00:02\u201319:59"
   },
   "prepared_for_manager": [
-    "Total focused time: 01:21 (Coverage: 02:57\u201319:44 CST)",
+    "Total focused time: 01:22 (Coverage: 02:57\u201319:59 CST)",
     "Top apps: Google Chrome (00:43), app_mode_loader (00:26), Terminal (00:08)"
   ],
   "executive_summary": [
@@ -45,7 +45,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 229
+        "visits": 235
       },
       {
         "domain": "physicaltherapybiz.com",
@@ -62,6 +62,10 @@
         "visits": 37
       },
       {
+        "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
+        "visits": 21
+      },
+      {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 19
       },
@@ -72,10 +76,6 @@
       {
         "page": "Google AI Studio - Google Chrome - physicaltherapybiz.com",
         "visits": 17
-      },
-      {
-        "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
-        "visits": 15
       },
       {
         "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - physicaltherapybiz.com",
@@ -230,10 +230,10 @@
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:05",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:03",
     "Google Chrome: 00:02",
+    "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:01",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Google Chrome \u2014 Prospecting Agent : 00:01",
     "Google Chrome \u2014 Google AI Studio - Google Chrome - physicaltherapy: 00:01",
-    "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:01",
     "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - physi: 00:01"
   ],
   "notes": [],
