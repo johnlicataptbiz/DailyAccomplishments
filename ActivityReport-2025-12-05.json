@@ -3,11 +3,11 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "focus_time": "00:34",
+    "focus_time": "00:42",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:00\u201302:44"
+    "coverage_window": "00:00\u201307:28"
   },
   "prepared_for_manager": [
     "Total focused time: 00:18 (Coverage: 00:00\u201302:16 CST)",
@@ -18,7 +18,8 @@
     "Top category: Research",
     "Screen Time: ~129 min foreground app usage",
     "Screen Time: ~181 min foreground app usage",
-    "Screen Time: ~231 min foreground app usage"
+    "Screen Time: ~231 min foreground app usage",
+    "Screen Time: ~258 min foreground app usage"
   ],
   "client_summary": [],
   "accomplishments_today": [
@@ -28,8 +29,8 @@
     "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Research": "09:43",
-    "Coding": "02:06",
+    "Research": "10:19",
+    "Coding": "02:12",
     "Other": "00:00",
     "Communication": "00:00"
   },
@@ -105,7 +106,7 @@
     },
     {
       "hour": 2,
-      "time": "00:19",
+      "time": "00:26",
       "pct": "0%"
     },
     {
@@ -130,7 +131,7 @@
     },
     {
       "hour": 7,
-      "time": "00:00",
+      "time": "00:01",
       "pct": "0%"
     },
     {
@@ -217,7 +218,7 @@
   "suggested_tasks": [],
   "next_up": [],
   "top_apps": {
-    "Google Chrome": "00:28",
+    "Google Chrome": "00:36",
     "Terminal": "00:06"
   },
   "top_windows_preview": [
