@@ -782,9 +782,9 @@
             if (d.overview && d.overview.focus_time) {
                 focusMins = timeToMinutes(d.overview.focus_time || '00:00');
             }
-            // Prefer overlay sum for meeting minutes; fallback to overview
-            let meetingMins = meetingOverlayMins || timeToMinutes(d.overview?.meetings_time || '00:00');
-            if (d.overview && d.overview.meetings_time) {
+            // Prefer per-hour overlay sum for meeting minutes; fallback to overview only when overlay is zero
+            let meetingMins = meetingOverlayMins || 0;
+            if ((!meetingMins || meetingMins === 0) && d.overview && d.overview.meetings_time) {
                 meetingMins = timeToMinutes(d.overview.meetings_time || '00:00');
             }
             // Active time = per-hour union of focus + meetings overlay (capped at 60 per hour)

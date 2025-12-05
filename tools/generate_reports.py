@@ -129,6 +129,40 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         if r['category'].lower() == 'meetings':
             meeting_seconds += secs
 
+    # Prefer foreground attribution when meetings overlap with high-priority non-meeting activity.
+    # If a meeting interval overlaps with a Coding interval, attribute the overlapped seconds to Coding.
+    # Build lists for overlap computation
+    meeting_intervals = [r for r in raw_intervals if r['category'].lower() == 'meetings']
+    non_meeting_intervals = [r for r in raw_intervals if r['category'].lower() != 'meetings']
+    from datetime import timedelta
+    for m in meeting_intervals:
+        overlaps = {}
+        m_start = m['start']
+        m_end = m['end']
+        m_len = int((m_end - m_start).total_seconds())
+        if m_len <= 0:
+            continue
+        for n in non_meeting_intervals:
+            # Only consider high-priority non-meeting categories for foreground attribution
+            cat = n['category']
+            if cat.lower() not in ('coding', 'research', 'other', 'communication'):
+                continue
+            # compute overlap
+            s = max(m_start, n['start'])
+            e = min(m_end, n['end'])
+            if e > s:
+                ov = int((e - s).total_seconds())
+                overlaps[cat] = overlaps.get(cat, 0) + ov
+        if not overlaps:
+            continue
+        # choose the non-meeting category with maximum overlap
+        best_cat, best_sec = max(overlaps.items(), key=lambda kv: kv[1])
+        # subtract from meeting_seconds and add to that category_seconds
+        move = min(best_sec, m_len)
+        if move > 0:
+            meeting_seconds = max(0, meeting_seconds - move)
+            category_seconds[best_cat] = category_seconds.get(best_cat, 0) + move
+
     # Active seconds = sum of merged intervals
     from datetime import timedelta
     for m in merged:
