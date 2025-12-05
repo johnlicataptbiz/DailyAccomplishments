@@ -7,10 +7,10 @@
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:02\u201318:44"
+    "coverage_window": "00:02\u201318:56"
   },
   "prepared_for_manager": [
-    "Total focused time: 01:20 (Coverage: 02:57\u201318:44 CST)",
+    "Total focused time: 01:20 (Coverage: 02:57\u201318:56 CST)",
     "Top apps: Google Chrome (00:42), app_mode_loader (00:26), Terminal (00:08)"
   ],
   "executive_summary": [
@@ -45,7 +45,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 218
+        "visits": 223
       },
       {
         "domain": "physicaltherapybiz.com",
@@ -82,15 +82,15 @@
         "visits": 12
       },
       {
+        "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
+        "visits": 10
+      },
+      {
         "page": "Kait Wilcox (DM) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com",
         "visits": 8
       },
       {
         "page": "johnlicataptbiz/DailyAccomplishments - Google Chrome - Jack (physicaltherapybiz.",
-        "visits": 8
-      },
-      {
-        "page": "Railway - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 8
       }
     ]
