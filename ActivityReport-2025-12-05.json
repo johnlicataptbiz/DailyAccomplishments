@@ -3,13 +3,12 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments — 2025-12-05",
   "overview": {
-    "active_time": "00:00",
-    "focus_time": "00:00",
+    "focus_time": "01:22",
     "meetings_time": "00:00",
     "coverage_time": "00:00",
-    "coverage_window": "06:00–23:59 CST",
+    "coverage_window": "00:00–09:16",
     "appointments": 0,
-    "projects_count": 0
+    "projects_count": 4
   },
   "prepared_for_manager": [
     "Active Time: 00:00",
@@ -18,13 +17,29 @@
     "Top Apps: Unknown"
   ],
   "executive_summary": [
-    "Active: 00:00 | Focus: 00:00",
-    "Coverage: 06:00–23:59 CST"
+    "Worked across 4 applications",
+    "Top category: Research",
+    "Screen Time: ~129 min foreground app usage",
+    "Screen Time: ~181 min foreground app usage",
+    "Screen Time: ~231 min foreground app usage",
+    "Screen Time: ~258 min foreground app usage",
+    "Screen Time: ~307 min foreground app usage",
+    "Screen Time: ~353 min foreground app usage",
+    "Screen Time: ~438 min foreground app usage",
+    "Screen Time: ~480 min foreground app usage",
+    "Screen Time: ~569 min foreground app usage",
+    "Screen Time: ~621 min foreground app usage",
+    "Screen Time: ~668 min foreground app usage"
   ],
   "accomplishments_today": [
     "Focused on Unknown (00:00)"
   ],
-  "by_category": {},
+  "by_category": {
+    "Research": "16:18",
+    "Coding": "03:44",
+    "Other": "00:04",
+    "Communication": "00:00"
+  },
   "by_project": {},
   "google_workspace": {
     "Google": "00:00",
@@ -86,12 +101,12 @@
     },
     {
       "hour": 8,
-      "time": "00:00",
+      "time": "00:22",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:00",
+      "time": "00:06",
       "pct": "0%"
     },
     {
@@ -166,7 +181,9 @@
     }
   ],
   "top_apps": {
-    "Unknown": "00:00"
+    "Google Chrome": "01:04",
+    "Terminal": "00:17",
+    "Finder": "00:01"
   },
   "top_windows_preview": [
     "Unknown: 00:00"
