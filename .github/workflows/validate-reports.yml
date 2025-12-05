@@ -1,0 +1,29 @@
+name: Validate Reports
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  check-reports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check recent reports
+        run: |
+          set -euo pipefail
+          missing=0
+          for i in 0 1 2; do
+            date=$(date -u -d "-$i day" +%F)
+            path="reports/$date/ActivityReport-$date.json"
+            if [ ! -f "$path" ]; then
+              echo "MISSING: $path"
+              missing=$((missing+1))
+            else
+              echo "OK: $path"
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            echo "Some recent reports are missing ($missing); failing workflow."
+            exit 1
+          fi

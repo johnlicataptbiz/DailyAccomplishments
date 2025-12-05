@@ -148,6 +148,20 @@ def main():
     except FileNotFoundError as e:
         print(f"Error: {e}")
         sys.exit(1)
+    # Ensure outputs are placed under reports/<date>/ as canonical location
+    date_str = data.get('date') or date or DEFAULT_DATE
+    out_dir = BASE / 'reports' / date_str
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # Write canonical ActivityReport JSON into reports/<date>/
+    try:
+        (out_dir / f'ActivityReport-{date_str}.json').write_text(json.dumps(data, indent=2))
+        # Also write the dashboard fallback name
+        (out_dir / f'daily-report-{date_str}.json').write_text(json.dumps(data, indent=2))
+        print(f"Wrote canonical ActivityReport JSON to {out_dir}")
+    except Exception as e:
+        print(f"Failed to write ActivityReport JSON to {out_dir}: {e}")
+
     # Hourly focus CSV
     hf = data.get('hourly_focus', [])
     hf_rows = []
@@ -162,18 +176,17 @@ def main():
         if minutes > 60:
             minutes = min(60, int(60 * pct / 100))
         hf_rows.append([item.get('hour'), time_str, item.get('pct'), minutes])
-    date_str = data.get('date') or date or DEFAULT_DATE
-    write_csv(OUT_DIR / f'hourly_focus-{date_str}.csv', hf_rows, ['hour', 'time', 'pct', 'minutes'])
+    write_csv(out_dir / f'hourly_focus-{date_str}.csv', hf_rows, ['hour', 'time', 'pct', 'minutes'])
     # Top domains CSV
     domains = data.get('browser_highlights', {}).get('top_domains', [])
     dom_rows = [[d.get('domain'), d.get('visits')] for d in domains]
-    write_csv(OUT_DIR / f'top_domains-{date_str}.csv', dom_rows, ['domain', 'visits'])
+    write_csv(out_dir / f'top_domains-{date_str}.csv', dom_rows, ['domain', 'visits'])
     # Category distribution CSV
     cats = data.get('by_category', {})
     cat_rows = []
     for k, v in cats.items():
         cat_rows.append([k, v, hhmm_to_minutes(v)])
-    write_csv(OUT_DIR / f'category_distribution-{date_str}.csv', cat_rows, ['category', 'time', 'minutes'])
+    write_csv(out_dir / f'category_distribution-{date_str}.csv', cat_rows, ['category', 'time', 'minutes'])
     # Generate charts
     try:
         import matplotlib
@@ -204,8 +217,8 @@ def main():
     plt.title(f'Hourly Focus — {title_date}')
     plt.xticks(hours)
     plt.tight_layout()
-    plt.savefig(OUT_DIR / f'hourly_focus-{title_date}.png')
-    plt.savefig(OUT_DIR / f'hourly_focus-{title_date}.svg')
+    plt.savefig(out_dir / f'hourly_focus-{title_date}.png')
+    plt.savefig(out_dir / f'hourly_focus-{title_date}.svg')
     plt.close()
     print(f"Hourly chart saved for {title_date}")
     # Category pie chart
@@ -216,12 +229,12 @@ def main():
         plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
         plt.title(f'Time by Category — {title_date}')
         plt.tight_layout()
-        plt.savefig(OUT_DIR / f'category_distribution-{title_date}.png')
-        plt.savefig(OUT_DIR / f'category_distribution-{title_date}.svg')
+        plt.savefig(out_dir / f'category_distribution-{title_date}.png')
+        plt.savefig(out_dir / f'category_distribution-{title_date}.svg')
         plt.close()
         print(f"Category chart saved for {title_date}")
     else:
         print(f"No category data for {title_date}")
-    print('CSVs and charts written to', OUT_DIR)
+    print('CSVs and charts written to', out_dir)
 if __name__ == '__main__':
     main()
