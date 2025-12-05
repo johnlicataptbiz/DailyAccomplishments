@@ -1,0 +1,187 @@
+{
+  "source_file": "ActivityReport-2025-12-05.json",
+  "date": "2025-12-05",
+  "title": "Daily Accomplishments \u2014 2025-12-05",
+  "overview": {
+    "focus_time": "00:00",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 1,
+    "coverage_window": "00:00\u201300:00 CST"
+  },
+  "prepared_for_manager": [
+    "Total focused time: 00:00 (Coverage: 00:00\u201300:00 CST)",
+    "Top apps: Google Chrome (00:00)"
+  ],
+  "executive_summary": [
+    "Worked across 1 applications",
+    "Top category: Research"
+  ],
+  "client_summary": [],
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:00)"
+  ],
+  "by_category": {
+    "Research": "00:00"
+  },
+  "by_project": {},
+  "google_workspace": {
+    "Google": "00:00",
+    "Google Sheets": "00:00",
+    "Google Calendar": "00:00",
+    "Gmail": "00:00",
+    "Google Drive": "00:00",
+    "top_documents": []
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 1
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 1
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "suggested_tasks": [],
+  "next_up": [],
+  "top_apps": {
+    "Google Chrome": "00:00"
+  },
+  "top_windows_preview": [
+    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:00"
+  ],
+  "notes": [],
+  "debug_appointments": {
+    "contact_visits_top": [],
+    "appointments_today": [],
+    "meetings_today": []
+  },
+  "foot": "Auto-generated"
+}
