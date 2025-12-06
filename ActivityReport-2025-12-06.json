@@ -6,8 +6,8 @@
     "active_time": "00:34",
     "focus_time": "05:00",
     "meetings_time": "00:00",
-    "coverage_time": "13:04",
-    "coverage_window": "00:00\u201313:04",
+    "coverage_time": "13:24",
+    "coverage_window": "00:00\u201313:24",
     "appointments": 0,
     "projects_count": 1
   },
@@ -19,7 +19,7 @@
   ],
   "executive_summary": [
     "Active: 00:34 | Focus: 00:34",
-    "Coverage: 00:00\u201313:04 CST",
+    "Coverage: 00:00\u201313:24 CST",
     "Screen Time: ~323 min foreground app usage"
   ],
   "accomplishments_today": [
@@ -32,13 +32,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 365
+        "visits": 366
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 282
+        "visits": 283
       },
       {
         "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
