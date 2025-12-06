@@ -6,8 +6,8 @@
     "active_time": "00:10",
     "focus_time": "00:32",
     "meetings_time": "00:00",
-    "coverage_time": "08:52",
-    "coverage_window": "00:00\u201308:52",
+    "coverage_time": "09:07",
+    "coverage_window": "00:00\u201309:07",
     "appointments": 0,
     "projects_count": 1
   },
@@ -19,7 +19,7 @@
   ],
   "executive_summary": [
     "Active: 00:10 | Focus: 00:10",
-    "Coverage: 00:00\u201308:52 CST",
+    "Coverage: 00:00\u201309:07 CST",
     "Screen Time: ~35 min foreground app usage"
   ],
   "accomplishments_today": [
@@ -32,13 +32,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 117
+        "visits": 124
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 116
+        "visits": 123
       },
       {
         "page": "DailyAccomplishments ",
@@ -93,7 +93,7 @@
     },
     {
       "hour": 8,
-      "time": "00:03",
+      "time": "00:04",
       "pct": "0%"
     },
     {
@@ -176,7 +176,7 @@
     "Google Chrome": "00:32"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:09",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:10",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
     "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00",
     "Google Chrome: 00:00"
