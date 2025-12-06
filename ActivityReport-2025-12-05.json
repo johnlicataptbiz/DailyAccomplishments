@@ -3,34 +3,34 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "02:54",
-    "focus_time": "07:57",
+    "active_time": "02:55",
+    "focus_time": "08:56",
     "meetings_time": "00:00",
-    "coverage_time": "20:40",
-    "coverage_window": "00:00\u201320:41",
+    "coverage_time": "21:42",
+    "coverage_window": "00:00\u201321:42",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 02:54",
-    "Focus Time: 02:54",
+    "Active Time: 02:55",
+    "Focus Time: 02:55",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 02:54 | Focus: 02:54",
-    "Coverage: 00:00\u201320:41 CST",
-    "Screen Time: ~1667 min foreground app usage"
+    "Active: 02:55 | Focus: 02:55",
+    "Coverage: 00:00\u201321:42 CST",
+    "Screen Time: ~1731 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:03)",
+    "Focused on Google Chrome (02:04)",
     "Focused on Terminal (00:47)",
     "Focused on Electron (00:01)",
     "Focused on Messages (00:00)",
     "Focused on TextEdit (00:00)"
   ],
   "by_category": {
-    "Research": "07:07",
+    "Research": "08:06",
     "Coding": "01:15",
     "Other": "00:02",
     "Communication": "00:00",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1272
+        "visits": 1279
       },
       {
         "domain": "circle.so",
@@ -74,7 +74,7 @@
       },
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 99
+        "visits": 100
       },
       {
         "page": "Google Gemini - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -94,7 +94,7 @@
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 53
+        "visits": 59
       },
       {
         "page": "Untitled prompt - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -199,17 +199,17 @@
     },
     {
       "hour": 18,
-      "time": "00:49",
+      "time": "00:55",
       "pct": "0%"
     },
     {
       "hour": 19,
-      "time": "00:01",
+      "time": "00:17",
       "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:04",
+      "time": "00:36",
       "pct": "0%"
     },
     {
@@ -229,7 +229,7 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "07:07",
+    "Google Chrome": "08:06",
     "Terminal": "00:45",
     "VS Code": "00:04",
     "Finder": "00:01"
@@ -250,8 +250,8 @@
   "deep_work": [
     {
       "start": "16:50",
-      "end": "18:53",
-      "minutes": 113,
+      "end": "19:17",
+      "minutes": 137,
       "category": "Research",
       "label": "Google Chrome"
     },
@@ -273,6 +273,13 @@
       "start": "15:46",
       "end": "16:33",
       "minutes": 40,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "20:04",
+      "end": "20:41",
+      "minutes": 36,
       "category": "Research",
       "label": "Google Chrome"
     },
