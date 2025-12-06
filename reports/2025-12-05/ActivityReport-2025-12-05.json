@@ -3,27 +3,27 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "03:05",
+    "active_time": "03:07",
     "focus_time": "08:56",
     "meetings_time": "00:00",
-    "coverage_time": "23:18",
-    "coverage_window": "00:00\u201323:18",
+    "coverage_time": "23:34",
+    "coverage_window": "00:00\u201323:34",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 03:05",
-    "Focus Time: 03:05",
+    "Active Time: 03:07",
+    "Focus Time: 03:07",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 03:05 | Focus: 03:05",
-    "Coverage: 00:00\u201323:18 CST",
+    "Active: 03:07 | Focus: 03:07",
+    "Coverage: 00:00\u201323:34 CST",
     "Screen Time: ~1731 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:14)",
+    "Focused on Google Chrome (02:16)",
     "Focused on Terminal (00:47)",
     "Focused on Electron (00:01)",
     "Focused on Messages (00:00)",
@@ -40,18 +40,18 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1387
+        "visits": 1411
       },
       {
         "domain": "circle.so",
         "visits": 3
       },
       {
-        "domain": "app.hubspot",
-        "visits": 1
+        "domain": "physicaltherapybiz.com",
+        "visits": 2
       },
       {
-        "domain": "physicaltherapybiz.com",
+        "domain": "app.hubspot",
         "visits": 1
       },
       {
@@ -70,7 +70,7 @@
       },
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 172
+        "visits": 189
       },
       {
         "page": "Exit Vim editor - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -94,7 +94,7 @@
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 59
+        "visits": 61
       },
       {
         "page": "Untitled prompt - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -224,7 +224,7 @@
     },
     {
       "hour": 23,
-      "time": "00:02",
+      "time": "00:04",
       "pct": "0%"
     }
   ],
@@ -236,7 +236,7 @@
   },
   "top_windows_preview": [
     "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:14",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:15",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:13",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:11",
     "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
@@ -244,7 +244,7 @@
     "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
     "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
     "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:06",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:04"
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:05"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
