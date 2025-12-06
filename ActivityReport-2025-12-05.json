@@ -6,8 +6,8 @@
     "active_time": "02:54",
     "focus_time": "07:57",
     "meetings_time": "00:00",
-    "coverage_time": "20:31",
-    "coverage_window": "00:00\u201320:32",
+    "coverage_time": "20:40",
+    "coverage_window": "00:00\u201320:41",
     "appointments": 0,
     "projects_count": 5
   },
@@ -19,11 +19,11 @@
   ],
   "executive_summary": [
     "Active: 02:54 | Focus: 02:54",
-    "Coverage: 00:00\u201320:32 CST",
+    "Coverage: 00:00\u201320:41 CST",
     "Screen Time: ~1667 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:02)",
+    "Focused on Google Chrome (02:03)",
     "Focused on Terminal (00:47)",
     "Focused on Electron (00:01)",
     "Focused on Messages (00:00)",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1262
+        "visits": 1272
       },
       {
         "domain": "circle.so",
@@ -73,15 +73,15 @@
         "visits": 133
       },
       {
+        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 99
+      },
+      {
         "page": "Google Gemini - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 98
       },
       {
         "page": "Code - Grok - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 92
-      },
-      {
-        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 92
       },
       {
@@ -94,7 +94,7 @@
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 50
+        "visits": 53
       },
       {
         "page": "Untitled prompt - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -209,7 +209,7 @@
     },
     {
       "hour": 20,
-      "time": "00:03",
+      "time": "00:04",
       "pct": "0%"
     },
     {
@@ -239,9 +239,9 @@
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:13",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:11",
     "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:08",
     "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:08",
     "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:07",
     "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
     "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:06",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:04"
