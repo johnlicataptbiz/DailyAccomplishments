@@ -3,42 +3,42 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:33",
-    "focus_time": "01:45",
+    "active_time": "00:34",
+    "focus_time": "05:00",
     "meetings_time": "00:00",
-    "coverage_time": "12:53",
-    "coverage_window": "00:00\u201312:53",
+    "coverage_time": "13:04",
+    "coverage_window": "00:00\u201313:04",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:33",
-    "Focus Time: 00:33",
+    "Active Time: 00:34",
+    "Focus Time: 00:34",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:33 | Focus: 00:33",
-    "Coverage: 00:00\u201312:53 CST",
-    "Screen Time: ~118 min foreground app usage"
+    "Active: 00:34 | Focus: 00:34",
+    "Coverage: 00:00\u201313:04 CST",
+    "Screen Time: ~323 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:33)"
+    "Focused on Google Chrome (00:34)"
   ],
   "by_category": {
-    "Research": "01:45"
+    "Research": "05:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 355
+        "visits": 365
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 272
+        "visits": 282
       },
       {
         "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -126,27 +126,27 @@
     },
     {
       "hour": 9,
-      "time": "00:28",
+      "time": "00:50",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:04",
+      "time": "00:53",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:07",
+      "time": "00:58",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:06",
+      "time": "00:58",
       "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:00",
+      "time": "00:04",
       "pct": "0%"
     },
     {
@@ -201,10 +201,10 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "01:45"
+    "Google Chrome": "05:00"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:22",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:23",
     "Google Chrome: 00:03",
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00",
@@ -219,8 +219,8 @@
   "deep_work": [
     {
       "start": "08:27",
-      "end": "09:34",
-      "minutes": 53,
+      "end": "13:04",
+      "minutes": 251,
       "category": "Research",
       "label": "Google Chrome"
     }
