@@ -3,48 +3,48 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:00",
-    "focus_time": "00:00",
+    "active_time": "00:01",
+    "focus_time": "00:01",
     "meetings_time": "00:00",
-    "coverage_time": "00:04",
-    "coverage_window": "00:00\u201300:04 CST",
+    "coverage_time": "00:19",
+    "coverage_window": "00:00\u201300:19 CST",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:00",
-    "Focus Time: 00:00",
+    "Active Time: 00:01",
+    "Focus Time: 00:01",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:00 | Focus: 00:00",
-    "Coverage: 00:00\u201300:04 CST"
+    "Active: 00:01 | Focus: 00:01",
+    "Coverage: 00:00\u201300:19 CST"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:00)"
+    "Focused on Google Chrome (00:01)"
   ],
   "by_category": {
-    "Research": "00:00"
+    "Research": "00:01"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 5
+        "visits": 20
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 5
+        "visits": 20
       }
     ]
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:00",
+      "time": "00:01",
       "pct": "0%"
     },
     {
@@ -164,10 +164,10 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:00"
+    "Google Chrome": "00:01"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:00"
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:01"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
