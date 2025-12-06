@@ -3,27 +3,27 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "02:48",
+    "active_time": "02:50",
     "focus_time": "07:57",
     "meetings_time": "00:00",
-    "coverage_time": "19:01",
-    "coverage_window": "00:00\u201319:02",
+    "coverage_time": "19:17",
+    "coverage_window": "00:00\u201319:17",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 02:48",
-    "Focus Time: 02:48",
+    "Active Time: 02:50",
+    "Focus Time: 02:50",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 02:48 | Focus: 02:48",
-    "Coverage: 00:00\u201319:02 CST",
+    "Active: 02:50 | Focus: 02:50",
+    "Coverage: 00:00\u201319:17 CST",
     "Screen Time: ~1667 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:57)",
+    "Focused on Google Chrome (01:59)",
     "Focused on Terminal (00:47)",
     "Focused on Electron (00:01)",
     "Focused on Messages (00:00)",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1206
+        "visits": 1223
       },
       {
         "domain": "circle.so",
@@ -90,7 +90,7 @@
       },
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 50
+        "visits": 64
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -204,7 +204,7 @@
     },
     {
       "hour": 19,
-      "time": "00:00",
+      "time": "00:01",
       "pct": "0%"
     },
     {
@@ -243,7 +243,7 @@
     "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
     "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
     "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:06",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:04",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:05",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:03"
   ],
   "foot": "Auto-generated (Redesign v1)",
