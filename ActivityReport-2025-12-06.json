@@ -3,44 +3,44 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:47",
+    "active_time": "00:49",
     "focus_time": "05:00",
     "meetings_time": "00:00",
-    "coverage_time": "15:41",
-    "coverage_window": "00:00\u201315:41",
+    "coverage_time": "15:55",
+    "coverage_window": "00:00\u201315:56",
     "appointments": 0,
     "projects_count": 2
   },
   "prepared_for_manager": [
-    "Active Time: 00:47",
-    "Focus Time: 00:47",
+    "Active Time: 00:49",
+    "Focus Time: 00:49",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages"
   ],
   "executive_summary": [
-    "Active: 00:47 | Focus: 00:47",
-    "Coverage: 00:00\u201315:41 CST",
+    "Active: 00:49 | Focus: 00:49",
+    "Coverage: 00:00\u201315:56 CST",
     "Screen Time: ~323 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:47)",
-    "Focused on Messages (00:00)"
+    "Focused on Google Chrome (00:48)",
+    "Focused on Messages (00:01)"
   ],
   "by_category": {
     "Research": "05:00",
-    "Communication": "00:00"
+    "Communication": "00:01"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 505
+        "visits": 518
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 381
+        "visits": 392
       },
       {
         "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -48,11 +48,11 @@
       },
       {
         "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
-        "visits": 17
+        "visits": 18
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 14
+        "visits": 15
       },
       {
         "page": "Gemini",
@@ -158,7 +158,7 @@
     },
     {
       "hour": 15,
-      "time": "00:02",
+      "time": "00:04",
       "pct": "0%"
     },
     {
@@ -206,16 +206,16 @@
     "Google Chrome": "05:00"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:31",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:32",
     "Google Chrome: 00:03",
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:01",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Google Chrome \u2014 Gemini: 00:01",
+    "Messages \u2014 Lover Bird: 00:01",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
     "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00",
-    "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:00",
-    "Google Chrome \u2014 Optimizing Colab AI on Slow Computers - Grok - Goo: 00:00"
+    "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
