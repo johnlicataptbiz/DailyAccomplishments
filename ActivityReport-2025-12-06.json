@@ -3,42 +3,42 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:11",
-    "focus_time": "00:32",
+    "active_time": "00:13",
+    "focus_time": "01:45",
     "meetings_time": "00:00",
-    "coverage_time": "09:22",
-    "coverage_window": "00:00\u201309:22",
+    "coverage_time": "09:37",
+    "coverage_window": "00:00\u201309:37",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:11",
-    "Focus Time: 00:11",
+    "Active Time: 00:13",
+    "Focus Time: 00:13",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:11 | Focus: 00:11",
-    "Coverage: 00:00\u201309:22 CST",
-    "Screen Time: ~35 min foreground app usage"
+    "Active: 00:13 | Focus: 00:13",
+    "Coverage: 00:00\u201309:37 CST",
+    "Screen Time: ~118 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:11)"
+    "Focused on Google Chrome (00:13)"
   ],
   "by_category": {
-    "Research": "00:32"
+    "Research": "01:45"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 137
+        "visits": 151
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 136
+        "visits": 150
       },
       {
         "page": "DailyAccomplishments ",
@@ -88,17 +88,17 @@
     },
     {
       "hour": 7,
-      "time": "00:00",
+      "time": "00:03",
       "pct": "0%"
     },
     {
       "hour": 8,
-      "time": "00:04",
+      "time": "00:42",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:01",
+      "time": "00:28",
       "pct": "0%"
     },
     {
@@ -173,15 +173,24 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:32"
+    "Google Chrome": "01:45"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:11",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:12",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
     "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00",
     "Google Chrome: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
+  "deep_work": [
+    {
+      "start": "08:27",
+      "end": "09:34",
+      "minutes": 53,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
   "debug_appointments": {
     "meetings_today": []
   }
