@@ -886,8 +886,7 @@
             const isCollaborative = slackSent > 20 || meetings > 2;
             const hasLimitedTracking = focusMins < 30;
 
-            return {
-                focusMins, meetingMins, appointments, meetings,
+            return {focusMins, meetingMins, appointments, meetings,
                 // SLACK appointments
                 slackAppointments, slackAppointmentsCount, slackAppointmentsNames,
                 // Monday.com context
@@ -909,8 +908,8 @@
                 // Deep work
                 deepWorkBlocks: d.deep_work || d.deep_work_blocks || [],
                 coverageMins,
-                activeMins
-            };
+                activeMins,
+                meetingArr: meetingArr};
         }
 
         function generateHeadline(analysis, date) {
@@ -1169,6 +1168,7 @@
 
         function renderDashboard(d, date, baseline) {
             const analysis = analyzeDay(d);
+            const meetingMinsByHour = analysis.meetingArr;
             const headline = generateHeadline(analysis, date);
             const summary = generateSummary(analysis);
             const insights = generateInsights(analysis);
@@ -1265,7 +1265,7 @@
                 <div class="timeline-section">
                     <div class="section-title">📊 Daily Activity (5am – Midnight)</div>
                     <div class="hourly-timeline">
-                        ${renderHourlyTimeline(analysis.workHours)}
+                        ${renderHourlyTimeline(analysis.workHours, meetingMinsByHour)}
                     </div>
                     ${renderDeepWorkChips(analysis.deepWorkBlocks)}
                 </div>
