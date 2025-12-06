@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:53",
+    "active_time": "00:55",
     "focus_time": "07:25",
     "meetings_time": "00:00",
-    "coverage_time": "16:56",
-    "coverage_window": "00:00\u201316:56",
+    "coverage_time": "17:11",
+    "coverage_window": "00:00\u201317:11",
     "appointments": 0,
     "projects_count": 2
   },
   "prepared_for_manager": [
-    "Active Time: 00:53",
-    "Focus Time: 00:53",
+    "Active Time: 00:55",
+    "Focus Time: 00:55",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages"
   ],
   "executive_summary": [
-    "Active: 00:53 | Focus: 00:53",
-    "Coverage: 00:00\u201316:56 CST",
+    "Active: 00:55 | Focus: 00:55",
+    "Coverage: 00:00\u201317:11 CST",
     "Screen Time: ~486 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:52)",
+    "Focused on Google Chrome (00:53)",
     "Focused on Messages (00:01)"
   ],
   "by_category": {
@@ -35,13 +35,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 559
+        "visits": 576
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 416
+        "visits": 432
       },
       {
         "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
@@ -65,7 +65,7 @@
       },
       {
         "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 10
+        "visits": 11
       },
       {
         "page": "Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -164,12 +164,12 @@
     },
     {
       "hour": 16,
-      "time": "00:02",
+      "time": "00:03",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:00",
+      "time": "00:01",
       "pct": "0%"
     },
     {
@@ -208,7 +208,7 @@
     "Messages": "00:06"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:34",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:35",
     "Google Chrome: 00:03",
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:01",
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
