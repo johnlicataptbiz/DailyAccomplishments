@@ -4,10 +4,10 @@
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
     "active_time": "00:06",
-    "focus_time": "00:06",
+    "focus_time": "00:32",
     "meetings_time": "00:00",
     "coverage_time": "03:20",
-    "coverage_window": "00:00\u201303:20 CST",
+    "coverage_window": "00:00\u201303:20",
     "appointments": 0,
     "projects_count": 1
   },
@@ -19,13 +19,14 @@
   ],
   "executive_summary": [
     "Active: 00:06 | Focus: 00:06",
-    "Coverage: 00:00\u201303:20 CST"
+    "Coverage: 00:00\u201303:20 CST",
+    "Screen Time: ~35 min foreground app usage"
   ],
   "accomplishments_today": [
     "Focused on Google Chrome (00:05)"
   ],
   "by_category": {
-    "Research": "00:05"
+    "Research": "00:32"
   },
   "browser_highlights": {
     "top_domains": [
@@ -48,12 +49,12 @@
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:03",
+      "time": "00:05",
       "pct": "0%"
     },
     {
       "hour": 1,
-      "time": "00:01",
+      "time": "00:22",
       "pct": "0%"
     },
     {
@@ -63,7 +64,7 @@
     },
     {
       "hour": 3,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     },
     {
@@ -168,7 +169,7 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:05"
+    "Google Chrome": "00:32"
   },
   "top_windows_preview": [
     "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:05",
