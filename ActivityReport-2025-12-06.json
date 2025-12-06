@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:45",
+    "active_time": "00:46",
     "focus_time": "05:00",
     "meetings_time": "00:00",
-    "coverage_time": "15:09",
-    "coverage_window": "00:00\u201315:09",
+    "coverage_time": "15:24",
+    "coverage_window": "00:00\u201315:25",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:45",
-    "Focus Time: 00:45",
+    "Active Time: 00:46",
+    "Focus Time: 00:46",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:45 | Focus: 00:45",
-    "Coverage: 00:00\u201315:09 CST",
+    "Active: 00:46 | Focus: 00:46",
+    "Coverage: 00:00\u201315:25 CST",
     "Screen Time: ~323 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:45)"
+    "Focused on Google Chrome (00:46)"
   ],
   "by_category": {
     "Research": "05:00"
@@ -32,13 +32,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 478
+        "visits": 492
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 354
+        "visits": 368
       },
       {
         "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -156,7 +156,7 @@
     },
     {
       "hour": 15,
-      "time": "00:00",
+      "time": "00:01",
       "pct": "0%"
     },
     {
@@ -204,7 +204,7 @@
     "Google Chrome": "05:00"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:29",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:30",
     "Google Chrome: 00:03",
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:01",
