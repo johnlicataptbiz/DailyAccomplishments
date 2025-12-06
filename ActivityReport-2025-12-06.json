@@ -3,41 +3,45 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:04",
-    "focus_time": "00:04",
+    "active_time": "00:05",
+    "focus_time": "00:05",
     "meetings_time": "00:00",
-    "coverage_time": "01:04",
-    "coverage_window": "00:00\u201301:04 CST",
+    "coverage_time": "01:19",
+    "coverage_window": "00:00\u201301:19 CST",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:04",
-    "Focus Time: 00:04",
+    "Active Time: 00:05",
+    "Focus Time: 00:05",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:04 | Focus: 00:04",
-    "Coverage: 00:00\u201301:04 CST"
+    "Active: 00:05 | Focus: 00:05",
+    "Coverage: 00:00\u201301:19 CST"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:04)"
+    "Focused on Google Chrome (00:05)"
   ],
   "by_category": {
-    "Research": "00:04"
+    "Research": "00:05"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 49
+        "visits": 63
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 49
+        "visits": 62
+      },
+      {
+        "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 1
       }
     ]
   },
@@ -49,7 +53,7 @@
     },
     {
       "hour": 1,
-      "time": "00:00",
+      "time": "00:01",
       "pct": "0%"
     },
     {
@@ -164,10 +168,11 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:04"
+    "Google Chrome": "00:05"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:04"
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:05",
+    "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
