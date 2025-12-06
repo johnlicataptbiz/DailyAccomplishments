@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:17",
+    "active_time": "00:19",
     "focus_time": "01:45",
     "meetings_time": "00:00",
-    "coverage_time": "10:38",
-    "coverage_window": "00:00\u201310:38",
+    "coverage_time": "10:52",
+    "coverage_window": "00:00\u201310:53",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:17",
-    "Focus Time: 00:17",
+    "Active Time: 00:19",
+    "Focus Time: 00:19",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:17 | Focus: 00:17",
-    "Coverage: 00:00\u201310:38 CST",
+    "Active: 00:19 | Focus: 00:19",
+    "Coverage: 00:00\u201310:53 CST",
     "Screen Time: ~118 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:17)"
+    "Focused on Google Chrome (00:19)"
   ],
   "by_category": {
     "Research": "01:45"
@@ -32,20 +32,36 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 167
+        "visits": 190
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 166
+        "visits": 173
+      },
+      {
+        "page": "Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 8
       },
       {
         "page": "DailyAccomplishments ",
+        "visits": 5
+      },
+      {
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 4
       },
       {
+        "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 3
+      },
+      {
         "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 1
+      },
+      {
+        "page": "Dashboard UI feedback - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 1
       }
     ]
@@ -103,7 +119,7 @@
     },
     {
       "hour": 10,
-      "time": "00:02",
+      "time": "00:04",
       "pct": "0%"
     },
     {
@@ -176,10 +192,14 @@
     "Google Chrome": "01:45"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:13",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:14",
     "Google Chrome: 00:02",
+    "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:00",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
-    "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00"
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
+    "Google Chrome \u2014 ChatGPT - Google Chrome - Jack (physicaltherapybiz: 00:00",
+    "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00",
+    "Google Chrome \u2014 Dashboard UI feedback - Google Chrome - Jack (phys: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
