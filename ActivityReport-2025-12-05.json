@@ -3,27 +3,27 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "03:07",
+    "active_time": "03:10",
     "focus_time": "08:56",
     "meetings_time": "00:00",
-    "coverage_time": "23:34",
-    "coverage_window": "00:00\u201323:34",
+    "coverage_time": "23:48",
+    "coverage_window": "00:00\u201323:49",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 03:07",
-    "Focus Time: 03:07",
+    "Active Time: 03:10",
+    "Focus Time: 03:10",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 03:07 | Focus: 03:07",
-    "Coverage: 00:00\u201323:34 CST",
+    "Active: 03:10 | Focus: 03:10",
+    "Coverage: 00:00\u201323:49 CST",
     "Screen Time: ~1731 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:16)",
+    "Focused on Google Chrome (02:18)",
     "Focused on Terminal (00:47)",
     "Focused on Electron (00:01)",
     "Focused on Messages (00:00)",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1411
+        "visits": 1442
       },
       {
         "domain": "circle.so",
@@ -70,7 +70,7 @@
       },
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 189
+        "visits": 208
       },
       {
         "page": "Exit Vim editor - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -224,7 +224,7 @@
     },
     {
       "hour": 23,
-      "time": "00:04",
+      "time": "00:07",
       "pct": "0%"
     }
   ],
@@ -236,7 +236,7 @@
   },
   "top_windows_preview": [
     "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:15",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:17",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:13",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:11",
     "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
