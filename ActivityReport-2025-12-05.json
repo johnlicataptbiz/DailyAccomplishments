@@ -3,27 +3,27 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "02:52",
+    "active_time": "02:54",
     "focus_time": "07:57",
     "meetings_time": "00:00",
-    "coverage_time": "20:16",
-    "coverage_window": "00:00\u201320:17",
+    "coverage_time": "20:31",
+    "coverage_window": "00:00\u201320:32",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 02:52",
-    "Focus Time: 02:52",
+    "Active Time: 02:54",
+    "Focus Time: 02:54",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 02:52 | Focus: 02:52",
-    "Coverage: 00:00\u201320:17 CST",
+    "Active: 02:54 | Focus: 02:54",
+    "Coverage: 00:00\u201320:32 CST",
     "Screen Time: ~1667 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:01)",
+    "Focused on Google Chrome (02:02)",
     "Focused on Terminal (00:47)",
     "Focused on Electron (00:01)",
     "Focused on Messages (00:00)",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1242
+        "visits": 1262
       },
       {
         "domain": "circle.so",
@@ -81,6 +81,10 @@
         "visits": 92
       },
       {
+        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 92
+      },
+      {
         "page": "Git Rebase Stability Fixes - Grok - Google Chrome - Jack (physicaltherapybiz.com",
         "visits": 85
       },
@@ -89,12 +93,8 @@
         "visits": 84
       },
       {
-        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 76
-      },
-      {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 47
+        "visits": 50
       },
       {
         "page": "Untitled prompt - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -209,7 +209,7 @@
     },
     {
       "hour": 20,
-      "time": "00:02",
+      "time": "00:03",
       "pct": "0%"
     },
     {
@@ -241,10 +241,10 @@
     "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
     "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:08",
     "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:07",
     "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
     "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:06",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:06",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:03"
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:04"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
