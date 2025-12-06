@@ -3,42 +3,44 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:46",
+    "active_time": "00:47",
     "focus_time": "05:00",
     "meetings_time": "00:00",
-    "coverage_time": "15:24",
-    "coverage_window": "00:00\u201315:25",
+    "coverage_time": "15:41",
+    "coverage_window": "00:00\u201315:41",
     "appointments": 0,
-    "projects_count": 1
+    "projects_count": 2
   },
   "prepared_for_manager": [
-    "Active Time: 00:46",
-    "Focus Time: 00:46",
+    "Active Time: 00:47",
+    "Focus Time: 00:47",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome"
+    "Top Apps: Google Chrome, Messages"
   ],
   "executive_summary": [
-    "Active: 00:46 | Focus: 00:46",
-    "Coverage: 00:00\u201315:25 CST",
+    "Active: 00:47 | Focus: 00:47",
+    "Coverage: 00:00\u201315:41 CST",
     "Screen Time: ~323 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:46)"
+    "Focused on Google Chrome (00:47)",
+    "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Research": "05:00"
+    "Research": "05:00",
+    "Communication": "00:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 492
+        "visits": 505
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 368
+        "visits": 381
       },
       {
         "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -156,7 +158,7 @@
     },
     {
       "hour": 15,
-      "time": "00:01",
+      "time": "00:02",
       "pct": "0%"
     },
     {
@@ -204,7 +206,7 @@
     "Google Chrome": "05:00"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:30",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:31",
     "Google Chrome: 00:03",
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:01",
