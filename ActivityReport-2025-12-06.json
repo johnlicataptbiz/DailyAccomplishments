@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:21",
+    "active_time": "00:25",
     "focus_time": "01:45",
     "meetings_time": "00:00",
-    "coverage_time": "11:22",
-    "coverage_window": "00:00\u201311:22",
+    "coverage_time": "11:39",
+    "coverage_window": "00:00\u201311:39",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:21",
-    "Focus Time: 00:21",
+    "Active Time: 00:25",
+    "Focus Time: 00:25",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:21 | Focus: 00:21",
-    "Coverage: 00:00\u201311:22 CST",
+    "Active: 00:25 | Focus: 00:25",
+    "Coverage: 00:00\u201311:39 CST",
     "Screen Time: ~118 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:21)"
+    "Focused on Google Chrome (00:24)"
   ],
   "by_category": {
     "Research": "01:45"
@@ -32,17 +32,29 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 219
+        "visits": 258
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 202
+        "visits": 207
       },
       {
         "page": "Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 10
+      },
+      {
+        "page": "Optimizing Colab AI on Slow Computers - Grok - Google Chrome - Jack (physicalthe",
         "visits": 8
+      },
+      {
+        "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 7
+      },
+      {
+        "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 6
       },
       {
         "page": "DailyAccomplishments ",
@@ -53,16 +65,16 @@
         "visits": 4
       },
       {
+        "page": "TPUs in Colab - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 4
+      },
+      {
         "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 3
       },
       {
-        "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 1
-      },
-      {
-        "page": "Dashboard UI feedback - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 1
+        "page": "New Tab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 3
       }
     ]
   },
@@ -124,7 +136,7 @@
     },
     {
       "hour": 11,
-      "time": "00:01",
+      "time": "00:05",
       "pct": "0%"
     },
     {
@@ -192,14 +204,16 @@
     "Google Chrome": "01:45"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:16",
-    "Google Chrome: 00:02",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:17",
+    "Google Chrome: 00:03",
     "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:00",
+    "Google Chrome \u2014 Optimizing Colab AI on Slow Computers - Grok - Goo: 00:00",
+    "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00",
+    "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:00",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
-    "Google Chrome \u2014 ChatGPT - Google Chrome - Jack (physicaltherapybiz: 00:00",
-    "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00",
-    "Google Chrome \u2014 Dashboard UI feedback - Google Chrome - Jack (phys: 00:00"
+    "Google Chrome \u2014 TPUs in Colab - Colab - Google Chrome - Jack (phys: 00:00",
+    "Google Chrome \u2014 ChatGPT - Google Chrome - Jack (physicaltherapybiz: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
