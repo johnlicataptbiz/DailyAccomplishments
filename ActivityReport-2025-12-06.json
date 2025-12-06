@@ -3,23 +3,23 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:56",
+    "active_time": "00:57",
     "focus_time": "07:25",
     "meetings_time": "00:00",
-    "coverage_time": "17:25",
-    "coverage_window": "00:00\u201317:25",
+    "coverage_time": "17:42",
+    "coverage_window": "00:00\u201317:42",
     "appointments": 0,
     "projects_count": 2
   },
   "prepared_for_manager": [
-    "Active Time: 00:56",
-    "Focus Time: 00:56",
+    "Active Time: 00:57",
+    "Focus Time: 00:57",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages"
   ],
   "executive_summary": [
-    "Active: 00:56 | Focus: 00:56",
-    "Coverage: 00:00\u201317:25 CST",
+    "Active: 00:57 | Focus: 00:57",
+    "Coverage: 00:00\u201317:42 CST",
     "Screen Time: ~486 min foreground app usage"
   ],
   "accomplishments_today": [
@@ -35,13 +35,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 591
+        "visits": 601
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 446
+        "visits": 456
       },
       {
         "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
@@ -169,7 +169,7 @@
     },
     {
       "hour": 17,
-      "time": "00:02",
+      "time": "00:03",
       "pct": "0%"
     },
     {
