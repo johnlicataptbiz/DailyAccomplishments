@@ -3,27 +3,27 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "03:00",
+    "active_time": "03:02",
     "focus_time": "08:56",
     "meetings_time": "00:00",
-    "coverage_time": "22:47",
-    "coverage_window": "00:00\u201322:48",
+    "coverage_time": "23:02",
+    "coverage_window": "00:00\u201323:03",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 03:00",
-    "Focus Time: 03:00",
+    "Active Time: 03:02",
+    "Focus Time: 03:02",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 03:00 | Focus: 03:00",
-    "Coverage: 00:00\u201322:48 CST",
+    "Active: 03:02 | Focus: 03:02",
+    "Coverage: 00:00\u201323:03 CST",
     "Screen Time: ~1731 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:09)",
+    "Focused on Google Chrome (02:11)",
     "Focused on Terminal (00:47)",
     "Focused on Electron (00:01)",
     "Focused on Messages (00:00)",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1340
+        "visits": 1363
       },
       {
         "domain": "circle.so",
@@ -70,7 +70,7 @@
       },
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 139
+        "visits": 155
       },
       {
         "page": "Exit Vim editor - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -78,7 +78,7 @@
       },
       {
         "page": "Google Gemini - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 98
+        "visits": 99
       },
       {
         "page": "Code - Grok - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -219,7 +219,7 @@
     },
     {
       "hour": 22,
-      "time": "00:05",
+      "time": "00:06",
       "pct": "0%"
     },
     {
@@ -237,7 +237,7 @@
   "top_windows_preview": [
     "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:13",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:11",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:12",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:11",
     "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
     "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:08",
