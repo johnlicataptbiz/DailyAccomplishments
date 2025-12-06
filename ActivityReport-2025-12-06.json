@@ -6,8 +6,8 @@
     "active_time": "00:52",
     "focus_time": "07:25",
     "meetings_time": "00:00",
-    "coverage_time": "16:07",
-    "coverage_window": "00:00\u201316:07",
+    "coverage_time": "16:41",
+    "coverage_window": "00:00\u201316:41",
     "appointments": 0,
     "projects_count": 2
   },
@@ -19,11 +19,11 @@
   ],
   "executive_summary": [
     "Active: 00:52 | Focus: 00:52",
-    "Coverage: 00:00\u201316:07 CST",
+    "Coverage: 00:00\u201316:41 CST",
     "Screen Time: ~486 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:50)",
+    "Focused on Google Chrome (00:51)",
     "Focused on Messages (00:01)"
   ],
   "by_category": {
@@ -35,21 +35,21 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 538
+        "visits": 546
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 397
+        "visits": 403
+      },
+      {
+        "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
+        "visits": 20
       },
       {
         "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 19
-      },
-      {
-        "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
-        "visits": 18
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -210,8 +210,8 @@
   "top_windows_preview": [
     "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:33",
     "Google Chrome: 00:03",
-    "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:01",
+    "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Messages \u2014 Lover Bird: 00:01",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Google Chrome \u2014 Gemini: 00:01",
