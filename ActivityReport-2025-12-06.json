@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:08",
+    "active_time": "00:10",
     "focus_time": "00:32",
     "meetings_time": "00:00",
-    "coverage_time": "08:37",
-    "coverage_window": "00:00\u201308:37",
+    "coverage_time": "08:52",
+    "coverage_window": "00:00\u201308:52",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:08",
-    "Focus Time: 00:08",
+    "Active Time: 00:10",
+    "Focus Time: 00:10",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:08 | Focus: 00:08",
-    "Coverage: 00:00\u201308:37 CST",
+    "Active: 00:10 | Focus: 00:10",
+    "Coverage: 00:00\u201308:52 CST",
     "Screen Time: ~35 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:08)"
+    "Focused on Google Chrome (00:10)"
   ],
   "by_category": {
     "Research": "00:32"
@@ -32,13 +32,17 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 105
+        "visits": 117
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 104
+        "visits": 116
+      },
+      {
+        "page": "DailyAccomplishments ",
+        "visits": 4
       },
       {
         "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -89,7 +93,7 @@
     },
     {
       "hour": 8,
-      "time": "00:02",
+      "time": "00:03",
       "pct": "0%"
     },
     {
@@ -172,7 +176,8 @@
     "Google Chrome": "00:32"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:08",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:09",
+    "Google Chrome \u2014 DailyAccomplishments : 00:00",
     "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00",
     "Google Chrome: 00:00"
   ],
