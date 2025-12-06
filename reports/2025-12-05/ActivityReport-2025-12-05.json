@@ -3,27 +3,27 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "02:55",
+    "active_time": "02:56",
     "focus_time": "08:56",
     "meetings_time": "00:00",
-    "coverage_time": "21:42",
-    "coverage_window": "00:00\u201321:42",
+    "coverage_time": "22:18",
+    "coverage_window": "00:00\u201322:18",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 02:55",
-    "Focus Time: 02:55",
+    "Active Time: 02:56",
+    "Focus Time: 02:56",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 02:55 | Focus: 02:55",
-    "Coverage: 00:00\u201321:42 CST",
+    "Active: 02:56 | Focus: 02:56",
+    "Coverage: 00:00\u201322:18 CST",
     "Screen Time: ~1731 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:04)",
+    "Focused on Google Chrome (02:05)",
     "Focused on Terminal (00:47)",
     "Focused on Electron (00:01)",
     "Focused on Messages (00:00)",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1279
+        "visits": 1287
       },
       {
         "domain": "circle.so",
@@ -74,7 +74,7 @@
       },
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 100
+        "visits": 104
       },
       {
         "page": "Google Gemini - Google Chrome - Jack (physicaltherapybiz.com)",
