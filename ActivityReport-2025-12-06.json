@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:52",
+    "active_time": "00:53",
     "focus_time": "07:25",
     "meetings_time": "00:00",
-    "coverage_time": "16:41",
-    "coverage_window": "00:00\u201316:41",
+    "coverage_time": "16:56",
+    "coverage_window": "00:00\u201316:56",
     "appointments": 0,
     "projects_count": 2
   },
   "prepared_for_manager": [
-    "Active Time: 00:52",
-    "Focus Time: 00:52",
+    "Active Time: 00:53",
+    "Focus Time: 00:53",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages"
   ],
   "executive_summary": [
-    "Active: 00:52 | Focus: 00:52",
-    "Coverage: 00:00\u201316:41 CST",
+    "Active: 00:53 | Focus: 00:53",
+    "Coverage: 00:00\u201316:56 CST",
     "Screen Time: ~486 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:51)",
+    "Focused on Google Chrome (00:52)",
     "Focused on Messages (00:01)"
   ],
   "by_category": {
@@ -35,13 +35,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 546
+        "visits": 559
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 403
+        "visits": 416
       },
       {
         "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
@@ -164,7 +164,7 @@
     },
     {
       "hour": 16,
-      "time": "00:01",
+      "time": "00:02",
       "pct": "0%"
     },
     {
@@ -208,7 +208,7 @@
     "Messages": "00:06"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:33",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:34",
     "Google Chrome: 00:03",
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:01",
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
