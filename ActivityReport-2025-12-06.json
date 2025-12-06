@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "00:07",
+    "active_time": "00:08",
     "focus_time": "00:32",
     "meetings_time": "00:00",
-    "coverage_time": "08:20",
-    "coverage_window": "00:00\u201308:20",
+    "coverage_time": "08:37",
+    "coverage_window": "00:00\u201308:37",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:07",
-    "Focus Time: 00:07",
+    "Active Time: 00:08",
+    "Focus Time: 00:08",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:07 | Focus: 00:07",
-    "Coverage: 00:00\u201308:20 CST",
+    "Active: 00:08 | Focus: 00:08",
+    "Coverage: 00:00\u201308:37 CST",
     "Screen Time: ~35 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:07)"
+    "Focused on Google Chrome (00:08)"
   ],
   "by_category": {
     "Research": "00:32"
@@ -32,13 +32,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 95
+        "visits": 105
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 94
+        "visits": 104
       },
       {
         "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -89,7 +89,7 @@
     },
     {
       "hour": 8,
-      "time": "00:01",
+      "time": "00:02",
       "pct": "0%"
     },
     {
@@ -172,8 +172,9 @@
     "Google Chrome": "00:32"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:07",
-    "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00"
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:08",
+    "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00",
+    "Google Chrome: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
