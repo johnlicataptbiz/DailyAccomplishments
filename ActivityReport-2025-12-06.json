@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "01:10",
+    "active_time": "01:12",
     "focus_time": "07:25",
     "meetings_time": "00:00",
-    "coverage_time": "19:12",
-    "coverage_window": "00:00\u201319:12",
+    "coverage_time": "19:25",
+    "coverage_window": "00:00\u201319:25",
     "appointments": 0,
     "projects_count": 3
   },
   "prepared_for_manager": [
-    "Active Time: 01:10",
-    "Focus Time: 01:10",
+    "Active Time: 01:12",
+    "Focus Time: 01:12",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages"
   ],
   "executive_summary": [
-    "Active: 01:10 | Focus: 01:10",
-    "Coverage: 00:00\u201319:12 CST",
+    "Active: 01:12 | Focus: 01:12",
+    "Coverage: 00:00\u201319:25 CST",
     "Screen Time: ~486 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:09)",
+    "Focused on Google Chrome (01:10)",
     "Focused on Messages (00:01)"
   ],
   "by_category": {
@@ -36,13 +36,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 752
+        "visits": 770
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 500
+        "visits": 502
       },
       {
         "page": "Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -54,7 +54,7 @@
       },
       {
         "page": "DailyAccomplishments - Colab - High memory usage - 1.2 GB - Google Chrome - Jack",
-        "visits": 25
+        "visits": 31
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -66,7 +66,7 @@
       },
       {
         "page": "Branch \u00b7 Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 15
+        "visits": 17
       },
       {
         "page": "DailyAccomplishments ",
@@ -78,7 +78,7 @@
       },
       {
         "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 11
+        "visits": 12
       }
     ]
   },
@@ -180,7 +180,7 @@
     },
     {
       "hour": 19,
-      "time": "00:02",
+      "time": "00:04",
       "pct": "0%"
     },
     {
@@ -212,8 +212,8 @@
     "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:41",
     "Google Chrome: 00:04",
     "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:03",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - High memory usage -: 00:03",
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:02",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - High memory usage -: 00:02",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Messages \u2014 Lover Bird: 00:01",
