@@ -4,10 +4,10 @@
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
     "active_time": "01:12",
-    "focus_time": "07:25",
+    "focus_time": "10:17",
     "meetings_time": "00:00",
     "coverage_time": "19:25",
-    "coverage_window": "00:00\u201319:25",
+    "coverage_window": "00:00\u201319:26",
     "appointments": 0,
     "projects_count": 3
   },
@@ -20,17 +20,17 @@
   "executive_summary": [
     "Active: 01:12 | Focus: 01:12",
     "Coverage: 00:00\u201319:25 CST",
-    "Screen Time: ~486 min foreground app usage"
+    "Screen Time: ~664 min foreground app usage"
   ],
   "accomplishments_today": [
     "Focused on Google Chrome (01:10)",
     "Focused on Messages (00:01)"
   ],
   "by_category": {
-    "Research": "07:19",
+    "Research": "10:10",
     "Communication": "00:01",
     "Coding": "00:00",
-    "Other": "00:06"
+    "Other": "00:07"
   },
   "browser_highlights": {
     "top_domains": [
@@ -160,27 +160,27 @@
     },
     {
       "hour": 15,
-      "time": "00:50",
+      "time": "00:51",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:03",
+      "time": "00:32",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:05",
+      "time": "00:53",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:08",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 19,
-      "time": "00:04",
+      "time": "00:26",
       "pct": "0%"
     },
     {
@@ -205,8 +205,8 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "07:19",
-    "Messages": "00:06"
+    "Google Chrome": "10:10",
+    "Messages": "00:07"
   },
   "top_windows_preview": [
     "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:41",
@@ -233,6 +233,20 @@
       "start": "13:24",
       "end": "15:37",
       "minutes": 133,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "17:37",
+      "end": "19:26",
+      "minutes": 108,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "16:33",
+      "end": "17:31",
+      "minutes": 58,
       "category": "Research",
       "label": "Google Chrome"
     }
