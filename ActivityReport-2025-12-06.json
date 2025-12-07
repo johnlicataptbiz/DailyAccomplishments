@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "01:15",
+    "active_time": "01:18",
     "focus_time": "10:17",
     "meetings_time": "00:00",
-    "coverage_time": "21:43",
-    "coverage_window": "00:00\u201321:43",
+    "coverage_time": "21:57",
+    "coverage_window": "00:00\u201321:57",
     "appointments": 0,
     "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 01:15",
-    "Focus Time: 01:15",
+    "Active Time: 01:18",
+    "Focus Time: 01:18",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages, TextEdit"
   ],
   "executive_summary": [
-    "Active: 01:15 | Focus: 01:15",
-    "Coverage: 00:00\u201321:43 CST",
+    "Active: 01:18 | Focus: 01:18",
+    "Coverage: 00:00\u201321:57 CST",
     "Screen Time: ~664 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:13)",
+    "Focused on Google Chrome (01:16)",
     "Focused on Messages (00:01)",
     "Focused on TextEdit (00:00)"
   ],
@@ -37,13 +37,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 806
+        "visits": 835
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 514
+        "visits": 515
       },
       {
         "page": "Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -59,7 +59,7 @@
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 21
+        "visits": 23
       },
       {
         "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -70,11 +70,11 @@
         "visits": 18
       },
       {
-        "page": "DailyAccomplishments ",
-        "visits": 13
+        "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 17
       },
       {
-        "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
+        "page": "DailyAccomplishments ",
         "visits": 13
       },
       {
@@ -191,7 +191,7 @@
     },
     {
       "hour": 21,
-      "time": "00:03",
+      "time": "00:05",
       "pct": "0%"
     },
     {
@@ -219,7 +219,7 @@
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Messages \u2014 Lover Bird: 00:01",
     "Google Chrome \u2014 Branch \u00b7 Dashboard UI review - Google Chrome - Jac: 00:01",
-    "Google Chrome \u2014 DailyAccomplishments : 00:01"
+    "Google Chrome \u2014 ChatGPT - Google Chrome - Jack (physicaltherapybiz: 00:01"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
