@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "01:18",
+    "active_time": "01:19",
     "focus_time": "10:17",
     "meetings_time": "00:00",
-    "coverage_time": "21:57",
-    "coverage_window": "00:00\u201321:57",
+    "coverage_time": "22:13",
+    "coverage_window": "00:00\u201322:13",
     "appointments": 0,
     "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 01:18",
-    "Focus Time: 01:18",
+    "Active Time: 01:19",
+    "Focus Time: 01:19",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages, TextEdit"
   ],
   "executive_summary": [
-    "Active: 01:18 | Focus: 01:18",
-    "Coverage: 00:00\u201321:57 CST",
+    "Active: 01:19 | Focus: 01:19",
+    "Coverage: 00:00\u201322:13 CST",
     "Screen Time: ~664 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:16)",
+    "Focused on Google Chrome (01:17)",
     "Focused on Messages (00:01)",
     "Focused on TextEdit (00:00)"
   ],
@@ -37,7 +37,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 835
+        "visits": 846
       }
     ],
     "top_pages": [
@@ -66,6 +66,10 @@
         "visits": 19
       },
       {
+        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 19
+      },
+      {
         "page": "Branch \u00b7 Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 18
       },
@@ -75,10 +79,6 @@
       },
       {
         "page": "DailyAccomplishments ",
-        "visits": 13
-      },
-      {
-        "page": "Gemini",
         "visits": 13
       }
     ]
@@ -217,9 +217,9 @@
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:02",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
+    "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:01",
     "Messages \u2014 Lover Bird: 00:01",
-    "Google Chrome \u2014 Branch \u00b7 Dashboard UI review - Google Chrome - Jac: 00:01",
-    "Google Chrome \u2014 ChatGPT - Google Chrome - Jack (physicaltherapybiz: 00:01"
+    "Google Chrome \u2014 Branch \u00b7 Dashboard UI review - Google Chrome - Jac: 00:01"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
