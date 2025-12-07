@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "01:04",
+    "active_time": "01:06",
     "focus_time": "07:25",
     "meetings_time": "00:00",
-    "coverage_time": "18:27",
-    "coverage_window": "00:00\u201318:27",
+    "coverage_time": "18:41",
+    "coverage_window": "00:00\u201318:41",
     "appointments": 0,
     "projects_count": 2
   },
   "prepared_for_manager": [
-    "Active Time: 01:04",
-    "Focus Time: 01:04",
+    "Active Time: 01:06",
+    "Focus Time: 01:06",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages"
   ],
   "executive_summary": [
-    "Active: 01:04 | Focus: 01:04",
-    "Coverage: 00:00\u201318:27 CST",
+    "Active: 01:06 | Focus: 01:06",
+    "Coverage: 00:00\u201318:41 CST",
     "Screen Time: ~486 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:02)",
+    "Focused on Google Chrome (01:04)",
     "Focused on Messages (00:01)"
   ],
   "by_category": {
@@ -35,13 +35,13 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 679
+        "visits": 701
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 488
+        "visits": 500
       },
       {
         "page": "Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -49,7 +49,7 @@
       },
       {
         "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
-        "visits": 26
+        "visits": 29
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -174,7 +174,7 @@
     },
     {
       "hour": 18,
-      "time": "00:04",
+      "time": "00:06",
       "pct": "0%"
     },
     {
@@ -208,7 +208,7 @@
     "Messages": "00:06"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:40",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:41",
     "Google Chrome: 00:03",
     "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:03",
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:02",
