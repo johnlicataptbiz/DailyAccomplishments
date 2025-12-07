@@ -3,27 +3,27 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "01:01",
+    "active_time": "01:04",
     "focus_time": "07:25",
     "meetings_time": "00:00",
-    "coverage_time": "18:12",
-    "coverage_window": "00:00\u201318:12",
+    "coverage_time": "18:27",
+    "coverage_window": "00:00\u201318:27",
     "appointments": 0,
     "projects_count": 2
   },
   "prepared_for_manager": [
-    "Active Time: 01:01",
-    "Focus Time: 01:01",
+    "Active Time: 01:04",
+    "Focus Time: 01:04",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages"
   ],
   "executive_summary": [
-    "Active: 01:01 | Focus: 01:01",
-    "Coverage: 00:00\u201318:12 CST",
+    "Active: 01:04 | Focus: 01:04",
+    "Coverage: 00:00\u201318:27 CST",
     "Screen Time: ~486 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:00)",
+    "Focused on Google Chrome (01:02)",
     "Focused on Messages (00:01)"
   ],
   "by_category": {
@@ -35,37 +35,37 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 650
+        "visits": 679
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 475
+        "visits": 488
       },
       {
         "page": "Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 28
+        "visits": 40
       },
       {
         "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
         "visits": 26
       },
       {
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 19
+      },
+      {
         "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 19
       },
       {
-        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 18
+        "page": "DailyAccomplishments ",
+        "visits": 13
       },
       {
         "page": "Gemini",
         "visits": 13
-      },
-      {
-        "page": "DailyAccomplishments ",
-        "visits": 12
       },
       {
         "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -174,7 +174,7 @@
     },
     {
       "hour": 18,
-      "time": "00:02",
+      "time": "00:04",
       "pct": "0%"
     },
     {
@@ -208,15 +208,15 @@
     "Messages": "00:06"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:39",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:40",
     "Google Chrome: 00:03",
-    "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:02",
+    "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:03",
     "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:02",
-    "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
+    "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Messages \u2014 Lover Bird: 00:01",
-    "Google Chrome \u2014 Gemini: 00:01",
     "Google Chrome \u2014 DailyAccomplishments : 00:01",
+    "Google Chrome \u2014 Gemini: 00:01",
     "Google Chrome \u2014 Google Colab - Google Chrome - Jack (physicalthera: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
