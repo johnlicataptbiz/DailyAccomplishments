@@ -2,9 +2,81 @@
   "source_file": "ActivityReport-2025-12-07.json",
   "date": "2025-12-07",
   "title": "Daily Accomplishments \u2014 2025-12-07",
-  "overview": {},
-  "browser_highlights": {},
-  "by_category": {},
+  "overview": {
+    "active_time": "00:02",
+    "focus_time": "00:02",
+    "meetings_time": "00:00",
+    "coverage_time": "00:11",
+    "coverage_window": "16:29\u201316:41 CST",
+    "appointments": 0,
+    "projects_count": 1
+  },
+  "prepared_for_manager": [
+    "Active Time: 00:02",
+    "Focus Time: 00:02",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome"
+  ],
+  "executive_summary": [
+    "Active: 00:02 | Focus: 00:02",
+    "Coverage: 16:29\u201316:41 CST"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:02)"
+  ],
+  "by_category": {
+    "Research": "00:02"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 26
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Untitled1.ipynb - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 10
+      },
+      {
+        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 4
+      },
+      {
+        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 3
+      },
+      {
+        "page": "Find a time to meet with Physical Therapy Biz - Google Chrome - Jack (physicalth",
+        "visits": 2
+      },
+      {
+        "page": "Kait Wilcox (DM) - PT Biz - Slack - Google Chrome - Jack (physicaltherapybiz.com",
+        "visits": 2
+      },
+      {
+        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 1
+      },
+      {
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 1
+      },
+      {
+        "page": "acquisition (Channel) - PT Biz - 1 new item - Slack - Google Chrome - Jack (phys",
+        "visits": 1
+      },
+      {
+        "page": "Jack Licata (DM) - PT Biz - Slack - Google Chrome - Jack (physicaltherapybiz.com",
+        "visits": 1
+      },
+      {
+        "page": "Colab notebook repo update - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 1
+      }
+    ]
+  },
   "hourly_focus": [
     {
       "hour": 0,
@@ -88,7 +160,7 @@
     },
     {
       "hour": 16,
-      "time": "00:00",
+      "time": "00:02",
       "pct": "0%"
     },
     {
@@ -127,7 +199,22 @@
       "pct": "0%"
     }
   ],
-  "executive_summary": [],
+  "top_apps": {
+    "Google Chrome": "00:02"
+  },
+  "top_windows_preview": [
+    "Google Chrome \u2014 Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:00",
+    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:00",
+    "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:00",
+    "Google Chrome \u2014 Find a time to meet with Physical Therapy Biz - Go: 00:00",
+    "Google Chrome \u2014 Kait Wilcox (DM) - PT Biz - Slack - Google Chrome : 00:00",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:00",
+    "Google Chrome: 00:00",
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
+    "Google Chrome \u2014 acquisition (Channel) - PT Biz - 1 new item - Slac: 00:00",
+    "Google Chrome \u2014 Jack Licata (DM) - PT Biz - Slack - Google Chrome : 00:00"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
     "meetings_today": []
   }
