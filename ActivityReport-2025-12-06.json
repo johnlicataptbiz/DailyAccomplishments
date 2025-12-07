@@ -6,8 +6,8 @@
     "active_time": "01:21",
     "focus_time": "10:17",
     "meetings_time": "00:00",
-    "coverage_time": "22:29",
-    "coverage_window": "00:00\u201322:29",
+    "coverage_time": "22:31",
+    "coverage_window": "00:00\u201322:31",
     "appointments": 0,
     "projects_count": 4
   },
@@ -19,7 +19,7 @@
   ],
   "executive_summary": [
     "Active: 01:21 | Focus: 01:21",
-    "Coverage: 00:00\u201322:29 CST",
+    "Coverage: 00:00\u201322:31 CST",
     "Screen Time: ~664 min foreground app usage"
   ],
   "accomplishments_today": [
@@ -37,7 +37,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 872
+        "visits": 874
       }
     ],
     "top_pages": [
@@ -50,11 +50,11 @@
         "visits": 44
       },
       {
-        "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
-        "visits": 32
+        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 34
       },
       {
-        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
+        "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
         "visits": 32
       },
       {
@@ -214,8 +214,8 @@
     "Google Chrome: 00:04",
     "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:03",
     "Google Chrome \u2014 DailyAccomplishments - Colab - High memory usage -: 00:03",
-    "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:02",
     "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:02",
+    "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:02",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
     "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
     "Messages \u2014 Lover Bird: 00:01",
