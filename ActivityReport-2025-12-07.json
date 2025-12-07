@@ -3,26 +3,26 @@
   "date": "2025-12-07",
   "title": "Daily Accomplishments \u2014 2025-12-07",
   "overview": {
-    "active_time": "00:05",
-    "focus_time": "00:05",
+    "active_time": "00:06",
+    "focus_time": "00:06",
     "meetings_time": "00:00",
-    "coverage_time": "00:43",
-    "coverage_window": "16:29\u201317:13 CST",
+    "coverage_time": "00:46",
+    "coverage_window": "16:29\u201317:16 CST",
     "appointments": 0,
     "projects_count": 2
   },
   "prepared_for_manager": [
-    "Active Time: 00:05",
-    "Focus Time: 00:05",
+    "Active Time: 00:06",
+    "Focus Time: 00:06",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:05 | Focus: 00:05",
-    "Coverage: 16:29\u201317:13 CST"
+    "Active: 00:06 | Focus: 00:06",
+    "Coverage: 16:29\u201317:16 CST"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:05)"
+    "Focused on Google Chrome (00:06)"
   ],
   "by_category": {
     "Research": "00:05",
@@ -32,7 +32,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 58
+        "visits": 61
       },
       {
         "domain": "untitled1.ipynb",
@@ -42,7 +42,7 @@
     "top_pages": [
       {
         "page": "Untitled1.ipynb - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 23
+        "visits": 26
       },
       {
         "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -205,10 +205,10 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:05"
+    "Google Chrome": "00:06"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:01",
+    "Google Chrome \u2014 Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:02",
     "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:00",
     "Google Chrome \u2014 Find in page\n    Untitled1.ipynb - Colab: 00:00",
     "Google Chrome: 00:00",
