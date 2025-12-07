@@ -3,46 +3,47 @@
   "date": "2025-12-06",
   "title": "Daily Accomplishments \u2014 2025-12-06",
   "overview": {
-    "active_time": "01:12",
+    "active_time": "01:15",
     "focus_time": "10:17",
     "meetings_time": "00:00",
-    "coverage_time": "21:28",
-    "coverage_window": "00:00\u201321:28",
+    "coverage_time": "21:43",
+    "coverage_window": "00:00\u201321:43",
     "appointments": 0,
-    "projects_count": 3
+    "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 01:12",
-    "Focus Time: 01:12",
+    "Active Time: 01:15",
+    "Focus Time: 01:15",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, Messages"
+    "Top Apps: Google Chrome, Messages, TextEdit"
   ],
   "executive_summary": [
-    "Active: 01:12 | Focus: 01:12",
-    "Coverage: 00:00\u201321:28 CST",
+    "Active: 01:15 | Focus: 01:15",
+    "Coverage: 00:00\u201321:43 CST",
     "Screen Time: ~664 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:10)",
-    "Focused on Messages (00:01)"
+    "Focused on Google Chrome (01:13)",
+    "Focused on Messages (00:01)",
+    "Focused on TextEdit (00:00)"
   ],
   "by_category": {
     "Research": "10:10",
     "Communication": "00:01",
-    "Coding": "00:00",
-    "Other": "00:07"
+    "Other": "00:07",
+    "Coding": "00:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 772
+        "visits": 806
       }
     ],
     "top_pages": [
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 504
+        "visits": 514
       },
       {
         "page": "Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -58,7 +59,7 @@
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 19
+        "visits": 21
       },
       {
         "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -66,19 +67,19 @@
       },
       {
         "page": "Branch \u00b7 Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 17
+        "visits": 18
       },
       {
         "page": "DailyAccomplishments ",
         "visits": 13
       },
       {
-        "page": "Gemini",
+        "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 13
       },
       {
-        "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 12
+        "page": "Gemini",
+        "visits": 13
       }
     ]
   },
@@ -190,7 +191,7 @@
     },
     {
       "hour": 21,
-      "time": "00:00",
+      "time": "00:03",
       "pct": "0%"
     },
     {
