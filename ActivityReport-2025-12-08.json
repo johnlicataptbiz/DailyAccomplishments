@@ -3,41 +3,43 @@
   "date": "2025-12-08",
   "title": "Daily Accomplishments \u2014 2025-12-08",
   "overview": {
-    "active_time": "00:28",
-    "focus_time": "00:28",
+    "active_time": "00:31",
+    "focus_time": "00:31",
     "meetings_time": "00:00",
-    "coverage_time": "01:16",
-    "coverage_window": "00:00\u201301:16 CST",
+    "coverage_time": "01:31",
+    "coverage_window": "00:00\u201301:31",
     "appointments": 0,
-    "projects_count": 3
+    "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 00:28",
-    "Focus Time: 00:28",
+    "Active Time: 00:31",
+    "Focus Time: 00:31",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Electron, app_mode_loader"
   ],
   "executive_summary": [
-    "Active: 00:28 | Focus: 00:28",
-    "Coverage: 00:00\u201301:16 CST"
+    "Active: 00:31 | Focus: 00:31",
+    "Coverage: 00:00\u201301:31 CST",
+    "Screen Time: ~70 min foreground app usage"
   ],
   "accomplishments_today": [
     "Focused on Google Chrome (00:23)",
-    "Focused on Electron (00:02)",
+    "Focused on Electron (00:04)",
     "Focused on app_mode_loader (00:02)",
     "Focused on Finder (00:00)",
     "Focused on Dictionary (00:00)"
   ],
   "by_category": {
     "Research": "00:22",
-    "Other": "00:04",
-    "Coding": "00:00"
+    "Other": "00:07",
+    "Coding": "00:11",
+    "Communication": "00:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 204
+        "visits": 207
       },
       {
         "domain": "dailyaccomplishmentsptbiz.up",
@@ -58,7 +60,15 @@
         "visits": 6
       },
       {
+        "page": "GitKraken.dev - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 6
+      },
+      {
         "page": "Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
+        "visits": 5
+      },
+      {
+        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 5
       },
       {
@@ -74,15 +84,7 @@
         "visits": 5
       },
       {
-        "page": "GitKraken.dev - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 5
-      },
-      {
         "page": "Networking\u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
-        "visits": 4
-      },
-      {
-        "page": "Welcome to Google Search Console - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 4
       }
     ]
@@ -95,7 +97,7 @@
     },
     {
       "hour": 1,
-      "time": "00:04",
+      "time": "00:13",
       "pct": "0%"
     },
     {
@@ -210,23 +212,20 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:23",
-    "Electron": "00:02",
-    "app_mode_loader": "00:02",
-    "Finder": "00:00",
-    "Dictionary": "00:00"
+    "Google Chrome": "00:18",
+    "VS Code": "00:11"
   },
   "top_windows_preview": [
     "app_mode_loader \u2014 missing value: 00:02",
+    "Electron \u2014 Commit Composer (Preview) \u2014 DailyAccomplishments [: 00:01",
     "Google Chrome: 00:01",
-    "Electron \u2014 Commit Composer (Preview) \u2014 DailyAccomplishments [: 00:00",
+    "Electron \u2014 Untitled-1.ipynb \u2014 DailyAccomplishments [Codespace: 00:00",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
     "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
     "Google Chrome \u2014 Quickstart: Create and execute a job in Cloud Run : 00:00",
+    "Google Chrome \u2014 GitKraken.dev - Google Chrome - Jack (physicalther: 00:00",
     "Google Chrome \u2014 Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00",
-    "Google Chrome \u2014 Google Cloud console - Google Chrome - Jack (physi: 00:00",
-    "Google Chrome \u2014 dailyaccomplishmentsptbiz.up.railway.app : 00:00",
-    "Google Chrome \u2014 autopilot-cluster-1 \u2013 Kubernetes Engine \u2013 Activity: 00:00"
+    "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
