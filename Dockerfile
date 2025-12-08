@@ -1,17 +1,39 @@
-FROM node:20-alpine AS runtime
+# syntax=docker/dockerfile:1
+# Highly specific Dockerfile for DailyAccomplishments
 
-# Set working directory
+FROM python:3.12-slim
+
+# Install system dependencies for matplotlib and Pillow
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        libfreetype6-dev \
+        libpng-dev \
+        libjpeg-dev \
+        libopenjp2-7-dev \
+        libtiff5-dev \
+        tcl8.6-dev tk8.6-dev \
+        python3-tk \
+        git \
+        ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set workdir
 WORKDIR /app
 
-# Copy static site contents
-COPY . /app
+# Copy only necessary files for report generation and web serving
+COPY tools/ ./tools/
+COPY *.json ./
+COPY *.csv ./
+COPY *.md ./
+COPY *.html ./
+COPY gh-pages/ ./gh-pages/
 
-# Install a simple static server
-RUN npm i -g serve
+# Install Python dependencies
+RUN pip install --no-cache-dir matplotlib pillow
 
-# Railway typically provides PORT; default to 8080 for local
-ENV PORT=8080
-EXPOSE 8080
+# Expose port for local web server
+EXPOSE 8000
 
-# Serve the current directory statically (no SPA rewrites)
-CMD ["sh", "-c", "serve -n -l ${PORT} ."]
+# Default command: serve dashboard and reports
+CMD ["python3", "-m", "http.server", "8000"]
