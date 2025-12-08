@@ -3,35 +3,35 @@
   "date": "2025-12-08",
   "title": "Daily Accomplishments \u2014 2025-12-08",
   "overview": {
-    "active_time": "00:31",
-    "focus_time": "00:31",
+    "active_time": "00:33",
+    "focus_time": "00:33",
     "meetings_time": "00:00",
-    "coverage_time": "01:31",
-    "coverage_window": "00:00\u201301:31",
+    "coverage_time": "01:46",
+    "coverage_window": "00:00\u201301:46",
     "appointments": 0,
     "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 00:31",
-    "Focus Time: 00:31",
+    "Active Time: 00:33",
+    "Focus Time: 00:33",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Electron, app_mode_loader"
   ],
   "executive_summary": [
-    "Active: 00:31 | Focus: 00:31",
-    "Coverage: 00:00\u201301:31 CST",
+    "Active: 00:33 | Focus: 00:33",
+    "Coverage: 00:00\u201301:46 CST",
     "Screen Time: ~70 min foreground app usage"
   ],
   "accomplishments_today": [
     "Focused on Google Chrome (00:23)",
-    "Focused on Electron (00:04)",
+    "Focused on Electron (00:06)",
     "Focused on app_mode_loader (00:02)",
     "Focused on Finder (00:00)",
     "Focused on Dictionary (00:00)"
   ],
   "by_category": {
     "Research": "00:22",
-    "Other": "00:07",
+    "Other": "00:09",
     "Coding": "00:11",
     "Communication": "00:00"
   },
@@ -39,7 +39,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 207
+        "visits": 208
       },
       {
         "domain": "dailyaccomplishmentsptbiz.up",
@@ -52,15 +52,15 @@
         "visits": 7
       },
       {
+        "page": "GitKraken.dev - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 7
+      },
+      {
         "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 6
       },
       {
         "page": "Quickstart: Create and execute a job in Cloud Run \u00a0",
-        "visits": 6
-      },
-      {
-        "page": "GitKraken.dev - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 6
       },
       {
@@ -218,14 +218,14 @@
   "top_windows_preview": [
     "app_mode_loader \u2014 missing value: 00:02",
     "Electron \u2014 Commit Composer (Preview) \u2014 DailyAccomplishments [: 00:01",
+    "Electron \u2014 Untitled-1.ipynb \u2014 DailyAccomplishments [Codespace: 00:01",
     "Google Chrome: 00:01",
-    "Electron \u2014 Untitled-1.ipynb \u2014 DailyAccomplishments [Codespace: 00:00",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
-    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
-    "Google Chrome \u2014 Quickstart: Create and execute a job in Cloud Run : 00:00",
     "Google Chrome \u2014 GitKraken.dev - Google Chrome - Jack (physicalther: 00:00",
-    "Google Chrome \u2014 Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00",
-    "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:00"
+    "Electron \u2014 Changes in Pull Request #1 (1 file) \u2014 DailyAccompl: 00:00",
+    "Electron \u2014 Welcome \u2014 DailyAccomplishments [Codespaces: fluffy: 00:00",
+    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
+    "Google Chrome \u2014 Quickstart: Create and execute a job in Cloud Run : 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
