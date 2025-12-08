@@ -8,7 +8,7 @@ Thank you for your interest in contributing! This guide will help you work with 
 
 Configure your git credentials:
 ```bash
-git config user.name "Your GitHub Username"
+git config user.name "Your Full Name"
 git config user.email "your.email@example.com"
 ```
 

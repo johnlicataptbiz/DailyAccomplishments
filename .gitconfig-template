@@ -52,8 +52,9 @@
     pl = pull
 
 [push]
-    # Push to the current branch by default
-    default = current
+    # Push to the upstream branch with the same name
+    # Safer default that requires explicit upstream configuration
+    default = simple
 
 [pull]
     # Use rebase instead of merge when pulling
