@@ -10,9 +10,8 @@ to log events to the daily logging system.
 import logging
 from typing import Dict, Any, Optional
 from datetime import datetime
-# Assuming daily_logger is in the same tools directory or accessible via PYTHONPATH
-# Updated import to explicitly reference the load_config function from the modified daily_logger
-from .daily_logger import log_activity, initialize_daily_log, midnight_reset, load_config, get_current_date
+# Import from daily_logger in the same tools directory
+from daily_logger import log_activity, initialize_daily_log, midnight_reset, load_config, get_current_date
 
 logger = logging.getLogger(__name__)
 
