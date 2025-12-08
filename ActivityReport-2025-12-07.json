@@ -4,10 +4,10 @@
   "title": "Daily Accomplishments \u2014 2025-12-07",
   "overview": {
     "active_time": "00:06",
-    "focus_time": "00:06",
+    "focus_time": "00:35",
     "meetings_time": "00:00",
     "coverage_time": "00:46",
-    "coverage_window": "16:29\u201317:16 CST",
+    "coverage_window": "16:29\u201317:16",
     "appointments": 0,
     "projects_count": 2
   },
@@ -19,13 +19,14 @@
   ],
   "executive_summary": [
     "Active: 00:06 | Focus: 00:06",
-    "Coverage: 16:29\u201317:16 CST"
+    "Coverage: 16:29\u201317:16 CST",
+    "Screen Time: ~38 min foreground app usage"
   ],
   "accomplishments_today": [
     "Focused on Google Chrome (00:06)"
   ],
   "by_category": {
-    "Research": "00:05",
+    "Research": "00:35",
     "Coding": "00:00"
   },
   "browser_highlights": {
@@ -165,12 +166,12 @@
     },
     {
       "hour": 16,
-      "time": "00:03",
+      "time": "00:19",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:02",
+      "time": "00:16",
       "pct": "0%"
     },
     {
@@ -205,7 +206,7 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:06"
+    "Google Chrome": "00:35"
   },
   "top_windows_preview": [
     "Google Chrome \u2014 Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:02",
