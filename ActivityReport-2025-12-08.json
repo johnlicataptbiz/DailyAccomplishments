@@ -3,38 +3,39 @@
   "date": "2025-12-08",
   "title": "Daily Accomplishments \u2014 2025-12-08",
   "overview": {
-    "active_time": "00:20",
-    "focus_time": "00:20",
+    "active_time": "00:24",
+    "focus_time": "00:24",
     "meetings_time": "00:00",
-    "coverage_time": "00:46",
-    "coverage_window": "00:00\u201300:46 CST",
+    "coverage_time": "01:01",
+    "coverage_window": "00:00\u201301:01 CST",
     "appointments": 0,
     "projects_count": 3
   },
   "prepared_for_manager": [
-    "Active Time: 00:20",
-    "Focus Time: 00:20",
+    "Active Time: 00:24",
+    "Focus Time: 00:24",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, app_mode_loader"
+    "Top Apps: Google Chrome, app_mode_loader, Finder"
   ],
   "executive_summary": [
-    "Active: 00:20 | Focus: 00:20",
-    "Coverage: 00:00\u201300:46 CST"
+    "Active: 00:24 | Focus: 00:24",
+    "Coverage: 00:00\u201301:01 CST"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:19)",
-    "Focused on app_mode_loader (00:00)"
+    "Focused on Google Chrome (00:22)",
+    "Focused on app_mode_loader (00:01)",
+    "Focused on Finder (00:00)"
   ],
   "by_category": {
-    "Research": "00:19",
-    "Other": "00:00",
+    "Research": "00:21",
+    "Other": "00:01",
     "Coding": "00:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 176
+        "visits": 190
       },
       {
         "domain": "dailyaccomplishmentsptbiz.up",
@@ -47,15 +48,15 @@
         "visits": 7
       },
       {
+        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 6
+      },
+      {
         "page": "Quickstart: Create and execute a job in Cloud Run \u00a0",
         "visits": 6
       },
       {
         "page": "Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
-        "visits": 5
-      },
-      {
-        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 5
       },
       {
@@ -87,7 +88,7 @@
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:20",
+      "time": "00:23",
       "pct": "0%"
     },
     {
@@ -207,19 +208,20 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:19",
-    "app_mode_loader": "00:00"
+    "Google Chrome": "00:22",
+    "app_mode_loader": "00:01",
+    "Finder": "00:00"
   },
   "top_windows_preview": [
+    "app_mode_loader \u2014 missing value: 00:01",
     "Google Chrome: 00:01",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
+    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
     "Google Chrome \u2014 Quickstart: Create and execute a job in Cloud Run : 00:00",
     "Google Chrome \u2014 Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00",
-    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
     "Google Chrome \u2014 Google Cloud console - Google Chrome - Jack (physi: 00:00",
     "Google Chrome \u2014 dailyaccomplishmentsptbiz.up.railway.app : 00:00",
     "Google Chrome \u2014 autopilot-cluster-1 \u2013 Kubernetes Engine \u2013 Activity: 00:00",
-    "app_mode_loader \u2014 missing value: 00:00",
     "Google Chrome \u2014 Networking\u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
