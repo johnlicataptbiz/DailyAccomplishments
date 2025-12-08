@@ -71,9 +71,10 @@
   - [ ] Return period summary with daily data arrays
 
 #### Dependencies:
-- `datetime`, `timedelta`, `zoneinfo`
-- `tools.daily_logger` (for `read_daily_log`, `load_config`)
-- `json` for data handling
+- `from datetime import datetime, timedelta`
+- `from zoneinfo import ZoneInfo`
+- `from tools.daily_logger import read_daily_log, load_config`
+- `import json` for data handling
 
 #### Validation:
 - [ ] Unit tests with synthetic event data
@@ -154,10 +155,10 @@
 #### Tasks:
 - [ ] Update `config.json.example` with analytics settings
   - [ ] Add `analytics` section
-  - [ ] Add `deep_work_threshold_minutes` (default: 25)
-  - [ ] Add `idle_threshold_seconds` (default: 300)
-  - [ ] Add `context_switch_cost_seconds` (default: 300)
-  - [ ] Add `meeting_credit` (default: 0.25)
+  - [ ] Add `deep_work_threshold_minutes` (default: 25) - minimum duration for deep work session
+  - [ ] Add `idle_threshold_seconds` (default: 300) - idle time before session considered ended
+  - [ ] Add `context_switch_cost_seconds` (default: 300) - estimated time lost per interruption (5 minutes)
+  - [ ] Add `meeting_credit` (default: 0.25) - fraction of meeting time counted as productive focus time (25%)
   - [ ] Add comments/documentation for each setting
 - [ ] Verify `tracking` section contains:
   - [ ] `timezone` (e.g., "America/Chicago")
@@ -242,10 +243,12 @@
   - [ ] Show colored segments for categories
   - [ ] Overlay deep work periods on timeline
 - [ ] Meeting credit customization
-  - [ ] Expose `window.meetingCredit` as UI control
-  - [ ] Add slider for adjusting meeting credit
-  - [ ] Show impact of different credit values
-  - [ ] Read meeting credit from JSON instead of hardcoded value
+  - [ ] Define `window.meetingCredit` global variable in dashboard.html
+  - [ ] Initialize from config or report JSON data instead of hardcoding
+  - [ ] Expose as UI control (slider)
+  - [ ] Add slider for adjusting meeting credit (0.0 to 1.0)
+  - [ ] Show impact of different credit values in real-time
+  - [ ] Sync with backend config.json analytics.meeting_credit setting
 
 ---
 
@@ -581,16 +584,16 @@
 ## Summary Statistics
 
 ### By Priority:
-- **HIGH Priority:** 10 major sections
-- **MEDIUM Priority:** 8 major sections  
-- **LOW Priority:** 2 major sections
+- **HIGH Priority:** 7 major sections (Core Analytics, Reporting, Dashboard Tier 1, Testing, Documentation, Privacy)
+- **MEDIUM Priority:** 10 major sections (Logger updates, Config, Dashboard Tier 2, Notifications, Automation, Data Quality, Robustness)
+- **LOW Priority:** 1 major section (Dashboard Tier 3 - Polish & Advanced Features)
 
 ### By Effort:
-- **Large Effort:** 2 tasks (~500+ lines)
-- **Medium Effort:** 8 tasks (~50-300 lines)
-- **Small Effort:** 12 tasks (minor changes/docs)
+- **Large Effort:** 2 tasks (~500+ lines) - ProductivityAnalytics module, Dashboard Tier 3
+- **Medium Effort:** 8 tasks (~50-300 lines) - auto_report.py, notifications, UI Tier 1/2, testing
+- **Small Effort:** 8 tasks (minor changes/docs) - config updates, logger tweaks, documentation
 
-### Total Tasks: 250+ individual checklist items
+### Total Tasks: 250+ individual checklist items across 8 major functional areas
 
 ---
 
