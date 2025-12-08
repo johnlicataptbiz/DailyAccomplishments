@@ -91,7 +91,12 @@ For local development without Docker:
 ```bash
 # Create virtual environment
 python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Activate virtual environment
+# On Linux/macOS:
+source venv/bin/activate
+# On Windows:
+# venv\Scripts\activate
 
 # Install Python dependencies
 pip install matplotlib pillow
