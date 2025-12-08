@@ -59,7 +59,7 @@ Each integration follows this structure:
 2. **Use environment variables**: For deployment, use environment variables or secure secret management
 3. **Credential files**: Store OAuth credentials (like Google Calendar) in the `credentials/` directory which is gitignored
 4. **Configuration template**: The `config.json` serves as a template - users should copy and populate with their actual credentials locally
-5. **Disabled integrations**: Note that integrations with `enabled: true` but empty credentials may cause runtime errors - the application should handle this gracefully or integrations should be set to `enabled: false` when credentials are not available
+5. **Integration state**: The current `config.json` has integrations set to `enabled: true` even with empty credentials. The application should handle missing credentials gracefully (skip initialization, log warnings, or fail safely). When adding code for integrations, always check for valid credentials before attempting to connect
 
 ### Example Placeholders
 - `access_token: ""` - Empty string for tokens
