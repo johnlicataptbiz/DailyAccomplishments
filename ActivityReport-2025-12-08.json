@@ -3,35 +3,35 @@
   "date": "2025-12-08",
   "title": "Daily Accomplishments \u2014 2025-12-08",
   "overview": {
-    "active_time": "00:36",
-    "focus_time": "00:36",
+    "active_time": "00:40",
+    "focus_time": "00:40",
     "meetings_time": "00:00",
-    "coverage_time": "02:01",
-    "coverage_window": "00:00\u201302:01",
+    "coverage_time": "02:16",
+    "coverage_window": "00:00\u201302:16",
     "appointments": 0,
     "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 00:36",
-    "Focus Time: 00:36",
+    "Active Time: 00:40",
+    "Focus Time: 00:40",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Electron, app_mode_loader"
   ],
   "executive_summary": [
-    "Active: 00:36 | Focus: 00:36",
-    "Coverage: 00:00\u201302:01 CST",
+    "Active: 00:40 | Focus: 00:40",
+    "Coverage: 00:00\u201302:16 CST",
     "Screen Time: ~70 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:24)",
-    "Focused on Electron (00:09)",
+    "Focused on Google Chrome (00:25)",
+    "Focused on Electron (00:11)",
     "Focused on app_mode_loader (00:02)",
     "Focused on Finder (00:00)",
     "Focused on Dictionary (00:00)"
   ],
   "by_category": {
-    "Research": "00:23",
-    "Other": "00:11",
+    "Research": "00:24",
+    "Other": "00:14",
     "Coding": "00:11",
     "Communication": "00:00"
   },
@@ -39,7 +39,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 211
+        "visits": 224
       },
       {
         "domain": "dailyaccomplishmentsptbiz.up",
@@ -47,6 +47,10 @@
       }
     ],
     "top_pages": [
+      {
+        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 7
+      },
       {
         "page": "DailyAccomplishments ",
         "visits": 7
@@ -64,7 +68,7 @@
         "visits": 6
       },
       {
-        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
+        "page": "Home \u00b7 GitLab - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 6
       },
       {
@@ -82,10 +86,6 @@
       {
         "page": "autopilot-cluster-1 \u2013 Kubernetes Engine \u2013 ActivityTracker \u2013 Google Cloud console",
         "visits": 5
-      },
-      {
-        "page": "Networking\u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
-        "visits": 4
       }
     ]
   },
@@ -102,7 +102,7 @@
     },
     {
       "hour": 2,
-      "time": "00:00",
+      "time": "00:04",
       "pct": "0%"
     },
     {
@@ -216,16 +216,16 @@
     "VS Code": "00:11"
   },
   "top_windows_preview": [
+    "Electron \u2014 Untitled-1.ipynb \u2014 DailyAccomplishments [Codespace: 00:02",
     "app_mode_loader \u2014 missing value: 00:02",
-    "Electron \u2014 Untitled-1.ipynb \u2014 DailyAccomplishments [Codespace: 00:01",
     "Electron \u2014 Commit Composer (Preview) \u2014 DailyAccomplishments [: 00:01",
-    "Electron \u2014 Welcome \u2014 DailyAccomplishments [Codespaces: fluffy: 00:01",
     "Google Chrome: 00:01",
+    "Electron \u2014 Welcome \u2014 DailyAccomplishments [Codespaces: fluffy: 00:01",
+    "Electron \u2014 NewIssue.md \u2014 DailyAccomplishments [Codespaces: fl: 00:00",
     "Electron \u2014 Changes in Pull Request #1 (1 file) \u2014 DailyAccompl: 00:00",
+    "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:00",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
-    "Google Chrome \u2014 GitKraken.dev - Google Chrome - Jack (physicalther: 00:00",
-    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
-    "Google Chrome \u2014 Quickstart: Create and execute a job in Cloud Run : 00:00"
+    "Google Chrome \u2014 GitKraken.dev - Google Chrome - Jack (physicalther: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
