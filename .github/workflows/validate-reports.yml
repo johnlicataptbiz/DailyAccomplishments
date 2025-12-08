@@ -15,7 +15,7 @@ jobs:
           python3 -m pip install --upgrade pip
           python3 -m pip install jsonschema
           missing=0
-          for i in 0 1 2; do
+          for i in 1 2 3; do
             date=$(date -u -d "-$i day" +%F)
             path="reports/$date/ActivityReport-$date.json"
             if [ ! -f "$path" ]; then
