@@ -3,29 +3,29 @@
   "date": "2025-12-07",
   "title": "Daily Accomplishments \u2014 2025-12-07",
   "overview": {
-    "active_time": "00:26",
+    "active_time": "00:32",
     "focus_time": "01:22",
     "meetings_time": "00:00",
-    "coverage_time": "06:31",
-    "coverage_window": "16:29\u201323:00",
+    "coverage_time": "06:46",
+    "coverage_window": "16:29\u201323:15",
     "appointments": 0,
     "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 00:26",
-    "Focus Time: 00:26",
+    "Active Time: 00:32",
+    "Focus Time: 00:32",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, Finder, app_mode_loader"
+    "Top Apps: Google Chrome, app_mode_loader, Finder"
   ],
   "executive_summary": [
-    "Active: 00:26 | Focus: 00:26",
-    "Coverage: 16:29\u201323:00 CST",
+    "Active: 00:32 | Focus: 00:32",
+    "Coverage: 16:29\u201323:15 CST",
     "Screen Time: ~130 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:21)",
+    "Focused on Google Chrome (00:26)",
+    "Focused on app_mode_loader (00:02)",
     "Focused on Finder (00:01)",
-    "Focused on app_mode_loader (00:01)",
     "Focused on Electron (00:00)",
     "Focused on TextEdit (00:00)"
   ],
@@ -39,7 +39,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 217
+        "visits": 275
       },
       {
         "domain": "untitled1.ipynb",
@@ -84,8 +84,8 @@
         "visits": 6
       },
       {
-        "page": "What is Cloud Run \u00a0",
-        "visits": 5
+        "page": "johnlicataptbiz-group / DailyAccomplishments \u00b7 GitLab - Google Chrome - Jack (ph",
+        "visits": 6
       }
     ]
   },
@@ -207,7 +207,7 @@
     },
     {
       "hour": 23,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     }
   ],
@@ -218,10 +218,10 @@
   },
   "top_windows_preview": [
     "Google Chrome \u2014 Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:03",
-    "app_mode_loader \u2014 missing value: 00:01",
+    "app_mode_loader \u2014 missing value: 00:02",
     "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:01",
+    "Google Chrome: 00:01",
     "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:01",
-    "Google Chrome: 00:00",
     "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:00",
     "Google Chrome \u2014 Cloud Shell - Google Chrome - Jack (physicaltherap: 00:00",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
