@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """
 Email and Slack Notification System
@@ -18,8 +17,13 @@ from typing import Optional, Dict, Any
 from zoneinfo import ZoneInfo
 import logging
 
-from .daily_logger import load_config, get_current_date, BASE_DIR # Import BASE_DIR
-from .auto_report import generate_daily_report
+# Handle both relative and absolute imports for compatibility
+try:
+    from .daily_logger import load_config, get_current_date, BASE_DIR
+    from .auto_report import generate_daily_report
+except ImportError:
+    from daily_logger import load_config, get_current_date, BASE_DIR
+    from auto_report import generate_daily_report
 
 logger = logging.getLogger(__name__)
 

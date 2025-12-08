@@ -18,9 +18,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Assuming repo_name is available from previous steps and points to the base directory of the repository
-# For Colab, os.getcwd() is typically /content/
-repo_root_path = Path(os.getcwd()) / repo_name
+# Determine repository root path
+# If running from tools/ directory, go up one level to repo root
+# Otherwise, assume we're already at repo root
+repo_root_path = Path(__file__).parent.parent
 
 # Load configuration
 CONFIG_PATH = repo_root_path / 'config.json'
@@ -331,7 +332,7 @@ def initialize_daily_log(date, config) -> Optional[Dict[str, Any]]:
         logger.error(f"Failed to initialize log: {e}")
         return None
     finally:
-        release_file_lock(lock_fd, log_path)
+        release_file_lock(lock_fd, lock_path)
 
 def log_activity(event_type: str, data: Dict[str, Any], retry_count: int = 0) -> bool:
     """Append an activity event to today's log (with validation, locking, and retries)"""
@@ -385,7 +386,7 @@ def log_activity(event_type: str, data: Dict[str, Any], retry_count: int = 0) ->
                 repair_log_file(log_path)
             return False
         finally:
-            release_file_lock(lock_fd, log_path)
+            release_file_lock(lock_fd, lock_path)
     except Exception as e:
         logger.error(f"Unexpected error in log_activity: {e}")
         return False
