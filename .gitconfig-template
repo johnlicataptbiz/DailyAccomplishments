@@ -1,0 +1,85 @@
+# Git Configuration Template
+# This file provides recommended git configuration for working in Jupyter/Colab environments
+# 
+# To use these configurations, copy the desired settings to your global git config:
+# git config --global <setting> <value>
+#
+# Or apply them locally to this repository only:
+# git config <setting> <value>
+
+[user]
+    # Replace with your information
+    name = Your Name
+    email = your.email@example.com
+
+[core]
+    # Set a simple editor that works in most environments
+    # Options: nano, vim, vi
+    # Note: In Colab/Jupyter, using -m flag is preferred over editor
+    editor = nano
+
+[alias]
+    # Helpful aliases to make git commands easier
+    
+    # Commit with message (use: git cm "message")
+    cm = commit -m
+    
+    # Add all and commit with message (use: git ac "message")
+    ac = !git add -A && git commit -m
+    
+    # Status in short format
+    st = status -s
+    
+    # Show current branch
+    br = branch
+    
+    # Show commit history in compact format
+    lg = log --oneline --graph --decorate --all
+    
+    # Show last commit
+    last = log -1 HEAD --stat
+    
+    # Undo last commit but keep changes
+    undo = reset HEAD~1 --mixed
+    
+    # Show what changed in the last commit
+    what = show --stat
+    
+    # Quick push
+    p = push
+    
+    # Quick pull
+    pl = pull
+
+[push]
+    # Push to the current branch by default
+    default = current
+
+[pull]
+    # Use rebase instead of merge when pulling
+    rebase = false
+
+[init]
+    # Default branch name
+    defaultBranch = main
+
+[help]
+    # Automatically correct mistyped commands
+    autocorrect = 1
+
+[color]
+    # Enable colored output
+    ui = auto
+
+# Example usage:
+# 
+# Instead of:
+#   git add .
+#   git commit -m "Update dashboard"
+#   git push
+#
+# Use:
+#   git ac "Update dashboard"
+#   git p
+#
+# This prevents the editor error by always using -m flag through the alias
