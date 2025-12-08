@@ -2,39 +2,44 @@
 
 ## Overall Score
 
-**30.0/100** (Needs Improvement)
+**94.0/100** (Excellent)
 
 ### Components
-- Deep Work: 0.0/40
-- Interruptions: 30.0/30
-- Quality: 0.0/30
+- Deep Work: 40.0/40
+- Interruptions: 24.0/30
+- Quality: 30.0/30
 
 ## Key Metrics
 
-- Total Focus Time: 2 minutes
-- Deep Work Time: 0 minutes (0.0%)
-- Deep Work Sessions: 0
-- Total Interruptions: 0
+- Total Focus Time: 380 minutes
+- Deep Work Time: 380 minutes (100.0%)
+- Deep Work Sessions: 2
+- Total Interruptions: 6
 - Meeting Time: 0 minutes
 
 ## Deep Work Sessions
 
-_No deep work sessions detected (minimum 25 minutes)_
+1. **190min** starting at 09:00 (VS Code) — Quality: 100/100
+2. **190min** starting at 13:20 (Notion) — Quality: 100/100
 
 ## Time by Category
 
-- **Coding**: 2min (100.0%)
+- **Coding**: 285min (75.0%)
+- **Docs**: 60min (15.8%)
+- **Research**: 20min (5.3%)
+- **Communication**: 10min (2.6%)
+- **Meetings**: 5min (1.3%)
 
 ## Interruption Analysis
 
-- Total: 0 interruptions
-- Average per hour: 0.0
-- Most disruptive hour: None:00 (0 interruptions)
-- Estimated time lost: 0 minutes
+- Total: 6 interruptions
+- Average per hour: 0.2
+- Most disruptive hour: 9:00 (2 interruptions)
+- Estimated time lost: 6 minutes
 
 ## Meeting Efficiency
 
-- Meetings: 0
+- Meetings: 1
 - Total time: 0 minutes
 - Average duration: 0 minutes
 - Meeting/Focus ratio: 0.00
@@ -42,7 +47,7 @@ _No deep work sessions detected (minimum 25 minutes)_
 
 ## Suggested Focus Windows
 
-- **06:00–23:00** (17h) — Excellent (0 interruptions)
+- **06:00–23:00** (17h) — Good (6 interruptions)
 
 ---
-*Generated: 2025-12-08 13:10:44*
+*Generated: 2025-12-08 13:13:44*
