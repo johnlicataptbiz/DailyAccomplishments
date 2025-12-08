@@ -3,35 +3,35 @@
   "date": "2025-12-08",
   "title": "Daily Accomplishments \u2014 2025-12-08",
   "overview": {
-    "active_time": "00:08",
-    "focus_time": "00:08",
+    "active_time": "00:14",
+    "focus_time": "00:14",
     "meetings_time": "00:00",
-    "coverage_time": "00:16",
-    "coverage_window": "00:00\u201300:16 CST",
+    "coverage_time": "00:31",
+    "coverage_window": "00:00\u201300:31 CST",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:08",
-    "Focus Time: 00:08",
+    "Active Time: 00:14",
+    "Focus Time: 00:14",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:08 | Focus: 00:08",
-    "Coverage: 00:00\u201300:16 CST"
+    "Active: 00:14 | Focus: 00:14",
+    "Coverage: 00:00\u201300:31 CST"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:08)"
+    "Focused on Google Chrome (00:14)"
   ],
   "by_category": {
-    "Research": "00:08"
+    "Research": "00:14"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 65
+        "visits": 130
       },
       {
         "domain": "dailyaccomplishmentsptbiz.up",
@@ -56,6 +56,10 @@
         "visits": 4
       },
       {
+        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 4
+      },
+      {
         "page": "Welcome to Google Search Console - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 4
       },
@@ -64,27 +68,23 @@
         "visits": 4
       },
       {
+        "page": "Operations Dashboard \u00b7 GitLab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 4
+      },
+      {
         "page": "Update .gitlab-ci.yml file (1e7048b4) \u00b7 Commits \u00b7 johnlicataptbiz-group / DailyA",
         "visits": 4
       },
       {
-        "page": "Metrics \u2013 \u2026ments-git \u2013 Domain mappings \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cl",
-        "visits": 3
-      },
-      {
-        "page": "Railway - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 3
-      },
-      {
-        "page": "ICANN Lookup - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 3
+        "page": "Preferences \u00b7 User Settings \u00b7 GitLab - Google Chrome - Jack (physicaltherapybiz.",
+        "visits": 4
       }
     ]
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:08",
+      "time": "00:14",
       "pct": "0%"
     },
     {
@@ -204,19 +204,19 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:08"
+    "Google Chrome": "00:14"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments : 00:00",
     "Google Chrome: 00:00",
+    "Google Chrome \u2014 DailyAccomplishments : 00:00",
     "Google Chrome \u2014 Quickstart: Create and execute a job in Cloud Run : 00:00",
     "Google Chrome \u2014 dailyaccomplishmentsptbiz.up.railway.app : 00:00",
     "Google Chrome \u2014 Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00",
+    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
     "Google Chrome \u2014 Welcome to Google Search Console - Google Chrome -: 00:00",
     "Google Chrome \u2014 Cloudflare Dashboard : 00:00",
-    "Google Chrome \u2014 Update .gitlab-ci.yml file (1e7048b4) \u00b7 Commits \u00b7 : 00:00",
-    "Google Chrome \u2014 Metrics \u2013 \u2026ments-git \u2013 Domain mappings \u2013 Cloud Run: 00:00",
-    "Google Chrome \u2014 Railway - Google Chrome - Jack (physicaltherapybiz: 00:00"
+    "Google Chrome \u2014 Operations Dashboard \u00b7 GitLab - Google Chrome - Ja: 00:00",
+    "Google Chrome \u2014 Update .gitlab-ci.yml file (1e7048b4) \u00b7 Commits \u00b7 : 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
