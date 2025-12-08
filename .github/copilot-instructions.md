@@ -57,14 +57,22 @@ Each integration follows this structure:
 ### Handling Sensitive Data
 1. **Never commit real credentials**: All API keys, tokens, passwords, and sensitive data must be placeholder values or empty strings in the repository
 2. **Use environment variables**: For deployment, use environment variables or secure secret management
-3. **Credential files**: Store OAuth credentials (like Google Calendar) in the `credentials/` directory and ensure this directory is in `.gitignore`
+3. **Credential files**: Store OAuth credentials (like Google Calendar) in the `credentials/` directory which is gitignored
 4. **Configuration template**: The `config.json` serves as a template - users should copy and populate with their actual credentials locally
+5. **Disabled integrations**: Note that integrations with `enabled: true` but empty credentials may cause runtime errors - the application should handle this gracefully or integrations should be set to `enabled: false` when credentials are not available
 
 ### Example Placeholders
 - `access_token: ""` - Empty string for tokens
 - `api_key: ""` - Empty string for API keys
 - `password: "your-app-password"` - Descriptive placeholder
 - `username: "your-email@gmail.com"` - Example format
+
+### .gitignore Configuration
+The repository includes a `.gitignore` file that protects:
+- `credentials/` directory for OAuth and API credential files
+- `logs/` directory for activity logs
+- `.env` files for environment variables
+- Common IDE and OS-specific files
 
 ## Development Guidelines
 
