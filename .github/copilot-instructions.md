@@ -1,59 +1,140 @@
-# Daily Accomplishments — Copilot/Agent Instructions
+# GitHub Copilot Instructions for DailyAccomplishments
 
-Concise, actionable guide for AI coding agents in this repo. Focus on architecture, workflows, and project-specific rules.
+## Project Overview
 
-## Big Picture Architecture
-- **Data Flow:**
-  - Event producers (see `examples/`, `mac_tracker_adapter.py`) write JSONL logs to `logs/daily/YYYY-MM-DD.jsonl`.
-  - `tools/daily_logger.py` handles log writing, file locking, schema validation, and log rotation.
-  - Analytics and reporting: `tools/analytics.py`, `tools/auto_report.py`, `tools/generate_reports.py`, and `scripts/generate_daily_json.py` process logs into canonical JSON (`ActivityReport-YYYY-MM-DD.json`), CSVs, and dashboard assets in `gh-pages/` and `reports/`.
-  - The dashboard is served via `dashboard.html` (see also `gh-pages/`).
+DailyAccomplishments is a productivity tracking and reporting application that aggregates activity data from multiple platforms and generates daily reports with visualizations.
 
-## Key Files & Directories
-- `tools/daily_logger.py`: Log writing, file locking, schema, rotation, health checks
-- `tools/tracker_bridge.py`: Integration API (`ActivityTrackerBridge`), deduplication (2s window)
-- `tools/analytics.py`: Deep-work detection, scoring (25-min default)
-- `tools/auto_report.py`, `scripts/generate_daily_json.py`: Report pipeline, CLI
-- `examples/integration_example.py`: Minimal and full integration examples
-- `config.json`: Timezone, daily window, notification creds
+### Purpose
+- Track daily accomplishments across multiple platforms
+- Categorize activities (Coding, Research, Communication, Meetings, Other)
+- Generate reports and visualizations
+- Provide a web dashboard for viewing results
 
-## Developer Workflows
-- **Install dependencies:** `pip install -r requirements.txt` (Python 3.10+)
-- **Run minimal example:** `python3 examples/integration_example.py simple` (writes to `logs/daily/<date>.jsonl`)
-- **Generate canonical JSON:** `python3 scripts/generate_daily_json.py <YYYY-MM-DD>`
-- **Full pipeline + notifications:** `python3 tools/auto_report.py --date <YYYY-MM-DD>`
-- **Regenerate charts/CSVs:** `python3 tools/generate_reports.py` (copy outputs to `gh-pages/`)
-- **Preview dashboard:** `python3 -m http.server 8000` and open `dashboard.html`
+### Key Integrations
+- **HubSpot**: CRM activity tracking
+- **Aloware**: Communication platform
+- **Monday.com**: Project management boards
+- **Slack**: Team communication messages
+- **Google Calendar**: Meeting and event tracking
 
-## Project Conventions & Gotchas
-- Log format: JSONL in `logs/daily/`, first line is a `metadata` record
-- `ActivityReport-YYYY-MM-DD.json` is canonical; edit requires re-running `tools/generate_reports.py`
-- Timezone: default `America/Chicago` (see `config.json`), use `zoneinfo.ZoneInfo`
-- Durations: always `HH:MM` format (never decimal hours)
-- `coverage_window` must match actual activity span
-- Deduplication: identical events within 2s ignored by bridge
-- File locking/retries: only use `tools/daily_logger.py` for writes
+## Project Structure
 
-## Integration API Example
-```python
-from tools.tracker_bridge import ActivityTrackerBridge
-bridge = ActivityTrackerBridge()
-bridge.on_focus_change("Terminal", "~/code", 120)
+### Configuration Files
+- **config.json**: Main configuration file containing:
+  - Tracking settings (hours, timezone, categories)
+  - Integration credentials and settings
+  - Report generation preferences
+  - Notification settings (email, Slack webhooks)
+  - Data retention policies
+
+### File Handling
+- **CSV files**: Data files that may contain trailing whitespace (configured in .gitattributes)
+- **Binary files**: PNG/JPG images for reports and visualizations (marked as binary in .gitattributes)
+- **Credentials**: Stored in `credentials/` directory (excluded from git)
+- **Logs**: Stored in `logs/daily` and `logs/archive` directories
+
+## Build and Deployment
+
+### Docker
+The application uses Docker for deployment:
+```bash
+docker build -t daily-accomplishments .
+docker run -p 8000:8000 daily-accomplishments
 ```
-See `examples/integration_example.py` for more.
 
-## When Modifying Code
-- Validate pipeline: run `examples/integration_example.py`, then `tools/auto_report.py`, then preview dashboard
-- Only update `gh-pages/` with generated assets (CSV/SVG/JSON)
-- Keep `ActivityTrackerBridge` API stable (all methods return `bool`)
+### Dependencies
+- **Python 3.12**: Runtime environment
+- **matplotlib**: For generating charts and visualizations
+- **Pillow**: For image processing
+- Additional system dependencies: freetype, libpng, libjpeg for matplotlib
 
-## Troubleshooting
-| Issue | Fix |
-|-------|-----|
-| Charts not rendering | `pip install matplotlib` and re-run `tools/generate_reports.py` |
-| gh-pages push issues | `git worktree list` to inspect `gh-pages/` worktree |
-| 403 on push | Workflow needs `contents: write` permission |
-| Missing logs | Check both `logs/daily/` and legacy `logs/activity-*.jsonl` |
+### Web Server
+- Default port: 8000
+- Serves reports and dashboard via Python's built-in HTTP server
+- Static files served from `gh-pages/` directory
 
----
-If any section is unclear or incomplete, specify which area to expand (examples, edits, or testing steps).
+## Coding Standards and Conventions
+
+### Python Code
+- Use Python 3.12+ features
+- Follow PEP 8 style guide
+- Use type hints where appropriate
+- Keep functions focused and modular
+
+### Configuration Management
+- All API credentials should be configurable via config.json
+- Never hardcode credentials or API keys
+- Use environment variables for sensitive data when possible
+- Validate configuration on startup
+
+### Data Files
+- CSV files may have trailing whitespace (this is expected)
+- Use consistent line endings (LF) for text files
+- Binary files (images) should be treated as binary, not text
+
+### Git Practices
+- CSV files are configured to ignore trailing whitespace errors
+- PNG/JPG files are marked as binary to prevent patch errors
+- See .gitattributes for file type handling rules
+- Use .gitignore to exclude build artifacts, credentials, and temporary files
+
+## Testing and Validation
+
+### Before Committing
+1. Ensure config.json is valid JSON
+2. Verify Docker build succeeds: `docker build -t test .`
+3. Test report generation if modifying visualization code
+4. Verify integrations don't break if modifying API code
+
+### Local Development
+- Use virtual environments for Python dependencies
+- Test with sample data before using production credentials
+- Verify timezone handling (default: America/Chicago)
+
+## Common Tasks
+
+### Adding New Integrations
+1. Add configuration section to config.json
+2. Include `enabled` flag for toggling
+3. Store credentials securely
+4. Add error handling for API failures
+5. Document the integration in this file
+
+### Modifying Reports
+1. Update visualization code in tools/ directory
+2. Test with matplotlib and Pillow dependencies
+3. Ensure images are saved as PNG (marked as binary)
+4. Update dashboard HTML if needed
+
+### Changing Tracking Settings
+1. Modify tracking section in config.json
+2. Verify timezone handling
+3. Test daily cutoff logic
+4. Validate category priority ordering
+
+## Important Notes
+
+- **Timezone**: Default is America/Chicago - handle timezone conversions carefully
+- **Data Retention**: Configured retention policies in config.json should be respected
+- **Privacy**: This is a personal productivity tool - handle user data carefully
+- **Error Handling**: API integrations should fail gracefully with helpful error messages
+- **Credentials**: Never commit credentials to git - use credentials/ directory or environment variables
+
+## File Patterns to Recognize
+
+- `*.csv` - Data files (may have trailing whitespace)
+- `*.png`, `*.jpg` - Binary visualization files
+- `config.json` - Main configuration (validate JSON syntax)
+- `tools/*.py` - Python modules for data processing and reporting
+- `gh-pages/` - Static web dashboard files
+- `credentials/` - Sensitive credential files (never commit)
+- `logs/` - Application logs and archives
+
+## Best Practices for This Repository
+
+1. **Minimal Changes**: Make surgical, focused changes to existing functionality
+2. **Preserve Configuration**: Don't remove or modify working configuration options
+3. **Test Integrations**: If changing integration code, verify it doesn't break existing setups
+4. **Document Changes**: Update this file if adding new features or changing conventions
+5. **Security First**: Always validate credentials handling and never log sensitive data
+6. **Docker Compatibility**: Ensure changes work within the Docker container environment
