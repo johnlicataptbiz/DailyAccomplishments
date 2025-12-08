@@ -1,0 +1,57 @@
+# Credentials and Secrets
+credentials/
+*.pem
+*.key
+*.p12
+.env
+.env.local
+.env.*.local
+config.local.json
+secrets.json
+
+# API Keys and Tokens
+*.token
+*.secret
+.secrets/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+.npm
+
+# Build outputs
+dist/
+build/
+*.egg-info/
