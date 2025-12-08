@@ -3,80 +3,88 @@
   "date": "2025-12-08",
   "title": "Daily Accomplishments \u2014 2025-12-08",
   "overview": {
-    "active_time": "00:00",
-    "focus_time": "00:00",
+    "active_time": "00:08",
+    "focus_time": "00:08",
     "meetings_time": "00:00",
-    "coverage_time": "00:01",
-    "coverage_window": "00:00\u201300:01 CST",
+    "coverage_time": "00:16",
+    "coverage_window": "00:00\u201300:16 CST",
     "appointments": 0,
     "projects_count": 1
   },
   "prepared_for_manager": [
-    "Active Time: 00:00",
-    "Focus Time: 00:00",
+    "Active Time: 00:08",
+    "Focus Time: 00:08",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome"
   ],
   "executive_summary": [
-    "Active: 00:00 | Focus: 00:00",
-    "Coverage: 00:00\u201300:01 CST"
+    "Active: 00:08 | Focus: 00:08",
+    "Coverage: 00:00\u201300:16 CST"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:00)"
+    "Focused on Google Chrome (00:08)"
   ],
   "by_category": {
-    "Research": "00:00"
+    "Research": "00:08"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 10
+        "visits": 65
+      },
+      {
+        "domain": "dailyaccomplishmentsptbiz.up",
+        "visits": 5
       }
     ],
     "top_pages": [
       {
-        "page": "Dashboard \u2013 ActivityTracker \u2013 Google Cloud console - Google Chrome - Jack (physi",
-        "visits": 2
-      },
-      {
-        "page": "Solutions \u2013 ActivityTracker \u2013 Google Cloud console - Google Chrome - Jack (physi",
-        "visits": 2
-      },
-      {
-        "page": "Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
-        "visits": 1
-      },
-      {
-        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 1
+        "page": "DailyAccomplishments ",
+        "visits": 7
       },
       {
         "page": "Quickstart: Create and execute a job in Cloud Run \u00a0",
-        "visits": 1
+        "visits": 5
       },
       {
-        "page": "Enable access to API \u2013 APIs & Services \u2013 ActivityTracker \u2013 Google Cloud console ",
-        "visits": 1
+        "page": "dailyaccomplishmentsptbiz.up.railway.app ",
+        "visits": 5
       },
       {
-        "page": "Dashboard \u2013 Cloud overview \u2013 Google Cloud console - Google Chrome - Jack (physic",
-        "visits": 1
+        "page": "Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
+        "visits": 4
       },
       {
-        "page": "Google Cloud Service Health - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 1
+        "page": "Welcome to Google Search Console - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 4
       },
       {
-        "page": "Marketplace \u2013 ActivityTracker \u2013 Google Cloud console - Google Chrome - Jack (phy",
-        "visits": 1
+        "page": "Cloudflare Dashboard ",
+        "visits": 4
+      },
+      {
+        "page": "Update .gitlab-ci.yml file (1e7048b4) \u00b7 Commits \u00b7 johnlicataptbiz-group / DailyA",
+        "visits": 4
+      },
+      {
+        "page": "Metrics \u2013 \u2026ments-git \u2013 Domain mappings \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cl",
+        "visits": 3
+      },
+      {
+        "page": "Railway - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 3
+      },
+      {
+        "page": "ICANN Lookup - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 3
       }
     ]
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:00",
+      "time": "00:08",
       "pct": "0%"
     },
     {
@@ -196,18 +204,19 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:00"
+    "Google Chrome": "00:08"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Dashboard \u2013 ActivityTracker \u2013 Google Cloud console: 00:00",
-    "Google Chrome \u2014 Solutions \u2013 ActivityTracker \u2013 Google Cloud console: 00:00",
-    "Google Chrome \u2014 Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00",
-    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
+    "Google Chrome \u2014 DailyAccomplishments : 00:00",
+    "Google Chrome: 00:00",
     "Google Chrome \u2014 Quickstart: Create and execute a job in Cloud Run : 00:00",
-    "Google Chrome \u2014 Enable access to API \u2013 APIs & Services \u2013 ActivityT: 00:00",
-    "Google Chrome \u2014 Dashboard \u2013 Cloud overview \u2013 Google Cloud console : 00:00",
-    "Google Chrome \u2014 Google Cloud Service Health - Google Chrome - Jack: 00:00",
-    "Google Chrome \u2014 Marketplace \u2013 ActivityTracker \u2013 Google Cloud conso: 00:00"
+    "Google Chrome \u2014 dailyaccomplishmentsptbiz.up.railway.app : 00:00",
+    "Google Chrome \u2014 Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00",
+    "Google Chrome \u2014 Welcome to Google Search Console - Google Chrome -: 00:00",
+    "Google Chrome \u2014 Cloudflare Dashboard : 00:00",
+    "Google Chrome \u2014 Update .gitlab-ci.yml file (1e7048b4) \u00b7 Commits \u00b7 : 00:00",
+    "Google Chrome \u2014 Metrics \u2013 \u2026ments-git \u2013 Domain mappings \u2013 Cloud Run: 00:00",
+    "Google Chrome \u2014 Railway - Google Chrome - Jack (physicaltherapybiz: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
