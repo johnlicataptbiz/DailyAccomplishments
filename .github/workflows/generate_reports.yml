@@ -1,0 +1,50 @@
+name: Generate Daily Reports
+
+on:
+  schedule:
+    # Run daily at 11 PM UTC (adjust for your timezone)
+    - cron: '0 23 * * *'
+  
+  push:
+    branches:
+      - main
+  
+  workflow_dispatch:
+
+jobs:
+  generate-reports:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
+        run: |
+          pip install matplotlib pillow requests
+      
+      - name: Create directories
+        run: |
+          mkdir -p logs/daily reports
+      
+      - name: Generate daily report
+        run: |
+          python3 tools/auto_report.py || echo "No events to report"
+        continue-on-error: true
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports
+          publish_branch: gh-pages
+          enable_jekyll: false
+          keep_files: true
