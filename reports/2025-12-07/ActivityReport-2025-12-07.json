@@ -3,42 +3,43 @@
   "date": "2025-12-07",
   "title": "Daily Accomplishments \u2014 2025-12-07",
   "overview": {
-    "active_time": "00:14",
+    "active_time": "00:18",
     "focus_time": "00:47",
     "meetings_time": "00:00",
-    "coverage_time": "05:46",
-    "coverage_window": "16:29\u201322:15",
+    "coverage_time": "06:01",
+    "coverage_window": "16:29\u201322:30",
     "appointments": 0,
     "projects_count": 4
   },
   "prepared_for_manager": [
-    "Active Time: 00:14",
-    "Focus Time: 00:14",
+    "Active Time: 00:18",
+    "Focus Time: 00:18",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, Finder, Terminal"
+    "Top Apps: Google Chrome, Finder, Electron"
   ],
   "executive_summary": [
-    "Active: 00:14 | Focus: 00:14",
-    "Coverage: 16:29\u201322:15 CST",
+    "Active: 00:18 | Focus: 00:18",
+    "Coverage: 16:29\u201322:30 CST",
     "Screen Time: ~57 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:13)",
-    "Focused on Finder (00:00)",
+    "Focused on Google Chrome (00:16)",
+    "Focused on Finder (00:01)",
+    "Focused on Electron (00:00)",
     "Focused on Terminal (00:00)",
     "Focused on QuickTime Player (00:00)"
   ],
   "by_category": {
     "Research": "00:46",
     "Other": "00:01",
-    "Coding": "00:00",
+    "Coding": "00:01",
     "Email/CRM": "00:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 134
+        "visits": 163
       },
       {
         "domain": "untitled1.ipynb",
@@ -48,11 +49,15 @@
     "top_pages": [
       {
         "page": "Untitled1.ipynb - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 33
+        "visits": 39
       },
       {
         "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 15
+        "visits": 16
+      },
+      {
+        "page": "Cloud Shell - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 10
       },
       {
         "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -63,11 +68,11 @@
         "visits": 7
       },
       {
-        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
+        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 6
       },
       {
-        "page": "Cloud Shell - Google Chrome - Jack (physicaltherapybiz.com)",
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 6
       },
       {
@@ -75,16 +80,12 @@
         "visits": 5
       },
       {
-        "page": "dailyaccomplishments-production.up.railway.app/ActivityReport-2025-12-07.json - ",
+        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
         "visits": 5
       },
       {
-        "page": "Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Google Chrome - Jack (physi",
-        "visits": 4
-      },
-      {
-        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
-        "visits": 4
+        "page": "dailyaccomplishments-production.up.railway.app/ActivityReport-2025-12-07.json - ",
+        "visits": 5
       }
     ]
   },
@@ -201,7 +202,7 @@
     },
     {
       "hour": 22,
-      "time": "00:03",
+      "time": "00:07",
       "pct": "0%"
     },
     {
@@ -215,16 +216,16 @@
     "Finder": "00:01"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:02",
+    "Google Chrome \u2014 Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:03",
     "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:01",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:00",
-    "Google Chrome: 00:00",
-    "Google Chrome \u2014 Find in page\n    Untitled1.ipynb - Colab: 00:00",
-    "Google Chrome \u2014 dailyaccomplishments-production.up.railway.app/Act: 00:00",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
     "Google Chrome \u2014 Cloud Shell - Google Chrome - Jack (physicaltherap: 00:00",
-    "Finder \u2014 \u2068Desktop\u2069 \u2014 Local: 00:00",
-    "Google Chrome \u2014 What is Cloud Run \u00a0: 00:00"
+    "Google Chrome: 00:00",
+    "Google Chrome \u2014 dailyaccomplishments-production.up.railway.app/Act: 00:00",
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:00",
+    "Google Chrome \u2014 Find in page\n    Untitled1.ipynb - Colab: 00:00",
+    "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:00",
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
+    "Finder \u2014 \u2068Desktop\u2069 \u2014 Local: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
