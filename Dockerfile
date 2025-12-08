@@ -21,13 +21,9 @@ RUN apt-get update && \
 # Set workdir
 WORKDIR /app
 
-# Copy only necessary files for report generation and web serving
-COPY tools/ ./tools/
-COPY *.json ./
-COPY *.csv ./
-COPY *.md ./
-COPY *.html ./
-COPY gh-pages/ ./gh-pages/
+# Copy application files
+# Note: Some files/directories may not exist yet in early development
+COPY . /app/
 
 # Install Python dependencies
 RUN pip install --no-cache-dir matplotlib pillow
