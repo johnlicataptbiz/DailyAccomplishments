@@ -35,8 +35,9 @@
       "enabled": false,
       "smtp_server": "smtp.gmail.com",
       "smtp_port": 587,
+      "use_tls": true,
       "username": "your-email@gmail.com",
-      "password": "your-app-password",
+      "password": "YOUR_APP_PASSWORD",
       "from_email": "your-email@gmail.com",
       "to_emails": ["recipient@example.com"]
     },
@@ -48,26 +49,26 @@
     }
   },
   "hubspot": {
-    "access_token": "",
-    "enabled": true
+    "access_token": "YOUR_TOKEN_HERE",
+    "enabled": false
   },
   "aloware": {
-    "api_key": "",
-    "company_id": "",
-    "enabled": true
+    "api_key": "YOUR_API_KEY_HERE",
+    "company_id": "YOUR_COMPANY_ID",
+    "enabled": false
   },
   "monday": {
-    "api_token": "",
+    "api_token": "YOUR_TOKEN_HERE",
     "board_ids": [],
-    "enabled": true
+    "enabled": false
   },
   "slack": {
-    "bot_token": "",
-    "user_token": "",
-    "enabled": true
+    "bot_token": "YOUR_BOT_TOKEN_HERE",
+    "user_token": "YOUR_USER_TOKEN_HERE",
+    "enabled": false
   },
   "google_calendar": {
-    "enabled": true,
+    "enabled": false,
     "credentials_file": "credentials/google_credentials.json"
   }
 }
