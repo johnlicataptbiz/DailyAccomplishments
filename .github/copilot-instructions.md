@@ -46,7 +46,7 @@ docker run -p 8000:8000 daily-accomplishments
 - **Python 3.12**: Runtime environment
 - **matplotlib**: For generating charts and visualizations
 - **Pillow**: For image processing
-- Additional system dependencies: freetype, libpng, libjpeg for matplotlib
+- System dependencies (installed in Docker): libfreetype6-dev, libpng-dev, libjpeg-dev, libopenjp2-7-dev, libtiff5-dev, tcl/tk for matplotlib and image processing
 
 ### Web Server
 - Default port: 8000
@@ -68,9 +68,9 @@ docker run -p 8000:8000 daily-accomplishments
 - Validate configuration on startup
 
 ### Data Files
-- CSV files may have trailing whitespace (this is expected)
-- Use consistent line endings (LF) for text files
-- Binary files (images) should be treated as binary, not text
+- CSV files are configured with `text eol=lf -whitespace` in .gitattributes, which allows trailing whitespace (this is expected for data files)
+- Other text files use `text eol=lf` for consistent line endings
+- Binary files (PNG, JPG) are marked as binary in .gitattributes to prevent patch errors
 
 ### Git Practices
 - CSV files are configured to ignore trailing whitespace errors
