@@ -3,35 +3,38 @@
   "date": "2025-12-08",
   "title": "Daily Accomplishments \u2014 2025-12-08",
   "overview": {
-    "active_time": "00:14",
-    "focus_time": "00:14",
+    "active_time": "00:20",
+    "focus_time": "00:20",
     "meetings_time": "00:00",
-    "coverage_time": "00:31",
-    "coverage_window": "00:00\u201300:31 CST",
+    "coverage_time": "00:46",
+    "coverage_window": "00:00\u201300:46 CST",
     "appointments": 0,
-    "projects_count": 1
+    "projects_count": 3
   },
   "prepared_for_manager": [
-    "Active Time: 00:14",
-    "Focus Time: 00:14",
+    "Active Time: 00:20",
+    "Focus Time: 00:20",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome"
+    "Top Apps: Google Chrome, app_mode_loader"
   ],
   "executive_summary": [
-    "Active: 00:14 | Focus: 00:14",
-    "Coverage: 00:00\u201300:31 CST"
+    "Active: 00:20 | Focus: 00:20",
+    "Coverage: 00:00\u201300:46 CST"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:14)"
+    "Focused on Google Chrome (00:19)",
+    "Focused on app_mode_loader (00:00)"
   ],
   "by_category": {
-    "Research": "00:14"
+    "Research": "00:19",
+    "Other": "00:00",
+    "Coding": "00:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 130
+        "visits": 176
       },
       {
         "domain": "dailyaccomplishmentsptbiz.up",
@@ -45,6 +48,18 @@
       },
       {
         "page": "Quickstart: Create and execute a job in Cloud Run \u00a0",
+        "visits": 6
+      },
+      {
+        "page": "Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
+        "visits": 5
+      },
+      {
+        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 5
+      },
+      {
+        "page": "Google Cloud console - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 5
       },
       {
@@ -52,11 +67,11 @@
         "visits": 5
       },
       {
-        "page": "Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
-        "visits": 4
+        "page": "autopilot-cluster-1 \u2013 Kubernetes Engine \u2013 ActivityTracker \u2013 Google Cloud console",
+        "visits": 5
       },
       {
-        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
+        "page": "Networking\u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
         "visits": 4
       },
       {
@@ -66,25 +81,13 @@
       {
         "page": "Cloudflare Dashboard ",
         "visits": 4
-      },
-      {
-        "page": "Operations Dashboard \u00b7 GitLab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 4
-      },
-      {
-        "page": "Update .gitlab-ci.yml file (1e7048b4) \u00b7 Commits \u00b7 johnlicataptbiz-group / DailyA",
-        "visits": 4
-      },
-      {
-        "page": "Preferences \u00b7 User Settings \u00b7 GitLab - Google Chrome - Jack (physicaltherapybiz.",
-        "visits": 4
       }
     ]
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:14",
+      "time": "00:20",
       "pct": "0%"
     },
     {
@@ -204,19 +207,20 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:14"
+    "Google Chrome": "00:19",
+    "app_mode_loader": "00:00"
   },
   "top_windows_preview": [
-    "Google Chrome: 00:00",
+    "Google Chrome: 00:01",
     "Google Chrome \u2014 DailyAccomplishments : 00:00",
     "Google Chrome \u2014 Quickstart: Create and execute a job in Cloud Run : 00:00",
-    "Google Chrome \u2014 dailyaccomplishmentsptbiz.up.railway.app : 00:00",
     "Google Chrome \u2014 Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00",
     "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
-    "Google Chrome \u2014 Welcome to Google Search Console - Google Chrome -: 00:00",
-    "Google Chrome \u2014 Cloudflare Dashboard : 00:00",
-    "Google Chrome \u2014 Operations Dashboard \u00b7 GitLab - Google Chrome - Ja: 00:00",
-    "Google Chrome \u2014 Update .gitlab-ci.yml file (1e7048b4) \u00b7 Commits \u00b7 : 00:00"
+    "Google Chrome \u2014 Google Cloud console - Google Chrome - Jack (physi: 00:00",
+    "Google Chrome \u2014 dailyaccomplishmentsptbiz.up.railway.app : 00:00",
+    "Google Chrome \u2014 autopilot-cluster-1 \u2013 Kubernetes Engine \u2013 Activity: 00:00",
+    "app_mode_loader \u2014 missing value: 00:00",
+    "Google Chrome \u2014 Networking\u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "debug_appointments": {
