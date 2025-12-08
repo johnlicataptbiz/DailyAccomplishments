@@ -1,0 +1,216 @@
+{
+  "source_file": "ActivityReport-2025-12-08.json",
+  "date": "2025-12-08",
+  "title": "Daily Accomplishments \u2014 2025-12-08",
+  "overview": {
+    "active_time": "00:00",
+    "focus_time": "00:00",
+    "meetings_time": "00:00",
+    "coverage_time": "00:01",
+    "coverage_window": "00:00\u201300:01 CST",
+    "appointments": 0,
+    "projects_count": 1
+  },
+  "prepared_for_manager": [
+    "Active Time: 00:00",
+    "Focus Time: 00:00",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome"
+  ],
+  "executive_summary": [
+    "Active: 00:00 | Focus: 00:00",
+    "Coverage: 00:00\u201300:01 CST"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:00)"
+  ],
+  "by_category": {
+    "Research": "00:00"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 10
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Dashboard \u2013 ActivityTracker \u2013 Google Cloud console - Google Chrome - Jack (physi",
+        "visits": 2
+      },
+      {
+        "page": "Solutions \u2013 ActivityTracker \u2013 Google Cloud console - Google Chrome - Jack (physi",
+        "visits": 2
+      },
+      {
+        "page": "Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
+        "visits": 1
+      },
+      {
+        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 1
+      },
+      {
+        "page": "Quickstart: Create and execute a job in Cloud Run \u00a0",
+        "visits": 1
+      },
+      {
+        "page": "Enable access to API \u2013 APIs & Services \u2013 ActivityTracker \u2013 Google Cloud console ",
+        "visits": 1
+      },
+      {
+        "page": "Dashboard \u2013 Cloud overview \u2013 Google Cloud console - Google Chrome - Jack (physic",
+        "visits": 1
+      },
+      {
+        "page": "Google Cloud Service Health - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 1
+      },
+      {
+        "page": "Marketplace \u2013 ActivityTracker \u2013 Google Cloud console - Google Chrome - Jack (phy",
+        "visits": 1
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "00:00"
+  },
+  "top_windows_preview": [
+    "Google Chrome \u2014 Dashboard \u2013 ActivityTracker \u2013 Google Cloud console: 00:00",
+    "Google Chrome \u2014 Solutions \u2013 ActivityTracker \u2013 Google Cloud console: 00:00",
+    "Google Chrome \u2014 Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker: 00:00",
+    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00",
+    "Google Chrome \u2014 Quickstart: Create and execute a job in Cloud Run : 00:00",
+    "Google Chrome \u2014 Enable access to API \u2013 APIs & Services \u2013 ActivityT: 00:00",
+    "Google Chrome \u2014 Dashboard \u2013 Cloud overview \u2013 Google Cloud console : 00:00",
+    "Google Chrome \u2014 Google Cloud Service Health - Google Chrome - Jack: 00:00",
+    "Google Chrome \u2014 Marketplace \u2013 ActivityTracker \u2013 Google Cloud conso: 00:00"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "debug_appointments": {
+    "meetings_today": []
+  }
+}
