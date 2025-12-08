@@ -2,6 +2,16 @@
 """
 Script to execute the Untitled-1.ipynb notebook programmatically.
 This sets up the environment and executes each cell.
+
+NOTE: This script uses simplified logging functions rather than directly
+importing from tools/daily_logger.py to avoid complex dependency issues
+(repo_name variable, relative imports, etc.). This is intentional for
+demonstration purposes - the script shows the JSONL format and event types
+that the actual system uses, making it easier to understand the concepts
+without dealing with the full complexity of the production logging system.
+
+For production use, refer to examples/integration_example.py which uses
+the full ActivityTrackerBridge API.
 """
 
 import sys
@@ -28,6 +38,10 @@ print()
 
 # Cell 2: Load daily_logger
 print("Loading logging functions...")
+
+# NOTE: We use simplified logging functions here rather than importing
+# from tools/daily_logger.py to avoid dependency complexities. This is
+# intentional for demonstration purposes.
 
 # Use simple approach to avoid complex dependencies
 log_dir = repo_root / 'logs' / 'daily'
