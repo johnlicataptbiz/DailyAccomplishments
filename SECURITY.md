@@ -45,12 +45,12 @@ This repository has secret scanning enabled to detect accidentally committed sec
 
 ## Secure Configuration
 
-The `config.json` file contains placeholders for sensitive information. Ensure you:
+The `config.json.example` file contains placeholders for sensitive information. Ensure you:
 
-1. Copy `config.json` to your local environment
-2. Fill in actual credentials locally
+1. Copy `config.json.example` to `config.json` in your local environment
+2. Fill in actual credentials in your local `config.json`
 3. Never commit actual credentials to the repository
-4. Use the provided placeholder values as a template
+4. Use the provided placeholder values in the example file as a template
 
 ### Protected Credentials:
 

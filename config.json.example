@@ -29,14 +29,14 @@
       "enabled": false,
       "smtp_server": "smtp.gmail.com",
       "smtp_port": 587,
-      "username": "your-email@gmail.com",
-      "password": "your-app-password",
-      "from_email": "your-email@gmail.com",
-      "to_emails": ["recipient@example.com"]
+      "username": "REPLACE_WITH_YOUR_EMAIL@example.com",
+      "password": "REPLACE_WITH_YOUR_APP_PASSWORD",
+      "from_email": "REPLACE_WITH_YOUR_EMAIL@example.com",
+      "to_emails": ["REPLACE_WITH_RECIPIENT@example.com"]
     },
     "slack_webhook": {
       "enabled": false,
-      "webhook_url": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
+      "webhook_url": "https://hooks.slack.com/services/REPLACE/WITH/YOUR_WEBHOOK_URL",
       "channel": "#productivity",
       "username": "Productivity Bot"
     }
