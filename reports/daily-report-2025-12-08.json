@@ -1,0 +1,67 @@
+{
+  "date": "2025-12-08",
+  "deep_work_sessions": [],
+  "interruption_analysis": {
+    "interruptions_per_hour": {},
+    "most_disruptive_hour": null,
+    "max_interruptions": 0,
+    "total_interruptions": 0,
+    "context_switch_cost_minutes": 0.0,
+    "average_per_hour": 0
+  },
+  "productivity_score": {
+    "overall_score": 30.0,
+    "components": {
+      "deep_work_score": 0.0,
+      "interruption_score": 30,
+      "quality_score": 0.0
+    },
+    "metrics": {
+      "total_deep_minutes": 0,
+      "total_work_minutes": 2.0,
+      "deep_work_percentage": 0.0,
+      "deep_sessions_count": 0
+    },
+    "rating": "Needs Improvement"
+  },
+  "category_trends": {
+    "categories": [
+      {
+        "category": "Coding",
+        "time_minutes": 2.0,
+        "percentage": 100.0,
+        "event_count": 1,
+        "avg_duration_minutes": 2.0
+      }
+    ],
+    "total_time_minutes": 2.0,
+    "top_category": "Coding",
+    "category_count": 1
+  },
+  "meeting_efficiency": {
+    "total_meeting_minutes": 0.0,
+    "meeting_count": 0,
+    "average_duration_minutes": 0.0,
+    "meeting_vs_focus_ratio": 0.0,
+    "meetings": [],
+    "recommendation": "Good balance between meetings and focus work"
+  },
+  "focus_windows": [
+    {
+      "start_time": "06:00",
+      "end_time": "23:00",
+      "duration_hours": 17,
+      "total_interruptions": 0,
+      "quality": "Excellent",
+      "recommendation": "Schedule deep work during 06:00-23:00"
+    }
+  ],
+  "raw_events": {
+    "total_events": 3,
+    "event_types": {
+      "metadata": 1,
+      "focus_change": 1,
+      "browser_visit": 1
+    }
+  }
+}
