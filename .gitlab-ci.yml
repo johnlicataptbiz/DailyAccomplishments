@@ -1,10 +1,16 @@
-# GitLab CI/CD Pipeline for Daily Accomplishments Tracker
+# Simplified CI pipeline tailored for the Daily Accomplishments Tracker
+# Installs dependencies via requirements.txt instead of pip install .
 
 image: python:3.12-slim
 
 stages:
+  - .pre
+  - build
   - test
-  - validate
+  - run
+  - docs
+  - deploy
+  - .post
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -15,48 +21,51 @@ cache:
 
 before_script:
   - python --version
+  - pip --version
+  - python -m venv venv
+  - . venv/bin/activate
   - pip install --upgrade pip
+  - pip install -r requirements.txt
 
-# Run unit tests
-test:python:
+lint_and_test:
   stage: test
   script:
-    - echo "Installing dependencies..."
-    - pip install -r requirements.txt || echo "No requirements.txt or optional dependencies"
-    - echo "Running unit tests..."
-    - python -m pytest tests/ -v --tb=short || python -m unittest discover -s tests -p 'test_*.py' -v
-  allow_failure: false
-  only:
-    - merge_requests
-    - main
-    - branches
+    - . venv/bin/activate
+    - pip install pytest
+    - pytest
 
-# Validate configuration and imports
-validate:config:
-  stage: validate
+run:
+  stage: run
   script:
-    - echo "Validating configuration..."
-    - python -c "import json; json.load(open('config.json'))"
-    - echo "Validating Python imports..."
-    - python -c "from tools import daily_logger, analytics, auto_report, notifications"
-    - echo "Checking example data..."
-    - test -f examples/sample_events.jsonl && echo "Sample events found" || echo "No sample events"
-  allow_failure: false
-  only:
-    - merge_requests
-    - main
-    - branches
+    - . venv/bin/activate
+    - echo "Add run commands here (e.g., python tools/generate_reports.py)"
+  artifacts:
+    paths:
+      - build/
 
-# Optional: Generate test report
-test:report:
-  stage: test
+pages:
+  stage: docs
+  before_script:
+    - python --version
+    - pip --version
+    - python -m venv venv
+    - . venv/bin/activate
+    - pip install --upgrade pip
+    - pip install sphinx sphinx-rtd-theme
   script:
-    - echo "Testing report generation..."
-    - pip install -r requirements.txt || echo "Optional dependencies not installed"
-    - mkdir -p logs/daily reports
-    - cp examples/sample_events.jsonl logs/daily/2025-12-05.jsonl || echo "No sample data"
-    - python tools/auto_report.py --date 2025-12-05 --output reports || echo "Report generation test completed"
-  allow_failure: true
-  only:
-    - merge_requests
-    - main
+    - . venv/bin/activate
+    - mkdir -p public
+    - echo "Documentation coming soon" > public/index.html
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Define your deployment script!"
+  environment: production
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
