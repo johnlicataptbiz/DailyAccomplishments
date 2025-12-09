@@ -38,6 +38,31 @@ credentials/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+ENV/
+env/
 
 # IDE
 .vscode/
@@ -55,3 +80,23 @@ htmlcov/
 build/
 dist/
 *.egg-info/
+# Logs
+*.log
+logs/
+
+# Credentials
+credentials/
+*.pem
+*.key
+.env
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.cache
+
+# OS
+.DS_Store
+Thumbs.db
