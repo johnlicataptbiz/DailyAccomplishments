@@ -125,6 +125,37 @@ class TestProductivityAnalytics(unittest.TestCase):
         self.assertEqual(score['overall_score'], 30)
         self.assertEqual(score['components']['deep_work_score'], 0)
         self.assertEqual(score['components']['quality_score'], 0)
+    
+    def test_generate_report(self):
+        """Test that generate_report returns all required keys."""
+        analytics = ProductivityAnalytics('2025-12-05')
+        report = analytics.generate_report()
+        
+        # Verify report is a dictionary
+        self.assertIsInstance(report, dict)
+        
+        # Verify all required keys are present
+        required_keys = [
+            'date',
+            'deep_work_sessions',
+            'interruption_analysis',
+            'productivity_score',
+            'category_trends',
+            'meeting_efficiency',
+            'focus_windows'
+        ]
+        
+        for key in required_keys:
+            self.assertIn(key, report, f"Report missing required key: {key}")
+        
+        # Verify data types
+        self.assertIsInstance(report['date'], str)
+        self.assertIsInstance(report['deep_work_sessions'], list)
+        self.assertIsInstance(report['interruption_analysis'], dict)
+        self.assertIsInstance(report['productivity_score'], dict)
+        self.assertIsInstance(report['category_trends'], dict)
+        self.assertIsInstance(report['meeting_efficiency'], dict)
+        self.assertIsInstance(report['focus_windows'], list)
 
 
 if __name__ == '__main__':

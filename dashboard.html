@@ -321,7 +321,30 @@
                 }
                 
                 if (!response.ok) {
-                    throw new Error('Report not found');
+                    // Provide specific error messages based on status code
+                    let errorMsg = '';
+                    if (response.status === 404) {
+                        errorMsg = `
+                            <h3>📭 Report not found for ${formatDateFriendly(date)}</h3>
+                            <p>Generate a report with: <code>python3 tools/auto_report.py --date ${date}</code></p>
+                        `;
+                    } else if (response.status === 403) {
+                        errorMsg = `
+                            <h3>🔒 Permission denied</h3>
+                            <p>Unable to access the report file. Check file permissions.</p>
+                        `;
+                    } else if (response.status === 500) {
+                        errorMsg = `
+                            <h3>⚠️ Server error</h3>
+                            <p>The server encountered an error. Please try again later.</p>
+                        `;
+                    } else {
+                        errorMsg = `
+                            <h3>❌ Error loading report</h3>
+                            <p>HTTP ${response.status}: ${response.statusText}</p>
+                        `;
+                    }
+                    throw new Error(errorMsg);
                 }
                 
                 const data = await response.json();
@@ -330,10 +353,15 @@
                 document.getElementById('dateSubtitle').textContent = formatDateFriendly(date);
                 
             } catch (error) {
-                errorMessage.innerHTML = `
-                    <h3>📭 No report found for ${formatDateFriendly(date)}</h3>
-                    <p>Generate a report with: <code>python3 tools/auto_report.py --date ${date}</code></p>
-                `;
+                // Display error message (either from status check or JSON parsing)
+                if (error.message.includes('<h3>')) {
+                    errorMessage.innerHTML = error.message;
+                } else {
+                    errorMessage.innerHTML = `
+                        <h3>📭 No report found for ${formatDateFriendly(date)}</h3>
+                        <p>Generate a report with: <code>python3 tools/auto_report.py --date ${date}</code></p>
+                    `;
+                }
                 errorMessage.style.display = 'block';
             } finally {
                 loadingIndicator.style.display = 'none';
@@ -435,11 +463,19 @@
             html += `
                 <div class="section">
                     <h2>📂 Time by Category</h2>
+            `;
+            
+            if (categories.categories.length > 0) {
+                html += `
                     <div class="chart-container">
                         <canvas id="categoryChart"></canvas>
                     </div>
-                </div>
-            `;
+                `;
+            } else {
+                html += '<p style="color: var(--text-muted);">No activity logged for this day.</p>';
+            }
+            
+            html += '</div>';
             
             // Interruptions Chart
             html += `

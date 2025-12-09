@@ -1,5 +1,11 @@
 # Daily Accomplishments Tracker
 
+![Status](https://img.shields.io/badge/status-production--ready-brightgreen)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
+**Quick Links**: [Setup Guide](SETUP.md) | [Dashboard Demo](dashboard.html) | [API Documentation](#development)
+
 A privacy-focused productivity analytics system that tracks focus sessions, deep work, interruptions, and meetings to help you understand and optimize your daily work patterns.
 
 ## Overview
@@ -45,11 +51,26 @@ cp config.json.example config.json
 # Edit config.json with your timezone and settings
 nano config.json
 
-# Create required directories (already created if using git)
-mkdir -p logs/daily logs/archive reports
+# Create required directories
+mkdir -p reports
+mkdir -p logs/daily
+mkdir -p logs/archive
 ```
 
+**Note**: These directories are required for the tracker to function. The `reports/` directory stores generated JSON and Markdown reports, while `logs/daily/` and `logs/archive/` store event logs.
+
 ## Usage
+
+### Verify Installation
+
+First, verify your installation is working correctly:
+
+```bash
+# Run the integration example to test the system
+python3 examples/integration_example.py
+```
+
+This will create sample events and generate a test report to ensure everything is configured properly.
 
 ### Running the Tracker
 
@@ -133,6 +154,20 @@ Edit `config.json` to customize:
 - HubSpot, Aloware, Monday.com, Slack, Google Calendar (optional)
 
 ## Automation
+
+**Important**: Before setting up automation, ensure the required directories exist:
+
+```bash
+mkdir -p reports logs/daily logs/archive
+```
+
+Test report generation manually first to verify everything works:
+
+```bash
+# Generate a test report
+python3 examples/integration_example.py
+python3 tools/auto_report.py
+```
 
 ### Cron Job (Linux/macOS)
 
