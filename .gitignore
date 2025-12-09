@@ -1,57 +1,69 @@
-# Credentials and Secrets
+# ===== Credentials and Secrets =====
 credentials/
+secrets.json
+config.local.json
+
+# Env files (keep this broad but sane)
+.env
+.env.*
+.env.*.local
+.env.local
+
+# Keys and certs
 *.pem
 *.key
 *.p12
-.env
-.env.local
-.env.*.local
-config.local.json
-secrets.json
 
-# API Keys and Tokens
+# API keys / tokens
 *.token
 *.secret
 .secrets/
 
-# Logs
+# ===== Logs =====
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# OS Files
+# ===== OS junk =====
 .DS_Store
 Thumbs.db
-*.swp
-*.swo
-*~
 
-# IDE
+# ===== Editor / IDE =====
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
+*.swp
+*.swo
+*~
 
-# Python
+# ===== Python =====
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+
+# Virtual environments
 venv/
 ENV/
 env/
 
-# Node
+# ===== Node =====
 node_modules/
-npm-debug.log
-yarn-error.log
 package-lock.json
-.npm
+.npmrc
 
-# Build outputs
+# ===== Build outputs =====
 dist/
 build/
 *.egg-info/
+
+# ===== Temp files =====
+tmp/
+temp/
+*.tmp
+*.bak
+*.cache
