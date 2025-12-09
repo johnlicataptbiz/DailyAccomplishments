@@ -27,6 +27,18 @@ def generate_daily_report(date, output_dir):
         Path to generated JSON report
     """
     analytics = ProductivityAnalytics(date)
+    
+    # Check if log file exists
+    log_file = Path(analytics.log_file)
+    if not log_file.exists():
+        raise FileNotFoundError(
+            f"Log file not found: {log_file}\n"
+            f"Suggestions:\n"
+            f"  1. Run the integration example first: python3 examples/integration_example.py\n"
+            f"  2. Check if the tracker is running and logging events\n"
+            f"  3. Verify the log directory exists: mkdir -p logs/daily"
+        )
+    
     report = analytics.generate_report()
     
     # Augment with raw event stats

@@ -37,7 +37,10 @@ def send_email_report(report_date, report_path):
     # Read markdown report
     report_path = Path(report_path)
     if not report_path.exists():
-        raise FileNotFoundError(f"Report not found: {report_path}")
+        raise FileNotFoundError(
+            f"Markdown report not found: {report_path}\n"
+            f"Generate the report first with: python3 tools/auto_report.py --date {report_date}"
+        )
     
     with open(report_path, 'r') as f:
         markdown_content = f.read()
@@ -107,6 +110,15 @@ def send_slack_notification(report_date, report_data):
     if not webhook_url:
         print("✗ Slack webhook URL not configured")
         return
+    
+    # Validate report data has required keys
+    required_keys = ['productivity_score', 'interruption_analysis', 'category_trends']
+    missing_keys = [key for key in required_keys if key not in report_data]
+    if missing_keys:
+        raise ValueError(
+            f"Report data missing required keys: {', '.join(missing_keys)}\n"
+            f"Ensure the report was generated correctly with all analytics data."
+        )
     
     # Extract key metrics
     score = report_data['productivity_score']

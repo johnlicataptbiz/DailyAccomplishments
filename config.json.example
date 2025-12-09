@@ -1,4 +1,13 @@
 {
+  "_comment": "This is an example configuration file for Daily Accomplishments Tracker",
+  "_instructions": "Copy this file to config.json and update with your settings",
+  "_setup_steps": [
+    "1. Copy: cp config.json.example config.json",
+    "2. Set your timezone in tracking.timezone",
+    "3. Configure email settings in notifications.email (optional)",
+    "4. Configure Slack webhook in notifications.slack_webhook (optional)",
+    "5. Adjust analytics thresholds as needed"
+  ],
   "tracking": {
     "daily_start_hour": 5,
     "daily_start_minute": 0,
