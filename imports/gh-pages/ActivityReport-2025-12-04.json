@@ -1,0 +1,40 @@
+{
+  "source_file": "ActivityReport-2025-12-04.json",
+  "date": "2025-12-04",
+  "title": "Daily Accomplishments \u2014 2025-12-04",
+  "overview": {
+    "appointments": 0,
+    "tasks_updated": 0,
+    "updates_made": 0
+  },
+  "debug_appointments": {
+    "meetings_today": [],
+    "appointments_today": []
+  },
+  "hubspot": {
+    "date": "2025-12-04",
+    "meetings": [],
+    "deals": [],
+    "contacts": [],
+    "calls": [],
+    "tasks": [],
+    "booked_appointments": [],
+    "emails": [],
+    "summary": {
+      "meetings_count": 0,
+      "deals_updated": 0,
+      "new_contacts": 0,
+      "calls_made": 0,
+      "tasks_due": 0,
+      "emails_sent": 0
+    }
+  },
+  "executive_summary": [],
+  "monday": {
+    "date": "2025-12-04",
+    "items": [],
+    "items_updated": 0,
+    "updates_count": 0,
+    "by_board": {}
+  }
+}
