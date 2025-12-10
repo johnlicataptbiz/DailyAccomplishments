@@ -32,8 +32,11 @@ COPY gh-pages/ ./gh-pages/
 # Install Python dependencies
 RUN pip install --no-cache-dir matplotlib pillow
 
-# Expose port for local web server
+# Expose a default port for local development; production platforms (e.g. Railway)
+# usually provide the port to listen on via the $PORT environment variable.
 EXPOSE 8000
 
-# Default command: serve dashboard and reports
-CMD ["python3", "-m", "http.server", "8000"]
+# Default command: serve dashboard and reports. Use the PORT env var if present
+# so the container will work correctly on platforms that set $PORT (Railway,
+# Heroku-style platforms). Fall back to 8000 for local runs.
+CMD ["sh", "-c", "python3 -m http.server ${PORT:-8000}"]
