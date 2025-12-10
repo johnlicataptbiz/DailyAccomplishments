@@ -39,4 +39,4 @@ EXPOSE 8000
 # Default command: serve dashboard and reports. Use the PORT env var if present
 # so the container will work correctly on platforms that set $PORT (Railway,
 # Heroku-style platforms). Fall back to 8000 for local runs.
-CMD ["sh", "-c", "python3 -m http.server ${PORT:-8000}"]
+CMD ["sh", "-c", "python3 -m http.server ${PORT:-8000} --bind 0.0.0.0"]
