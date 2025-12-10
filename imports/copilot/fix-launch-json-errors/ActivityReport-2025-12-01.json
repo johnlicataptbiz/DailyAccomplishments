@@ -1,0 +1,182 @@
+{
+  "source_file": "ActivityReport-2025-12-01.html",
+  "date": "2025-12-01",
+  "title": "Daily Accomplishments — 2025-12-01 (cutoff 4pm CST/CDT)",
+  "overview": {
+    "focus_time": "06:09",
+    "meetings_time": "01:15",
+     "appointments": 2,
+    "projects_count": 11,
+    "coverage_window": "12:22–17:51 CST"
+  },
+  "prepared_for_manager": [
+     "Total focused time: 06:09 (Coverage: 12:22–17:51 CST)",
+     "Top projects: Email/CRM (00:11), PT Biz: Calendar (00:06), Google Workspace (00:05)",
+    "Key tickets: profile:Profile 6 (02:52), weekly-2025 (01:07), ab-9390 (00:00)",
+     "Top apps: Google Chrome (03:54), Terminal (01:38), Messages (00:26)",
+     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)"
+  ],
+  "executive_summary": [
+     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
+     "Meeting: Sales Call (01:00)",
+     "Primary doc: Google Sheets — Project_783_updated_fit — (00:01)"
+  ],
+  "client_summary": [
+     "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
+     "Meeting: Sales Call (01:00)"
+  ],
+  "accomplishments_today": [
+    "Worked on Email/CRM (00:11)",
+    "HubSpot activity (87 visits)",
+    "Google Workspace activity (74 visits)",
+    "Meetings activity (27 visits)",
+    "Google Workspace activity (9 visits)",
+    "Email/CRM activity (8 visits)",
+    "HubSpot activity (3 visits)",
+    "Meeting: Sales Call (01:00)"
+  ],
+  "by_category": {
+    "Research": "03:54",
+    "Coding": "01:38",
+    "Meetings": "01:15",
+    "Communication": "00:30",
+    "Other": "00:05",
+    "Docs": "00:00"
+  },
+  "by_project": {
+    "Email/CRM": "00:11",
+    "PT Biz: Calendar": "00:06",
+    "Google Workspace": "00:05",
+    "PT Biz: Gmail": "00:00",
+    "PT Biz: Drive": "00:00",
+    "Facebook Community": "00:00",
+    "aistudio.google.com": "00:00",
+    "monday.com": "00:00",
+    "grok.com": "00:00",
+    "developers.google.com": "00:00",
+    "x.com": "00:00"
+  },
+  "google_workspace": {
+    "Google": "00:17",
+    "Google Sheets": "00:05",
+    "Google Calendar": "00:04",
+    "Gmail": "00:00",
+    "Google Drive": "00:00",
+    "top_documents": [
+      "Project_783_updated_fit — 00:01",
+      "783new — 00:00",
+      "783 — 00:00",
+      "Google Sheets — 00:00",
+      "format this text into a table ... — 00:00",
+      "Project_783_1764615540 — 00:00",
+      "Untitled spreadsheet — 00:00"
+    ]
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {"domain":"grok.com","visits":109},
+      {"domain":"app.hubspot.com","visits":87},
+      {"domain":"docs.google.com","visits":74},
+      {"domain":"developers.google.com","visits":69},
+      {"domain":"app.slack.com","visits":59},
+      {"domain":"physical-therapy-biz.monday.com","visits":57},
+      {"domain":"aistudio.google.com","visits":37},
+      {"domain":"www.amazon.com","visits":34},
+      {"domain":"github.com","visits":31},
+      {"domain":"chatgpt.com","visits":29}
+    ],
+    "top_pages": [
+      {"page":"Daily Accomplishments — 2025-12-01","visits":5477},
+      {"page":"Weekly Roll-up — 2025-11-25 to 2025-12-01","visits":4048},
+      {"page":"Project: 783 (physical-therapy-biz.monday.com)","visits":46},
+      {"page":"Google AI Studio (aistudio.google.com)","visits":36},
+      {"page":"Brad Neitzel (app.hubspot.com)","visits":25}
+    ]
+  },
+  "hourly_focus": [
+    {"hour":0,"time":"00:00","pct":"0%"},
+    {"hour":1,"time":"00:00","pct":"0%"},
+    {"hour":2,"time":"00:00","pct":"0%"},
+    {"hour":3,"time":"00:00","pct":"0%"},
+    {"hour":4,"time":"00:00","pct":"0%"},
+    {"hour":5,"time":"00:00","pct":"0%"},
+    {"hour":6,"time":"00:00","pct":"0%"},
+    {"hour":7,"time":"00:00","pct":"0%"},
+    {"hour":8,"time":"00:00","pct":"0%"},
+    {"hour":9,"time":"00:00","pct":"0%"},
+    {"hour":10,"time":"00:00","pct":"0%"},
+    {"hour":11,"time":"00:00","pct":"0%"},
+    {"hour":12,"time":"00:36","pct":"43%"},
+    {"hour":13,"time":"00:58","pct":"70%"},
+    {"hour":14,"time":"01:15","pct":"90%"},
+    {"hour":15,"time":"01:23","pct":"100%"},
+    {"hour":16,"time":"00:58","pct":"70%"},
+    {"hour":17,"time":"00:56","pct":"68%"},
+    {"hour":18,"time":"00:00","pct":"0%"},
+    {"hour":19,"time":"00:00","pct":"0%"},
+    {"hour":20,"time":"00:00","pct":"0%"},
+    {"hour":21,"time":"00:00","pct":"0%"},
+    {"hour":22,"time":"00:00","pct":"0%"},
+    {"hour":23,"time":"00:00","pct":"0%"}
+  ],
+  "suggested_tasks": [
+    "Focused on Terminal — jacklicatamacbook — iChatDockTile — codex — 80×24 — 01:11",
+    "Focused on Google Chrome — Google AI Studio — 00:47",
+    "Focused on Google Chrome — Daily Accomplishments — 00:47",
+    "Focused on Messages — 00:24",
+    "Focused on Google Chrome — Project: 783 — 00:23",
+    "Focused on Google Chrome — X — 00:12",
+    "Focused on Google Chrome — Project 783 - Merge two files — 00:12",
+    "Focused on Google Chrome — Google Gemini — 00:11"
+  ],
+  "next_up": [
+    "Send recap for 'Sales Call'",
+    "Send recap for 'Game Plan Call With Jack and Banfield Smith'"
+  ],
+  "top_apps": {
+    "Google Chrome":"03:54",
+    "Terminal":"01:38",
+    "Messages":"00:26",
+    "Slack":"00:04",
+    "Finder":"00:03",
+    "System Preferences":"00:01",
+    "TextEdit":"00:00",
+    "App Store":"00:00"
+  },
+  "top_windows_preview": [
+    "Terminal — jacklicatamacbook — iChatDockTile — codex — 80×24: 01:11",
+    "Google Chrome — Google AI Studio: 00:47",
+    "Google Chrome — Daily Accomplishments — 00:47",
+    "Messages — [redacted]: 00:24",
+    "Google Chrome — Project: 783: 00:23",
+    "Google Chrome — X: 00:12",
+    "Google Chrome — Project 783 - Merge two files: 00:12",
+    "Google Chrome — Google Gemini: 00:11",
+    "Google Chrome — Activity Tracker Enhancements: 00:10",
+    "Terminal — jacklicatamacbook — -zsh: 00:08"
+  ],
+  "notes": [
+    "Meeting: Sales Call (01:00)",
+    "Meeting: Game Plan Call With Jack and Banfield Smith (00:15)",
+    "Worked on Google Sheets: Project_783_updated_fit (00:01)",
+    "HubSpot browsing: app.hubspot.com (87 visits)",
+    "Google Workspace browsing: docs.google.com (74 visits)",
+    "Set appointment with Brad Neitzel: Sales Call (HubSpot 25 visits)"
+  ],
+  "debug_appointments": {
+     "contact_visits_top":[{"name":"Brad Neitzel","visits":25}],
+     "appointments_today":[
+       {"name":"Brad Neitzel","time":"Sales Call"},
+       {"name":"Discovery — Banfield Smith","time":"moved from Game Plan Call"}
+     ],
+     "meetings_today":[
+       {"name":"Sales Call","time":"09:30–10:30"}
+     ]
+  },
+  "confidence_legend": {
+    "solid":"high evidence (HubSpot visits well above threshold + meeting keyword)",
+    "likely":"medium evidence (visits over threshold and/or meeting keyword)",
+    "weak":"low evidence (borderline signals)"
+  },
+  "foot":"Shared copy"
+}

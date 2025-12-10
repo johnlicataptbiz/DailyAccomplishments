@@ -1,405 +1,372 @@
 # Daily Accomplishments Tracker
 
-> **A robust, production-ready activity tracking and productivity analytics system**
+![Status](https://img.shields.io/badge/status-production--ready-brightgreen)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-Automatically track your daily activities, analyze productivity patterns, and get actionable insights through beautiful dashboards and automated notifications.
+**Quick Links**: [Setup Guide](SETUP.md) | [Dashboard Demo](dashboard.html) | [API Documentation](#development)
 
-## ✨ Features
+A privacy-focused productivity analytics system that tracks focus sessions, deep work, interruptions, and meetings to help you understand and optimize your daily work patterns.
 
-### 🛡️ **Robust & Reliable**
-- **Error Handling**: File locking, JSON validation, automatic backups, self-healing
-- **Data Integrity**: Health checks, corruption detection, automatic repair
-- **Cross-Platform**: macOS, Linux, Windows support
-- **Timezone-Aware**: Accurate timestamps with configurable timezone
+## Overview
 
-### 📊 **Analytics & Insights**
-- **Deep Work Detection**: Identify focused work sessions (25+ minutes)
-- **Productivity Scoring**: 0-100 scale with quality ratings
-- **Interruption Analysis**: Track context switches and distractions
-- **Focus Windows**: AI-recommended time blocks for deep work
-- **Category Breakdown**: Automatic categorization by activity type
+The Daily Accomplishments Tracker analyzes your work activities to provide insights into:
+- Deep work sessions (uninterrupted focus periods ≥25 minutes)
+- Productivity scoring (0-100 with detailed components)
+- Time spent by category (Coding, Research, Meetings, etc.)
+- Interruption patterns and context switching costs
+- Meeting efficiency and balance
+- Optimal focus windows for scheduling deep work
 
-### 🖥️ **Web Dashboard**
-- **Interactive Charts**: Chart.js visualizations (hourly interruptions, category distribution)
-- **Real-Time Stats**: Productivity score, deep work hours, focus time %, interruptions
-- **Session List**: All work sessions with quality indicators
-- **Auto-Refresh**: Updates every 5 minutes
-- **Historical Data**: Date picker for past reports
+## Features
 
-### 📧 **Notifications**
-- **Email**: Beautiful HTML reports via SMTP (Gmail)
-- **Slack**: Rich block-based messages with emoji indicators
-- **Automated**: Schedule daily/weekly delivery
-- **Smart Summaries**: Top sessions, category breakdown, focus recommendations
+- **Deep Work Detection**: Automatically identifies uninterrupted focus sessions ≥25 minutes
+- **Productivity Scoring**: Comprehensive 0-100 score based on deep work, interruptions, and session quality
+- **Category Tracking**: Categorizes time spent across Research, Coding, Meetings, Communication, Docs, and Other
+- **Meeting Efficiency**: Analyzes meeting time vs. focus time ratio with recommendations
+- **Focus Window Suggestions**: Identifies low-interruption time blocks for scheduling deep work
+- **Daily & Weekly Reports**: Generate JSON and Markdown reports with detailed analytics
+- **Static Dashboard**: Beautiful web dashboard with Chart.js visualizations
+- **Email & Slack Notifications**: Automated report delivery via email or Slack webhooks
+- **Privacy-Focused**: No sensitive data (window titles, URLs) stored - only app names and aggregated metrics
 
-### 🔗 **Easy Integration**
-- **Bridge API**: Drop-in integration for existing trackers
-- **Event Types**: App switches, URL visits, meetings, idle time, focus sessions
-- **Deduplication**: Automatic filtering of duplicate events (2-second window)
-- **Simple API**: Just 3 lines of code to start logging
+## Quick Start
 
-## 🚀 Quick Start
+### Prerequisites
+
+- Python 3.9+ (for `zoneinfo` support)
+- Optional: SMTP account for email notifications
+- Optional: Slack webhook for Slack notifications
 
 ### Installation
 
 ```bash
-# Clone repository
-git clone https://github.com/johnlicataptbiz/DailyAccomplishments.git
+# Clone the repository
+git clone https://gitlab.com/acttrack/DailyAccomplishments/DailyAccomplishments.git
 cd DailyAccomplishments
 
-# Install dependencies
-pip install -r requirements.txt
+# Copy example config
+cp config.json.example config.json
 
-# Run example
-python3 examples/integration_example.py simple
+# Edit config.json with your timezone and settings
+nano config.json
+
+# Create required directories
+mkdir -p reports
+mkdir -p logs/daily
+mkdir -p logs/archive
 ```
 
-### Generate Your First Report
+## Developer: Evaluation and Tests
+
+This repository includes a small evaluation harness that can be run locally
+and a GitHub Actions workflow that runs evaluation on pushes and PRs.
+
+Quick local steps:
+
+1. Create and activate a Python virtual environment (optional but recommended):
 
 ```bash
-# Log some test events
-python3 examples/integration_example.py
-
-# Generate report
-python3 tools/auto_report.py
-
-# View dashboard
-python3 -m http.server 8000
-open http://localhost:8000/dashboard.html
+python3 -m venv .venv
+source .venv/bin/activate
 ```
 
-### Integration (3 Lines)
+2. Install development requirements:
+
+```bash
+pip install --upgrade pip
+pip install -r requirements-dev.txt
+```
+
+3. Run the evaluation tests:
+
+```bash
+pytest -q tests/evaluation
+```
+
+4. Run the evaluation runner (generates `evaluation/results.json`):
+
+```bash
+python3 evaluation/run_evaluation.py --queries evaluation/sample_queries.jsonl --output evaluation/results.json
+```
+
+Notes:
+- The evaluation runner is intentionally minimal and uses a placeholder
+  `synthesize_response()` function in `evaluation/run_evaluation.py` — replace
+  that with your real model or agent invocation to evaluate real outputs.
+- CI installs `requirements-dev.txt` and runs the evaluation tests and runner.
+
+
+**Note**: These directories are required for the tracker to function. The `reports/` directory stores generated JSON and Markdown reports, while `logs/daily/` and `logs/archive/` store event logs.
+
+## Usage
+
+### Verify Installation
+
+First, verify your installation is working correctly:
+
+```bash
+# Run the integration example to test the system
+python3 examples/integration_example.py
+```
+
+This will create sample events and generate a test report to ensure everything is configured properly.
+
+### Running the Tracker
+
+Log events manually or via automated tracking:
 
 ```python
-from tools.tracker_bridge import ActivityTrackerBridge
+from tools.daily_logger import write_event
 
-bridge = ActivityTrackerBridge()
-bridge.on_focus_change("VS Code", "main.py", 120)  # 2 minutes
+# Log a focus session
+write_event({
+    'type': 'focus_change',
+    'data': {
+        'app': 'VS Code',
+        'duration_seconds': 1800
+    }
+})
 ```
 
-**That's it!** Events are now logged to `logs/daily/YYYY-MM-DD.jsonl`
+### Generating Reports
 
-## 📖 Documentation
+```bash
+# Generate today's report
+python3 tools/auto_report.py
 
-| Document | Description |
-|----------|-------------|
-| **[QUICKSTART.md](QUICKSTART.md)** | Step-by-step checklist (45 minutes to complete setup) |
-| **[INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md)** | Complete integration guide with code examples |
-| **[examples/README.md](examples/README.md)** | API reference and integration examples |
-| **[DELIVERY_SUMMARY.md](DELIVERY_SUMMARY.md)** | Feature overview and what was delivered |
-| **[IMPROVEMENTS.md](IMPROVEMENTS.md)** | Technical architecture and design decisions |
+# Generate report for specific date
+python3 tools/auto_report.py --date 2025-12-05
 
-## 🎯 Use Cases
+# Generate weekly report
+python3 tools/auto_report.py --type weekly
 
-### For Individual Developers
-- Track coding sessions and productivity
-- Identify optimal focus times
-- Minimize context switching
-- Review daily/weekly progress
-
-### For Teams
-- Share productivity reports via Slack
-- Identify meeting overhead
-- Optimize team schedules
-- Track project time allocation
-
-### For Managers
-- Automated daily email summaries
-- Productivity trend analysis
-- Focus time vs. meeting time balance
-- Data-driven schedule optimization
-
-## 📊 Dashboard Preview
-
-```
-┌─────────────────────────────────────────────────────────┐
-│  Daily Productivity Report                              │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│  📊 Score: 85/100 (Excellent)                           │
-│  ⏱️  Deep Work: 4h 30min                                │
-│  🎯 Focus Time: 65%                                     │
-│  🔄 Interruptions: 12                                   │
-│                                                         │
-├─────────────────────────────────────────────────────────┤
-│  Hourly Interruptions          Category Distribution   │
-│  [Bar Chart]                   [Doughnut Chart]        │
-├─────────────────────────────────────────────────────────┤
-│  Sessions                                               │
-│  • 09:00-11:30 Development (95 quality)                │
-│  • 14:00-16:00 Writing (88 quality)                    │
-│  • 16:30-17:30 Research (75 quality)                   │
-└─────────────────────────────────────────────────────────┘
+# Custom output directory
+python3 tools/auto_report.py --output custom/path
 ```
 
-## 🔔 Notification Examples
+### Viewing the Dashboard
 
-### Email (HTML)
-- Gradient header with branding
-- Stats grid with icons
-- Top 3 productive sessions
-- Category breakdown with percentages
-- Focus window recommendations
+```bash
+# Start a local web server
+python3 -m http.server 8000
 
-### Slack (Rich Blocks)
-```
-📊 Daily Productivity Report — December 2, 2025
-
-Score: 85/100 (Excellent) 🎉
-⏱️ Deep Work: 4h 30min
-🎯 Focus Time: 65%
-🔄 Interruptions: 12
-
-🏆 Top Sessions:
-1. 09:00-11:30 (2.5h) — Development • Quality: 95
-2. 14:00-16:00 (2h) — Writing • Quality: 88
-3. 16:30-17:30 (1h) — Research • Quality: 75
+# Open in browser
+# http://localhost:8000/dashboard.html
 ```
 
-## 🏗️ Architecture
+Use the date picker to navigate between days and view your productivity metrics.
 
-### Core Modules (3,000+ lines of Python)
+### Sending Notifications
 
-- **`daily_logger.py`** (380 lines): Robust JSONL logging with error handling
-- **`tracker_bridge.py`** (220 lines): Integration API with deduplication
-- **`analytics.py`** (600 lines): Productivity analytics engine
-- **`idle_detection.py`** (400 lines): Cross-platform idle monitoring
-- **`auto_report.py`** (300 lines): Automated report generation
-- **`notifications.py`** (500 lines): Email and Slack delivery
-- **`dashboard.html`** (400 lines): Interactive web UI with Chart.js
+```bash
+# Send email notification
+python3 tools/notifications.py --email
 
-### Data Flow
+# Send Slack notification
+python3 tools/notifications.py --slack
 
-```
-Your Tracker
-    ↓
-tracker_bridge.py (deduplication)
-    ↓
-daily_logger.py (JSONL storage)
-    ↓
-analytics.py (productivity scoring)
-    ↓
-auto_report.py (JSON + Markdown)
-    ↓
-┌─────────────┬──────────────┐
-│  dashboard  │ notifications│
-│  (Chart.js) │ (Email/Slack)│
-└─────────────┴──────────────┘
+# Send both
+python3 tools/notifications.py --email --slack
 ```
 
-## 🔧 Configuration
+## Configuration
 
-Edit `config.json`:
+Edit `config.json` to customize:
+
+### Tracking Settings
+- `timezone`: Your local timezone (e.g., "America/Chicago")
+- `daily_start_hour` / `daily_end_hour`: Coverage window (default: 5:00 - 23:59)
+- `log_directory`: Path for daily event logs (default: "logs/daily")
+- `archive_directory`: Path for archived logs (default: "logs/archive")
+
+### Analytics Thresholds
+- `deep_work_threshold`: Minimum minutes for deep work session (default: 25)
+- `idle_threshold_seconds`: Gap to end a session (default: 300)
+- `context_switch_cost`: Seconds lost per interruption (default: 60)
+- `meeting_credit`: Fraction of meeting time counted as productive (default: 0.25)
+- `meeting_credit_description`: Optional description of how meeting credit is applied
+
+### Notifications
+- **Email**: SMTP server, credentials, recipients
+- **Slack**: Webhook URL, channel, username
+
+### Integrations
+- HubSpot, Aloware, Monday.com, Slack, Google Calendar (optional)
+
+## Automation
+
+**Important**: Before setting up automation, ensure the required directories exist:
+
+```bash
+mkdir -p reports logs/daily logs/archive
+```
+
+Test report generation manually first to verify everything works:
+
+```bash
+# Generate a test report
+python3 examples/integration_example.py
+python3 tools/auto_report.py
+```
+
+### Cron Job (Linux/macOS)
+
+Generate nightly reports at 11 PM:
+
+```bash
+0 23 * * * cd /path/to/DailyAccomplishments && python3 tools/auto_report.py
+```
+
+Generate weekly reports on Sunday:
+
+```bash
+0 0 * * 0 cd /path/to/DailyAccomplishments && python3 tools/auto_report.py --type weekly
+```
+
+### GitHub Actions
+
+The included workflow (`.github/workflows/generate_reports.yml`) automatically:
+- Generates daily reports at 11 PM UTC
+- Deploys reports to GitHub Pages
+- Runs on push to main branch
+
+## Dashboard Features
+
+- **Date Navigation**: Previous/Next buttons and date picker
+- **Productivity Score**: Large hero display with component breakdown
+- **Deep Work Sessions**: List of all sessions with duration, app, and quality scores
+- **Category Breakdown**: Doughnut chart showing time distribution
+- **Hourly Interruptions**: Bar chart of interruptions throughout the day
+- **Meeting Efficiency**: Stats and recommendations
+- **Focus Window Suggestions**: Optimal time blocks for scheduling deep work
+- **Responsive Design**: Works on desktop and mobile
+
+## Report Format
+
+### JSON Structure
 
 ```json
 {
-  "tracking": {
-    "daily_start_hour": 6,
-    "timezone": "America/Chicago",
-    "enable_running_log": true
-  },
-  "notifications": {
-    "email": {
-      "enabled": true,
-      "smtp_server": "smtp.gmail.com",
-      "username": "your-email@gmail.com",
-      "password": "your-app-password",
-      "to_emails": ["recipient@example.com"]
-    },
-    "slack": {
-      "enabled": true,
-      "webhook_url": "https://hooks.slack.com/services/...",
-      "channel": "#productivity"
-    }
+  "date": "2025-12-05",
+  "deep_work_sessions": [...],
+  "interruption_analysis": {...},
+  "productivity_score": {...},
+  "category_trends": {...},
+  "meeting_efficiency": {...},
+  "focus_windows": [...]
+}
+```
+
+### Markdown Format
+
+Human-readable summary with:
+- Overall score and rating
+- Key metrics (focus time, deep work, interruptions, meetings)
+- Deep work sessions list
+- Time by category
+- Interruption analysis
+- Meeting efficiency
+- Suggested focus windows
+
+## Privacy
+
+- **No window titles or URLs** are stored in logs or reports
+- Only **app names** and **event types** are tracked
+- **Aggregated metrics** suitable for sharing with teams
+- All data stored locally (no cloud sync by default)
+
+## Development
+
+### Running Tests
+
+```bash
+python3 -m pytest tests/
+```
+
+### Adding New Categories
+
+Edit `_categorize_app()` in `tools/analytics.py`:
+
+```python
+def _categorize_app(self, app_name):
+    app_lower = app_name.lower()
+    if 'your-app' in app_lower:
+        return 'YourCategory'
+    # ...
+```
+
+### Customizing Thresholds
+
+Edit the `analytics` section in `config.json`:
+
+```json
+{
+  "analytics": {
+    "deep_work_threshold": 30,
+    "idle_threshold_seconds": 600,
+    "context_switch_cost": 90
   }
 }
 ```
 
-## 📝 Event Types
+## Deployment
 
-| Event Type | Description | API Method |
-|------------|-------------|------------|
-| **focus_change** | User focuses on application | `on_focus_change(app, title, duration)` |
-| **app_switch** | Switch between applications | `on_app_switch(from_app, to_app)` |
-| **window_change** | Window title changes | `on_window_change(app, title)` |
-| **browser_visit** | Browser page visit | `on_browser_visit(domain, url, title)` |
-| **meeting_start** | Meeting begins | `on_meeting_start(name, duration)` |
-| **meeting_end** | Meeting ends | `on_meeting_end(name, duration)` |
-| **idle_start** | User becomes idle | `on_idle_start()` |
-| **idle_end** | User returns from idle | `on_idle_end(idle_seconds)` |
-| **manual_entry** | Manual time entry | `on_manual_entry(desc, duration, category)` |
-
-## 🎨 Customization
-
-### Categories
-
-Edit `tools/analytics.py`:
-
-```python
-CATEGORY_MAPPING = {
-    'Development': ['VS Code', 'Terminal', 'GitHub'],
-    'Communication': ['Slack', 'Email', 'Zoom'],
-    'Research': ['Safari', 'Chrome', 'Documentation'],
-    # Add your custom categories
-    'Learning': ['Udemy', 'YouTube', 'Coursera'],
-}
-```
-
-### Deep Work Threshold
-
-```python
-# In analytics.py, line ~250
-def detect_deep_work_sessions(self, sessions, min_duration=25):
-    # Change min_duration (default: 25 minutes)
-```
-
-### Idle Threshold
-
-```python
-# In idle_detection.py, line 25
-def __init__(self, idle_threshold_seconds: int = 300):
-    # Change threshold (default: 5 minutes)
-```
-
-## ⏰ Automation
-
-### macOS (launchd)
-
-```bash
-# Schedule daily report at 11:55 PM
-~/Library/LaunchAgents/com.dailyaccomplishments.report.plist
-launchctl load ~/Library/LaunchAgents/com.dailyaccomplishments.report.plist
-```
-
-### Linux (cron)
-
-```bash
-# Edit crontab
-crontab -e
-
-# Add daily jobs
-55 23 * * * python3 /path/to/tools/auto_report.py
-58 23 * * * python3 /path/to/tools/notifications.py
-```
-
-See `INTEGRATION_GUIDE.md` for complete launchd/cron templates.
-
-## 🌐 Deployment
-
-### Local Dashboard
+### Local
 
 ```bash
 python3 -m http.server 8000
-open http://localhost:8000/dashboard.html
 ```
 
 ### GitHub Pages
 
-```bash
-cp dashboard.html gh-pages/
-cp -r reports gh-pages/
-cd gh-pages && git push origin gh-pages
-# Access at: https://YOUR-USERNAME.github.io/DailyAccomplishments/
-```
+Push to `main` branch - GitHub Actions will deploy automatically.
 
-## 🧪 Testing
-
-Run the test suite:
+### Docker
 
 ```bash
-# Simple integration test
-python3 examples/integration_example.py simple
-
-# Full day simulation
-python3 examples/integration_example.py
-
-# Verify logs
-cat logs/daily/$(date +%Y-%m-%d).jsonl | jq
-
-# Generate report
-python3 tools/auto_report.py
-
-# Test notifications (if configured)
-python3 tools/notifications.py --email-only
-python3 tools/notifications.py --slack-only
+docker build -t daily-accomplishments .
+docker run -p 8000:8000 daily-accomplishments
 ```
 
-## 🐛 Troubleshooting
+### Cloud Platforms
 
-### Events Not Logging?
+Deploy to Railway, Heroku, or any platform supporting Python 3.9+.
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Contributing
+
+Contributions welcome! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request with tests
+
+See `IMPROVEMENTS.md` for planned enhancements.
+
+## Tracing (optional)
+
+You can enable OpenTelemetry tracing to visualize agent and application activity. By default this project will send traces to an OTLP endpoint at `http://localhost:4319` when configured via the helper in `tools/tracing.py`.
+
+Quick start:
+
+```python
+from tools.tracing import init_tracing
+
+# Initialize tracing early in your application startup
+tracer = init_tracing(service_name="daily-accomplishments")
+
+# Create a custom span
+with tracer.start_as_current_span("example_operation"):
+  do_some_work()
+```
+
+To change the OTLP endpoint, set the environment variable `OTEL_EXPORTER_OTLP_ENDPOINT` before starting the app, e.g.:
 
 ```bash
-# Check file permissions
-ls -la logs/daily/
-
-# Check for errors
-tail -f /tmp/dailyaccomplishments*.log
+export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4319"
 ```
 
-### Dashboard Not Loading?
-
-```bash
-# Check report exists
-ls -la reports/daily-report-*.json
-
-# Verify HTTP server
-lsof -i :8000
-
-# Check browser console (F12)
-```
-
-### Notifications Failing?
-
-```bash
-# Test email
-python3 -c "
-import smtplib
-s = smtplib.SMTP('smtp.gmail.com', 587)
-s.starttls()
-s.login('email', 'password')
-print('✅ Email OK')
-s.quit()
-"
-
-# Test Slack
-curl -X POST YOUR_WEBHOOK_URL \
-  -H 'Content-Type: application/json' \
-  -d '{"text": "Test"}'
-```
-
-## 📦 Requirements
-
-- Python 3.10+
-- matplotlib 3.10+
-- requests 2.32+
-- Modern web browser (for dashboard)
-
-## 🤝 Contributing
-
-This is a personal productivity tracking system, but feel free to fork and customize for your needs.
-
-## 📄 License
-
-MIT License - See LICENSE file for details
-
-## 🎯 Project Status
-
-**Production Ready** ✅
-
-- ✅ 3,000+ lines of production code
-- ✅ Comprehensive error handling
-- ✅ Full documentation
-- ✅ Working examples
-- ✅ Automated testing
-- ✅ Cross-platform support
-
-## 📞 Support
-
-For questions or issues:
-1. Check documentation in repository
-2. Review example code in `examples/`
-3. Check troubleshooting sections in guides
-
----
-
-**Ready to optimize your productivity?** Start with [QUICKSTART.md](QUICKSTART.md) 🚀
+Install the optional tracing requirements in `requirements.txt` to enable the exporter and auto-instrumentation.

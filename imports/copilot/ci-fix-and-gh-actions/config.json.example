@@ -1,0 +1,83 @@
+{
+  "_comment": "This is an example configuration file for Daily Accomplishments Tracker",
+  "_instructions": "Copy this file to config.json and update with your settings",
+  "_setup_steps": [
+    "1. Copy: cp config.json.example config.json",
+    "2. Set your timezone in tracking.timezone",
+    "3. Configure email settings in notifications.email (optional)",
+    "4. Configure Slack webhook in notifications.slack_webhook (optional)",
+    "5. Adjust analytics thresholds as needed"
+  ],
+  "tracking": {
+    "daily_start_hour": 5,
+    "daily_start_minute": 0,
+    "daily_end_hour": 23,
+    "daily_end_minute": 59,
+    "reset_hour": 0,
+    "reset_minute": 0,
+    "timezone": "America/Chicago",
+    "enable_running_log": true,
+    "log_directory": "logs/daily",
+    "archive_directory": "logs/archive",
+    "track_weekends": true,
+    "no_cutoff": true
+  },
+  "report": {
+    "coverage_start": "05:00",
+    "coverage_end": "23:59",
+    "remove_cutoff_label": true,
+    "show_full_day": true
+  },
+  "analytics": {
+    "deep_work_threshold": 25,
+    "idle_threshold_seconds": 300,
+    "context_switch_cost": 60,
+    "meeting_credit": 0.25
+  },
+  "category_priority": ["Coding", "Research", "Communication", "Other", "Meetings"],
+  "retention": {
+    "keep_daily_logs_days": 30,
+    "keep_reports_days": 365
+  },
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "use_tls": true,
+      "username": "your-email@gmail.com",
+      "password": "YOUR_APP_PASSWORD",
+      "from_email": "your-email@gmail.com",
+      "to_emails": ["recipient@example.com"]
+    },
+    "slack_webhook": {
+      "enabled": false,
+      "webhook_url": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL",
+      "channel": "#productivity",
+      "username": "Productivity Bot"
+    }
+  },
+  "hubspot": {
+    "access_token": "YOUR_TOKEN_HERE",
+    "enabled": false
+  },
+  "aloware": {
+    "api_key": "YOUR_API_KEY_HERE",
+    "company_id": "YOUR_COMPANY_ID",
+    "enabled": false
+  },
+  "monday": {
+    "api_token": "YOUR_TOKEN_HERE",
+    "board_ids": [],
+    "enabled": false
+  },
+  "slack": {
+    "bot_token": "YOUR_BOT_TOKEN_HERE",
+    "user_token": "YOUR_USER_TOKEN_HERE",
+    "enabled": false
+  },
+  "google_calendar": {
+    "enabled": false,
+    "credentials_file": "credentials/google_credentials.json"
+  }
+}
