@@ -4,6 +4,15 @@ Sync ActivityTracker reports to GitHub Pages.
 
 Run this on your Mac to push today's report to your GitHub Pages dashboard.
 
+This script intelligently detects uncommitted changes before attempting to commit
+and push, providing clear feedback about what actions are being taken.
+
+Features:
+    - Detects uncommitted changes in both main repo and gh-pages worktree
+    - Only commits when there are actual changes
+    - Provides clear status messages for each operation
+    - Handles git push failures gracefully
+
 Usage:
     python3 sync_to_github.py                    # Sync today
     python3 sync_to_github.py 2025-12-03         # Sync specific date
