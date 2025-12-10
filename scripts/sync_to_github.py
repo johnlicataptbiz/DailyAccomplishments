@@ -347,32 +347,35 @@ def check_for_changes(repo_path: Path) -> bool:
     if not repo_path.exists():
         raise FileNotFoundError(f"Repository path does not exist: {repo_path}")
     
-    try:
-        # Check both unstaged and staged changes
-        result_unstaged = subprocess.run(
-            ["git", "diff", "--quiet"],
-            cwd=repo_path,
-            capture_output=True,
-            check=False  # Don't raise on non-zero exit (expected for changes)
+    # Check both unstaged and staged changes
+    result_unstaged = subprocess.run(
+        ["git", "diff", "--quiet"],
+        cwd=repo_path,
+        capture_output=True,
+        check=False  # Don't raise on non-zero exit (expected for changes)
+    )
+    result_staged = subprocess.run(
+        ["git", "diff", "--cached", "--quiet"],
+        cwd=repo_path,
+        capture_output=True,
+        check=False  # Don't raise on non-zero exit (expected for changes)
+    )
+    
+    # Return codes: 0 = no changes, 1 = changes exist, >1 = error
+    if result_unstaged.returncode > 1:
+        raise subprocess.CalledProcessError(
+            result_unstaged.returncode,
+            "git diff --quiet (unstaged)",
+            stderr=result_unstaged.stderr
         )
-        result_staged = subprocess.run(
-            ["git", "diff", "--cached", "--quiet"],
-            cwd=repo_path,
-            capture_output=True,
-            check=False  # Don't raise on non-zero exit (expected for changes)
+    if result_staged.returncode > 1:
+        raise subprocess.CalledProcessError(
+            result_staged.returncode,
+            "git diff --cached --quiet (staged)",
+            stderr=result_staged.stderr
         )
-        # If either command returns non-zero, there are changes
-        # Return codes: 0 = no changes, 1 = changes exist, >1 = error
-        if result_unstaged.returncode > 1 or result_staged.returncode > 1:
-            raise subprocess.CalledProcessError(
-                max(result_unstaged.returncode, result_staged.returncode),
-                "git diff",
-                stderr=result_unstaged.stderr or result_staged.stderr
-            )
-        return result_unstaged.returncode != 0 or result_staged.returncode != 0
-    except (FileNotFoundError, subprocess.CalledProcessError) as e:
-        print(f"Error: Could not check git status in {repo_path}: {e}")
-        raise
+    
+    return result_unstaged.returncode != 0 or result_staged.returncode != 0
 
 
 def push_to_github():
