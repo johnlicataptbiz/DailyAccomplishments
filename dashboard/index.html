@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Daily Accomplishments</title>
+    <style>
+      html, body { height: 100%; margin: 0; }
+      iframe { border: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <script>
+      const t = Date.now();
+      const local = `/dashboard.html?t=${t}`;
+      const raw = `https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/dashboard.html?t=${t}`;
+      const src = local; // dashboard.html already has JSON fallback now
+      const f = document.createElement('iframe');
+      f.src = src;
+      f.onload = () => console.log('[build] iframe dashboard loaded', src);
+      f.onerror = () => { f.src = raw; console.log('[build] iframe fallback to raw', raw); };
+      document.body.appendChild(f);
+    </script>
+  </body>
+</html>

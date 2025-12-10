@@ -1,0 +1,31 @@
+{"type": "metadata", "version": "1.0", "timezone": "America/Chicago", "coverage": {"start": "05:00", "end": "23:59"}}
+{"type": "focus_change", "timestamp": "2025-12-05T08:00:00-06:00", "data": {"app": "VS Code", "duration_seconds": 1800}}
+{"type": "focus_change", "timestamp": "2025-12-05T08:30:00-06:00", "data": {"app": "VS Code", "duration_seconds": 1500}}
+{"type": "focus_change", "timestamp": "2025-12-05T09:00:00-06:00", "data": {"app": "VS Code", "duration_seconds": 2100}}
+{"type": "app_switch", "timestamp": "2025-12-05T09:35:00-06:00", "data": {"from_app": "VS Code", "to_app": "Slack"}}
+{"type": "focus_change", "timestamp": "2025-12-05T09:35:00-06:00", "data": {"app": "Slack", "duration_seconds": 300}}
+{"type": "app_switch", "timestamp": "2025-12-05T09:40:00-06:00", "data": {"from_app": "Slack", "to_app": "VS Code"}}
+{"type": "focus_change", "timestamp": "2025-12-05T09:40:00-06:00", "data": {"app": "VS Code", "duration_seconds": 1200}}
+{"type": "focus_change", "timestamp": "2025-12-05T10:00:00-06:00", "data": {"app": "Chrome", "duration_seconds": 900}}
+{"type": "focus_change", "timestamp": "2025-12-05T10:15:00-06:00", "data": {"app": "Chrome", "duration_seconds": 600}}
+{"type": "app_switch", "timestamp": "2025-12-05T10:25:00-06:00", "data": {"from_app": "Chrome", "to_app": "Terminal"}}
+{"type": "focus_change", "timestamp": "2025-12-05T10:25:00-06:00", "data": {"app": "Terminal", "duration_seconds": 1800}}
+{"type": "idle_start", "timestamp": "2025-12-05T11:00:00-06:00"}
+{"type": "idle_end", "timestamp": "2025-12-05T11:15:00-06:00", "data": {"duration_seconds": 900}}
+{"type": "focus_change", "timestamp": "2025-12-05T11:15:00-06:00", "data": {"app": "Chrome", "duration_seconds": 1200}}
+{"type": "focus_change", "timestamp": "2025-12-05T11:35:00-06:00", "data": {"app": "Notion", "duration_seconds": 1500}}
+{"type": "meeting_start", "timestamp": "2025-12-05T14:00:00-06:00", "data": {"title": "Team Sync"}}
+{"type": "meeting_end", "timestamp": "2025-12-05T14:30:00-06:00", "data": {"duration_seconds": 1800}}
+{"type": "focus_change", "timestamp": "2025-12-05T14:30:00-06:00", "data": {"app": "VS Code", "duration_seconds": 2400}}
+{"type": "focus_change", "timestamp": "2025-12-05T15:10:00-06:00", "data": {"app": "VS Code", "duration_seconds": 1800}}
+{"type": "app_switch", "timestamp": "2025-12-05T15:40:00-06:00", "data": {"from_app": "VS Code", "to_app": "Chrome"}}
+{"type": "focus_change", "timestamp": "2025-12-05T15:40:00-06:00", "data": {"app": "Chrome", "duration_seconds": 1200}}
+{"type": "window_change", "timestamp": "2025-12-05T16:00:00-06:00"}
+{"type": "focus_change", "timestamp": "2025-12-05T16:00:00-06:00", "data": {"app": "Chrome", "duration_seconds": 900}}
+{"type": "meeting_start", "timestamp": "2025-12-05T16:30:00-06:00", "data": {"title": "Client Call"}}
+{"type": "meeting_end", "timestamp": "2025-12-05T17:00:00-06:00", "data": {"duration_seconds": 1800}}
+{"type": "focus_change", "timestamp": "2025-12-05T17:00:00-06:00", "data": {"app": "VS Code", "duration_seconds": 3600}}
+{"type": "focus_change", "timestamp": "2025-12-05T18:00:00-06:00", "data": {"app": "VS Code", "duration_seconds": 1800}}
+{"type": "app_switch", "timestamp": "2025-12-05T18:30:00-06:00", "data": {"from_app": "VS Code", "to_app": "Slack"}}
+{"type": "focus_change", "timestamp": "2025-12-05T18:30:00-06:00", "data": {"app": "Slack", "duration_seconds": 600}}
+{"type": "focus_change", "timestamp": "2025-12-05T18:40:00-06:00", "data": {"app": "Chrome", "duration_seconds": 1200}}

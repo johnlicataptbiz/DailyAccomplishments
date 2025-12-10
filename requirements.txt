@@ -1,0 +1,11 @@
+# Optional dependencies for enhanced features
+# The core system uses only Python standard library
+
+# For chart generation in reports (optional)
+matplotlib>=3.5.0
+
+# For image processing (optional)
+pillow>=9.0.0
+
+# For Slack notifications (optional)
+requests>=2.28.0

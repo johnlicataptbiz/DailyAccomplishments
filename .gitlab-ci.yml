@@ -1,0 +1,71 @@
+# Simplified CI pipeline tailored for the Daily Accomplishments Tracker
+# Installs dependencies via requirements.txt instead of pip install .
+
+image: python:3.12-slim
+
+stages:
+  - .pre
+  - build
+  - test
+  - run
+  - docs
+  - deploy
+  - .post
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+before_script:
+  - python --version
+  - pip --version
+  - python -m venv venv
+  - . venv/bin/activate
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
+lint_and_test:
+  stage: test
+  script:
+    - . venv/bin/activate
+    - pip install pytest
+    - pytest
+
+run:
+  stage: run
+  script:
+    - . venv/bin/activate
+    - echo "Add run commands here (e.g., python tools/generate_reports.py)"
+  artifacts:
+    paths:
+      - build/
+
+pages:
+  stage: docs
+  before_script:
+    - python --version
+    - pip --version
+    - python -m venv venv
+    - . venv/bin/activate
+    - pip install --upgrade pip
+    - pip install sphinx sphinx-rtd-theme
+  script:
+    - . venv/bin/activate
+    - mkdir -p public
+    - echo "Documentation coming soon" > public/index.html
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Define your deployment script!"
+  environment: production
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

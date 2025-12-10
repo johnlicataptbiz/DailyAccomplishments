@@ -1,0 +1,37 @@
+# Ignore runtime logs
+logs/
+
+# Config with secrets (API tokens)
+config.json
+
+# Credentials directory (OAuth tokens, API keys)
+credentials/
+!credentials/README.md
+
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Generated reports and charts (can be regenerated)
+reports/charts/*.png
+reports/charts/*.svg
+reports/charts/*.csv
+
+# Temporary and backup files
+*.bak
+*.tmp
+*.rtf
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/settings.json
+*.code-workspace

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Accomplishments Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <style>
+        :root {
+            --bg: #1a1a2e;
+            --surface: #16213e;
+            --text: #eee;
+            --text-muted: #aaa;
+            --border: #333;
+            --accent: #0f3460;
+            --accent-bright: #e94560;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-bright) 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        header h1 {
+            margin: 0 0 15px 0;
+            font-size: 2em;
+        }
+        
+        .date-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .date-controls input,
+        .date-controls button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .date-controls input {
+            background: rgba(255,255,255,0.9);
+            color: #333;
+        }
+        
+        .date-controls button {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .date-controls button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        
+        .metric-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 0.9em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--accent-bright);
+        }
+        
+        .metric-label {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+        
+        .section {
+            background: var(--surface);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+        
+        .section h2 {
+            margin: 0 0 20px 0;
+            font-size: 1.5em;
+            border-bottom: 2px solid var(--accent-bright);
+            padding-bottom: 10px;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-top: 20px;
+        }
+        
+        .session-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .session-item {
+            background: var(--accent);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid var(--accent-bright);
+        }
+        
+        .session-item strong {
+            color: var(--accent-bright);
+            font-size: 1.1em;
+        }
+        
+        .session-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
+        
+        .focus-window {
+            background: var(--accent);
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #4ade80;
+        }
+        
+        .focus-window strong {
+            color: #4ade80;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+        }
+        
+        .error {
+            background: rgba(233, 69, 96, 0.2);
+            border: 1px solid var(--accent-bright);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            color: var(--accent-bright);
+        }
+        
+        .hero-score {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--surface) 100%);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-score .score {
+            font-size: 4em;
+            font-weight: bold;
+            color: var(--accent-bright);
+            margin: 0;
+        }
+        
+        .hero-score .rating {
+            font-size: 1.5em;
+            color: var(--text-muted);
+            margin: 10px 0;
+        }
+        
+        .score-components {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .score-component {
+            text-align: center;
+        }
+        
+        .score-component .value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent-bright);
+        }
+        
+        .score-component .label {
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 600px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-card {
+                border-left: 4px solid var(--accent-bright);
+            }
+            
+            .hero-score .score {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Daily Accomplishments</h1>
+            <div class="date-controls">
+                <button id="prevDay">← Previous</button>
+                <input type="date" id="datePicker">
+                <button id="nextDay">Next →</button>
+                <span id="dateSubtitle" style="margin-left: 15px; opacity: 0.9;"></span>
+            </div>
+        </header>
+        
+        <div id="loadingIndicator" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Loading your day...</p>
+        </div>
+        
+        <div id="errorMessage" class="error" style="display: none;"></div>
+        
+        <div id="dashboard"></div>
+    </div>
+    
+    <script>
+        let currentDate = null;
+        let charts = {};
+        
+        function formatDateFriendly(dateStr) {
+            const date = new Date(dateStr + 'T00:00:00');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const yesterday = new Date(today);
+            yesterday.setDate(yesterday.getDate() - 1);
+            
+            if (date.getTime() === today.getTime()) {
+                return 'Today';
+            } else if (date.getTime() === yesterday.getTime()) {
+                return 'Yesterday';
+            } else {
+                return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+            }
+        }
+        
+        async function loadData(date) {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorMessage = document.getElementById('errorMessage');
+            const dashboard = document.getElementById('dashboard');
+            
+            loadingIndicator.style.display = 'block';
+            errorMessage.style.display = 'none';
+            dashboard.innerHTML = '';
+            
+            try {
+                // Try primary report path (adjusted for GitHub Pages)
+                let response = await fetch(`../reports/daily-report-${date}.json?t=${Date.now()}`);
+                
+                // Fallback to alternative path
+                if (!response.ok) {
+                    response = await fetch(`../ActivityReport-${date}.json?t=${Date.now()}`);
+                }
+                
+                if (!response.ok) {
+                    throw new Error('Report not found');
+                }
+                
+                const data = await response.json();
+                renderDashboard(data);
+                
+                document.getElementById('dateSubtitle').textContent = formatDateFriendly(date);
+                
+            } catch (error) {
+                errorMessage.innerHTML = `
+                    <h3>📭 No report found for ${formatDateFriendly(date)}</h3>
+                    <p>Generate a report with: <code>python3 tools/auto_report.py --date ${date}</code></p>
+                `;
+                errorMessage.style.display = 'block';
+            } finally {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+        
+        function renderDashboard(data) {
+            const dashboard = document.getElementById('dashboard');
+            
+            // Destroy old charts
+            Object.values(charts).forEach(chart => chart.destroy());
+            charts = {};
+            
+            const score = data.productivity_score;
+            const interruptions = data.interruption_analysis;
+            const categories = data.category_trends;
+            const meetings = data.meeting_efficiency;
+            const sessions = data.deep_work_sessions;
+            const windows = data.focus_windows;
+            
+            let html = '';
+            
+            // Hero Score
+            html += `
+                <div class="hero-score">
+                    <div class="score">${score.overall_score}</div>
+                    <div class="rating">${score.rating}</div>
+                    <div class="score-components">
+                        <div class="score-component">
+                            <div class="value">${score.components.deep_work_score}</div>
+                            <div class="label">Deep Work</div>
+                        </div>
+                        <div class="score-component">
+                            <div class="value">${score.components.interruption_score}</div>
+                            <div class="label">Interruptions</div>
+                        </div>
+                        <div class="score-component">
+                            <div class="value">${score.components.quality_score}</div>
+                            <div class="label">Quality</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Metrics Grid
+            html += `
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Deep Work Time</h3>
+                        <div class="metric-value">${score.metrics.deep_work_minutes}</div>
+                        <div class="metric-label">minutes</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Focus Percentage</h3>
+                        <div class="metric-value">${score.metrics.deep_work_percentage}%</div>
+                        <div class="metric-label">of total time</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Interruptions</h3>
+                        <div class="metric-value">${interruptions.total_interruptions}</div>
+                        <div class="metric-label">context switches</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Meetings</h3>
+                        <div class="metric-value">${meetings.meeting_count}</div>
+                        <div class="metric-label">${meetings.total_meeting_minutes} minutes</div>
+                    </div>
+                </div>
+            `;
+            
+            // Deep Work Sessions
+            html += `
+                <div class="section">
+                    <h2>🎯 Deep Work Sessions</h2>
+            `;
+            
+            if (sessions.length > 0) {
+                html += '<ul class="session-list">';
+                sessions.forEach((session, i) => {
+                    html += `
+                        <li class="session-item">
+                            <strong>${i + 1}. ${session.app}</strong> - ${session.duration_minutes} minutes
+                            <div class="session-details">
+                                <div>Started: ${new Date(session.start_time).toLocaleTimeString()}</div>
+                                <div>Interruptions: ${session.interruptions}</div>
+                                <div>Quality: ${session.quality_score || 'N/A'}/100</div>
+                            </div>
+                        </li>
+                    `;
+                });
+                html += '</ul>';
+            } else {
+                html += '<p style="color: var(--text-muted);">No deep work sessions detected (sessions must be ≥25 minutes).</p>';
+            }
+            
+            html += '</div>';
+            
+            // Category Breakdown
+            html += `
+                <div class="section">
+                    <h2>📂 Time by Category</h2>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            `;
+            
+            // Interruptions Chart
+            html += `
+                <div class="section">
+                    <h2>⚡ Interruption Analysis</h2>
+                    <p><strong>Total:</strong> ${interruptions.total_interruptions} interruptions</p>
+                    <p><strong>Context Switch Cost:</strong> ${interruptions.context_switch_cost_minutes} minutes</p>
+                    <div class="chart-container">
+                        <canvas id="interruptionsChart"></canvas>
+                    </div>
+                </div>
+            `;
+            
+            // Meeting Efficiency
+            html += `
+                <div class="section">
+                    <h2>🤝 Meeting Efficiency</h2>
+                    <p><strong>Total Meetings:</strong> ${meetings.meeting_count}</p>
+                    <p><strong>Total Time:</strong> ${meetings.total_meeting_minutes} minutes</p>
+                    ${meetings.meeting_count > 0 ? `
+                        <p><strong>Average Duration:</strong> ${meetings.average_duration_minutes} minutes</p>
+                        <p><strong>Meeting/Focus Ratio:</strong> ${meetings.meeting_vs_focus_ratio}</p>
+                    ` : ''}
+                    <p><strong>Recommendation:</strong> ${meetings.recommendation}</p>
+                </div>
+            `;
+            
+            // Focus Windows
+            html += `
+                <div class="section">
+                    <h2>💡 Suggested Focus Windows</h2>
+            `;
+            
+            if (windows.length > 0) {
+                windows.forEach(window => {
+                    html += `
+                        <div class="focus-window">
+                            <strong>${window.start_time} - ${window.end_time}</strong> (${window.duration_hours} hours)
+                            <div style="margin-top: 5px; font-size: 0.9em;">
+                                Quality: ${window.quality} | Interruptions: ${window.total_interruptions}
+                                <br>${window.recommendation}
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                html += '<p style="color: var(--text-muted);">No optimal focus windows identified.</p>';
+            }
+            
+            html += '</div>';
+            
+            dashboard.innerHTML = html;
+            
+            // Create charts
+            if (categories.categories.length > 0) {
+                const ctx1 = document.getElementById('categoryChart').getContext('2d');
+                charts.categoryChart = new Chart(ctx1, {
+                    type: 'doughnut',
+                    data: {
+                        labels: categories.categories.map(c => c.category),
+                        datasets: [{
+                            data: categories.categories.map(c => c.time_minutes),
+                            backgroundColor: [
+                                '#e94560',
+                                '#0f3460',
+                                '#16213e',
+                                '#533483',
+                                '#f39c12',
+                                '#27ae60'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: { color: '#eee' }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            if (Object.keys(interruptions.interruptions_per_hour).length > 0) {
+                const ctx2 = document.getElementById('interruptionsChart').getContext('2d');
+                const hours = Object.keys(interruptions.interruptions_per_hour).sort((a, b) => a - b);
+                charts.interruptionsChart = new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: hours.map(h => `${h}:00`),
+                        datasets: [{
+                            label: 'Interruptions',
+                            data: hours.map(h => interruptions.interruptions_per_hour[h]),
+                            backgroundColor: '#e94560'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: { color: '#eee' }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { color: '#aaa' },
+                                grid: { color: '#333' }
+                            },
+                            x: {
+                                ticks: { color: '#aaa' },
+                                grid: { color: '#333' }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        
+        function init() {
+            const today = new Date();
+            currentDate = today.toISOString().split('T')[0];
+            
+            document.getElementById('datePicker').value = currentDate;
+            loadData(currentDate);
+            
+            document.getElementById('datePicker').addEventListener('change', (e) => {
+                currentDate = e.target.value;
+                loadData(currentDate);
+            });
+            
+            document.getElementById('prevDay').addEventListener('click', () => {
+                const date = new Date(currentDate + 'T00:00:00');
+                date.setDate(date.getDate() - 1);
+                currentDate = date.toISOString().split('T')[0];
+                document.getElementById('datePicker').value = currentDate;
+                loadData(currentDate);
+            });
+            
+            document.getElementById('nextDay').addEventListener('click', () => {
+                const date = new Date(currentDate + 'T00:00:00');
+                date.setDate(date.getDate() + 1);
+                currentDate = date.toISOString().split('T')[0];
+                document.getElementById('datePicker').value = currentDate;
+                loadData(currentDate);
+            });
+        }
+        
+        window.onload = init;
+    </script>
+</body>
+</html>

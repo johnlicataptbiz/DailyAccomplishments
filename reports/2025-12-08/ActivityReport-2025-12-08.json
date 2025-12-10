@@ -1,0 +1,250 @@
+{
+  "source_file": "ActivityReport-2025-12-08.json",
+  "date": "2025-12-08",
+  "title": "Daily Accomplishments \u2014 2025-12-08",
+  "overview": {
+    "active_time": "00:51",
+    "focus_time": "01:36",
+    "meetings_time": "00:00",
+    "coverage_time": "03:02",
+    "coverage_window": "00:00\u201303:02",
+    "appointments": 0,
+    "projects_count": 4
+  },
+  "prepared_for_manager": [
+    "Active Time: 00:51",
+    "Focus Time: 00:51",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, Electron, app_mode_loader"
+  ],
+  "executive_summary": [
+    "Active: 00:51 | Focus: 00:51",
+    "Coverage: 00:00\u201303:02 CST",
+    "Screen Time: ~181 min foreground app usage"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:30)",
+    "Focused on Electron (00:17)",
+    "Focused on app_mode_loader (00:02)",
+    "Focused on Finder (00:00)",
+    "Focused on Dictionary (00:00)"
+  ],
+  "by_category": {
+    "Research": "00:28",
+    "Other": "00:20",
+    "Coding": "01:09",
+    "Communication": "00:00"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 276
+      },
+      {
+        "domain": "dailyaccomplishmentsptbiz.up",
+        "visits": 5
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Add structured integration task list from PDF analysis by Copilot \u00b7 Pull Request",
+        "visits": 11
+      },
+      {
+        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 9
+      },
+      {
+        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 8
+      },
+      {
+        "page": "DailyAccomplishments ",
+        "visits": 8
+      },
+      {
+        "page": "GitKraken.dev - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 8
+      },
+      {
+        "page": "Home \u00b7 GitLab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 7
+      },
+      {
+        "page": "Quickstart: Create and execute a job in Cloud Run \u00a0",
+        "visits": 6
+      },
+      {
+        "page": "Revisions \u2026ments-git \u2013 Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Goog",
+        "visits": 5
+      },
+      {
+        "page": "Google Cloud console - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 5
+      },
+      {
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 5
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:23",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:33",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "VS Code": "01:09",
+    "Google Chrome": "00:27"
+  },
+  "top_windows_preview": [
+    "Electron \u2014 Untitled-1.ipynb \u2014 DailyAccomplishments [Codespace: 00:02",
+    "app_mode_loader \u2014 missing value: 00:02",
+    "Google Chrome: 00:01",
+    "Electron \u2014 Commit Composer (Preview) \u2014 DailyAccomplishments [: 00:01",
+    "Electron \u2014 Updating Copilot instructions for codebase product: 00:01",
+    "Electron \u2014 Welcome \u2014 DailyAccomplishments [Codespaces: fluffy: 00:01",
+    "Electron \u2014 NewIssue.md \u2014 DailyAccomplishments [Codespaces: fl: 00:01",
+    "Electron \u2014 GitHub Copilot Cloud Agent \u2014 DailyAccomplishments : 00:00",
+    "Google Chrome \u2014 Add structured integration task list from PDF anal: 00:00",
+    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "deep_work": [
+    {
+      "start": "01:25",
+      "end": "02:01",
+      "minutes": 33,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "02:03",
+      "end": "02:41",
+      "minutes": 32,
+      "category": "Coding",
+      "label": "VS Code"
+    }
+  ],
+  "debug_appointments": {
+    "meetings_today": []
+  }
+}
