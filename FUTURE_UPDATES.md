@@ -23,10 +23,10 @@ Files touched: `scripts/import_screentime.py`, `scripts/import_browser_history.p
 ## Phase 2 — Deep Work Timeline Overlay
 Goal: Visualize contiguous focused blocks (>= 25 min) with labels.
 
-- [ ] Extract deep work blocks from hourly_focus (detect contiguous >= 25 min)
-- [ ] Render as chips or bars on the hourly timeline with category/app label
-- [ ] Tooltip: start–end, total minutes, category
-- [ ] Acceptance: visually distinct blocks align with reported focus minutes
+- `[x] Extract deep work blocks from hourly_focus (detect contiguous >= 25 min)`: **Completed.** Now detected from a cleaned, high-fidelity timeline.
+- `[x] Render as chips or bars on the hourly timeline with category/app label`: **Completed.** Implemented as both hero chips and an SVG timeline overlay.
+- `[x] Tooltip: start–end, total minutes, category`: **Completed.** Custom tooltips are implemented on the new timeline.
+- `[x] Acceptance: visually distinct blocks align with reported focus minutes`: **Completed.**
 
 Files: `tools/generate_reports.py` (optional), `dashboard.html` (render + styles).
 
