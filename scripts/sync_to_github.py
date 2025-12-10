@@ -365,13 +365,13 @@ def check_for_changes(repo_path: Path) -> bool:
     if result_unstaged.returncode > 1:
         raise subprocess.CalledProcessError(
             result_unstaged.returncode,
-            "git diff --quiet (unstaged)",
+            ["git", "diff", "--quiet"],
             stderr=result_unstaged.stderr
         )
     if result_staged.returncode > 1:
         raise subprocess.CalledProcessError(
             result_staged.returncode,
-            "git diff --cached --quiet (staged)",
+            ["git", "diff", "--cached", "--quiet"],
             stderr=result_staged.stderr
         )
     
@@ -422,8 +422,8 @@ def push_to_github():
                 print(f"⚠ Commit failed: {result.stderr}")
         else:
             print("No changes to commit in main branch")
-    except (FileNotFoundError, subprocess.CalledProcessError) as e:
-        print(f"⚠ Error handling main branch: {e}")
+    except subprocess.CalledProcessError as e:
+        print(f"⚠ Git command failed in main branch: {e}")
     except OSError as e:
         print(f"⚠ System error accessing main branch: {e}")
     
@@ -464,8 +464,8 @@ def push_to_github():
                         print(f"⚠ gh-pages commit failed: {result.stderr}")
                 else:
                     print("No changes to commit in gh-pages")
-            except (FileNotFoundError, subprocess.CalledProcessError) as e:
-                print(f"⚠ Error handling gh-pages: {e}")
+            except subprocess.CalledProcessError as e:
+                print(f"⚠ Git command failed in gh-pages: {e}")
             except OSError as e:
                 print(f"⚠ System error accessing gh-pages: {e}")
         else:
