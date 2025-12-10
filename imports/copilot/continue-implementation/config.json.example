@@ -1,0 +1,66 @@
+
+{
+  "tracking": {
+    "timezone": "America/Chicago",
+    "daily_start_hour": 6,
+    "daily_start_minute": 0,
+    "idle_threshold_seconds": 300,
+    "enable_running_log": true
+  },
+  "report": {
+    "coverage_start": "05:00",
+    "coverage_end": "23:59",
+    "log_dir": "logs/daily",
+    "archive_dir": "logs/archive",
+    "backup_dir": "logs/backup"
+  },
+  "retention": {
+    "keep_daily_logs_days": 30,
+    "keep_archive_logs_days": 365
+  },
+  "analytics": {
+    "deep_work_threshold_minutes": 25,
+    "interruption_window_seconds": 300,
+    "context_switch_cost_seconds": 60,
+    "focus_window_start_hour": 6,
+    "focus_window_end_hour": 23,
+    "category_mapping": {
+      "Development": ["VS Code", "Terminal", "GitHub", "PyCharm", "IntelliJ", "Vim", "Eclipse"],
+      "Communication": ["Slack", "Zoom", "Microsoft Teams", "Google Meet", "Email", "Outlook", "Gmail", "Messages", "Discord"],
+      "Research": ["Google Chrome", "Safari", "Firefox", "Edge", "Documentation", "Stack Overflow", "Jira", "Confluence"],
+      "Meetings": ["Zoom", "Google Meet", "Microsoft Teams", "Calendar"],
+      "Docs": ["Word", "Excel", "Sheets", "Docs", "Notion", "Obsidian", "Evernote"],
+      "Learning": ["Udemy", "YouTube", "Coursera", "Khan Academy"],
+      "Other": []
+    },
+    "category_priority": [
+      "Meetings",
+      "Development",
+      "Research",
+      "Communication",
+      "Docs",
+      "Learning",
+      "Other"
+    ]
+  },
+  "notifications": {
+    "email": {
+      "enabled": false,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "username": "your-email@gmail.com",
+      "password": "YOUR_GMAIL_APP_PASSWORD",
+      "from_email": "your-email@gmail.com",
+      "to_emails": ["recipient@example.com"]
+    },
+    "slack": {
+      "enabled": false,
+      "webhook_url": "YOUR_SLACK_WEBHOOK_URL",
+      "channel": "#productivity",
+      "username": "Productivity Bot"
+    }
+  },
+  "weights": {
+    "meeting_credit": 0.25
+  }
+}
