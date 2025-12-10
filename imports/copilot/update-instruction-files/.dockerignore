@@ -1,0 +1,16 @@
+.git
+.vscode
+.venv
+node_modules
+__pycache__
+logs
+logs.backup-*
+credentials
+scripts
+tools
+*.pid
+*.log
+*.pyc
+*.pyo
+.DS_Store
+gh-pages

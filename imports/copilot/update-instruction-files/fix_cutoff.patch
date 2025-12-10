@@ -1,0 +1,14 @@
+--- activity_tracker.py.orig
++++ activity_tracker.py
+@@ -753,7 +753,7 @@ def generate_summary_for(
+-def generate_summary_for(date_local: datetime, cutoff_hour_local: int = 16) -> dict:
++def generate_summary_for(date_local: datetime, cutoff_hour_local: int = 23) -> dict:
+@@ -790,7 +790,7 @@ def aggregate_summary(
+-def aggregate_summary(date_local: datetime, cutoff_hour_local: int = 16, recompute: bool = False) -> dict:
++def aggregate_summary(date_local: datetime, cutoff_hour_local: int = 23, recompute: bool = False) -> dict:
+@@ -2218,7 +2218,7 @@ def generate_summary_html_for(
+-def generate_summary_html_for(date_local: datetime, cutoff_hour_local: int = 16) -> str:
++def generate_summary_html_for(date_local: datetime, cutoff_hour_local: int = 23) -> str:
+@@ -3375,7 +3375,7 @@ daemon scheduler cut_at
+-            cut_at = now_tz(CHICAGO_TZ).replace(hour=16, minute=0, second=0, microsecond=0)
++            cut_at = now_tz(CHICAGO_TZ).replace(hour=23, minute=0, second=0, microsecond=0)
