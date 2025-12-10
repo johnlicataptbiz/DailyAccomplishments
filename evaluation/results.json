@@ -1,0 +1,27 @@
+{
+  "metrics": {
+    "count": 2,
+    "avg_response_length": 42.5,
+    "exact_match_rate": 1.0
+  },
+  "items": [
+    {
+      "query": {
+        "id": 1,
+        "text": "Summarize today's accomplishments.",
+        "expected": "RESPONSE: Summarize today's accomplishments."
+      },
+      "response": "RESPONSE: Summarize today's accomplishments.",
+      "exact_match": true
+    },
+    {
+      "query": {
+        "id": 2,
+        "text": "List top domains visited today.",
+        "expected": "RESPONSE: List top domains visited today."
+      },
+      "response": "RESPONSE: List top domains visited today.",
+      "exact_match": true
+    }
+  ]
+}

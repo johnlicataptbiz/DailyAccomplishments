@@ -98,6 +98,8 @@ class TestProductivityAnalytics(unittest.TestCase):
         
         self.assertIn('total_meeting_minutes', efficiency)
         self.assertIn('meeting_count', efficiency)
+        self.assertIn('meeting_credit_minutes', efficiency)
+        self.assertIn('effective_productive_minutes', efficiency)
         self.assertIn('recommendation', efficiency)
     
     def test_focus_windows(self):
@@ -133,6 +135,10 @@ class TestProductivityAnalytics(unittest.TestCase):
         
         # Verify report is a dictionary
         self.assertIsInstance(report, dict)
+        
+        meeting_efficiency = report['meeting_efficiency']
+        self.assertIn('meeting_credit_minutes', meeting_efficiency)
+        self.assertIn('effective_productive_minutes', meeting_efficiency)
         
         # Verify all required keys are present
         required_keys = [

@@ -1,0 +1,32 @@
+name: Evaluation
+
+on:
+  push:
+    branches: [ main, codespace-consolidation ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  evaluation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dev requirements
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+
+      - name: Run pytest (evaluation tests)
+        run: |
+          pytest -q tests/evaluation
+
+      - name: Run evaluation runner
+        run: |
+          python3 evaluation/run_evaluation.py --queries evaluation/sample_queries.jsonl --output evaluation/results-ci.json

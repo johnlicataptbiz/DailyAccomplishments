@@ -57,6 +57,46 @@ mkdir -p logs/daily
 mkdir -p logs/archive
 ```
 
+## Developer: Evaluation and Tests
+
+This repository includes a small evaluation harness that can be run locally
+and a GitHub Actions workflow that runs evaluation on pushes and PRs.
+
+Quick local steps:
+
+1. Create and activate a Python virtual environment (optional but recommended):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+2. Install development requirements:
+
+```bash
+pip install --upgrade pip
+pip install -r requirements-dev.txt
+```
+
+3. Run the evaluation tests:
+
+```bash
+pytest -q tests/evaluation
+```
+
+4. Run the evaluation runner (generates `evaluation/results.json`):
+
+```bash
+python3 evaluation/run_evaluation.py --queries evaluation/sample_queries.jsonl --output evaluation/results.json
+```
+
+Notes:
+- The evaluation runner is intentionally minimal and uses a placeholder
+  `synthesize_response()` function in `evaluation/run_evaluation.py` — replace
+  that with your real model or agent invocation to evaluate real outputs.
+- CI installs `requirements-dev.txt` and runs the evaluation tests and runner.
+
+
 **Note**: These directories are required for the tracker to function. The `reports/` directory stores generated JSON and Markdown reports, while `logs/daily/` and `logs/archive/` store event logs.
 
 ## Usage
@@ -145,6 +185,7 @@ Edit `config.json` to customize:
 - `idle_threshold_seconds`: Gap to end a session (default: 300)
 - `context_switch_cost`: Seconds lost per interruption (default: 60)
 - `meeting_credit`: Fraction of meeting time counted as productive (default: 0.25)
+- `meeting_credit_description`: Optional description of how meeting credit is applied
 
 ### Notifications
 - **Email**: SMTP server, credentials, recipients
@@ -304,3 +345,28 @@ Contributions welcome! Please:
 3. Submit a pull request with tests
 
 See `IMPROVEMENTS.md` for planned enhancements.
+
+## Tracing (optional)
+
+You can enable OpenTelemetry tracing to visualize agent and application activity. By default this project will send traces to an OTLP endpoint at `http://localhost:4319` when configured via the helper in `tools/tracing.py`.
+
+Quick start:
+
+```python
+from tools.tracing import init_tracing
+
+# Initialize tracing early in your application startup
+tracer = init_tracing(service_name="daily-accomplishments")
+
+# Create a custom span
+with tracer.start_as_current_span("example_operation"):
+  do_some_work()
+```
+
+To change the OTLP endpoint, set the environment variable `OTEL_EXPORTER_OTLP_ENDPOINT` before starting the app, e.g.:
+
+```bash
+export OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4319"
+```
+
+Install the optional tracing requirements in `requirements.txt` to enable the exporter and auto-instrumentation.
