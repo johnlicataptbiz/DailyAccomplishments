@@ -9,3 +9,7 @@ pillow>=9.0.0
 
 # For Slack notifications (optional)
 requests>=2.28.0
+
+# Security: Pin urllib3 to patched version (CVE fixes)
+# Addresses: streaming API compression vulnerabilities and unbounded decompression chain
+urllib3>=2.6.0
