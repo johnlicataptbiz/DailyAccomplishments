@@ -366,12 +366,14 @@ def check_for_changes(repo_path: Path) -> bool:
         raise subprocess.CalledProcessError(
             result_unstaged.returncode,
             ["git", "diff", "--quiet"],
+            output=None,
             stderr=result_unstaged.stderr
         )
     if result_staged.returncode > 1:
         raise subprocess.CalledProcessError(
             result_staged.returncode,
             ["git", "diff", "--cached", "--quiet"],
+            output=None,
             stderr=result_staged.stderr
         )
     
