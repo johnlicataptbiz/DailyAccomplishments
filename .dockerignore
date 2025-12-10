@@ -7,7 +7,6 @@ logs
 logs.backup-*
 credentials
 scripts
-tools
 *.pid
 *.log
 *.pyc
