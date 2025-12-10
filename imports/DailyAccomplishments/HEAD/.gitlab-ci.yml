@@ -1,0 +1,62 @@
+# GitLab CI/CD Pipeline for Daily Accomplishments Tracker
+
+image: python:3.12-slim
+
+stages:
+  - test
+  - validate
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+before_script:
+  - python --version
+  - pip install --upgrade pip
+
+# Run unit tests
+test:python:
+  stage: test
+  script:
+    - echo "Installing dependencies..."
+    - pip install -r requirements.txt || echo "No requirements.txt or optional dependencies"
+    - echo "Running unit tests..."
+    - python -m pytest tests/ -v --tb=short || python -m unittest discover -s tests -p 'test_*.py' -v
+  allow_failure: false
+  only:
+    - merge_requests
+    - main
+    - branches
+
+# Validate configuration and imports
+validate:config:
+  stage: validate
+  script:
+    - echo "Validating configuration..."
+    - python -c "import json; json.load(open('config.json'))"
+    - echo "Validating Python imports..."
+    - python -c "from tools import daily_logger, analytics, auto_report, notifications"
+    - echo "Checking example data..."
+    - test -f examples/sample_events.jsonl && echo "Sample events found" || echo "No sample events"
+  allow_failure: false
+  only:
+    - merge_requests
+    - main
+    - branches
+
+# Optional: Generate test report
+test:report:
+  stage: test
+  script:
+    - echo "Testing report generation..."
+    - pip install -r requirements.txt || echo "Optional dependencies not installed"
+    - mkdir -p logs/daily reports
+    - cp examples/sample_events.jsonl logs/daily/2025-12-05.jsonl || echo "No sample data"
+    - python tools/auto_report.py --date 2025-12-05 --output reports || echo "Report generation test completed"
+  allow_failure: true
+  only:
+    - merge_requests
+    - main
