@@ -341,23 +341,36 @@ def check_for_changes(repo_path: Path) -> bool:
         True if there are uncommitted changes (staged or unstaged), False otherwise
         
     Raises:
-        Exception: If git commands fail unexpectedly (e.g., not a git repo)
+        FileNotFoundError: If the repository path does not exist
+        subprocess.CalledProcessError: If git commands fail
     """
+    if not repo_path.exists():
+        raise FileNotFoundError(f"Repository path does not exist: {repo_path}")
+    
     try:
         # Check both unstaged and staged changes
         result_unstaged = subprocess.run(
             ["git", "diff", "--quiet"],
             cwd=repo_path,
-            capture_output=True
+            capture_output=True,
+            check=False  # Don't raise on non-zero exit (expected for changes)
         )
         result_staged = subprocess.run(
             ["git", "diff", "--cached", "--quiet"],
             cwd=repo_path,
-            capture_output=True
+            capture_output=True,
+            check=False  # Don't raise on non-zero exit (expected for changes)
         )
         # If either command returns non-zero, there are changes
+        # Return codes: 0 = no changes, 1 = changes exist, >1 = error
+        if result_unstaged.returncode > 1 or result_staged.returncode > 1:
+            raise subprocess.CalledProcessError(
+                max(result_unstaged.returncode, result_staged.returncode),
+                "git diff",
+                stderr=result_unstaged.stderr or result_staged.stderr
+            )
         return result_unstaged.returncode != 0 or result_staged.returncode != 0
-    except Exception as e:
+    except (FileNotFoundError, subprocess.CalledProcessError) as e:
         print(f"Error: Could not check git status in {repo_path}: {e}")
         raise
 
@@ -406,8 +419,10 @@ def push_to_github():
                 print(f"⚠ Commit failed: {result.stderr}")
         else:
             print("No changes to commit in main branch")
-    except Exception as e:
+    except (FileNotFoundError, subprocess.CalledProcessError) as e:
         print(f"⚠ Error handling main branch: {e}")
+    except OSError as e:
+        print(f"⚠ System error accessing main branch: {e}")
     
     # Try to push gh-pages if it's a proper git worktree (not a submodule)
     gh_pages_git = GH_PAGES_PATH / ".git"
@@ -446,8 +461,10 @@ def push_to_github():
                         print(f"⚠ gh-pages commit failed: {result.stderr}")
                 else:
                     print("No changes to commit in gh-pages")
-            except Exception as e:
+            except (FileNotFoundError, subprocess.CalledProcessError) as e:
                 print(f"⚠ Error handling gh-pages: {e}")
+            except OSError as e:
+                print(f"⚠ System error accessing gh-pages: {e}")
         else:
             print("Note: gh-pages is a submodule, skipping local push. Report will be synced via GitHub Actions.")
     
