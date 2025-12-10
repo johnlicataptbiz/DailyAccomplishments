@@ -322,15 +322,50 @@ def sync_report(date_str: str):
     return True
 
 
+def check_for_changes(repo_path: Path) -> bool:
+    """Check if there are uncommitted changes in the repository."""
+    try:
+        os.chdir(repo_path)
+        # Check both unstaged and staged changes
+        result_unstaged = subprocess.run(["git", "diff", "--quiet"], capture_output=True)
+        result_staged = subprocess.run(["git", "diff", "--cached", "--quiet"], capture_output=True)
+        # If either command returns non-zero, there are changes
+        return result_unstaged.returncode != 0 or result_staged.returncode != 0
+    except Exception as e:
+        print(f"Warning: Could not check git status: {e}")
+        return False
+
+
 def push_to_github():
     """Commit and push to GitHub."""
     print("\nPushing to GitHub...")
     
     # Push main branch
     os.chdir(REPO_PATH)
+    
+    # Stage the ActivityReport files
     subprocess.run(["git", "add", "ActivityReport-*.json"], check=False)
-    subprocess.run(["git", "commit", "-m", f"Auto-sync report {datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=False)
-    subprocess.run(["git", "push"], check=False)
+    
+    # Check if there are changes to commit
+    if check_for_changes(REPO_PATH):
+        print("Uncommitted changes detected, proceeding with commit...")
+        result = subprocess.run(
+            ["git", "commit", "-m", f"Auto-sync report {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
+            capture_output=True,
+            text=True
+        )
+        if result.returncode == 0:
+            print("✓ Changes committed successfully")
+            # Try to push
+            push_result = subprocess.run(["git", "push"], capture_output=True, text=True)
+            if push_result.returncode == 0:
+                print("✓ Pushed to main branch")
+            else:
+                print(f"⚠ Push failed: {push_result.stderr}")
+        else:
+            print(f"⚠ Commit failed: {result.stderr}")
+    else:
+        print("No changes to commit in main branch")
     
     # Try to push gh-pages if it's a proper git worktree (not a submodule)
     gh_pages_git = GH_PAGES_PATH / ".git"
@@ -340,8 +375,29 @@ def push_to_github():
             # It's a proper worktree
             os.chdir(GH_PAGES_PATH)
             subprocess.run(["git", "add", "ActivityReport-*.json"], check=False)
-            subprocess.run(["git", "commit", "-m", f"Auto-sync report {datetime.now().strftime('%Y-%m-%d %H:%M')}"], check=False)
-            subprocess.run(["git", "push", "origin", "gh-pages"], check=False)
+            
+            if check_for_changes(GH_PAGES_PATH):
+                print("Uncommitted changes detected in gh-pages, proceeding with commit...")
+                result = subprocess.run(
+                    ["git", "commit", "-m", f"Auto-sync report {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
+                    capture_output=True,
+                    text=True
+                )
+                if result.returncode == 0:
+                    print("✓ Changes committed to gh-pages")
+                    push_result = subprocess.run(
+                        ["git", "push", "origin", "gh-pages"],
+                        capture_output=True,
+                        text=True
+                    )
+                    if push_result.returncode == 0:
+                        print("✓ Pushed to gh-pages branch")
+                    else:
+                        print(f"⚠ gh-pages push failed: {push_result.stderr}")
+                else:
+                    print(f"⚠ gh-pages commit failed: {result.stderr}")
+            else:
+                print("No changes to commit in gh-pages")
         else:
             print("Note: gh-pages is a submodule, skipping local push. Report will be synced via GitHub Actions.")
     
