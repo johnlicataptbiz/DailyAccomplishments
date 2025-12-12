@@ -3,49 +3,43 @@
   "date": "2025-12-04",
   "title": "Daily Accomplishments \u2014 2025-12-04",
   "overview": {
-    "focus_time": "07:05",
+    "active_time": "01:47",
+    "focus_time": "08:00",
     "meetings_time": "00:00",
+    "coverage_time": "21:01",
+    "coverage_window": "00:02\u201323:59",
     "appointments": 0,
-    "projects_count": 4,
-    "coverage_window": "00:02\u201323:45"
+    "projects_count": 4
   },
   "prepared_for_manager": [
-    "Total focused time: 01:43 (Coverage: 02:57\u201323:45 CST)",
-    "Top apps: Google Chrome (01:02), app_mode_loader (00:26), Terminal (00:10)"
+    "Active Time: 01:47",
+    "Focus Time: 01:47",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, app_mode_loader, Terminal"
   ],
   "executive_summary": [
-    "Worked across 8 applications",
-    "Top category: Research",
-    "Screen Time: ~938 min foreground app usage"
+    "Active: 01:47 | Focus: 01:47",
+    "Coverage: 02:57\u201323:59 CST",
+    "Screen Time: ~1019 min foreground app usage"
   ],
-  "client_summary": [],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:02)",
+    "Focused on Google Chrome (01:06)",
     "Focused on app_mode_loader (00:26)",
     "Focused on Terminal (00:10)",
     "Focused on Finder (00:01)",
     "Focused on System Preferences (00:01)"
   ],
   "by_category": {
-    "Research": "06:11",
-    "Other": "00:31",
-    "Coding": "02:03",
+    "Research": "06:16",
+    "Other": "00:29",
+    "Coding": "01:41",
     "Communication": "00:00"
-  },
-  "by_project": {},
-  "google_workspace": {
-    "Google": "00:00",
-    "Google Sheets": "00:00",
-    "Google Calendar": "00:00",
-    "Gmail": "00:00",
-    "Google Drive": "00:00",
-    "top_documents": []
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 434
+        "visits": 455
       },
       {
         "domain": "physicaltherapybiz.com",
@@ -58,16 +52,16 @@
         "visits": 208
       },
       {
+        "page": "Prospecting Agent ",
+        "visits": 46
+      },
+      {
         "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
         "visits": 43
       },
       {
         "page": "Daily Accomplishments - Google Chrome - physicaltherapybiz.com",
         "visits": 37
-      },
-      {
-        "page": "Prospecting Agent ",
-        "visits": 28
       },
       {
         "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -90,8 +84,8 @@
         "visits": 16
       },
       {
-        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - physicaltherapybiz.com",
-        "visits": 14
+        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 15
       }
     ]
   },
@@ -213,41 +207,41 @@
     },
     {
       "hour": 23,
-      "time": "00:00",
+      "time": "00:55",
       "pct": "0%"
     }
   ],
-  "suggested_tasks": [],
-  "next_up": [],
   "top_apps": {
-    "Google Chrome": "05:22",
+    "Google Chrome": "06:16",
     "Terminal": "01:41",
-    "System Settings": "00:02"
+    "System Settings": "00:02",
+    "TextEdit": "00:01"
   },
   "top_windows_preview": [
     "app_mode_loader \u2014 missing value: 00:26",
     "Google Chrome \u2014 Debug rebase issues - Google Chrome - Jack (physic: 00:17",
     "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:05",
+    "Google Chrome \u2014 Prospecting Agent : 00:03",
     "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:03",
+    "Google Chrome: 00:03",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:03",
-    "Google Chrome: 00:02",
-    "Google Chrome \u2014 Prospecting Agent : 00:02",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:02",
     "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:01",
     "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:01"
   ],
-  "notes": [],
-  "debug_appointments": {
-    "contact_visits_top": [],
-    "appointments_today": [],
-    "meetings_today": []
-  },
-  "foot": "Auto-generated",
+  "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
     {
       "start": "11:30",
       "end": "13:33",
       "minutes": 92,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "22:27",
+      "end": "23:33",
+      "minutes": 57,
       "category": "Research",
       "label": "Google Chrome"
     },
@@ -292,13 +286,9 @@
       "minutes": 25,
       "category": "Research",
       "label": "Google Chrome"
-    },
-    {
-      "start": "22:27",
-      "end": "22:58",
-      "minutes": 25,
-      "category": "Research",
-      "label": "Google Chrome"
     }
-  ]
+  ],
+  "debug_appointments": {
+    "meetings_today": []
+  }
 }

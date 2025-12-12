@@ -1,0 +1,297 @@
+{
+  "source_file": "ActivityReport-2025-12-09.json",
+  "date": "2025-12-09",
+  "title": "Daily Accomplishments \u2014 2025-12-09",
+  "overview": {
+    "active_time": "01:59",
+    "focus_time": "10:05",
+    "meetings_time": "00:00",
+    "coverage_time": "19:37",
+    "coverage_window": "00:00\u201323:38",
+    "appointments": 0,
+    "projects_count": 4
+  },
+  "prepared_for_manager": [
+    "Active Time: 01:59",
+    "Focus Time: 01:59",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, Electron, Slack"
+  ],
+  "executive_summary": [
+    "Active: 01:59 | Focus: 01:59",
+    "Coverage: 00:00\u201319:37 CST",
+    "Screen Time: ~943 min foreground app usage"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:59)",
+    "Focused on Electron (00:57)",
+    "Focused on Slack (00:00)",
+    "Focused on app_mode_loader (00:00)",
+    "Focused on FaceTime (00:00)"
+  ],
+  "by_category": {
+    "Other": "00:58",
+    "Research": "04:54",
+    "Coding": "05:08",
+    "Communication": "00:01"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 616
+      },
+      {
+        "domain": "signup.live",
+        "visits": 1
+      },
+      {
+        "domain": "github.com",
+        "visits": 1
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Transform roadmap into compelling product vision with measurable outcomes (!25) ",
+        "visits": 27
+      },
+      {
+        "page": "Gemini",
+        "visits": 27
+      },
+      {
+        "page": "dd009e2a1ac432a27fe0e459857d6baf444e8873 to 1e7048b4774749e3cf506a897053b4783cc5",
+        "visits": 26
+      },
+      {
+        "page": "Draft: Add valid .vscode/launch.json for Python debugging (!1) \u00b7 Merge requests ",
+        "visits": 25
+      },
+      {
+        "page": "Merge requests \u00b7 ActTrack / ActTrack / DailyAccomplishments \u00b7 GitLab - Google Ch",
+        "visits": 17
+      },
+      {
+        "page": "Add valid .vscode/launch.json for Python debugging (!1) \u00b7 Merge requests \u00b7 johnl",
+        "visits": 14
+      },
+      {
+        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 12
+      },
+      {
+        "page": "Model Selection \u00b7 johnlicataptbiz-group \u00b7 GitLab - Google Chrome - Jack (physica",
+        "visits": 9
+      },
+      {
+        "page": "Remove unnecessary autobuild step for Dockerfile analysis \u00b7 johnlicataptbiz/Dail",
+        "visits": 9
+      },
+      {
+        "page": "Models \u00b7 johnlicataptbiz/DailyAccomplishments - Google Chrome - Jack (physicalth",
+        "visits": 9
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:17",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:14",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:50",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:02",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:52",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:52",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:52",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:45",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:59",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:41",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:46",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:54",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:12",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:09",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "VS Code": "05:08",
+    "Google Chrome": "04:54",
+    "Messages": "00:03"
+  },
+  "top_windows_preview": [
+    "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:04",
+    "Electron \u2014 mcp.json \u2014 DailyAccomplishments [Codespaces: fluff: 00:03",
+    "Google Chrome \u2014 Transform roadmap into compelling product vision w: 00:02",
+    "Google Chrome \u2014 Gemini: 00:02",
+    "Google Chrome \u2014 dd009e2a1ac432a27fe0e459857d6baf444e8873 to 1e7048: 00:02",
+    "Electron \u2014 Agent Builder \u2014 DailyAccomplishments [Codespaces: : 00:02",
+    "Google Chrome \u2014 Draft: Add valid .vscode/launch.json for Python de: 00:02",
+    "Electron \u2014 generate_reports.yml \u2014 DailyAccomplishments [Codes: 00:01",
+    "Electron \u2014 Deploy to Cloud Run \u2014 DailyAccomplishments [Codesp: 00:01",
+    "Google Chrome: 00:01"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "deep_work": [
+    {
+      "start": "15:59",
+      "end": "17:56",
+      "minutes": 110,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "12:43",
+      "end": "14:31",
+      "minutes": 96,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "14:32",
+      "end": "15:59",
+      "minutes": 67,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "20:47",
+      "end": "22:01",
+      "minutes": 67,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "17:56",
+      "end": "19:12",
+      "minutes": 63,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "02:04",
+      "end": "02:57",
+      "minutes": 46,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "12:02",
+      "end": "12:43",
+      "minutes": 39,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "19:59",
+      "end": "20:33",
+      "minutes": 26,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "debug_appointments": {
+    "meetings_today": []
+  }
+}

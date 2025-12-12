@@ -3,34 +3,34 @@
   "date": "2025-12-05",
   "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "03:10",
-    "focus_time": "08:56",
+    "active_time": "03:11",
+    "focus_time": "10:44",
     "meetings_time": "00:00",
-    "coverage_time": "23:48",
-    "coverage_window": "00:00\u201323:49",
+    "coverage_time": "23:58",
+    "coverage_window": "00:00\u201323:59",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 03:10",
-    "Focus Time: 03:10",
+    "Active Time: 03:11",
+    "Focus Time: 03:11",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 03:10 | Focus: 03:10",
-    "Coverage: 00:00\u201323:49 CST",
-    "Screen Time: ~1731 min foreground app usage"
+    "Active: 03:11 | Focus: 03:11",
+    "Coverage: 00:00\u201323:59 CST",
+    "Screen Time: ~1843 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:18)",
+    "Focused on Google Chrome (02:20)",
     "Focused on Terminal (00:47)",
     "Focused on Electron (00:01)",
     "Focused on Messages (00:00)",
     "Focused on TextEdit (00:00)"
   ],
   "by_category": {
-    "Research": "08:06",
+    "Research": "09:54",
     "Coding": "01:15",
     "Other": "00:02",
     "Communication": "00:00",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1442
+        "visits": 1455
       },
       {
         "domain": "circle.so",
@@ -65,12 +65,12 @@
     ],
     "top_pages": [
       {
-        "page": "Troubleshooting Directory Navigation Git - Grok - Google Chrome - Jack (physical",
-        "visits": 210
+        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 218
       },
       {
-        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 208
+        "page": "Troubleshooting Directory Navigation Git - Grok - Google Chrome - Jack (physical",
+        "visits": 210
       },
       {
         "page": "Exit Vim editor - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -214,29 +214,29 @@
     },
     {
       "hour": 21,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     },
     {
       "hour": 22,
-      "time": "00:06",
+      "time": "00:45",
       "pct": "0%"
     },
     {
       "hour": 23,
-      "time": "00:07",
+      "time": "00:58",
       "pct": "0%"
     }
   ],
   "top_apps": {
-    "Google Chrome": "08:06",
+    "Google Chrome": "09:54",
     "Terminal": "00:45",
     "VS Code": "00:04",
     "Finder": "00:01"
   },
   "top_windows_preview": [
+    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:18",
     "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:17",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:13",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:11",
     "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
@@ -252,6 +252,13 @@
       "start": "16:50",
       "end": "19:17",
       "minutes": 137,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "22:14",
+      "end": "23:19",
+      "minutes": 64,
       "category": "Research",
       "label": "Google Chrome"
     },
@@ -277,6 +284,13 @@
       "label": "Google Chrome"
     },
     {
+      "start": "23:20",
+      "end": "00:00",
+      "minutes": 39,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
       "start": "20:04",
       "end": "20:41",
       "minutes": 36,
@@ -287,13 +301,6 @@
       "start": "13:00",
       "end": "13:38",
       "minutes": 33,
-      "category": "Research",
-      "label": "Google Chrome"
-    },
-    {
-      "start": "14:02",
-      "end": "14:36",
-      "minutes": 32,
       "category": "Research",
       "label": "Google Chrome"
     }
