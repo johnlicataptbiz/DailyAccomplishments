@@ -27,7 +27,6 @@ COPY *.json ./
 COPY *.csv ./
 COPY *.md ./
 COPY *.html ./
-COPY gh-pages/ ./gh-pages/
 
 # Install Python dependencies
 RUN pip install --no-cache-dir matplotlib pillow
