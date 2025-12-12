@@ -3,44 +3,44 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "02:23",
-    "focus_time": "05:40",
+    "active_time": "02:27",
+    "focus_time": "05:45",
     "meetings_time": "00:00",
-    "coverage_time": "10:03",
-    "coverage_window": "07:12\u201317:16",
+    "coverage_time": "10:18",
+    "coverage_window": "07:12\u201317:31",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 02:23",
-    "Focus Time: 02:23",
+    "Active Time: 02:27",
+    "Focus Time: 02:27",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Electron, Terminal"
   ],
   "executive_summary": [
-    "Active: 02:23 | Focus: 02:23",
-    "Coverage: 07:12\u201317:16 CST",
-    "Screen Time: ~1040 min foreground app usage"
+    "Active: 02:27 | Focus: 02:27",
+    "Coverage: 07:12\u201317:31 CST",
+    "Screen Time: ~1132 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:50)",
+    "Focused on Google Chrome (01:52)",
     "Focused on Electron (00:21)",
-    "Focused on Terminal (00:05)",
+    "Focused on Terminal (00:07)",
     "Focused on Mail (00:04)",
-    "Focused on Finder (00:00)"
+    "Focused on Messages (00:00)"
   ],
   "by_category": {
-    "Research": "05:21",
-    "Other": "00:22",
-    "Coding": "00:18",
-    "Communication": "00:04",
+    "Research": "05:24",
+    "Other": "00:23",
+    "Coding": "00:19",
+    "Communication": "00:05",
     "Email/CRM": "00:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1116
+        "visits": 1139
       },
       {
         "domain": "finally a free facebook group for pt...",
@@ -65,6 +65,10 @@
         "visits": 76
       },
       {
+        "page": "Handoff process summary - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 59
+      },
+      {
         "page": "Fix workflow conflict - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 58
       },
@@ -79,10 +83,6 @@
       {
         "page": "Check HubSpot contacts - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 39
-      },
-      {
-        "page": "Handoff process summary - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 36
       },
       {
         "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -182,7 +182,7 @@
     },
     {
       "hour": 17,
-      "time": "00:06",
+      "time": "00:11",
       "pct": "0%"
     },
     {
@@ -217,21 +217,22 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "05:21",
+    "Google Chrome": "05:24",
     "VS Code": "00:10",
-    "Terminal": "00:08",
-    "Mail": "00:01"
+    "Terminal": "00:09",
+    "Mail": "00:01",
+    "Messages": "00:01"
   },
   "top_windows_preview": [
     "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:15",
     "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
     "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07",
     "Google Chrome \u2014 Fix workflow conflict - Microphone recording - Goo: 00:06",
+    "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:04",
     "Google Chrome \u2014 Fix workflow conflict - Google Chrome - Jack (phys: 00:04",
     "Google Chrome \u2014 Formatting Facebook Group Leads List - Grok - Goog: 00:04",
     "Google Chrome \u2014 Import - Google Chrome - Jack (physicaltherapybiz.: 00:03",
     "Google Chrome \u2014 Check HubSpot contacts - Google Chrome - Jack (phy: 00:03",
-    "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:03",
     "Electron \u2014 Extension: Codex \u2014 DailyAccomplishments [Codespace: 00:02"
   ],
   "foot": "Auto-generated (Redesign v1)",
