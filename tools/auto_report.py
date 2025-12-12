@@ -109,6 +109,8 @@ def generate_markdown_summary(report, output_path):
     
     meetings = report['meeting_efficiency']
     lines.append(f"- Meetings: {meetings['meeting_count']} ({meetings['total_meeting_minutes']} minutes)")
+    lines.append(f"- Meeting Credit: {meetings['meeting_credit_minutes']} minutes")
+    lines.append(f"- Effective Productive Time: {meetings['effective_productive_minutes']} minutes")
     lines.append("")
     
     # Deep Work Sessions
@@ -145,6 +147,8 @@ def generate_markdown_summary(report, output_path):
     if meetings['meeting_count'] > 0:
         lines.append(f"- Average Duration: {meetings['average_duration_minutes']} minutes")
         lines.append(f"- Meeting/Focus Ratio: {meetings['meeting_vs_focus_ratio']}")
+    lines.append(f"- Meeting Credit Applied: {meetings['meeting_credit_minutes']} minutes")
+    lines.append(f"- Effective Productive Time: {meetings['effective_productive_minutes']} minutes")
     lines.append(f"- **Recommendation**: {meetings['recommendation']}")
     lines.append("")
     

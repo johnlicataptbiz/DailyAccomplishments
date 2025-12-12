@@ -36,6 +36,7 @@ class ProductivityAnalytics:
         self.deep_work_threshold = analytics_config.get('deep_work_threshold', 25)
         self.idle_threshold_seconds = analytics_config.get('idle_threshold_seconds', 300)
         self.context_switch_cost = analytics_config.get('context_switch_cost', 60)
+        self.meeting_credit = analytics_config.get('meeting_credit', 0.0)
     
     def detect_deep_work_sessions(self):
         """
@@ -194,11 +195,14 @@ class ProductivityAnalytics:
         total_focus_time = self._calculate_total_focus_time()
         deep_work_sessions = self.detect_deep_work_sessions()
         interruption_analysis = self.analyze_interruptions()
+        meeting_efficiency = self.analyze_meeting_efficiency()
         
         # Deep work score (max 40)
         deep_work_time = sum(s['duration_minutes'] for s in deep_work_sessions)
-        if total_focus_time > 0:
-            deep_work_percentage = (deep_work_time / total_focus_time) * 100
+        meeting_credit_minutes = meeting_efficiency.get('meeting_credit_minutes', 0)
+        effective_total_time = total_focus_time + meeting_credit_minutes
+        if effective_total_time > 0:
+            deep_work_percentage = (deep_work_time / effective_total_time) * 100
             deep_work_score = min(40, (deep_work_percentage / 100) * 40)
         else:
             deep_work_percentage = 0
@@ -328,11 +332,13 @@ class ProductivityAnalytics:
                 'meeting_count': 0,
                 'average_duration_minutes': 0,
                 'meeting_vs_focus_ratio': 0,
+                'meeting_credit_minutes': 0,
+                'effective_productive_minutes': round(self._calculate_total_focus_time(), 1),
                 'recommendation': 'No meetings detected'
             }
         
         total_meeting_seconds = sum(
-            e.get('data', {}).get('duration_seconds', 0) 
+            e.get('data', {}).get('duration_seconds', 0)
             for e in meeting_events
         )
         total_meeting_minutes = total_meeting_seconds / 60
@@ -340,6 +346,8 @@ class ProductivityAnalytics:
         avg_duration = total_meeting_minutes / meeting_count
         
         total_focus_time = self._calculate_total_focus_time()
+        meeting_credit_minutes = total_meeting_minutes * self.meeting_credit
+        effective_productive_minutes = total_focus_time + meeting_credit_minutes
         ratio = total_meeting_minutes / total_focus_time if total_focus_time > 0 else 0
         
         return {
@@ -347,6 +355,8 @@ class ProductivityAnalytics:
             'meeting_count': meeting_count,
             'average_duration_minutes': round(avg_duration, 1),
             'meeting_vs_focus_ratio': round(ratio, 2),
+            'meeting_credit_minutes': round(meeting_credit_minutes, 1),
+            'effective_productive_minutes': round(effective_productive_minutes, 1),
             'recommendation': self._get_meeting_recommendation(ratio)
         }
     
@@ -424,13 +434,14 @@ class ProductivityAnalytics:
         Returns:
             Dictionary with all analytics
         """
+        meeting_efficiency = self.analyze_meeting_efficiency()
         return {
             'date': self.date.isoformat(),
             'deep_work_sessions': self.detect_deep_work_sessions(),
             'interruption_analysis': self.analyze_interruptions(),
             'productivity_score': self.calculate_productivity_score(),
             'category_trends': self.analyze_category_trends(),
-            'meeting_efficiency': self.analyze_meeting_efficiency(),
+            'meeting_efficiency': meeting_efficiency,
             'focus_windows': self.suggest_focus_windows()
         }
 

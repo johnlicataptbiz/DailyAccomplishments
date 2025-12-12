@@ -32,7 +32,8 @@
     "deep_work_threshold": 25,
     "idle_threshold_seconds": 300,
     "context_switch_cost": 60,
-    "meeting_credit": 0.25
+    "meeting_credit": 0.25,
+    "meeting_credit_description": "Fraction of meeting time counted toward productivity (0.0-1.0)"
   },
   "category_priority": ["Coding", "Research", "Communication", "Other", "Meetings"],
   "retention": {
