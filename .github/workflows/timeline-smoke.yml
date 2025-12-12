@@ -21,6 +21,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install jsonschema pytest
+      - name: Clean pycache and stray artifacts
+        run: |
+          rm -rf imports || true
+          find . -name '__pycache__' -type d -prune -exec rm -rf {} +
+          find . -name '*.pyc' -delete
       - name: Run validator on recent reports
         run: |
           python3 .github/scripts/validate_report_schema.py reports/*/ActivityReport-*.json || true
