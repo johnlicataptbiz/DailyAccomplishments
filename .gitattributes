@@ -1,19 +1,16 @@
-# Binary files - treat as binary to avoid patch errors
+# Default to LF everywhere
+* text=auto eol=lf
+
+# Explicitly treat these as text with LF
+*.csv text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.py text eol=lf
+
+# Binary formats
 *.png binary
 *.jpg binary
 *.jpeg binary
-*.gif binary
-*.ico binary
-*.pdf binary
-
-# Text files - ensure consistent line endings
-*.py text eol=lf
-*.sh text eol=lf
-*.json text eol=lf
-*.md text eol=lf
-*.html text eol=lf
-*.css text eol=lf
-*.js text eol=lf
-
-# CSV files - text format, allow trailing whitespace
-*.csv text eol=lf -whitespace
