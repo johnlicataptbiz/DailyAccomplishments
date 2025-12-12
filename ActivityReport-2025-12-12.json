@@ -6,8 +6,8 @@
     "active_time": "02:23",
     "focus_time": "05:40",
     "meetings_time": "00:00",
-    "coverage_time": "10:02",
-    "coverage_window": "07:12\u201317:15",
+    "coverage_time": "10:03",
+    "coverage_window": "07:12\u201317:16",
     "appointments": 0,
     "projects_count": 5
   },
@@ -19,11 +19,11 @@
   ],
   "executive_summary": [
     "Active: 02:23 | Focus: 02:23",
-    "Coverage: 07:12\u201317:15 CST",
+    "Coverage: 07:12\u201317:16 CST",
     "Screen Time: ~1040 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:49)",
+    "Focused on Google Chrome (01:50)",
     "Focused on Electron (00:21)",
     "Focused on Terminal (00:05)",
     "Focused on Mail (00:04)",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1112
+        "visits": 1116
       },
       {
         "domain": "finally a free facebook group for pt...",
@@ -82,7 +82,7 @@
       },
       {
         "page": "Handoff process summary - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 32
+        "visits": 36
       },
       {
         "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -231,8 +231,8 @@
     "Google Chrome \u2014 Formatting Facebook Group Leads List - Grok - Goog: 00:04",
     "Google Chrome \u2014 Import - Google Chrome - Jack (physicaltherapybiz.: 00:03",
     "Google Chrome \u2014 Check HubSpot contacts - Google Chrome - Jack (phy: 00:03",
-    "Electron \u2014 Extension: Codex \u2014 DailyAccomplishments [Codespace: 00:02",
-    "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:02"
+    "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:03",
+    "Electron \u2014 Extension: Codex \u2014 DailyAccomplishments [Codespace: 00:02"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
