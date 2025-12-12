@@ -51,3 +51,7 @@ temp/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local-only snapshot/attic directories (never commit to main)
+imports/
+recovered_from_persistedshare/
