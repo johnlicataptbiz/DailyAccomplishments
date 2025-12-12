@@ -676,7 +676,51 @@
                 console.log(`[loadData] Attempting to fetch ActivityReport-${date}.json`);
                 // Try same-origin first (works for GitHub Pages / local preview)
                 const cacheSuffix = `?t=${Date.now()}`;
-                let response = await fetch(`/ActivityReport-${date}.json${cacheSuffix}`, { cache: 'no-store' });
+                let response = await (async () => {
+                    const cacheSuffix = `?t=${Date.now()}`;
+                    const tryDaysBack = 14;
+
+                    function minusDays(dateStr, n) {
+                        const dt = parseLocalDate(dateStr);
+                        dt.setDate(dt.getDate() - n);
+                        return localDateKey(dt);
+                    }
+
+                    async function tryFetchFor(d) {
+                        let r = await fetch(`/ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
+                        if (!r.ok) {
+                            r = await fetch(`/reports/daily-report-${d}.json${cacheSuffix}`, { cache: 'no-store' });
+                        }
+                        if (!r.ok) {
+                            r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
+                        }
+                        return r;
+                    }
+
+                    let resolvedDate = date;
+                    let r = null;
+
+                    for (let back = 0; back <= tryDaysBack; back++) {
+                        const d = back === 0 ? date : minusDays(date, back);
+                        r = await tryFetchFor(d);
+                        if (r && r.ok) {
+                            resolvedDate = d;
+                            break;
+                        }
+                    }
+
+                    if (!r || !r.ok) {
+                        throw new Error(`Report not found for ${date} or the prior ${tryDaysBack} days.`);
+                    }
+
+                    if (resolvedDate !== date) {
+                        currentDate = resolvedDate;
+                        dateInput.value = resolvedDate;
+                        updateUrl(resolvedDate);
+                    }
+
+                    return r;
+                })();
                 let usedUrl = `/ActivityReport-${date}.json`;
                 if (!response.ok) {
                     console.log(`[loadData] ActivityReport-${date}.json not found (status: ${response.status}). Trying reports/daily-report-${date}.json`);
