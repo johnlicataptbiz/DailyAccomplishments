@@ -3,33 +3,96 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "00:01",
-    "focus_time": "00:01",
+    "active_time": "02:23",
+    "focus_time": "05:40",
     "meetings_time": "00:00",
-    "coverage_time": "00:00",
-    "coverage_window": "16:53\u201316:53 CST",
+    "coverage_time": "10:02",
+    "coverage_window": "07:12\u201317:15",
     "appointments": 0,
-    "projects_count": 1
+    "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 00:01",
-    "Focus Time: 00:01",
+    "Active Time: 02:23",
+    "Focus Time: 02:23",
     "Meeting Time: 00:00",
-    "Top Apps: Example App"
+    "Top Apps: Google Chrome, Electron, Terminal"
   ],
   "executive_summary": [
-    "Active: 00:01 | Focus: 00:01",
-    "Coverage: 16:53\u201316:53 CST"
+    "Active: 02:23 | Focus: 02:23",
+    "Coverage: 07:12\u201317:15 CST",
+    "Screen Time: ~1040 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Example App (00:01)"
+    "Focused on Google Chrome (01:49)",
+    "Focused on Electron (00:21)",
+    "Focused on Terminal (00:05)",
+    "Focused on Mail (00:04)",
+    "Focused on Finder (00:00)"
   ],
   "by_category": {
-    "Other": "00:01"
+    "Research": "05:21",
+    "Other": "00:22",
+    "Coding": "00:18",
+    "Communication": "00:04",
+    "Email/CRM": "00:00"
   },
   "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 1112
+      },
+      {
+        "domain": "finally a free facebook group for pt...",
+        "visits": 4
+      },
+      {
+        "domain": "mapping.csv",
+        "visits": 1
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Chat handoff summary - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 101
+      },
+      {
+        "page": "Merge pytest config steps - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 94
+      },
+      {
+        "page": "Fix workflow conflict - Microphone recording - Google Chrome - Jack (physicalthe",
+        "visits": 76
+      },
+      {
+        "page": "Fix workflow conflict - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 58
+      },
+      {
+        "page": "Formatting Facebook Group Leads List - Grok - Google Chrome - Jack (physicalther",
+        "visits": 56
+      },
+      {
+        "page": "Import - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 42
+      },
+      {
+        "page": "Check HubSpot contacts - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 39
+      },
+      {
+        "page": "Handoff process summary - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 32
+      },
+      {
+        "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 29
+      },
+      {
+        "page": "Lead Replies - Business growth advice - Google Chrome - Jack (physicaltherapybiz",
+        "visits": 26
+      }
+    ]
   },
   "hourly_focus": [
     {
@@ -69,57 +132,57 @@
     },
     {
       "hour": 7,
-      "time": "00:00",
+      "time": "00:07",
       "pct": "0%"
     },
     {
       "hour": 8,
-      "time": "00:00",
+      "time": "00:16",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:00",
+      "time": "00:39",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:00",
+      "time": "00:55",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:00",
+      "time": "00:39",
       "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:00",
+      "time": "00:36",
       "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:00",
+      "time": "00:39",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:00",
+      "time": "00:23",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:01",
-      "pct": "100%"
+      "time": "00:20",
+      "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:00",
+      "time": "00:06",
       "pct": "0%"
     },
     {
@@ -154,10 +217,48 @@
     }
   ],
   "top_apps": {
-    "Example App": "00:01"
+    "Google Chrome": "05:21",
+    "VS Code": "00:10",
+    "Terminal": "00:08",
+    "Mail": "00:01"
   },
   "top_windows_preview": [
-    "Example App \u2014 Example Window: 00:01"
+    "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:15",
+    "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
+    "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07",
+    "Google Chrome \u2014 Fix workflow conflict - Microphone recording - Goo: 00:06",
+    "Google Chrome \u2014 Fix workflow conflict - Google Chrome - Jack (phys: 00:04",
+    "Google Chrome \u2014 Formatting Facebook Group Leads List - Grok - Goog: 00:04",
+    "Google Chrome \u2014 Import - Google Chrome - Jack (physicaltherapybiz.: 00:03",
+    "Google Chrome \u2014 Check HubSpot contacts - Google Chrome - Jack (phy: 00:03",
+    "Electron \u2014 Extension: Codex \u2014 DailyAccomplishments [Codespace: 00:02",
+    "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:02"
   ],
-  "foot": "Auto-generated (Redesign v1)"
+  "foot": "Auto-generated (Redesign v1)",
+  "deep_work": [
+    {
+      "start": "09:49",
+      "end": "11:38",
+      "minutes": 107,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:25",
+      "end": "14:26",
+      "minutes": 59,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "12:06",
+      "end": "12:41",
+      "minutes": 33,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "debug_appointments": {
+    "meetings_today": []
+  }
 }
