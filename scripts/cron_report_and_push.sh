@@ -1,5 +1,3 @@
-cd "/Users/jacklicatamacbook/DailyAccomplishments"
-
 git fetch origin
 git checkout -B main origin/main
 
