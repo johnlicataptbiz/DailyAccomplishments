@@ -1,43 +1,22 @@
-# Configuration with credentials
+# Configuration / credentials
 config.json
-
-# Log files
-logs/
-*.jsonl
-!examples/*.jsonl
-
-# Generated reports
-reports/
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-*.so
-
-# Virtual environment
-venv/
-env/
-ENV/
+credentials/
+*.pem
+*.key
 
 # Environment variables
 .env
 .env.local
+.env.*
 
-# Credentials
-credentials/
+# Log files
+logs/
+*.log
 
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
+# JSONL logs (keep sample jsonl files under examples/)
+*.jsonl
+!examples/*.jsonl
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
 # Python
 __pycache__/
 *.py[cod]
@@ -60,9 +39,16 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+# Virtual environments
 venv/
-ENV/
 env/
+ENV/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
 
 # IDE
 .vscode/
@@ -70,25 +56,6 @@ env/
 *.swp
 *.swo
 *~
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Build
-build/
-dist/
-*.egg-info/
-# Logs
-*.log
-logs/
-
-# Credentials
-credentials/
-*.pem
-*.key
-.env
 
 # Temporary files
 tmp/
@@ -99,4 +66,8 @@ temp/
 
 # OS
 .DS_Store
+.AppleDouble
+.LSOverride
 Thumbs.db
+ehthumbs.db
+Desktop.ini

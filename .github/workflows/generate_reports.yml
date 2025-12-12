@@ -2,49 +2,119 @@ name: Generate Daily Reports
 
 on:
   schedule:
-    # Run daily at 11 PM UTC (adjust for your timezone)
-    - cron: '0 23 * * *'
-  
-  push:
-    branches:
-      - main
-  
-  workflow_dispatch:
+    # Run at 00:00 UTC and 12:00 UTC every day (twice daily)
+    - cron: '0 0 * * *'
+    - cron: '0 12 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
 
 jobs:
-  generate-reports:
+  generate:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      
-      - name: Install dependencies
+          python-version: "3.12"
+
+      - name: Install Python dependencies (if present)
         run: |
-          pip install matplotlib pillow requests
-      
-      - name: Create directories
+          if [ -f requirements.txt ]; then
+            sudo apt-get update
+            sudo apt-get install -y libfreetype6-dev libpng-dev libjpeg-dev || true
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt || true
+          fi
+
+      - name: Set target date (UTC)
+        run: echo "TARGET_DATE=$(date -u +%Y-%m-%d)" >> $GITHUB_ENV
+
+      - name: Generate ActivityReport for ${{ env.TARGET_DATE }}
+        id: generate
         run: |
-          mkdir -p logs/daily reports
-      
-      - name: Generate daily report
+          set -e
+          echo "Generating ActivityReport for ${TARGET_DATE}"
+          # tolerate nonzero exit when there is nothing to report
+          if python3 scripts/generate_daily_json.py "${TARGET_DATE}"; then
+            echo "generated=true" >> $GITHUB_OUTPUT
+          else
+            echo "generated=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Show generated artifacts
+        if: steps.generate.outputs.generated == 'true'
         run: |
-          python3 tools/auto_report.py || echo "No events to report"
-        continue-on-error: true
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./reports
-          publish_branch: gh-pages
-          enable_jekyll: false
-          keep_files: true
+          echo "Repo root:"
+          ls -la ActivityReport-${{ env.TARGET_DATE }}.json || true
+          echo "Reports dir:"
+          ls -la reports/${{ env.TARGET_DATE }} || true
+
+      - name: Commit and push generated files to main
+        if: steps.generate.outputs.generated == 'true'
+        env:
+          TARGET_DATE: ${{ env.TARGET_DATE }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          CHANGED=0
+          if [ -f ActivityReport-${TARGET_DATE}.json ]; then
+            git add ActivityReport-${TARGET_DATE}.json && CHANGED=1 || true
+          fi
+          if [ -d "reports/${TARGET_DATE}" ]; then
+            git add -A reports/${TARGET_DATE} && CHANGED=1 || true
+          fi
+
+          if [ "$CHANGED" -eq 0 ]; then
+            echo "No generated files to commit"
+            exit 0
+          fi
+
+          git commit -m "ci: add generated ActivityReport-${TARGET_DATE}.json [skip ci]" || echo "nothing to commit"
+          git push origin HEAD:main
+
+      - name: Publish generated artifacts to gh-pages
+        if: steps.generate.outputs.generated == 'true'
+        env:
+          TARGET_DATE: ${{ env.TARGET_DATE }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin gh-pages || true
+
+          # create a gh-pages worktree (create the branch if it doesn't exist)
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git worktree add gh-pages origin/gh-pages || true
+          else
+            git checkout --orphan gh-pages
+            git rm -rf . || true
+            git commit --allow-empty -m "chore: create gh-pages branch" || true
+            git push origin gh-pages || true
+            git checkout main
+            git worktree add gh-pages origin/gh-pages || true
+          fi
+
+          # copy generated files into gh-pages
+          rm -f gh-pages/ActivityReport-${TARGET_DATE}.json || true
+          rm -rf gh-pages/reports/${TARGET_DATE} || true
+          mkdir -p gh-pages/reports/${TARGET_DATE}
+
+          cp -a ActivityReport-${TARGET_DATE}.json gh-pages/ || true
+          if [ -d "reports/${TARGET_DATE}" ]; then
+            cp -a reports/${TARGET_DATE}/* gh-pages/reports/${TARGET_DATE}/ || true
+          fi
+
+          cd gh-pages
+          git add -A
+          git commit -m "ci: publish ActivityReport-${TARGET_DATE} to gh-pages [skip ci]" || echo "nothing to commit"
+          git push origin HEAD:gh-pages

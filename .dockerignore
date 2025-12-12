@@ -35,6 +35,16 @@ temp/
 
 # Logs (will be generated in container)
 logs/
+.git
+.vscode
+.venv
+node_modules
+__pycache__
+logs
+logs.backup-*
+credentials
+scripts
+*.pid
 *.log
 
 # Credentials (should use environment variables in container)
@@ -50,3 +60,4 @@ credentials/
 # OS files
 .DS_Store
 Thumbs.db
+

@@ -18,18 +18,17 @@ RUN apt-get update && \
         ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# Set workdir
 WORKDIR /app
 
-# Copy application files
-# Note: Some files/directories may not exist yet in early development
+# Copy the repo into the image (includes reports/, ActivityReport-*.json, tools/, scripts/, etc.)
 COPY . /app/
 
 # Install Python dependencies
 RUN pip install --no-cache-dir matplotlib pillow
 
-# Expose port for local web server
+# Expose a default port for local development
 EXPOSE 8000
 
-# Default command: serve dashboard and reports
-CMD ["python3", "-m", "http.server", "8000"]
+# Use an entrypoint that respects $PORT when present
+RUN chmod +x /app/entrypoint.sh
+ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
