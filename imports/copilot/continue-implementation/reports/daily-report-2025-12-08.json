@@ -1,0 +1,86 @@
+{
+  "date": "2025-12-08",
+  "deep_work_sessions": [],
+  "interruption_analysis": {
+    "interruptions_per_hour": {
+      "7": 4
+    },
+    "most_disruptive_hour": 7,
+    "max_interruptions": 4,
+    "total_interruptions": 4,
+    "context_switch_cost_minutes": 4.0,
+    "average_per_hour": 0.2
+  },
+  "productivity_score": {
+    "overall_score": 26.0,
+    "components": {
+      "deep_work_score": 0.0,
+      "interruption_score": 26,
+      "quality_score": 0.0
+    },
+    "metrics": {
+      "total_deep_minutes": 0,
+      "total_work_minutes": 7.0,
+      "deep_work_percentage": 0.0,
+      "deep_sessions_count": 0
+    },
+    "rating": "Needs Improvement"
+  },
+  "category_trends": {
+    "categories": [
+      {
+        "category": "Coding",
+        "time_minutes": 5.0,
+        "percentage": 71.4,
+        "event_count": 4,
+        "avg_duration_minutes": 1.2
+      },
+      {
+        "category": "Research",
+        "time_minutes": 1.0,
+        "percentage": 14.3,
+        "event_count": 1,
+        "avg_duration_minutes": 1.0
+      },
+      {
+        "category": "Meetings",
+        "time_minutes": 1.0,
+        "percentage": 14.3,
+        "event_count": 1,
+        "avg_duration_minutes": 1.0
+      }
+    ],
+    "total_time_minutes": 7.0,
+    "top_category": "Coding",
+    "category_count": 3
+  },
+  "meeting_efficiency": {
+    "total_meeting_minutes": 0.0,
+    "meeting_count": 0,
+    "average_duration_minutes": 0.0,
+    "meeting_vs_focus_ratio": 0.0,
+    "meetings": [],
+    "recommendation": "Good balance between meetings and focus work"
+  },
+  "focus_windows": [
+    {
+      "start_time": "08:00",
+      "end_time": "23:00",
+      "duration_hours": 15,
+      "total_interruptions": 0,
+      "quality": "Excellent",
+      "recommendation": "Schedule deep work during 08:00-23:00"
+    }
+  ],
+  "raw_events": {
+    "total_events": 15,
+    "event_types": {
+      "metadata": 1,
+      "focus_change": 6,
+      "browser_visit": 2,
+      "app_switch": 4,
+      "manual_entry": 1,
+      "meeting_start": 1
+    }
+  }
+}
