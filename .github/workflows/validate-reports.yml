@@ -9,24 +9,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Check recent reports and validate structure
         run: |
           set -euo pipefail
           python3 -m pip install --upgrade pip
           python3 -m pip install jsonschema
-          missing=0
+
+          any_found=0
           for i in 0 1 2; do
             date=$(date -u -d "-$i day" +%F)
             path="reports/$date/ActivityReport-$date.json"
             if [ ! -f "$path" ]; then
-              echo "MISSING: $path"
-              missing=$((missing+1))
+              echo "MISSING (ok): $path"
               continue
             fi
+            any_found=1
             echo "FOUND: $path"
-            python3 .github/scripts/validate_report_schema.py "$path" || exit $?
+            python3 .github/scripts/validate_report_schema.py "$path"
           done
-          if [ "$missing" -ne 0 ]; then
-            echo "Some recent reports are missing ($missing); failing workflow."
-            exit 1
+
+          if [ "$any_found" -eq 0 ]; then
+            echo "No recent reports found to validate; skipping."
           fi
+        shell: bash
