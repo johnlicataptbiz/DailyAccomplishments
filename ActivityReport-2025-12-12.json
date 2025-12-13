@@ -3,36 +3,36 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "02:44",
-    "focus_time": "06:08",
+    "active_time": "02:52",
+    "focus_time": "06:12",
     "meetings_time": "00:00",
-    "coverage_time": "11:19",
-    "coverage_window": "07:12\u201318:32",
+    "coverage_time": "11:34",
+    "coverage_window": "07:12\u201318:47",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 02:44",
-    "Focus Time: 02:44",
+    "Active Time: 02:52",
+    "Focus Time: 02:52",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Electron, Terminal"
   ],
   "executive_summary": [
-    "Active: 02:44 | Focus: 02:44",
-    "Coverage: 07:12\u201318:32 CST",
-    "Screen Time: ~1380 min foreground app usage"
+    "Active: 02:52 | Focus: 02:52",
+    "Coverage: 07:12\u201318:47 CST",
+    "Screen Time: ~1427 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:02)",
+    "Focused on Google Chrome (02:08)",
     "Focused on Electron (00:21)",
-    "Focused on Terminal (00:13)",
+    "Focused on Terminal (00:15)",
     "Focused on Mail (00:04)",
     "Focused on Finder (00:01)"
   ],
   "by_category": {
-    "Research": "05:42",
+    "Research": "05:45",
     "Other": "00:23",
-    "Coding": "00:24",
+    "Coding": "00:25",
     "Communication": "00:05",
     "Email/CRM": "00:00"
   },
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1256
+        "visits": 1326
       },
       {
         "domain": "finally a free facebook group for pt...",
@@ -54,7 +54,7 @@
     "top_pages": [
       {
         "page": "Handoff process summary - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 125
+        "visits": 130
       },
       {
         "page": "Chat handoff summary - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -63,6 +63,10 @@
       {
         "page": "Merge pytest config steps - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 94
+      },
+      {
+        "page": "Handoff and checklist guide - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 89
       },
       {
         "page": "Fix workflow conflict - Microphone recording - Google Chrome - Jack (physicalthe",
@@ -79,10 +83,6 @@
       {
         "page": "Import - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 42
-      },
-      {
-        "page": "Handoff and checklist guide - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 40
       },
       {
         "page": "Check HubSpot contacts - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -187,7 +187,7 @@
     },
     {
       "hour": 18,
-      "time": "00:13",
+      "time": "00:17",
       "pct": "0%"
     },
     {
@@ -217,23 +217,23 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "05:42",
-    "Terminal": "00:14",
+    "Google Chrome": "05:45",
+    "Terminal": "00:15",
     "VS Code": "00:10",
     "Mail": "00:01",
     "Messages": "00:01"
   },
   "top_windows_preview": [
-    "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:15",
+    "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:16",
     "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:10",
     "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
     "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07",
+    "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:07",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:06",
     "Google Chrome \u2014 Fix workflow conflict - Microphone recording - Goo: 00:06",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:05",
     "Google Chrome \u2014 Fix workflow conflict - Google Chrome - Jack (phys: 00:04",
     "Google Chrome \u2014 Formatting Facebook Group Leads List - Grok - Goog: 00:04",
-    "Google Chrome \u2014 Import - Google Chrome - Jack (physicaltherapybiz.: 00:03",
-    "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:03"
+    "Google Chrome \u2014 Import - Google Chrome - Jack (physicaltherapybiz.: 00:03"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
