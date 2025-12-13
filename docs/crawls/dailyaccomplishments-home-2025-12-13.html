@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Daily Accomplishments</title>
+    <style>
+      html, body { height: 100%; margin: 0; }
+      iframe { border: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <script>
+      const t = Date.now();
+      const qs = window.location.search || "";
+      const join = qs.includes("?") && qs.length > 1 ? "&" : "?";
+
+      const local = `/dashboard.html${qs}${join}t=${t}`;
+      const raw = `https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/dashboard.html${qs}${join}t=${t}`;
+
+      const f = document.createElement("iframe");
+      f.src = local;
+      f.onerror = () => { f.src = raw; };
+      document.body.appendChild(f);
+    </script>
+  </body>
+</html>
