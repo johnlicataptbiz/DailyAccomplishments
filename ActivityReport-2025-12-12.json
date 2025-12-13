@@ -3,28 +3,28 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "05:55",
+    "active_time": "06:04",
     "focus_time": "07:49",
     "meetings_time": "00:00",
-    "coverage_time": "15:35",
-    "coverage_window": "07:12\u201322:48",
+    "coverage_time": "15:45",
+    "coverage_window": "07:12\u201322:58",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 05:55",
+    "Active Time: 06:04",
     "Focus Time: 07:49",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, VS Code"
   ],
   "executive_summary": [
-    "Active: 05:55 | Focus: 07:49",
-    "Coverage: 07:12\u201322:48 CST",
+    "Active: 06:04 | Focus: 07:49",
+    "Coverage: 07:12\u201322:58 CST",
     "Screen Time: ~721 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (04:50)",
-    "Focused on Terminal (00:27)",
+    "Focused on Google Chrome (04:57)",
+    "Focused on Terminal (00:28)",
     "Focused on Electron (00:21)",
     "Focused on app_mode_loader (00:04)",
     "Focused on Finder (00:04)"
@@ -32,13 +32,95 @@
   "by_category": {
     "Research": "07:22",
     "Other": "00:33",
-    "Coding": "00:28",
+    "Coding": "00:29",
     "Communication": "00:14",
     "Email/CRM": "00:00"
   },
   "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 270
+      },
+      {
+        "domain": "app.hubspot.com",
+        "visits": 240
+      },
+      {
+        "domain": "grok.com",
+        "visits": 209
+      },
+      {
+        "domain": "gitlab.com",
+        "visits": 112
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 78
+      },
+      {
+        "domain": "dailyaccomplishmentsptbiz.up.railway.app",
+        "visits": 57
+      },
+      {
+        "domain": "linkedin.com",
+        "visits": 34
+      },
+      {
+        "domain": "mail.google.com",
+        "visits": 33
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 31
+      },
+      {
+        "domain": "railway.com",
+        "visits": 28
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13",
+        "visits": 31
+      },
+      {
+        "page": "https://app.hubspot.com/data-integration-home/22001532/new-import",
+        "visits": 21
+      },
+      {
+        "page": "https://app.hubspot.com/contacts/22001532/objectLists/views/all?count=25",
+        "visits": 17
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 14
+      },
+      {
+        "page": "https://app.hubspot.com/data-integration-home/22001532",
+        "visits": 13
+      },
+      {
+        "page": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
+        "visits": 12
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13/files",
+        "visits": 11
+      },
+      {
+        "page": "https://mail.google.com/mail/u/0/#drafts",
+        "visits": 11
+      },
+      {
+        "page": "https://app.hubspot.com/data-integration-home/22001532/new-import/standard",
+        "visits": 11
+      },
+      {
+        "page": "https://app.hubspot.com/contacts/22001532/objects/0-2/views/all/list",
+        "visits": 11
+      }
+    ]
   },
   "hourly_focus": [
     {
@@ -153,7 +235,7 @@
     },
     {
       "hour": 22,
-      "time": "00:34",
+      "time": "00:42",
       "pct": "0%"
     },
     {
@@ -170,15 +252,15 @@
     "Messages": "00:01"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Report flow design - Google Chrome - Jack (physica: 01:24",
+    "Google Chrome \u2014 Report flow design - Google Chrome - Jack (physica: 01:25",
     "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:20",
     "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:16",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:13",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:14",
     "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:11",
     "Google Chrome \u2014 Text Message Conflict and Boundaries - Grok - Goog: 00:10",
     "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
-    "Google Chrome \u2014 Message analysis and trends - Google Chrome - Jack: 00:08",
     "Google Chrome \u2014 ChatGPT - Google Chrome - Jack (physicaltherapybiz: 00:08",
+    "Google Chrome \u2014 Message analysis and trends - Google Chrome - Jack: 00:08",
     "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07"
   ],
   "foot": "Auto-generated (Redesign v1)",
