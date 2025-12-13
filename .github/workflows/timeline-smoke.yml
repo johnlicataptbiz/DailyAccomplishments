@@ -13,31 +13,48 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
       - name: Install requirements
         run: |
           python -m pip install --upgrade pip
           pip install jsonschema pytest
-<<<<<<< HEAD
+
       - name: Clean pycache and stray artifacts
         run: |
           rm -rf imports || true
           find . -name '__pycache__' -type d -prune -exec rm -rf {} +
           find . -name '*.pyc' -delete
-=======
->>>>>>> copilot/continue-task-list-work
+
       - name: Run validator on recent reports
+        shell: bash
         run: |
-          python3 .github/scripts/validate_report_schema.py reports/*/ActivityReport-*.json || true
+          set -euo pipefail
+          shopt -s nullglob
+          files=(reports/*/ActivityReport-*.json)
+
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No reports to validate"
+            exit 0
+          fi
+
+          python3 .github/scripts/validate_report_schema.py "${files[@]}"
+
       - name: Run timeline smoke on a sample report
+        shell: bash
         run: |
-          REPORT=$(ls reports/*/ActivityReport-*.json | head -n1)
-          if [ -z "$REPORT" ]; then echo "No sample report found"; exit 0; fi
-<<<<<<< HEAD
+          set -euo pipefail
+          shopt -s nullglob
+          files=(reports/*/ActivityReport-*.json)
+
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No sample report found"
+            exit 0
+          fi
+
+          REPORT="${files[0]}"
           python3 .github/scripts/smoke_timeline.py "$REPORT"
-=======
-          python3 .github/scripts/smoke_timeline.py "$REPORT"
->>>>>>> copilot/continue-task-list-work
