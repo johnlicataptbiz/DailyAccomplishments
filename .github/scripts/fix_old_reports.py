@@ -72,8 +72,4 @@ def main(argv):
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
     sys.exit(main(sys.argv))
-=======
-    sys.exit(main(sys.argv))
->>>>>>> copilot/continue-task-list-work
