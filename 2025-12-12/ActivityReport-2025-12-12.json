@@ -3,34 +3,34 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "04:19",
-    "focus_time": "07:04",
+    "active_time": "04:25",
+    "focus_time": "07:36",
     "meetings_time": "00:00",
-    "coverage_time": "13:19",
-    "coverage_window": "07:12\u201320:32",
+    "coverage_time": "13:27",
+    "coverage_window": "07:12\u201320:40",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 04:19",
-    "Focus Time: 04:19",
+    "Active Time: 04:25",
+    "Focus Time: 04:25",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Electron, Terminal"
   ],
   "executive_summary": [
-    "Active: 04:19 | Focus: 04:19",
-    "Coverage: 07:12\u201320:32 CST",
-    "Screen Time: ~1600 min foreground app usage"
+    "Active: 04:25 | Focus: 04:25",
+    "Coverage: 07:12\u201320:40 CST",
+    "Screen Time: ~1668 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (03:20)",
+    "Focused on Google Chrome (03:26)",
     "Focused on Electron (00:21)",
     "Focused on Terminal (00:21)",
     "Focused on app_mode_loader (00:04)",
     "Focused on Finder (00:04)"
   ],
   "by_category": {
-    "Research": "06:37",
+    "Research": "07:09",
     "Other": "00:33",
     "Coding": "00:25",
     "Communication": "00:14",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 2016
+        "visits": 2083
       },
       {
         "domain": "gmail.com",
@@ -81,6 +81,10 @@
         "visits": 94
       },
       {
+        "page": "Message analysis and trends - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 90
+      },
+      {
         "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 88
       },
@@ -93,12 +97,8 @@
         "visits": 76
       },
       {
-        "page": "Message analysis and trends - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 72
-      },
-      {
-        "page": "Fix workflow conflict - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 58
+        "page": "Report flow design - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 65
       }
     ]
   },
@@ -205,7 +205,7 @@
     },
     {
       "hour": 20,
-      "time": "00:27",
+      "time": "00:33",
       "pct": "0%"
     },
     {
@@ -225,7 +225,7 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "06:37",
+    "Google Chrome": "07:09",
     "Terminal": "00:15",
     "VS Code": "00:10",
     "Mail": "00:01",
@@ -237,11 +237,11 @@
     "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:11",
     "Google Chrome \u2014 Text Message Conflict and Boundaries - Grok - Goog: 00:10",
     "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
-    "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:07",
+    "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07",
+    "Google Chrome \u2014 Message analysis and trends - Google Chrome - Jack: 00:07",
     "Google Chrome \u2014 ChatGPT - Google Chrome - Jack (physicaltherapybiz: 00:07",
-    "Google Chrome \u2014 New conversation - Grok - Google Chrome - Jack (ph: 00:06",
-    "Google Chrome \u2014 Fix workflow conflict - Microphone recording - Goo: 00:06"
+    "Google Chrome \u2014 New conversation - Grok - Google Chrome - Jack (ph: 00:06"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
