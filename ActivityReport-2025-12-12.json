@@ -3,35 +3,35 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "03:41",
-    "focus_time": "06:36",
+    "active_time": "03:54",
+    "focus_time": "07:04",
     "meetings_time": "00:00",
-    "coverage_time": "12:34",
-    "coverage_window": "07:12\u201319:47",
+    "coverage_time": "12:49",
+    "coverage_window": "07:12\u201320:02",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 03:41",
-    "Focus Time: 03:41",
+    "Active Time: 03:54",
+    "Focus Time: 03:54",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Electron, Terminal"
   ],
   "executive_summary": [
-    "Active: 03:41 | Focus: 03:41",
-    "Coverage: 07:12\u201319:47 CST",
-    "Screen Time: ~1494 min foreground app usage"
+    "Active: 03:54 | Focus: 03:54",
+    "Coverage: 07:12\u201320:02 CST",
+    "Screen Time: ~1600 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:53)",
+    "Focused on Google Chrome (03:01)",
     "Focused on Electron (00:21)",
-    "Focused on Terminal (00:18)",
+    "Focused on Terminal (00:20)",
     "Focused on Mail (00:04)",
-    "Focused on Finder (00:02)"
+    "Focused on Finder (00:03)"
   ],
   "by_category": {
-    "Research": "06:09",
-    "Other": "00:25",
+    "Research": "06:37",
+    "Other": "00:28",
     "Coding": "00:25",
     "Communication": "00:14",
     "Email/CRM": "00:00"
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1736
+        "visits": 1789
       },
       {
         "domain": "gmail.com",
@@ -62,11 +62,15 @@
     "top_pages": [
       {
         "page": "Handoff and checklist guide - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 169
+        "visits": 189
       },
       {
         "page": "Handoff process summary - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 131
+      },
+      {
+        "page": "Text Message Conflict and Boundaries - Grok - Google Chrome - Jack (physicalther",
+        "visits": 117
       },
       {
         "page": "Chat handoff summary - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -75,10 +79,6 @@
       {
         "page": "Merge pytest config steps - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 94
-      },
-      {
-        "page": "Text Message Conflict and Boundaries - Grok - Google Chrome - Jack (physicalther",
-        "visits": 92
       },
       {
         "page": "New conversation - Grok - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -200,12 +200,12 @@
     },
     {
       "hour": 19,
-      "time": "00:39",
+      "time": "00:50",
       "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:00",
+      "time": "00:02",
       "pct": "0%"
     },
     {
@@ -225,7 +225,7 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "06:09",
+    "Google Chrome": "06:37",
     "Terminal": "00:15",
     "VS Code": "00:10",
     "Mail": "00:01",
@@ -233,11 +233,11 @@
   },
   "top_windows_preview": [
     "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:16",
-    "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:14",
+    "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:15",
     "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:10",
+    "Google Chrome \u2014 Text Message Conflict and Boundaries - Grok - Goog: 00:09",
     "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
     "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07",
-    "Google Chrome \u2014 Text Message Conflict and Boundaries - Grok - Goog: 00:07",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:06",
     "Google Chrome \u2014 New conversation - Grok - Google Chrome - Jack (ph: 00:06",
     "Google Chrome \u2014 Fix workflow conflict - Microphone recording - Goo: 00:06",
