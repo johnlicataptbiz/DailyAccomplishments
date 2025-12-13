@@ -21,40 +21,63 @@ jobs:
 
       - name: Install requirements
         run: |
+          echo "::group::Installing Python dependencies"
           python -m pip install --upgrade pip
           pip install jsonschema pytest
+          echo "::endgroup::"
+          echo "::notice::Python dependencies installed successfully"
 
       - name: Clean pycache and stray artifacts
         run: |
+          echo "::group::Cleaning Python cache and artifacts"
           rm -rf imports || true
           find . -name '__pycache__' -type d -prune -exec rm -rf {} +
           find . -name '*.pyc' -delete
+          echo "::endgroup::"
+          echo "::notice::Python cache cleaned"
 
       - name: Run validator on recent reports
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
+          echo "::group::Discovering report files"
           files=(reports/*/ActivityReport-*.json)
+          echo "Found ${#files[@]} report files:"
+          for f in "${files[@]}"; do
+            echo "  - $f"
+          done
+          echo "::endgroup::"
 
           if [ ${#files[@]} -eq 0 ]; then
-            echo "No reports to validate"
+            echo "::warning::No reports to validate"
             exit 0
           fi
 
+          echo "::group::Validating report schemas"
           python3 .github/scripts/validate_report_schema.py "${files[@]}"
+          echo "::endgroup::"
+          echo "::notice::All reports validated successfully"
 
       - name: Run timeline smoke on a sample report
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
+          echo "::group::Selecting sample report"
           files=(reports/*/ActivityReport-*.json)
 
           if [ ${#files[@]} -eq 0 ]; then
-            echo "No sample report found"
+            echo "::warning::No sample report found"
             exit 0
           fi
 
           REPORT="${files[0]}"
+          echo "Selected report: $REPORT"
+          echo "Report size: $(stat -c%s "$REPORT" 2>/dev/null || stat -f%z "$REPORT" 2>/dev/null || echo "unknown") bytes"
+          echo "::endgroup::"
+          
+          echo "::group::Running timeline smoke test"
           python3 .github/scripts/smoke_timeline.py "$REPORT"
+          echo "::endgroup::"
+          echo "::notice::Timeline smoke test passed for $REPORT"

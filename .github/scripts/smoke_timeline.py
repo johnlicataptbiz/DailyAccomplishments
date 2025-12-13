@@ -6,32 +6,80 @@ Exits 0 when checks pass, 1 otherwise.
 import sys, json
 from pathlib import Path
 
-if len(sys.argv) < 2:
-    print("Usage: smoke_timeline.py <report.json>")
+DEBUG = '--debug' in sys.argv or '-v' in sys.argv
+
+def debug_print(msg):
+    """Print debug messages when debug mode is enabled."""
+    if DEBUG:
+        print(f"[DEBUG] {msg}")
+
+if len(sys.argv) < 2 or sys.argv[1] in ('--help', '-h'):
+    print("Usage: smoke_timeline.py <report.json> [--debug|-v]")
     sys.exit(2)
 
-p = Path(sys.argv[1])
+# Get the report path (skip debug flags)
+report_path = [arg for arg in sys.argv[1:] if not arg.startswith('-')][0] if len([arg for arg in sys.argv[1:] if not arg.startswith('-')]) > 0 else None
+
+if not report_path:
+    print("Usage: smoke_timeline.py <report.json> [--debug|-v]")
+    sys.exit(2)
+
+p = Path(report_path)
+debug_print(f"Checking report file: {p}")
+
 if not p.exists():
     print(f"Report not found: {p}")
     sys.exit(3)
 
-j = json.loads(p.read_text())
+debug_print(f"Reading JSON from {p}")
+try:
+    j = json.loads(p.read_text())
+    debug_print(f"JSON parsed successfully, top-level keys: {list(j.keys())}")
+except json.JSONDecodeError as e:
+    print(f"JSON decode error in {p}: {e}")
+    sys.exit(5)
+
 errors = []
-if 'timeline' not in j or not isinstance(j['timeline'], list):
-    errors.append('timeline missing or not array')
-if 'deep_work_blocks' not in j or not isinstance(j['deep_work_blocks'], list):
-    errors.append('deep_work_blocks missing or not array')
+
+# Check timeline field
+if 'timeline' not in j:
+    errors.append('timeline missing')
+    debug_print("timeline field is missing")
+elif not isinstance(j['timeline'], list):
+    errors.append('timeline not array')
+    debug_print(f"timeline is not an array, type: {type(j['timeline'])}")
 else:
+    debug_print(f"timeline is present and array with {len(j['timeline'])} items")
+
+# Check deep_work_blocks field
+if 'deep_work_blocks' not in j:
+    errors.append('deep_work_blocks missing')
+    debug_print("deep_work_blocks field is missing")
+elif not isinstance(j['deep_work_blocks'], list):
+    errors.append('deep_work_blocks not array')
+    debug_print(f"deep_work_blocks is not an array, type: {type(j['deep_work_blocks'])}")
+else:
+    debug_print(f"deep_work_blocks is present and array with {len(j['deep_work_blocks'])} items")
     for i, b in enumerate(j['deep_work_blocks']):
+        if not isinstance(b, dict):
+            errors.append(f'deep_work_blocks[{i}] not an object')
+            debug_print(f"deep_work_blocks[{i}] is not a dict, type: {type(b)}")
+            continue
         if 'seconds' not in b:
             errors.append(f'deep_work_blocks[{i}].seconds missing')
+            debug_print(f"deep_work_blocks[{i}].seconds is missing, keys: {list(b.keys())}")
         elif not isinstance(b['seconds'], (int, float)):
             errors.append(f'deep_work_blocks[{i}].seconds not numeric')
+            debug_print(f"deep_work_blocks[{i}].seconds is not numeric, type: {type(b['seconds'])}, value: {b['seconds']}")
+        else:
+            debug_print(f"deep_work_blocks[{i}].seconds = {b['seconds']} (valid)")
 
 if errors:
     print('SMOKE FAIL:')
     for e in errors:
         print(' -', e)
     sys.exit(4)
+
 print('SMOKE OK')
+debug_print("All checks passed")
 sys.exit(0)
