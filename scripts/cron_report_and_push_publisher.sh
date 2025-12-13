@@ -1,59 +1,51 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-export GIT_TERMINAL_PROMPT=0
-export SSH_ASKPASS=/usr/bin/false
-export GIT_SSH_COMMAND='ssh -o BatchMode=yes'
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+WORKTREE_DIR="${ROOT_DIR}/.worktrees/main"
+MAIN_BRANCH="${MAIN_BRANCH:-main}"
 
-BASE_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PUBLISH_ROOT="$BASE_ROOT/.worktrees/main"
-LOG_DIR="$BASE_ROOT/logs"
-STAMP="$(date +%Y%m%d-%H%M%S)"
-RUNLOG="$LOG_DIR/publisher.run.$STAMP.log"
+mkdir -p "${ROOT_DIR}/logs"
 
-mkdir -p "$BASE_ROOT/.worktrees" "$LOG_DIR"
+ts="$(date +"%Y%m%d-%H%M%S")"
+RUN_LOG="${ROOT_DIR}/logs/publisher.run.${ts}.log"
 
-exec > >(tee -a "$RUNLOG") 2>&1
+exec > >(tee -a "${RUN_LOG}") 2>&1
 
-echo "[$(date)] PUBLISHER: base=$BASE_ROOT"
-echo "[$(date)] PUBLISHER: publish=$PUBLISH_ROOT"
-echo "[$(date)] PUBLISHER: whoami=$(whoami) uid=$(id -u) gid=$(id -g)"
-echo "[$(date)] PUBLISHER: pwd=$(pwd)"
-echo "[$(date)] PUBLISHER: PATH=$PATH"
-echo "[$(date)] PUBLISHER: git version: $(git --version || true)"
-echo "[$(date)] PUBLISHER: runlog=$RUNLOG"
+echo "PUBLISHER: start $(date -Is)"
+echo "PUBLISHER: root=${ROOT_DIR}"
+echo "PUBLISHER: worktree=${WORKTREE_DIR}"
+echo "PUBLISHER: branch=${MAIN_BRANCH}"
 
-if [ ! -d "$BASE_ROOT/.git" ]; then
-  echo "[$(date)] PUBLISHER ERROR: not a git repo: $BASE_ROOT"
+cd "${ROOT_DIR}"
+
+# Ensure worktree exists and is clean
+if [[ ! -d "${WORKTREE_DIR}/.git" && ! -f "${WORKTREE_DIR}/.git" ]]; then
+  echo "PUBLISHER: creating worktree at ${WORKTREE_DIR}"
+  mkdir -p "${ROOT_DIR}/.worktrees"
+  git fetch origin "${MAIN_BRANCH}" || true
+  git worktree add -f "${WORKTREE_DIR}" "${MAIN_BRANCH}" || git worktree add -f "${WORKTREE_DIR}" "origin/${MAIN_BRANCH}"
+fi
+
+echo "PUBLISHER: reset worktree to a clean state"
+cd "${WORKTREE_DIR}"
+git fetch origin "${MAIN_BRANCH}" || true
+git checkout -f "${MAIN_BRANCH}" || true
+git reset --hard "origin/${MAIN_BRANCH}" 2>/dev/null || git reset --hard "${MAIN_BRANCH}"
+git clean -fd
+
+# Run the real cron script inside the worktree with bash -x tracing
+CRON="${WORKTREE_DIR}/scripts/cron_report_and_push.sh"
+if [[ ! -x "${CRON}" ]]; then
+  echo "PUBLISHER: ERROR missing or not executable: ${CRON}"
   exit 1
 fi
 
-git -C "$BASE_ROOT" fetch origin >/dev/null 2>&1 || true
-
-# If directory exists but is not a valid worktree, remove it
-if [ -d "$PUBLISH_ROOT" ] && [ ! -e "$PUBLISH_ROOT/.git" ]; then
-  echo "[$(date)] PUBLISHER: removing stale publish dir (no .git file): $PUBLISH_ROOT"
-  rm -rf "$PUBLISH_ROOT"
-fi
-
-# Ensure worktree exists (in worktrees, .git is a FILE)
-if [ ! -e "$PUBLISH_ROOT/.git" ]; then
-  echo "[$(date)] PUBLISHER: creating worktree at $PUBLISH_ROOT"
-  git -C "$BASE_ROOT" worktree add -B main "$PUBLISH_ROOT" origin/main
-fi
-
-echo "[$(date)] PUBLISHER: worktree .git:"
-ls -la "$PUBLISH_ROOT/.git" || true
-
-git -C "$PUBLISH_ROOT" fetch origin >/dev/null 2>&1 || true
-git -C "$PUBLISH_ROOT" checkout -B main origin/main >/dev/null 2>&1 || true
-git -C "$PUBLISH_ROOT" reset --hard origin/main >/dev/null 2>&1 || true
-
-echo "[$(date)] PUBLISHER: starting cron (bash -x)"
-cd "$PUBLISH_ROOT"
+echo "PUBLISHER: running ${CRON}"
 set +e
-/bin/bash -x "$PUBLISH_ROOT/scripts/cron_report_and_push.sh"
+bash -x "${CRON}"
 rc=$?
 set -e
-echo "[$(date)] PUBLISHER: cron exit rc=$rc"
-exit $rc
+
+echo "PUBLISHER: cron exit rc=${rc}"
+exit "${rc}"
