@@ -1,119 +1,98 @@
-# Handoff: Daily Accomplishments — Quick Start for Next Session
+# DailyAccomplishments handoff
 
-This is a fast onboarding for picking up where we left off. It summarizes setup, what’s implemented, what’s next, and the most important commands.
+Owner: John Licata
+Issues: open a GitHub Issue in this repo
 
-## Overview
-- Purpose: Track daily activity and present a compelling story via a web dashboard.
-- Key parts:
-  - Data sources: Screen Time (KnowledgeC), Browser History (Chrome/Safari), Slack, Monday, HubSpot, Google Calendar, Aloware.
-  - Pipeline: reporter job → generate daily JSON → enrich with Screen Time + Browser → charts/CSVs → archive → push to GitHub.
-  - UI: dashboard.html (single-page; Chart.js + custom UI).
+Last verified: 2025-12-13 (America/Chicago)
 
-## Environment
-- Python: `python3 --version` → 3.13.x
-- Venv: `~/Desktop/DailyAccomplishments/.venv`
-- Activate venv:
-  - `source ~/Desktop/DailyAccomplishments/.venv/bin/activate`
-- Install deps (already installed):
-  - `pip install -r requirements.txt` (or `pip install matplotlib requests`)
+## What this system does
+A launchd StartInterval job runs a "publisher" wrapper. The wrapper ensures a clean git worktree at:
 
-## Paths and Clones
-- Working clone for UI/dev: `~/Desktop/DailyAccomplishments` (has logs symlink to home clone)
-- “Live” clone used by LaunchAgents: `~/DailyAccomplishments` (collector/reporter write here)
-- Logs symlink: `~/Desktop/DailyAccomplishments/logs -> ~/DailyAccomplishments/logs`
+  .worktrees/main
 
-## Automation (macOS LaunchAgents)
-- Collector (active): `com.dailyaccomplishments.collector` → writes `~/DailyAccomplishments/logs/activity-YYYY-MM-DD.jsonl`
-- Reporter (active, every 15min): `com.dailyaccomplishments.reporter` → generates reports/charts, archives, pushes via SSH
-- Legacy daemon: `com.activitytracker.daemon` (disabled)
-- Check: `launchctl list | egrep 'dailyaccomplishments|activitytracker'`
+Then it executes the main cron script:
 
-## Privacy
-- Config path(s):
-  - Desktop: `~/Desktop/DailyAccomplishments/config.json`
-  - Home: `~/DailyAccomplishments/config.json`
-- Structure:
-  ```json
-  {
-    "privacy": {
-      "mode": "exclude", // or "anonymize"
-      "blocked_domains": ["..."],
-      "blocked_keywords": ["..."]
-    }
-  }
-  ```
-- Behavior: applies to Screen Time (by bundle/app label) and Browser History (domain/title). Exclude removes rows; anonymize keeps time under “Private”.
+  .worktrees/main/scripts/cron_report_and_push.sh
 
-## What’s Implemented
-- Screen Time importer (KnowledgeC `/app/usage`) with privacy filters.
-- Browser History importer (Chrome/Safari) with privacy filters and coverage union.
-- Top Apps aggregation from Screen Time (HH:MM strings; friendly app names).
-- Deep Work derivation (contiguous ≥ 25 min; small gaps ≤ 5 min) with category/app labels.
-- Dashboard improvements:
-  - Hero: Focus/Meetings with 7-day baselines (deltas), Coverage, Deep Work Blocks, Privacy pill.
-  - Deep Work chips with longest-block trophy and tooltips.
-  - Integration Highlights grid (Slack, Monday, HubSpot, Calendar, Aloware KPIs).
+That cron script generates the daily ActivityReport JSON, archives outputs, postprocesses the report, and updates the dashboard assets when applicable.
 
-## Open Items (Priority)
-1) Home clone rebase conflict (ActivityReport-2025-12-03.json)
-- If you want local to match remote:
-  ```bash
-  cd ~/DailyAccomplishments
-  git checkout --theirs ActivityReport-2025-12-03.json
-  git add ActivityReport-2025-12-03.json
-  git rebase --continue
-  ```
-- Then regenerate:
-  ```bash
-  source ~/Desktop/DailyAccomplishments/.venv/bin/activate
-  python ~/Desktop/DailyAccomplishments/scripts/import_screentime.py --date 2025-12-03 --update-report --repo ~/DailyAccomplishments
-  python ~/Desktop/DailyAccomplishments/tools/generate_reports.py 2025-12-03
-  ```
+Dashboard:
+  https://johnlicataptbiz.github.io/DailyAccomplishments/dashboard.html
 
-2) Railway deployment (build failing)
-- Plan: add Dockerfile with static server (Nginx or Node `serve`), ensure `index.html`, `ActivityReport-*.json`, and `reports/*` are served; handle base path if used.
-- After Dockerfile PR, configure Railway to build and serve static.
+## Key files and locations
 
-3) UI next passes
-- Integration Highlights: add top lists per integration (e.g., Monday boards, Slack channels, HubSpot deals).
-- Hourly overlay: show Calendar meetings on top of focus bars + legend.
-- Trends: add 7-day sparklines for Focus/Meetings/Tasks/Msgs.
+Primary (live) clone:
+  ~/DailyAccomplishments
 
-## Most-Used Commands
-- Generate reports for a date (Desktop clone):
-  ```bash
-  source ~/Desktop/DailyAccomplishments/.venv/bin/activate
-  python ~/Desktop/DailyAccomplishments/tools/generate_reports.py 2025-12-02
-  ```
-- Import Screen Time & merge:
-  ```bash
-  python ~/Desktop/DailyAccomplishments/scripts/import_screentime.py --date 2025-12-02 --update-report --repo ~/Desktop/DailyAccomplishments
-  ```
-- Import Browser History & merge:
-  ```bash
-  python ~/Desktop/DailyAccomplishments/scripts/import_browser_history.py --date 2025-12-02 --update-report --repo ~/Desktop/DailyAccomplishments
-  ```
-- Run reporter once (home clone):
-  ```bash
-  bash ~/DailyAccomplishments/scripts/cron_report_and_push.sh
-  ```
+LaunchAgent plist:
+  ~/Library/LaunchAgents/com.dailyaccomplishments.reporter.plist
 
-## Logs & Debugging
-- Reporter logs: `~/DailyAccomplishments/logs/reporter.out.log` (and `.err.log`)
-- Collector logs: `~/DailyAccomplishments/logs/activity-YYYY-MM-DD.jsonl`
-- KnowledgeC exists: `~/Library/Application Support/Knowledge/knowledgeC.db`
-- If Screen Time importer returns 0 records: re-check Full Disk Access for Terminal; we’re using `/app/usage` stream.
+Publisher wrapper (runs under launchd):
+  scripts/cron_report_and_push_publisher.sh
 
-## Files Most Recently Updated
-- UI: `dashboard.html`
-- Importers: `scripts/import_screentime.py`, `scripts/import_browser_history.py`
-- Reporter: `scripts/cron_report_and_push.sh`, `scripts/archive_outputs.sh`
-- Roadmap: `FUTURE_UPDATES.md`
+Worktree used for publishing:
+  .worktrees/main
 
-## “Start Here” (Next Session)
-1) Resolve home rebase (or confirm it’s done) and regenerate 12-03.
-2) Add Dockerfile for Railway and push; verify a successful build.
-3) Implement Integration Highlights v2 (mini lists) and Hourly meetings overlay.
+Main cron script (runs inside the worktree):
+  .worktrees/main/scripts/cron_report_and_push.sh
 
----
-Owner: jacklicataptbiz | Updated: 2025-12-04
+Launchd stdout and stderr:
+  logs/reporter.out.log
+  logs/reporter.err.log
+
+Per run traced log (publisher creates this and includes bash -x trace):
+  logs/publisher.run.YYYYMMDD-HHMMSS.log
+
+Reports:
+  ActivityReport-YYYY-MM-DD.json
+  reports/YYYY-MM-DD/
+
+## Normal behavior
+`launchctl print gui/$(id -u)/com.dailyaccomplishments.reporter` often shows:
+
+  state = not running
+
+This is expected for StartInterval jobs. They start, run, exit, and then wait for the next interval.
+
+A successful run will end with:
+
+  PUBLISHER: cron exit rc=0
+
+and launchctl will show:
+
+  last exit code = 0
+
+Also normal:
+If there were no file changes in the repo after generation, the cron script will log:
+
+  No changes to main
+
+## Useful commands
+
+Kickstart now:
+  launchctl kickstart -k gui/$(id -u)/com.dailyaccomplishments.reporter
+
+Reboot the agent cleanly:
+  launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.dailyaccomplishments.reporter.plist 2>/dev/null || true
+  launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.dailyaccomplishments.reporter.plist
+  launchctl enable gui/$(id -u)/com.dailyaccomplishments.reporter
+  launchctl kickstart -k gui/$(id -u)/com.dailyaccomplishments.reporter
+
+Tail latest publisher run log:
+  ls -t logs/publisher.run.*.log | head -n 1
+  tail -n 200 "$(ls -t logs/publisher.run.*.log | head -n 1)"
+
+Check exit code quickly:
+  launchctl print gui/$(id -u)/com.dailyaccomplishments.reporter | egrep -n "state|pid|last exit|LastExitStatus" | head -n 120
+
+## Gotchas
+
+1) Worktree is disposable
+Any direct edits inside `.worktrees/main` will be wiped by the publisher reset. If a change must persist, it must be committed to the real repo branch.
+
+2) zsh globs
+zsh will error on unmatched globs. When checking optional logs, use `2>/dev/null`:
+  ls -t logs/publisher.run.*.log 2>/dev/null | head -n 3
+
+3) Screen Time permissions
+If Screen Time import returns 0 records, grant Full Disk Access to the relevant terminal/shell or agent host process and rerun.

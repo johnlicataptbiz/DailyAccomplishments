@@ -418,3 +418,12 @@ For questions or issues:
 ---
 
 **Ready to optimize your productivity?** Start with [QUICKSTART.md](QUICKSTART.md) 🚀
+
+## Production automation (macOS launchd)
+If you are running the scheduled publisher on macOS via launchd, the canonical operations doc is:
+
+  HANDOFF.md
+
+The expected launchd label is:
+
+  com.dailyaccomplishments.reporter
