@@ -5,18 +5,21 @@ Script to analyze branches and identify which ones are safe to close.
 
 import subprocess
 import json
+import os
 from datetime import datetime
 from typing import List, Dict, Tuple
 
-def run_git_command(cmd: List[str]) -> str:
+def run_git_command(cmd: List[str], cwd: str = None) -> str:
     """Run a git command and return its output."""
+    if cwd is None:
+        cwd = os.getcwd()
     try:
         result = subprocess.run(
             cmd,
             capture_output=True,
             text=True,
             check=True,
-            cwd='/home/runner/work/DailyAccomplishments/DailyAccomplishments'
+            cwd=cwd
         )
         return result.stdout.strip()
     except subprocess.CalledProcessError as e:
@@ -49,11 +52,15 @@ def get_branch_info(branch: str) -> Dict:
     merged_branches = run_git_command(['git', 'branch', '-r', '--merged', 'origin/main'])
     is_merged = f'origin/{branch}' in merged_branches
     
-    # Get last commit date
-    commit_date = run_git_command(['git', 'log', '-1', '--format=%ci', commit_hash]) if commit_hash else ""
-    
-    # Get commit message
-    commit_msg = run_git_command(['git', 'log', '-1', '--format=%s', commit_hash]) if commit_hash else ""
+    # Get last commit date and message in one call
+    if commit_hash:
+        commit_info = run_git_command(['git', 'log', '-1', '--format=%ci|%s', commit_hash])
+        if '|' in commit_info:
+            commit_date, commit_msg = commit_info.split('|', 1)
+        else:
+            commit_date, commit_msg = "", ""
+    else:
+        commit_date, commit_msg = "", ""
     
     # Check if branch is ahead/behind main
     if commit_hash:

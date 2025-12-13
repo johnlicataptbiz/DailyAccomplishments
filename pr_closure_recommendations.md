@@ -133,8 +133,8 @@ These can be safely deleted via GitHub UI or command line:
 
 ```bash
 # Merge conflict fixes (4)
-git push origin --delete codex/fix-codex-review-issues-in-pull-request-#12
-git push origin --delete codex/fix-codex-review-issues-in-pull-request-#12-zb1pn2
+git push origin --delete "codex/fix-codex-review-issues-in-pull-request-#12"
+git push origin --delete "codex/fix-codex-review-issues-in-pull-request-#12-zb1pn2"
 git push origin --delete copilot/fix-merge-conflict-in-validate-report-schema
 git push origin --delete copilot/fix-merge-conflicts-in-reports
 

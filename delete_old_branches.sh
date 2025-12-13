@@ -90,10 +90,8 @@ failed_count=0
 skipped_count=0
 
 for branch in "${HIGH_PRIORITY_BRANCHES[@]}"; do
-  # Check if branch exists
-  branch_exists=$(git ls-remote --heads origin "refs/heads/$branch" 2>/dev/null | wc -l)
-  
-  if [ "$branch_exists" -eq 0 ]; then
+  # Check if branch exists using proper exit code check
+  if ! git ls-remote --exit-code --heads origin "$branch" > /dev/null 2>&1; then
     echo "⏭️  Skipping: $branch (doesn't exist)"
     skipped_count=$((skipped_count + 1))
     continue
@@ -104,6 +102,7 @@ for branch in "${HIGH_PRIORITY_BRANCHES[@]}"; do
     deleted_count=$((deleted_count + 1))
   else
     echo "🗑️  Deleting: $branch"
+    # Properly quote branch name to handle special characters
     if git push origin --delete "$branch"; then
       echo "   ✓ Deleted successfully"
       deleted_count=$((deleted_count + 1))
