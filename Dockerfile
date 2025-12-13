@@ -27,6 +27,7 @@ COPY *.json ./
 COPY *.csv ./
 COPY *.md ./
 COPY *.html ./
+COPY reports/ ./reports/
 
 # Install Python dependencies
 RUN pip install --no-cache-dir matplotlib pillow
