@@ -45,11 +45,10 @@ tests/
 .coverage
 htmlcov/
 
-# Documentation and archives
+# Documentation and archives (not needed in production container)
 docs/
 *.pdf
 *.md
-ARCHIVE.md
 *.backup*
 
 # Build artifacts
@@ -71,15 +70,17 @@ scripts/
 .github/
 
 # Data files (not needed in production container)
+# CSV data files
 *.csv
-*.json
-!config.json
-!package.json
-ActivityReport-*.json
 category_distribution*
 hourly_focus*
 top_domains*
 focus_summary*
+
+# JSON report files (but keep config files)
+ActivityReport-*.json
+!config.json
+!package.json
 
 # Backup and archive files
 *.bak
