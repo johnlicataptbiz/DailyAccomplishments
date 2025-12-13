@@ -73,8 +73,7 @@ jobs:
           fi
 
           # Sort files and select the newest (last) report
-          IFS=$'\n' sorted=($(sort <<<"${files[*]}"))
-          unset IFS
+          readarray -t sorted < <(printf '%s\n' "${files[@]}" | sort)
           REPORT="${sorted[-1]}"
           echo "Selected newest report: $REPORT"
           python3 .github/scripts/smoke_timeline.py "$REPORT"
