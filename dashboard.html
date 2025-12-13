@@ -687,7 +687,7 @@
                     }
 
                     async function tryFetchFor(d) {
-                        let r = await fetch(`/ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
+                        let r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
                         if (!r.ok) {
                             r = await fetch(`/reports/daily-report-${d}.json${cacheSuffix}`, { cache: 'no-store' });
                         }
