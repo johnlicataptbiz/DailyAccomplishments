@@ -3,31 +3,31 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "02:36",
+    "active_time": "02:39",
     "focus_time": "05:56",
     "meetings_time": "00:00",
-    "coverage_time": "10:48",
-    "coverage_window": "07:12\u201318:01",
+    "coverage_time": "11:03",
+    "coverage_window": "07:12\u201318:16",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 02:36",
-    "Focus Time: 02:36",
+    "Active Time: 02:39",
+    "Focus Time: 02:39",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Electron, Terminal"
   ],
   "executive_summary": [
-    "Active: 02:36 | Focus: 02:36",
-    "Coverage: 07:12\u201318:01 CST",
+    "Active: 02:39 | Focus: 02:39",
+    "Coverage: 07:12\u201318:16 CST",
     "Screen Time: ~1275 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (01:57)",
+    "Focused on Google Chrome (01:59)",
     "Focused on Electron (00:21)",
-    "Focused on Terminal (00:10)",
+    "Focused on Terminal (00:11)",
     "Focused on Mail (00:04)",
-    "Focused on Finder (00:00)"
+    "Focused on Finder (00:01)"
   ],
   "by_category": {
     "Research": "05:32",
@@ -40,7 +40,7 @@
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1196
+        "visits": 1224
       },
       {
         "domain": "finally a free facebook group for pt...",
@@ -54,11 +54,11 @@
     "top_pages": [
       {
         "page": "Handoff process summary - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 115
+        "visits": 125
       },
       {
         "page": "Chat handoff summary - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 101
+        "visits": 104
       },
       {
         "page": "Merge pytest config steps - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -86,7 +86,7 @@
       },
       {
         "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 29
+        "visits": 33
       },
       {
         "page": "Lead Replies - Business growth advice - Google Chrome - Jack (physicaltherapybiz",
@@ -187,7 +187,7 @@
     },
     {
       "hour": 18,
-      "time": "00:01",
+      "time": "00:03",
       "pct": "0%"
     },
     {
@@ -225,15 +225,15 @@
   },
   "top_windows_preview": [
     "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:15",
-    "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:09",
+    "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:10",
     "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
     "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07",
     "Google Chrome \u2014 Fix workflow conflict - Microphone recording - Goo: 00:06",
     "Google Chrome \u2014 Fix workflow conflict - Google Chrome - Jack (phys: 00:04",
     "Google Chrome \u2014 Formatting Facebook Group Leads List - Grok - Goog: 00:04",
     "Google Chrome \u2014 Import - Google Chrome - Jack (physicaltherapybiz.: 00:03",
-    "Google Chrome \u2014 Check HubSpot contacts - Google Chrome - Jack (phy: 00:03",
-    "Electron \u2014 Extension: Codex \u2014 DailyAccomplishments [Codespace: 00:02"
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:03",
+    "Google Chrome \u2014 Check HubSpot contacts - Google Chrome - Jack (phy: 00:03"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
