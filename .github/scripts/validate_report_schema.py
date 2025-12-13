@@ -8,7 +8,7 @@ Usage:
 
 Exit codes:
   0: All selected files validate (or no changed report files when using --changed)
-  2: Usage error, schema missing, or git diff failure
+  2: Usage error, schema missing, missing file, or git diff failure
   3: One or more selected files failed validation
 """
 
@@ -30,7 +30,6 @@ REPORT_RE = re.compile(r"^reports/[^/]+/ActivityReport-.*\.json$")
 
 
 def repo_root() -> Path:
-    # Script is at .github/scripts/ -> parents[2] is repo root
     return Path(__file__).resolve().parents[2]
 
 
@@ -43,39 +42,33 @@ def load_schema() -> dict:
     return json.loads(schema_path.read_text(encoding="utf-8"))
 
 
-def git_changed_reports() -> list[str]:
+def git_changed_reports() -> list[str] | None:
     """
     Return list of changed ActivityReport json paths in this checkout.
 
-    Works in PR context using GitHub Actions environment variables.
-    Falls back to comparing against HEAD^ if needed.
+    Returns None on git diff failure (treat as exit 2).
     """
     root = repo_root()
-
-    # Best effort base reference selection for PR builds.
-    # In pull_request workflows, GITHUB_BASE_REF is set (branch name).
-    # We can diff against origin/<base> if available.
     base_ref = os.environ.get("GITHUB_BASE_REF", "").strip()
     github_sha = os.environ.get("GITHUB_SHA", "").strip()
 
-    # Prefer origin/<base_ref>...HEAD if base_ref exists.
     if base_ref:
         base = f"origin/{base_ref}"
         diff_range = f"{base}...HEAD"
         cmd = ["git", "diff", "--name-only", diff_range]
     elif github_sha:
-        # If we only have a SHA, compare that merge commit against HEAD is not useful.
-        # Use HEAD^...HEAD as a fallback.
         cmd = ["git", "diff", "--name-only", "HEAD^...HEAD"]
     else:
         cmd = ["git", "diff", "--name-only", "HEAD^...HEAD"]
 
     try:
-        out = subprocess.check_output(cmd, cwd=str(root), text=True, stderr=subprocess.STDOUT)
+        out = subprocess.check_output(
+            cmd, cwd=str(root), text=True, stderr=subprocess.STDOUT
+        )
     except subprocess.CalledProcessError as e:
         print("Failed to compute changed files via git diff.")
         print(e.output)
-        return []
+        return None
 
     paths = [line.strip() for line in out.splitlines() if line.strip()]
     report_paths = [p for p in paths if REPORT_RE.match(p)]
@@ -83,21 +76,25 @@ def git_changed_reports() -> list[str]:
     return report_paths
 
 
-def validate_file(path: str, validator: Draft7Validator) -> bool:
+def validate_file(path: str, validator: Draft7Validator) -> tuple[bool, bool]:
+    """
+    Returns (ok, usage_or_setup_error).
+      - usage_or_setup_error=True for things like missing files or unreadable JSON.
+      - ok=False, usage_or_setup_error=False means "validation failed" (exit code 3 category).
+    """
     p = Path(path)
-
     if not p.is_absolute():
         p = repo_root() / p
 
     if not p.exists():
         print(f"MISSING: {p}")
-        return False
+        return (False, True)
 
     try:
         data = json.loads(p.read_text(encoding="utf-8"))
     except Exception as e:
         print(f"Invalid JSON in {p}: {e}")
-        return False
+        return (False, True)
 
     errors = sorted(validator.iter_errors(data), key=lambda e: list(e.path))
     if errors:
@@ -105,12 +102,10 @@ def validate_file(path: str, validator: Draft7Validator) -> bool:
         for e in errors[:50]:
             path_str = ".".join(map(str, e.path)) if e.path else "<root>"
             print(f" - {path_str}: {e.message}")
-        return False
+        return (False, False)
 
-    # Additional stricter checks beyond Draft7 schema to make CI failures clearer
     ok = True
 
-    # Ensure overview contains expected timing fields
     if "overview" not in data or not isinstance(data["overview"], dict):
         print(f" - overview: missing or not an object in {p}")
         ok = False
@@ -120,7 +115,6 @@ def validate_file(path: str, validator: Draft7Validator) -> bool:
                 print(f" - overview.{key}: missing in {p}")
                 ok = False
 
-    # Validate deep_work_blocks items if present
     if "deep_work_blocks" in data:
         if not isinstance(data["deep_work_blocks"], list):
             print(f" - deep_work_blocks: expected array in {p}")
@@ -140,10 +134,10 @@ def validate_file(path: str, validator: Draft7Validator) -> bool:
                     ok = False
 
     if not ok:
-        return False
+        return (False, False)
 
     print(f"VALID: {p}")
-    return True
+    return (True, False)
 
 
 def main(argv: list[str]) -> int:
@@ -157,6 +151,8 @@ def main(argv: list[str]) -> int:
     args = argv[1:]
     if args == ["--changed"]:
         files = git_changed_reports()
+        if files is None:
+            return 2
         if not files:
             print("No changed ActivityReport JSON files to validate.")
             return 0
@@ -166,11 +162,17 @@ def main(argv: list[str]) -> int:
     else:
         files = args
 
+    any_usage_or_setup_error = False
     all_ok = True
+
     for f in files:
-        ok = validate_file(f, validator)
+        ok, usage_or_setup_error = validate_file(f, validator)
+        if usage_or_setup_error:
+            any_usage_or_setup_error = True
         all_ok = all_ok and ok
 
+    if any_usage_or_setup_error:
+        return 2
     return 0 if all_ok else 3
 
 
