@@ -3,27 +3,27 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "05:23",
+    "active_time": "05:33",
     "focus_time": "07:45",
     "meetings_time": "00:00",
-    "coverage_time": "14:50",
-    "coverage_window": "07:12\u201322:03",
+    "coverage_time": "15:05",
+    "coverage_window": "07:12\u201322:18",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 05:23",
+    "Active Time: 05:33",
     "Focus Time: 07:45",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, VS Code"
   ],
   "executive_summary": [
-    "Active: 05:23 | Focus: 07:45",
-    "Coverage: 07:12\u201322:03 CST",
+    "Active: 05:33 | Focus: 07:45",
+    "Coverage: 07:12\u201322:18 CST",
     "Screen Time: ~710 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (04:20)",
+    "Focused on Google Chrome (04:29)",
     "Focused on Terminal (00:25)",
     "Focused on Electron (00:21)",
     "Focused on app_mode_loader (00:04)",
@@ -153,7 +153,7 @@
     },
     {
       "hour": 22,
-      "time": "00:02",
+      "time": "00:11",
       "pct": "0%"
     },
     {
@@ -170,7 +170,7 @@
     "Messages": "00:01"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Report flow design - Google Chrome - Jack (physica: 00:58",
+    "Google Chrome \u2014 Report flow design - Google Chrome - Jack (physica: 01:07",
     "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:20",
     "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:16",
     "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:11",
