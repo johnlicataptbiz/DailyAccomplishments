@@ -3,36 +3,36 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "06:08",
-    "focus_time": "08:00",
+    "active_time": "06:20",
+    "focus_time": "08:01",
     "meetings_time": "00:00",
-    "coverage_time": "15:50",
-    "coverage_window": "07:12\u201323:03",
+    "coverage_time": "16:05",
+    "coverage_window": "07:12\u201323:18",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 06:08",
-    "Focus Time: 08:00",
+    "Active Time: 06:20",
+    "Focus Time: 08:01",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, VS Code"
   ],
   "executive_summary": [
-    "Active: 06:08 | Focus: 08:00",
-    "Coverage: 07:12\u201323:03 CST",
-    "Screen Time: ~736 min foreground app usage"
+    "Active: 06:20 | Focus: 08:01",
+    "Coverage: 07:12\u201323:18 CST",
+    "Screen Time: ~744 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (05:01)",
-    "Focused on Terminal (00:29)",
+    "Focused on Google Chrome (05:09)",
+    "Focused on Terminal (00:31)",
     "Focused on Electron (00:21)",
     "Focused on app_mode_loader (00:04)",
     "Focused on Finder (00:04)"
   ],
   "by_category": {
-    "Research": "07:33",
+    "Research": "07:34",
+    "Coding": "00:33",
     "Other": "00:33",
-    "Coding": "00:30",
     "Communication": "00:14",
     "Email/CRM": "00:00"
   },
@@ -158,12 +158,12 @@
     },
     {
       "hour": 23,
-      "time": "00:02",
+      "time": "00:14",
       "pct": "0%"
     }
   ],
   "top_apps": {
-    "Google Chrome": "07:33",
+    "Google Chrome": "07:34",
     "Terminal": "00:15",
     "VS Code": "00:10",
     "Mail": "00:01",
@@ -172,14 +172,14 @@
   "top_windows_preview": [
     "Google Chrome \u2014 Report flow design - Google Chrome - Jack (physica: 01:25",
     "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:20",
+    "Google Chrome \u2014 DailyAccomplishments project update - Google Chrom: 00:16",
     "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:16",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:14",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:16",
     "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:11",
     "Google Chrome \u2014 Text Message Conflict and Boundaries - Grok - Goog: 00:10",
     "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
     "Google Chrome \u2014 ChatGPT - Google Chrome - Jack (physicaltherapybiz: 00:08",
-    "Google Chrome \u2014 Message analysis and trends - Google Chrome - Jack: 00:08",
-    "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07"
+    "Google Chrome \u2014 Message analysis and trends - Google Chrome - Jack: 00:08"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
