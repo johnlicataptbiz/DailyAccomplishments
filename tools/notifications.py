@@ -17,11 +17,10 @@ from typing import Optional, Dict, Any
 from zoneinfo import ZoneInfo
 import logging
 
-# Handle both relative and absolute imports for compatibility
-try:
+if __package__:
     from .daily_logger import load_config, get_current_date, BASE_DIR
     from .auto_report import generate_daily_report
-except ImportError:
+else:  # pragma: no cover - for direct script execution
     from daily_logger import load_config, get_current_date, BASE_DIR
     from auto_report import generate_daily_report
 

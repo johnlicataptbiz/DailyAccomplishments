@@ -18,10 +18,9 @@ from typing import Dict, List, Optional, Tuple, Any
 from zoneinfo import ZoneInfo
 from collections import defaultdict
 
-# Handle both relative and absolute imports for compatibility
-try:
+if __package__:
     from .daily_logger import read_daily_log, load_config, get_log_path, LOG_DIR
-except ImportError:
+else:  # pragma: no cover - for direct script execution
     from daily_logger import read_daily_log, load_config, get_log_path, LOG_DIR
 
 logger = logging.getLogger(__name__)

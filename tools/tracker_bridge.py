@@ -10,10 +10,9 @@ import logging
 from typing import Dict, Any, Optional
 from datetime import datetime
 
-# Handle both relative and absolute imports for compatibility
-try:
+if __package__:
     from .daily_logger import log_activity, initialize_daily_log, midnight_reset, load_config, get_current_date
-except ImportError:
+else:  # pragma: no cover - for direct script execution
     from daily_logger import log_activity, initialize_daily_log, midnight_reset, load_config, get_current_date
 
 logger = logging.getLogger(__name__)

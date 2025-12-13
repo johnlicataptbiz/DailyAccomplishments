@@ -14,11 +14,10 @@ from pathlib import Path
 from typing import Optional
 from zoneinfo import ZoneInfo
 
-# Handle both relative and absolute imports for compatibility
-try:
+if __package__:
     from .daily_logger import load_config, read_daily_log, get_log_path
     from .analytics import ProductivityAnalytics, compare_trends
-except ImportError:
+else:  # pragma: no cover - for direct script execution
     from daily_logger import load_config, read_daily_log, get_log_path
     from analytics import ProductivityAnalytics, compare_trends
 

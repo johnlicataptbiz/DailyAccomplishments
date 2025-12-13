@@ -32,15 +32,16 @@ import threading
 import time
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
+from importlib.util import find_spec
 from pathlib import Path
 import sqlite3
 import shutil
 import tempfile
 from typing import Optional, Tuple
 
-try:
+if find_spec("zoneinfo"):
     from zoneinfo import ZoneInfo  # Python 3.9+
-except Exception:  # pragma: no cover
+else:  # pragma: no cover
     ZoneInfo = None  # type: ignore
 
 
