@@ -36,11 +36,8 @@ DailyAccomplishments is a productivity tracking and reporting application that a
 ## Build and Deployment
 
 ### Docker
-The application uses Docker for deployment:
-```bash
-docker build -t daily-accomplishments .
-docker run -p 8000:8000 daily-accomplishments
-```
+Docker usage instructions will be added once the Docker build context is complete and all required
+files are present in the repository.
 
 ### Dependencies
 - **Python 3.12**: Runtime environment
@@ -82,9 +79,8 @@ docker run -p 8000:8000 daily-accomplishments
 
 ### Before Committing
 1. Ensure config.json is valid JSON
-2. Verify Docker build succeeds: `docker build -t test .`
-3. Test report generation if modifying visualization code
-4. Verify integrations don't break if modifying API code
+2. Test report generation if modifying visualization code
+3. Verify integrations don't break if modifying API code
 
 ### Local Development
 - Use virtual environments for Python dependencies
