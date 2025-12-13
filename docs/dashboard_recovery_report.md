@@ -1,6 +1,6 @@
 # Dashboard Recovery Report
 
-This recovery report documents the steps used to restore the Daily Accomplishments dashboard and provides a repeatable process for future incidents. The companion script `tools/generate_dashboard_recovery_report.py` renders a PDF version named **DailyAccomplishments Dashboard Recovery Report.pdf**.
+This recovery report documents the steps used to restore the Daily Accomplishments dashboard and provides a repeatable process for future incidents. The companion script `tools/generate_dashboard_recovery_report.py` renders a PDF version named **DailyAccomplishments-Dashboard-Recovery-Report.pdf**.
 
 ## Contents
 - Objective and scope of the recovery
