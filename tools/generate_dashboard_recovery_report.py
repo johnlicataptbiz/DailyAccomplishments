@@ -16,7 +16,7 @@ from fpdf import FPDF
 
 
 REPORT_TITLE = "DailyAccomplishments Dashboard Recovery Report"
-DEFAULT_OUTPUT = Path(__file__).resolve().parent.parent / f"{REPORT_TITLE}.pdf"
+DEFAULT_OUTPUT = Path(__file__).resolve().parent.parent / "DailyAccomplishments-Dashboard-Recovery-Report.pdf"
 
 
 def _format_timestamp() -> str:
