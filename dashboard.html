@@ -606,6 +606,26 @@
             return fetch(url, { ...opts, signal: c.signal }).finally(() => clearTimeout(t));
         }
 
+        
+        // Global fetch timeout: prevents infinite spinners on slow/stalled hosts.
+        // Applies to ALL fetch() calls below without rewriting them.
+        (function () {
+            const __fetch = window.fetch.bind(window);
+            window.fetch = function(url, opts = {}) {
+                const ms = 8000;
+                const c = new AbortController();
+                const t = setTimeout(() => c.abort(), ms);
+
+                // If caller already supplied a signal, mirror it into our controller.
+                if (opts && opts.signal) {
+                    try { opts.signal.addEventListener('abort', () => c.abort(), { once: True }); } catch {}
+                }
+
+                const merged = { ...(opts || {}), signal: c.signal };
+                return __fetch(url, merged).finally(() => clearTimeout(t));
+            };
+        })();
+
         let hourlyChart = null;
         let categoryChart = null;
         // Settings with sensible defaults
