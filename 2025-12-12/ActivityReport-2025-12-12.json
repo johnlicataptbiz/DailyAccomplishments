@@ -3,27 +3,27 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "04:36",
+    "active_time": "04:38",
     "focus_time": "07:38",
     "meetings_time": "00:00",
-    "coverage_time": "13:40",
-    "coverage_window": "07:12\u201320:53",
+    "coverage_time": "13:42",
+    "coverage_window": "07:12\u201320:55",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 04:36",
-    "Focus Time: 04:36",
+    "Active Time: 04:38",
+    "Focus Time: 04:38",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 04:36 | Focus: 04:36",
-    "Coverage: 07:12\u201320:53 CST",
+    "Active: 04:38 | Focus: 04:38",
+    "Coverage: 07:12\u201320:55 CST",
     "Screen Time: ~695 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (03:34)",
+    "Focused on Google Chrome (03:35)",
     "Focused on Terminal (00:24)",
     "Focused on Electron (00:21)",
     "Focused on app_mode_loader (00:04)",
@@ -32,7 +32,7 @@
   "by_category": {
     "Research": "07:11",
     "Other": "00:33",
-    "Coding": "00:25",
+    "Coding": "00:26",
     "Communication": "00:14",
     "Email/CRM": "00:00"
   },
@@ -225,7 +225,7 @@
     },
     {
       "hour": 20,
-      "time": "00:44",
+      "time": "00:45",
       "pct": "0%"
     },
     {
@@ -254,10 +254,10 @@
   "top_windows_preview": [
     "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:20",
     "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:16",
-    "Google Chrome \u2014 Report flow design - Google Chrome - Jack (physica: 00:13",
+    "Google Chrome \u2014 Report flow design - Google Chrome - Jack (physica: 00:14",
     "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:11",
-    "Google Chrome \u2014 Text Message Conflict and Boundaries - Grok - Goog: 00:10",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:10",
+    "Google Chrome \u2014 Text Message Conflict and Boundaries - Grok - Goog: 00:10",
     "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
     "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07",
     "Google Chrome \u2014 Message analysis and trends - Google Chrome - Jack: 00:07",
