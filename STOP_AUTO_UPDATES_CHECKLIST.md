@@ -4,7 +4,7 @@ This checklist captures the steps needed to halt failing automation and restore 
 
 ## 1) Stop the bleeding
 - Disable any scheduled GitHub Actions, cron jobs, or scripts that push `Auto-update` commits.
-- Leave the branch read-only until the mismatch is resolved.
+- Make the branch read-only (e.g., using branch protection rules) until the mismatch is resolved.
 
 ## 2) Pick a forensic anchor
 - Identify the last commit where the dashboard renders correctly (verify by opening the published dashboard for that SHA).
