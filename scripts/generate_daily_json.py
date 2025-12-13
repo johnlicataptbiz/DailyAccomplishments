@@ -94,10 +94,28 @@ class Timeline:
             })
         return timeline_export
     
-    def detect_deep_work_blocks(self, threshold_minutes: int = 25) -> List[Dict[str, Any]]:
+    def _create_deep_work_block(self, start: datetime, end: datetime) -> Dict[str, Any]:
+        """Create a deep work block dictionary from start and end times."""
+        block_duration_seconds = (end - start).total_seconds()
+        duration_minutes = block_duration_seconds / 60
+        return {
+            'start': start.strftime('%H:%M'),
+            'end': end.strftime('%H:%M'),
+            'duration': minutes_to_time_str(duration_minutes),
+            'seconds': int(block_duration_seconds),
+            'minutes': int(duration_minutes)
+        }
+    
+    def detect_deep_work_blocks(self, threshold_minutes: int = 25, gap_tolerance_seconds: int = 60) -> List[Dict[str, Any]]:
         """
         Detect deep work blocks (contiguous non-meeting activity >= threshold).
-        Returns list of blocks with start, end, duration, seconds, minutes.
+        
+        Args:
+            threshold_minutes: Minimum duration for a block to be considered deep work (default: 25)
+            gap_tolerance_seconds: Maximum gap between intervals to still be considered contiguous (default: 60)
+        
+        Returns:
+            List of blocks with start, end, duration, seconds, minutes.
         """
         deep_blocks = []
         threshold_seconds = threshold_minutes * 60
@@ -123,22 +141,16 @@ class Timeline:
                 current_block_start = start
                 current_block_end = end
             else:
-                # Check if contiguous (gap <= 1 minute)
+                # Check if contiguous (gap <= tolerance)
                 gap_seconds = (start - current_block_end).total_seconds()
-                if gap_seconds <= 60:
+                if gap_seconds <= gap_tolerance_seconds:
                     # Extend current block
                     current_block_end = end
                 else:
                     # Finalize current block if it meets threshold
                     block_duration = (current_block_end - current_block_start).total_seconds()
                     if block_duration >= threshold_seconds:
-                        deep_blocks.append({
-                            'start': current_block_start.strftime('%H:%M'),
-                            'end': current_block_end.strftime('%H:%M'),
-                            'duration': minutes_to_time_str(block_duration / 60),
-                            'seconds': int(block_duration),
-                            'minutes': int(block_duration / 60)
-                        })
+                        deep_blocks.append(self._create_deep_work_block(current_block_start, current_block_end))
                     # Start new block
                     current_block_start = start
                     current_block_end = end
@@ -147,13 +159,7 @@ class Timeline:
         if current_block_start:
             block_duration = (current_block_end - current_block_start).total_seconds()
             if block_duration >= threshold_seconds:
-                deep_blocks.append({
-                    'start': current_block_start.strftime('%H:%M'),
-                    'end': current_block_end.strftime('%H:%M'),
-                    'duration': minutes_to_time_str(block_duration / 60),
-                    'seconds': int(block_duration),
-                    'minutes': int(block_duration / 60)
-                })
+                deep_blocks.append(self._create_deep_work_block(current_block_start, current_block_end))
         
         return deep_blocks
 
