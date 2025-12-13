@@ -19,9 +19,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Determine repository root path
-# If running from tools/ directory, go up one level to repo root
-# Otherwise, assume we're already at repo root
-repo_root_path = Path(__file__).parent.parent
+# If running from tools/ directory, go up one level; otherwise use current directory
+repo_root_path = Path(__file__).resolve().parent.parent
 
 # Load configuration
 CONFIG_PATH = repo_root_path / 'config.json'
