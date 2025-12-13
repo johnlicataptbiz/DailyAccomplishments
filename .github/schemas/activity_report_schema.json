@@ -45,6 +45,9 @@
       }
     }
     ,
+    "timeline": {
+      "type": "array"
+    },
     "deep_work_blocks": {
       "type": "array",
       "items": {
