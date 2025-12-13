@@ -20,12 +20,7 @@
 
       const f = document.createElement("iframe");
       f.src = local;
-      f.onload = () => console.log("[build] iframe dashboard loaded", local);
-      f.onerror = () => {
-        f.src = raw;
-        console.log("[build] iframe fallback to raw", raw);
-      };
-
+      f.onerror = () => { f.src = raw; };
       document.body.appendChild(f);
     </script>
   </body>
