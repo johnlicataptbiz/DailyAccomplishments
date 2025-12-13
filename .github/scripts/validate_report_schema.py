@@ -8,7 +8,7 @@ Usage:
 
 Exit codes:
   0: All selected files validate (or no changed report files when using --changed)
-  2: Usage error, schema missing, or git diff failure
+  2: Usage error, schema missing, or unable to compute changed files
   3: One or more selected files failed validation
 """
 
@@ -43,41 +43,86 @@ def load_schema() -> dict:
     return json.loads(schema_path.read_text(encoding="utf-8"))
 
 
+def _run_git_diff_name_only(diff_range: str) -> list[str]:
+    root = repo_root()
+    cmd = ["git", "diff", "--name-only", diff_range]
+    out = subprocess.check_output(cmd, cwd=str(root), text=True, stderr=subprocess.STDOUT)
+    return [line.strip() for line in out.splitlines() if line.strip()]
+
+
+def _ensure_commit_present(commit: str) -> None:
+    """
+    Ensure a commit object exists locally. If not, try to fetch it.
+    This helps in shallow checkouts where base commits are missing.
+    """
+    root = repo_root()
+
+    def has_object() -> bool:
+        try:
+            subprocess.check_output(
+                ["git", "cat-file", "-e", f"{commit}^{{commit}}"],
+                cwd=str(root),
+                text=True,
+                stderr=subprocess.STDOUT,
+            )
+            return True
+        except subprocess.CalledProcessError:
+            return False
+
+    if has_object():
+        return
+
+    # Try to fetch the commit object directly (works in most Actions contexts).
+    try:
+        subprocess.check_output(
+            ["git", "fetch", "--no-tags", "--depth=200", "origin", commit],
+            cwd=str(root),
+            text=True,
+            stderr=subprocess.STDOUT,
+        )
+    except subprocess.CalledProcessError as e:
+        raise RuntimeError(f"Could not fetch missing commit {commit}:\n{e.output}") from e
+
+    if not has_object():
+        raise RuntimeError(f"Commit {commit} is still missing after fetch.")
+
+
 def git_changed_reports() -> list[str]:
     """
     Return list of changed ActivityReport json paths in this checkout.
 
-    Works in PR context using GitHub Actions environment variables.
-    Falls back to comparing against HEAD^ if needed.
+    Robust order of operations:
+      1) Prefer GitHub Actions PR SHAs: GITHUB_BASE_SHA...GITHUB_SHA
+      2) If base SHA not available, try origin/<GITHUB_BASE_REF>...HEAD
+      3) Last resort: HEAD^...HEAD
+
+    If we cannot compute a diff, raise so caller can exit 2.
     """
-    root = repo_root()
-
-    # Best effort base reference selection for PR builds.
-    # In pull_request workflows, GITHUB_BASE_REF is set (branch name).
-    # We can diff against origin/<base> if available.
+    base_sha = os.environ.get("GITHUB_BASE_SHA", "").strip()
+    head_sha = os.environ.get("GITHUB_SHA", "").strip()
     base_ref = os.environ.get("GITHUB_BASE_REF", "").strip()
-    github_sha = os.environ.get("GITHUB_SHA", "").strip()
 
-    # Prefer origin/<base_ref>...HEAD if base_ref exists.
-    if base_ref:
-        base = f"origin/{base_ref}"
-        diff_range = f"{base}...HEAD"
-        cmd = ["git", "diff", "--name-only", diff_range]
-    elif github_sha:
-        # If we only have a SHA, compare that merge commit against HEAD is not useful.
-        # Use HEAD^...HEAD as a fallback.
-        cmd = ["git", "diff", "--name-only", "HEAD^...HEAD"]
+    # 1) Best: explicit base and head SHAs (works even in PR merge commits).
+    if base_sha and head_sha:
+        _ensure_commit_present(base_sha)
+        _ensure_commit_present(head_sha)
+        diff_range = f"{base_sha}...{head_sha}"
+        paths = _run_git_diff_name_only(diff_range)
+    # 2) Next: diff against base branch ref if available.
+    elif base_ref:
+        diff_range = f"origin/{base_ref}...HEAD"
+        try:
+            paths = _run_git_diff_name_only(diff_range)
+        except subprocess.CalledProcessError as e:
+            raise RuntimeError(
+                f"git diff failed for range {diff_range}. "
+                f"Consider setting actions/checkout fetch-depth: 0.\n{e.output}"
+            ) from e
+    # 3) Fallback: just compare last commit.
     else:
-        cmd = ["git", "diff", "--name-only", "HEAD^...HEAD"]
+        diff_range = "HEAD^...HEAD"
+        paths = _run_git_diff_name_only(diff_range)
 
-    try:
-        out = subprocess.check_output(cmd, cwd=str(root), text=True, stderr=subprocess.STDOUT)
-    except subprocess.CalledProcessError as e:
-        print("Failed to compute changed files via git diff.")
-        print(e.output)
-        return []
-
-    paths = [line.strip() for line in out.splitlines() if line.strip()]
     report_paths = [p for p in paths if REPORT_RE.match(p)]
     report_paths.sort()
     return report_paths
@@ -85,7 +130,6 @@ def git_changed_reports() -> list[str]:
 
 def validate_file(path: str, validator: Draft7Validator) -> bool:
     p = Path(path)
-
     if not p.is_absolute():
         p = repo_root() / p
 
@@ -110,7 +154,6 @@ def validate_file(path: str, validator: Draft7Validator) -> bool:
     # Additional stricter checks beyond Draft7 schema to make CI failures clearer
     ok = True
 
-    # Ensure overview contains expected timing fields
     if "overview" not in data or not isinstance(data["overview"], dict):
         print(f" - overview: missing or not an object in {p}")
         ok = False
@@ -120,7 +163,6 @@ def validate_file(path: str, validator: Draft7Validator) -> bool:
                 print(f" - overview.{key}: missing in {p}")
                 ok = False
 
-    # Validate deep_work_blocks items if present
     if "deep_work_blocks" in data:
         if not isinstance(data["deep_work_blocks"], list):
             print(f" - deep_work_blocks: expected array in {p}")
@@ -156,10 +198,17 @@ def main(argv: list[str]) -> int:
 
     args = argv[1:]
     if args == ["--changed"]:
-        files = git_changed_reports()
+        try:
+            files = git_changed_reports()
+        except Exception as e:
+            print("Failed to determine changed report files.")
+            print(str(e))
+            return 2
+
         if not files:
             print("No changed ActivityReport JSON files to validate.")
             return 0
+
         print("Validating changed reports:")
         for f in files:
             print(f" - {f}")
