@@ -4,30 +4,31 @@
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
     "active_time": "00:02",
-    "focus_time": "08:10",
+    "focus_time": "08:15",
     "meetings_time": "00:00",
     "coverage_time": "00:03",
-    "coverage_window": "07:12\u201323:33",
+    "coverage_window": "07:12\u201323:55",
     "appointments": 0,
     "projects_count": 2
   },
   "prepared_for_manager": [
     "Active Time: 00:02",
-    "Focus Time: 00:02",
+    "Focus Time: 08:10",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, Terminal"
+    "Top Apps: Google Chrome, Terminal, VS Code"
   ],
   "executive_summary": [
-    "Active: 00:02 | Focus: 00:02",
-    "Coverage: 23:30\u201323:33 CST",
-    "Screen Time: ~766 min foreground app usage"
+    "Active: 00:02 | Focus: 08:10",
+    "Coverage: 07:12\u201323:33 CST",
+    "Screen Time: ~766 min foreground app usage",
+    "Screen Time: ~793 min foreground app usage"
   ],
   "accomplishments_today": [
     "Focused on Google Chrome (00:02)",
     "Focused on Terminal (00:00)"
   ],
   "by_category": {
-    "Research": "07:42",
+    "Research": "07:47",
     "Coding": "00:26",
     "Communication": "00:01",
     "Other": "00:01"
@@ -154,12 +155,12 @@
     },
     {
       "hour": 23,
-      "time": "00:10",
+      "time": "00:15",
       "pct": "0%"
     }
   ],
   "top_apps": {
-    "Google Chrome": "07:42",
+    "Google Chrome": "07:47",
     "Terminal": "00:16",
     "VS Code": "00:10",
     "Mail": "00:01",
