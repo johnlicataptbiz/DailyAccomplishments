@@ -1,9 +1,13 @@
 {
   "source_file": "ActivityReport-2025-11-27.json",
   "date": "2025-11-27",
-  "title": "Daily Accomplishments \u2014 2025-11-27",
+  "title": "Daily Accomplishments — 2025-11-27",
   "overview": {
-    "coverage_window": "00:01\u201320:20"
+    "coverage_window": "00:01–20:20",
+    "focus_time": "03:44",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0
   },
   "browser_highlights": {},
   "by_category": {

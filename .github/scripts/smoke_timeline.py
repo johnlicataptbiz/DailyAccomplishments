@@ -34,4 +34,8 @@ if errors:
         print(' -', e)
     sys.exit(4)
 print('SMOKE OK')
+<<<<<<< HEAD
 sys.exit(0)
+=======
+sys.exit(0)
+>>>>>>> copilot/continue-task-list-work

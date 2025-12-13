@@ -1,12 +1,19 @@
 {
-  "date": "2025-11-26",
-  "debug_appointments": {
-    "meetings_today": []
+  "date": "2025-12-03",
+  "overview": {
+    "focus_time": "00:00",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0,
+    "coverage_window": "19:47\u201319:47",
+    "active_time": "00:00"
   },
   "by_category": {
-    "Coding": "00:29",
-    "Other": "00:13",
-    "Research": "00:20"
+    "Other": "00:00"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
   },
   "hourly_focus": [
     {
@@ -86,28 +93,28 @@
     },
     {
       "hour": 15,
-      "time": "00:14",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:02",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:18",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:28",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 19,
       "time": "00:00",
-      "pct": "0%"
+      "pct": "100%"
     },
     {
       "hour": 20,
@@ -130,25 +137,5 @@
       "pct": "0%"
     }
   ],
-  "top_apps": {
-    "Terminal": "00:29",
-    "Google Chrome": "00:20",
-    "Messages": "00:13"
-  },
-  "deep_work": [
-    {
-      "start": "17:51",
-      "end": "18:32",
-      "minutes": 36,
-      "category": "Research",
-      "label": "Google Chrome"
-    }
-  ],
-  "overview": {
-    "focus_time": "01:02",
-    "coverage_window": "15:34\u201318:32"
-  },
-  "executive_summary": [
-    "Screen Time: ~89 min foreground app usage"
-  ]
+  "deep_work_blocks": []
 }

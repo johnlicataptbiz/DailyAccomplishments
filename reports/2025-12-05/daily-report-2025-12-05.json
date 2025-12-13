@@ -1,21 +1,26 @@
 {
-  "date": "2025-11-22",
-  "debug_appointments": {
-    "meetings_today": []
+  "date": "2025-12-05",
+  "overview": {
+    "focus_time": "00:00",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0,
+    "coverage_window": "06:00\u201323:59"
   },
-  "by_category": {
-    "Research": "00:25",
-    "Coding": "00:02"
+  "by_category": {},
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:01",
+      "time": "00:00",
       "pct": "0%"
     },
     {
       "hour": 1,
-      "time": "00:26",
+      "time": "00:00",
       "pct": "0%"
     },
     {
@@ -128,25 +133,5 @@
       "time": "00:00",
       "pct": "0%"
     }
-  ],
-  "top_apps": {
-    "Google Chrome": "00:25",
-    "Terminal": "00:02"
-  },
-  "deep_work": [
-    {
-      "start": "00:58",
-      "end": "01:27",
-      "minutes": 25,
-      "category": "Research",
-      "label": "Google Chrome"
-    }
-  ],
-  "overview": {
-    "focus_time": "00:27",
-    "coverage_window": "00:32\u201301:31"
-  },
-  "executive_summary": [
-    "Screen Time: ~44 min foreground app usage"
   ]
 }
