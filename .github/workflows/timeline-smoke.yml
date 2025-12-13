@@ -7,30 +7,40 @@ on:
       - 'tools/**'
       - 'dashboard.html'
       - '.github/scripts/smoke_timeline.py'
+      - '.github/scripts/validate_report_schema.py'
 
 jobs:
   smoke:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
       - name: Install requirements
         run: |
           python -m pip install --upgrade pip
           pip install jsonschema pytest
+
       - name: Clean pycache and stray artifacts
         run: |
           rm -rf imports || true
           find . -name '__pycache__' -type d -prune -exec rm -rf {} +
           find . -name '*.pyc' -delete
+
       - name: Run validator on recent reports
         run: |
-          python3 .github/scripts/validate_report_schema.py reports/*/ActivityReport-*.json || true
+          for f in reports/*/ActivityReport-*.json; do
+            [ -e "$f" ] || exit 0
+            python3 .github/scripts/validate_report_schema.py "$f" || true
+          done
+
       - name: Run timeline smoke on a sample report
         run: |
-          REPORT=$(ls reports/*/ActivityReport-*.json | head -n1)
+          REPORT=$(ls reports/*/ActivityReport-*.json | sort | tail -n1)
           if [ -z "$REPORT" ]; then echo "No sample report found"; exit 0; fi
           python3 .github/scripts/smoke_timeline.py "$REPORT"
