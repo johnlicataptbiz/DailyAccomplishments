@@ -3,28 +3,28 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "06:04",
+    "active_time": "06:08",
     "focus_time": "08:00",
     "meetings_time": "00:00",
-    "coverage_time": "15:45",
-    "coverage_window": "07:12\u201322:58",
+    "coverage_time": "15:50",
+    "coverage_window": "07:12\u201323:03",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 06:04",
-    "Focus Time: 06:04",
+    "Active Time: 06:08",
+    "Focus Time: 06:08",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 06:04 | Focus: 06:04",
-    "Coverage: 07:12\u201322:58 CST",
+    "Active: 06:08 | Focus: 06:08",
+    "Coverage: 07:12\u201323:03 CST",
     "Screen Time: ~736 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (04:57)",
-    "Focused on Terminal (00:28)",
+    "Focused on Google Chrome (05:01)",
+    "Focused on Terminal (00:29)",
     "Focused on Electron (00:21)",
     "Focused on app_mode_loader (00:04)",
     "Focused on Finder (00:04)"
@@ -32,95 +32,13 @@
   "by_category": {
     "Research": "07:33",
     "Other": "00:33",
-    "Coding": "00:29",
+    "Coding": "00:30",
     "Communication": "00:14",
     "Email/CRM": "00:00"
   },
   "browser_highlights": {
-    "top_domains": [
-      {
-        "domain": "github.com",
-        "visits": 270
-      },
-      {
-        "domain": "app.hubspot.com",
-        "visits": 240
-      },
-      {
-        "domain": "grok.com",
-        "visits": 209
-      },
-      {
-        "domain": "gitlab.com",
-        "visits": 112
-      },
-      {
-        "domain": "chatgpt.com",
-        "visits": 78
-      },
-      {
-        "domain": "dailyaccomplishmentsptbiz.up.railway.app",
-        "visits": 57
-      },
-      {
-        "domain": "linkedin.com",
-        "visits": 34
-      },
-      {
-        "domain": "mail.google.com",
-        "visits": 33
-      },
-      {
-        "domain": "app.slack.com",
-        "visits": 31
-      },
-      {
-        "domain": "railway.com",
-        "visits": 28
-      }
-    ],
-    "top_pages": [
-      {
-        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13",
-        "visits": 31
-      },
-      {
-        "page": "https://app.hubspot.com/data-integration-home/22001532/new-import",
-        "visits": 21
-      },
-      {
-        "page": "https://app.hubspot.com/contacts/22001532/objectLists/views/all?count=25",
-        "visits": 17
-      },
-      {
-        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
-        "visits": 14
-      },
-      {
-        "page": "https://app.hubspot.com/data-integration-home/22001532",
-        "visits": 13
-      },
-      {
-        "page": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
-        "visits": 12
-      },
-      {
-        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13/files",
-        "visits": 11
-      },
-      {
-        "page": "https://mail.google.com/mail/u/0/#drafts",
-        "visits": 11
-      },
-      {
-        "page": "https://app.hubspot.com/data-integration-home/22001532/new-import/standard",
-        "visits": 11
-      },
-      {
-        "page": "https://app.hubspot.com/contacts/22001532/objects/0-2/views/all/list",
-        "visits": 11
-      }
-    ]
+    "top_domains": [],
+    "top_pages": []
   },
   "hourly_focus": [
     {
@@ -235,12 +153,12 @@
     },
     {
       "hour": 22,
-      "time": "00:43",
+      "time": "00:44",
       "pct": "0%"
     },
     {
       "hour": 23,
-      "time": "00:00",
+      "time": "00:02",
       "pct": "0%"
     }
   ],
