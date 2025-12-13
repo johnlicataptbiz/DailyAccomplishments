@@ -40,7 +40,8 @@ def _load_category_settings(config: Optional[Dict[str, Any]] = None) -> Tuple[Di
             from tools.daily_logger import load_config  # type: ignore
 
             cfg = load_config()
-        except Exception:
+        except Exception as e:
+            print(f"Warning: Could not load configuration, proceeding with defaults. Error: {e}")
             cfg = {}
 
     if isinstance(cfg, dict):
