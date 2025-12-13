@@ -30,18 +30,34 @@ jobs:
           find . -name '__pycache__' -type d -prune -exec rm -rf {} +
           find . -name '*.pyc' -delete
 
-      - name: Run validator on recent reports
+      - name: Run validator on changed reports
         shell: bash
         run: |
           set -euo pipefail
-          shopt -s nullglob
-          files=(reports/*/ActivityReport-*.json)
-
-          if [ ${#files[@]} -eq 0 ]; then
-            echo "No reports to validate"
+          
+          # Get the base branch (default to main if not available)
+          BASE_REF="${{ github.base_ref }}"
+          if [ -z "$BASE_REF" ]; then
+            echo "No base ref found, skipping validation"
             exit 0
           fi
-
+          
+          # Fetch the base branch
+          git fetch origin "$BASE_REF"
+          
+          # Get changed report files
+          changed_files=$(git diff --name-only "origin/$BASE_REF...HEAD" | grep -E '^reports/.*/ActivityReport-.*\.json$' || true)
+          
+          if [ -z "$changed_files" ]; then
+            echo "No changed report files to validate"
+            exit 0
+          fi
+          
+          echo "Validating changed reports:"
+          echo "$changed_files"
+          
+          # Convert to array and validate
+          mapfile -t files <<< "$changed_files"
           python3 .github/scripts/validate_report_schema.py "${files[@]}"
 
       - name: Run timeline smoke on a sample report
@@ -56,5 +72,9 @@ jobs:
             exit 0
           fi
 
-          REPORT="${files[0]}"
+          # Sort files and select the newest (last) report
+          IFS=$'\n' sorted=($(sort <<<"${files[*]}"))
+          unset IFS
+          REPORT="${sorted[-1]}"
+          echo "Selected newest report: $REPORT"
           python3 .github/scripts/smoke_timeline.py "$REPORT"
