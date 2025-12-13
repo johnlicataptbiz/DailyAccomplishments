@@ -4,7 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Accomplishments</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script>
+  (function loadChartJS(){
+    function add(src, onfail){
+      var t = document.createElement('script');
+      t.src = src;
+      t.async = true;
+      t.onload = function(){ console.log("[build] Chart.js loaded:", src); };
+      t.onerror = onfail;
+      document.head.appendChild(t);
+    }
+    add("https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js", function(){
+      console.warn("[build] jsdelivr Chart.js failed, trying unpkg");
+      add("https://unpkg.com/chart.js@3.9.1/dist/chart.min.js", function(){
+        console.warn("[build] Chart.js failed to load; charts will be disabled");
+        window.__CHARTS_DISABLED__ = true;
+      });
+    });
+  })();
+</script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
         :root {
@@ -625,6 +643,19 @@
                 return __fetch(url, merged).finally(() => clearTimeout(t));
             };
         })();
+
+        function safeNewChart(ctx, cfg) {
+            if (typeof Chart === 'undefined') {
+                console.warn("[build] Chart.js not available; skipping chart render");
+                return null;
+            }
+            try {
+                return safeNewChart(ctx, cfg);
+            } catch (e) {
+                console.error("[build] Chart render failed:", e);
+                return null;
+            }
+        }
 
         let hourlyChart = null;
         let categoryChart = null;
@@ -1552,7 +1583,7 @@
             return html;
         }
 
-            hourlyChart = new Chart(ctx, {
+            hourlyChart = safeNewChart(ctx, {
                 type: 'bar',
                 data: {
                     labels: fullHours.map(h => `${h.hour}`),
@@ -1587,7 +1618,7 @@
 
             const entries = Object.entries(categories).filter(([, t]) => t !== '00:00');
             
-            categoryChart = new Chart(ctx, {
+            categoryChart = safeNewChart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: entries.map(([k]) => k),
