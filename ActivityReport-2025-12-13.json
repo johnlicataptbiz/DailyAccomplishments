@@ -3,12 +3,12 @@
   "date": "2025-12-13",
   "title": "Daily Accomplishments \u2014 2025-12-13",
   "overview": {
-    "focus_time": "00:44",
-    "coverage_window": "00:00\u201301:25"
+    "focus_time": "01:07",
+    "coverage_window": "00:00\u201303:14"
   },
   "browser_highlights": {},
   "by_category": {
-    "Research": "00:42",
+    "Research": "01:05",
     "Coding": "00:02"
   },
   "hourly_focus": [
@@ -19,7 +19,7 @@
     },
     {
       "hour": 1,
-      "time": "00:18",
+      "time": "00:38",
       "pct": "0%"
     },
     {
@@ -29,7 +29,7 @@
     },
     {
       "hour": 3,
-      "time": "00:00",
+      "time": "00:03",
       "pct": "0%"
     },
     {
@@ -134,19 +134,29 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:42",
+    "Google Chrome": "01:05",
     "Terminal": "00:02"
   },
   "executive_summary": [
-    "Active: 00:00 | Focus: 00:44",
-    "Coverage: 00:00\u201301:25 CST",
+    "Active: 00:00 | Focus: 01:07",
+    "Coverage: 00:00\u201303:14 CST",
     "Screen Time: ~51 min foreground app usage",
-    "Screen Time: ~86 min foreground app usage"
+    "Screen Time: ~86 min foreground app usage",
+    "Screen Time: ~119 min foreground app usage"
   ],
   "prepared_for_manager": [
     "Active Time: 00:00",
-    "Focus Time: 00:44",
+    "Focus Time: 01:07",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal"
+  ],
+  "deep_work": [
+    {
+      "start": "00:55",
+      "end": "01:52",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
   ]
 }
