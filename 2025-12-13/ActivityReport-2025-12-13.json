@@ -3,23 +3,23 @@
   "date": "2025-12-13",
   "title": "Daily Accomplishments \u2014 2025-12-13",
   "overview": {
-    "focus_time": "00:19",
-    "coverage_window": "00:00\u201300:50"
+    "focus_time": "00:44",
+    "coverage_window": "00:00\u201301:25"
   },
   "browser_highlights": {},
   "by_category": {
-    "Research": "00:17",
+    "Research": "00:42",
     "Coding": "00:02"
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:19",
+      "time": "00:26",
       "pct": "0%"
     },
     {
       "hour": 1,
-      "time": "00:00",
+      "time": "00:18",
       "pct": "0%"
     },
     {
@@ -134,13 +134,14 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "00:17",
+    "Google Chrome": "00:42",
     "Terminal": "00:02"
   },
   "executive_summary": [
     "Active: 00:00 | Focus: 00:19",
     "Coverage: 00:00\u201300:50 CST",
-    "Screen Time: ~51 min foreground app usage"
+    "Screen Time: ~51 min foreground app usage",
+    "Screen Time: ~86 min foreground app usage"
   ],
   "prepared_for_manager": [
     "Active Time: 00:00",
