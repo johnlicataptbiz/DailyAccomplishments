@@ -24,9 +24,8 @@ if [ ${#all_files[@]} -eq 0 ]; then
     exit 0
 fi
 
-# Sort and get last 3
-IFS=$'\n' sorted_files=($(sort <<<"${all_files[*]}"))
-unset IFS
+# Sort and get last 3 (using safer readarray approach)
+readarray -t sorted_files < <(printf '%s\n' "${all_files[@]}" | sort)
 
 # Get last 3 files
 start_idx=$((${#sorted_files[@]} - 3))

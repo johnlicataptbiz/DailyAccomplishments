@@ -18,7 +18,8 @@ if len(sys.argv) < 2 or sys.argv[1] in ('--help', '-h'):
     sys.exit(2)
 
 # Get the report path (skip debug flags)
-report_path = [arg for arg in sys.argv[1:] if not arg.startswith('-')][0] if len([arg for arg in sys.argv[1:] if not arg.startswith('-')]) > 0 else None
+non_flag_args = [arg for arg in sys.argv[1:] if not arg.startswith('-')]
+report_path = non_flag_args[0] if non_flag_args else None
 
 if not report_path:
     print("Usage: smoke_timeline.py <report.json> [--debug|-v]")

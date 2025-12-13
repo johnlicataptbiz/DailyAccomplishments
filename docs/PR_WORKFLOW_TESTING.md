@@ -153,69 +153,37 @@ pytest tests/perf_test.py -vv --tb=short
 
 ## Simulating Full PR Workflow Locally
 
-You can simulate the complete PR workflow locally with this script:
+The repository includes test scripts to simulate the complete PR workflow locally:
+
+### Testing All Reports
+
+Use `test_pr_workflows.sh` to test all reports in the repository:
 
 ```bash
-#!/bin/bash
-# Simulate PR workflow locally
-
-set -euo pipefail
-
-echo "=== Starting PR Workflow Simulation ==="
-echo ""
-
-# 1. Timeline Smoke Test
-echo "=== Timeline Smoke Test ==="
-echo ""
-
-echo "Step 1: Clean Python cache"
-rm -rf imports || true
-find . -name '__pycache__' -type d -prune -exec rm -rf {} + 2>/dev/null || true
-find . -name '*.pyc' -delete 2>/dev/null || true
-echo "✓ Cache cleaned"
-echo ""
-
-echo "Step 2: Validate report schemas"
-files=(reports/*/ActivityReport-*.json)
-if [ ${#files[@]} -eq 0 ]; then
-    echo "⚠ No reports to validate"
-else
-    echo "Found ${#files[@]} report files"
-    python3 .github/scripts/validate_report_schema.py "${files[@]}" --debug
-fi
-echo ""
-
-echo "Step 3: Run timeline smoke test"
-if [ ${#files[@]} -eq 0 ]; then
-    echo "⚠ No sample report found"
-else
-    REPORT="${files[0]}"
-    echo "Testing: $REPORT"
-    python3 .github/scripts/smoke_timeline.py "$REPORT" --debug
-fi
-echo ""
-
-# 2. Performance Test
-echo "=== Performance Test ==="
-echo ""
-
-if [ -f tests/perf_test.py ]; then
-    echo "✓ tests/perf_test.py exists"
-    pytest tests/perf_test.py -v --tb=short
-else
-    echo "✗ tests/perf_test.py not found"
-    exit 1
-fi
-
-echo ""
-echo "=== PR Workflow Simulation Complete ==="
-```
-
-Save this as `test_pr_workflows.sh` and run with:
-```bash
-chmod +x test_pr_workflows.sh
 ./test_pr_workflows.sh
 ```
+
+This script:
+- Cleans Python cache and artifacts
+- Validates all reports against the schema
+- Runs timeline smoke tests on sample reports
+- Executes performance tests
+- Provides color-coded output with success/failure indicators
+
+### Testing Recent Reports Only
+
+Use `test_pr_workflows_recent.sh` to test only the 3 most recent reports:
+
+```bash
+./test_pr_workflows_recent.sh
+```
+
+This is useful for:
+- Quick validation during development
+- Testing reports that should have all the latest fields
+- Avoiding false failures from older reports missing new fields
+
+Both scripts provide detailed debug output and clear success/failure indicators.
 
 ## Debugging Features Summary
 
