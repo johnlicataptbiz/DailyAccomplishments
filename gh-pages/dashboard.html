@@ -741,6 +741,13 @@
                     response = await fetch(rawUrl, { cache: 'no-store' });
                     usedUrl = rawUrl;
                 }
+                // New nested path fallback for historical reports
+                if (!response.ok) {
+                    const nested = `/reports/${date}/ActivityReport-${date}.json${cacheSuffix}`;
+                    console.log(`[loadData] Trying nested report path: ${nested}`);
+                    response = await fetch(nested, { cache: 'no-store' });
+                    usedUrl = `/reports/${date}/ActivityReport-${date}.json`;
+                }
                 if (!response.ok) {
                     throw new Error(`Report not found. Status: ${response.status} ${response.statusText}`);
                 }

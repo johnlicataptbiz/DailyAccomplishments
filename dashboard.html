@@ -745,12 +745,19 @@
                     }
 
                     async function tryFetchFor(d) {
+                        // 1) Raw GitHub (fast path for public hosting)
                         let r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
+                        // 2) Local legacy path
                         if (!r.ok) {
                             r = await fetch(`/reports/daily-report-${d}.json${cacheSuffix}`, { cache: 'no-store' });
                         }
+                        // 3) Raw again (CDN hiccups)
                         if (!r.ok) {
                             r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
+                        }
+                        // 4) New nested path: reports/YYYY-MM-DD/ActivityReport-YYYY-MM-DD.json
+                        if (!r.ok) {
+                            r = await fetch(`/reports/${d}/ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
                         }
                         return r;
                     }
@@ -791,6 +798,13 @@
                     console.log(`[loadData] Falling back to GitHub raw: ${rawUrl}`);
                     response = await fetch(rawUrl, { cache: 'no-store' });
                     usedUrl = rawUrl;
+                }
+                // New nested path fallback for historical reports
+                if (!response.ok) {
+                    const nested = `/reports/${date}/ActivityReport-${date}.json${cacheSuffix}`;
+                    console.log(`[loadData] Trying nested report path: ${nested}`);
+                    response = await fetch(nested, { cache: 'no-store' });
+                    usedUrl = `/reports/${date}/ActivityReport-${date}.json`;
                 }
                 if (!response.ok) {
                     throw new Error(`Report not found. Status: ${response.status} ${response.statusText}`);
