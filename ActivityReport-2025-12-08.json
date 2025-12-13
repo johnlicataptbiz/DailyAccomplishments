@@ -1,13 +1,13 @@
 {
   "source_file": "ActivityReport-2025-12-08.json",
   "date": "2025-12-08",
-  "title": "Daily Accomplishments \u2014 2025-12-08",
+  "title": "Daily Accomplishments — 2025-12-08",
   "overview": {
     "active_time": "06:35",
     "focus_time": "06:35",
     "meetings_time": "00:00",
     "coverage_time": "05:30",
-    "coverage_window": "09:00\u201314:30 CST",
+    "coverage_window": "09:00–14:30 CST",
     "appointments": 0,
     "projects_count": 4
   },
@@ -19,7 +19,7 @@
   ],
   "executive_summary": [
     "Active: 06:35 | Focus: 06:35",
-    "Coverage: 09:00\u201314:30 CST"
+    "Coverage: 09:00–14:30 CST"
   ],
   "accomplishments_today": [
     "Focused on VS Code (02:45)",
@@ -175,16 +175,18 @@
     "Slack": "00:05"
   },
   "top_windows_preview": [
-    "Terminal \u2014 ~/code/DailyAccomplishments: 02:00",
-    "VS Code \u2014 tracker_bridge.py: 01:30",
-    "Notion \u2014 Integration Guide: 01:00",
-    "VS Code \u2014 daily_logger.py: 00:45",
-    "VS Code \u2014 analytics.py \u2014 DailyAccomplishments: 00:30",
-    "Google Chrome \u2014 Python documentation: 00:20",
+    "Terminal — ~/code/DailyAccomplishments: 02:00",
+    "VS Code — tracker_bridge.py: 01:30",
+    "Notion — Integration Guide: 01:00",
+    "VS Code — daily_logger.py: 00:45",
+    "VS Code — analytics.py — DailyAccomplishments: 00:30",
+    "Google Chrome — Python documentation: 00:20",
     "Unknown: 00:15",
-    "Gmail \u2014 Inbox: 00:10",
-    "Slack \u2014 #engineering: 00:05",
+    "Gmail — Inbox: 00:10",
+    "Slack — #engineering: 00:05",
     "VS Code: 00:00"
   ],
-  "foot": "Auto-generated (Redesign v1)"
+  "foot": "Auto-generated (Redesign v1)",
+  "timeline": [],
+  "deep_work_blocks": []
 }
