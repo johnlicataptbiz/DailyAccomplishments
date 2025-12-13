@@ -18,7 +18,7 @@ This checklist captures the steps needed to halt failing automation and restore 
   - Dashboard fetch and render logic
 
 ## 4) Decide the target version
-- From consolidation/salvage folders, choose the version that best represents the intended future (clear comments, fewer hacks, better separation of concerns).
+- If there are multiple fix attempts (e.g., in 'consolidation' or 'salvage' folders), choose the version that best represents the intended future (clear comments, fewer hacks, better separation of concerns).
 - Treat that version as authoritative even if it is not currently wired up.
 
 ## 5) Repair deliberately
