@@ -321,10 +321,9 @@ def generate_report(date_str=None):
         window_time[window_key] += dur_min
 
         # Browser stats
-        if 'chrome' in app.lower() or 'safari' in app.lower():
-            domain = extract_domain(window)
-            if domain: domain_visits[domain] += 1
-            if window: page_visits[window] += 1
+        # NOTE: Do NOT infer domains from window titles here.
+        # Real browser stats come from scripts/import_browser_history.py (URLs from history DB).
+        pass
 
     # Calculate Precise Metrics
     metrics = timeline.calculate_metrics()
