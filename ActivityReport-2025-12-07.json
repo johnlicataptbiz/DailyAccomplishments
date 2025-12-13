@@ -336,5 +336,7 @@
 >>>>>>> copilot/continue-task-list-work
   "debug_appointments": {
     "meetings_today": []
-  }
+  },
+  "timeline": [],
+  "deep_work_blocks": []
 }
