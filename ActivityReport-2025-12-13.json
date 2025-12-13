@@ -1,10 +1,10 @@
 {
   "source_file": "ActivityReport-2025-12-13.json",
   "date": "2025-12-13",
-  "title": "Daily Accomplishments \u2014 2025-12-13",
+  "title": "Daily Accomplishments — 2025-12-13",
   "overview": {
     "focus_time": "04:42",
-    "coverage_window": "00:00\u201313:42"
+    "coverage_window": "00:00–13:42"
   },
   "browser_highlights": {},
   "by_category": {
@@ -140,7 +140,7 @@
   },
   "executive_summary": [
     "Active: 00:00 | Focus: 04:42",
-    "Coverage: 00:00\u201313:42 CST",
+    "Coverage: 00:00–13:42 CST",
     "Screen Time: ~51 min foreground app usage",
     "Screen Time: ~86 min foreground app usage",
     "Screen Time: ~119 min foreground app usage",
@@ -186,5 +186,7 @@
       "category": "Research",
       "label": "Google Chrome"
     }
-  ]
+  ],
+  "timeline": [],
+  "deep_work_blocks": []
 }

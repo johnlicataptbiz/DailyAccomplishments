@@ -1,18 +1,18 @@
 {
   "source_file": "ActivityReport-2025-12-02.json",
   "date": "2025-12-02",
-  "title": "Daily Accomplishments \u2014 2025-12-02",
+  "title": "Daily Accomplishments — 2025-12-02",
   "overview": {
     "focus_time": "00:04",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 3,
-    "coverage_window": "00:02\u201313:50",
+    "coverage_window": "00:02–13:50",
     "tasks_updated": 39,
     "updates_made": 2
   },
   "prepared_for_manager": [
-    "Total focused time: 00:04 (Coverage: 13:13\u201313:24 CST)",
+    "Total focused time: 00:04 (Coverage: 13:13–13:24 CST)",
     "Top apps: Google Chrome (00:01), app_mode_loader (00:01), Terminal (00:01)"
   ],
   "executive_summary": [
@@ -91,7 +91,7 @@
       {
         "domain": "",
         "visits": 1,
-        "sample_title": "Daily Accomplishments \u2014 2025-12-02"
+        "sample_title": "Daily Accomplishments — 2025-12-02"
       },
       {
         "domain": "oauth2.slack.com",
@@ -136,7 +136,7 @@
         "visits": 2
       },
       {
-        "page": "Daily Accomplishments \u2014 2025-12-02",
+        "page": "Daily Accomplishments — 2025-12-02",
         "url": "file:///Users/jacklicatamacbook/Library/Application%20Support/ActivityTracker/reports/2025-12-02.htm",
         "visits": 1
       },
@@ -206,7 +206,7 @@
       "Communication": 30,
       "Research": 2
     },
-    "coverage_window": "13:19\u201313:50"
+    "coverage_window": "13:19–13:50"
   },
   "hourly_focus": [
     {
@@ -338,15 +338,15 @@
     "Terminal": "00:01"
   },
   "top_windows_preview": [
-    "app_mode_loader \u2014 missing value: 00:01",
-    "Google Chrome \u2014 HS-Biz-Agent : 00:00",
-    "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:00",
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:00",
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 bash \u25c2 codex \u2014: 00:00",
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 sleep \u25c2 codex : 00:00",
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 sed \u25c2 codex \u2014 : 00:00",
-    "Google Chrome \u2014 502 Bad Gateway - Google Chrome - physicaltherapyb: 00:00",
-    "Google Chrome \u2014 cron_report_and_push.sh \u2014 DailyAccomplishments [Co: 00:00",
+    "app_mode_loader — missing value: 00:01",
+    "Google Chrome — HS-Biz-Agent : 00:00",
+    "Google Chrome — dashboard.html — DailyAccomplishments [Codespaces:: 00:00",
+    "Terminal — jacklicatamacbook — iChatDockTile — codex — 80×24: 00:00",
+    "Terminal — jacklicatamacbook — iChatDockTile — bash ◂ codex —: 00:00",
+    "Terminal — jacklicatamacbook — iChatDockTile — sleep ◂ codex : 00:00",
+    "Terminal — jacklicatamacbook — iChatDockTile — sed ◂ codex — : 00:00",
+    "Google Chrome — 502 Bad Gateway - Google Chrome - physicaltherapyb: 00:00",
+    "Google Chrome — cron_report_and_push.sh — DailyAccomplishments [Co: 00:00",
     "Google Chrome: 00:00"
   ],
   "notes": [],
@@ -436,7 +436,7 @@
         "updated_at": "2025-12-02T20:49:25Z",
         "updates_today": [
           {
-            "body": "<p>\ufeffUse HubSpot reports to find the BEST order of touchpoints to generate a customer. Then create a marketing plan that rolls out that formula.\u00a0</p>",
+            "body": "<p>﻿Use HubSpot reports to find the BEST order of touchpoints to generate a customer. Then create a marketing plan that rolls out that formula. </p>",
             "creator": "Justin Pfluger",
             "created_at": "2025-12-02T20:49:20.000Z"
           }
@@ -454,7 +454,7 @@
         "updated_at": "2025-12-02T20:19:11Z",
         "updates_today": [
           {
-            "body": "<p>\ufeffHiring Guide\u00a0\u2705</p><p>\ufeffWorkshop Playbook\ufeff\u2705</p>",
+            "body": "<p>﻿Hiring Guide ✅</p><p>﻿Workshop Playbook﻿✅</p>",
             "creator": "Justin Pfluger",
             "created_at": "2025-12-02T20:19:33.000Z"
           }
@@ -692,7 +692,7 @@
       {
         "id": "10531409107",
         "name": "Grind",
-        "board": "\ud83d\udcf1IG OS",
+        "board": "📱IG OS",
         "board_id": "9954941373",
         "status": null,
         "state": "active",
@@ -907,7 +907,7 @@
         "Brandon Learned",
         "Deepti Manepali"
       ],
-      "\ud83d\udcf1IG OS": [
+      "📱IG OS": [
         "Grind"
       ],
       "Subitems of ACC Call Schedule": [
@@ -929,5 +929,7 @@
         "LIVE! September 2026; 23-25"
       ]
     }
-  }
+  },
+  "timeline": [],
+  "deep_work_blocks": []
 }

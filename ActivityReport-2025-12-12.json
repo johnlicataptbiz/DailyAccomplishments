@@ -1,13 +1,13 @@
 {
   "source_file": "ActivityReport-2025-12-12.json",
   "date": "2025-12-12",
-  "title": "Daily Accomplishments \u2014 2025-12-12",
+  "title": "Daily Accomplishments — 2025-12-12",
   "overview": {
     "active_time": "00:18",
     "focus_time": "08:13",
     "meetings_time": "00:00",
     "coverage_time": "00:22",
-    "coverage_window": "07:12\u201323:53",
+    "coverage_window": "07:12–23:53",
     "appointments": 0,
     "projects_count": 3
   },
@@ -19,7 +19,7 @@
   ],
   "executive_summary": [
     "Active: 00:18 | Focus: 08:13",
-    "Coverage: 07:12\u201323:53 CST",
+    "Coverage: 07:12–23:53 CST",
     "Screen Time: ~785 min foreground app usage"
   ],
   "accomplishments_today": [
@@ -167,16 +167,16 @@
     "Messages": "00:01"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments project update - Google Chrom: 00:07",
-    "Google Chrome \u2014 Coding - Chat handoff summary - Google Chrome - Ja: 00:03",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:03",
-    "Google Chrome \u2014 Fix critical bugs blocking analytics pipeline init: 00:00",
-    "Google Chrome \u2014 DailyAccomplishments | Railway - Google Chrome - J: 00:00",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 less \u25c2 git : 00:00",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 nano \u25c2 git : 00:00",
-    "Google Chrome \u2014 Auto-update: 2025-12-12 23:03 \u00b7 johnlicataptbiz/Da: 00:00",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
-    "Google Chrome \u2014 Handoff file creation - Google Chrome - Jack (phys: 00:00"
+    "Google Chrome — DailyAccomplishments project update - Google Chrom: 00:07",
+    "Google Chrome — Coding - Chat handoff summary - Google Chrome - Ja: 00:03",
+    "Terminal — DailyAccomplishments — iChatDockTile — -zsh — 79×3: 00:03",
+    "Google Chrome — Fix critical bugs blocking analytics pipeline init: 00:00",
+    "Google Chrome — DailyAccomplishments | Railway - Google Chrome - J: 00:00",
+    "Terminal — DailyAccomplishments — iChatDockTile — less ◂ git : 00:00",
+    "Terminal — DailyAccomplishments — iChatDockTile — nano ◂ git : 00:00",
+    "Google Chrome — Auto-update: 2025-12-12 23:03 · johnlicataptbiz/Da: 00:00",
+    "Google Chrome — Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
+    "Google Chrome — Handoff file creation - Google Chrome - Jack (phys: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
@@ -208,5 +208,7 @@
       "category": "Research",
       "label": "Google Chrome"
     }
-  ]
+  ],
+  "timeline": [],
+  "deep_work_blocks": []
 }
