@@ -3,48 +3,48 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "03:29",
+    "active_time": "03:41",
     "focus_time": "06:36",
     "meetings_time": "00:00",
-    "coverage_time": "12:19",
-    "coverage_window": "07:12\u201319:32",
+    "coverage_time": "12:34",
+    "coverage_window": "07:12\u201319:47",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 03:29",
-    "Focus Time: 03:29",
+    "Active Time: 03:41",
+    "Focus Time: 03:41",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Electron, Terminal"
   ],
   "executive_summary": [
-    "Active: 03:29 | Focus: 03:29",
-    "Coverage: 07:12\u201319:32 CST",
+    "Active: 03:41 | Focus: 03:41",
+    "Coverage: 07:12\u201319:47 CST",
     "Screen Time: ~1494 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (02:42)",
+    "Focused on Google Chrome (02:53)",
     "Focused on Electron (00:21)",
-    "Focused on Terminal (00:17)",
+    "Focused on Terminal (00:18)",
     "Focused on Mail (00:04)",
-    "Focused on Finder (00:01)"
+    "Focused on Finder (00:02)"
   ],
   "by_category": {
     "Research": "06:09",
-    "Other": "00:24",
+    "Other": "00:25",
     "Coding": "00:25",
-    "Communication": "00:10",
+    "Communication": "00:14",
     "Email/CRM": "00:00"
   },
   "browser_highlights": {
     "top_domains": [
       {
         "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1670
+        "visits": 1736
       },
       {
         "domain": "gmail.com",
-        "visits": 59
+        "visits": 98
       },
       {
         "domain": "finally a free facebook group for pt...",
@@ -62,7 +62,7 @@
     "top_pages": [
       {
         "page": "Handoff and checklist guide - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 167
+        "visits": 169
       },
       {
         "page": "Handoff process summary - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -75,6 +75,10 @@
       {
         "page": "Merge pytest config steps - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 94
+      },
+      {
+        "page": "Text Message Conflict and Boundaries - Grok - Google Chrome - Jack (physicalther",
+        "visits": 92
       },
       {
         "page": "New conversation - Grok - Google Chrome - Jack (physicaltherapybiz.com)",
@@ -95,10 +99,6 @@
       {
         "page": "Formatting Facebook Group Leads List - Grok - Google Chrome - Jack (physicalther",
         "visits": 56
-      },
-      {
-        "page": "Grok - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 54
       }
     ]
   },
@@ -200,7 +200,7 @@
     },
     {
       "hour": 19,
-      "time": "00:26",
+      "time": "00:39",
       "pct": "0%"
     },
     {
@@ -233,15 +233,15 @@
   },
   "top_windows_preview": [
     "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:16",
-    "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:13",
+    "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:14",
     "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:10",
     "Google Chrome \u2014 Chat handoff summary - Google Chrome - Jack (physi: 00:08",
     "Google Chrome \u2014 Merge pytest config steps - Google Chrome - Jack (: 00:07",
+    "Google Chrome \u2014 Text Message Conflict and Boundaries - Grok - Goog: 00:07",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:06",
     "Google Chrome \u2014 New conversation - Grok - Google Chrome - Jack (ph: 00:06",
     "Google Chrome \u2014 Fix workflow conflict - Microphone recording - Goo: 00:06",
-    "Google Chrome \u2014 Fix workflow conflict - Google Chrome - Jack (phys: 00:04",
-    "Google Chrome \u2014 Website Analysis: Productivity Dashboard Overview : 00:04"
+    "Google Chrome \u2014 Fix workflow conflict - Google Chrome - Jack (phys: 00:04"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
