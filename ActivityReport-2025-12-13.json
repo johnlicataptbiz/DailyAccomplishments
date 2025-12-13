@@ -3,13 +3,13 @@
   "date": "2025-12-13",
   "title": "Daily Accomplishments \u2014 2025-12-13",
   "overview": {
-    "focus_time": "04:42",
-    "coverage_window": "00:00\u201313:42"
+    "focus_time": "06:36",
+    "coverage_window": "00:00\u201315:51"
   },
   "browser_highlights": {},
   "by_category": {
-    "Research": "03:00",
-    "Coding": "01:42"
+    "Research": "04:29",
+    "Coding": "02:07"
   },
   "hourly_focus": [
     {
@@ -79,17 +79,17 @@
     },
     {
       "hour": 13,
-      "time": "00:37",
+      "time": "00:49",
       "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:00",
+      "time": "00:53",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:00",
+      "time": "00:49",
       "pct": "0%"
     },
     {
@@ -134,13 +134,13 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "03:00",
-    "VS Code": "01:27",
+    "Google Chrome": "04:29",
+    "VS Code": "01:52",
     "Terminal": "00:15"
   },
   "executive_summary": [
-    "Active: 00:00 | Focus: 04:42",
-    "Coverage: 00:00\u201313:42 CST",
+    "Active: 00:00 | Focus: 06:36",
+    "Coverage: 00:00\u201315:51 CST",
     "Screen Time: ~51 min foreground app usage",
     "Screen Time: ~86 min foreground app usage",
     "Screen Time: ~119 min foreground app usage",
@@ -149,19 +149,20 @@
     "Screen Time: ~199 min foreground app usage",
     "Screen Time: ~272 min foreground app usage",
     "Screen Time: ~319 min foreground app usage",
-    "Screen Time: ~398 min foreground app usage"
+    "Screen Time: ~398 min foreground app usage",
+    "Screen Time: ~527 min foreground app usage"
   ],
   "prepared_for_manager": [
     "Active Time: 00:00",
-    "Focus Time: 04:42",
+    "Focus Time: 06:36",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, VS Code, Terminal"
   ],
   "deep_work": [
     {
       "start": "12:23",
-      "end": "13:41",
-      "minutes": 65,
+      "end": "14:28",
+      "minutes": 103,
       "category": "Research",
       "label": "Google Chrome"
     },
@@ -176,6 +177,20 @@
       "start": "00:55",
       "end": "01:52",
       "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:29",
+      "end": "15:15",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "15:15",
+      "end": "15:51",
+      "minutes": 34,
       "category": "Research",
       "label": "Google Chrome"
     },
