@@ -11,7 +11,13 @@ import logging
 from typing import Dict, Any, Optional
 from datetime import datetime
 # Import from daily_logger in the same tools directory
-from daily_logger import log_activity, initialize_daily_log, midnight_reset, load_config, get_current_date
+from tools.daily_logger import (
+    log_activity,
+    initialize_daily_log,
+    midnight_reset,
+    load_config,
+    get_current_date,
+)
 
 logger = logging.getLogger(__name__)
 
