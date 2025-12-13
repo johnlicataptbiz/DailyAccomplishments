@@ -7,7 +7,7 @@
     "focus_time": "08:13",
     "meetings_time": "00:00",
     "coverage_time": "00:22",
-    "coverage_window": "07:12\u201323:52",
+    "coverage_window": "07:12\u201323:53",
     "appointments": 0,
     "projects_count": 3
   },
@@ -19,7 +19,7 @@
   ],
   "executive_summary": [
     "Active: 00:18 | Focus: 00:18",
-    "Coverage: 23:30\u201323:52 CST",
+    "Coverage: 23:30\u201323:53 CST",
     "Screen Time: ~785 min foreground app usage"
   ],
   "accomplishments_today": [
@@ -34,90 +34,8 @@
     "Communication": "00:01"
   },
   "browser_highlights": {
-    "top_domains": [
-      {
-        "domain": "github.com",
-        "visits": 270
-      },
-      {
-        "domain": "app.hubspot.com",
-        "visits": 240
-      },
-      {
-        "domain": "grok.com",
-        "visits": 209
-      },
-      {
-        "domain": "gitlab.com",
-        "visits": 112
-      },
-      {
-        "domain": "chatgpt.com",
-        "visits": 78
-      },
-      {
-        "domain": "dailyaccomplishmentsptbiz.up.railway.app",
-        "visits": 57
-      },
-      {
-        "domain": "linkedin.com",
-        "visits": 34
-      },
-      {
-        "domain": "mail.google.com",
-        "visits": 33
-      },
-      {
-        "domain": "app.slack.com",
-        "visits": 31
-      },
-      {
-        "domain": "railway.com",
-        "visits": 28
-      }
-    ],
-    "top_pages": [
-      {
-        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13",
-        "visits": 31
-      },
-      {
-        "page": "https://app.hubspot.com/data-integration-home/22001532/new-import",
-        "visits": 21
-      },
-      {
-        "page": "https://app.hubspot.com/contacts/22001532/objectLists/views/all?count=25",
-        "visits": 17
-      },
-      {
-        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
-        "visits": 14
-      },
-      {
-        "page": "https://app.hubspot.com/data-integration-home/22001532",
-        "visits": 13
-      },
-      {
-        "page": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
-        "visits": 12
-      },
-      {
-        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13/files",
-        "visits": 11
-      },
-      {
-        "page": "https://mail.google.com/mail/u/0/#drafts",
-        "visits": 11
-      },
-      {
-        "page": "https://app.hubspot.com/data-integration-home/22001532/new-import/standard",
-        "visits": 11
-      },
-      {
-        "page": "https://app.hubspot.com/contacts/22001532/objects/0-2/views/all/list",
-        "visits": 11
-      }
-    ]
+    "top_domains": [],
+    "top_pages": []
   },
   "hourly_focus": [
     {
