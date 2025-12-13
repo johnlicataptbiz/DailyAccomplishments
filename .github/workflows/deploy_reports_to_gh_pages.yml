@@ -12,7 +12,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-<<<<<<< HEAD
 
       - name: Check for reports
         id: check
@@ -25,9 +24,6 @@ jobs:
 
       - name: Deploy reports to reports-gh-pages
         if: steps.check.outputs.has_reports == 'true'
-=======
-      - name: Deploy reports to reports-gh-pages
->>>>>>> copilot/continue-task-list-work
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -35,7 +31,4 @@ jobs:
           publish_branch: reports-gh-pages
           user_name: 'github-actions[bot]'
           user_email: '41898282+github-actions[bot]@users.noreply.github.com'
-<<<<<<< HEAD
           commit_message: 'Deploy reports to reports-gh-pages'
-=======
->>>>>>> copilot/continue-task-list-work
