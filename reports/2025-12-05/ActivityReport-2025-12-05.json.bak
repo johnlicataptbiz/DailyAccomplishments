@@ -1,0 +1,238 @@
+{
+  "source_file": "ActivityReport-2025-12-05.json",
+  "date": "2025-12-05",
+  "title": "Daily Accomplishments \u2014 2025-12-05",
+  "overview": {
+    "focus_time": "00:06",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 3,
+    "coverage_window": "00:00\u201301:30 CST"
+  },
+  "prepared_for_manager": [
+    "Total focused time: 00:06 (Coverage: 00:00\u201301:30 CST)",
+    "Top apps: Google Chrome (00:06), Messages (00:00), Terminal (00:00)"
+  ],
+  "executive_summary": [
+    "Worked across 3 applications",
+    "Top category: Research"
+  ],
+  "client_summary": [],
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:06)",
+    "Focused on Messages (00:00)",
+    "Focused on Terminal (00:00)"
+  ],
+  "by_category": {
+    "Research": "00:04",
+    "Coding": "00:01",
+    "Communication": "00:00"
+  },
+  "by_project": {},
+  "google_workspace": {
+    "Google": "00:00",
+    "Google Sheets": "00:00",
+    "Google Calendar": "00:00",
+    "Gmail": "00:00",
+    "Google Drive": "00:00",
+    "top_documents": []
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 50
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Assign agent using automated prospecting for contacts in specific list ",
+        "visits": 15
+      },
+      {
+        "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
+        "visits": 9
+      },
+      {
+        "page": "Git Rebase Stability Fixes - Grok - Google Chrome - Jack (physicaltherapybiz.com",
+        "visits": 8
+      },
+      {
+        "page": "Margoth Arias-Suarez - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 6
+      },
+      {
+        "page": "SuperAgent.agent.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
+        "visits": 6
+      },
+      {
+        "page": "Prospecting Agent ",
+        "visits": 5
+      },
+      {
+        "page": "Custom Events ",
+        "visits": 4
+      },
+      {
+        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 3
+      },
+      {
+        "page": "Workflows - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 2
+      },
+      {
+        "page": "Grok - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 2
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "suggested_tasks": [],
+  "next_up": [],
+  "top_apps": {
+    "Google Chrome": "00:06",
+    "Messages": "00:00",
+    "Terminal": "00:00"
+  },
+  "top_windows_preview": [
+    "Google Chrome \u2014 Assign agent using automated prospecting for conta: 00:01",
+    "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:00",
+    "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:00",
+    "Google Chrome \u2014 Margoth Arias-Suarez - Google Chrome - Jack (physi: 00:00",
+    "Google Chrome \u2014 SuperAgent.agent.md \u2014 DailyAccomplishments [Codesp: 00:00",
+    "Google Chrome \u2014 Prospecting Agent : 00:00",
+    "Google Chrome \u2014 Custom Events : 00:00",
+    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:00",
+    "Messages \u2014 Lover Bird: 00:00",
+    "Google Chrome \u2014 Workflows - Google Chrome - Jack (physicaltherapyb: 00:00"
+  ],
+  "notes": [],
+  "debug_appointments": {
+    "contact_visits_top": [],
+    "appointments_today": [],
+    "meetings_today": []
+  },
+  "foot": "Auto-generated"
+}
