@@ -79,6 +79,84 @@ class Timeline:
         merged.append((current_start, current_end))
         return merged
 
+    def export_timeline(self) -> List[Dict[str, Any]]:
+        """Export timeline intervals for the report."""
+        timeline_export = []
+        for start, end, category, app, etype in self.intervals:
+            duration_seconds = int((end - start).total_seconds())
+            timeline_export.append({
+                'start': start.strftime('%H:%M'),
+                'end': end.strftime('%H:%M'),
+                'seconds': duration_seconds,
+                'minutes': int(duration_seconds / 60),
+                'category': category,
+                'app': app
+            })
+        return timeline_export
+    
+    def detect_deep_work_blocks(self, threshold_minutes: int = 25) -> List[Dict[str, Any]]:
+        """
+        Detect deep work blocks (contiguous non-meeting activity >= threshold).
+        Returns list of blocks with start, end, duration, seconds, minutes.
+        """
+        deep_blocks = []
+        threshold_seconds = threshold_minutes * 60
+        
+        # Filter non-meeting intervals and sort by start time
+        non_meeting = [
+            (start, end, cat, app, etype) 
+            for start, end, cat, app, etype in self.intervals 
+            if cat != 'Meetings' and etype != 'meeting_end'
+        ]
+        
+        if not non_meeting:
+            return []
+        
+        non_meeting.sort(key=lambda x: x[0])
+        
+        current_block_start = None
+        current_block_end = None
+        
+        for start, end, cat, app, etype in non_meeting:
+            if not current_block_start:
+                # Start new block
+                current_block_start = start
+                current_block_end = end
+            else:
+                # Check if contiguous (gap <= 1 minute)
+                gap_seconds = (start - current_block_end).total_seconds()
+                if gap_seconds <= 60:
+                    # Extend current block
+                    current_block_end = end
+                else:
+                    # Finalize current block if it meets threshold
+                    block_duration = (current_block_end - current_block_start).total_seconds()
+                    if block_duration >= threshold_seconds:
+                        deep_blocks.append({
+                            'start': current_block_start.strftime('%H:%M'),
+                            'end': current_block_end.strftime('%H:%M'),
+                            'duration': minutes_to_time_str(block_duration / 60),
+                            'seconds': int(block_duration),
+                            'minutes': int(block_duration / 60)
+                        })
+                    # Start new block
+                    current_block_start = start
+                    current_block_end = end
+        
+        # Finalize last block
+        if current_block_start:
+            block_duration = (current_block_end - current_block_start).total_seconds()
+            if block_duration >= threshold_seconds:
+                deep_blocks.append({
+                    'start': current_block_start.strftime('%H:%M'),
+                    'end': current_block_end.strftime('%H:%M'),
+                    'duration': minutes_to_time_str(block_duration / 60),
+                    'seconds': int(block_duration),
+                    'minutes': int(block_duration / 60)
+                })
+        
+        return deep_blocks
+
     def calculate_metrics(self) -> Dict[str, float]:
         """
         Calculate Active, Meeting, and Focus time based on redesign logic.
@@ -401,6 +479,8 @@ def generate_report(date_str=None):
             f"{w}: {minutes_to_time_str(t)}"
             for w, t in sorted(window_time.items(), key=lambda x: -x[1])[:10]
         ],
+        "timeline": timeline.export_timeline(),
+        "deep_work_blocks": timeline.detect_deep_work_blocks(),
         "foot": "Auto-generated (Redesign v1)"
     }
     
