@@ -46,6 +46,9 @@ def _add_section(pdf: RecoveryReportPDF, title: str, bullets: list[str]) -> None
     pdf.set_font("Helvetica", "", 11)
     for bullet in bullets:
         pdf.multi_cell(0, 6, f"- {bullet}")
+        # Reset X position after multi_cell so subsequent bullets stay aligned.
+        # This helps across fpdf/fpdf2 behavior differences.
+        pdf.set_x(pdf.l_margin)
     pdf.ln(2)
 
 
@@ -85,31 +88,16 @@ def build_report(output_path: Path) -> Path:
     }
 
     pdf = RecoveryReportPDF()
+    pdf.set_margins(15, 15, 15)
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
     for title, bullets in sections.items():
         _add_section(pdf, title, bullets)
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
     pdf.output(str(output_path))
     return output_path
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Generate the dashboard recovery PDF report.")
-    parser.add_argument(
-        "--output",
-        type=Path,
-        default=DEFAULT_OUTPUT,
-        help=f"Destination for the PDF report (default: {DEFAULT_OUTPUT.name}).",
-    )
-    return parser.parse_args()
-
-
-def main() -> None:
-    args = parse_args()
-    output_path = build_report(args.output)
-    print(f"Recovery report written to: {output_path}")
-
-
-if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Generate the
