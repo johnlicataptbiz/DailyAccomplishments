@@ -3,13 +3,13 @@
   "date": "2025-12-13",
   "title": "Daily Accomplishments \u2014 2025-12-13",
   "overview": {
-    "focus_time": "01:53",
-    "coverage_window": "00:00\u201309:57"
+    "focus_time": "02:07",
+    "coverage_window": "00:00\u201310:22"
   },
   "browser_highlights": {},
   "by_category": {
-    "Research": "01:31",
-    "Coding": "00:22"
+    "Research": "01:34",
+    "Coding": "00:33"
   },
   "hourly_focus": [
     {
@@ -59,12 +59,12 @@
     },
     {
       "hour": 9,
-      "time": "00:07",
+      "time": "00:08",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:00",
+      "time": "00:13",
       "pct": "0%"
     },
     {
@@ -134,24 +134,25 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "01:31",
-    "Terminal": "00:15",
-    "VS Code": "00:07"
+    "Google Chrome": "01:34",
+    "VS Code": "00:18",
+    "Terminal": "00:15"
   },
   "executive_summary": [
-    "Active: 00:00 | Focus: 01:41",
-    "Coverage: 00:00\u201304:47 CST",
+    "Active: 00:00 | Focus: 01:53",
+    "Coverage: 00:00\u201309:57 CST",
     "Screen Time: ~51 min foreground app usage",
     "Screen Time: ~86 min foreground app usage",
     "Screen Time: ~119 min foreground app usage",
     "Screen Time: ~160 min foreground app usage",
-    "Screen Time: ~173 min foreground app usage"
+    "Screen Time: ~173 min foreground app usage",
+    "Screen Time: ~199 min foreground app usage"
   ],
   "prepared_for_manager": [
     "Active Time: 00:00",
-    "Focus Time: 01:41",
+    "Focus Time: 01:53",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, Terminal"
+    "Top Apps: Google Chrome, Terminal, VS Code"
   ],
   "deep_work": [
     {
