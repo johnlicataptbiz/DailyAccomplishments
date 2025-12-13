@@ -75,6 +75,7 @@ if [ -d "$GH_PAGES" ] && [ -f "$GH_PAGES/.git" ]; then
   cp -f "$REPO_ROOT"/reports/*.md "$GH_PAGES/reports/" 2>/dev/null || true
 fi
 
+python3 "$SCRIPT_DIR/postprocess_report.py" "$TODAY" 2>/dev/null || true
 # 6) Commit and push main (single publisher)
 if git diff --quiet && git diff --cached --quiet; then
   echo "[$(date)] No changes to main"
