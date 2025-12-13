@@ -7,6 +7,7 @@ on:
       - 'tools/**'
       - 'dashboard.html'
       - '.github/scripts/smoke_timeline.py'
+      - '.github/scripts/validate_report_schema.py'
 
 jobs:
   smoke:
@@ -30,7 +31,7 @@ jobs:
           find . -name '__pycache__' -type d -prune -exec rm -rf {} +
           find . -name '*.pyc' -delete
 
-      - name: Run validator on recent reports
+      - name: Run validator on reports in repo
         shell: bash
         run: |
           set -euo pipefail
@@ -44,7 +45,7 @@ jobs:
 
           python3 .github/scripts/validate_report_schema.py "${files[@]}"
 
-      - name: Run timeline smoke on a sample report
+      - name: Run timeline smoke on newest report
         shell: bash
         run: |
           set -euo pipefail
@@ -56,5 +57,8 @@ jobs:
             exit 0
           fi
 
-          REPORT="${files[0]}"
+          IFS=$'\n' sorted=($(printf '%s\n' "${files[@]}" | sort))
+          REPORT="${sorted[-1]}"
+
+          echo "Using report: $REPORT"
           python3 .github/scripts/smoke_timeline.py "$REPORT"
