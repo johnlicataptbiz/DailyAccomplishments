@@ -3,34 +3,34 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "04:44",
-    "focus_time": "07:38",
+    "active_time": "04:54",
+    "focus_time": "07:45",
     "meetings_time": "00:00",
-    "coverage_time": "13:49",
-    "coverage_window": "07:12\u201321:02",
+    "coverage_time": "14:04",
+    "coverage_window": "07:12\u201321:17",
     "appointments": 0,
     "projects_count": 5
   },
   "prepared_for_manager": [
-    "Active Time: 04:44",
-    "Focus Time: 04:44",
+    "Active Time: 04:54",
+    "Focus Time: 04:54",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, Electron"
   ],
   "executive_summary": [
-    "Active: 04:44 | Focus: 04:44",
-    "Coverage: 07:12\u201321:02 CST",
-    "Screen Time: ~695 min foreground app usage"
+    "Active: 04:54 | Focus: 04:54",
+    "Coverage: 07:12\u201321:17 CST",
+    "Screen Time: ~710 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (03:41)",
+    "Focused on Google Chrome (03:50)",
     "Focused on Terminal (00:25)",
     "Focused on Electron (00:21)",
     "Focused on app_mode_loader (00:04)",
     "Focused on Finder (00:04)"
   ],
   "by_category": {
-    "Research": "07:11",
+    "Research": "07:18",
     "Other": "00:33",
     "Coding": "00:26",
     "Communication": "00:14",
@@ -148,7 +148,7 @@
     },
     {
       "hour": 21,
-      "time": "00:02",
+      "time": "00:12",
       "pct": "0%"
     },
     {
@@ -163,15 +163,15 @@
     }
   ],
   "top_apps": {
-    "Google Chrome": "07:11",
+    "Google Chrome": "07:18",
     "Terminal": "00:15",
     "VS Code": "00:10",
     "Mail": "00:01",
     "Messages": "00:01"
   },
   "top_windows_preview": [
+    "Google Chrome \u2014 Report flow design - Google Chrome - Jack (physica: 00:28",
     "Google Chrome \u2014 Handoff and checklist guide - Google Chrome - Jack: 00:20",
-    "Google Chrome \u2014 Report flow design - Google Chrome - Jack (physica: 00:19",
     "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:16",
     "Google Chrome \u2014 Handoff process summary - Google Chrome - Jack (ph: 00:11",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:11",
