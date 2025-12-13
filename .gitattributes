@@ -16,4 +16,5 @@
 *.js text eol=lf
 
 # CSV files - text format, allow trailing whitespace
-*.csv text eol=lf -whitespace
+# Explicitly disable trailing whitespace checks so CSV diffs don't fail
+*.csv text eol=lf whitespace=-trailing
