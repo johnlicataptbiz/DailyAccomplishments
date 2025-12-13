@@ -618,7 +618,7 @@
 
                 // If caller already supplied a signal, mirror it into our controller.
                 if (opts && opts.signal) {
-                    try { opts.signal.addEventListener('abort', () => c.abort(), { once: True }); } catch {}
+                    try { opts.signal.addEventListener('abort', () => c.abort(), { once: true }); } catch {}
                 }
 
                 const merged = { ...(opts || {}), signal: c.signal };
