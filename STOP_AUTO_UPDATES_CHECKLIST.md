@@ -11,7 +11,7 @@ This checklist captures the steps needed to halt failing automation and restore 
 - Use that commit as the gold reference for behavior and data layout.
 
 ## 3) Diff forward from the anchor
-- Compare the anchor commit to the `dashboard: add nested reports/YYYY...` change.
+- Compare the anchor commit to the commit(s) that introduced the breaking change.
 - Audit differences in:
   - Report paths and filenames
   - JSON structure or schema
