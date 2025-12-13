@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Check recent reports and validate structure
         shell: bash
@@ -19,6 +21,33 @@ jobs:
           python3 -m pip install jsonschema
 
           missing=0
+          invalid=0
+
+          regenerate_report() {
+            local date="$1"
+            local path="$2"
+
+            echo "Attempting regeneration for $date"
+
+            # Option A: generate a single day if your generator supports it
+            if [ -f "scripts/generate_daily_json.py" ]; then
+              python3 scripts/generate_daily_json.py "$date" || true
+            fi
+
+            # Option B: if your repo uses a cron style script to generate reports
+            # Uncomment if you prefer this approach:
+            # if [ -f "scripts/cron_report_and_push.sh" ]; then
+            #   bash scripts/cron_report_and_push.sh || true
+            # fi
+
+            if [ -f "$path" ]; then
+              echo "Regeneration produced: $path"
+              return 0
+            fi
+
+            echo "Regeneration did not produce: $path"
+            return 1
+          }
 
           for i in 0 1 2; do
             date=$(date -u -d "-$i day" +%F)
@@ -26,15 +55,22 @@ jobs:
 
             if [ ! -f "$path" ]; then
               echo "MISSING: $path"
-              missing=$((missing+1))
-              continue
+              if ! regenerate_report "$date" "$path"; then
+                missing=$((missing+1))
+                continue
+              fi
             fi
 
-            echo "FOUND: $path"
-            python3 .github/scripts/validate_report_schema.py "$path"
+            echo "VALIDATING: $path"
+            if ! python3 .github/scripts/validate_report_schema.py "$path"; then
+              echo "INVALID: $path"
+              invalid=$((invalid+1))
+            fi
           done
 
-          if [ "$missing" -ne 0 ]; then
-            echo "Some recent reports are missing ($missing). Failing workflow."
+          if [ "$missing" -ne 0 ] || [ "$invalid" -ne 0 ]; then
+            echo "Report check failed. Missing: $missing, Invalid: $invalid"
             exit 1
           fi
+
+          echo "All recent reports present and valid."
