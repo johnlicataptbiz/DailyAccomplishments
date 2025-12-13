@@ -9,7 +9,7 @@ standalone and can be re-run whenever a new recovery cycle is completed.
 from __future__ import annotations
 
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 from fpdf import FPDF
@@ -21,7 +21,7 @@ DEFAULT_OUTPUT = Path(__file__).resolve().parent.parent / f"{REPORT_TITLE}.pdf"
 
 def _format_timestamp() -> str:
     """Return a human-friendly timestamp for the report header."""
-    return datetime.now().strftime("%Y-%m-%d %H:%M UTC")
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
 
 class RecoveryReportPDF(FPDF):
