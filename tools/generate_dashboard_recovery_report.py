@@ -46,6 +46,7 @@ def _add_section(pdf: RecoveryReportPDF, title: str, bullets: list[str]) -> None
     pdf.set_font("Helvetica", "", 11)
     for bullet in bullets:
         pdf.multi_cell(0, 6, f"- {bullet}")
+        pdf.set_x(pdf.l_margin)  # Reset X position for fpdf2 compatibility
     pdf.ln(2)
 
 
@@ -85,6 +86,7 @@ def build_report(output_path: Path) -> Path:
     }
 
     pdf = RecoveryReportPDF()
+    pdf.set_margins(15, 15, 15)
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.add_page()
     for title, bullets in sections.items():
