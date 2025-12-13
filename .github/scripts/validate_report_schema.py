@@ -81,12 +81,15 @@ def validate_file(path, validator, debug=False):
     else:
         if debug:
             print(f"[DEBUG] Overview keys: {list(data['overview'].keys())}")
-        for key in ('focus_time', 'coverage_window'):
-            if key not in data['overview']:
-                print(f" - overview.{key}: missing in {p}")
-                ok = False
-            elif debug:
-                print(f"[DEBUG] overview.{key} = {data['overview'][key]}")
+        # Only check for focus_time as required; coverage_window is optional for older reports
+        if 'focus_time' not in data['overview']:
+            print(f" - overview.focus_time: missing in {p}")
+            ok = False
+        elif debug:
+            print(f"[DEBUG] overview.focus_time = {data['overview']['focus_time']}")
+        # Log but don't fail on missing coverage_window (optional for backward compatibility)
+        if debug and 'coverage_window' in data['overview']:
+            print(f"[DEBUG] overview.coverage_window = {data['overview']['coverage_window']}")
     
     # Validate deep_work_blocks items if present
     if 'deep_work_blocks' in data:
