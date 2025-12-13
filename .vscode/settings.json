@@ -16,5 +16,14 @@
     "chat.agent.thinking.collapsedTools": "all",
     "chat.agent.thinkingStyle": "collapsedPreview",
     "chat.customAgentInSubagent.enabled": true,
-    "chat.todoListTool.writeOnly": true
+    "chat.todoListTool.writeOnly": true,
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./DailyAccomplishments",
+        "-p",
+        "*test.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true
 }

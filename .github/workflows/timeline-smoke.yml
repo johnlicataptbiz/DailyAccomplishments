@@ -21,11 +21,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install jsonschema pytest
+<<<<<<< HEAD
       - name: Clean pycache and stray artifacts
         run: |
           rm -rf imports || true
           find . -name '__pycache__' -type d -prune -exec rm -rf {} +
           find . -name '*.pyc' -delete
+=======
+>>>>>>> copilot/continue-task-list-work
       - name: Run validator on recent reports
         run: |
           python3 .github/scripts/validate_report_schema.py reports/*/ActivityReport-*.json || true
@@ -33,4 +36,8 @@ jobs:
         run: |
           REPORT=$(ls reports/*/ActivityReport-*.json | head -n1)
           if [ -z "$REPORT" ]; then echo "No sample report found"; exit 0; fi
+<<<<<<< HEAD
           python3 .github/scripts/smoke_timeline.py "$REPORT"
+=======
+          python3 .github/scripts/smoke_timeline.py "$REPORT"
+>>>>>>> copilot/continue-task-list-work
