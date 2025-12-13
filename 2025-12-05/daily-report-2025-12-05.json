@@ -1,15 +1,17 @@
 {
-  "source_file": "ActivityReport-2025-11-29.json",
-  "date": "2025-11-29",
-  "title": "Daily Accomplishments — 2025-11-29",
+  "date": "2025-12-05",
   "overview": {
     "focus_time": "00:00",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 0
+    "projects_count": 0,
+    "coverage_window": "06:00\u201323:59"
   },
-  "browser_highlights": {},
   "by_category": {},
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
+  },
   "hourly_focus": [
     {
       "hour": 0,
@@ -131,6 +133,5 @@
       "time": "00:00",
       "pct": "0%"
     }
-  ],
-  "executive_summary": []
+  ]
 }

@@ -8,7 +8,7 @@ hour,time,pct,minutes
 6,00:00,0%,0
 7,00:00,0%,0
 8,00:00,0%,0
-<<<<<<< HEAD
+<<<<<<<< HEAD:hourly_focus.csv.save
 9,00:00,0%,0
 10,00:00,0%,0
 11,00:00,0%,0
@@ -19,7 +19,7 @@ hour,time,pct,minutes
 16,00:00,0%,0
 17,00:00,0%,0
 18,00:00,0%,0
-=======
+========
 9,00:09,0%,9
 10,00:41,0%,41
 11,00:33,0%,33
@@ -30,9 +30,17 @@ hour,time,pct,minutes
 16,00:00,0%,0
 17,00:23,0%,23
 18,00:35,0%,35
->>>>>>> copilot/continue-task-list-work
+>>>>>>>> copilot/continue-task-list-work:reports/2025-12-07/hourly_focus-2025-12-07.csv
 19,00:00,0%,0
 20,00:00,0%,0
 21,00:00,0%,0
 22,00:00,0%,0
+<<<<<<<< HEAD:hourly_focus.csv.save
+23,00:00,0%,09,00:00,0%,0
+nano hourly_focus.csv
+
+nano hourly_focus.csv
+
+========
 23,00:00,0%,0
+>>>>>>>> copilot/continue-task-list-work:reports/2025-12-07/hourly_focus-2025-12-07.csv

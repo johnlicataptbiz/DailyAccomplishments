@@ -3,35 +3,35 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "00:02",
-    "focus_time": "08:15",
+    "active_time": "00:18",
+    "focus_time": "08:13",
     "meetings_time": "00:00",
-    "coverage_time": "00:03",
-    "coverage_window": "07:12\u201323:55",
+    "coverage_time": "00:22",
+    "coverage_window": "07:12\u201323:53",
     "appointments": 0,
-    "projects_count": 2
+    "projects_count": 3
   },
   "prepared_for_manager": [
-    "Active Time: 00:02",
-    "Focus Time: 08:15",
+    "Active Time: 00:18",
+    "Focus Time: 00:18",
     "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, Terminal, VS Code"
+    "Top Apps: Google Chrome, Terminal, System Preferences"
   ],
   "executive_summary": [
-    "Active: 00:02 | Focus: 08:15",
-    "Coverage: 07:12\u201323:55 CST",
-    "Screen Time: ~766 min foreground app usage",
-    "Screen Time: ~793 min foreground app usage"
+    "Active: 00:18 | Focus: 00:18",
+    "Coverage: 23:30\u201323:53 CST",
+    "Screen Time: ~785 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:02)",
-    "Focused on Terminal (00:00)"
+    "Focused on Google Chrome (00:13)",
+    "Focused on Terminal (00:04)",
+    "Focused on System Preferences (00:00)"
   ],
   "by_category": {
-    "Research": "07:47",
+    "Research": "07:45",
     "Coding": "00:26",
-    "Communication": "00:01",
-    "Other": "00:01"
+    "Other": "00:01",
+    "Communication": "00:01"
   },
   "browser_highlights": {
     "top_domains": [],
@@ -155,27 +155,28 @@
     },
     {
       "hour": 23,
-      "time": "00:15",
+      "time": "00:18",
       "pct": "0%"
     }
   ],
   "top_apps": {
-    "Google Chrome": "07:47",
+    "Google Chrome": "07:45",
     "Terminal": "00:16",
     "VS Code": "00:10",
     "Mail": "00:01",
     "Messages": "00:01"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments | Railway - Google Chrome - J: 00:00",
-    "Google Chrome \u2014 DailyAccomplishments project update - Google Chrom: 00:00",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:00",
+    "Google Chrome \u2014 DailyAccomplishments project update - Google Chrom: 00:07",
+    "Google Chrome \u2014 Coding - Chat handoff summary - Google Chrome - Ja: 00:03",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:03",
     "Google Chrome \u2014 Fix critical bugs blocking analytics pipeline init: 00:00",
+    "Google Chrome \u2014 DailyAccomplishments | Railway - Google Chrome - J: 00:00",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 less \u25c2 git : 00:00",
+    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 nano \u25c2 git : 00:00",
     "Google Chrome \u2014 Auto-update: 2025-12-12 23:03 \u00b7 johnlicataptbiz/Da: 00:00",
     "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
-    "Google Chrome \u2014 johnlicataptbiz/DailyAccomplishments - Google Chro: 00:00",
-    "Google Chrome \u2014 Commits \u00b7 johnlicataptbiz/DailyAccomplishments - G: 00:00",
-    "Google Chrome \u2014 Untitled - Google Chrome - Jack (physicaltherapybi: 00:00"
+    "Google Chrome \u2014 Handoff file creation - Google Chrome - Jack (phys: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
