@@ -3,27 +3,27 @@
   "date": "2025-12-12",
   "title": "Daily Accomplishments \u2014 2025-12-12",
   "overview": {
-    "active_time": "00:16",
+    "active_time": "00:18",
     "focus_time": "08:13",
     "meetings_time": "00:00",
-    "coverage_time": "00:20",
-    "coverage_window": "07:12\u201323:50",
+    "coverage_time": "00:22",
+    "coverage_window": "07:12\u201323:52",
     "appointments": 0,
     "projects_count": 3
   },
   "prepared_for_manager": [
-    "Active Time: 00:16",
+    "Active Time: 00:18",
     "Focus Time: 08:13",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Terminal, VS Code"
   ],
   "executive_summary": [
-    "Active: 00:16 | Focus: 08:13",
-    "Coverage: 07:12\u201323:50 CST",
+    "Active: 00:18 | Focus: 08:13",
+    "Coverage: 07:12\u201323:52 CST",
     "Screen Time: ~785 min foreground app usage"
   ],
   "accomplishments_today": [
-    "Focused on Google Chrome (00:12)",
+    "Focused on Google Chrome (00:13)",
     "Focused on Terminal (00:04)",
     "Focused on System Preferences (00:00)"
   ],
@@ -34,8 +34,90 @@
     "Communication": "00:01"
   },
   "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 270
+      },
+      {
+        "domain": "app.hubspot.com",
+        "visits": 240
+      },
+      {
+        "domain": "grok.com",
+        "visits": 209
+      },
+      {
+        "domain": "gitlab.com",
+        "visits": 112
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 78
+      },
+      {
+        "domain": "dailyaccomplishmentsptbiz.up.railway.app",
+        "visits": 57
+      },
+      {
+        "domain": "linkedin.com",
+        "visits": 34
+      },
+      {
+        "domain": "mail.google.com",
+        "visits": 33
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 31
+      },
+      {
+        "domain": "railway.com",
+        "visits": 28
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13",
+        "visits": 31
+      },
+      {
+        "page": "https://app.hubspot.com/data-integration-home/22001532/new-import",
+        "visits": 21
+      },
+      {
+        "page": "https://app.hubspot.com/contacts/22001532/objectLists/views/all?count=25",
+        "visits": 17
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 14
+      },
+      {
+        "page": "https://app.hubspot.com/data-integration-home/22001532",
+        "visits": 13
+      },
+      {
+        "page": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
+        "visits": 12
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13/files",
+        "visits": 11
+      },
+      {
+        "page": "https://mail.google.com/mail/u/0/#drafts",
+        "visits": 11
+      },
+      {
+        "page": "https://app.hubspot.com/data-integration-home/22001532/new-import/standard",
+        "visits": 11
+      },
+      {
+        "page": "https://app.hubspot.com/contacts/22001532/objects/0-2/views/all/list",
+        "visits": 11
+      }
+    ]
   },
   "hourly_focus": [
     {
@@ -155,7 +237,7 @@
     },
     {
       "hour": 23,
-      "time": "00:16",
+      "time": "00:18",
       "pct": "0%"
     }
   ],
@@ -168,8 +250,8 @@
   },
   "top_windows_preview": [
     "Google Chrome \u2014 DailyAccomplishments project update - Google Chrom: 00:07",
+    "Google Chrome \u2014 Coding - Chat handoff summary - Google Chrome - Ja: 00:03",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 79\u00d73: 00:03",
-    "Google Chrome \u2014 Coding - Chat handoff summary - Google Chrome - Ja: 00:02",
     "Google Chrome \u2014 Fix critical bugs blocking analytics pipeline init: 00:00",
     "Google Chrome \u2014 DailyAccomplishments | Railway - Google Chrome - J: 00:00",
     "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 less \u25c2 git : 00:00",
