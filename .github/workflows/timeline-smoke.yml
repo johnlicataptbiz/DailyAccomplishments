@@ -56,5 +56,5 @@ jobs:
             exit 0
           fi
 
-          REPORT="${files[0]}"
+          REPORT=$(printf '%s\n' "${files[@]}" | sort | tail -n1)
           python3 .github/scripts/smoke_timeline.py "$REPORT"
