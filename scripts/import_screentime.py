@@ -46,6 +46,37 @@ class AppUsage:
         return max(0.0, (self.end - self.start).total_seconds())
 
 
+
+
+def _union_foreground_minutes(usages: list[AppUsage]) -> int:
+    """Compute foreground minutes by unioning overlapping intervals.
+
+    Raw Screen Time segments can overlap or be duplicated across streams.
+    Foreground time cannot exceed 24h/day, so we merge intervals first.
+    """
+    if not usages:
+        return 0
+
+    intervals = sorted([(u.start, u.end) for u in usages if u.end > u.start], key=lambda x: x[0])
+    if not intervals:
+        return 0
+
+    merged = []
+    cur_s, cur_e = intervals[0]
+    for s2, e2 in intervals[1:]:
+        if s2 <= cur_e:
+            if e2 > cur_e:
+                cur_e = e2
+        else:
+            merged.append((cur_s, cur_e))
+            cur_s, cur_e = s2, e2
+    merged.append((cur_s, cur_e))
+
+    total_seconds = sum((e - s).total_seconds() for s, e in merged)
+    # round up to minutes, cap to 24h
+    import math
+    mins = int(math.ceil(total_seconds / 60.0))
+    return max(0, min(24 * 60, mins))
 def _copy_db_safely(src: Path) -> Optional[Path]:
     try:
         if not src.exists():
@@ -537,7 +568,7 @@ def merge_into_activity_report(date_str: str, usages: List[AppUsage], repo_path:
     # Executive summary note
     exec_sum = report.setdefault('executive_summary', [])
     if usages:
-        total_min = sum(int(math.ceil(u.seconds/60)) for u in usages)
+        total_min = _union_foreground_minutes(usages)
         summary = f"Screen Time: ~{total_min} min foreground app usage"
         if summary not in exec_sum:
             exec_sum.append(summary)
@@ -578,7 +609,7 @@ def main():
             pass
 
     print(f"Found {len(usages)} usage records for {date_str}")
-    total_min = sum(int(math.ceil(u.seconds/60)) for u in usages)
+    total_min = _union_foreground_minutes(usages)
     print(f"Approx foreground minutes: ~{total_min}")
     if usages[:5]:
         print("Sample:")
