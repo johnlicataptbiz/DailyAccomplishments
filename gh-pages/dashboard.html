@@ -138,7 +138,37 @@
             font-size: 14px;
             color: var(--text-muted);
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+
+        .daytype-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text);
+            cursor: help;
+            user-select: none;
+        }
+        .daytype-badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+        }
+        .daytype-badge.focus .dot { background: #38ef7d; box-shadow: 0 0 0 3px rgba(56, 239, 125, 0.12); }
+        .daytype-badge.meetings .dot { background: #60a5fa; box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.12); }
+        .daytype-badge.fragmented .dot { background: #f97316; box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12); }
+        .daytype-badge.light .dot { background: #94a3b8; box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.12); }
+        .daytype-badge.overload .dot { background: #f43f5e; box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.12); }
 
         .story-headline {
             font-size: 32px;
@@ -166,6 +196,39 @@
             line-height: 1.8;
             max-width: 700px;
         }
+
+        details.evidence {
+            margin-top: 18px;
+            border-top: 1px solid var(--border);
+            padding-top: 14px;
+        }
+        details.evidence summary {
+            cursor: pointer;
+            user-select: none;
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+        }
+        @media (max-width: 1100px) { .evidence-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 700px) { .evidence-grid { grid-template-columns: 1fr; } }
+        .evidence-item {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 14px;
+            background: rgba(255,255,255,0.02);
+        }
+        .evidence-k { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.4px; }
+        .evidence-v { font-size: 16px; font-weight: 700; margin-top: 6px; }
+        .evidence-meta { font-size: 12px; color: var(--text-muted); margin-top: 4px; line-height: 1.5; }
 
         .story-metrics {
             display: flex;
@@ -617,17 +680,8 @@
 
         async function loadSettings() {
             try {
-                const paths = ['config.json', '/config.json'];
-                let r = null;
-                for (const p of paths) {
-                    try {
-                        r = await fetchWithTimeout(p, { cache: 'no-store' }, 2000);
-                    } catch {
-                        r = null;
-                    }
-                    if (r && r.ok) break;
-                }
-                if (!r || !r.ok) return;
+                const r = await fetchWithTimeout('config.json', { cache: 'no-store' }, 2000);
+                if (!r.ok) return;
                 const cfg = await r.json();
                 const mc = cfg?.weights?.meeting_credit;
                 if (typeof mc === 'number' && mc >= 0 && mc <= 1) {
@@ -785,7 +839,7 @@
 	        }
 
         async function loadBaseline(dateStr) {
-            const base = { days: 0, focusMins: 0, meetingMins: 0 };
+            const base = { days: 0, focusMins: 0, meetingMins: 0, coverageMins: 0 };
             const d = new Date(dateStr + 'T12:00:00');
             const cacheSuffix = `?t=${Date.now()}`;
             for (let i = 1; i <= 6; i++) {
@@ -801,11 +855,22 @@
                     const j = await r.json();
                     base.focusMins += timeToMinutes(j.overview?.focus_time || '00:00');
                     base.meetingMins += timeToMinutes(j.overview?.meetings_time || '00:00');
+                    try {
+                        const cov = String(j.overview?.coverage_window || '');
+                        const parts = cov.split(/\s*[–—-]\s*/);
+                        if (parts.length === 2) {
+                            const toMin = (s)=>{ const [h,m]=s.split(':').map(Number); return (isNaN(h)||isNaN(m))?0:h*60+m; };
+                            const a = toMin(parts[0]);
+                            const b = toMin(parts[1]);
+                            if (b > a) base.coverageMins += (b - a);
+                        }
+                    } catch {}
                     base.days++;
                 } catch {}
             }
             base.focusAvg = base.days ? Math.round(base.focusMins / base.days) : 0;
             base.meetingAvg = base.days ? Math.round(base.meetingMins / base.days) : 0;
+            base.coverageAvg = base.days ? Math.round(base.coverageMins / base.days) : 0;
             return base;
         }
 
@@ -835,17 +900,19 @@
         }
 
         function analyzeDay(d) {
-            // Prefer union from hourly buckets (capped at 60 per hour) to avoid double counting
+            // Prefer union from hourly buckets (capped at 60 per hour) to avoid double counting.
             const hourly = d.hourly_focus || [];
             const focusByHour = [];
             for (let h = 0; h < 24; h++) {
                 const found = hourly.find(x => x.hour === h);
                 focusByHour[h] = found ? timeToMinutes(found.time || '00:00') : 0;
             }
-            // Meeting overlay per hour (0s when not available)
+
+            // Meeting overlay per hour (0s when not available).
             const meetingArr = computeMeetingsByHour(d);
             const meetingOverlayMins = meetingArr.reduce((a,b)=>a+(b||0),0);
-            // Meeting credit: count a portion of meeting time toward Focus (gentler)
+
+            // Meeting credit: count a portion of meeting minutes toward focus (best-effort).
             const MEETING_CREDIT = (typeof window.meetingCredit === 'number') ? window.meetingCredit : 0.25;
             const focusAdj = focusByHour.reduce((sum, v, h) => {
                 const meet = meetingArr[h] || 0;
@@ -853,11 +920,14 @@
                 return sum + Math.max(0, (v || 0) - subtract);
             }, 0);
             const focusMins = focusAdj > 0 ? focusAdj : focusByHour.reduce((a,b)=>a+(b||0),0);
-            // Prefer overlay sum for meeting minutes; fallback to overview
+
+            // Prefer overlay sum for meeting minutes; fallback to overview.
             const meetingMins = meetingOverlayMins || timeToMinutes(d.overview?.meetings_time || '00:00');
-            // Active time = per-hour union of focus + meetings overlay (capped at 60 per hour)
+
+            // Active time = per-hour union of focus + meetings overlay (capped at 60 per hour).
             const activeMins = focusByHour.reduce((sum, v, h) => sum + Math.min(60, (v || 0) + (meetingArr[h] || 0)), 0);
-            // Coverage minutes from coverage_window (e.g., "07:12–23:05")
+
+            // Coverage minutes from coverage_window (e.g., "07:12–23:05").
             let coverageMins = 0;
             try {
                 const cov = String(d.overview?.coverage_window || '');
@@ -869,113 +939,329 @@
                     if (b > a) coverageMins = b - a;
                 }
             } catch {}
-            const appointments = d.overview?.appointments || 0;
-            const meetings = d.debug_appointments?.meetings_today?.length || 0;
-            
-            // YOUR Monday.com boards - the stuff that matters
-            const monday = d.monday || {};
-            const byBoard = monday.by_board || {};
-            const allItems = monday.items || [];
-            
-            // Jack Set Calls - YOUR appointments
-            const jackSetCalls = byBoard['Jack Set Calls'] || [];
-            const jackSetItems = allItems.filter(i => i.board === 'Jack Set Calls');
-            const jackWonCalls = jackSetItems.filter(i => i.status === 'WON');
-            const jackMovedToDiscovery = jackSetItems.filter(i => i.status === 'Moved to Discovery');
-            
-            // Sales Team Calls with "Set by Jack Licata" - YOUR closed deals
-            const salesTeamCalls = allItems.filter(i => 
-                i.board?.toLowerCase().includes('sales') && 
-                i.board?.toLowerCase().includes('call')
-            );
-            
-            // Q4 Modular Tracker - prospects you're managing
-            const modularTracker = byBoard['Q4 Modular Tracker'] || [];
-            
-            // General task updates
-            const tasksUpdated = monday.items_updated || 0;
-            const boards = Object.keys(byBoard);
-            const updatesCount = monday.updates_count || 0;
-            
-            // Slack analysis
-            const slackSent = d.slack?.stats?.total_sent || 0;
-            const slackReceived = d.slack?.stats?.total_received || 0;
-            
-            // HubSpot - DE-PRIORITIZED (not your closes unless tagged)
-            const hubspot = d.hubspot || {};
-            const hubspotCalls = hubspot.calls?.length || 0;
-            const hubspotEmails = hubspot.emails?.length || 0;
-            
-            // Hourly analysis - extended 5am to midnight
+
+            // Hourly analysis (5am–midnight).
             const hourlyData = d.hourly_focus || [];
             const workHours = hourlyData.filter(h => h.hour >= 5 && h.hour <= 23);
             const peakHour = workHours.reduce((max, h) => timeToMinutes(h.time) > timeToMinutes(max.time) ? h : max, { hour: 0, time: '00:00' });
             const morningFocus = workHours.filter(h => h.hour >= 5 && h.hour < 12).reduce((sum, h) => sum + timeToMinutes(h.time), 0);
             const afternoonFocus = workHours.filter(h => h.hour >= 12 && h.hour < 17).reduce((sum, h) => sum + timeToMinutes(h.time), 0);
             const eveningFocus = workHours.filter(h => h.hour >= 17 && h.hour <= 23).reduce((sum, h) => sum + timeToMinutes(h.time), 0);
-            
-            // Categories
+
+            // Categories.
             const categories = d.by_category || {};
             const topCategory = Object.entries(categories).sort((a, b) => timeToMinutes(b[1]) - timeToMinutes(a[1]))[0];
-            
-            // Apps
-            const apps = d.top_apps || {};
-            const topApp = Object.entries(apps).sort((a, b) => timeToMinutes(b[1]) - timeToMinutes(a[1]))[0];
-            
-            // SLACK appointments - authoritative source
-            const slackAppointments = d.debug_appointments?.appointments_today || [];
-            const slackAppointmentsCount = slackAppointments.length;
-            const slackAppointmentsNames = slackAppointments.map(a => a.name).join(', ');
 
-            // Monday/Jack Set Calls for context only
-            const yourClosedDeals = jackWonCalls.length;
-            const yourAppointmentsSet = slackAppointmentsCount; // Use Slack as main source
-            const yourProspectsManaged = modularTracker.length;
-            const yourMeetings = meetings;
+            // Timeline-derived signals (best effort).
+            const timeline = Array.isArray(d.timeline) ? d.timeline : [];
+            let contextSwitches = null;
+            if (timeline.length >= 2) {
+                let switches = 0;
+                for (let i = 1; i < timeline.length; i++) {
+                    const a = timeline[i - 1] || {};
+                    const b = timeline[i] || {};
+                    if ((a.category && b.category && a.category !== b.category) || (a.app && b.app && a.app !== b.app)) switches++;
+                }
+                contextSwitches = switches;
+            }
 
-            // Productivity based on YOUR contributions, not just screen time
-            const contributionScore = Math.min(100,
-                (yourClosedDeals * 30) +
-                (yourAppointmentsSet * 15) + // Slack appts weighted higher
-                (tasksUpdated * 2) +
-                (Math.min(focusMins / 480, 1) * 20) +
-                (updatesCount * 5)
-            );
+            // Deep work blocks (schema: deep_work_blocks; legacy: deep_work).
+            const deepWorkBlocks = Array.isArray(d.deep_work_blocks) ? d.deep_work_blocks : (Array.isArray(d.deep_work) ? d.deep_work : []);
+            const deepWorkMins = deepWorkBlocks.reduce((sum, b) => sum + Math.round((Number(b.seconds) || 0) / 60), 0);
+            const maxDeepWorkMins = deepWorkBlocks.reduce((m, b) => Math.max(m, Math.round((Number(b.seconds) || 0) / 60)), 0);
 
-            // Story flags
-            const hasClosedDeals = yourClosedDeals > 0;
-            const hasActiveProspecting = yourAppointmentsSet >= 1;
-            const hasStrongEngagement = tasksUpdated >= 10;
-            const hasDeepWork = peakHour && timeToMinutes(peakHour.time) >= 45;
-            const isMorningPerson = morningFocus > afternoonFocus && morningFocus > eveningFocus;
-            const isCollaborative = slackSent > 20 || meetings > 2;
-            const hasLimitedTracking = focusMins < 30;
+            const totalSignalMins = (coverageMins || activeMins || (focusMins + meetingMins) || 0);
+            const hasLimitedSignals = totalSignalMins < 120 || (focusMins === 0 && meetingMins === 0);
 
             return {
-                focusMins, meetingMins, appointments, meetings,
-                // SLACK appointments
-                slackAppointments, slackAppointmentsCount, slackAppointmentsNames,
-                // Monday.com context
-                yourClosedDeals, yourAppointmentsSet, yourProspectsManaged,
-                jackSetCalls, jackWonCalls, jackMovedToDiscovery,
-                modularTracker, salesTeamCalls,
-                // Monday.com
-                tasksUpdated, boards, updatesCount, allItems, byBoard,
-                // Communication
-                slackSent, slackReceived, hubspotCalls, hubspotEmails,
-                // Time analysis
-                workHours, peakHour, morningFocus, afternoonFocus, eveningFocus,
-                categories, topCategory, apps, topApp,
-                // Scores
-                contributionScore,
-                // Flags
-                hasClosedDeals, hasActiveProspecting, hasStrongEngagement,
-                hasDeepWork, isMorningPerson, isCollaborative, hasLimitedTracking,
-                // Deep work
-                deepWorkBlocks: d.deep_work || [],
+                focusMins,
+                meetingMins,
                 coverageMins,
-                activeMins
+                activeMins,
+                contextSwitches,
+                workHours,
+                peakHour,
+                morningFocus,
+                afternoonFocus,
+                eveningFocus,
+                categories,
+                topCategory,
+                deepWorkBlocks,
+                deepWorkMins,
+                maxDeepWorkMins,
+                hasLimitedSignals,
+                timelineCount: timeline.length
             };
+        }
+
+        function escapeHtml(s) {
+            return String(s ?? '')
+                .replace(/&/g,'&amp;')
+                .replace(/</g,'&lt;')
+                .replace(/>/g,'&gt;')
+                .replace(/\"/g,'&quot;')
+                .replace(/'/g,'&#039;');
+        }
+
+        function fmtVsAvgMins(mins, avg) {
+            if (!avg || avg <= 0) return null;
+            const delta = mins - avg;
+            const abs = Math.abs(delta);
+            const sign = delta > 0 ? '↑' : (delta < 0 ? '↓' : '•');
+            return `${sign} ${formatMinutes(abs)} vs recent avg`;
+        }
+
+        function classifyDayType(analysis, baseline) {
+            const total = analysis.coverageMins || analysis.activeMins || (analysis.focusMins + analysis.meetingMins) || 1;
+            const focusShare = analysis.focusMins / total;
+            const meetingShare = analysis.meetingMins / total;
+
+            const focusAvg = baseline?.focusAvg || 0;
+            const meetingAvg = baseline?.meetingAvg || 0;
+            const coverageAvg = baseline?.coverageAvg || 0;
+
+            if (total < 120 || analysis.hasLimitedSignals) {
+                return {
+                    key: 'light',
+                    label: 'Light / Low-Activity Day',
+                    className: 'light',
+                    description: 'Low measured activity; analysis may be incomplete.',
+                };
+            }
+
+            if (coverageAvg && total >= Math.max(720, Math.round(coverageAvg * 1.5))) {
+                return {
+                    key: 'overload',
+                    label: 'Extended / Overload Day',
+                    className: 'overload',
+                    description: 'A longer-than-usual day by measured coverage.',
+                };
+            }
+
+            if ((meetingShare >= 0.5 && analysis.meetingMins >= 120) || (meetingAvg && analysis.meetingMins >= Math.max(120, Math.round(meetingAvg * 1.5)))) {
+                return {
+                    key: 'meetings',
+                    label: 'Meeting-Heavy Day',
+                    className: 'meetings',
+                    description: 'Meetings dominated the day and likely displaced solo focus.',
+                };
+            }
+
+            const deepFocusCandidate =
+                focusShare >= 0.5 &&
+                (focusAvg ? analysis.focusMins >= Math.round(focusAvg * 1.3) : analysis.focusMins >= 240) &&
+                (analysis.maxDeepWorkMins >= 120 || analysis.deepWorkBlocks.length >= 2);
+            if (deepFocusCandidate) {
+                return {
+                    key: 'focus',
+                    label: 'Deep Focus Day',
+                    className: 'focus',
+                    description: 'Sustained focus with limited fragmentation.',
+                };
+            }
+
+            if (analysis.contextSwitches != null) {
+                const switches = analysis.contextSwitches;
+                if (switches >= 50) {
+                    return {
+                        key: 'fragmented',
+                        label: 'Firefighting Day',
+                        className: 'fragmented',
+                        description: 'Very high task switching; reactive workflow.',
+                    };
+                }
+                if (switches >= 25) {
+                    return {
+                        key: 'fragmented',
+                        label: 'Fragmented Day',
+                        className: 'fragmented',
+                        description: 'Frequent task switching likely shortened focus blocks.',
+                    };
+                }
+            } else {
+                const nonzeroHours = analysis.workHours.filter(h => timeToMinutes(h.time) > 0).length;
+                const strongHours = analysis.workHours.filter(h => timeToMinutes(h.time) >= 45).length;
+                if (nonzeroHours >= 8 && strongHours <= 1 && analysis.focusMins >= 180) {
+                    return {
+                        key: 'fragmented',
+                        label: 'Fragmented Day',
+                        className: 'fragmented',
+                        description: 'Focus came in many small bursts across the day.',
+                    };
+                }
+            }
+
+            return {
+                key: 'balanced',
+                label: 'Balanced Day',
+                className: '',
+                description: 'No single signal dominated; metrics were broadly steady.',
+            };
+        }
+
+        function buildNarrative(analysis, baseline, dayType) {
+            const focusAvg = baseline?.focusAvg || 0;
+            const meetingAvg = baseline?.meetingAvg || 0;
+
+            const focusVs = fmtVsAvgMins(analysis.focusMins, focusAvg);
+            const meetingVs = fmtVsAvgMins(analysis.meetingMins, meetingAvg);
+
+            const topCat = Array.isArray(analysis.topCategory) ? analysis.topCategory : null;
+            const topCatText = topCat ? `${topCat[0]} (${topCat[1]})` : null;
+
+            const total = analysis.coverageMins || analysis.activeMins || (analysis.focusMins + analysis.meetingMins) || 0;
+            const focusShare = total ? Math.round((analysis.focusMins / total) * 100) : null;
+            const meetingShare = total ? Math.round((analysis.meetingMins / total) * 100) : null;
+
+            let executive = `${dayType.label}.`;
+            const parts = [];
+            if (analysis.focusMins) parts.push(`Focus totaled ${formatMinutes(analysis.focusMins)}${focusVs ? ` (${focusVs})` : ''}.`);
+            if (analysis.meetingMins) parts.push(`Meetings accounted for ${formatMinutes(analysis.meetingMins)}${meetingVs ? ` (${meetingVs})` : ''}.`);
+            if (!analysis.meetingMins) parts.push('Meetings were minimal.');
+            executive = `${executive} ${parts.join(' ')}`.trim();
+
+            const structure = [];
+            if (focusShare != null && focusShare >= 55) structure.push(`Most of the day’s tracked time was focused work (${focusShare}%).`);
+            if (meetingShare != null && meetingShare >= 45) structure.push(`Meetings took a large share of tracked time (${meetingShare}%).`);
+
+            if (analysis.contextSwitches != null) {
+                structure.push(`Task switching registered ${analysis.contextSwitches} changes across the recorded timeline.`);
+            } else if (analysis.timelineCount === 0) {
+                structure.push('Timeline-level detail was not available, so task-switching could not be measured directly.');
+            }
+
+            if (analysis.deepWorkBlocks.length) {
+                structure.push(`Deep-work blocks: ${analysis.deepWorkBlocks.length} (longest ~${formatMinutes(analysis.maxDeepWorkMins)}).`);
+            } else {
+                structure.push('No deep-work blocks were detected in the available signals.');
+            }
+
+            if (analysis.morningFocus > analysis.afternoonFocus * 1.4 && analysis.morningFocus >= 60) {
+                structure.push(`Focus skewed to the morning (${formatMinutes(analysis.morningFocus)} before noon).`);
+            } else if (analysis.eveningFocus > analysis.afternoonFocus * 1.4 && analysis.eveningFocus >= 60) {
+                structure.push(`Focus skewed later in the day (${formatMinutes(analysis.eveningFocus)} after 5 PM).`);
+            }
+
+            if (topCatText) structure.push(`Top category was ${topCatText}.`);
+
+            let narrative = structure.join(' ');
+            if (analysis.hasLimitedSignals) {
+                narrative = `Limited signals were recorded (${formatMinutes(total)} total coverage). ${narrative}`;
+            }
+            return { executive, narrative };
+        }
+
+        function generateHighlights(analysis, baseline, dayType) {
+            const highlights = [];
+
+            const focusAvg = baseline?.focusAvg || 0;
+            const meetingAvg = baseline?.meetingAvg || 0;
+
+            const focusVs = fmtVsAvgMins(analysis.focusMins, focusAvg);
+            const meetingVs = fmtVsAvgMins(analysis.meetingMins, meetingAvg);
+
+            highlights.push({
+                icon: '🧠',
+                title: 'Focus Time',
+                value: formatMinutes(analysis.focusMins),
+                detail: focusVs || (focusAvg ? `Recent avg: ${formatMinutes(focusAvg)}` : 'No baseline yet'),
+                class: dayType.key === 'focus' ? 'highlight' : ''
+            });
+
+            highlights.push({
+                icon: '📅',
+                title: 'Meetings',
+                value: formatMinutes(analysis.meetingMins),
+                detail: meetingVs || (meetingAvg ? `Recent avg: ${formatMinutes(meetingAvg)}` : 'No baseline yet'),
+                class: dayType.key === 'meetings' ? 'warning' : ''
+            });
+
+            if (analysis.contextSwitches != null) {
+                highlights.push({
+                    icon: '🔁',
+                    title: 'Task Switching',
+                    value: String(analysis.contextSwitches),
+                    detail: 'Counted from timeline app/category changes',
+                    class: dayType.key === 'fragmented' ? 'warning' : ''
+                });
+            } else {
+                highlights.push({
+                    icon: '🔁',
+                    title: 'Task Switching',
+                    value: '—',
+                    detail: analysis.timelineCount ? 'Timeline exists but is not detailed enough' : 'Timeline data not available',
+                    class: ''
+                });
+            }
+
+            const topCat = Array.isArray(analysis.topCategory) ? analysis.topCategory : null;
+            if (topCat) {
+                highlights.push({
+                    icon: '🧭',
+                    title: 'Top Category',
+                    value: topCat[0],
+                    detail: `${topCat[1]} tracked`,
+                    class: ''
+                });
+            }
+
+            if (analysis.deepWorkBlocks.length) {
+                highlights.push({
+                    icon: '⏱️',
+                    title: 'Deep Work',
+                    value: `${analysis.deepWorkBlocks.length} blocks`,
+                    detail: `Longest ~${formatMinutes(analysis.maxDeepWorkMins)}`,
+                    class: dayType.key === 'focus' ? 'highlight' : ''
+                });
+            }
+
+            if (analysis.hasLimitedSignals) {
+                highlights.push({
+                    icon: '🧾',
+                    title: 'Data Coverage',
+                    value: analysis.coverageMins ? formatMinutes(analysis.coverageMins) : '—',
+                    detail: 'Low measured coverage; take the story as directional',
+                    class: 'warning'
+                });
+            }
+
+            return highlights.slice(0, 6);
+        }
+
+        function buildEvidenceItems(d, analysis, baseline) {
+            const items = [];
+            items.push({
+                k: 'Focus',
+                v: formatMinutes(analysis.focusMins),
+                meta: `Source: hourly_focus (with meeting overlay credit) · overview.focus_time=${d.overview?.focus_time || '—'}${baseline?.days ? ` · recent avg=${formatMinutes(baseline.focusAvg)}` : ''}`
+            });
+            items.push({
+                k: 'Meetings',
+                v: formatMinutes(analysis.meetingMins),
+                meta: `Source: debug_appointments.meetings_today (hour overlay) or overview.meetings_time=${d.overview?.meetings_time || '—'}${baseline?.days ? ` · recent avg=${formatMinutes(baseline.meetingAvg)}` : ''}`
+            });
+            items.push({
+                k: 'Coverage',
+                v: analysis.coverageMins ? formatMinutes(analysis.coverageMins) : (d.overview?.coverage_window || '—'),
+                meta: `Source: overview.coverage_window${baseline?.days ? ` · recent avg=${formatMinutes(baseline.coverageAvg)}` : ''}`
+            });
+            items.push({
+                k: 'Deep Work',
+                v: analysis.deepWorkBlocks.length ? `${analysis.deepWorkBlocks.length} blocks` : '—',
+                meta: analysis.deepWorkBlocks.length ? `Longest ≈ ${formatMinutes(analysis.maxDeepWorkMins)} · Source: deep_work_blocks` : 'Source: deep_work_blocks (none detected)'
+            });
+            items.push({
+                k: 'Task Switching',
+                v: analysis.contextSwitches != null ? String(analysis.contextSwitches) : '—',
+                meta: analysis.contextSwitches != null ? `Derived from timeline transitions (n=${analysis.timelineCount} segments)` : 'Source: timeline (missing/empty)'
+            });
+            const topCat = Array.isArray(analysis.topCategory) ? analysis.topCategory : null;
+            items.push({
+                k: 'Top Category',
+                v: topCat ? topCat[0] : '—',
+                meta: topCat ? `Source: by_category · ${topCat[1]} tracked` : 'Source: by_category (missing/empty)'
+            });
+            return items;
         }
 
         function generateHeadline(analysis, date) {
@@ -1234,67 +1520,62 @@
 
         function renderDashboard(d, date, baseline) {
             const analysis = analyzeDay(d);
-            const headline = generateHeadline(analysis, date);
-            const summary = generateSummary(analysis);
-            const insights = generateInsights(analysis);
-            const wins = generateWins(d, analysis);
+            const dayType = classifyDayType(analysis, baseline);
+            const story = buildNarrative(analysis, baseline, dayType);
+            const insights = generateHighlights(analysis, baseline, dayType);
+            const evidenceItems = buildEvidenceItems(d, analysis, baseline);
             
             dashboard.innerHTML = `
                 <!-- Story Hero -->
                 <div class="story-hero">
-                    <div class="story-greeting">${formatDateFriendly(date)}</div>
-                    <h2 class="story-headline">${headline}</h2>
-                    <p class="story-summary">${summary}</p>
-                    
-                    <div class="story-metrics">
-                        <div class="metric ${analysis.yourClosedDeals > 0 ? 'highlight-metric' : ''}">
-                            <div class="metric-value">${analysis.yourClosedDeals}</div>
-                            <div class="metric-label">Deals Closed</div>
-                        </div>
-                        <div class="metric ${analysis.yourAppointmentsSet >= 5 ? 'highlight-metric' : ''}">
-                            <div class="metric-value">${analysis.yourAppointmentsSet}</div>
-                            <div class="metric-label">Appts Set</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">${analysis.yourProspectsManaged}</div>
-                            <div class="metric-label">Prospects</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">${analysis.tasksUpdated}</div>
-                            <div class="metric-label">Tasks</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">${analysis.boards.length}</div>
-                            <div class="metric-label">Boards</div>
-                        </div>
+                    <div class="story-greeting">
+                        <span>${formatDateFriendly(date)}</span>
+                        <span class="daytype-badge ${dayType.className}" data-tooltip="${escapeHtml(dayType.description)}">
+                            <span class="dot"></span>
+                            <span>${escapeHtml(dayType.label)}</span>
+                        </span>
                     </div>
+                    <h2 class="story-headline">${escapeHtml(story.executive)}</h2>
+                    <p class="story-summary">${escapeHtml(story.narrative)}</p>
 
                     <div class="story-metrics" style="margin-top:16px;">
-                        <div class="metric highlight-metric">
+                        <div class="metric highlight-metric" data-tooltip="Focus time, adjusted for meeting overlay credit.">
                             <div class="metric-value">${formatMinutes(analysis.focusMins)}</div>
                             <div class="metric-label">Focus ${baseline?.days ? `· ${deltaBadge(analysis.focusMins, baseline.focusAvg)}` : ''}</div>
                         </div>
-                        <div class="metric active-metric">
+                        <div class="metric active-metric" data-tooltip="Union of focus + meeting overlay per hour (capped).">
                             <div class="metric-value">${formatMinutes(analysis.activeMins)}</div>
                             <div class="metric-label">Active</div>
                         </div>
-                        <div class="metric">
+                        <div class="metric" data-tooltip="Meeting minutes from meeting overlay (preferred) or overview.meetings_time.">
                             <div class="metric-value">${formatMinutes(analysis.meetingMins)}</div>
                             <div class="metric-label">Meetings ${baseline?.days ? `· ${deltaBadge(analysis.meetingMins, baseline.meetingAvg, true)}` : ''}</div>
                         </div>
-                        <div class="metric">
+                        <div class="metric" data-tooltip="Coverage window from overview.coverage_window (start–end).">
                             <div class="metric-value">${analysis.coverageMins ? formatMinutes(analysis.coverageMins) : (d.overview?.coverage_window || '—')}</div>
                             <div class="metric-label">Coverage ${d.overview?.coverage_window ? `· ${d.overview.coverage_window}` : ''}</div>
                         </div>
-                        <div class="metric">
-                            <div class="metric-value">${(analysis.deepWorkBlocks && analysis.deepWorkBlocks.length) || analysis.workHours.filter(h => timeToMinutes(h.time) >= 25).length}</div>
+                        <div class="metric" data-tooltip="Deep-work blocks from report.deep_work_blocks.">
+                            <div class="metric-value">${analysis.deepWorkBlocks.length || '—'}</div>
                             <div class="metric-label">Deep Work Blocks</div>
                         </div>
                     </div>
-                    ${privacyPill(d)}
+
+                    <details class="evidence">
+                        <summary>🔎 Show evidence</summary>
+                        <div class="evidence-grid">
+                            ${evidenceItems.map(it => `
+                                <div class="evidence-item">
+                                    <div class="evidence-k">${escapeHtml(it.k)}</div>
+                                    <div class="evidence-v">${escapeHtml(it.v)}</div>
+                                    <div class="evidence-meta">${escapeHtml(it.meta)}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </details>
                 </div>
 
-                <!-- Insights Grid -->
+                <!-- Highlights -->
                 <div class="insights-grid">
                     ${insights.map(i => `
                         <div class="insight-card ${i.class}">
@@ -1306,53 +1587,30 @@
                     `).join('')}
                 </div>
 
-                <!-- Integration Highlights -->
-                <div class="timeline-section">
-                    <div class="section-title">🔗 Integration Highlights</div>
-                    <div class="integrations-grid">${renderIntegrationHighlights(d)}</div>
-                </div>
-
                 <!-- Activity Timeline -->
                 <div class="timeline-section">
-                    <div class="section-title">📊 Daily Activity (5am – Midnight)</div>
+                    <div class="section-title">🗓️ Day Pattern (5am – Midnight)</div>
                     <div class="hourly-timeline">
-                        ${renderHourlyTimeline(analysis.workHours)}
+                        ${typeof renderHourlyTimeline === 'function' ? renderHourlyTimeline(analysis.workHours) : '<p style="color: var(--text-muted);">Hourly timeline unavailable</p>'}
                     </div>
                     ${renderDeepWorkChips(analysis.deepWorkBlocks)}
                 </div>
 
-                <!-- Wins & Details -->
-                <div class="wins-section">
-                    ${wins.length > 0 ? `
-                    <div class="wins-card">
-                        <div class="section-title">🏆 Today's Wins</div>
-                        ${wins.map(w => `
-                            <div class="win-item">
-                                <div class="win-icon" style="background: ${w.iconBg}">${w.icon}</div>
-                                <div class="win-content">
-                                    <div class="win-title">${w.title}</div>
-                                    <div class="win-detail">${w.detail}</div>
-                                </div>
-                            </div>
-                        `).join('')}
+                <!-- Visualizations (optional drill-down) -->
+                <div class="timeline-section">
+                    <div class="section-title">📈 Visualizations</div>
+                    <div style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">
+                        Charts are secondary to the narrative; use them for drill-down.
                     </div>
-                    ` : ''}
-                    
-                    <div class="wins-card">
-                        <div class="section-title">💻 Top Applications</div>
-                        ${renderBars(d.top_apps || {})}
-                    </div>
-                </div>
-
-                <!-- Charts -->
-                <div class="chart-section">
-                    <div class="chart-card">
-                        <div class="section-title">📈 Hourly Focus</div>
-                        <div class="chart-wrapper"><canvas id="hourlyChart"></canvas></div>
-                    </div>
-                    <div class="chart-card">
-                        <div class="section-title">🥧 Categories</div>
-                        <div class="chart-wrapper"><canvas id="categoryChart"></canvas></div>
+                    <div class="chart-section" style="margin-bottom: 0;">
+                        <div class="chart-card">
+                            <div class="section-title">Hourly Focus</div>
+                            <div class="chart-wrapper"><canvas id="hourlyChart"></canvas></div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="section-title">Categories</div>
+                            <div class="chart-wrapper"><canvas id="categoryChart"></canvas></div>
+                        </div>
                     </div>
                 </div>
 
@@ -1377,6 +1635,10 @@
             setTimeout(() => {
                 renderHourlyChart(d.hourly_focus || [], d);
                 renderCategoryChart(d.by_category || {});
+                // Attach generic tooltips for evidence-backed UI affordances
+                if (typeof attachGenericTooltips === 'function') {
+                    try { attachGenericTooltips(); } catch (err) { console.warn('attachGenericTooltips error', err); }
+                }
                 // Attach optional deep-work tooltips if available
                 if (typeof attachDeepWorkTooltips === 'function') {
                     try { attachDeepWorkTooltips(); } catch (err) { console.warn('attachDeepWorkTooltips error', err); }
@@ -1402,7 +1664,14 @@
 
         function renderDataSourcesContent(d) {
             const analysis = analyzeDay(d);
-            let html = '<h4>Per-Hour Focus (from report)</h4>';
+            let html = '<h4>Signals Used for the Narrative</h4>';
+            html += `<div class="data-source-summary-item">Focus: ${formatMinutes(analysis.focusMins)} (overview.focus_time=${d.overview?.focus_time || '—'})</div>`;
+            html += `<div class="data-source-summary-item">Meetings: ${formatMinutes(analysis.meetingMins)} (overview.meetings_time=${d.overview?.meetings_time || '—'})</div>`;
+            html += `<div class="data-source-summary-item">Coverage: ${analysis.coverageMins ? formatMinutes(analysis.coverageMins) : (d.overview?.coverage_window || '—')}</div>`;
+            html += `<div class="data-source-summary-item">Deep-work blocks: ${analysis.deepWorkBlocks.length || 0}</div>`;
+            html += `<div class="data-source-summary-item">Task switching: ${analysis.contextSwitches != null ? analysis.contextSwitches : '—'} (timeline segments: ${analysis.timelineCount})</div>`;
+
+            html += '<h4 style="margin-top: 20px;">Per-Hour Focus (from report.hourly_focus)</h4>';
             html += `
                 <table class="data-source-table">
                     <thead>
@@ -1421,13 +1690,6 @@
                     </tbody>
                 </table>
             `;
-
-            html += '<h4 style="margin-top: 20px;">Integration Totals (best-effort)</h4>';
-            html += `<div class="data-source-summary-item">Slack messages (sent/recv): ${analysis.slackSent}/${analysis.slackReceived}</div>`;
-            html += `<div class="data-source-summary-item">Monday items updated: ${analysis.tasksUpdated}</div>`;
-            html += `<div class="data-source-summary-item">HubSpot deals today: ${analysis.yourClosedDeals}</div>`;
-            html += `<div class="data-source-summary-item">Top domain visits (sum): ${analysis.workHours.length > 0 ? d.browser_highlights?.top_domains?.reduce((sum, d) => sum + d.visits, 0) : 0}</div>`;
-            html += `<div class="data-source-summary-item">Meetings: ${analysis.meetings}  Appointments: ${analysis.appointments}</div>`;
 
             return html;
         }
@@ -1719,7 +1981,24 @@
         dwTip.className = 'tooltip';
         document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(dwTip);
+            try { attachGenericTooltips(); } catch (err) { console.warn('attachGenericTooltips error', err); }
         });
+
+        function attachGenericTooltips() {
+            const els = document.querySelectorAll('[data-tooltip]');
+            els.forEach(el => {
+                if (el.dataset.tooltipBound === '1') return;
+                el.dataset.tooltipBound = '1';
+                el.addEventListener('mouseenter', () => {
+                    const text = el.getAttribute('data-tooltip');
+                    if (!text) return;
+                    dwTip.textContent = text;
+                    dwTip.style.display = 'block';
+                });
+                el.addEventListener('mousemove', (e) => positionTooltip(e));
+                el.addEventListener('mouseleave', hideTooltip);
+            });
+        }
 
         function attachDeepWorkTooltips() {
             const chips = document.querySelectorAll('.dw-chip');
