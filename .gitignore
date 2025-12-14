@@ -57,10 +57,8 @@ imports/
 recovered_from_persistedshare/
 reports/charts/
 
-# Python virtual environment
+# Additional Python entries
 .venv/
-venv/
-__pycache__/
 *.pyc
 
 .worktrees/
