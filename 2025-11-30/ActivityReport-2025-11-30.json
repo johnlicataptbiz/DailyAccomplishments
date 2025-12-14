@@ -6,9 +6,13 @@
     "focus_time": "00:00",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 0
+    "projects_count": 0,
+    "coverage_window": ""
   },
-  "browser_highlights": {},
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
+  },
   "by_category": {},
   "hourly_focus": [
     {
@@ -132,5 +136,7 @@
       "pct": "0%"
     }
   ],
-  "executive_summary": []
+  "executive_summary": [],
+  "timeline": [],
+  "deep_work_blocks": []
 }
