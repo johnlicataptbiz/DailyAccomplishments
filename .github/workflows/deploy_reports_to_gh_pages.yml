@@ -10,13 +10,14 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           persist-credentials: false
 
-          - name: Check for reports
+      - name: Check for reports
         id: check
         shell: bash
         run: |
@@ -25,8 +26,6 @@ jobs:
           else
             echo "has_reports=false" >> "$GITHUB_OUTPUT"
           fi
-        outputs:
-          has_reports: ${{ steps.check.outputs.has_reports }}
 
       - name: Deploy reports to reports-gh-pages
         if: steps.check.outputs.has_reports == 'true'
