@@ -617,7 +617,7 @@
 
         async function loadSettings() {
             try {
-                const r = await fetchWithTimeout('/config.json', { cache: 'no-store' }, 2000);
+                const r = await fetchWithTimeout('config.json', { cache: 'no-store' }, 2000);
                 if (!r.ok) return;
                 const cfg = await r.json();
                 const mc = cfg?.weights?.meeting_credit;
@@ -696,7 +696,7 @@
                     async function tryFetchFor(d) {
                         let r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
                         if (!r.ok) {
-                            r = await fetch(`/reports/daily-report-${d}.json${cacheSuffix}`, { cache: 'no-store' });
+                            r = await fetch(`reports/daily-report-${d}.json${cacheSuffix}`, { cache: 'no-store' });
                         }
                         if (!r.ok) {
                             r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
@@ -728,11 +728,11 @@
 
                     return r;
                 })();
-                let usedUrl = `/ActivityReport-${date}.json`;
+                let usedUrl = `ActivityReport-${date}.json`;
                 if (!response.ok) {
                     console.log(`[loadData] ActivityReport-${date}.json not found (status: ${response.status}). Trying reports/daily-report-${date}.json`);
-                    response = await fetch(`/reports/daily-report-${date}.json${cacheSuffix}`, { cache: 'no-store' });
-                    usedUrl = `/reports/daily-report-${date}.json`;
+                    response = await fetch(`reports/daily-report-${date}.json${cacheSuffix}`, { cache: 'no-store' });
+                    usedUrl = `reports/daily-report-${date}.json`;
                 }
                 // Fallback to GitHub raw if Railway or host doesn't serve the JSON
                 if (!response.ok) {
@@ -743,10 +743,10 @@
                 }
                 // New nested path fallback for historical reports
                 if (!response.ok) {
-                    const nested = `/reports/${date}/ActivityReport-${date}.json${cacheSuffix}`;
+                    const nested = `reports/${date}/ActivityReport-${date}.json${cacheSuffix}`;
                     console.log(`[loadData] Trying nested report path: ${nested}`);
                     response = await fetch(nested, { cache: 'no-store' });
-                    usedUrl = `/reports/${date}/ActivityReport-${date}.json`;
+                    usedUrl = `reports/${date}/ActivityReport-${date}.json`;
                 }
                 if (!response.ok) {
                     throw new Error(`Report not found. Status: ${response.status} ${response.statusText}`);
@@ -774,8 +774,8 @@
                 dd.setDate(d.getDate() - i);
                 const key = localDateKey(dd);
                 try {
-                    let r = await fetch(`/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' });
-                    if (!r.ok) r = await fetch(`/reports/daily-report-${key}.json${cacheSuffix}`, { cache: 'no-store' });
+                    let r = await fetch(`ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' });
+                    if (!r.ok) r = await fetch(`reports/daily-report-${key}.json${cacheSuffix}`, { cache: 'no-store' });
                     if (!r.ok) {
                         const rawUrl = `${RAW_BASE}ActivityReport-${key}.json${cacheSuffix}`;
                         r = await fetch(rawUrl, { cache: 'no-store' });
