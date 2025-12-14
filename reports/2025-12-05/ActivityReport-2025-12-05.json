@@ -1,13 +1,13 @@
 {
   "source_file": "ActivityReport-2025-12-05.json",
   "date": "2025-12-05",
-  "title": "Daily Accomplishments \u2014 2025-12-05",
+  "title": "Daily Accomplishments — 2025-12-05",
   "overview": {
     "active_time": "03:10",
     "focus_time": "08:56",
     "meetings_time": "00:00",
     "coverage_time": "23:48",
-    "coverage_window": "00:00\u201323:49",
+    "coverage_window": "00:00–23:49",
     "appointments": 0,
     "projects_count": 5
   },
@@ -19,7 +19,7 @@
   ],
   "executive_summary": [
     "Active: 03:10 | Focus: 03:10",
-    "Coverage: 00:00\u201323:49 CST",
+    "Coverage: 00:00–23:49 CST",
     "Screen Time: ~1731 min foreground app usage"
   ],
   "accomplishments_today": [
@@ -89,7 +89,7 @@
         "visits": 85
       },
       {
-        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
+        "page": "DailyAccomplishments [Codespaces: fluffy winner] — Visual Studio Code - Google C",
         "visits": 84
       },
       {
@@ -101,7 +101,7 @@
         "visits": 45
       },
       {
-        "page": "validate-reports.yml \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual",
+        "page": "validate-reports.yml — DailyAccomplishments [Codespaces: fluffy winner] — Visual",
         "visits": 37
       }
     ]
@@ -235,16 +235,16 @@
     "Finder": "00:01"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:17",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:13",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:11",
-    "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
-    "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:08",
-    "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
-    "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
-    "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:06",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:05"
+    "Google Chrome — Troubleshooting Directory Navigation Git - Grok - : 00:17",
+    "Google Chrome — DailyAccomplishments - Colab - Google Chrome - Jac: 00:17",
+    "Terminal — DailyAccomplishments — iChatDockTile — -zsh — 80×2: 00:13",
+    "Terminal — DailyAccomplishments — iChatDockTile — -zsh — 102×: 00:11",
+    "Google Chrome — Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
+    "Google Chrome — Google Gemini - Google Chrome - Jack (physicalther: 00:08",
+    "Google Chrome — Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
+    "Google Chrome — Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
+    "Google Chrome — DailyAccomplishments [Codespaces: fluffy winner] —: 00:06",
+    "Google Chrome — Daily Accomplishments - Google Chrome - Jack (phys: 00:05"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
@@ -300,5 +300,7 @@
   ],
   "debug_appointments": {
     "meetings_today": []
-  }
+  },
+  "timeline": [],
+  "deep_work_blocks": []
 }

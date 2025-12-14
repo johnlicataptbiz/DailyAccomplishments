@@ -1,13 +1,13 @@
 {
   "source_file": "ActivityReport-2025-12-07.json",
   "date": "2025-12-07",
-  "title": "Daily Accomplishments \u2014 2025-12-07",
+  "title": "Daily Accomplishments — 2025-12-07",
   "overview": {
     "active_time": "00:45",
     "focus_time": "01:22",
     "meetings_time": "00:00",
     "coverage_time": "07:16",
-    "coverage_window": "16:29\u201323:46",
+    "coverage_window": "16:29–23:46",
     "appointments": 0,
     "projects_count": 4
   },
@@ -19,7 +19,7 @@
   ],
   "executive_summary": [
     "Active: 00:45 | Focus: 00:45",
-    "Coverage: 16:29\u201323:46 CST",
+    "Coverage: 16:29–23:46 CST",
     "Screen Time: ~130 min foreground app usage"
   ],
   "accomplishments_today": [
@@ -72,15 +72,15 @@
         "visits": 9
       },
       {
-        "page": "johnlicataptbiz-group / DailyAccomplishments \u00b7 GitLab - Google Chrome - Jack (ph",
+        "page": "johnlicataptbiz-group / DailyAccomplishments · GitLab - Google Chrome - Jack (ph",
         "visits": 9
       },
       {
-        "page": "Kubernetes Clusters \u00b7 johnlicataptbiz-group / DailyAccomplishments \u00b7 GitLab - Go",
+        "page": "Kubernetes Clusters · johnlicataptbiz-group / DailyAccomplishments · GitLab - Go",
         "visits": 9
       },
       {
-        "page": "Cloud Run \u2013 ActivityTracker \u2013 Google Cloud console - Google Chrome - Jack (physi",
+        "page": "Cloud Run – ActivityTracker – Google Cloud console - Google Chrome - Jack (physi",
         "visits": 8
       },
       {
@@ -217,16 +217,16 @@
     "Finder": "00:01"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:03",
-    "app_mode_loader \u2014 missing value: 00:02",
+    "Google Chrome — Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:03",
+    "app_mode_loader — missing value: 00:02",
     "Google Chrome: 00:02",
-    "Google Chrome \u2014 ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:01",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:01",
-    "Google Chrome \u2014 Cloud Shell - Google Chrome - Jack (physicaltherap: 00:01",
-    "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:00",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
-    "Google Chrome \u2014 johnlicataptbiz-group / DailyAccomplishments \u00b7 Git: 00:00",
-    "Google Chrome \u2014 Kubernetes Clusters \u00b7 johnlicataptbiz-group / Dail: 00:00"
+    "Google Chrome — ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:01",
+    "Google Chrome — DailyAccomplishments - Colab - Google Chrome - Jac: 00:01",
+    "Google Chrome — Cloud Shell - Google Chrome - Jack (physicaltherap: 00:01",
+    "Google Chrome — Repo review and upgrades - Google Chrome - Jack (p: 00:00",
+    "Google Chrome — Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
+    "Google Chrome — johnlicataptbiz-group / DailyAccomplishments · Git: 00:00",
+    "Google Chrome — Kubernetes Clusters · johnlicataptbiz-group / Dail: 00:00"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
@@ -240,5 +240,7 @@
   ],
   "debug_appointments": {
     "meetings_today": []
-  }
+  },
+  "timeline": [],
+  "deep_work_blocks": []
 }
