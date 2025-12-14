@@ -358,6 +358,41 @@
             margin-bottom: 28px;
         }
 
+        .svg-timeline-wrap {
+            margin-bottom: 14px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 12px 12px 10px;
+            background: rgba(255,255,255,0.02);
+        }
+        .svg-timeline-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .svg-timeline-title .label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .svg-timeline-title .meta {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .svg-timeline {
+            width: 100%;
+            height: 64px;
+            display: block;
+        }
+        .svg-timeline-empty {
+            color: var(--text-muted);
+            font-size: 13px;
+            padding: 10px 2px 2px;
+        }
+
         .section-title {
             font-size: 18px;
             font-weight: 600;
@@ -687,12 +722,19 @@
                 if (typeof mc === 'number' && mc >= 0 && mc <= 1) {
                     window.meetingCredit = mc;
                 }
+                const cp = cfg?.analytics?.category_priority;
+                if (Array.isArray(cp) && cp.length) {
+                    window.categoryPriority = cp;
+                }
             } catch {}
         }
 
         async function init() {
             await loadSettings();
-            await loadData(currentDate);
+            // On initial load allow falling back to recent days so "Today" can resolve to the
+            // most recent available report. User-initiated navigation (date picker / arrows)
+            // should not auto-resolve to a different date.
+            await loadData(currentDate, { allowFallback: true });
         }
         init();
         
@@ -708,7 +750,8 @@
             if (e.state?.date) {
                 currentDate = e.state.date;
                 dateInput.value = currentDate;
-                loadData(currentDate);
+                // Popstate is user navigation; do not silently fall back to a prior day.
+                loadData(currentDate, { allowFallback: false });
             }
         });
 
@@ -718,11 +761,13 @@
             currentDate = localDateKey();
             dateInput.value = currentDate;
             updateUrl(currentDate);
-            loadData(currentDate);
+            // User-triggered: do not fall back to an earlier date automatically
+            loadData(currentDate, { allowFallback: false });
         });
         dateInput.addEventListener('change', (e) => {
             updateUrl(e.target.value);
-            loadData(e.target.value);
+            // User-selected date: keep that date or show a clear error if missing
+            loadData(e.target.value, { allowFallback: false });
         });
 
         function changeDate(delta) {
@@ -731,112 +776,124 @@
             currentDate = localDateKey(date);
             dateInput.value = currentDate;
             updateUrl(currentDate);
-            loadData(currentDate);
+            // User-triggered navigation; don't backfill
+            loadData(currentDate, { allowFallback: false });
         }
 
         const RAW_BASE = 'https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/';
 
-	        async function loadData(date) {
-	            currentDate = date;
-	            dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
+            async function loadData(date, opts = { allowFallback: true }) {
+                const allowFallback = Boolean(opts && opts.allowFallback);
+                currentDate = date;
+                dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
 
-	            console.log(`[loadData] Attempting to load data for date: ${date}`);
+                console.log(`[loadData] Attempting to load data for date: ${date} allowFallback=${allowFallback}`);
 
-	            // Hard guarantee: never spin forever (e.g., network hang / slow upstream).
-	            const loadStartedAt = Date.now();
-	            const watchdog = setTimeout(() => {
-	                if (dashboard && String(dashboard.innerHTML || '').includes('Loading your day')) {
-	                    dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Timed out while loading. Try refreshing, or pick another date.</p></div>`;
-	                    try {
-	                        document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
-	                    } catch {}
-	                }
-	            }, 4000);
+                // Hard guarantee: never spin forever (e.g., network hang / slow upstream).
+                const loadStartedAt = Date.now();
+                const watchdog = setTimeout(() => {
+                    if (dashboard && String(dashboard.innerHTML || '').includes('Loading your day')) {
+                        dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Timed out while loading. Try refreshing, or pick another date.</p></div>`;
+                        try {
+                            document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
+                        } catch {}
+                    }
+                }, 4000);
 
-	            try {
-	                const cacheSuffix = `?t=${Date.now()}`;
-	                const tryDaysBack = 14;
-	                const deadlineMs = 4500;
+                try {
+                    const cacheSuffix = `?t=${Date.now()}`;
+                    const tryDaysBack = 14;
+                    const deadlineMs = 4500;
 
-	                function minusDays(dateStr, n) {
-	                    const dt = parseLocalDate(dateStr);
-	                    dt.setDate(dt.getDate() - n);
-	                    return localDateKey(dt);
-	                }
+                    function minusDays(dateStr, n) {
+                        const dt = parseLocalDate(dateStr);
+                        dt.setDate(dt.getDate() - n);
+                        return localDateKey(dt);
+                    }
 
-	                async function fetchFirstOkFor(d) {
-	                    const candidates = [
-	                        { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
-	                        { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
-	                        { url: `reports/daily-report-${d}.json`, timeoutMs: 1500 },
-	                        { url: `${RAW_BASE}reports/${d}/ActivityReport-${d}.json`, timeoutMs: 2000 },
-	                        { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
-	                        { url: `${RAW_BASE}reports/daily-report-${d}.json`, timeoutMs: 2000 },
-	                    ];
+                    async function fetchFirstOkFor(d) {
+                        const candidates = [
+                            { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
+                            { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
+                            { url: `reports/daily-report-${d}.json`, timeoutMs: 1500 },
+                            { url: `${RAW_BASE}reports/${d}/ActivityReport-${d}.json`, timeoutMs: 2000 },
+                            { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
+                            { url: `${RAW_BASE}reports/daily-report-${d}.json`, timeoutMs: 2000 },
+                        ];
 
-	                    let lastResponse = null;
-	                    let lastUrl = candidates[candidates.length - 1].url;
+                        let lastResponse = null;
+                        let lastUrl = candidates[candidates.length - 1].url;
 
-	                    for (const c of candidates) {
-	                        if (Date.now() - loadStartedAt > deadlineMs) break;
-	                        lastUrl = c.url;
-	                        console.log(`[loadData] Trying: ${c.url}`);
-	                        try {
-	                            lastResponse = await fetchWithTimeout(`${c.url}${cacheSuffix}`, { cache: 'no-store' }, c.timeoutMs);
-	                        } catch (e) {
-	                            console.log(`[loadData] Fetch failed: ${c.url} (${e?.name || 'error'})`);
-	                            lastResponse = null;
-	                        }
-	                        if (lastResponse && lastResponse.ok) return { response: lastResponse, usedUrl: c.url };
-	                    }
+                        for (const c of candidates) {
+                            if (Date.now() - loadStartedAt > deadlineMs) break;
+                            lastUrl = c.url;
+                            console.log(`[loadData] Trying: ${c.url}`);
+                            try {
+                                lastResponse = await fetchWithTimeout(`${c.url}${cacheSuffix}`, { cache: 'no-store' }, c.timeoutMs);
+                            } catch (e) {
+                                console.log(`[loadData] Fetch failed: ${c.url} (${e?.name || 'error'})`);
+                                lastResponse = null;
+                            }
+                            if (lastResponse && lastResponse.ok) return { response: lastResponse, usedUrl: c.url };
+                        }
 
-	                    return { response: lastResponse, usedUrl: lastUrl };
-	                }
+                        return { response: lastResponse, usedUrl: lastUrl };
+                    }
 
-	                let resolvedDate = date;
-	                let response = null;
-	                let usedUrl = `reports/daily-report-${date}.json`;
+                    let resolvedDate = date;
+                    let response = null;
+                    let usedUrl = `reports/daily-report-${date}.json`;
 
-	                for (let back = 0; back <= tryDaysBack; back++) {
-	                    if (Date.now() - loadStartedAt > deadlineMs) break;
-	                    const d = back === 0 ? date : minusDays(date, back);
-	                    const result = await fetchFirstOkFor(d);
-	                    response = result.response;
-	                    usedUrl = result.usedUrl;
-	                    if (response && response.ok) {
-	                        resolvedDate = d;
-	                        break;
-	                    }
-	                }
+                    if (allowFallback) {
+                        for (let back = 0; back <= tryDaysBack; back++) {
+                            if (Date.now() - loadStartedAt > deadlineMs) break;
+                            const d = back === 0 ? date : minusDays(date, back);
+                            const result = await fetchFirstOkFor(d);
+                            response = result.response;
+                            usedUrl = result.usedUrl;
+                            if (response && response.ok) {
+                                resolvedDate = d;
+                                break;
+                            }
+                        }
 
-	                if (!response || !response.ok) {
-	                    const status = response ? `${response.status} ${response.statusText}` : 'no response';
-	                    throw new Error(`Report not found for ${date} or the prior ${tryDaysBack} days. Last attempt: ${usedUrl} (${status})`);
-	                }
+                        if (!response || !response.ok) {
+                            const status = response ? `${response.status} ${response.statusText}` : 'no response';
+                            throw new Error(`Report not found for ${date} or the prior ${tryDaysBack} days. Last attempt: ${usedUrl} (${status})`);
+                        }
 
-	                if (resolvedDate !== date) {
-	                    currentDate = resolvedDate;
-	                    dateInput.value = resolvedDate;
-	                    updateUrl(resolvedDate);
-	                }
+                        if (resolvedDate !== date) {
+                            currentDate = resolvedDate;
+                            dateInput.value = resolvedDate;
+                            updateUrl(resolvedDate);
+                        }
+                    } else {
+                        const result = await fetchFirstOkFor(date);
+                        response = result.response;
+                        usedUrl = result.usedUrl;
+                        if (!response || !response.ok) {
+                            const status = response ? `${response.status} ${response.statusText}` : 'no response';
+                            throw new Error(`No report for ${date}. Last attempt: ${usedUrl} (${status})`);
+                        }
+                    }
 
-	                data = await response.json();
-	                console.log('[loadData] Data fetched successfully:', data);
-	                document.getElementById('headerSub').textContent = formatDateFriendly(resolvedDate);
-	                // Set the raw data link to whichever URL actually succeeded
-	                document.getElementById('jsonLink').href = usedUrl;
-	                const baseline = await loadBaseline(resolvedDate);
-	                renderDashboard(data, resolvedDate, baseline);
-	            } catch (error) {
-	                console.error('[loadData] Failed to load dashboard data:', error);
-	                try {
-	                    document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
-	                } catch {}
-	                dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
-	            } finally {
-	                clearTimeout(watchdog);
-	            }
-	        }
+                    data = await response.json();
+                    console.log('[loadData] Data fetched successfully:', data);
+                    document.getElementById('headerSub').textContent = formatDateFriendly(resolvedDate);
+                    // Set the raw data link to whichever URL actually succeeded
+                    document.getElementById('jsonLink').href = usedUrl;
+                    const baseline = await loadBaseline(resolvedDate);
+                    renderDashboard(data, resolvedDate, baseline);
+                } catch (error) {
+                    console.error('[loadData] Failed to load dashboard data:', error);
+                    try {
+                        document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
+                    } catch {}
+                    dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
+                } finally {
+                    clearTimeout(watchdog);
+                }
+                }
 
         async function loadBaseline(dateStr) {
             const base = { days: 0, focusMins: 0, meetingMins: 0, coverageMins: 0 };
@@ -1590,6 +1647,13 @@
                 <!-- Activity Timeline -->
                 <div class="timeline-section">
                     <div class="section-title">🗓️ Day Pattern (5am – Midnight)</div>
+                    <div id="svgTimelineWrap" class="svg-timeline-wrap">
+                        <div class="svg-timeline-title">
+                            <div class="label">Activity Timeline (SVG)</div>
+                            <div class="meta">Hover for details</div>
+                        </div>
+                        <div id="svgTimeline"></div>
+                    </div>
                     <div class="hourly-timeline">
                         ${typeof renderHourlyTimeline === 'function' ? renderHourlyTimeline(analysis.workHours) : '<p style="color: var(--text-muted);">Hourly timeline unavailable</p>'}
                     </div>
@@ -1633,6 +1697,7 @@
             `;
 
             setTimeout(() => {
+                try { renderSvgTimeline(d); } catch (err) { console.warn('renderSvgTimeline error', err); }
                 renderHourlyChart(d.hourly_focus || [], d);
                 renderCategoryChart(d.by_category || {});
                 // Attach generic tooltips for evidence-backed UI affordances
@@ -1646,6 +1711,179 @@
                 // Setup data sources panel
                 try { setupDataSourcesPanel(d); } catch (err) { console.warn('setupDataSourcesPanel error', err); }
             }, 100);
+        }
+
+        function getCategoryPriority() {
+            const p = window.categoryPriority;
+            if (Array.isArray(p) && p.length) return p;
+            return ['Coding', 'Research', 'Docs', 'Communication', 'Meetings', 'Other'];
+        }
+
+        function categoryColor(cat) {
+            const c = String(cat || '').toLowerCase();
+            if (c.includes('coding') || c.includes('dev')) return '#3b82f6';
+            if (c.includes('research')) return '#8b5cf6';
+            if (c.includes('docs') || c.includes('writing')) return '#06b6d4';
+            if (c.includes('meet')) return '#10b981';
+            if (c.includes('comm') || c.includes('slack') || c.includes('email')) return '#f59e0b';
+            if (c.includes('design')) return '#ec4899';
+            return '#64748b';
+        }
+
+        function parseHHMM(hhmm) {
+            const m = /^\s*(\d{1,2}):(\d{2})\s*$/.exec(String(hhmm || ''));
+            if (!m) return null;
+            const hh = parseInt(m[1], 10), mm = parseInt(m[2], 10);
+            if (isNaN(hh) || isNaN(mm) || hh < 0 || hh > 23 || mm < 0 || mm > 59) return null;
+            return hh * 60 + mm;
+        }
+
+        function resolveTimelineSegments(raw, priorityList) {
+            const priority = {};
+            priorityList.forEach((c, i) => { priority[String(c).toLowerCase()] = i; });
+            const otherIdx = priority.other ?? priorityList.length;
+
+            const events = [];
+            for (const seg of raw) {
+                const a = parseHHMM(seg.start);
+                const b = parseHHMM(seg.end);
+                if (a == null || b == null || b <= a) continue;
+                const cat = seg.category || 'Other';
+                const app = seg.app || '';
+                events.push({ t: a, typ: 1, cat, app });
+                events.push({ t: b, typ: -1, cat, app });
+            }
+            if (!events.length) return [];
+            events.sort((x, y) => x.t - y.t || (y.typ - x.typ));
+
+            const active = [];
+            const out = [];
+            let current = events[0].t;
+
+            function winner() {
+                if (!active.length) return null;
+                let best = null;
+                let bestKey = null;
+                for (const it of active) {
+                    const idx = priority[String(it.cat).toLowerCase()] ?? otherIdx;
+                    const key = `${String(idx).padStart(4, '0')}-${String(999999999 - it.t).padStart(12, '0')}`;
+                    if (!bestKey || key < bestKey) { bestKey = key; best = it; }
+                }
+                return best;
+            }
+
+            let i = 0;
+            while (i < events.length) {
+                const t = events[i].t;
+                if (t > current) {
+                    const w = winner();
+                    if (w) out.push({ start: current, end: t, category: w.cat, app: w.app });
+                    current = t;
+                }
+                while (i < events.length && events[i].t === t) {
+                    const ev = events[i];
+                    if (ev.typ === 1) {
+                        active.push({ t: ev.t, cat: ev.cat, app: ev.app });
+                    } else {
+                        for (let j = active.length - 1; j >= 0; j--) {
+                            if (active[j].cat === ev.cat && active[j].app === ev.app) { active.splice(j, 1); break; }
+                        }
+                    }
+                    i++;
+                }
+            }
+
+            // Merge adjacent same-category segments (cleaner SVG).
+            const merged = [];
+            for (const s of out) {
+                const prev = merged[merged.length - 1];
+                if (prev && prev.category === s.category && prev.app === s.app && prev.end === s.start) {
+                    prev.end = s.end;
+                } else {
+                    merged.push({ ...s });
+                }
+            }
+            return merged;
+        }
+
+        function renderSvgTimeline(d) {
+            const mount = document.getElementById('svgTimeline');
+            const wrap = document.getElementById('svgTimelineWrap');
+            if (!mount || !wrap) return;
+
+            const raw = Array.isArray(d.timeline) ? d.timeline : [];
+            if (!raw.length) {
+                mount.innerHTML = `<div class="svg-timeline-empty">No timeline segments available for this day.</div>`;
+                return;
+            }
+
+            const startMin = 5 * 60;
+            const endMin = 24 * 60;
+            const width = 1140;
+            const height = 64;
+            const barY = 26;
+            const barH = 14;
+
+            const segments = resolveTimelineSegments(raw, getCategoryPriority())
+                .map(s => ({ ...s, start: Math.max(startMin, s.start), end: Math.min(endMin, s.end) }))
+                .filter(s => s.end > s.start);
+
+            const blocks = Array.isArray(d.deep_work_blocks) ? d.deep_work_blocks : [];
+            const overlays = blocks.map(b => {
+                const a = parseHHMM(b.start);
+                const c = parseHHMM(b.end);
+                if (a == null || c == null || c <= a) return null;
+                return { start: Math.max(startMin, a), end: Math.min(endMin, c) };
+            }).filter(Boolean);
+
+            const xFor = (m) => Math.round(((m - startMin) / (endMin - startMin)) * width);
+
+            const ticks = [];
+            for (let h = 5; h <= 24; h += 1) {
+                const x = xFor(h * 60);
+                if (h === 24) continue;
+                const label = h === 12 ? '12p' : (h < 12 ? `${h}a` : `${h - 12}p`);
+                if (h % 2 === 1) continue;
+                ticks.push(`<line x1="${x}" y1="8" x2="${x}" y2="56" stroke="rgba(255,255,255,0.06)" stroke-width="1" />`);
+                ticks.push(`<text x="${x}" y="16" font-size="10" fill="rgba(148,163,184,0.9)" text-anchor="middle">${label}</text>`);
+            }
+
+            const rects = segments.map(s => {
+                const x = xFor(s.start);
+                const w = Math.max(1, xFor(s.end) - x);
+                const fill = categoryColor(s.category);
+                const tip = `${s.category}${s.app ? ` • ${s.app}` : ''} • ${String(Math.floor(s.start/60)).padStart(2,'0')}:${String(s.start%60).padStart(2,'0')}–${String(Math.floor(s.end/60)).padStart(2,'0')}:${String(s.end%60).padStart(2,'0')}`;
+                return `<rect x="${x}" y="${barY}" width="${w}" height="${barH}" rx="6" fill="${fill}" data-tip="${escapeHtml(tip)}"></rect>`;
+            }).join('');
+
+            const dw = overlays.map(o => {
+                const x = xFor(o.start);
+                const w = Math.max(1, xFor(o.end) - x);
+                return `<rect x="${x}" y="${barY - 8}" width="${w}" height="${barH + 16}" rx="10" fill="rgba(56,239,125,0.14)" stroke="rgba(56,239,125,0.22)" stroke-width="1" pointer-events="none"></rect>`;
+            }).join('');
+
+            mount.innerHTML = `
+                <svg class="svg-timeline" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none">
+                    <rect x="0" y="0" width="${width}" height="${height}" fill="rgba(0,0,0,0)" />
+                    ${ticks.join('')}
+                    ${dw}
+                    ${rects}
+                </svg>
+            `;
+
+            // Hook hover tooltips for SVG rects.
+            const svg = mount.querySelector('svg');
+            if (!svg) return;
+            svg.querySelectorAll('rect[data-tip]').forEach(r => {
+                r.addEventListener('mouseenter', (e) => {
+                    const text = e.currentTarget.getAttribute('data-tip') || '';
+                    if (!text) return;
+                    dwTip.textContent = text;
+                    dwTip.style.display = 'block';
+                });
+                r.addEventListener('mousemove', (e) => positionTooltip(e));
+                r.addEventListener('mouseleave', hideTooltip);
+            });
         }
 
         function setupDataSourcesPanel(d) {

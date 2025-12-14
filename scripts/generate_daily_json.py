@@ -19,6 +19,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent
 LOGS_DIR = REPO_ROOT / "logs"
+CONFIG_PATH = REPO_ROOT / "config.json"
 
 # Domain to category mapping
 CATEGORY_MAP = {
@@ -48,6 +49,53 @@ CATEGORY_MAP = {
 
 # Apps that always count as "Focus" even if occurring during a meeting interval
 FOCUS_OVERRIDE_APPS = ['Coding', 'Docs', 'Research']
+
+DEFAULT_CATEGORY_PRIORITY = [
+    "Coding",
+    "Research",
+    "Docs",
+    "Communication",
+    "Meetings",
+    "Other",
+]
+
+def load_config() -> Dict[str, Any]:
+    try:
+        if CONFIG_PATH.exists():
+            return json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return {}
+
+
+def get_category_settings(config: Optional[Dict[str, Any]] = None) -> Tuple[Dict[str, List[str]], List[str]]:
+    cfg = config if isinstance(config, dict) else load_config()
+    analytics = (cfg.get("analytics") or {}) if isinstance(cfg, dict) else {}
+
+    mapping: Dict[str, List[str]] = {}
+    priority: List[str] = []
+
+    if isinstance(analytics, dict):
+        cm = analytics.get("category_mapping") or {}
+        if isinstance(cm, dict):
+            for cat, items in cm.items():
+                if isinstance(items, list):
+                    mapping[str(cat)] = [str(x) for x in items if str(x).strip()]
+        cp = analytics.get("category_priority") or []
+        if isinstance(cp, list):
+            priority = [str(x) for x in cp if str(x).strip()]
+
+    return mapping, priority
+
+
+def build_priority_index(priority: List[str]) -> Dict[str, int]:
+    if not priority:
+        priority = DEFAULT_CATEGORY_PRIORITY
+    idx = {cat.lower(): i for i, cat in enumerate(priority)}
+    # Ensure we always have a sensible fallback bucket.
+    if "other" not in idx:
+        idx["other"] = len(idx)
+    return idx
 
 class Timeline:
     """Manages time intervals to calculate precise duration metrics."""
@@ -94,6 +142,67 @@ class Timeline:
                 "type": etype,
             })
         return timeline_export
+
+    def attributed_category_minutes(self, category_priority: List[str]) -> Dict[str, float]:
+        """
+        Attribute overlapping time windows to a single category at each moment,
+        using a configured category priority order (lower index wins).
+
+        This prevents double-counting across categories when intervals overlap.
+        """
+        if not self.intervals:
+            return {}
+
+        pr = build_priority_index(category_priority)
+
+        # Build boundary events.
+        events: List[Tuple[datetime, int, str, str]] = []
+        # (time, typ, category, app) where typ=+1 start, typ=-1 end
+        for start, end, category, app, etype in self.intervals:
+            if end <= start:
+                continue
+            events.append((start, 1, category, app))
+            events.append((end, -1, category, app))
+        if not events:
+            return {}
+
+        events.sort(key=lambda x: (x[0], -x[1]))  # start before end at same time
+
+        active: List[Tuple[datetime, str, str]] = []  # (start_time, category, app)
+        out: Dict[str, float] = defaultdict(float)
+
+        def pick_winner() -> Optional[Tuple[datetime, str, str]]:
+            if not active:
+                return None
+            # Winner: best (priority index, -start_time) so newer start wins ties.
+            return min(active, key=lambda t: (pr.get(t[1].lower(), pr["other"]), -t[0].timestamp()))
+
+        current_time = events[0][0]
+        i = 0
+        while i < len(events):
+            t = events[i][0]
+            if t > current_time:
+                winner = pick_winner()
+                if winner:
+                    seconds = (t - current_time).total_seconds()
+                    if seconds > 0:
+                        out[winner[1]] += seconds / 60.0
+                current_time = t
+
+            # Apply all events at time t.
+            while i < len(events) and events[i][0] == t:
+                _, typ, cat, app = events[i]
+                if typ == 1:
+                    active.append((t, cat, app))
+                else:
+                    # remove a matching active entry (best-effort)
+                    for j in range(len(active) - 1, -1, -1):
+                        if active[j][1] == cat and active[j][2] == app:
+                            active.pop(j)
+                            break
+                i += 1
+
+        return dict(out)
 
     def _create_deep_work_block(self, start: datetime, end: datetime) -> Dict[str, Any]:
         block_duration_seconds = (end - start).total_seconds()
@@ -311,10 +420,21 @@ def parse_activity_log(date_str):
             if norm: activities.append(norm)
     return activities
 
-def categorize_activity(app, window):
+def categorize_activity(app: str, window: str, config_mapping: Optional[Dict[str, List[str]]] = None) -> str:
     """Determine category based on app and window title."""
     app_lower = app.lower()
     window_lower = window.lower()
+
+    # Config mapping takes precedence. Each mapping entry is treated as a keyword list
+    # matched against app/window strings.
+    if config_mapping:
+        for cat, keywords in config_mapping.items():
+            for kw in keywords:
+                k = kw.lower().strip()
+                if not k:
+                    continue
+                if k in app_lower or k in window_lower:
+                    return cat
     
     if 'terminal' in app_lower or 'iterm' in app_lower: return 'Coding'
     if 'code' in app_lower or 'vscode' in app_lower: return 'Coding'
@@ -358,7 +478,7 @@ def generate_report(date_str=None):
     # Initialize Aggregators
     timeline = Timeline()
     app_time = defaultdict(float)
-    category_time = defaultdict(float)
+    category_time_raw = defaultdict(float)
     domain_visits = defaultdict(int)
     page_visits = defaultdict(int)
     window_time = defaultdict(float)
@@ -367,6 +487,9 @@ def generate_report(date_str=None):
     first_ts = None
     last_ts = None
     
+    cfg = load_config()
+    config_mapping, category_priority = get_category_settings(cfg)
+
     # Process Activities
     for activity in activities:
         ts = datetime.fromisoformat(activity['timestamp'])
@@ -379,7 +502,7 @@ def generate_report(date_str=None):
         if first_ts is None or ts < first_ts: first_ts = ts
         if last_ts is None or ts > last_ts: last_ts = ts
         
-        category = categorize_activity(app, window)
+        category = categorize_activity(app, window, config_mapping=config_mapping)
         
         # Add to Timeline
         timeline.add(ts, duration, category, app, etype)
@@ -389,7 +512,7 @@ def generate_report(date_str=None):
         hour = ts.hour
         
         app_time[app] += dur_min
-        category_time[category] += dur_min
+        category_time_raw[category] += dur_min
         hourly_minutes[hour] += dur_min
         
         window_key = f"{app} — {window[:50]}" if window else app
@@ -402,6 +525,9 @@ def generate_report(date_str=None):
 
     # Calculate Precise Metrics
     metrics = timeline.calculate_metrics()
+
+    # Category attribution using configured priority (prevents overlap double-counting).
+    category_time = timeline.attributed_category_minutes(category_priority)
     
     # Hourly Focus for Chart
     hourly_focus = []
