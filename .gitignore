@@ -20,11 +20,14 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+# Virtual Environments
 venv/
 ENV/
 env/
+.venv/
 
-# IDE
+# IDEs and Editors
 .vscode/
 .idea/
 *.swp
@@ -35,30 +38,27 @@ env/
 *.log
 logs/
 
-# Credentials
+# Credentials and Secrets
 credentials/
 *.pem
 *.key
 .env
 
-# Temporary files
+# Temporary Files
 tmp/
 temp/
 *.tmp
 *.bak
 *.cache
 
-# OS
+# Operating System Files
 .DS_Store
 Thumbs.db
 
-# Local-only snapshot/attic directories (never commit to main)
+# Project-specific ignored content
 imports/
 recovered_from_persistedshare/
 reports/charts/
 
-# Additional Python entries
-.venv/
-*.pyc
-
+# Git worktrees
 .worktrees/
