@@ -688,9 +688,21 @@
 
 	            console.log(`[loadData] Attempting to load data for date: ${date}`);
 
+	            // Hard guarantee: never spin forever (e.g., network hang / slow upstream).
+	            const loadStartedAt = Date.now();
+	            const watchdog = setTimeout(() => {
+	                if (dashboard && String(dashboard.innerHTML || '').includes('Loading your day')) {
+	                    dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Timed out while loading. Try refreshing, or pick another date.</p></div>`;
+	                    try {
+	                        document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
+	                    } catch {}
+	                }
+	            }, 4000);
+
 	            try {
 	                const cacheSuffix = `?t=${Date.now()}`;
 	                const tryDaysBack = 14;
+	                const deadlineMs = 4500;
 
 	                function minusDays(dateStr, n) {
 	                    const dt = parseLocalDate(dateStr);
@@ -710,6 +722,7 @@
 	                    let lastUrl = candidates[candidates.length - 1].url;
 
 	                    for (const c of candidates) {
+	                        if (Date.now() - loadStartedAt > deadlineMs) break;
 	                        lastUrl = c.url;
 	                        console.log(`[loadData] Trying: ${c.url}`);
 	                        try {
@@ -729,6 +742,7 @@
 	                let usedUrl = `reports/daily-report-${date}.json`;
 
 	                for (let back = 0; back <= tryDaysBack; back++) {
+	                    if (Date.now() - loadStartedAt > deadlineMs) break;
 	                    const d = back === 0 ? date : minusDays(date, back);
 	                    const result = await fetchFirstOkFor(d);
 	                    response = result.response;
@@ -761,10 +775,12 @@
 	                console.error('[loadData] Failed to load dashboard data:', error);
 	                try {
 	                    document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
-                } catch {}
-                dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
-            }
-        }
+	                } catch {}
+	                dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
+	            } finally {
+	                clearTimeout(watchdog);
+	            }
+	        }
 
         async function loadBaseline(dateStr) {
             const base = { days: 0, focusMins: 0, meetingMins: 0 };
