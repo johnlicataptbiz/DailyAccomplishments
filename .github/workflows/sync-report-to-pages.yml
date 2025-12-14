@@ -1,0 +1,33 @@
+name: Sync ActivityReports to gh-pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  sync-reports:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Checkout gh-pages
+        run: |
+          git checkout gh-pages --
+          git checkout main -- 'ActivityReport-*.json'
+
+      - name: Commit and push to gh-pages
+        run: |
+          git add ActivityReport-*.json
+          git commit -m "Update ActivityReport JSON files from main" || echo "No changes to commit"
+          git push origin gh-pages
