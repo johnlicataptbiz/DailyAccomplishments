@@ -116,11 +116,32 @@ jobs:
 
           python3 .github/scripts/validate_report_schema.py "${files[@]}"
 
-      - name: Run timeline smoke on newest report
+      - name: Run timeline smoke on newest report with failsafe
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
+
+          regenerate_report() {
+            local date="$1"
+            local path="$2"
+
+            echo "Attempting regeneration for $date"
+
+            # Generate a single day report if generator supports it
+            if [ -f "scripts/generate_daily_json.py" ]; then
+              python3 scripts/generate_daily_json.py "$date" || true
+            fi
+
+            if [ -f "$path" ]; then
+              echo "Regeneration produced: $path"
+              return 0
+            fi
+
+            echo "Regeneration did not produce: $path"
+            return 1
+          }
+
           files=(reports/*/ActivityReport-*.json)
 
           if [ "${#files[@]}" -eq 0 ]; then
@@ -131,5 +152,29 @@ jobs:
           IFS=$'\n' sorted=($(printf '%s\n' "${files[@]}" | sort))
           REPORT="${sorted[-1]}"
 
-          echo "Using report: $REPORT"
-          python3 .github/scripts/smoke_timeline.py "$REPORT"
+          # Extract date from report path (e.g., reports/2025-12-13/ActivityReport-2025-12-13.json)
+          DATE=$(basename "$(dirname "$REPORT")")
+
+          echo "Using report: $REPORT (date: $DATE)"
+
+          # Try smoke test
+          if ! python3 .github/scripts/smoke_timeline.py "$REPORT"; then
+            echo "Smoke test failed for $REPORT"
+            echo "Attempting report regeneration as failsafe..."
+            
+            if regenerate_report "$DATE" "$REPORT"; then
+              echo "Regeneration succeeded, retrying smoke test..."
+              if python3 .github/scripts/smoke_timeline.py "$REPORT"; then
+                echo "Smoke test passed after regeneration"
+                exit 0
+              else
+                echo "Smoke test still failed after regeneration"
+                exit 1
+              fi
+            else
+              echo "Report regeneration failed"
+              exit 1
+            fi
+          fi
+
+          echo "Smoke test passed"
