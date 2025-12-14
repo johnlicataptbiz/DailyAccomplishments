@@ -1,0 +1,277 @@
+{
+  "source_file": "ActivityReport-2025-12-14.json",
+  "date": "2025-12-14",
+  "title": "Daily Accomplishments \u2014 2025-12-14",
+  "overview": {
+    "active_time": "02:12",
+    "focus_time": "02:12",
+    "meetings_time": "00:00",
+    "coverage_time": "03:08",
+    "coverage_window": "00:02\u201303:11",
+    "appointments": 0,
+    "projects_count": 4
+  },
+  "prepared_for_manager": [
+    "Active Time: 02:12",
+    "Focus Time: 02:12",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, VS Code"
+  ],
+  "executive_summary": [
+    "Active: 02:12 | Focus: 02:12",
+    "Coverage: 00:02\u201303:11 CST",
+    "Screen Time: ~87 min foreground app usage"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (01:42)",
+    "Focused on Electron (00:29)",
+    "Focused on Terminal (00:01)"
+  ],
+  "by_category": {
+    "Research": "01:02",
+    "Communication": "00:37",
+    "Other": "00:29",
+    "Coding": "00:26"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 237
+      },
+      {
+        "domain": "myaccount.google.com",
+        "visits": 105
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 60
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 12
+      },
+      {
+        "domain": "auth.openai.com",
+        "visits": 9
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 8
+      },
+      {
+        "domain": "myactivity.google.com",
+        "visits": 5
+      },
+      {
+        "domain": "accounts.youtube.com",
+        "visits": 3
+      },
+      {
+        "domain": "console.cloud.google.com",
+        "visits": 2
+      },
+      {
+        "domain": "localhost:1455",
+        "visits": 2
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://myaccount.google.com/device-activity?continue=https%3A%2F%2Fmyaccount.google.com%2Fsecurity%3Frapt%3DAEjHL4OyhES-UoaEnqUcgd1GGUW9KdWdyEL7BbdZ38x-XJX0hsfH8w_1YJIO4OPIiV-Jue_8xigvsQDGumwqbldHdh43Yw6HA984JiDhPFouKLlmijSQvHs&rapt=AEjHL4OyhES-UoaEnqUcgd1GGUW9KdWdyEL7BbdZ38x-XJX0hsfH8w_1YJIO4OPIiV-Jue_8xigvsQDGumwqbldHdh43Yw6HA984JiDhPFouKLlmijSQvHs&authuser=0",
+        "visits": 11
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/83",
+        "visits": 11
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/83/commits",
+        "visits": 10
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/edit/main/.github/workflows/validate-reports.yml",
+        "visits": 9
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/commit/b92a01ebec71aeae7056902c38d54277d00cb811",
+        "visits": 8
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/issues",
+        "visits": 8
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/tree/copilot/undo-merge-and-finalize-implementations/.github/workflows",
+        "visits": 7
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/runs/57993277176",
+        "visits": 7
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/blob/main/.github/workflows/validate-reports.yml",
+        "visits": 7
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/83/changes/aae669cbd7edbe9a03f2508856ed92beaedbbb95",
+        "visits": 7
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:22",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:46",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:10",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "00:54",
+    "VS Code": "00:26"
+  },
+  "top_windows_preview": [
+    "Google Chrome: 00:25",
+    "Google Chrome \u2014 (no subject) - johnlicata2@gmail.com - Gmail - Goo: 00:21",
+    "Electron \u2014 Codex Diff \u2014 DailyAccomplishments [Codespaces: flu: 00:17",
+    "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]: 00:08",
+    "Google Chrome \u2014 Configured Gmail - cloudHQ - Google Chrome - John: 00:06",
+    "Google Chrome \u2014 Security - Google Chrome - Jack: 00:05",
+    "Google Chrome \u2014 Google Gemini - Google Chrome - Jack: 00:05",
+    "Google Chrome \u2014 Inbox (84) - jacklicata7523@gmail.com - Gmail - Go: 00:04",
+    "Google Chrome \u2014 Resolve committed merge conflict markers causing C: 00:03",
+    "Electron \u2014 ActivityReport-2025-11-28.json \u2014 DailyAccomplishme: 00:03"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "deep_work": [
+    {
+      "start": "02:17",
+      "end": "03:06",
+      "minutes": 46,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "01:07",
+      "end": "01:47",
+      "minutes": 33,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ]
+}
