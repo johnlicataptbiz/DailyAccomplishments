@@ -1430,26 +1430,101 @@
             return html;
         }
 
+        function computeMeetingsByHour(d) {
+            const byHour = new Array(24).fill(0);
+            const list = (d && d.debug_appointments && Array.isArray(d.debug_appointments.meetings_today))
+                ? d.debug_appointments.meetings_today
+                : [];
+            const toMin = (s) => {
+                const m = /^\s*(\d{1,2}):(\d{2})\s*$/.exec(String(s || ''));
+                if (!m) return null;
+                const hh = parseInt(m[1], 10), mm = parseInt(m[2], 10);
+                if (isNaN(hh) || isNaN(mm) || hh < 0 || hh > 23 || mm < 0 || mm > 59) return null;
+                return hh * 60 + mm;
+            };
+            list.forEach(ev => {
+                const t = (ev && ev.time) ? String(ev.time) : '';
+                const parts = t.split(/\s*[–—-]\s*/); // handles en dash/em dash/hyphen
+                if (parts.length !== 2) return;
+                const a = toMin(parts[0]);
+                const b = toMin(parts[1]);
+                if (a == null || b == null || b <= a) return;
+                const start = a, end = b;
+                const h0 = Math.floor(start / 60);
+                const h1 = Math.floor((end - 1) / 60);
+                for (let h = Math.max(0, h0); h <= Math.min(23, h1); h++) {
+                    const segStart = Math.max(start, h * 60);
+                    const segEnd = Math.min(end, (h + 1) * 60);
+                    const dur = Math.max(0, segEnd - segStart);
+                    byHour[h] += dur;
+                }
+            });
+            return byHour.map(v => Math.min(60, v));
+        }
+
+        function renderHourlyChart(hourly, fullData) {
+            const ctx = document.getElementById('hourlyChart');
+            if (!ctx) return;
+
+            if (hourlyChart) hourlyChart.destroy();
+
+            const fullHours = [];
+            for (let h = 5; h <= 23; h++) {
+                const existing = hourly.find(x => x.hour === h);
+                fullHours.push(existing || { hour: h, time: '00:00' });
+            }
+
+            const meetingMins = computeMeetingsByHour(fullData);
+            const meetingSeries = [];
+            for (let h = 5; h <= 23; h++) meetingSeries.push(meetingMins[h] || 0);
+
             hourlyChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: fullHours.map(h => `${h.hour}`),
-                    datasets: [{
-                        data: fullHours.map(h => timeToMinutes(h.time)),
-                        backgroundColor: fullHours.map(h => {
-                            const v = timeToMinutes(h.time);
-                            return v >= 45 ? 'rgba(34, 197, 94, 0.8)' : 
-                                   v >= 30 ? 'rgba(139, 92, 246, 0.8)' : 
-                                   v > 0 ? 'rgba(59, 130, 246, 0.6)' : 
-                                   'rgba(100, 116, 139, 0.2)';
-                        }),
-                        borderRadius: 4,
-                    }]
+                    datasets: [
+                        {
+                            label: 'Focus (mins)',
+                            type: 'bar',
+                            data: fullHours.map(h => timeToMinutes(h.time)),
+                            backgroundColor: fullHours.map(h => {
+                                const v = timeToMinutes(h.time);
+                                return v >= 45 ? 'rgba(34, 197, 94, 0.8)' : 
+                                       v >= 30 ? 'rgba(139, 92, 246, 0.8)' : 
+                                       v > 0 ? 'rgba(59, 130, 246, 0.6)' : 
+                                       'rgba(100, 116, 139, 0.2)';
+                            }),
+                            borderRadius: 4,
+                        },
+                        {
+                            label: 'Meetings (mins)',
+                            type: 'line',
+                            data: meetingSeries,
+                            borderColor: 'rgba(234, 88, 12, 0.9)',
+                            backgroundColor: 'rgba(234, 88, 12, 0.18)',
+                            tension: 0.3,
+                            yAxisID: 'y',
+                            fill: true,
+                            pointRadius: 2,
+                            pointHoverRadius: 3,
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
+                    plugins: {
+                        legend: { display: true, position: 'top', labels: { color: '#94a3b8', boxWidth: 10 } },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => {
+                                    const label = ctx.dataset.label || '';
+                                    const val = ctx.parsed.y || 0;
+                                    return `${label}: ${val}m`;
+                                }
+                            }
+                        }
+                    },
                     scales: {
                         y: { beginAtZero: true, max: 60, grid: { color: 'rgba(255,255,255,0.05)' } },
                         x: { grid: { display: false } }
