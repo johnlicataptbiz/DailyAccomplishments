@@ -2,20 +2,37 @@ name: Performance Test
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     paths:
-      - 'tools/generate_reports.py'
-      - 'tests/perf_test.py'
+      - "tools/generate_reports.py"
+      - "tests/perf_test.py"
+      - "requirements.txt"
+      - "pyproject.toml"
 
 jobs:
   performance:
     runs-on: ubuntu-latest
+    if: ${{ !github.event.pull_request.draft }}
+
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
+          cache: "pip"
+
       - name: Install dependencies
-        run: pip install pytest
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -U pytest
+
       - name: Run performance test
-        run: pytest tests/perf_test.py
+        shell: bash
+        run: |
+          set -euo pipefail
+          pytest -q tests/perf_test.py
