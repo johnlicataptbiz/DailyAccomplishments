@@ -133,7 +133,7 @@ def load_from_jsonl(jsonl_path: Path, config: Optional[Dict[str, Any]] = None) -
     # Aggregate for collector format: calculate durations from timestamps, categorize apps
     # Use the JSONL filename (YYYY-MM-DD) as the canonical report date when available.
     mapping, priority_list = _load_category_settings(config)
-    category_resolver = _build_categorizer(mapping)
+    category_resolver = _build_categorizer(mapping, categorize_app)
     priority_func = _build_priority_func(priority_list)
     date_str = jsonl_path.stem if jsonl_path and jsonl_path.exists() else DEFAULT_DATE
     report = {
