@@ -10,7 +10,7 @@ hourly_focus, by_category, top_apps, and browser_highlights. Focus time is calcu
 non-idle duration >1s, categorized by app heuristics (e.g., Chrome → Research, Terminal → 
 Coding).
 - **Output**: Date-specific CSVs (hourly_focus.csv, category_distribution.csv, top_domains.csv) 
-and charts (PNG/SVG) via matplotlib.
+and charts (SVG) via matplotlib.
 - **Validation**: Tested with empty/placeholder logs (31 bytes) and full days (~50KB, 457+ 
 records, ~525 min activity).
 - **Privacy**: No PII logged; apps anonymized to categories.

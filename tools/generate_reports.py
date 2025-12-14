@@ -2,8 +2,9 @@
 """Generate CSV exports and charts from ActivityReport JSON or JSONL logs - FIXED FOR COLLECTOR FORMAT."""
 import json
 import sys
-from pathlib import Path
 from datetime import datetime
+from typing import Any, Callable, Dict, List, Optional, Tuple
+from pathlib import Path
 from zoneinfo import ZoneInfo
 import csv
 BASE = Path(__file__).resolve().parents[1]
@@ -28,7 +29,90 @@ def write_csv(path, rows, headers):
         w.writerow(headers)
         for r in rows:
             w.writerow(r)
-def load_from_jsonl(jsonl_path: Path) -> dict:
+def _load_category_settings(config: Optional[Dict[str, Any]] = None) -> Tuple[Dict[str, List[str]], List[str]]:
+    """Return category mapping and priority settings from config if available."""
+    mapping: Dict[str, List[str]] = {}
+    priority: List[str] = []
+
+    cfg = config
+    if cfg is None:
+        try:
+            from tools.daily_logger import load_config  # type: ignore
+
+            cfg = load_config()
+        except Exception as e:
+            print(f"Warning: Could not load configuration, proceeding with defaults. Error: {e}")
+            cfg = {}
+
+    if isinstance(cfg, dict):
+        analytics_cfg = cfg.get('analytics', {}) or {}
+        if isinstance(analytics_cfg, dict):
+            category_mapping = analytics_cfg.get('category_mapping') or {}
+            if isinstance(category_mapping, dict):
+                # Normalize mapping to lists of strings
+                mapping = {
+                    str(cat): [str(item) for item in items]
+                    for cat, items in category_mapping.items()
+                    if isinstance(items, list)
+                }
+            category_priority = analytics_cfg.get('category_priority') or []
+            if isinstance(category_priority, list):
+                priority = [str(cat) for cat in category_priority]
+
+    return mapping, priority
+
+
+def _build_categorizer(mapping: Dict[str, List[str]]) -> Callable[[str], str]:
+    """Create a categorization function using config mapping with heuristic fallback."""
+    normalized_mapping: Dict[str, List[str]] = {
+        cat: [item.lower() for item in items]
+        for cat, items in mapping.items()
+    }
+
+    def categorize(app: str) -> str:
+        app_lower = app.lower()
+        for cat, items in normalized_mapping.items():
+            for keyword in items:
+                if keyword and keyword in app_lower:
+                    return cat
+        return categorize_app(app)
+
+    return categorize
+
+
+def _build_priority_func(priority_list: List[str]) -> Callable[[str], int]:
+    """Create priority resolver honoring config ordering with safe defaults."""
+    if priority_list:
+        ordering = {cat.lower(): idx for idx, cat in enumerate(priority_list)}
+
+        def category_priority(cat: str) -> int:
+            if not cat:
+                return len(ordering) + 50
+            return ordering.get(cat.lower(), len(ordering) + 10)
+
+        return category_priority
+
+    def default_priority(cat: str) -> int:
+        # lower number = higher priority
+        if not cat:
+            return 100
+        c = cat.lower()
+        if 'code' in c or 'coding' in c:
+            return 1
+        if 'research' in c:
+            return 2
+        if 'communication' in c:
+            return 3
+        if 'other' in c:
+            return 4
+        if 'meetings' in c:
+            return 100
+        return 50
+
+    return default_priority
+
+
+def load_from_jsonl(jsonl_path: Path, config: Optional[Dict[str, Any]] = None) -> dict:
     print(f"Loading from JSONL: {jsonl_path}")
     if not jsonl_path.exists():
         return None
@@ -48,6 +132,9 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         return None
     # Aggregate for collector format: calculate durations from timestamps, categorize apps
     # Use the JSONL filename (YYYY-MM-DD) as the canonical report date when available.
+    mapping, priority_list = _load_category_settings(config)
+    category_resolver = _build_categorizer(mapping)
+    priority_func = _build_priority_func(priority_list)
     date_str = jsonl_path.stem if jsonl_path and jsonl_path.exists() else DEFAULT_DATE
     report = {
         'date': date_str,
@@ -60,7 +147,10 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         },
         'by_category': {},
         'browser_highlights': {'top_domains': [], 'top_pages': []},
-        'hourly_focus': []
+        'hourly_focus': [],
+        # Schema-required fields (may remain empty on sparse logs)
+        'timeline': [],
+        'deep_work_blocks': [],
     }
     # Initialize hourly buckets
     for hour in range(24):
@@ -93,7 +183,7 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         app = prev.get('app') or data_section.get('app') or data_section.get('application') or 'Unknown'
         idle = prev.get('idle_seconds', 0) or data_section.get('idle_seconds', 0)
         if duration > 1 and (idle is None or int(idle) < 5):
-            cat = categorize_app(app)
+            cat = category_resolver(app)
             raw_intervals.append({'start': dt0, 'end': dt1, 'secs': duration, 'app': app, 'category': cat})
             print(f"Interval {dt0.isoformat()} -> {dt1.isoformat()} ({duration}s) app={app} cat={cat}")
         prev = event
@@ -132,17 +222,6 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         boundaries.add(r['end'])
     boundaries = sorted(boundaries)
 
-    def category_priority(cat: str) -> int:
-        # lower number = higher priority
-        if not cat: return 100
-        c = cat.lower()
-        if 'code' in c or 'coding' in c: return 1
-        if 'research' in c: return 2
-        if 'communication' in c: return 3
-        if 'other' in c: return 4
-        if 'meetings' in c: return 100
-        return 50
-
     cleaned = []
     for i in range(len(boundaries) - 1):
         s = boundaries[i]
@@ -157,7 +236,7 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         chosen = None
         best_pr = 999
         for r in covering:
-            pr = category_priority(r['category'])
+            pr = priority_func(r['category'])
             if pr < best_pr:
                 best_pr = pr
                 chosen = r['category']
@@ -311,16 +390,35 @@ def load_data(date: str = None) -> dict:
     if date:
         jsonl_path = BASE / 'logs' / 'daily' / f'{date}.jsonl'
         json_path = BASE / f'ActivityReport-{date}.json'
+        archived_json_path = BASE / 'reports' / date / f'ActivityReport-{date}.json'
     else:
         jsonl_path = JSONL_INPUT
         json_path = JSON_INPUT
+        archived_json_path = BASE / 'reports' / DEFAULT_DATE / f'ActivityReport-{DEFAULT_DATE}.json'
+
+    def try_load_json(path: Path):
+        if not path.exists():
+            return None
+        try:
+            print(f"Loading from JSON: {path}")
+            return json.loads(path.read_text())
+        except Exception as e:
+            print(f"Failed to parse JSON at {path}: {e}")
+            return None
+
     if jsonl_path.exists():
         data = load_from_jsonl(jsonl_path)
         if data:
             return data
-    if json_path.exists():
-        print(f"Loading from JSON: {json_path}")
-        return json.loads(json_path.read_text())
+
+    # Prefer archived reports/<date>/ActivityReport-<date>.json when present.
+    data = try_load_json(archived_json_path)
+    if data:
+        return data
+
+    data = try_load_json(json_path)
+    if data:
+        return data
     raise FileNotFoundError(f"No data found for date {date or DEFAULT_DATE}")
 def main():
     date = sys.argv[1] if len(sys.argv) > 1 else None
@@ -339,6 +437,8 @@ def main():
         # Ensure `overview.focus_time` exists: if generator was run from an existing
         # ActivityReport JSON that lacks `focus_time`, compute it from `hourly_focus`.
         overview = data.get('overview', {}) or {}
+        if 'coverage_window' not in overview:
+            overview['coverage_window'] = ''
         if not overview.get('focus_time'):
             hf = data.get('hourly_focus', [])
             total_minutes = 0
@@ -352,6 +452,21 @@ def main():
             # convert minutes to seconds for seconds_to_hhmm
             overview['focus_time'] = seconds_to_hhmm(total_minutes * 60)
         data['overview'] = overview
+
+        # Ensure schema-required top-level fields exist even when inputs are sparse.
+        if not isinstance(data.get('timeline'), list):
+            data['timeline'] = []
+        if not isinstance(data.get('deep_work_blocks'), list):
+            data['deep_work_blocks'] = []
+        bh = data.get('browser_highlights')
+        if not isinstance(bh, dict):
+            bh = {}
+        if not isinstance(bh.get('top_domains'), list):
+            bh['top_domains'] = []
+        if not isinstance(bh.get('top_pages'), list):
+            bh['top_pages'] = []
+        data['browser_highlights'] = bh
+
         (out_dir / f'ActivityReport-{date_str}.json').write_text(json.dumps(data, indent=2))
         # Also write the dashboard fallback name
         (out_dir / f'daily-report-{date_str}.json').write_text(json.dumps(data, indent=2))
@@ -414,7 +529,6 @@ def main():
     plt.title(f'Hourly Focus — {title_date}')
     plt.xticks(hours)
     plt.tight_layout()
-    plt.savefig(out_dir / f'hourly_focus-{title_date}.png')
     plt.savefig(out_dir / f'hourly_focus-{title_date}.svg')
     plt.close()
     print(f"Hourly chart saved for {title_date}")
@@ -426,7 +540,6 @@ def main():
         plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
         plt.title(f'Time by Category — {title_date}')
         plt.tight_layout()
-        plt.savefig(out_dir / f'category_distribution-{title_date}.png')
         plt.savefig(out_dir / f'category_distribution-{title_date}.svg')
         plt.close()
         print(f"Category chart saved for {title_date}")

@@ -2,66 +2,84 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "ActivityReport",
   "type": "object",
-  "required": ["overview", "hourly_focus"],
+  "required": ["overview", "hourly_focus", "timeline", "deep_work_blocks"],
   "properties": {
+    "date": { "type": "string" },
+
     "overview": {
       "type": "object",
-      "required": ["focus_time"],
+      "required": ["focus_time", "coverage_window"],
       "properties": {
-        "focus_time": {"type": "string"},
-        "active_time": {"type": "string"},
-        "meetings_time": {"type": "string"},
-        "coverage_window": {"type": "string"}
-      }
+        "focus_time": { "type": "string" },
+        "active_time": { "type": "string" },
+        "meetings_time": { "type": "string" },
+        "coverage_window": { "type": "string" }
+      },
+      "additionalProperties": true
     },
-    "active_time": {"type": "string"},
-    "meetings_time": {"type": "string"},
-    "coverage_window": {"type": "string"},
+
     "hourly_focus": {
       "type": "array",
       "minItems": 24,
       "maxItems": 24,
       "items": {
         "oneOf": [
-          {"type": ["string", "number"]},
+          { "type": ["string", "number"] },
           {
             "type": "object",
             "required": ["hour", "time"],
             "properties": {
-              "hour": {"type": "number"},
-              "time": {"type": "string"},
-              "pct": {"type": "string"}
-            }
+              "hour": { "type": "number" },
+              "time": { "type": "string" },
+              "pct": { "type": "string" }
+            },
+            "additionalProperties": true
           }
         ]
       }
     },
-    "browser_highlights": {
-      "type": "object",
-      "properties": {
-        "top_domains": {
-          "type": "array"
-        }
+
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["start", "end", "seconds"],
+        "properties": {
+          "start": { "type": "string" },
+          "end": { "type": "string" },
+          "seconds": { "type": "number" },
+          "minutes": { "type": "number" },
+          "category": { "type": "string" },
+          "app": { "type": "string" }
+        },
+        "additionalProperties": true
       }
-    }
-    ,
+    },
+
     "deep_work_blocks": {
       "type": "array",
       "items": {
         "type": "object",
         "required": ["start", "end", "duration", "seconds"],
         "properties": {
-          "start": {"type": "string"},
-          "end": {"type": "string"},
-          "duration": {"type": "string"},
-          "seconds": {"type": "number"},
-          "notes": {"type": "string"}
-        }
+          "start": { "type": "string" },
+          "end": { "type": "string" },
+          "duration": { "type": "string" },
+          "seconds": { "type": "number" },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": true
       }
-    }
-  }
-}
-<<<<<<< HEAD
-=======
+    },
 
->>>>>>> copilot/continue-task-list-work
+    "browser_highlights": {
+      "type": "object",
+      "properties": {
+        "top_domains": { "type": "array" },
+        "top_pages": { "type": "array" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -43,7 +43,7 @@ fi
 
 echo "PUBLISHER: running ${CRON}"
 set +e
-bash -x "${CRON}"
+bash -x "${CRON}" "$@"
 rc=$?
 set -e
 

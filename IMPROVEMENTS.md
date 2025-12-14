@@ -406,7 +406,7 @@ python3 tools/generate_reports.py
 python3 tools/generate_reports.py 2025-12-01
 
 # View generated files
-ls -lh *.csv *.svg *.png
+ls -lh *.csv *.svg
 ```
 
 ### **Health Monitoring**
