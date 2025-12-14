@@ -1,26 +1,35 @@
 # Cloud Build configuration for DailyAccomplishments
 # Fixes invalid image name error by using lowercase repository name
+# This file MUST be used by Developer Connect to avoid invalid image names
+
+# Define explicit substitutions to override any auto-generated values
+substitutions:
+  _IMAGE_NAME: 'dailyaccomplishments'
+  _REGION: 'europe-west1'
+  _AR_REPO: 'cloud-run-source-deploy'
+  _SERVICE_NAME: 'dailyaccomplishments'
+
 steps:
   # Build the container image with a valid name (lowercase, no extra slashes)
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
       - '-t'
-      - 'europe-west1-docker.pkg.dev/activitytracker-480123/cloud-run-source-deploy/dailyaccomplishments:$COMMIT_SHA'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_IMAGE_NAME}:$COMMIT_SHA'
       - '-t'
-      - 'europe-west1-docker.pkg.dev/activitytracker-480123/cloud-run-source-deploy/dailyaccomplishments:latest'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_IMAGE_NAME}:latest'
       - '.'
 
   # Push the container image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'europe-west1-docker.pkg.dev/activitytracker-480123/cloud-run-source-deploy/dailyaccomplishments:$COMMIT_SHA'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_IMAGE_NAME}:$COMMIT_SHA'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'europe-west1-docker.pkg.dev/activitytracker-480123/cloud-run-source-deploy/dailyaccomplishments:latest'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_IMAGE_NAME}:latest'
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -28,18 +37,19 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'dailyaccomplishments'
+      - '${_SERVICE_NAME}'
       - '--image'
-      - 'europe-west1-docker.pkg.dev/activitytracker-480123/cloud-run-source-deploy/dailyaccomplishments:$COMMIT_SHA'
+      - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_IMAGE_NAME}:$COMMIT_SHA'
       - '--region'
-      - 'europe-west1'
+      - '${_REGION}'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
 
 images:
-  - 'europe-west1-docker.pkg.dev/activitytracker-480123/cloud-run-source-deploy/dailyaccomplishments:$COMMIT_SHA'
-  - 'europe-west1-docker.pkg.dev/activitytracker-480123/cloud-run-source-deploy/dailyaccomplishments:latest'
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_IMAGE_NAME}:$COMMIT_SHA'
+  - '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_AR_REPO}/${_IMAGE_NAME}:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY
+  substitution_option: ALLOW_LOOSE
