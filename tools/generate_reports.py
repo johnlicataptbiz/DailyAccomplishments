@@ -147,7 +147,10 @@ def load_from_jsonl(jsonl_path: Path, config: Optional[Dict[str, Any]] = None) -
         },
         'by_category': {},
         'browser_highlights': {'top_domains': [], 'top_pages': []},
-        'hourly_focus': []
+        'hourly_focus': [],
+        # Schema-required fields (may remain empty on sparse logs)
+        'timeline': [],
+        'deep_work_blocks': [],
     }
     # Initialize hourly buckets
     for hour in range(24):
@@ -387,16 +390,35 @@ def load_data(date: str = None) -> dict:
     if date:
         jsonl_path = BASE / 'logs' / 'daily' / f'{date}.jsonl'
         json_path = BASE / f'ActivityReport-{date}.json'
+        archived_json_path = BASE / 'reports' / date / f'ActivityReport-{date}.json'
     else:
         jsonl_path = JSONL_INPUT
         json_path = JSON_INPUT
+        archived_json_path = BASE / 'reports' / DEFAULT_DATE / f'ActivityReport-{DEFAULT_DATE}.json'
+
+    def try_load_json(path: Path):
+        if not path.exists():
+            return None
+        try:
+            print(f"Loading from JSON: {path}")
+            return json.loads(path.read_text())
+        except Exception as e:
+            print(f"Failed to parse JSON at {path}: {e}")
+            return None
+
     if jsonl_path.exists():
         data = load_from_jsonl(jsonl_path)
         if data:
             return data
-    if json_path.exists():
-        print(f"Loading from JSON: {json_path}")
-        return json.loads(json_path.read_text())
+
+    # Prefer archived reports/<date>/ActivityReport-<date>.json when present.
+    data = try_load_json(archived_json_path)
+    if data:
+        return data
+
+    data = try_load_json(json_path)
+    if data:
+        return data
     raise FileNotFoundError(f"No data found for date {date or DEFAULT_DATE}")
 def main():
     date = sys.argv[1] if len(sys.argv) > 1 else None
@@ -415,6 +437,8 @@ def main():
         # Ensure `overview.focus_time` exists: if generator was run from an existing
         # ActivityReport JSON that lacks `focus_time`, compute it from `hourly_focus`.
         overview = data.get('overview', {}) or {}
+        if 'coverage_window' not in overview:
+            overview['coverage_window'] = ''
         if not overview.get('focus_time'):
             hf = data.get('hourly_focus', [])
             total_minutes = 0
@@ -428,6 +452,21 @@ def main():
             # convert minutes to seconds for seconds_to_hhmm
             overview['focus_time'] = seconds_to_hhmm(total_minutes * 60)
         data['overview'] = overview
+
+        # Ensure schema-required top-level fields exist even when inputs are sparse.
+        if not isinstance(data.get('timeline'), list):
+            data['timeline'] = []
+        if not isinstance(data.get('deep_work_blocks'), list):
+            data['deep_work_blocks'] = []
+        bh = data.get('browser_highlights')
+        if not isinstance(bh, dict):
+            bh = {}
+        if not isinstance(bh.get('top_domains'), list):
+            bh['top_domains'] = []
+        if not isinstance(bh.get('top_pages'), list):
+            bh['top_pages'] = []
+        data['browser_highlights'] = bh
+
         (out_dir / f'ActivityReport-{date_str}.json').write_text(json.dumps(data, indent=2))
         # Also write the dashboard fallback name
         (out_dir / f'daily-report-{date_str}.json').write_text(json.dumps(data, indent=2))
@@ -490,7 +529,6 @@ def main():
     plt.title(f'Hourly Focus — {title_date}')
     plt.xticks(hours)
     plt.tight_layout()
-    plt.savefig(out_dir / f'hourly_focus-{title_date}.png')
     plt.savefig(out_dir / f'hourly_focus-{title_date}.svg')
     plt.close()
     print(f"Hourly chart saved for {title_date}")
@@ -502,7 +540,6 @@ def main():
         plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
         plt.title(f'Time by Category — {title_date}')
         plt.tight_layout()
-        plt.savefig(out_dir / f'category_distribution-{title_date}.png')
         plt.savefig(out_dir / f'category_distribution-{title_date}.svg')
         plt.close()
         print(f"Category chart saved for {title_date}")

@@ -1,6 +1,6 @@
 """
 scripts/summarize_focus.py
-Regenerates focus_summary.csv, focus_summary.svg, and focus_summary.png
+Regenerates focus_summary.csv and focus_summary.svg
 from ActivityReport-YYYY-MM-DD.json files in repo root.
 
 Usage:
@@ -64,7 +64,5 @@ for bar, val in zip(bars, values):
     plt.text(bar.get_x() + bar.get_width() / 2, h + 1, str(val), ha='center', va='bottom', fontsize=8)
 plt.tight_layout()
 svg_path = 'focus_summary.svg'
-png_path = 'focus_summary.png'
 plt.savefig(svg_path, format='svg')
-plt.savefig(png_path, dpi=150)
-print('Wrote', svg_path, 'and', png_path)
+print('Wrote', svg_path)

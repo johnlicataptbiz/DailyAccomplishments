@@ -3,58 +3,178 @@ name: Timeline Smoke Test
 on:
   pull_request:
     paths:
-      - 'reports/**'
-      - 'tools/**'
-      - 'dashboard.html'
-      - '.github/scripts/smoke_timeline.py'
+      - "reports/**"
+      - "tools/**"
+      - "dashboard.html"
+      - ".github/scripts/smoke_timeline.py"
+      - ".github/scripts/validate_report_schema.py"
+      - "scripts/**"
+      - "logs/**"
+      - "requirements.txt"
+      - "pyproject.toml"
 
 jobs:
   smoke:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
+          cache: "pip"
 
       - name: Install requirements
+        shell: bash
         run: |
+          set -euo pipefail
           python -m pip install --upgrade pip
-          pip install jsonschema pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -U jsonschema pytest
 
       - name: Clean pycache and stray artifacts
+        shell: bash
         run: |
+          set -euo pipefail
           rm -rf imports || true
           find . -name '__pycache__' -type d -prune -exec rm -rf {} +
           find . -name '*.pyc' -delete
 
-      - name: Run validator on recent reports
+      - name: Ensure at least one report exists (generate if missing)
+        id: ensure_reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+
+          find_reports() {
+            files=(reports/*/ActivityReport-*.json)
+            if [ "${#files[@]}" -gt 0 ]; then
+              echo "found=true" >> "$GITHUB_OUTPUT"
+              printf '%s\n' "${files[@]}" > /tmp/reports_list.txt
+              return 0
+            fi
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            return 1
+          }
+
+          echo "Checking for existing reports in repo..."
+          if find_reports; then
+            echo "Found existing reports."
+            exit 0
+          fi
+
+          echo "No reports found. Attempting to generate reports as a fallback."
+
+          # Fallback strategy:
+          # 1) If logs/daily/*.jsonl exists, generate reports for those dates
+          # 2) Else, try generating for today (UTC) using scripts/generate_daily_json.py
+          generated_any=0
+
+          if compgen -G "logs/daily/*.jsonl" > /dev/null; then
+            for p in logs/daily/*.jsonl; do
+              d=$(basename "$p" .jsonl)
+              echo "Generating reports for date: $d"
+              python3 tools/generate_reports.py "$d"
+              generated_any=1
+            done
+          elif [ -f "scripts/generate_daily_json.py" ]; then
+            d=$(date -u +%F)
+            echo "Generating daily report for UTC date: $d"
+            python3 scripts/generate_daily_json.py "$d"
+            generated_any=1
+          else
+            echo "No known generation path found."
+            echo "Expected logs/daily/*.jsonl + tools/generate_reports.py OR scripts/generate_daily_json.py"
+            exit 1
+          fi
+
+          if [ "$generated_any" -eq 0 ]; then
+            echo "Fallback generation did not run."
+            exit 1
+          fi
+
+          echo "Re-checking for reports after generation..."
+          if ! find_reports; then
+            echo "Generation completed but no reports were produced."
+            exit 1
+          fi
+
+      - name: Validate report JSON schema
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
           files=(reports/*/ActivityReport-*.json)
 
-          if [ ${#files[@]} -eq 0 ]; then
-            echo "No reports to validate"
-            exit 0
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No reports found even after fallback generation."
+            exit 1
           fi
 
           python3 .github/scripts/validate_report_schema.py "${files[@]}"
 
-      - name: Run timeline smoke on a sample report
+      - name: Run timeline smoke on newest report with failsafe
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
+
+          regenerate_report() {
+            local date="$1"
+            local path="$2"
+
+            echo "Attempting regeneration for $date"
+
+            # Generate a single day report if generator supports it
+            if [ -f "scripts/generate_daily_json.py" ]; then
+              python3 scripts/generate_daily_json.py "$date" || true
+            fi
+
+            if [ -f "$path" ]; then
+              echo "Regeneration produced: $path"
+              return 0
+            fi
+
+            echo "Regeneration did not produce: $path"
+            return 1
+          }
+
           files=(reports/*/ActivityReport-*.json)
 
-          if [ ${#files[@]} -eq 0 ]; then
-            echo "No sample report found"
-            exit 0
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "No reports found to smoke test."
+            exit 1
           fi
 
-          REPORT="${files[0]}"
-          python3 .github/scripts/smoke_timeline.py "$REPORT"
+          IFS=$'\n' sorted=($(printf '%s\n' "${files[@]}" | sort))
+          REPORT="${sorted[-1]}"
+
+          # Extract date from report path (e.g., reports/2025-12-13/ActivityReport-2025-12-13.json)
+          DATE=$(basename "$(dirname "$REPORT")")
+
+          echo "Using report: $REPORT (date: $DATE)"
+
+          # Try smoke test
+          if ! python3 .github/scripts/smoke_timeline.py "$REPORT"; then
+            echo "Smoke test failed for $REPORT"
+            echo "Attempting report regeneration as failsafe..."
+            
+            if regenerate_report "$DATE" "$REPORT"; then
+              echo "Regeneration succeeded, retrying smoke test..."
+              if python3 .github/scripts/smoke_timeline.py "$REPORT"; then
+                echo "Smoke test passed after regeneration"
+                exit 0
+              else
+                echo "Smoke test still failed after regeneration"
+                exit 1
+              fi
+            else
+              echo "Report regeneration failed"
+              exit 1
+            fi
+          fi
+
+          echo "Smoke test passed"

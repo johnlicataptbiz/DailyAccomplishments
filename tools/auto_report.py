@@ -14,8 +14,12 @@ from pathlib import Path
 from typing import Optional
 from zoneinfo import ZoneInfo
 
-from daily_logger import load_config, read_daily_log, get_log_path
-from analytics import ProductivityAnalytics, compare_trends
+try:
+    from .daily_logger import load_config, read_daily_log, get_log_path
+    from .analytics import ProductivityAnalytics, compare_trends
+except ImportError:  # pragma: no cover
+    from daily_logger import load_config, read_daily_log, get_log_path
+    from analytics import ProductivityAnalytics, compare_trends
 
 
 def generate_daily_report(date: Optional[datetime] = None, output_dir: Optional[Path] = None) -> Path:

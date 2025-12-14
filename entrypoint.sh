@@ -12,4 +12,8 @@ if [ -f "/app/ActivityReport-$(date -u +%Y-%m-%d).json" ]; then
   head -n 5 "/app/ActivityReport-$(date -u +%Y-%m-%d).json" || true
 fi
 
+if [ -x "/app/railway-start.sh" ]; then
+  exec /app/railway-start.sh
+fi
+
 exec python3 -m http.server "${PORT:-8000}" --bind 0.0.0.0

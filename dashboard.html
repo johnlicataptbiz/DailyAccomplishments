@@ -4,25 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Accomplishments</title>
-  <script>
-  (function loadChartJS(){
-    function add(src, onfail){
-      var t = document.createElement('script');
-      t.src = src;
-      t.async = true;
-      t.onload = function(){ console.log("[build] Chart.js loaded:", src); };
-      t.onerror = onfail;
-      document.head.appendChild(t);
-    }
-    add("https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js", function(){
-      console.warn("[build] jsdelivr Chart.js failed, trying unpkg");
-      add("https://unpkg.com/chart.js@3.9.1/dist/chart.min.js", function(){
-        console.warn("[build] Chart.js failed to load; charts will be disabled");
-        window.__CHARTS_DISABLED__ = true;
-      });
-    });
-  })();
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
         :root {
@@ -624,39 +606,6 @@
             return fetch(url, { ...opts, signal: c.signal }).finally(() => clearTimeout(t));
         }
 
-        
-        // Global fetch timeout: prevents infinite spinners on slow/stalled hosts.
-        // Applies to ALL fetch() calls below without rewriting them.
-        (function () {
-            const __fetch = window.fetch.bind(window);
-            window.fetch = function(url, opts = {}) {
-                const ms = 8000;
-                const c = new AbortController();
-                const t = setTimeout(() => c.abort(), ms);
-
-                // If caller already supplied a signal, mirror it into our controller.
-                if (opts && opts.signal) {
-                    try { opts.signal.addEventListener('abort', () => c.abort(), { once: true }); } catch {}
-                }
-
-                const merged = { ...(opts || {}), signal: c.signal };
-                return __fetch(url, merged).finally(() => clearTimeout(t));
-            };
-        })();
-
-        function safeNewChart(ctx, cfg) {
-            if (typeof Chart === 'undefined') {
-                console.warn("[build] Chart.js not available; skipping chart render");
-                return null;
-            }
-            try {
-                return safeNewChart(ctx, cfg);
-            } catch (e) {
-                console.error("[build] Chart render failed:", e);
-                return null;
-            }
-        }
-
         let hourlyChart = null;
         let categoryChart = null;
         // Settings with sensible defaults
@@ -668,7 +617,7 @@
 
         async function loadSettings() {
             try {
-                const r = await fetchWithTimeout('/config.json', { cache: 'no-store' }, 2000);
+                const r = await fetchWithTimeout('config.json', { cache: 'no-store' }, 2000);
                 if (!r.ok) return;
                 const cfg = await r.json();
                 const mc = cfg?.weights?.meeting_credit;
@@ -724,104 +673,107 @@
 
         const RAW_BASE = 'https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/';
 
-        async function loadData(date) {
-            currentDate = date;
-            dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
+	        async function loadData(date) {
+	            currentDate = date;
+	            dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
 
-            console.log(`[loadData] Attempting to load data for date: ${date}`);
+	            console.log(`[loadData] Attempting to load data for date: ${date}`);
 
-            try {
-                console.log(`[loadData] Attempting to fetch ActivityReport-${date}.json`);
-                // Try same-origin first (works for GitHub Pages / local preview)
-                const cacheSuffix = `?t=${Date.now()}`;
-                let response = await (async () => {
-                    const cacheSuffix = `?t=${Date.now()}`;
-                    const tryDaysBack = 14;
+	            // Hard guarantee: never spin forever (e.g., network hang / slow upstream).
+	            const loadStartedAt = Date.now();
+	            const watchdog = setTimeout(() => {
+	                if (dashboard && String(dashboard.innerHTML || '').includes('Loading your day')) {
+	                    dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Timed out while loading. Try refreshing, or pick another date.</p></div>`;
+	                    try {
+	                        document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
+	                    } catch {}
+	                }
+	            }, 4000);
 
-                    function minusDays(dateStr, n) {
-                        const dt = parseLocalDate(dateStr);
-                        dt.setDate(dt.getDate() - n);
-                        return localDateKey(dt);
-                    }
+	            try {
+	                const cacheSuffix = `?t=${Date.now()}`;
+	                const tryDaysBack = 14;
+	                const deadlineMs = 4500;
 
-                    async function tryFetchFor(d) {
-                        // 1) Raw GitHub (fast path for public hosting)
-                        let r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
-                        // 2) Local legacy path
-                        if (!r.ok) {
-                            r = await fetch(`/reports/daily-report-${d}.json${cacheSuffix}`, { cache: 'no-store' });
-                        }
-                        // 3) Raw again (CDN hiccups)
-                        if (!r.ok) {
-                            r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
-                        }
-                        // 4) New nested path: reports/YYYY-MM-DD/ActivityReport-YYYY-MM-DD.json
-                        if (!r.ok) {
-                            r = await fetch(`/reports/${d}/ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
-                        }
-                        return r;
-                    }
+	                function minusDays(dateStr, n) {
+	                    const dt = parseLocalDate(dateStr);
+	                    dt.setDate(dt.getDate() - n);
+	                    return localDateKey(dt);
+	                }
 
-                    let resolvedDate = date;
-                    let r = null;
+	                async function fetchFirstOkFor(d) {
+	                    const candidates = [
+	                        { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
+	                        { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
+	                        { url: `reports/daily-report-${d}.json`, timeoutMs: 1500 },
+	                        { url: `${RAW_BASE}reports/${d}/ActivityReport-${d}.json`, timeoutMs: 2000 },
+	                        { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
+	                        { url: `${RAW_BASE}reports/daily-report-${d}.json`, timeoutMs: 2000 },
+	                    ];
 
-                    for (let back = 0; back <= tryDaysBack; back++) {
-                        const d = back === 0 ? date : minusDays(date, back);
-                        r = await tryFetchFor(d);
-                        if (r && r.ok) {
-                            resolvedDate = d;
-                            break;
-                        }
-                    }
+	                    let lastResponse = null;
+	                    let lastUrl = candidates[candidates.length - 1].url;
 
-                    if (!r || !r.ok) {
-                        throw new Error(`Report not found for ${date} or the prior ${tryDaysBack} days.`);
-                    }
+	                    for (const c of candidates) {
+	                        if (Date.now() - loadStartedAt > deadlineMs) break;
+	                        lastUrl = c.url;
+	                        console.log(`[loadData] Trying: ${c.url}`);
+	                        try {
+	                            lastResponse = await fetchWithTimeout(`${c.url}${cacheSuffix}`, { cache: 'no-store' }, c.timeoutMs);
+	                        } catch (e) {
+	                            console.log(`[loadData] Fetch failed: ${c.url} (${e?.name || 'error'})`);
+	                            lastResponse = null;
+	                        }
+	                        if (lastResponse && lastResponse.ok) return { response: lastResponse, usedUrl: c.url };
+	                    }
 
-                    if (resolvedDate !== date) {
-                        currentDate = resolvedDate;
-                        dateInput.value = resolvedDate;
-                        updateUrl(resolvedDate);
-                    }
+	                    return { response: lastResponse, usedUrl: lastUrl };
+	                }
 
-                    return r;
-                })();
-                let usedUrl = `/ActivityReport-${date}.json`;
-                if (!response.ok) {
-                    console.log(`[loadData] ActivityReport-${date}.json not found (status: ${response.status}). Trying reports/daily-report-${date}.json`);
-                    response = await fetch(`/reports/daily-report-${date}.json${cacheSuffix}`, { cache: 'no-store' });
-                    usedUrl = `/reports/daily-report-${date}.json`;
-                }
-                // Fallback to GitHub raw if Railway or host doesn't serve the JSON
-                if (!response.ok) {
-                    const rawUrl = `${RAW_BASE}ActivityReport-${date}.json${cacheSuffix}`;
-                    console.log(`[loadData] Falling back to GitHub raw: ${rawUrl}`);
-                    response = await fetch(rawUrl, { cache: 'no-store' });
-                    usedUrl = rawUrl;
-                }
-                // New nested path fallback for historical reports
-                if (!response.ok) {
-                    const nested = `/reports/${date}/ActivityReport-${date}.json${cacheSuffix}`;
-                    console.log(`[loadData] Trying nested report path: ${nested}`);
-                    response = await fetch(nested, { cache: 'no-store' });
-                    usedUrl = `/reports/${date}/ActivityReport-${date}.json`;
-                }
-                if (!response.ok) {
-                    throw new Error(`Report not found. Status: ${response.status} ${response.statusText}`);
-                }
+	                let resolvedDate = date;
+	                let response = null;
+	                let usedUrl = `reports/daily-report-${date}.json`;
 
-                data = await response.json();
-                console.log('[loadData] Data fetched successfully:', data);
-                document.getElementById('headerSub').textContent = formatDateFriendly(date);
-                // Set the raw data link to whichever URL actually succeeded
-                document.getElementById('jsonLink').href = usedUrl;
-                const baseline = await loadBaseline(date);
-                renderDashboard(data, date, baseline);
-            } catch (error) {
-                console.error('[loadData] Failed to load dashboard data:', error);
-                dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
-            }
-        }
+	                for (let back = 0; back <= tryDaysBack; back++) {
+	                    if (Date.now() - loadStartedAt > deadlineMs) break;
+	                    const d = back === 0 ? date : minusDays(date, back);
+	                    const result = await fetchFirstOkFor(d);
+	                    response = result.response;
+	                    usedUrl = result.usedUrl;
+	                    if (response && response.ok) {
+	                        resolvedDate = d;
+	                        break;
+	                    }
+	                }
+
+	                if (!response || !response.ok) {
+	                    const status = response ? `${response.status} ${response.statusText}` : 'no response';
+	                    throw new Error(`Report not found for ${date} or the prior ${tryDaysBack} days. Last attempt: ${usedUrl} (${status})`);
+	                }
+
+	                if (resolvedDate !== date) {
+	                    currentDate = resolvedDate;
+	                    dateInput.value = resolvedDate;
+	                    updateUrl(resolvedDate);
+	                }
+
+	                data = await response.json();
+	                console.log('[loadData] Data fetched successfully:', data);
+	                document.getElementById('headerSub').textContent = formatDateFriendly(resolvedDate);
+	                // Set the raw data link to whichever URL actually succeeded
+	                document.getElementById('jsonLink').href = usedUrl;
+	                const baseline = await loadBaseline(resolvedDate);
+	                renderDashboard(data, resolvedDate, baseline);
+	            } catch (error) {
+	                console.error('[loadData] Failed to load dashboard data:', error);
+	                try {
+	                    document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
+	                } catch {}
+	                dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
+	            } finally {
+	                clearTimeout(watchdog);
+	            }
+	        }
 
         async function loadBaseline(dateStr) {
             const base = { days: 0, focusMins: 0, meetingMins: 0 };
@@ -832,12 +784,10 @@
                 dd.setDate(d.getDate() - i);
                 const key = localDateKey(dd);
                 try {
-                    let r = await fetch(`/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' });
-                    if (!r.ok) r = await fetch(`/reports/daily-report-${key}.json${cacheSuffix}`, { cache: 'no-store' });
-                    if (!r.ok) {
-                        const rawUrl = `${RAW_BASE}ActivityReport-${key}.json${cacheSuffix}`;
-                        r = await fetch(rawUrl, { cache: 'no-store' });
-                    }
+                    let r = await fetchWithTimeout(`reports/daily-report-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
+                    if (!r.ok) r = await fetchWithTimeout(`reports/${key}/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
+                    if (!r.ok) r = await fetchWithTimeout(`ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
+                    if (!r.ok) r = await fetchWithTimeout(`${RAW_BASE}ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1500);
                     if (!r.ok) continue;
                     const j = await r.json();
                     base.focusMins += timeToMinutes(j.overview?.focus_time || '00:00');
@@ -893,21 +843,11 @@
                 const subtract = Math.max(0, Math.round(meet * (1 - MEETING_CREDIT)));
                 return sum + Math.max(0, (v || 0) - subtract);
             }, 0);
-            let focusMins = focusAdj > 0 ? focusAdj : focusByHour.reduce((a,b)=>a+(b||0),0);
-            // If report provides authoritative overview fields, prefer them (they come from timeline aggregation)
-            if (d.overview && d.overview.focus_time) {
-                focusMins = timeToMinutes(d.overview.focus_time || '00:00');
-            }
-            // Prefer per-hour overlay sum for meeting minutes; fallback to overview only when overlay is zero
-            let meetingMins = meetingOverlayMins || 0;
-            if ((!meetingMins || meetingMins === 0) && d.overview && d.overview.meetings_time) {
-                meetingMins = timeToMinutes(d.overview.meetings_time || '00:00');
-            }
+            const focusMins = focusAdj > 0 ? focusAdj : focusByHour.reduce((a,b)=>a+(b||0),0);
+            // Prefer overlay sum for meeting minutes; fallback to overview
+            const meetingMins = meetingOverlayMins || timeToMinutes(d.overview?.meetings_time || '00:00');
             // Active time = per-hour union of focus + meetings overlay (capped at 60 per hour)
-            let activeMins = focusByHour.reduce((sum, v, h) => sum + Math.min(60, (v || 0) + (meetingArr[h] || 0)), 0);
-            if (d.overview && d.overview.active_time) {
-                activeMins = timeToMinutes(d.overview.active_time || '00:00');
-            }
+            const activeMins = focusByHour.reduce((sum, v, h) => sum + Math.min(60, (v || 0) + (meetingArr[h] || 0)), 0);
             // Coverage minutes from coverage_window (e.g., "07:12–23:05")
             let coverageMins = 0;
             try {
@@ -1002,7 +942,8 @@
             const isCollaborative = slackSent > 20 || meetings > 2;
             const hasLimitedTracking = focusMins < 30;
 
-            return {focusMins, meetingMins, appointments, meetings,
+            return {
+                focusMins, meetingMins, appointments, meetings,
                 // SLACK appointments
                 slackAppointments, slackAppointmentsCount, slackAppointmentsNames,
                 // Monday.com context
@@ -1022,10 +963,10 @@
                 hasClosedDeals, hasActiveProspecting, hasStrongEngagement,
                 hasDeepWork, isMorningPerson, isCollaborative, hasLimitedTracking,
                 // Deep work
-                deepWorkBlocks: d.deep_work || d.deep_work_blocks || [],
+                deepWorkBlocks: d.deep_work || [],
                 coverageMins,
-                activeMins,
-                meetingArr: meetingArr};
+                activeMins
+            };
         }
 
         function generateHeadline(analysis, date) {
@@ -1284,7 +1225,6 @@
 
         function renderDashboard(d, date, baseline) {
             const analysis = analyzeDay(d);
-            const meetingMinsByHour = analysis.meetingArr;
             const headline = generateHeadline(analysis, date);
             const summary = generateSummary(analysis);
             const insights = generateInsights(analysis);
@@ -1343,20 +1283,6 @@
                         </div>
                     </div>
                     ${privacyPill(d)}
-                    
-                    <!-- Deep Work Chips -->
-                    <div style="margin-top:16px;">
-                        <div class="section-title">🧠 Deep Work Blocks</div>
-                        <div class="deepwork-row">
-                            ${((d.deep_work_blocks && d.deep_work_blocks.length) ? d.deep_work_blocks : (d.deep_work || [])).map(b => `
-                                <span class="dw-chip">
-                                    <span class="dw-dot" style="background: var(--gradient-success);"></span>
-                                    ${b.start}–${b.end} · ${b.duration}
-                                </span>
-                            `).join('')}
-                            ${(((d.deep_work_blocks && d.deep_work_blocks.length) || (d.deep_work && d.deep_work.length)) ? '' : '<span style="color:var(--text-muted);">No deep work blocks detected</span>')}
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Insights Grid -->
@@ -1381,7 +1307,7 @@
                 <div class="timeline-section">
                     <div class="section-title">📊 Daily Activity (5am – Midnight)</div>
                     <div class="hourly-timeline">
-                        ${renderHourlyTimeline(analysis.workHours, meetingMinsByHour)}
+                        ${renderHourlyTimeline(analysis.workHours)}
                     </div>
                     ${renderDeepWorkChips(analysis.deepWorkBlocks)}
                 </div>
@@ -1413,10 +1339,7 @@
                 <div class="chart-section">
                     <div class="chart-card">
                         <div class="section-title">📈 Hourly Focus</div>
-                                <div class="chart-wrapper">
-                                    <div id="activity-timeline-container" style="height:36px;margin-bottom:8px;"></div>
-                                    <canvas id="hourlyChart"></canvas>
-                                </div>
+                        <div class="chart-wrapper"><canvas id="hourlyChart"></canvas></div>
                     </div>
                     <div class="chart-card">
                         <div class="section-title">🥧 Categories</div>
@@ -1443,7 +1366,6 @@
             `;
 
             setTimeout(() => {
-                renderActivityTimeline(d.timeline || [], d);
                 renderHourlyChart(d.hourly_focus || [], d);
                 renderCategoryChart(d.by_category || {});
                 // Attach optional deep-work tooltips if available
@@ -1453,102 +1375,6 @@
                 // Setup data sources panel
                 try { setupDataSourcesPanel(d); } catch (err) { console.warn('setupDataSourcesPanel error', err); }
             }, 100);
-        }
-
-        function renderActivityTimeline(timeline, d) {
-            const container = document.getElementById('activity-timeline-container');
-            if (!container) return;
-            if (!timeline || !timeline.length) {
-                container.innerHTML = '<div style="color:var(--text-muted);padding:8px;font-size:12px;">No timeline data</div>';
-                return;
-            }
-            // Draw an SVG across the full day (00:00-24:00) but visually focus 5:00-24:00
-            const width = container.clientWidth || 800;
-            const height = 28;
-            const svgNS = 'http://www.w3.org/2000/svg';
-            const svg = document.createElementNS(svgNS, 'svg');
-            svg.setAttribute('width', '100%');
-            svg.setAttribute('height', height);
-            svg.setAttribute('viewBox', `0 0 1440 ${height}`); // 1440 minutes in a day
-            svg.style.display = 'block';
-
-            function toMinutes(hm) {
-                if (!hm || hm === '') return 0;
-                const [h, m] = hm.split(':').map(Number);
-                return h * 60 + m;
-            }
-
-            const cx = 5 * 60; // visual start at 5:00 (300)
-            const cend = 24 * 60; // 1440
-
-            const colorFor = (cat) => {
-                const c = (cat||'').toLowerCase();
-                if (c.includes('code') || c.includes('coding')) return '#10b981';
-                if (c.includes('research')) return '#8b5cf6';
-                if (c.includes('communication')) return '#3b82f6';
-                if (c.includes('meetings')) return '#f59e0b';
-                return '#64748b';
-            };
-
-            // background track
-            const bg = document.createElementNS(svgNS, 'rect');
-            bg.setAttribute('x', String(cx));
-            bg.setAttribute('y', '4');
-            bg.setAttribute('width', String(cend - cx));
-            bg.setAttribute('height', String(height - 8));
-            bg.setAttribute('fill', 'rgba(255,255,255,0.03)');
-            bg.setAttribute('rx','4');
-            svg.appendChild(bg);
-
-            // draw segments
-            timeline.forEach(seg => {
-                const s = toMinutes(seg.start);
-                const e = toMinutes(seg.end);
-                const x = Math.max(s, cx);
-                const right = Math.min(e, cend);
-                if (right <= x) return;
-                const rect = document.createElementNS(svgNS, 'rect');
-                rect.setAttribute('x', String(x));
-                rect.setAttribute('y', '6');
-                rect.setAttribute('width', String(right - x));
-                rect.setAttribute('height', String(height - 12));
-                rect.setAttribute('fill', colorFor(seg.category));
-                rect.setAttribute('opacity','0.9');
-                rect.setAttribute('data-cat', seg.category || '');
-                rect.setAttribute('title', `${seg.category} ${seg.start}–${seg.end} (${seg.minutes}m)`);
-                svg.appendChild(rect);
-            });
-
-            // overlay deep work blocks if present
-            const deep = d.deep_work_blocks || d.deep_work || [];
-            deep.forEach(b => {
-                const s = toMinutes(b.start);
-                const e = toMinutes(b.end);
-                const x = Math.max(s, cx);
-                const right = Math.min(e, cend);
-                if (right <= x) return;
-                const r = document.createElementNS(svgNS, 'rect');
-                r.setAttribute('x', String(x));
-                r.setAttribute('y', '6');
-                r.setAttribute('width', String(right - x));
-                r.setAttribute('height', String(height - 12));
-                r.setAttribute('fill', '#000000');
-                r.setAttribute('opacity', '0.12');
-                svg.appendChild(r);
-            });
-
-            // replace container content
-            container.innerHTML = '';
-            container.appendChild(svg);
-
-            // simple tooltip behavior: show title on hover using native title
-            const rects = container.querySelectorAll('rect[data-cat]');
-            rects.forEach(r => {
-                r.addEventListener('mouseenter', (ev) => {
-                    const t = r.getAttribute('title') || '';
-                    // use browser tooltip via title attribute
-                });
-            });
         }
 
         function setupDataSourcesPanel(d) {
@@ -1597,26 +1423,101 @@
             return html;
         }
 
-            hourlyChart = safeNewChart(ctx, {
+        function computeMeetingsByHour(d) {
+            const byHour = new Array(24).fill(0);
+            const list = (d && d.debug_appointments && Array.isArray(d.debug_appointments.meetings_today))
+                ? d.debug_appointments.meetings_today
+                : [];
+            const toMin = (s) => {
+                const m = /^\s*(\d{1,2}):(\d{2})\s*$/.exec(String(s || ''));
+                if (!m) return null;
+                const hh = parseInt(m[1], 10), mm = parseInt(m[2], 10);
+                if (isNaN(hh) || isNaN(mm) || hh < 0 || hh > 23 || mm < 0 || mm > 59) return null;
+                return hh * 60 + mm;
+            };
+            list.forEach(ev => {
+                const t = (ev && ev.time) ? String(ev.time) : '';
+                const parts = t.split(/\s*[–—-]\s*/); // handles en dash/em dash/hyphen
+                if (parts.length !== 2) return;
+                const a = toMin(parts[0]);
+                const b = toMin(parts[1]);
+                if (a == null || b == null || b <= a) return;
+                const start = a, end = b;
+                const h0 = Math.floor(start / 60);
+                const h1 = Math.floor((end - 1) / 60);
+                for (let h = Math.max(0, h0); h <= Math.min(23, h1); h++) {
+                    const segStart = Math.max(start, h * 60);
+                    const segEnd = Math.min(end, (h + 1) * 60);
+                    const dur = Math.max(0, segEnd - segStart);
+                    byHour[h] += dur;
+                }
+            });
+            return byHour.map(v => Math.min(60, v));
+        }
+
+        function renderHourlyChart(hourly, fullData) {
+            const ctx = document.getElementById('hourlyChart');
+            if (!ctx) return;
+
+            if (hourlyChart) hourlyChart.destroy();
+
+            const fullHours = [];
+            for (let h = 5; h <= 23; h++) {
+                const existing = hourly.find(x => x.hour === h);
+                fullHours.push(existing || { hour: h, time: '00:00' });
+            }
+
+            const meetingMins = computeMeetingsByHour(fullData);
+            const meetingSeries = [];
+            for (let h = 5; h <= 23; h++) meetingSeries.push(meetingMins[h] || 0);
+
+            hourlyChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: fullHours.map(h => `${h.hour}`),
-                    datasets: [{
-                        data: fullHours.map(h => timeToMinutes(h.time)),
-                        backgroundColor: fullHours.map(h => {
-                            const v = timeToMinutes(h.time);
-                            return v >= 45 ? 'rgba(34, 197, 94, 0.8)' : 
-                                   v >= 30 ? 'rgba(139, 92, 246, 0.8)' : 
-                                   v > 0 ? 'rgba(59, 130, 246, 0.6)' : 
-                                   'rgba(100, 116, 139, 0.2)';
-                        }),
-                        borderRadius: 4,
-                    }]
+                    datasets: [
+                        {
+                            label: 'Focus (mins)',
+                            type: 'bar',
+                            data: fullHours.map(h => timeToMinutes(h.time)),
+                            backgroundColor: fullHours.map(h => {
+                                const v = timeToMinutes(h.time);
+                                return v >= 45 ? 'rgba(34, 197, 94, 0.8)' : 
+                                       v >= 30 ? 'rgba(139, 92, 246, 0.8)' : 
+                                       v > 0 ? 'rgba(59, 130, 246, 0.6)' : 
+                                       'rgba(100, 116, 139, 0.2)';
+                            }),
+                            borderRadius: 4,
+                        },
+                        {
+                            label: 'Meetings (mins)',
+                            type: 'line',
+                            data: meetingSeries,
+                            borderColor: 'rgba(234, 88, 12, 0.9)',
+                            backgroundColor: 'rgba(234, 88, 12, 0.18)',
+                            tension: 0.3,
+                            yAxisID: 'y',
+                            fill: true,
+                            pointRadius: 2,
+                            pointHoverRadius: 3,
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
+                    plugins: {
+                        legend: { display: true, position: 'top', labels: { color: '#94a3b8', boxWidth: 10 } },
+                        tooltip: {
+                            callbacks: {
+                                label: (ctx) => {
+                                    const label = ctx.dataset.label || '';
+                                    const val = ctx.parsed.y || 0;
+                                    return `${label}: ${val}m`;
+                                }
+                            }
+                        }
+                    },
                     scales: {
                         y: { beginAtZero: true, max: 60, grid: { color: 'rgba(255,255,255,0.05)' } },
                         x: { grid: { display: false } }
@@ -1632,7 +1533,7 @@
 
             const entries = Object.entries(categories).filter(([, t]) => t !== '00:00');
             
-            categoryChart = safeNewChart(ctx, {
+            categoryChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: entries.map(([k]) => k),

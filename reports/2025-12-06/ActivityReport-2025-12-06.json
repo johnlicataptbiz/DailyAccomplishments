@@ -1,13 +1,13 @@
 {
   "source_file": "ActivityReport-2025-12-06.json",
   "date": "2025-12-06",
-  "title": "Daily Accomplishments \u2014 2025-12-06",
+  "title": "Daily Accomplishments — 2025-12-06",
   "overview": {
     "active_time": "01:21",
     "focus_time": "10:17",
     "meetings_time": "00:00",
     "coverage_time": "22:31",
-    "coverage_window": "00:00\u201322:31",
+    "coverage_window": "00:00–22:31",
     "appointments": 0,
     "projects_count": 4
   },
@@ -19,7 +19,7 @@
   ],
   "executive_summary": [
     "Active: 01:21 | Focus: 01:21",
-    "Coverage: 00:00\u201322:31 CST",
+    "Coverage: 00:00–22:31 CST",
     "Screen Time: ~664 min foreground app usage"
   ],
   "accomplishments_today": [
@@ -70,7 +70,7 @@
         "visits": 19
       },
       {
-        "page": "Branch \u00b7 Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
+        "page": "Branch · Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
         "visits": 18
       },
       {
@@ -210,16 +210,16 @@
     "Messages": "00:07"
   },
   "top_windows_preview": [
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:43",
+    "Google Chrome — DailyAccomplishments - Colab - Google Chrome - Jac: 00:43",
     "Google Chrome: 00:04",
-    "Google Chrome \u2014 Dashboard UI review - Google Chrome - Jack (physic: 00:03",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - High memory usage -: 00:03",
-    "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:02",
-    "Google Chrome \u2014 Daily Accomplishments Website Exploration - Grok -: 00:02",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
-    "Google Chrome \u2014 TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
-    "Messages \u2014 Lover Bird: 00:01",
-    "Google Chrome \u2014 Branch \u00b7 Dashboard UI review - Google Chrome - Jac: 00:01"
+    "Google Chrome — Dashboard UI review - Google Chrome - Jack (physic: 00:03",
+    "Google Chrome — DailyAccomplishments - Colab - High memory usage -: 00:03",
+    "Google Chrome — Repo review and upgrades - Google Chrome - Jack (p: 00:02",
+    "Google Chrome — Daily Accomplishments Website Exploration - Grok -: 00:02",
+    "Google Chrome — Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
+    "Google Chrome — TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
+    "Messages — Lover Bird: 00:01",
+    "Google Chrome — Branch · Dashboard UI review - Google Chrome - Jac: 00:01"
   ],
   "foot": "Auto-generated (Redesign v1)",
   "deep_work": [
@@ -254,5 +254,7 @@
   ],
   "debug_appointments": {
     "meetings_today": []
-  }
+  },
+  "timeline": [],
+  "deep_work_blocks": []
 }

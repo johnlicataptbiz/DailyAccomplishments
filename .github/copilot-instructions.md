@@ -29,7 +29,7 @@ DailyAccomplishments is a productivity tracking and reporting application that a
 
 ### File Handling
 - **CSV files**: Data files that may contain trailing whitespace (configured in .gitattributes)
-- **Binary files**: PNG/JPG images for reports and visualizations (marked as binary in .gitattributes)
+- **Visualizations**: Prefer SVG charts; avoid committing new binary image artifacts in PRs
 - **Credentials**: Stored in `credentials/` directory (excluded from git)
 - **Logs**: Stored in `logs/daily` and `logs/archive` directories
 
@@ -45,8 +45,7 @@ docker run -p 8000:8000 daily-accomplishments
 ### Dependencies
 - **Python 3.12**: Runtime environment
 - **matplotlib**: For generating charts and visualizations
-- **Pillow**: For image processing
-- System dependencies (installed in Docker): libfreetype6-dev, libpng-dev, libjpeg-dev, libopenjp2-7-dev, libtiff5-dev, tcl/tk for matplotlib and image processing
+- System dependencies (installed in Docker): matplotlib runtime deps (freetype, etc.)
 
 ### Web Server
 - Default port: 8000
@@ -70,11 +69,11 @@ docker run -p 8000:8000 daily-accomplishments
 ### Data Files
 - CSV files are configured with `text eol=lf -whitespace` in .gitattributes, which allows trailing whitespace (this is expected for data files)
 - Other text files use `text eol=lf` for consistent line endings
-- Binary files (PNG, JPG) are marked as binary in .gitattributes to prevent patch errors
+- If binary files are present, they are marked as binary in .gitattributes to prevent patch errors
 
 ### Git Practices
 - CSV files are configured to ignore trailing whitespace errors
-- PNG/JPG files are marked as binary to prevent patch errors
+- Binary files are marked as binary to prevent patch errors
 - See .gitattributes for file type handling rules
 - Use .gitignore to exclude build artifacts, credentials, and temporary files
 
@@ -102,8 +101,8 @@ docker run -p 8000:8000 daily-accomplishments
 
 ### Modifying Reports
 1. Update visualization code in tools/ directory
-2. Test with matplotlib and Pillow dependencies
-3. Ensure images are saved as PNG (marked as binary)
+2. Test with matplotlib dependencies
+3. Ensure charts are saved as SVG (avoid committing binary image artifacts in PRs)
 4. Update dashboard HTML if needed
 
 ### Changing Tracking Settings
@@ -123,7 +122,7 @@ docker run -p 8000:8000 daily-accomplishments
 ## File Patterns to Recognize
 
 - `*.csv` - Data files (may have trailing whitespace)
-- `*.png`, `*.jpg` - Binary visualization files
+- `*.svg` - Vector visualization files (preferred; avoid committing binaries in PRs)
 - `config.json` - Main configuration (validate JSON syntax)
 - `tools/*.py` - Python modules for data processing and reporting
 - `gh-pages/` - Static web dashboard files
