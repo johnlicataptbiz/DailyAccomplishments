@@ -33,3 +33,29 @@ def test_meeting_attribution_overlap(tmp_path):
     meetings = report['overview'].get('meetings_time')
     meeting_mins = hhmm_to_minutes(meetings)
     assert meeting_mins < 30, f"Meeting minutes not reduced: {meeting_mins}"
+
+
+def test_config_mapping_applied(tmp_path):
+    start = datetime(2025, 12, 10, 12, 0, 0)
+    events = []
+    t = start
+    for _ in range(11):
+        events.append({'timestamp': t.isoformat(), 'app': 'Figma', 'idle_seconds': 0})
+        t += timedelta(seconds=60)
+
+    jl = tmp_path / 'design.jsonl'
+    with open(jl, 'w') as f:
+        for e in events:
+            f.write(json.dumps(e) + '\n')
+
+    config = {
+        'analytics': {
+            'category_priority': ['Design', 'Other'],
+            'category_mapping': {
+                'Design': ['Figma']
+            }
+        }
+    }
+    report = load_from_jsonl(jl, config=config)
+    design_time = hhmm_to_minutes(report['by_category'].get('Design'))
+    assert design_time == 10, f"Expected 10 minutes in Design category, got {design_time}"
