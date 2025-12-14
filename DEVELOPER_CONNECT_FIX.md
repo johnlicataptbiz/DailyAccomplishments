@@ -1,5 +1,8 @@
 # Fix for Google Cloud Developer Connect Invalid Image Name Error
 
+> **Note:** This document contains specific project IDs and connection names for the DailyAccomplishments deployment.
+> These are intentionally not generalized to help with troubleshooting the specific issue.
+
 ## Problem
 
 Google Cloud Developer Connect is failing with the error:
