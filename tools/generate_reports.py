@@ -62,7 +62,7 @@ def _load_category_settings(config: Optional[Dict[str, Any]] = None) -> Tuple[Di
     return mapping, priority
 
 
-def _build_categorizer(mapping: Dict[str, List[str]]) -> Callable[[str], str]:
+def _build_categorizer(mapping: Dict[str, List[str]], fallback_categorizer: Callable[[str], str]) -> Callable[[str], str]:
     """Create a categorization function using config mapping with heuristic fallback."""
     normalized_mapping: Dict[str, List[str]] = {
         cat: [item.lower() for item in items]
@@ -75,7 +75,7 @@ def _build_categorizer(mapping: Dict[str, List[str]]) -> Callable[[str], str]:
             for keyword in items:
                 if keyword and keyword in app_lower:
                     return cat
-        return categorize_app(app)
+        return fallback_categorizer(app)
 
     return categorize
 
