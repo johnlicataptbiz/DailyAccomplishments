@@ -3,41 +3,63 @@ name: Timeline Smoke Test
 on:
   pull_request:
     paths:
-      - 'reports/**'
-      - 'tools/**'
-      - 'dashboard.html'
-      - '.github/scripts/smoke_timeline.py'
+      - "reports/**"
+      - "tools/**"
+      - "dashboard.html"
+      - ".github/scripts/smoke_timeline.py"
+      - ".github/scripts/validate_report_schema.py"
 
 jobs:
   smoke:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
+          cache: "pip"
+
       - name: Install requirements
+        shell: bash
         run: |
+          set -euo pipefail
           python -m pip install --upgrade pip
-          pip install jsonschema pytest
-<<<<<<< HEAD
+          pip install -U jsonschema pytest
+
       - name: Clean pycache and stray artifacts
+        shell: bash
         run: |
+          set -euo pipefail
           rm -rf imports || true
           find . -name '__pycache__' -type d -prune -exec rm -rf {} +
           find . -name '*.pyc' -delete
-=======
->>>>>>> copilot/continue-task-list-work
-      - name: Run validator on recent reports
+
+      - name: Validate report JSON schema (if any reports exist)
+        shell: bash
         run: |
-          python3 .github/scripts/validate_report_schema.py reports/*/ActivityReport-*.json || true
-      - name: Run timeline smoke on a sample report
+          set -euo pipefail
+          shopt -s nullglob
+          reports=(reports/*/ActivityReport-*.json)
+
+          if [ "${#reports[@]}" -eq 0 ]; then
+            echo "No reports found; skipping schema validation."
+            exit 0
+          fi
+
+          python3 .github/scripts/validate_report_schema.py "${reports[@]}"
+
+      - name: Run timeline smoke on a sample report (if present)
+        shell: bash
         run: |
-          REPORT=$(ls reports/*/ActivityReport-*.json | head -n1)
-          if [ -z "$REPORT" ]; then echo "No sample report found"; exit 0; fi
-<<<<<<< HEAD
-          python3 .github/scripts/smoke_timeline.py "$REPORT"
-=======
-          python3 .github/scripts/smoke_timeline.py "$REPORT"
->>>>>>> copilot/continue-task-list-work
+          set -euo pipefail
+          shopt -s nullglob
+          reports=(reports/*/ActivityReport-*.json)
+
+          if [ "${#reports[@]}" -eq 0 ]; then
+            echo "No sample report found; skipping timeline smoke."
+            exit 0
+          fi
+
+          python3 .github/scripts/smoke_timeline.py "${reports[0]}"
