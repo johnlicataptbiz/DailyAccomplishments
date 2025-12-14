@@ -82,7 +82,7 @@ jobs:
           REPORT="${sorted[-1]}"
 
           # Extract date from report path (e.g., reports/2025-12-13/ActivityReport-2025-12-13.json)
-          DATE=$(basename "$REPORT" | sed 's/ActivityReport-\(.*\)\.json/\1/')
+          DATE=$(basename "$(dirname "$REPORT")")
 
           echo "Using report: $REPORT (date: $DATE)"
 
