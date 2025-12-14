@@ -1307,7 +1307,7 @@
                 <div class="timeline-section">
                     <div class="section-title">📊 Daily Activity (5am – Midnight)</div>
                     <div class="hourly-timeline">
-                        ${renderHourlyTimeline(analysis.workHours)}
+                        ${typeof renderHourlyTimeline === 'function' ? renderHourlyTimeline(analysis.workHours) : '<p style="color: var(--text-muted);">Hourly timeline unavailable</p>'}
                     </div>
                     ${renderDeepWorkChips(analysis.deepWorkBlocks)}
                 </div>
