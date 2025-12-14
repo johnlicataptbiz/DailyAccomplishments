@@ -26,6 +26,7 @@ COPY tools/ ./tools/
 COPY *.json ./
 COPY *.csv ./
 COPY *.html ./
+COPY favicon.ico ./
 COPY reports/ ./reports/
 # Ensure the published dashboard from gh-pages is served from the static root
 COPY gh-pages/dashboard.html ./dashboard.html
