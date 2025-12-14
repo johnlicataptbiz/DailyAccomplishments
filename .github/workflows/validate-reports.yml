@@ -9,48 +9,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-<<<<<<< HEAD
 
-=======
->>>>>>> copilot/continue-task-list-work
-      - name: Check recent reports and validate structure
+      - name: Validate recent reports (if present)
+        shell: bash
         run: |
           set -euo pipefail
+
           python3 -m pip install --upgrade pip
           python3 -m pip install jsonschema
-<<<<<<< HEAD
 
-          any_found=0
-=======
-          missing=0
->>>>>>> copilot/continue-task-list-work
+          found=0
           for i in 0 1 2; do
             date=$(date -u -d "-$i day" +%F)
             path="reports/$date/ActivityReport-$date.json"
-            if [ ! -f "$path" ]; then
-<<<<<<< HEAD
-              echo "MISSING (ok): $path"
-              continue
+
+            if [ -f "$path" ]; then
+              found=1
+              echo "FOUND: $path"
+              python3 .github/scripts/validate_report_schema.py "$path"
+            else
+              echo "MISSING (skipping): $path"
             fi
-            any_found=1
-            echo "FOUND: $path"
-            python3 .github/scripts/validate_report_schema.py "$path"
           done
 
-          if [ "$any_found" -eq 0 ]; then
-            echo "No recent reports found to validate; skipping."
+          if [ "$found" -eq 0 ]; then
+            echo "No recent reports found; nothing to validate."
           fi
-        shell: bash
-=======
-              echo "MISSING: $path"
-              missing=$((missing+1))
-              continue
-            fi
-            echo "FOUND: $path"
-            python3 .github/scripts/validate_report_schema.py "$path" || exit $?
-          done
-          if [ "$missing" -ne 0 ]; then
-            echo "Some recent reports are missing ($missing); failing workflow."
-            exit 1
-          fi
->>>>>>> copilot/continue-task-list-work
