@@ -4,41 +4,57 @@ on:
   push:
     branches: [ main ]
   schedule:
-    # Run nightly at 02:00 UTC to regenerate reports from logs
-    - cron: '0 2 * * *'
+    - cron: "0 2 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reports-publish
+  cancel-in-progress: true
 
 jobs:
   generate-and-publish:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
+          cache: "pip"
 
       - name: Install dependencies
+        shell: bash
         run: |
+          set -euo pipefail
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Generate reports for JSONL files
+        shell: bash
         run: |
           set -euo pipefail
+          shopt -s nullglob
           for p in logs/daily/*.jsonl; do
-            [ -e "$p" ] || continue
             d=$(basename "$p" .jsonl)
             echo "Generating reports for $d"
             python3 tools/generate_reports.py "$d"
           done
 
-      - name: Publish reports to reports-gh-pages
+      - name: Deploy reports to reports-gh-pages
+        if: ${{ hashFiles('reports/**') != '' }}
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./reports
           publish_branch: reports-gh-pages
-          user_name: 'github-actions[bot]'
-          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit_message: Deploy reports to reports-gh-pages
