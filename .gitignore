@@ -41,7 +41,6 @@ credentials/
 *.key
 .env
 
-<<<<<<< HEAD
 # Temporary files
 tmp/
 temp/
@@ -57,12 +56,8 @@ Thumbs.db
 imports/
 recovered_from_persistedshare/
 reports/charts/
-=======
+
 # Python virtual environment
 .venv/
-venv/
-__pycache__/
-*.pyc
->>>>>>> copilot/continue-task-list-work
-.worktrees/
+
 .worktrees/
