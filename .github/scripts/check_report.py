@@ -30,8 +30,5 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print('Usage: check_report.py <path>')
         sys.exit(1)
-<<<<<<< HEAD
     sys.exit(main(sys.argv[1]))
-=======
-    sys.exit(main(sys.argv[1]))
->>>>>>> copilot/continue-task-list-work
+

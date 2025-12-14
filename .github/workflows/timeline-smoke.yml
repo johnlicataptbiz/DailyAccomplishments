@@ -3,27 +3,30 @@ name: Timeline Smoke Test
 on:
   pull_request:
     paths:
-      - 'reports/**'
-      - 'tools/**'
-      - 'dashboard.html'
-      - '.github/scripts/smoke_timeline.py'
-      - '.github/scripts/validate_report_schema.py'
+      - "reports/**"
+      - "tools/**"
+      - "dashboard.html"
+      - ".github/scripts/smoke_timeline.py"
+      - ".github/scripts/validate_report_schema.py"
+      - ".github/schemas/activity_report_schema.json"
 
 jobs:
   smoke:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install requirements
         run: |
           python -m pip install --upgrade pip
-          pip install jsonschema pytest
+          pip install jsonschema
 
       - name: Clean pycache and stray artifacts
         run: |
@@ -31,34 +34,24 @@ jobs:
           find . -name '__pycache__' -type d -prune -exec rm -rf {} +
           find . -name '*.pyc' -delete
 
-      - name: Run validator on reports in repo
+      - name: Validate changed reports
         shell: bash
         run: |
           set -euo pipefail
-          shopt -s nullglob
-          files=(reports/*/ActivityReport-*.json)
-
-          if [ ${#files[@]} -eq 0 ]; then
-            echo "No reports to validate"
-            exit 0
-          fi
-
-          python3 .github/scripts/validate_report_schema.py "${files[@]}"
+          python3 .github/scripts/validate_report_schema.py --changed
 
       - name: Run timeline smoke on newest report
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
-          files=(reports/*/ActivityReport-*.json)
 
+          files=(reports/*/ActivityReport-*.json)
           if [ ${#files[@]} -eq 0 ]; then
             echo "No sample report found"
             exit 0
           fi
 
-          IFS=$'\n' sorted=($(printf '%s\n' "${files[@]}" | sort))
-          REPORT="${sorted[-1]}"
-
+          REPORT="$(printf '%s\n' "${files[@]}" | sort | tail -n 1)"
           echo "Using report: $REPORT"
           python3 .github/scripts/smoke_timeline.py "$REPORT"

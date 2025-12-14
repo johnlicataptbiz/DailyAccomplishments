@@ -41,28 +41,11 @@ credentials/
 *.key
 .env
 
-<<<<<<< HEAD
-# Temporary files
-tmp/
-temp/
-*.tmp
-*.bak
-*.cache
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Local-only snapshot/attic directories (never commit to main)
-imports/
-recovered_from_persistedshare/
-reports/charts/
-=======
 # Python virtual environment
 .venv/
 venv/
 __pycache__/
 *.pyc
->>>>>>> copilot/continue-task-list-work
+
 .worktrees/
 .worktrees/
