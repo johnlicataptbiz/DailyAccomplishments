@@ -9,6 +9,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: generate-daily-reports
+  cancel-in-progress: true
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -17,56 +21,64 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: "pip"
 
       - name: Install Python dependencies (if present)
+        shell: bash
         run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then
             sudo apt-get update
-            sudo apt-get install -y libfreetype6-dev libpng-dev libjpeg-dev || true
-            python -m pip install --upgrade pip
-            python -m pip install -r requirements.txt || true
+            sudo apt-get install -y libfreetype6-dev libpng-dev libjpeg-dev
+            pip install -r requirements.txt
           fi
 
       - name: Set target date (UTC)
-        run: echo "TARGET_DATE=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "TARGET_DATE=$(date -u +%F)" >> "$GITHUB_ENV"
 
       - name: Generate ActivityReport for target date
         id: generate
+        shell: bash
         run: |
-          set -e
+          set -euo pipefail
           echo "Generating ActivityReport for $TARGET_DATE"
-          if python scripts/generate_daily_json.py "$TARGET_DATE"; then
-            echo "generated=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "generated=false" >> "$GITHUB_OUTPUT"
-          fi
+          python scripts/generate_daily_json.py "$TARGET_DATE"
+          echo "generated=true" >> "$GITHUB_OUTPUT"
 
-      - name: Commit and push generated files to main
+      - name: Commit and push generated files to main (only if changed)
         if: steps.generate.outputs.generated == 'true'
+        shell: bash
         env:
           TARGET_DATE: ${{ env.TARGET_DATE }}
         run: |
-          set -e
+          set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          changed=0
+          # Stage expected outputs if they exist
           if [ -f "ActivityReport-${TARGET_DATE}.json" ]; then
-            git add "ActivityReport-${TARGET_DATE}.json" && changed=1 || true
+            git add "ActivityReport-${TARGET_DATE}.json"
           fi
           if [ -d "reports/${TARGET_DATE}" ]; then
-            git add -A "reports/${TARGET_DATE}" && changed=1 || true
+            git add -A "reports/${TARGET_DATE}"
           fi
 
-          if [ "$changed" -eq 0 ]; then
-            echo "No generated files to commit"
+          # If nothing actually changed, stop.
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
             exit 0
           fi
 
-          git commit -m "ci: add generated ActivityReport-${TARGET_DATE}.json [skip ci]" || echo "nothing to commit"
-          git push origin HEAD:main
+          git commit -m "ci: add generated ActivityReport-${TARGET_DATE}.json [skip ci]"
+          git push
