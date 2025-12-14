@@ -712,10 +712,12 @@
 
 	                async function fetchFirstOkFor(d) {
 	                    const candidates = [
+	                        { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
 	                        { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
 	                        { url: `reports/daily-report-${d}.json`, timeoutMs: 1500 },
-	                        { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
+	                        { url: `${RAW_BASE}reports/${d}/ActivityReport-${d}.json`, timeoutMs: 2000 },
 	                        { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
+	                        { url: `${RAW_BASE}reports/daily-report-${d}.json`, timeoutMs: 2000 },
 	                    ];
 
 	                    let lastResponse = null;
