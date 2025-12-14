@@ -66,8 +66,24 @@ Note: No capital letters, no extra path segments.
 ## Technical Details
 
 The repository already contains a properly configured `cloudbuild.yaml` that:
-- Uses lowercase image names
+- Uses lowercase image names via explicit substitutions
 - Follows Docker naming conventions
 - Deploys to Cloud Run successfully
+- Defines `_IMAGE_NAME`, `_REGION`, `_AR_REPO`, and `_SERVICE_NAME` to override any auto-generated values
+- Uses `$PROJECT_ID` which is automatically provided by Cloud Build
+
+The issue is that Developer Connect may be configured to use automatic deployment mode, which generates invalid image names based on the GitHub repository name. The enhanced `cloudbuild.yaml` with explicit substitutions should force the correct naming when Developer Connect uses this file.
+
+## Recent Changes
+
+The `cloudbuild.yaml` has been updated to include:
+- Explicit substitution variables that define the image name as lowercase
+- Use of `$PROJECT_ID` variable (automatically provided by Cloud Build)
+- `substitution_option: 'ALLOW_LOOSE'` to allow flexible substitution handling
+
+This ensures that even if Developer Connect passes additional context, the final image name will always be:
+```
+europe-west1-docker.pkg.dev/{project-id}/cloud-run-source-deploy/dailyaccomplishments:{tag}
+```
 
 The issue is purely a configuration problem with how Developer Connect is invoking the build.
