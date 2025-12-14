@@ -79,13 +79,88 @@ class Timeline:
         merged.append((current_start, current_end))
         return merged
 
+    def export_timeline(self) -> List[Dict[str, Any]]:
+        """Export raw intervals as a timeline for UI/debugging."""
+        timeline_export: List[Dict[str, Any]] = []
+        for start, end, category, app, etype in self.intervals:
+            duration_seconds = int((end - start).total_seconds())
+            timeline_export.append({
+                "start": start.strftime("%H:%M"),
+                "end": end.strftime("%H:%M"),
+                "seconds": duration_seconds,
+                "minutes": int(duration_seconds / 60),
+                "category": category,
+                "app": app,
+                "type": etype,
+            })
+        return timeline_export
+
+    def _create_deep_work_block(self, start: datetime, end: datetime) -> Dict[str, Any]:
+        block_duration_seconds = (end - start).total_seconds()
+        duration_minutes = block_duration_seconds / 60
+        return {
+            "start": start.strftime("%H:%M"),
+            "end": end.strftime("%H:%M"),
+            "duration": minutes_to_time_str(duration_minutes),
+            "seconds": int(block_duration_seconds),
+            "minutes": int(duration_minutes),
+        }
+
+    def detect_deep_work_blocks(
+        self, threshold_minutes: int = 25, gap_tolerance_seconds: int = 60
+    ) -> List[Dict[str, Any]]:
+        """Detect contiguous non-meeting activity blocks >= threshold."""
+        threshold_seconds = threshold_minutes * 60
+
+        # Filter non-meeting intervals and sort by start time
+        non_meeting = [
+            (start, end, cat, app, etype)
+            for start, end, cat, app, etype in self.intervals
+            if cat != "Meetings" and etype != "meeting_end"
+        ]
+        if not non_meeting:
+            return []
+
+        non_meeting.sort(key=lambda x: x[0])
+
+        deep_blocks: List[Dict[str, Any]] = []
+        current_block_start: Optional[datetime] = None
+        current_block_end: Optional[datetime] = None
+
+        for start, end, cat, app, etype in non_meeting:
+            if current_block_start is None or current_block_end is None:
+                current_block_start = start
+                current_block_end = end
+                continue
+
+            gap_seconds = (start - current_block_end).total_seconds()
+            if gap_seconds <= gap_tolerance_seconds:
+                current_block_end = max(current_block_end, end)
+                continue
+
+            # finalize current block
+            block_duration = (current_block_end - current_block_start).total_seconds()
+            if block_duration >= threshold_seconds:
+                deep_blocks.append(self._create_deep_work_block(current_block_start, current_block_end))
+
+            current_block_start = start
+            current_block_end = end
+
+        # finalize tail
+        if current_block_start is not None and current_block_end is not None:
+            block_duration = (current_block_end - current_block_start).total_seconds()
+            if block_duration >= threshold_seconds:
+                deep_blocks.append(self._create_deep_work_block(current_block_start, current_block_end))
+
+        return deep_blocks
+
     def calculate_metrics(self) -> Dict[str, float]:
         """
         Calculate Active, Meeting, and Focus time based on redesign logic.
         Returns duration in minutes.
         """
         if not self.intervals:
-            return {'active': 0.0, 'meeting': 0.0, 'focus': 0.0}
+            return {"active_minutes": 0.0, "meeting_minutes": 0.0, "focus_minutes": 0.0}
 
         # 1. Total Active Time: Union of all window activity
         # Filter for direct user activity (window events) to determine "Active" presence
@@ -401,6 +476,8 @@ def generate_report(date_str=None):
             f"{w}: {minutes_to_time_str(t)}"
             for w, t in sorted(window_time.items(), key=lambda x: -x[1])[:10]
         ],
+        "timeline": timeline.export_timeline(),
+        "deep_work_blocks": timeline.detect_deep_work_blocks(),
         "foot": "Auto-generated (Redesign v1)"
     }
     
