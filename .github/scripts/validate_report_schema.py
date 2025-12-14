@@ -34,8 +34,8 @@ def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
 
 
-def extract_date_from_path(path: str) -> str | None:
-    """Extract date string (YYYY-MM-DD) from report path."""
+def extract_date_from_path(path: str):
+    """Extract date string (YYYY-MM-DD) from report path. Returns None if not found."""
     match = DATE_EXTRACT_RE.search(path)
     return match.group(1) if match else None
 
@@ -75,6 +75,8 @@ def regenerate_report(date: str, expected_path: Path) -> bool:
                 print(result.stderr)
         
         # Step 2: Archive the report to the expected location
+        # The archive script (scripts/archive_outputs.sh) accepts a date parameter (YYYY-MM-DD)
+        # and copies the generated report to reports/{date}/ActivityReport-{date}.json
         if archive_script.exists():
             archive_result = subprocess.run(
                 ["bash", str(archive_script), date],
@@ -87,6 +89,8 @@ def regenerate_report(date: str, expected_path: Path) -> bool:
                 print(f"Archive script completed for {date}")
             else:
                 print(f"Archive script failed with exit code {archive_result.returncode}")
+        else:
+            print(f"Warning: Archive script not found at {archive_script}, report may not be in expected location")
         
         # Check if the expected file now exists
         if expected_path.exists():
@@ -96,11 +100,11 @@ def regenerate_report(date: str, expected_path: Path) -> bool:
             print(f"Regeneration did not create expected file: {expected_path}")
             return False
             
-    except subprocess.TimeoutExpired:
-        print(f"Generator timed out after 60 seconds for {date}")
+    except subprocess.TimeoutExpired as e:
+        print(f"Regeneration timed out for {date}: {e}")
         return False
     except Exception as e:
-        print(f"Error running generator: {e}")
+        print(f"Error during regeneration: {e}")
         return False
 
 
