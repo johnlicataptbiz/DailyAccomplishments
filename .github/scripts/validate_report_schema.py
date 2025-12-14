@@ -27,10 +27,81 @@ except Exception:
 
 
 REPORT_RE = re.compile(r"^reports/[^/]+/ActivityReport-.*\.json$")
+DATE_EXTRACT_RE = re.compile(r"ActivityReport-(\d{4}-\d{2}-\d{2})\.json$")
 
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
+
+
+def extract_date_from_path(path: str) -> str | None:
+    """Extract date string (YYYY-MM-DD) from report path."""
+    match = DATE_EXTRACT_RE.search(path)
+    return match.group(1) if match else None
+
+
+def regenerate_report(date: str, expected_path: Path) -> bool:
+    """
+    Attempt to regenerate a report for the given date.
+    Returns True if regeneration appears successful (file exists after), False otherwise.
+    """
+    root = repo_root()
+    generator_script = root / "scripts" / "generate_daily_json.py"
+    archive_script = root / "scripts" / "archive_outputs.sh"
+    
+    if not generator_script.exists():
+        print(f"Generator script not found at {generator_script}")
+        return False
+    
+    print(f"Attempting to regenerate report for {date}...")
+    
+    try:
+        # Step 1: Generate the report
+        result = subprocess.run(
+            ["python3", str(generator_script), date],
+            cwd=str(root),
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+        
+        if result.returncode == 0:
+            print(f"Generator completed successfully for {date}")
+            if result.stdout:
+                print(result.stdout)
+        else:
+            print(f"Generator failed with exit code {result.returncode}")
+            if result.stderr:
+                print(result.stderr)
+        
+        # Step 2: Archive the report to the expected location
+        if archive_script.exists():
+            archive_result = subprocess.run(
+                ["bash", str(archive_script), date],
+                cwd=str(root),
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            if archive_result.returncode == 0:
+                print(f"Archive script completed for {date}")
+            else:
+                print(f"Archive script failed with exit code {archive_result.returncode}")
+        
+        # Check if the expected file now exists
+        if expected_path.exists():
+            print(f"Regeneration successful: {expected_path} now exists")
+            return True
+        else:
+            print(f"Regeneration did not create expected file: {expected_path}")
+            return False
+            
+    except subprocess.TimeoutExpired:
+        print(f"Generator timed out after 60 seconds for {date}")
+        return False
+    except Exception as e:
+        print(f"Error running generator: {e}")
+        return False
 
 
 def load_schema() -> dict:
@@ -76,11 +147,13 @@ def git_changed_reports() -> list[str] | None:
     return report_paths
 
 
-def validate_file(path: str, validator: Draft7Validator) -> tuple[bool, bool]:
+def validate_file(path: str, validator: Draft7Validator, allow_regeneration: bool = True) -> tuple[bool, bool]:
     """
     Returns (ok, usage_or_setup_error).
       - usage_or_setup_error=True for things like missing files or unreadable JSON.
       - ok=False, usage_or_setup_error=False means "validation failed" (exit code 3 category).
+      
+    If allow_regeneration is True and file is missing, attempts to regenerate it once.
     """
     p = Path(path)
     if not p.is_absolute():
@@ -88,6 +161,19 @@ def validate_file(path: str, validator: Draft7Validator) -> tuple[bool, bool]:
 
     if not p.exists():
         print(f"MISSING: {p}")
+        
+        # Attempt regeneration if allowed and we can extract a date
+        if allow_regeneration:
+            date = extract_date_from_path(str(p))
+            if date:
+                print(f"Attempting regeneration for date: {date}")
+                if regenerate_report(date, p):
+                    print(f"Regeneration succeeded, retrying validation...")
+                    # Retry validation without allowing another regeneration attempt
+                    return validate_file(path, validator, allow_regeneration=False)
+                else:
+                    print(f"Regeneration failed for {date}")
+        
         return (False, True)
 
     try:
