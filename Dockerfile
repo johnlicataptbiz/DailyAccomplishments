@@ -28,6 +28,8 @@ COPY *.csv ./
 COPY *.md ./
 COPY *.html ./
 COPY reports/ ./reports/
+# Ensure the published dashboard from gh-pages is served from the static root
+COPY gh-pages/dashboard.html ./dashboard.html
 
 # Install Python dependencies
 RUN pip install --no-cache-dir matplotlib pillow
