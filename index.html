@@ -25,7 +25,7 @@
       const qs = window.location.search || "";
       const join = qs.includes("?") && qs.length > 1 ? "&" : "?";
 
-      const src = `/dashboard.html${qs}${join}t=${t}`;
+      const src = `dashboard.html${qs}${join}t=${t}`;
 
       const iframe = document.createElement("iframe");
       iframe.src = src;
@@ -35,7 +35,7 @@
         document.body.innerHTML = "";
         const error = document.createElement("div");
         error.className = "error";
-        error.textContent = "Dashboard failed to load locally. Please ensure /dashboard.html is present.";
+        error.textContent = "Dashboard failed to load. Please ensure dashboard.html is present.";
         document.body.appendChild(error);
       };
 

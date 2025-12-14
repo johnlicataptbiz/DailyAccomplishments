@@ -68,6 +68,12 @@ python3 -m http.server 8000
 open http://localhost:8000/dashboard.html
 ```
 
+### Smoke-test Railway (static paths)
+
+```bash
+bash scripts/smoke_railway.sh https://dailyaccomplishments.up.railway.app
+```
+
 ### Integration (3 Lines)
 
 ```python
