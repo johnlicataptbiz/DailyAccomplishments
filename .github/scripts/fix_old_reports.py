@@ -45,6 +45,9 @@ def fix_report(path: Path):
     overview = j.get("overview", {})
     if "focus_time" not in overview:
         overview["focus_time"] = fmt_hhmm(total_min)
+    if "coverage_window" not in overview:
+        # Prefer an explicit placeholder over silently fabricating coverage.
+        overview["coverage_window"] = ""
     if "meetings_time" not in overview:
         overview["meetings_time"] = overview.get("meetings_time", "00:00")
     if "appointments" not in overview:
@@ -52,6 +55,22 @@ def fix_report(path: Path):
     if "projects_count" not in overview:
         overview["projects_count"] = overview.get("projects_count", 0)
     j["overview"] = overview
+
+    # Ensure schema-required top-level fields exist.
+    if "timeline" not in j or not isinstance(j.get("timeline"), list):
+        j["timeline"] = []
+    if "deep_work_blocks" not in j or not isinstance(j.get("deep_work_blocks"), list):
+        j["deep_work_blocks"] = []
+
+    # Ensure browser_highlights is present with list-shaped fields.
+    bh = j.get("browser_highlights")
+    if not isinstance(bh, dict):
+        bh = {}
+    if "top_domains" not in bh or not isinstance(bh.get("top_domains"), list):
+        bh["top_domains"] = []
+    if "top_pages" not in bh or not isinstance(bh.get("top_pages"), list):
+        bh["top_pages"] = []
+    j["browser_highlights"] = bh
 
     # write back
     path.write_text(json.dumps(j, indent=2, ensure_ascii=False) + "\n")

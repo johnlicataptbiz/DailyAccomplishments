@@ -1,12 +1,18 @@
 {
   "source_file": "ActivityReport-2025-12-13.json",
   "date": "2025-12-13",
-  "title": "Daily Accomplishments \u2014 2025-12-13",
+  "title": "Daily Accomplishments — 2025-12-13",
   "overview": {
     "focus_time": "08:42",
-    "coverage_window": "00:00\u201320:40"
+    "coverage_window": "00:00–20:40",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0
   },
-  "browser_highlights": {},
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
+  },
   "by_category": {
     "Research": "05:40",
     "Coding": "03:02"
@@ -140,7 +146,7 @@
   },
   "executive_summary": [
     "Active: 00:00 | Focus: 08:02",
-    "Coverage: 00:00\u201318:00 CST",
+    "Coverage: 00:00–18:00 CST",
     "Screen Time: ~51 min foreground app usage",
     "Screen Time: ~86 min foreground app usage",
     "Screen Time: ~119 min foreground app usage",
@@ -204,5 +210,7 @@
       "category": "Research",
       "label": "Google Chrome"
     }
-  ]
+  ],
+  "timeline": [],
+  "deep_work_blocks": []
 }

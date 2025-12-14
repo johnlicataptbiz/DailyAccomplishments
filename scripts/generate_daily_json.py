@@ -486,6 +486,17 @@ def generate_report(date_str=None):
         json.dump(report, f, indent=2)
     
     print(f"Generated: {output_file}")
+
+    # Mirror into reports/<date>/ so CI and dashboards have a stable location.
+    try:
+        out_dir = REPO_ROOT / "reports" / date_str
+        out_dir.mkdir(parents=True, exist_ok=True)
+        archived = out_dir / f"ActivityReport-{date_str}.json"
+        with open(archived, "w") as f:
+            json.dump(report, f, indent=2)
+        print(f"Archived: {archived}")
+    except Exception:
+        pass
     return report
 
 if __name__ == '__main__':

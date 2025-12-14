@@ -1,16 +1,16 @@
 {
   "source_file": "ActivityReport-2025-12-04.json",
   "date": "2025-12-04",
-  "title": "Daily Accomplishments \u2014 2025-12-04",
+  "title": "Daily Accomplishments — 2025-12-04",
   "overview": {
     "focus_time": "07:05",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 4,
-    "coverage_window": "00:02\u201323:45"
+    "coverage_window": "00:02–23:45"
   },
   "prepared_for_manager": [
-    "Total focused time: 01:43 (Coverage: 02:57\u201323:45 CST)",
+    "Total focused time: 01:43 (Coverage: 02:57–23:45 CST)",
     "Top apps: Google Chrome (01:02), app_mode_loader (00:26), Terminal (00:10)"
   ],
   "executive_summary": [
@@ -58,7 +58,7 @@
         "visits": 208
       },
       {
-        "page": "[Preview] README.md \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual ",
+        "page": "[Preview] README.md — DailyAccomplishments [Codespaces: fluffy winner] — Visual ",
         "visits": 43
       },
       {
@@ -74,11 +74,11 @@
         "visits": 26
       },
       {
-        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
+        "page": "DailyAccomplishments [Codespaces: fluffy winner] — Visual Studio Code - Google C",
         "visits": 23
       },
       {
-        "page": "dashboard.html \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
+        "page": "dashboard.html — DailyAccomplishments [Codespaces: fluffy winner] — Visual Studi",
         "visits": 18
       },
       {
@@ -86,7 +86,7 @@
         "visits": 17
       },
       {
-        "page": "COMMIT_EDITMSG \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studi",
+        "page": "COMMIT_EDITMSG — DailyAccomplishments [Codespaces: fluffy winner] — Visual Studi",
         "visits": 16
       },
       {
@@ -225,16 +225,16 @@
     "System Settings": "00:02"
   },
   "top_windows_preview": [
-    "app_mode_loader \u2014 missing value: 00:26",
-    "Google Chrome \u2014 Debug rebase issues - Google Chrome - Jack (physic: 00:17",
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:05",
-    "Google Chrome \u2014 [Preview] README.md \u2014 DailyAccomplishments [Codesp: 00:03",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - physicalth: 00:03",
+    "app_mode_loader — missing value: 00:26",
+    "Google Chrome — Debug rebase issues - Google Chrome - Jack (physic: 00:17",
+    "Terminal — jacklicatamacbook — iChatDockTile — codex — 80×24: 00:05",
+    "Google Chrome — [Preview] README.md — DailyAccomplishments [Codesp: 00:03",
+    "Google Chrome — Daily Accomplishments - Google Chrome - physicalth: 00:03",
     "Google Chrome: 00:02",
-    "Google Chrome \u2014 Prospecting Agent : 00:02",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:02",
-    "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:01",
-    "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:01"
+    "Google Chrome — Prospecting Agent : 00:02",
+    "Google Chrome — Daily Accomplishments - Google Chrome - Jack (phys: 00:02",
+    "Google Chrome — DailyAccomplishments [Codespaces: fluffy winner] —: 00:01",
+    "Google Chrome — dashboard.html — DailyAccomplishments [Codespaces:: 00:01"
   ],
   "notes": [],
   "debug_appointments": {
@@ -300,5 +300,7 @@
       "category": "Research",
       "label": "Google Chrome"
     }
-  ]
+  ],
+  "timeline": [],
+  "deep_work_blocks": []
 }

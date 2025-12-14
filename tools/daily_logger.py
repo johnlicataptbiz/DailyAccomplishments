@@ -60,6 +60,15 @@ _MAX_RETRIES = 3 # Default value
 
 _CONFIG_CACHE = None
 
+def _deep_merge_dicts(base: Dict[str, Any], override: Dict[str, Any]) -> Dict[str, Any]:
+    """Recursively merge override into base (override wins)."""
+    for key, value in override.items():
+        if isinstance(value, dict) and isinstance(base.get(key), dict):
+            _deep_merge_dicts(base[key], value)  # type: ignore[index]
+        else:
+            base[key] = value
+    return base
+
 def load_config() -> Dict[str, Any]:
     """Load configuration with error handling and validation"""
     global _CONFIG_CACHE, LOG_DIR, ARCHIVE_DIR, BACKUP_DIR, _LOCK_TIMEOUT, _MAX_RETRIES
@@ -69,18 +78,27 @@ def load_config() -> Dict[str, Any]:
 
     config = {}
     try:
-        # 1. Try to load from config.json
+        # Load example defaults first (if present), then overlay config.json.
+        base_config: Dict[str, Any] = {}
+        if CONFIG_EXAMPLE_PATH.exists():
+            with open(CONFIG_EXAMPLE_PATH, "r") as f:
+                base_config = json.load(f)
+
         if CONFIG_PATH.exists():
-            with open(CONFIG_PATH, 'r') as f:
-                config = json.load(f)
+            with open(CONFIG_PATH, "r") as f:
+                user_config = json.load(f)
+            config = _deep_merge_dicts(base_config, user_config) if base_config else user_config
             logger.info(f"Configuration loaded from: {CONFIG_PATH}")
-        # 2. If config.json doesn't exist, try config.json.example as a template
-        elif CONFIG_EXAMPLE_PATH.exists():
-            with open(CONFIG_EXAMPLE_PATH, 'r') as f:
-                config = json.load(f)
-            logger.warning(f"config.json not found. Using config.json.example as template. Please create config.json for custom settings.")
+        elif base_config:
+            config = base_config
+            logger.warning(
+                "config.json not found. Using config.json.example as template. "
+                "Please create config.json for custom settings."
+            )
         else:
-            raise FileNotFoundError("Neither config.json nor config.json.example found. Please create one.")
+            raise FileNotFoundError(
+                "Neither config.json nor config.json.example found. Please create one."
+            )
 
         # Validate required config sections (basic check)
         required_sections = ['tracking', 'report', 'retention', 'analytics', 'notifications']

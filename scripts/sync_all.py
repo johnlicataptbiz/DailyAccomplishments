@@ -28,7 +28,8 @@ from datetime import datetime
 from pathlib import Path
 
 # Paths
-REPO_PATH = Path.home() / "DailyAccomplishments"
+# Resolve relative to this script so it works in Codespaces or non-standard clone locations.
+REPO_PATH = Path(__file__).resolve().parents[1]
 SCRIPTS_PATH = REPO_PATH / "scripts"
 CONFIG_PATH = REPO_PATH / "config.json"
 

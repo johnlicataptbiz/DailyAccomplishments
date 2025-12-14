@@ -21,6 +21,7 @@ wheels/
 *.egg
 MANIFEST
 venv/
+.venv/
 ENV/
 env/
 
@@ -41,13 +42,13 @@ credentials/
 *.key
 .env
 
-<<<<<<< HEAD
 # Temporary files
 tmp/
 temp/
 *.tmp
 *.bak
 *.cache
+*.csv.save
 
 # OS
 .DS_Store
@@ -57,12 +58,6 @@ Thumbs.db
 imports/
 recovered_from_persistedshare/
 reports/charts/
-=======
-# Python virtual environment
-.venv/
-venv/
-__pycache__/
-*.pyc
->>>>>>> copilot/continue-task-list-work
-.worktrees/
+
+# Git worktrees
 .worktrees/
