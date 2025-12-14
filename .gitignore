@@ -59,5 +59,11 @@ imports/
 recovered_from_persistedshare/
 reports/charts/
 
+# Generated charts (avoid binary diffs in PRs)
+focus_summary.png
+hourly_focus*.png
+category_distribution*.png
+reports/**/*.png
+
 # Git worktrees
 .worktrees/
