@@ -666,7 +666,7 @@ idle_detector = IdleDetector(threshold_seconds=600)  # 10 minutes instead of 5
 
 For issues:
 1. Check logs: `tail -f /tmp/dailyaccomplishments*.log`
-2. Review documentation: `IMPROVEMENTS.md`
+2. Review documentation: `docs/design/IMPROVEMENTS.md`
 3. Inspect JSONL: `cat logs/daily/YYYY-MM-DD.jsonl | jq`
 
 ---
