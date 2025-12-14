@@ -45,7 +45,7 @@ Successfully completed the core integration tasks from `INTEGRATION_TASKS.md`, f
 - [x] Daily report generation (JSON + Markdown)
 - [x] ActivityReport JSON generation
 - [x] CSV exports (hourly_focus, category_distribution, top_domains)
-- [x] Chart generation (PNG + SVG with matplotlib)
+- [x] Chart generation (SVG with matplotlib)
 
 ### Phase 3: Configuration ✅
 - [x] config.json.example has all analytics settings
@@ -87,7 +87,6 @@ Categories: Coding (60%), Meetings (20%), Research (20%)
 - `reports/daily-report-2025-12-08.md` (1.1K)
 - `reports/2025-12-08/*.csv` (3 files)
 - `reports/2025-12-08/*.svg` (2 vector charts)
-- `reports/2025-12-08/*.png` (2 raster charts)
 
 ## Remaining Tasks (Lower Priority)
 

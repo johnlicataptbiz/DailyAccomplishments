@@ -10,8 +10,22 @@ to log events to the daily logging system.
 import logging
 from typing import Dict, Any, Optional
 from datetime import datetime
-# Import from daily_logger in the same tools directory
-from daily_logger import log_activity, initialize_daily_log, midnight_reset, load_config, get_current_date
+try:
+    from .daily_logger import (
+        log_activity,
+        initialize_daily_log,
+        midnight_reset,
+        load_config,
+        get_current_date,
+    )
+except ImportError:  # pragma: no cover
+    from daily_logger import (
+        log_activity,
+        initialize_daily_log,
+        midnight_reset,
+        load_config,
+        get_current_date,
+    )
 
 logger = logging.getLogger(__name__)
 

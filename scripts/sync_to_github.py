@@ -19,6 +19,7 @@ Usage:
     python3 sync_to_github.py --setup            # First-time setup
 """
 
+import argparse
 import json
 import os
 import re
@@ -33,8 +34,8 @@ TRACKER_BASE = Path.home() / "Library" / "Application Support" / "ActivityTracke
 LOG_DIR = TRACKER_BASE / "logs"
 REPORT_DIR = TRACKER_BASE / "reports"
 
-# Your GitHub repo (update this path to where you cloned it)
-REPO_PATH = Path.home() / "DailyAccomplishments"  # Adjust if different
+# Your GitHub repo (resolved relative to this script for portability)
+REPO_PATH = Path(__file__).resolve().parents[1]
 GH_PAGES_PATH = REPO_PATH / "gh-pages"  # Or wherever your gh-pages worktree is
 
 
@@ -505,18 +506,30 @@ https://johnlicataptbiz.github.io/DailyAccomplishments/dashboard.html
 
 
 def main():
-    if len(sys.argv) > 1:
-        arg = sys.argv[1]
-        if arg == "--setup":
-            setup()
-            return
-        date_str = arg
-    else:
-        date_str = datetime.now().strftime("%Y-%m-%d")
-    
-    if sync_report(date_str):
-        push_to_github()
+    parser = argparse.ArgumentParser(description="Sync ActivityTracker logs into DailyAccomplishments repo artifacts.")
+    parser.add_argument("date", nargs="?", help="YYYY-MM-DD (defaults to today)")
+    parser.add_argument("--date", dest="date_flag", help="YYYY-MM-DD (overrides positional)")
+    parser.add_argument("--setup", action="store_true", help="Show first-time setup instructions")
+    parser.add_argument("--update-report", action="store_true", help="Update ActivityReport JSON only (skip git push)")
+    parser.add_argument("--no-push", action="store_true", help="Do not git commit/push (implies --update-report)")
+    args = parser.parse_args()
+
+    if args.setup:
+        setup()
+        return 0
+
+    date_str = args.date_flag or args.date or datetime.now().strftime("%Y-%m-%d")
+
+    ok = sync_report(date_str)
+    if not ok:
+        return 1
+
+    if args.no_push or args.update_report:
+        return 0
+
+    push_to_github()
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

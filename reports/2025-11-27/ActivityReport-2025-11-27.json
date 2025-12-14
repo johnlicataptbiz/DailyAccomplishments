@@ -9,7 +9,10 @@
     "appointments": 0,
     "projects_count": 0
   },
-  "browser_highlights": {},
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
+  },
   "by_category": {
     "Coding": "01:30",
     "Research": "02:10",
@@ -139,5 +142,7 @@
   ],
   "executive_summary": [
     "Screen Time: ~435 min foreground app usage"
-  ]
+  ],
+  "timeline": [],
+  "deep_work_blocks": []
 }

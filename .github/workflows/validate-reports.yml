@@ -29,27 +29,28 @@ jobs:
 
             echo "Attempting regeneration for $date"
 
-            # Option A: generate a single day if your generator supports it
+            # Try daily generator first
             if [ -f "scripts/generate_daily_json.py" ]; then
-              python3 scripts/generate_daily_json.py "$date" || true
+              python3 scripts/generate_daily_json.py "$date"
+            # Fallback to JSONL-based generator if available
+            elif [ -f "tools/generate_reports.py" ] && [ -f "logs/daily/${date}.jsonl" ]; then
+              python3 tools/generate_reports.py "$date"
+            else
+              echo "No suitable generator found for $date"
+              return 1
             fi
-
-            # Option B: if your repo uses a cron style script to generate reports
-            # Uncomment if you prefer this approach:
-            # if [ -f "scripts/cron_report_and_push.sh" ]; then
-            #   bash scripts/cron_report_and_push.sh || true
-            # fi
 
             if [ -f "$path" ]; then
               echo "Regeneration produced: $path"
               return 0
             fi
 
-            echo "Regeneration did not produce: $path"
+            echo "Regeneration ran but did not produce: $path"
             return 1
           }
 
-          for i in 0 1 2; do
+          # Validate only completed UTC days
+          for i in 1 2 3; do
             date=$(date -u -d "-$i day" +%F)
             path="reports/$date/ActivityReport-$date.json"
 
