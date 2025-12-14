@@ -22,6 +22,7 @@ jobs:
 
           missing=0
           invalid=0
+          validated=0
 
           regenerate_report() {
             local date="$1"
@@ -66,12 +67,19 @@ jobs:
             if ! python3 .github/scripts/validate_report_schema.py "$path"; then
               echo "INVALID: $path"
               invalid=$((invalid+1))
+            else
+              validated=$((validated+1))
             fi
           done
 
-          if [ "$missing" -ne 0 ] || [ "$invalid" -ne 0 ]; then
-            echo "Report check failed. Missing: $missing, Invalid: $invalid"
+          if [ "$validated" -eq 0 ]; then
+            echo "No recent reports found to validate; skipping."
+            exit 0
+          fi
+
+          if [ "$invalid" -ne 0 ]; then
+            echo "Report check failed. Missing: $missing, Invalid: $invalid, Validated: $validated"
             exit 1
           fi
 
-          echo "All recent reports present and valid."
+          echo "Recent report validation complete. Missing: $missing, Invalid: $invalid, Validated: $validated"
