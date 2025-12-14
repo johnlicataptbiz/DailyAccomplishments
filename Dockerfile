@@ -29,6 +29,7 @@ COPY *.html ./
 COPY reports/ ./reports/
 # Ensure the published dashboard from gh-pages is served from the static root
 COPY gh-pages/dashboard.html ./dashboard.html
+COPY railway-start.sh /app/railway-start.sh
 
 # Install Python dependencies
 RUN pip install --no-cache-dir matplotlib pillow
@@ -42,6 +43,6 @@ EXPOSE 8000
 # Heroku-style platforms). Fall back to 8000 for local runs.
 # Copy and use an entrypoint script that logs env and starts the server
 COPY entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh /app/railway-start.sh
 
 ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]

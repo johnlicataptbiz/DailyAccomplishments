@@ -673,94 +673,86 @@
 
         const RAW_BASE = 'https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/';
 
-        async function loadData(date) {
-            currentDate = date;
-            dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
+	        async function loadData(date) {
+	            currentDate = date;
+	            dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
 
-            console.log(`[loadData] Attempting to load data for date: ${date}`);
+	            console.log(`[loadData] Attempting to load data for date: ${date}`);
 
-            try {
-                console.log(`[loadData] Attempting to fetch ActivityReport-${date}.json`);
-                // Try same-origin first (works for GitHub Pages / local preview)
-                const cacheSuffix = `?t=${Date.now()}`;
-                let response = await (async () => {
-                    const cacheSuffix = `?t=${Date.now()}`;
-                    const tryDaysBack = 14;
+	            try {
+	                const cacheSuffix = `?t=${Date.now()}`;
+	                const tryDaysBack = 14;
 
-                    function minusDays(dateStr, n) {
-                        const dt = parseLocalDate(dateStr);
-                        dt.setDate(dt.getDate() - n);
-                        return localDateKey(dt);
-                    }
+	                function minusDays(dateStr, n) {
+	                    const dt = parseLocalDate(dateStr);
+	                    dt.setDate(dt.getDate() - n);
+	                    return localDateKey(dt);
+	                }
 
-                    async function tryFetchFor(d) {
-                        let r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
-                        if (!r.ok) {
-                            r = await fetch(`reports/daily-report-${d}.json${cacheSuffix}`, { cache: 'no-store' });
-                        }
-                        if (!r.ok) {
-                            r = await fetch(`${RAW_BASE}ActivityReport-${d}.json${cacheSuffix}`, { cache: 'no-store' });
-                        }
-                        return r;
-                    }
+	                async function fetchFirstOkFor(d) {
+	                    const candidates = [
+	                        { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
+	                        { url: `reports/daily-report-${d}.json`, timeoutMs: 1500 },
+	                        { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
+	                        { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
+	                    ];
 
-                    let resolvedDate = date;
-                    let r = null;
+	                    let lastResponse = null;
+	                    let lastUrl = candidates[candidates.length - 1].url;
 
-                    for (let back = 0; back <= tryDaysBack; back++) {
-                        const d = back === 0 ? date : minusDays(date, back);
-                        r = await tryFetchFor(d);
-                        if (r && r.ok) {
-                            resolvedDate = d;
-                            break;
-                        }
-                    }
+	                    for (const c of candidates) {
+	                        lastUrl = c.url;
+	                        console.log(`[loadData] Trying: ${c.url}`);
+	                        try {
+	                            lastResponse = await fetchWithTimeout(`${c.url}${cacheSuffix}`, { cache: 'no-store' }, c.timeoutMs);
+	                        } catch (e) {
+	                            console.log(`[loadData] Fetch failed: ${c.url} (${e?.name || 'error'})`);
+	                            lastResponse = null;
+	                        }
+	                        if (lastResponse && lastResponse.ok) return { response: lastResponse, usedUrl: c.url };
+	                    }
 
-                    if (!r || !r.ok) {
-                        throw new Error(`Report not found for ${date} or the prior ${tryDaysBack} days.`);
-                    }
+	                    return { response: lastResponse, usedUrl: lastUrl };
+	                }
 
-                    if (resolvedDate !== date) {
-                        currentDate = resolvedDate;
-                        dateInput.value = resolvedDate;
-                        updateUrl(resolvedDate);
-                    }
+	                let resolvedDate = date;
+	                let response = null;
+	                let usedUrl = `reports/daily-report-${date}.json`;
 
-                    return r;
-                })();
-                let usedUrl = `ActivityReport-${date}.json`;
-                if (!response.ok) {
-                    console.log(`[loadData] ActivityReport-${date}.json not found (status: ${response.status}). Trying reports/daily-report-${date}.json`);
-                    response = await fetch(`reports/daily-report-${date}.json${cacheSuffix}`, { cache: 'no-store' });
-                    usedUrl = `reports/daily-report-${date}.json`;
-                }
-                // Fallback to GitHub raw if Railway or host doesn't serve the JSON
-                if (!response.ok) {
-                    const rawUrl = `${RAW_BASE}ActivityReport-${date}.json${cacheSuffix}`;
-                    console.log(`[loadData] Falling back to GitHub raw: ${rawUrl}`);
-                    response = await fetch(rawUrl, { cache: 'no-store' });
-                    usedUrl = rawUrl;
-                }
-                // New nested path fallback for historical reports
-                if (!response.ok) {
-                    const nested = `reports/${date}/ActivityReport-${date}.json${cacheSuffix}`;
-                    console.log(`[loadData] Trying nested report path: ${nested}`);
-                    response = await fetch(nested, { cache: 'no-store' });
-                    usedUrl = `reports/${date}/ActivityReport-${date}.json`;
-                }
-                if (!response.ok) {
-                    throw new Error(`Report not found. Status: ${response.status} ${response.statusText}`);
-                }
+	                for (let back = 0; back <= tryDaysBack; back++) {
+	                    const d = back === 0 ? date : minusDays(date, back);
+	                    const result = await fetchFirstOkFor(d);
+	                    response = result.response;
+	                    usedUrl = result.usedUrl;
+	                    if (response && response.ok) {
+	                        resolvedDate = d;
+	                        break;
+	                    }
+	                }
 
-                data = await response.json();
-                console.log('[loadData] Data fetched successfully:', data);
-                document.getElementById('headerSub').textContent = formatDateFriendly(date);
-                // Set the raw data link to whichever URL actually succeeded
-                document.getElementById('jsonLink').href = usedUrl;
-                const baseline = await loadBaseline(date);
-                renderDashboard(data, date, baseline);
-            } catch (error) {
-                console.error('[loadData] Failed to load dashboard data:', error);
+	                if (!response || !response.ok) {
+	                    const status = response ? `${response.status} ${response.statusText}` : 'no response';
+	                    throw new Error(`Report not found for ${date} or the prior ${tryDaysBack} days. Last attempt: ${usedUrl} (${status})`);
+	                }
+
+	                if (resolvedDate !== date) {
+	                    currentDate = resolvedDate;
+	                    dateInput.value = resolvedDate;
+	                    updateUrl(resolvedDate);
+	                }
+
+	                data = await response.json();
+	                console.log('[loadData] Data fetched successfully:', data);
+	                document.getElementById('headerSub').textContent = formatDateFriendly(resolvedDate);
+	                // Set the raw data link to whichever URL actually succeeded
+	                document.getElementById('jsonLink').href = usedUrl;
+	                const baseline = await loadBaseline(resolvedDate);
+	                renderDashboard(data, resolvedDate, baseline);
+	            } catch (error) {
+	                console.error('[loadData] Failed to load dashboard data:', error);
+	                try {
+	                    document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
+                } catch {}
                 dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
             }
         }
@@ -774,12 +766,10 @@
                 dd.setDate(d.getDate() - i);
                 const key = localDateKey(dd);
                 try {
-                    let r = await fetch(`ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' });
-                    if (!r.ok) r = await fetch(`reports/daily-report-${key}.json${cacheSuffix}`, { cache: 'no-store' });
-                    if (!r.ok) {
-                        const rawUrl = `${RAW_BASE}ActivityReport-${key}.json${cacheSuffix}`;
-                        r = await fetch(rawUrl, { cache: 'no-store' });
-                    }
+                    let r = await fetchWithTimeout(`reports/daily-report-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
+                    if (!r.ok) r = await fetchWithTimeout(`reports/${key}/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
+                    if (!r.ok) r = await fetchWithTimeout(`ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
+                    if (!r.ok) r = await fetchWithTimeout(`${RAW_BASE}ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1500);
                     if (!r.ok) continue;
                     const j = await r.json();
                     base.focusMins += timeToMinutes(j.overview?.focus_time || '00:00');
