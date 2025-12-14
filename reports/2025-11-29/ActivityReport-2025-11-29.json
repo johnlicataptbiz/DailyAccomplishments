@@ -6,7 +6,8 @@
     "focus_time": "00:00",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 0
+    "projects_count": 0,
+    "coverage_window": "06:00-23:59"
   },
   "browser_highlights": {},
   "by_category": {},
