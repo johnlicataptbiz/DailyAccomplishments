@@ -301,11 +301,34 @@ def merge_into_activity_report(date_str: str, usages: List[AppUsage], repo_path:
             "source_file": f"ActivityReport-{date_str}.json",
             "date": date_str,
             "title": f"Daily Accomplishments — {date_str}",
-            "overview": {},
-            "browser_highlights": {},
+            "overview": {
+                "focus_time": "00:00",
+                "coverage_window": "",
+            },
+            "browser_highlights": {"top_domains": [], "top_pages": []},
             "by_category": {},
-            "hourly_focus": []
+            "hourly_focus": [],
+            "timeline": [],
+            "deep_work_blocks": [],
         }
+
+    if not isinstance(report.get("timeline"), list):
+        report["timeline"] = []
+    if not isinstance(report.get("deep_work_blocks"), list):
+        report["deep_work_blocks"] = []
+    ov = report.setdefault("overview", {})
+    if "focus_time" not in ov:
+        ov["focus_time"] = "00:00"
+    if "coverage_window" not in ov:
+        ov["coverage_window"] = ""
+    if not isinstance(report.get("browser_highlights"), dict):
+        report["browser_highlights"] = {"top_domains": [], "top_pages": []}
+    else:
+        bh = report["browser_highlights"]
+        if not isinstance(bh.get("top_domains"), list):
+            bh["top_domains"] = []
+        if not isinstance(bh.get("top_pages"), list):
+            bh["top_pages"] = []
 
     # Hourly minutes and top apps from app usage
     hourly = [0] * 24
@@ -336,6 +359,14 @@ def merge_into_activity_report(date_str: str, usages: List[AppUsage], repo_path:
             return int(hh) * 60 + int(mm)
         except Exception:
             return 0
+
+    # Prefer Screen Time totals when report focus_time is missing or clearly lower.
+    if app_minutes:
+        total_usage_minutes = sum(app_minutes.values())
+        ov = report.setdefault("overview", {})
+        existing_focus = parse_hhmm(ov.get("focus_time", "00:00"))
+        if total_usage_minutes > existing_focus:
+            ov["focus_time"] = minutes_to_time_str(total_usage_minutes)
     existing = report.get('by_category') or {}
     # If existing looks clearly corrupted (sum >> 24h), reset and prefer Screen Time
     existing_total = sum(parse_hhmm(v) for v in existing.values())
