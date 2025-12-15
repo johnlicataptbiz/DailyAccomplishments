@@ -747,14 +747,15 @@
 	            } catch {}
 	        }
 
-	        async function init() {
-	            await loadSettings();
-	            // On initial load allow falling back to recent days so "Today" can resolve to the
-	            // most recent available report. User-initiated navigation (date picker / arrows)
-	            // should not auto-resolve to a different date.
-	            await loadData(currentDate, { allowFallback: true });
-	        }
-	        init();
+            async function init() {
+                await loadSettings();
+                // On initial load do NOT automatically fall back to older reports. A hard
+                // refresh should keep the requested date (usually Today) visible even when
+                // no report exists for that date. This prevents the UI from jumping to the
+                // most-recent-available day (e.g., 2025-12-13) on every hard refresh.
+                await loadData(currentDate, { allowFallback: false });
+            }
+            init();
 
 	        let liveStoryInterval = null;
 	        let liveFetchInterval = null;
