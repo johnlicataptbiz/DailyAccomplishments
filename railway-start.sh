@@ -48,7 +48,7 @@ fi
 
 if [ -d "${ROOT_DIR}/dashboard" ]; then
   rm -rf "${SITE_DIR}/dashboard"
-  cp -R "${ROOT_DIR}/dashboard" "${SITE_DIR}/"
+  ln -s "${ROOT_DIR}/dashboard" "${SITE_DIR}/dashboard"
 fi
 
 if [ -f "${ROOT_DIR}/index.html" ]; then
