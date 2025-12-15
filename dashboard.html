@@ -756,7 +756,12 @@
                 // Read user preference for auto-resolving "Today" to the most recent
                 // available report. Stored in localStorage as 'autoResolveToday' ('1' = on).
                 const elToggle = document.getElementById('autoResolveToggle');
-                const pref = localStorage.getItem('autoResolveToday');
+                let pref = localStorage.getItem('autoResolveToday');
+                if (pref === null) {
+                    // Default to disabled to avoid surprising auto-navigation on hard refresh.
+                    localStorage.setItem('autoResolveToday', '0');
+                    pref = '0';
+                }
                 const autoResolveToday = (pref === '1');
                 if (elToggle) {
                     elToggle.checked = autoResolveToday;

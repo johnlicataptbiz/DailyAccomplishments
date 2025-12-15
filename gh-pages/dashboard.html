@@ -750,7 +750,15 @@
 	            // On initial load allow falling back to recent days so "Today" can resolve to the
 	            // most recent available report. User-initiated navigation (date picker / arrows)
 	            // should not auto-resolve to a different date.
-	            await loadData(currentDate, { allowFallback: true });
+                // Respect stored preference; default to disabled to avoid surprising
+                // auto-navigation on hard refresh.
+                let pref = localStorage.getItem('autoResolveToday');
+                if (pref === null) {
+                    localStorage.setItem('autoResolveToday', '0');
+                    pref = '0';
+                }
+                const autoResolveToday = (pref === '1');
+                await loadData(currentDate, { allowFallback: Boolean(autoResolveToday) });
 	        }
 	        init();
 
