@@ -1,0 +1,45 @@
+name: Scheduled update and push (every 30 min)
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Ensure script is executable
+        run: |
+          if [ -f ./generate_reports.sh ]; then chmod +x ./generate_reports.sh; fi
+          if [ -f ./tools/generate_reports.py ]; then echo "python script present"; fi
+
+      - name: Run report generation
+        run: |
+          if [ -x ./generate_reports.sh ]; then
+            ./generate_reports.sh
+          elif [ -f ./tools/generate_reports.py ]; then
+            python3 ./tools/generate_reports.py
+          else
+            echo "No report generator found" && exit 1
+          fi
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: scheduled reports update $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+            git push origin HEAD:main
+          else
+            echo "No changes to commit"
+          fi
