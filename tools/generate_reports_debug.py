@@ -25,7 +25,6 @@ except ImportError as e:
     print(f"DEBUG: Failed to import from generate_reports: {e}")
     # Fallback to local directory if tools. import fails
     try:
-        import sys
         sys.path.insert(0, str(Path(__file__).resolve().parent))
         from generate_reports import (
             load_data, 
@@ -102,6 +101,7 @@ def main():
                 else:
                     t = item or '00:00'
                 total_minutes += hhmm_to_minutes(t)
+            # Convert minutes to seconds for seconds_to_hhmm (which expects seconds)
             overview['focus_time'] = seconds_to_hhmm(total_minutes * 60)
         data['overview'] = overview
         
@@ -144,7 +144,7 @@ def main():
         pct_str = item.get('pct', '0%').rstrip('%')
         try:
             pct = int(pct_str)
-        except:
+        except ValueError:
             pct = 0
         if minutes > 60:
             minutes = min(60, int(60 * pct / 100))
@@ -192,7 +192,7 @@ def main():
             try:
                 pct = int(pct_str)
                 m = min(60, int(60 * pct / 100))
-            except:
+            except ValueError:
                 m = min(60, m)
         minutes.append(m)
     
