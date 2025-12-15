@@ -1,0 +1,186 @@
+{
+  "source_file": "ActivityReport-2025-12-13.json",
+  "date": "2025-12-13",
+  "title": "Daily Accomplishments \u2014 2025-12-13",
+  "overview": {
+    "active_time": "14:05",
+    "focus_time": "14:05",
+    "meetings_time": "00:00",
+    "coverage_time": "23:35",
+    "coverage_window": "00:00\u201323:35 CST",
+    "appointments": 0,
+    "projects_count": 4
+  },
+  "prepared_for_manager": [
+    "Active Time: 14:05",
+    "Focus Time: 14:05",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, Electron, Terminal"
+  ],
+  "executive_summary": [
+    "Active: 14:05 | Focus: 14:05",
+    "Coverage: 00:00\u201323:35 CST"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (09:35)",
+    "Focused on Electron (03:46)",
+    "Focused on Terminal (00:33)",
+    "Focused on Unknown (00:08)",
+    "Focused on Messages (00:00)"
+  ],
+  "by_category": {
+    "Research": "09:02",
+    "Other": "03:55",
+    "Coding": "01:06",
+    "Communication": "00:00"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:49",
+      "pct": "100%"
+    },
+    {
+      "hour": 1,
+      "time": "00:44",
+      "pct": "90%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:11",
+      "pct": "22%"
+    },
+    {
+      "hour": 4,
+      "time": "00:35",
+      "pct": "71%"
+    },
+    {
+      "hour": 5,
+      "time": "00:39",
+      "pct": "78%"
+    },
+    {
+      "hour": 6,
+      "time": "00:39",
+      "pct": "79%"
+    },
+    {
+      "hour": 7,
+      "time": "00:39",
+      "pct": "79%"
+    },
+    {
+      "hour": 8,
+      "time": "00:42",
+      "pct": "85%"
+    },
+    {
+      "hour": 9,
+      "time": "00:45",
+      "pct": "92%"
+    },
+    {
+      "hour": 10,
+      "time": "00:48",
+      "pct": "97%"
+    },
+    {
+      "hour": 11,
+      "time": "00:47",
+      "pct": "96%"
+    },
+    {
+      "hour": 12,
+      "time": "00:48",
+      "pct": "96%"
+    },
+    {
+      "hour": 13,
+      "time": "00:48",
+      "pct": "97%"
+    },
+    {
+      "hour": 14,
+      "time": "00:48",
+      "pct": "97%"
+    },
+    {
+      "hour": 15,
+      "time": "00:47",
+      "pct": "95%"
+    },
+    {
+      "hour": 16,
+      "time": "00:37",
+      "pct": "76%"
+    },
+    {
+      "hour": 17,
+      "time": "00:42",
+      "pct": "85%"
+    },
+    {
+      "hour": 18,
+      "time": "00:39",
+      "pct": "78%"
+    },
+    {
+      "hour": 19,
+      "time": "00:41",
+      "pct": "82%"
+    },
+    {
+      "hour": 20,
+      "time": "00:43",
+      "pct": "87%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:03",
+      "pct": "6%"
+    },
+    {
+      "hour": 23,
+      "time": "00:02",
+      "pct": "5%"
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "09:35",
+    "Electron": "03:46",
+    "Terminal": "00:33",
+    "Unknown": "00:08",
+    "Messages": "00:00",
+    "Finder": "00:00",
+    "Preview": "00:00",
+    "FaceTime": "00:00"
+  },
+  "top_windows_preview": [
+    "Google Chrome \u2014 Developer handoff report request - Google Chrome -: 03:34",
+    "Electron \u2014 index.html \u2014 DailyAccomplishments [Codespaces: sca: 01:20",
+    "Electron \u2014 DailyAccomplishments [Codespaces: scaling memory]: 00:42",
+    "Google Chrome \u2014 Handoff file update - Google Chrome - Jack (physic: 00:38",
+    "Electron \u2014 Codex Diff \u2014 DailyAccomplishments [Codespaces: sca: 00:29",
+    "Google Chrome \u2014 Refined GitHub prompt - Google Chrome - Jack (phys: 00:26",
+    "Google Chrome \u2014 ChatGPT - Coding - Google Chrome - Jack (physicalt: 00:25",
+    "Google Chrome \u2014 CI smoke test fix - Google Chrome - Jack (physical: 00:18",
+    "Electron \u2014 DailyAccomplishments Dashboard Recovery Report.pdf: 00:16",
+    "Google Chrome \u2014 Coding - Chat handoff summary - Google Chrome - Ja: 00:15"
+  ],
+  "foot": "Auto-generated (Redesign v1)"
+}

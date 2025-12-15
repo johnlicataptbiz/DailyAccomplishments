@@ -331,8 +331,10 @@ def main():
         sys.exit(1)
     # Ensure outputs are placed under reports/<date>/ as canonical location
     date_str = data.get('date') or date or DEFAULT_DATE
-    out_dir = BASE / 'reports' / date_str
+    reports_root = BASE / 'reports'
+    out_dir = reports_root / date_str
     out_dir.mkdir(parents=True, exist_ok=True)
+    reports_root.mkdir(exist_ok=True)
 
     # Write canonical ActivityReport JSON into reports/<date>/
     try:
@@ -354,7 +356,10 @@ def main():
         data['overview'] = overview
         (out_dir / f'ActivityReport-{date_str}.json').write_text(json.dumps(data, indent=2))
         # Also write the dashboard fallback name
-        (out_dir / f'daily-report-{date_str}.json').write_text(json.dumps(data, indent=2))
+        daily_report_json = json.dumps(data, indent=2)
+        (out_dir / f'daily-report-{date_str}.json').write_text(daily_report_json)
+        # Maintain legacy flat files consumed by dashboard fallbacks and automation
+        (reports_root / f'daily-report-{date_str}.json').write_text(daily_report_json)
         print(f"Wrote canonical ActivityReport JSON to {out_dir}")
     except Exception as e:
         print(f"Failed to write ActivityReport JSON to {out_dir}: {e}")
