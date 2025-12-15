@@ -96,6 +96,12 @@ If you have historical logs in `logs/daily/YYYY-MM-DD.jsonl`, generate real repo
 python3 scripts/backfill_reports.py --start 2025-12-01 --end 2025-12-31 --archive --include-backups
 ```
 
+If your logs are in a recovered folder (example: `recovered_artifacts/logs/`), point the backfill tool at it:
+
+```bash
+python3 scripts/backfill_reports.py --start 2025-12-01 --end 2025-12-31 --archive --logs-root recovered_artifacts/logs
+```
+
 ### Integration (3 Lines)
 
 ```python

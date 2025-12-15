@@ -50,9 +50,14 @@ class LogMatch:
 
 def find_log_for_date(logs_root: Path, date_str: str) -> Optional[LogMatch]:
     candidates = [
+        # logs_root may itself be a daily/ folder
+        logs_root / f"{date_str}.jsonl",
         logs_root / f"activity-{date_str}.jsonl",
         logs_root / "daily" / f"{date_str}.jsonl",
         logs_root / "daily" / f"activity-{date_str}.jsonl",
+        # recovered/legacy layouts
+        logs_root / "activity" / f"activity-{date_str}.jsonl",
+        logs_root / "activity" / f"{date_str}.jsonl",
     ]
     for p in candidates:
         if p.exists() and p.is_file() and p.stat().st_size > 0:
@@ -154,4 +159,3 @@ def main(argv: list[str]) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main(sys.argv[1:]))
-

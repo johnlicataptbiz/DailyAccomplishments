@@ -58,6 +58,7 @@ Thumbs.db
 imports/
 recovered_from_persistedshare/
 reports/charts/
+recovered_artifacts/
 
 # Generated charts (avoid binary diffs in PRs)
 focus_summary.png

@@ -395,14 +395,22 @@ def _normalize_event(obj: dict) -> Optional[dict]:
 
 def parse_activity_log(date_str: str, logs_dir: Path):
     """Parse a day's activity log file with fallback to legacy locations."""
-    primary = logs_dir / f"activity-{date_str}.jsonl"
-    fallback = logs_dir / "daily" / f"{date_str}.jsonl"
-    fallback_alt = logs_dir / "daily" / f"activity-{date_str}.jsonl"
+    candidates = [
+        # Common layouts
+        logs_dir / f"activity-{date_str}.jsonl",
+        logs_dir / f"{date_str}.jsonl",
+        logs_dir / "daily" / f"{date_str}.jsonl",
+        logs_dir / "daily" / f"activity-{date_str}.jsonl",
+        # Recovered/legacy layouts
+        logs_dir / "activity" / f"activity-{date_str}.jsonl",
+        logs_dir / "activity" / f"{date_str}.jsonl",
+    ]
 
     log_file = None
-    if primary.exists(): log_file = primary
-    elif fallback.exists(): log_file = fallback
-    elif fallback_alt.exists(): log_file = fallback_alt
+    for c in candidates:
+        if c.exists() and c.is_file() and c.stat().st_size > 0:
+            log_file = c
+            break
 
     if not log_file:
         print(f"No log file found for {date_str}")
