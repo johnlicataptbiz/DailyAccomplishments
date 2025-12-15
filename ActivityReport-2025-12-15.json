@@ -153,6 +153,13 @@
     }
   ],
   "executive_summary": [
-    "Screen Time: ~117 min foreground app usage"
+    "Active: 00:00 | Focus: 01:23",
+    "Coverage: 00:00\u201301:56 CST"
+  ],
+  "prepared_for_manager": [
+    "Active Time: 00:00",
+    "Focus Time: 01:23",
+    "Meeting Time: 00:00",
+    "Top Apps: VS Code, Terminal, Google Chrome"
   ]
 }
