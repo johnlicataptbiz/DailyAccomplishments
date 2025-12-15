@@ -4,7 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Accomplishments</title>
-  <script src="dashboard/vendor/chart.min.js"></script>
+                <script src="dashboard/vendor/chart.min.js"></script>
+                <script>
+                    (function(){
+                        function loadCDN(){
+                            var s = document.createElement('script');
+                            s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+                            s.crossOrigin = 'anonymous';
+                            s.onload = function(){ console.log('[cdn-fallback] loaded Chart.js from CDN'); };
+                            s.onerror = function(){ console.warn('[cdn-fallback] failed to load Chart.js from CDN'); };
+                            document.head.appendChild(s);
+                        }
+                        setTimeout(function(){ if (typeof Chart === 'undefined') { console.warn('[cdn-fallback] local Chart.js missing, loading CDN'); loadCDN(); } }, 200);
+                    })();
+                </script>
   <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -1824,7 +1837,7 @@
                 <!-- Category Breakdown -->
                 <div class="timeline-section">
                     <div class="section-title">📊 Time by Category</div>
-                    ${renderBars(d.by_category || {})}
+                    ${typeof renderBars === 'function' ? renderBars(d.by_category || {}) : '<p style="color: var(--text-muted);">Category chart unavailable</p>'}
                 </div>
 
                 <!-- Data Sources Panel -->
