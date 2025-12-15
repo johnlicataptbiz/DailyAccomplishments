@@ -45,12 +45,6 @@ if [ -f "${ROOT_DIR}/favicon.ico" ]; then
   rm -f "${SITE_DIR}/favicon.ico"
   ln -s "${ROOT_DIR}/favicon.ico" "${SITE_DIR}/favicon.ico"
 fi
-
-if [ -d "${ROOT_DIR}/dashboard" ]; then
-  rm -rf "${SITE_DIR}/dashboard"
-  ln -s "${ROOT_DIR}/dashboard" "${SITE_DIR}/dashboard"
-fi
-
 if [ -f "${ROOT_DIR}/index.html" ]; then
   cp -f "${ROOT_DIR}/index.html" "${SITE_DIR}/index.html"
 fi
