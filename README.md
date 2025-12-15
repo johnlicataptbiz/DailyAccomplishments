@@ -108,12 +108,13 @@ bridge.on_focus_change("VS Code", "main.py", 120)  # 2 minutes
 
 | Document | Description |
 |----------|-------------|
-| **[QUICKSTART.md](QUICKSTART.md)** | Step-by-step checklist (45 minutes to complete setup) |
+| **[QUICKSTART.md](QUICKSTART.md)** | Get started in 10 minutes |
 | **[INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md)** | Complete integration guide with code examples |
-| **[docs/index/README.md](docs/index/README.md)** | Documentation map (what’s current vs. archived) |
-| **[examples/README.md](examples/README.md)** | API reference and integration examples |
-| **[docs/design/IMPROVEMENTS.md](docs/design/IMPROVEMENTS.md)** | Technical architecture and design decisions |
-| **[docs/legacy/DELIVERY_SUMMARY.md](docs/legacy/DELIVERY_SUMMARY.md)** | Legacy delivery summary (archived) |
+| **[ROADMAP.md](ROADMAP.md)** | Future features and planned integrations |
+| **[examples/README.md](examples/README.md)** | API reference and code examples |
+| **[docs/index/README.md](docs/index/README.md)** | Documentation map |
+| **[docs/ops/HANDOFF.md](docs/ops/HANDOFF.md)** | Production operations guide |
+
 
 ## 🎯 Use Cases
 
