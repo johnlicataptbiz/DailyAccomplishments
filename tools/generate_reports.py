@@ -4,6 +4,7 @@ import json
 import sys
 from datetime import datetime
 from typing import Any, Callable, Dict, List, Optional, Tuple
+from urllib.parse import urlparse
 from pathlib import Path
 from zoneinfo import ZoneInfo
 import csv
@@ -31,10 +32,11 @@ def write_csv(path, rows, headers):
         w.writerow(headers)
         for r in rows:
             w.writerow(r)
-def _load_category_settings(config: Optional[Dict[str, Any]] = None) -> Tuple[Dict[str, List[str]], List[str]]:
-    """Return category mapping and priority settings from config if available."""
+def _load_category_settings(config: Optional[Dict[str, Any]] = None) -> Tuple[Dict[str, List[str]], List[str], Dict[str, str]]:
+    """Return category mapping, priority and domain mapping from config if available."""
     mapping: Dict[str, List[str]] = {}
     priority: List[str] = []
+    domain_mapping: Dict[str, str] = {}
 
     cfg = config
     if cfg is None:
@@ -60,8 +62,12 @@ def _load_category_settings(config: Optional[Dict[str, Any]] = None) -> Tuple[Di
             category_priority = analytics_cfg.get('category_priority') or []
             if isinstance(category_priority, list):
                 priority = [str(cat) for cat in category_priority]
+                domain_map = analytics_cfg.get('domain_mapping') or {}
+                if isinstance(domain_map, dict):
+                    # normalize to str->str
+                    domain_mapping = {str(k).lower(): str(v) for k, v in domain_map.items()}
 
-    return mapping, priority
+        return mapping, priority, domain_mapping
 
 
 def _build_categorizer(mapping: Dict[str, List[str]]) -> Callable[[str], str]:
@@ -80,6 +86,28 @@ def _build_categorizer(mapping: Dict[str, List[str]]) -> Callable[[str], str]:
         return categorize_app(app)
 
     return categorize
+
+
+def _build_domain_categorizer(domain_mapping: Dict[str, str]) -> Callable[[str], Optional[str]]:
+    """Return a function that maps a domain (or URL) substring to a category.
+
+    The returned function returns the category name or None if no mapping matched.
+    """
+    if not domain_mapping:
+        return lambda domain: None
+
+    normalized = {k.lower(): v for k, v in domain_mapping.items()}
+
+    def by_domain(domain: str) -> Optional[str]:
+        if not domain:
+            return None
+        d = domain.lower()
+        for key, cat in normalized.items():
+            if key in d:
+                return cat
+        return None
+
+    return by_domain
 
 
 def _build_priority_func(priority_list: List[str]) -> Callable[[str], int]:
@@ -134,8 +162,9 @@ def load_from_jsonl(jsonl_path: Path, config: Optional[Dict[str, Any]] = None) -
         return None
     # Aggregate for collector format: calculate durations from timestamps, categorize apps
     # Use the JSONL filename (YYYY-MM-DD) as the canonical report date when available.
-    mapping, priority_list = _load_category_settings(config)
+    mapping, priority_list, domain_mapping = _load_category_settings(config)
     category_resolver = _build_categorizer(mapping)
+    domain_resolver = _build_domain_categorizer(domain_mapping)
     priority_func = _build_priority_func(priority_list)
     if jsonl_path and jsonl_path.exists():
         stem = jsonl_path.stem
@@ -189,7 +218,23 @@ def load_from_jsonl(jsonl_path: Path, config: Optional[Dict[str, Any]] = None) -
         app = prev.get('app') or data_section.get('app') or data_section.get('application') or 'Unknown'
         idle = prev.get('idle_seconds', 0) or data_section.get('idle_seconds', 0)
         if duration > 1 and (idle is None or int(idle) < 5):
-            cat = category_resolver(app)
+            # Prefer domain-based categorization when URL/domain info is available
+            dom_text = None
+            for key in ('url', 'page', 'page_url', 'pageUrl', 'domain', 'host'):
+                if key in data_section and data_section.get(key):
+                    dom_text = data_section.get(key)
+                    break
+            dom_cat = None
+            if dom_text:
+                try:
+                    host = urlparse(dom_text).netloc or dom_text
+                except Exception:
+                    host = dom_text
+                dom_cat = domain_resolver(host)
+            if dom_cat:
+                cat = dom_cat
+            else:
+                cat = category_resolver(app)
             raw_intervals.append({'start': dt0, 'end': dt1, 'secs': duration, 'app': app, 'category': cat})
             print(f"Interval {dt0.isoformat()} -> {dt1.isoformat()} ({duration}s) app={app} cat={cat}")
         prev = event
