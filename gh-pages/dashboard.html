@@ -713,35 +713,81 @@
         const dateInput = document.getElementById('dateInput');
         dateInput.value = currentDate;
 
-        async function loadSettings() {
-            try {
-                const r = await fetchWithTimeout('config.json', { cache: 'no-store' }, 2000);
-                if (!r.ok) return;
-                const cfg = await r.json();
-                const mc = cfg?.weights?.meeting_credit;
-                if (typeof mc === 'number' && mc >= 0 && mc <= 1) {
-                    window.meetingCredit = mc;
-                }
-                const cp = cfg?.analytics?.category_priority;
-                if (Array.isArray(cp) && cp.length) {
-                    window.categoryPriority = cp;
-                }
-            } catch {}
-        }
+	        async function loadSettings() {
+	            try {
+	                const r = await fetchWithTimeout('config.json', { cache: 'no-store' }, 2000);
+	                if (!r.ok) return;
+	                const cfg = await r.json();
+	                const mc = cfg?.weights?.meeting_credit;
+	                if (typeof mc === 'number' && mc >= 0 && mc <= 1) {
+	                    window.meetingCredit = mc;
+	                }
+	                const ar = cfg?.dashboard?.auto_refresh_seconds;
+	                if (typeof ar === 'number' && ar >= 60 && ar <= 3600) {
+	                    window.dashboardAutoRefreshSeconds = ar;
+	                }
+	                const cp = cfg?.analytics?.category_priority;
+	                if (Array.isArray(cp) && cp.length) {
+	                    window.categoryPriority = cp;
+	                }
+	            } catch {}
+	        }
 
-        async function init() {
-            await loadSettings();
-            // On initial load allow falling back to recent days so "Today" can resolve to the
-            // most recent available report. User-initiated navigation (date picker / arrows)
-            // should not auto-resolve to a different date.
-            await loadData(currentDate, { allowFallback: true });
-        }
-        init();
-        
-        // Update URL when date changes (without reload)
-        function updateUrl(date) {
-            const url = new URL(window.location);
-            url.searchParams.set('date', date);
+	        async function init() {
+	            await loadSettings();
+	            // On initial load allow falling back to recent days so "Today" can resolve to the
+	            // most recent available report. User-initiated navigation (date picker / arrows)
+	            // should not auto-resolve to a different date.
+	            await loadData(currentDate, { allowFallback: true });
+	        }
+	        init();
+
+	        let liveStoryInterval = null;
+	        let liveFetchInterval = null;
+
+	        function stopLiveTimers() {
+	            if (liveStoryInterval) clearInterval(liveStoryInterval);
+	            if (liveFetchInterval) clearInterval(liveFetchInterval);
+	            liveStoryInterval = null;
+	            liveFetchInterval = null;
+	        }
+
+	        function updateLiveStoryOnly() {
+	            const state = window.__lastDashboardState;
+	            if (!state || !state.d || !state.date) return;
+	            if (state.date !== localDateKey()) return;
+	            const analysis = analyzeDay(state.d);
+	            const dayType = classifyDayType(analysis, state.baseline);
+	            const story = buildNarrative(analysis, state.baseline, dayType, state.date, state.d);
+	            const h = document.querySelector('.story-headline');
+	            const p = document.querySelector('.story-summary');
+	            if (h) h.textContent = story.executive || '';
+	            if (p) p.textContent = story.narrative || '';
+	        }
+
+	        function startLiveTimers(dateStr) {
+	            stopLiveTimers();
+	            if (dateStr !== localDateKey()) return;
+
+	            // 1) Recompute the headline/summary as the hour changes (no network)
+	            updateLiveStoryOnly();
+	            liveStoryInterval = setInterval(updateLiveStoryOnly, 60 * 1000);
+
+	            // 2) Pull fresh report JSON periodically (picks up new data published every ~30 min)
+	            const refreshSeconds = (typeof window.dashboardAutoRefreshSeconds === 'number')
+	                ? window.dashboardAutoRefreshSeconds
+	                : 300;
+	            liveFetchInterval = setInterval(() => {
+	                if (currentDate === localDateKey()) {
+	                    loadData(currentDate, { allowFallback: false, silent: true });
+	                }
+	            }, refreshSeconds * 1000);
+	        }
+	        
+	        // Update URL when date changes (without reload)
+	        function updateUrl(date) {
+	            const url = new URL(window.location);
+	            url.searchParams.set('date', date);
             window.history.pushState({date}, '', url);
         }
         
@@ -782,23 +828,26 @@
 
         const RAW_BASE = 'https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/';
 
-            async function loadData(date, opts = { allowFallback: true }) {
-                const allowFallback = Boolean(opts && opts.allowFallback);
-                currentDate = date;
-                dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
+	            async function loadData(date, opts = { allowFallback: true, silent: false }) {
+	                const allowFallback = Boolean(opts && opts.allowFallback);
+	                const silent = Boolean(opts && opts.silent);
+	                currentDate = date;
+	                if (!silent) {
+	                    dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
+	                }
 
                 console.log(`[loadData] Attempting to load data for date: ${date} allowFallback=${allowFallback}`);
 
                 // Hard guarantee: never spin forever (e.g., network hang / slow upstream).
                 const loadStartedAt = Date.now();
-                const watchdog = setTimeout(() => {
-                    if (dashboard && String(dashboard.innerHTML || '').includes('Loading your day')) {
-                        dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Timed out while loading. Try refreshing, or pick another date.</p></div>`;
-                        try {
-                            document.getElementById('jsonLink').href = `reports/${date}/ActivityReport-${date}.json`;
-                        } catch {}
-                    }
-                }, 4000);
+	                const watchdog = silent ? null : setTimeout(() => {
+	                    if (dashboard && String(dashboard.innerHTML || '').includes('Loading your day')) {
+	                        dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Timed out while loading. Try refreshing, or pick another date.</p></div>`;
+	                        try {
+	                            document.getElementById('jsonLink').href = `reports/${date}/ActivityReport-${date}.json`;
+	                        } catch {}
+	                    }
+	                }, 4000);
 
                 try {
                     const cacheSuffix = `?t=${Date.now()}`;
@@ -811,17 +860,13 @@
                         return localDateKey(dt);
                     }
 
-                    async function fetchFirstOkFor(d) {
-                        const candidates = [
-                            { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
-                            { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
-                            { url: `${RAW_BASE}reports/${d}/ActivityReport-${d}.json`, timeoutMs: 2000 },
-                            { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
-                            // Legacy (optional): if present, accept it, but do not probe it first
-                            // to avoid noise (many dates do not have this file).
-                            { url: `reports/daily-report-${d}.json`, timeoutMs: 1200 },
-                            { url: `${RAW_BASE}reports/daily-report-${d}.json`, timeoutMs: 1500 },
-                        ];
+	                    async function fetchFirstOkFor(d) {
+	                        const candidates = [
+	                            { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
+	                            { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
+	                            { url: `${RAW_BASE}reports/${d}/ActivityReport-${d}.json`, timeoutMs: 2000 },
+	                            { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
+	                        ];
 
                         let lastResponse = null;
                         let lastUrl = candidates[candidates.length - 1].url;
@@ -880,22 +925,24 @@
                     }
 
                     data = await response.json();
-                    console.log('[loadData] Data fetched successfully:', data);
-                    document.getElementById('headerSub').textContent = formatDateFriendly(resolvedDate);
-                    // Set the raw data link to whichever URL actually succeeded
-                    document.getElementById('jsonLink').href = usedUrl;
-                    const baseline = await loadBaseline(resolvedDate);
-                    renderDashboard(data, resolvedDate, baseline);
-                } catch (error) {
-                    console.error('[loadData] Failed to load dashboard data:', error);
-                    try {
-                        document.getElementById('jsonLink').href = `reports/${date}/ActivityReport-${date}.json`;
-                    } catch {}
-                    dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
-                } finally {
-                    clearTimeout(watchdog);
-                }
-                }
+	                    console.log('[loadData] Data fetched successfully:', data);
+	                    document.getElementById('headerSub').textContent = formatDateFriendly(resolvedDate);
+	                    // Set the raw data link to whichever URL actually succeeded
+	                    document.getElementById('jsonLink').href = usedUrl;
+	                    const baseline = await loadBaseline(resolvedDate);
+	                    renderDashboard(data, resolvedDate, baseline);
+	                } catch (error) {
+	                    console.error('[loadData] Failed to load dashboard data:', error);
+	                    if (!silent) {
+	                        try {
+	                            document.getElementById('jsonLink').href = `reports/${date}/ActivityReport-${date}.json`;
+	                        } catch {}
+	                        dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
+	                    }
+	                } finally {
+	                    if (watchdog) clearTimeout(watchdog);
+	                }
+	                }
 
         async function loadBaseline(dateStr) {
             const base = { days: 0, focusMins: 0, meetingMins: 0, coverageMins: 0 };
@@ -1072,7 +1119,7 @@
             return `${sign} ${formatMinutes(abs)} vs recent avg`;
         }
 
-        function classifyDayType(analysis, baseline) {
+	        function classifyDayType(analysis, baseline) {
             const total = analysis.coverageMins || analysis.activeMins || (analysis.focusMins + analysis.meetingMins) || 1;
             const focusShare = analysis.focusMins / total;
             const meetingShare = analysis.meetingMins / total;
@@ -1152,20 +1199,111 @@
                 }
             }
 
-            return {
-                key: 'balanced',
-                label: 'Balanced Day',
-                className: '',
-                description: 'No single signal dominated; metrics were broadly steady.',
-            };
-        }
+	            return {
+	                key: 'balanced',
+	                label: 'Balanced Day',
+	                className: '',
+	                description: 'No single signal dominated; metrics were broadly steady.',
+	            };
+	        }
 
-        function buildNarrative(analysis, baseline, dayType) {
-            const focusAvg = baseline?.focusAvg || 0;
-            const meetingAvg = baseline?.meetingAvg || 0;
+	        function hhmmToMin(s) {
+	            const m = /^\s*(\d{1,2}):(\d{2})\s*$/.exec(String(s || ''));
+	            if (!m) return null;
+	            const hh = parseInt(m[1], 10);
+	            const mm = parseInt(m[2], 10);
+	            if (isNaN(hh) || isNaN(mm) || hh < 0 || hh > 23 || mm < 0 || mm > 59) return null;
+	            return hh * 60 + mm;
+	        }
 
-            const focusVs = fmtVsAvgMins(analysis.focusMins, focusAvg);
-            const meetingVs = fmtVsAvgMins(analysis.meetingMins, meetingAvg);
+	        function computeWindowStatsFromTimeline(d, windowStartMin, windowEndMin) {
+	            const out = { meetingMins: 0, nonMeetingMins: 0, deepFocusMins: 0, switches: 0, lastEndMin: null };
+	            const timeline = Array.isArray(d?.timeline) ? d.timeline : [];
+	            const deepCats = new Set(['Coding', 'Docs', 'Research']);
+	            let prevKey = null;
+
+	            for (const seg of timeline) {
+	                const a0 = hhmmToMin(seg?.start);
+	                const b0 = hhmmToMin(seg?.end);
+	                if (a0 == null || b0 == null) continue;
+	                const a = Math.max(a0, windowStartMin);
+	                const b = Math.min(b0, windowEndMin);
+	                const overlap = Math.max(0, b - a);
+	                if (overlap <= 0) continue;
+
+	                out.lastEndMin = out.lastEndMin == null ? b0 : Math.max(out.lastEndMin, b0);
+
+	                const cat = String(seg?.category || '');
+	                const app = String(seg?.app || '');
+	                const key = `${cat}|${app}`;
+	                if (prevKey && key !== prevKey) out.switches += 1;
+	                prevKey = key;
+
+	                if (cat === 'Meetings') {
+	                    out.meetingMins += overlap;
+	                } else {
+	                    out.nonMeetingMins += overlap;
+	                    if (deepCats.has(cat)) out.deepFocusMins += overlap;
+	                }
+	            }
+	            return out;
+	        }
+
+	        function timeOfDayLabel(nowMin) {
+	            if (nowMin < 5 * 60) return 'Late night';
+	            if (nowMin < 12 * 60) return 'Morning';
+	            if (nowMin < 14 * 60) return 'Midday';
+	            if (nowMin < 17 * 60) return 'Afternoon';
+	            if (nowMin < 21 * 60) return 'Evening';
+	            return 'Late evening';
+	        }
+
+	        function buildLivePulse(d, dateStr) {
+	            if (!dateStr || dateStr !== localDateKey()) return null;
+	            const now = new Date();
+	            const nowMin = now.getHours() * 60 + now.getMinutes();
+	            const windowMins = 180;
+	            const windowStartMin = Math.max(0, nowMin - windowMins);
+	            const stats = computeWindowStatsFromTimeline(d, windowStartMin, nowMin);
+
+	            const total = stats.meetingMins + stats.nonMeetingMins;
+	            const tod = timeOfDayLabel(nowMin);
+	            const winLabel = `last ${Math.round(windowMins / 60)}h`;
+
+	            if (total < 15) {
+	                return {
+	                    label: `${tod} — low activity so far`,
+	                    detail: `In the ${winLabel}, minimal tracked activity was recorded.`,
+	                };
+	            }
+
+	            const meetingShare = stats.meetingMins / Math.max(1, total);
+	            let label = `${tod} — steady progress`;
+	            if (stats.meetingMins >= 45 && meetingShare >= 0.6) {
+	                label = `${tod} — meeting flurry`;
+	            } else if (stats.deepFocusMins >= 60 && stats.meetingMins <= 15) {
+	                label = `${tod} — deep work session`;
+	            } else if (stats.switches >= 12) {
+	                label = `${tod} — high context switching`;
+	            }
+
+	            const detailParts = [];
+	            if (stats.deepFocusMins > 0) detailParts.push(`${formatMinutes(stats.deepFocusMins)} deep-focus activity`);
+	            if (stats.nonMeetingMins > stats.deepFocusMins) detailParts.push(`${formatMinutes(stats.nonMeetingMins - stats.deepFocusMins)} other non-meeting activity`);
+	            if (stats.meetingMins > 0) detailParts.push(`${formatMinutes(stats.meetingMins)} meetings`);
+	            const detail = `In the ${winLabel}: ${detailParts.join(', ')}.`;
+
+	            return { label, detail };
+	        }
+
+	        function buildNarrative(analysis, baseline, dayType, dateStr, d) {
+	            const isToday = Boolean(dateStr && dateStr === localDateKey());
+	            const pulse = isToday ? buildLivePulse(d, dateStr) : null;
+	            const focusAvg = baseline?.focusAvg || 0;
+	            const meetingAvg = baseline?.meetingAvg || 0;
+
+	            const focusVs = fmtVsAvgMins(analysis.focusMins, focusAvg);
+	            const meetingVs = fmtVsAvgMins(analysis.meetingMins, meetingAvg);
 
             const topCat = Array.isArray(analysis.topCategory) ? analysis.topCategory : null;
             const topCatText = topCat ? `${topCat[0]} (${topCat[1]})` : null;
@@ -1174,16 +1312,17 @@
             const focusShare = total ? Math.round((analysis.focusMins / total) * 100) : null;
             const meetingShare = total ? Math.round((analysis.meetingMins / total) * 100) : null;
 
-            let executive = `${dayType.label}.`;
-            const parts = [];
-            if (analysis.focusMins) parts.push(`Focus totaled ${formatMinutes(analysis.focusMins)}${focusVs ? ` (${focusVs})` : ''}.`);
-            if (analysis.meetingMins) parts.push(`Meetings accounted for ${formatMinutes(analysis.meetingMins)}${meetingVs ? ` (${meetingVs})` : ''}.`);
-            if (!analysis.meetingMins) parts.push('Meetings were minimal.');
-            executive = `${executive} ${parts.join(' ')}`.trim();
+	            let executive = (pulse && pulse.label) ? `${pulse.label}.` : `${dayType.label}.`;
+	            const parts = [];
+	            if (analysis.focusMins) parts.push(`${isToday ? 'Focus so far' : 'Focus'} totaled ${formatMinutes(analysis.focusMins)}${focusVs ? ` (${focusVs})` : ''}.`);
+	            if (analysis.meetingMins) parts.push(`${isToday ? 'Meetings so far' : 'Meetings'} accounted for ${formatMinutes(analysis.meetingMins)}${meetingVs ? ` (${meetingVs})` : ''}.`);
+	            if (!analysis.meetingMins) parts.push(isToday ? 'Meetings were minimal so far.' : 'Meetings were minimal.');
+	            executive = `${executive} ${parts.join(' ')}`.trim();
 
-            const structure = [];
-            if (focusShare != null && focusShare >= 55) structure.push(`Most of the day’s tracked time was focused work (${focusShare}%).`);
-            if (meetingShare != null && meetingShare >= 45) structure.push(`Meetings took a large share of tracked time (${meetingShare}%).`);
+	            const structure = [];
+	            if (pulse && pulse.detail) structure.push(pulse.detail);
+	            if (focusShare != null && focusShare >= 55) structure.push(`Most of the day’s tracked time was focused work (${focusShare}%).`);
+	            if (meetingShare != null && meetingShare >= 45) structure.push(`Meetings took a large share of tracked time (${meetingShare}%).`);
 
             if (analysis.contextSwitches != null) {
                 structure.push(`Task switching registered ${analysis.contextSwitches} changes across the recorded timeline.`);
@@ -1205,12 +1344,12 @@
 
             if (topCatText) structure.push(`Top category was ${topCatText}.`);
 
-            let narrative = structure.join(' ');
-            if (analysis.hasLimitedSignals) {
-                narrative = `Limited signals were recorded (${formatMinutes(total)} total coverage). ${narrative}`;
-            }
-            return { executive, narrative };
-        }
+	            let narrative = structure.join(' ');
+	            if (analysis.hasLimitedSignals) {
+	                narrative = `Limited signals were recorded (${formatMinutes(total)} total coverage). ${narrative}`;
+	            }
+	            return { executive, narrative };
+	        }
 
         function generateHighlights(analysis, baseline, dayType) {
             const highlights = [];
@@ -1579,12 +1718,13 @@
             return wins.slice(0, 5);
         }
 
-        function renderDashboard(d, date, baseline) {
-            const analysis = analyzeDay(d);
-            const dayType = classifyDayType(analysis, baseline);
-            const story = buildNarrative(analysis, baseline, dayType);
-            const insights = generateHighlights(analysis, baseline, dayType);
-            const evidenceItems = buildEvidenceItems(d, analysis, baseline);
+	        function renderDashboard(d, date, baseline) {
+	            try { stopLiveTimers(); } catch {}
+	            const analysis = analyzeDay(d);
+	            const dayType = classifyDayType(analysis, baseline);
+	            const story = buildNarrative(analysis, baseline, dayType, date, d);
+	            const insights = generateHighlights(analysis, baseline, dayType);
+	            const evidenceItems = buildEvidenceItems(d, analysis, baseline);
             
             dashboard.innerHTML = `
                 <!-- Story Hero -->
@@ -1700,8 +1840,8 @@
                 </div>
             `;
 
-            setTimeout(() => {
-                try { renderSvgTimeline(d); } catch (err) { console.warn('renderSvgTimeline error', err); }
+	            setTimeout(() => {
+	                try { renderSvgTimeline(d); } catch (err) { console.warn('renderSvgTimeline error', err); }
                 renderHourlyChart(d.hourly_focus || [], d);
                 renderCategoryChart(d.by_category || {});
                 // Attach generic tooltips for evidence-backed UI affordances
@@ -1713,9 +1853,12 @@
                     try { attachDeepWorkTooltips(); } catch (err) { console.warn('attachDeepWorkTooltips error', err); }
                 }
                 // Setup data sources panel
-                try { setupDataSourcesPanel(d); } catch (err) { console.warn('setupDataSourcesPanel error', err); }
-            }, 100);
-        }
+	                try { setupDataSourcesPanel(d); } catch (err) { console.warn('setupDataSourcesPanel error', err); }
+	            }, 100);
+
+	            window.__lastDashboardState = { d, date, baseline };
+	            try { startLiveTimers(date); } catch {}
+	        }
 
         function getCategoryPriority() {
             const p = window.categoryPriority;

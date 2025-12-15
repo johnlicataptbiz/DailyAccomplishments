@@ -16,6 +16,7 @@ from collections import defaultdict
 from typing import Optional, List, Dict, Any, Tuple
 from datetime import datetime, timedelta
 from pathlib import Path
+import argparse
 
 REPO_ROOT = Path(__file__).parent.parent
 LOGS_DIR = REPO_ROOT / "logs"
@@ -392,11 +393,11 @@ def _normalize_event(obj: dict) -> Optional[dict]:
     
     return res
 
-def parse_activity_log(date_str):
+def parse_activity_log(date_str: str, logs_dir: Path):
     """Parse a day's activity log file with fallback to legacy locations."""
-    primary = LOGS_DIR / f"activity-{date_str}.jsonl"
-    fallback = LOGS_DIR / "daily" / f"{date_str}.jsonl"
-    fallback_alt = LOGS_DIR / "daily" / f"activity-{date_str}.jsonl"
+    primary = logs_dir / f"activity-{date_str}.jsonl"
+    fallback = logs_dir / "daily" / f"{date_str}.jsonl"
+    fallback_alt = logs_dir / "daily" / f"activity-{date_str}.jsonl"
 
     log_file = None
     if primary.exists(): log_file = primary
@@ -467,12 +468,14 @@ def minutes_to_time_str(minutes):
     mins = int(minutes % 60)
     return f"{hours:02d}:{mins:02d}"
 
-def generate_report(date_str=None):
+def generate_report(date_str: Optional[str] = None, logs_dir: Optional[Path] = None):
     """Generate the daily report JSON using precise timeline logic."""
     if date_str is None:
         date_str = datetime.now().strftime('%Y-%m-%d')
+
+    logs_dir = Path(logs_dir) if logs_dir is not None else LOGS_DIR
     
-    activities = parse_activity_log(date_str)
+    activities = parse_activity_log(date_str, logs_dir)
     if not activities: return None
     
     # Initialize Aggregators
@@ -626,6 +629,14 @@ def generate_report(date_str=None):
     return report
 
 if __name__ == '__main__':
-    import sys
-    date_arg = sys.argv[1] if len(sys.argv) > 1 else None
-    generate_report(date_arg)
+    parser = argparse.ArgumentParser(description="Generate ActivityReport-YYYY-MM-DD.json from local activity logs.")
+    parser.add_argument("date", nargs="?", default=None, help="Date to generate (YYYY-MM-DD). Defaults to today.")
+    parser.add_argument(
+        "--logs-dir",
+        default=None,
+        help="Root logs directory. Expected layout: <logs-dir>/daily/YYYY-MM-DD.jsonl or <logs-dir>/activity-YYYY-MM-DD.jsonl. Defaults to ./logs.",
+    )
+    args = parser.parse_args()
+    report = generate_report(args.date, logs_dir=Path(args.logs_dir) if args.logs_dir else None)
+    if not report:
+        raise SystemExit(1)

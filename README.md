@@ -74,6 +74,28 @@ open http://localhost:8000/dashboard.html
 bash scripts/smoke_railway.sh https://dailyaccomplishments.up.railway.app
 ```
 
+### Near Real-Time Updates (every 30 minutes)
+
+If you’re generating reports from local logs and pushing to GitHub (so Railway redeploys), install the macOS LaunchAgent:
+
+```bash
+# default: every 1800s (30 min)
+bash scripts/install_launchagents.sh
+
+# override interval (seconds)
+INTERVAL_SECONDS=900 bash scripts/install_launchagents.sh
+```
+
+The dashboard live headline updates every minute, and it will poll for new report JSON every 5 minutes by default (configurable via `config.json`).
+
+### Backfill Reports (no placeholders)
+
+If you have historical logs in `logs/daily/YYYY-MM-DD.jsonl`, generate real reports for a date range:
+
+```bash
+python3 scripts/backfill_reports.py --start 2025-12-01 --end 2025-12-31 --archive --include-backups
+```
+
 ### Integration (3 Lines)
 
 ```python
