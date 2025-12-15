@@ -83,3 +83,40 @@ jobs:
 
           git commit -m "ci: update ActivityReports (UTC) [skip ci]" || echo "nothing to commit"
           git push origin HEAD:main
+
+      - name: Alert: missing logs
+        if: steps.generate.outputs.generated == 'false'
+        env:
+          TARGET_DATE: ${{ env.TARGET_DATE }}
+          YESTERDAY_DATE: ${{ env.YESTERDAY_DATE }}
+          RUN_ID: ${{ github.run_id }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const tgt = process.env.TARGET_DATE;
+            const yd = process.env.YESTERDAY_DATE;
+            const runId = process.env.RUN_ID;
+            const title = `Missing ActivityReport for ${tgt} (no logs found)`;
+            const body = `Automatic alert: the scheduled report job did not find logs for TARGET_DATE=${tgt} or YESTERDAY_DATE=${yd} in this run (run id ${runId}).\n\nPlease check the collector and ingestion pipeline.\n\nIf this persists, consider running diagnostics on the collector host or reviewing runner logs.`;
+            // Try to find an existing open issue with the same title
+            const issues = await github.rest.issues.listForRepo({ owner: context.repo.owner, repo: context.repo.repo, state: 'open', labels: 'reports' });
+            const existing = issues.data.find(i => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: existing.number, body: `Still missing logs for ${tgt} (run ${runId}).` });
+            } else {
+              await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title, body, labels: ['reports','data-gap'] });
+            }
+
+      - name: Optional Slack notification (if SLACK_WEBHOOK_URL secret provided)
+        if: steps.generate.outputs.generated == 'false'
+        env:
+          TARGET_DATE: ${{ env.TARGET_DATE }}
+          YESTERDAY_DATE: ${{ env.YESTERDAY_DATE }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL || '' }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK_URL" ]; then
+            payload="{\"text\":\"DailyReports: No logs found for ${TARGET_DATE} or ${YESTERDAY_DATE} (automated check).\"}"
+            curl -s -X POST -H 'Content-type: application/json' --data "$payload" "$SLACK_WEBHOOK_URL" || true
+          else
+            echo "No SLACK_WEBHOOK_URL secret set; skipping Slack notification"
+          fi
