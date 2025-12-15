@@ -33,13 +33,22 @@ jobs:
           fi
 
       - name: Commit & push if changed
+        env:
+          PAT: ${{ secrets.PAT }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "chore: scheduled reports update $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-            git push origin HEAD:main
+            # If a PAT secret is provided use it to push (useful when branch protection blocks GITHUB_TOKEN)
+            if [ -n "$PAT" ]; then
+              echo "Using PAT for push"
+              git remote set-url origin https://$PAT@github.com/${{ github.repository }}.git
+              git push origin HEAD:main
+            else
+              git push origin HEAD:main
+            fi
           else
             echo "No changes to commit"
           fi
