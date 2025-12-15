@@ -3,16 +3,16 @@
   "date": "2025-12-15",
   "title": "Daily Accomplishments \u2014 2025-12-15",
   "overview": {
-    "focus_time": "03:14",
-    "coverage_window": "00:00\u201309:29"
+    "focus_time": "06:49",
+    "coverage_window": "00:00\u201315:59"
   },
   "browser_highlights": {
     "top_domains": [],
     "top_pages": []
   },
   "by_category": {
-    "Research": "01:40",
-    "Coding": "01:34"
+    "Research": "03:15",
+    "Coding": "03:34"
   },
   "hourly_focus": [
     {
@@ -62,37 +62,37 @@
     },
     {
       "hour": 9,
-      "time": "00:22",
+      "time": "00:49",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:00",
+      "time": "00:37",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:00",
+      "time": "00:47",
       "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:00",
+      "time": "00:41",
       "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:00",
+      "time": "00:17",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:00",
+      "time": "00:41",
       "pct": "0%"
     },
     {
@@ -139,11 +139,18 @@
   "timeline": [],
   "deep_work_blocks": [],
   "top_apps": {
-    "Google Chrome": "01:40",
-    "VS Code": "01:11",
-    "Terminal": "00:23"
+    "Google Chrome": "03:15",
+    "VS Code": "03:07",
+    "Terminal": "00:27"
   },
   "deep_work": [
+    {
+      "start": "08:43",
+      "end": "10:21",
+      "minutes": 85,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
     {
       "start": "00:01",
       "end": "01:01",
@@ -152,30 +159,43 @@
       "label": "Terminal"
     },
     {
+      "start": "12:33",
+      "end": "13:26",
+      "minutes": 43,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "15:12",
+      "end": "15:59",
+      "minutes": 41,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
       "start": "07:17",
       "end": "08:00",
       "minutes": 38,
       "category": "Research",
       "label": "Google Chrome"
-    },
-    {
-      "start": "08:43",
-      "end": "09:29",
-      "minutes": 37,
-      "category": "Research",
-      "label": "Google Chrome"
     }
   ],
   "executive_summary": [
-    "Active: 00:00 | Focus: 03:14",
-    "Coverage: 00:00\u201309:29 CST",
+    "Active: 00:00 | Focus: 06:49",
+    "Coverage: 00:00\u201315:59 CST",
     "Screen Time: ~117 min foreground app usage",
     "Screen Time: ~179 min foreground app usage",
-    "Screen Time: ~249 min foreground app usage"
+    "Screen Time: ~249 min foreground app usage",
+    "Screen Time: ~320 min foreground app usage",
+    "Screen Time: ~354 min foreground app usage",
+    "Screen Time: ~389 min foreground app usage",
+    "Screen Time: ~419 min foreground app usage",
+    "Screen Time: ~463 min foreground app usage",
+    "Screen Time: ~509 min foreground app usage"
   ],
   "prepared_for_manager": [
     "Active Time: 00:00",
-    "Focus Time: 03:14",
+    "Focus Time: 06:49",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, VS Code, Terminal"
   ]
