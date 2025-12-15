@@ -3,16 +3,17 @@
   "date": "2025-12-15",
   "title": "Daily Accomplishments \u2014 2025-12-15",
   "overview": {
-    "focus_time": "07:12",
-    "coverage_window": "00:00\u201316:40"
+    "focus_time": "07:31",
+    "coverage_window": "00:00\u201317:07"
   },
   "browser_highlights": {
     "top_domains": [],
     "top_pages": []
   },
   "by_category": {
-    "Research": "03:21",
-    "Coding": "03:51"
+    "Research": "03:35",
+    "Coding": "03:54",
+    "Other": "00:02"
   },
   "hourly_focus": [
     {
@@ -97,12 +98,12 @@
     },
     {
       "hour": 16,
-      "time": "00:23",
+      "time": "00:36",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:00",
+      "time": "00:06",
       "pct": "0%"
     },
     {
@@ -139,9 +140,10 @@
   "timeline": [],
   "deep_work_blocks": [],
   "top_apps": {
-    "VS Code": "03:24",
-    "Google Chrome": "03:21",
-    "Terminal": "00:27"
+    "Google Chrome": "03:35",
+    "VS Code": "03:26",
+    "Terminal": "00:28",
+    "Finder": "00:02"
   },
   "deep_work": [
     {
@@ -178,11 +180,18 @@
       "minutes": 38,
       "category": "Research",
       "label": "Google Chrome"
+    },
+    {
+      "start": "16:20",
+      "end": "16:54",
+      "minutes": 27,
+      "category": "Research",
+      "label": "Google Chrome"
     }
   ],
   "executive_summary": [
-    "Active: 00:00 | Focus: 07:12",
-    "Coverage: 00:00\u201316:40 CST",
+    "Active: 00:00 | Focus: 07:31",
+    "Coverage: 00:00\u201317:07 CST",
     "Screen Time: ~117 min foreground app usage",
     "Screen Time: ~179 min foreground app usage",
     "Screen Time: ~249 min foreground app usage",
@@ -192,12 +201,13 @@
     "Screen Time: ~419 min foreground app usage",
     "Screen Time: ~463 min foreground app usage",
     "Screen Time: ~509 min foreground app usage",
-    "Screen Time: ~540 min foreground app usage"
+    "Screen Time: ~540 min foreground app usage",
+    "Screen Time: ~567 min foreground app usage"
   ],
   "prepared_for_manager": [
     "Active Time: 00:00",
-    "Focus Time: 07:12",
+    "Focus Time: 07:31",
     "Meeting Time: 00:00",
-    "Top Apps: VS Code, Google Chrome, Terminal"
+    "Top Apps: Google Chrome, VS Code, Terminal"
   ]
 }
