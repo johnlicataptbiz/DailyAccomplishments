@@ -1,42 +1,17 @@
 # Daily Accomplishments Tracker
 
-> **A robust, production-ready activity tracking and productivity analytics system**
+> **Production-ready productivity tracking and analytics system**
 
-Automatically track your daily activities, analyze productivity patterns, and get actionable insights through beautiful dashboards and automated notifications.
+Automatically track daily activities, analyze productivity patterns, and gain actionable insights through visualizations and automated reporting.
 
-## ✨ Features
+## Features
 
-### 🛡️ **Robust & Reliable**
-- **Error Handling**: File locking, JSON validation, automatic backups, self-healing
-- **Data Integrity**: Health checks, corruption detection, automatic repair
-- **Cross-Platform**: macOS, Linux, Windows support
-- **Timezone-Aware**: Accurate timestamps with configurable timezone
-
-### 📊 **Analytics & Insights**
-- **Deep Work Detection**: Identify focused work sessions (25+ minutes)
-- **Productivity Scoring**: 0-100 scale with quality ratings
-- **Interruption Analysis**: Track context switches and distractions
-- **Focus Windows**: AI-recommended time blocks for deep work
-- **Category Breakdown**: Automatic categorization by activity type
-
-### 🖥️ **Web Dashboard**
-- **Interactive Charts**: Chart.js visualizations (hourly interruptions, category distribution)
-- **Real-Time Stats**: Productivity score, deep work hours, focus time %, interruptions
-- **Session List**: All work sessions with quality indicators
-- **Auto-Refresh**: Updates every 5 minutes
-- **Historical Data**: Date picker for past reports
-
-### 📧 **Notifications**
-- **Email**: Beautiful HTML reports via SMTP (Gmail)
-- **Slack**: Rich block-based messages with emoji indicators
-- **Automated**: Schedule daily/weekly delivery
-- **Smart Summaries**: Top sessions, category breakdown, focus recommendations
-
-### 🔗 **Easy Integration**
-- **Bridge API**: Drop-in integration for existing trackers
-- **Event Types**: App switches, URL visits, meetings, idle time, focus sessions
-- **Deduplication**: Automatic filtering of duplicate events (2-second window)
-- **Simple API**: Just 3 lines of code to start logging
+- 📊 **Analytics**: Deep work detection, productivity scoring, interruption analysis
+- 🖥️ **Web Dashboard**: Interactive charts with Chart.js, historical data browser
+- 📧 **Notifications**: Email (SMTP) and Slack integration
+- 🔗 **Easy Integration**: Simple bridge API for existing activity trackers
+- 🛡️ **Robust**: Error handling, file locking, automatic backups, cross-platform
+- ⏰ **Automated**: Scheduled reports with launchd/cron support
 
 ## 🚀 Quick Start
 
@@ -111,9 +86,9 @@ bridge = ActivityTrackerBridge()
 bridge.on_focus_change("VS Code", "main.py", 120)  # 2 minutes
 ```
 
-**That's it!** Events are now logged to `logs/daily/YYYY-MM-DD.jsonl`
+**Events are logged to `logs/daily/YYYY-MM-DD.jsonl`. See [QUICKSTART.md](QUICKSTART.md) for complete setup.**
 
-## ✨ Advanced Features
+## Advanced Features
 
 ### Timeline-Based Aggregation
 - **High-Fidelity Reporting**: Instead of bucketing events into hourly chunks, the system now constructs a precise timeline of your activity. It intelligently merges overlapping events and re-attributes time based on activity priority (e.g., coding in the foreground during a meeting).
