@@ -2,20 +2,24 @@
 
 ## Project Overview
 
-DailyAccomplishments is a productivity tracking and reporting application that aggregates activity data from multiple platforms and generates daily reports with visualizations.
+DailyAccomplishments is a production-ready productivity tracking and analytics system that automatically logs activity events, generates insights, and provides visualizations through a web dashboard.
 
 ### Purpose
-- Track daily accomplishments across multiple platforms
-- Categorize activities (Coding, Research, Communication, Meetings, Other)
-- Generate reports and visualizations
-- Provide a web dashboard for viewing results
+- Track daily activities from multiple sources
+- Analyze productivity patterns and deep work sessions
+- Generate automated reports with visualizations
+- Provide actionable insights via dashboard and notifications
 
-### Key Integrations
-- **HubSpot**: CRM activity tracking
-- **Aloware**: Communication platform
-- **Monday.com**: Project management boards
-- **Slack**: Team communication messages
+### Current Integrations
+- **Screen Time**: macOS KnowledgeC database (app usage)
+- **Browser History**: Chrome/Safari browsing activity
 - **Google Calendar**: Meeting and event tracking
+- **Slack**: Team communication (notification posting)
+
+### Planned Integrations (see ROADMAP.md)
+- **HubSpot**: CRM activity tracking
+- **Aloware**: Communication platform  
+- **Monday.com**: Project management boards
 
 ## Project Structure
 
