@@ -825,7 +825,11 @@
 
                 // On initial load: respect user preference. If enabled, allow falling back
                 // to recent reports so "Today" resolves to the most recent available.
-                await loadData(currentDate, { allowFallback: Boolean(autoResolveToday) });
+                // However, if the URL explicitly contains a `date=` parameter, do not
+                // auto-resolve so a hard refresh preserves the currently viewed date.
+                const hadDateParam = Boolean(urlParams.get('date'));
+                const allowFallbackOnInit = hadDateParam ? false : Boolean(autoResolveToday);
+                await loadData(currentDate, { allowFallback: allowFallbackOnInit });
             }
             init();
 

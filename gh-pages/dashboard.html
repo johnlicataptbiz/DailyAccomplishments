@@ -808,14 +808,18 @@
 	            // most recent available report. User-initiated navigation (date picker / arrows)
 	            // should not auto-resolve to a different date.
                 // Respect stored preference; default to disabled to avoid surprising
-                // auto-navigation on hard refresh.
+                // auto-navigation on hard refresh. However, if the URL explicitly
+                // contains a `date=` parameter, DO NOT auto-resolve (honor the URL)
+                // so that a hard refresh preserves the viewed date.
                 let pref = localStorage.getItem('autoResolveToday');
                 if (pref === null) {
                     localStorage.setItem('autoResolveToday', '0');
                     pref = '0';
                 }
                 const autoResolveToday = (pref === '1');
-                await loadData(currentDate, { allowFallback: Boolean(autoResolveToday) });
+                const hadDateParam = Boolean(urlParams.get('date'));
+                const allowFallbackOnInit = hadDateParam ? false : Boolean(autoResolveToday);
+                await loadData(currentDate, { allowFallback: allowFallbackOnInit });
 	        }
 	        init();
 
