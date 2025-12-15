@@ -5,4 +5,28 @@
   "dashboard": {
     "auto_refresh_seconds": 300
   }
+,
+  "analytics": {
+    "category_mapping": {
+      "Coding": ["code", "vscode", "pycharm", "intellij"],
+      "Design": ["figma", "sketch", "photoshop"],
+      "Communication": ["slack", "mail", "messages"],
+      "Meetings": ["zoom", "google meet", "meet", "calendar"],
+      "Research": ["chrome", "firefox", "safari"]
+    },
+    "category_priority": ["Coding", "Design", "Documentation", "Project Work", "Research", "Communication", "Meetings", "Other"],
+    "domain_mapping": {
+      "github.com": "Coding",
+      "gitlab.com": "Coding",
+      "docs.google.com": "Documentation",
+      "drive.google.com": "Documentation",
+      "notion.so": "Documentation",
+      "linear.app": "Project Work",
+      "asana.com": "Project Work",
+      "slack.com": "Communication",
+      "calendar.google.com": "Meetings",
+      "zoom.us": "Meetings",
+      "meet.google.com": "Meetings"
+    }
+  }
 }

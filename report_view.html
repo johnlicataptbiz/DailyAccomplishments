@@ -13,7 +13,8 @@
   <meta name="twitter:description" content="Focused time, meetings, appointments, and charts.">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <style>
-    :root{--bg:#0f172a;--card:#0b1220;--muted:#94a3b8;--accent:#7c3aed;--glass:rgba(255,255,255,0.04)}
+    :root{--base-font-size:16px;--bg:#0f172a;--card:#0b1220;--muted:#94a3b8;--accent:#7c3aed;--glass:rgba(255,255,255,0.04)}
+    .light-theme{--bg:#ffffff;--card:#f8fafc;--muted:#475569;--accent:#7c3aed;color: #0f172a}
     html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial;box-sizing:border-box;background:linear-gradient(180deg,#071029 0%, #071b2a 100%);color:#e6eef8}
     .container{max-width:1100px;margin:28px auto;padding:24px}
     header{display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -61,6 +62,7 @@
       <div style="text-align:right">
         <div class="sub">Quick snapshot & charts</div>
         <nav class="topnav"><a href="./">All Reports</a> · <a href="ActivityReport-2025-12-01.json">Raw JSON</a> · <a href="SUMMARY-2025-12-01.md">Summary</a></nav>
+        <div style="margin-top:8px"><button id="themeToggleSmall" class="theme-toggle" aria-pressed="false" aria-label="Toggle theme">🌙</button></div>
       </div>
     </header>
 
@@ -144,5 +146,14 @@
       Files: <a style="color:#9ae6b4" href="ActivityReport-2025-12-01.json">ActivityReport-2025-12-01.json</a> · <a style="color:#9ae6b4" href="SUMMARY-2025-12-01.md">SUMMARY-2025-12-01.md</a>
     </footer>
   </div>
+  <script>
+    (function(){
+      const btn = document.getElementById('themeToggleSmall');
+      if (!btn) return;
+      const s = localStorage.getItem('da_theme');
+      if (s === 'light') { document.documentElement.classList.add('light-theme'); btn.textContent='☀️'; btn.setAttribute('aria-pressed','true'); }
+      btn.addEventListener('click', ()=>{ const isLight=document.documentElement.classList.toggle('light-theme'); btn.textContent=isLight?'☀️':'🌙'; btn.setAttribute('aria-pressed', isLight?'true':'false'); localStorage.setItem('da_theme', isLight?'light':'dark'); });
+    })();
+  </script>
 </body>
 </html>

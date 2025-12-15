@@ -51,4 +51,4 @@ fi
 
 echo "Serving ${ROOT_DIR}/${SITE_DIR} on 0.0.0.0:${PORT}"
 cd "${SITE_DIR}"
-exec python3 -m http.server "${PORT}" --bind 0.0.0.0
+exec python3 "${ROOT_DIR}/server.py"

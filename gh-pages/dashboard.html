@@ -20,6 +20,7 @@
                 </script>
   <style>
         :root {
+            --base-font-size: 16px;
             --bg-primary: #0a0a0f;
             --bg-card: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
             --border: rgba(255,255,255,0.06);
@@ -35,6 +36,17 @@
             --purple: #8b5cf6;
             --hubspot: #ff7a59;
             --monday: #0073ea;
+        }
+
+        /* Light theme (user toggle) */
+        .light-theme {
+            --bg-primary: #f8fafc;
+            --bg-card: linear-gradient(180deg, #ffffff, #f8fafc);
+            --border: rgba(2,6,23,0.06);
+            --text: #0f172a;
+            --text-muted: #475569;
+            --text-dim: #64748b;
+            --gradient-primary: linear-gradient(135deg, #0369a1 0%, #7c3aed 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -57,6 +69,7 @@
         html, body {
             min-height: 100vh;
             font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+            font-size: var(--base-font-size);
             background: var(--bg-primary);
             background-image: 
                 radial-gradient(ellipse at 20% 0%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
@@ -95,6 +108,17 @@
         .sub { color: var(--text-muted); font-size: 13px; margin-top: 2px; }
 
         .date-nav { display: flex; align-items: center; gap: 8px; }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .theme-toggle:focus { outline: 3px solid rgba(99,102,241,0.18); }
 
         .date-nav button {
             background: var(--bg-card);
@@ -534,7 +558,9 @@
             padding: 24px;
         }
 
-        .chart-wrapper { height: 220px; }
+        .chart-wrapper { height: 320px; }
+        @media (max-width: 900px) { .chart-wrapper { height: 260px; } }
+        @media (max-width: 520px) { .chart-wrapper { height: 200px; } }
 
         /* App/Category bars */
         .bar-row {
@@ -677,6 +703,7 @@
                 <input type="date" id="dateInput">
                 <button id="nextDay">Next →</button>
                 <button id="todayBtn" class="today-btn">Today</button>
+                <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle theme">🌙</button>
             </div>
             <div class="creator-badge">
               <div class="creator-label">Created by</div>
@@ -705,6 +732,36 @@
             // Parse YYYY-MM-DD as a local date (avoid UTC parsing)
             const [y, m, d] = key.split('-').map(Number);
             return new Date(y, (m || 1) - 1, d || 1, 12, 0, 0); // noon avoids DST edges
+        }
+
+        // Theme helpers: read CSS variables and manage theme toggle
+        function getCssVar(name, fallback) {
+            const val = getComputedStyle(document.documentElement).getPropertyValue(name);
+            return (val || fallback || '').trim();
+        }
+
+        function initTheme() {
+            const saved = localStorage.getItem('da_theme');
+            if (saved === 'light') {
+                document.documentElement.classList.add('light-theme');
+                const tbtn = document.getElementById('themeToggle');
+                if (tbtn) { tbtn.textContent = '☀️'; tbtn.setAttribute('aria-pressed','true'); }
+            }
+            const btn = document.getElementById('themeToggle');
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    const isLight = document.documentElement.classList.toggle('light-theme');
+                    btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+                    btn.textContent = isLight ? '☀️' : '🌙';
+                    localStorage.setItem('da_theme', isLight ? 'light' : 'dark');
+                    // re-render charts to pick up new CSS colors
+                    if (window.__lastDashboardState) {
+                        const s = window.__lastDashboardState;
+                        try { renderHourlyChart(s.d.hourly_focus || [], s.d); } catch (e) {}
+                        try { renderCategoryChart(s.d.by_category || {}); } catch (e) {}
+                    }
+                });
+            }
         }
         const urlParams = new URLSearchParams(window.location.search);
         let currentDate = urlParams.get('date') || localDateKey();
@@ -883,9 +940,7 @@
 	                    async function fetchFirstOkFor(d) {
 	                        const candidates = [
 	                            { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
-	                            { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
 	                            { url: `${RAW_BASE}reports/${d}/ActivityReport-${d}.json`, timeoutMs: 2000 },
-	                            { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
 	                        ];
 
                         let lastResponse = null;
@@ -976,9 +1031,7 @@
                     // Prefer ActivityReport JSONs for baseline computations; avoid probing legacy
                     // daily-report JSON files which often do not exist and generate lots of 404 noise.
                     let r = await fetchWithTimeout(`reports/${key}/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
-                    if (!r.ok) r = await fetchWithTimeout(`ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
                     if (!r.ok) r = await fetchWithTimeout(`${RAW_BASE}reports/${key}/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1500);
-                    if (!r.ok) r = await fetchWithTimeout(`${RAW_BASE}ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1500);
                     if (!r.ok) continue;
                     const j = await r.json();
                     base.focusMins += timeToMinutes(j.overview?.focus_time || '00:00');
@@ -1861,9 +1914,11 @@
             `;
 
 	            setTimeout(() => {
-	                try { renderSvgTimeline(d); } catch (err) { console.warn('renderSvgTimeline error', err); }
-                renderHourlyChart(d.hourly_focus || [], d);
-                renderCategoryChart(d.by_category || {});
+                    try { renderSvgTimeline(d); } catch (err) { console.warn('renderSvgTimeline error', err); }
+                    // Ensure theme is initialized (and charts will pick up CSS vars)
+                    try { initTheme(); } catch (err) {}
+                    renderHourlyChart(d.hourly_focus || [], d);
+                    renderCategoryChart(d.by_category || {});
                 // Attach generic tooltips for evidence-backed UI affordances
                 if (typeof attachGenericTooltips === 'function') {
                     try { attachGenericTooltips(); } catch (err) { console.warn('attachGenericTooltips error', err); }
@@ -2147,6 +2202,10 @@
             const meetingSeries = [];
             for (let h = 5; h <= 23; h++) meetingSeries.push(meetingMins[h] || 0);
 
+            // Pull CSS colors for accessible contrast
+            const cssText = getCssVar('--text', '#f1f5f9');
+            const cssMuted = getCssVar('--text-muted', '#94a3b8');
+
             hourlyChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
@@ -2183,7 +2242,7 @@
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { display: true, position: 'top', labels: { color: '#94a3b8', boxWidth: 10 } },
+                        legend: { display: true, position: 'top', labels: { color: cssMuted, boxWidth: 14, padding: 10, font: { size: 13 } } },
                         tooltip: {
                             callbacks: {
                                 label: (ctx) => {
@@ -2209,6 +2268,9 @@
 
             const entries = Object.entries(categories).filter(([, t]) => t !== '00:00');
             
+            const cssMuted = getCssVar('--text-muted', '#94a3b8');
+            const legendPos = (window.innerWidth || 1024) < 700 ? 'bottom' : 'right';
+
             categoryChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
@@ -2231,8 +2293,8 @@
                     cutout: '65%',
                     plugins: {
                         legend: {
-                            position: 'right',
-                            labels: { boxWidth: 12, padding: 12, font: { size: 11 }, color: '#94a3b8' }
+                            position: legendPos,
+                            labels: { boxWidth: 14, padding: 12, font: { size: 12 }, color: cssMuted }
                         }
                     }
                 }
