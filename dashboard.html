@@ -678,7 +678,11 @@
                 <button id="prevDay">← Prev</button>
                 <input type="date" id="dateInput">
                 <button id="nextDay">Next →</button>
-                <button id="todayBtn" class="today-btn">Today</button>
+                                <button id="todayBtn" class="today-btn">Today</button>
+                                <label style="display:flex;align-items:center;gap:8px;margin-left:8px;font-size:13px;color:var(--text-muted);">
+                                    <input type="checkbox" id="autoResolveToggle" style="width:16px;height:16px;" />
+                                    <span style="color:var(--text);font-size:13px;font-weight:500;">Auto-resolve Today</span>
+                                </label>
             </div>
             <div class="creator-badge">
               <div class="creator-label">Created by</div>
@@ -749,11 +753,21 @@
 
             async function init() {
                 await loadSettings();
-                // On initial load do NOT automatically fall back to older reports. A hard
-                // refresh should keep the requested date (usually Today) visible even when
-                // no report exists for that date. This prevents the UI from jumping to the
-                // most-recent-available day (e.g., 2025-12-13) on every hard refresh.
-                await loadData(currentDate, { allowFallback: false });
+                // Read user preference for auto-resolving "Today" to the most recent
+                // available report. Stored in localStorage as 'autoResolveToday' ('1' = on).
+                const elToggle = document.getElementById('autoResolveToggle');
+                const pref = localStorage.getItem('autoResolveToday');
+                const autoResolveToday = (pref === '1');
+                if (elToggle) {
+                    elToggle.checked = autoResolveToday;
+                    elToggle.addEventListener('change', (e) => {
+                        localStorage.setItem('autoResolveToday', e.target.checked ? '1' : '0');
+                    });
+                }
+
+                // On initial load: respect user preference. If enabled, allow falling back
+                // to recent reports so "Today" resolves to the most recent available.
+                await loadData(currentDate, { allowFallback: Boolean(autoResolveToday) });
             }
             init();
 

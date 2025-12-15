@@ -1,0 +1,417 @@
+{
+  "date": "2025-12-15",
+  "overview": {
+    "focus_time": "00:43",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0,
+    "coverage_window": "00:00\u201300:36",
+    "active_time": "00:43"
+  },
+  "by_category": {
+    "Coding": "00:05",
+    "Research": "00:08",
+    "Other": "00:06"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:45",
+      "pct": "100%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "00:00",
+      "end": "00:00",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:00",
+      "end": "00:01",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:01",
+      "end": "00:03",
+      "seconds": 102,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:03",
+      "end": "00:04",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:04",
+      "end": "00:05",
+      "seconds": 66,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:05",
+      "end": "00:05",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:05",
+      "end": "00:07",
+      "seconds": 114,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:07",
+      "end": "00:07",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:07",
+      "end": "00:07",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:07",
+      "end": "00:08",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:08",
+      "end": "00:10",
+      "seconds": 132,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:10",
+      "end": "00:10",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:13",
+      "end": "00:13",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:13",
+      "end": "00:14",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:14",
+      "end": "00:15",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:15",
+      "end": "00:15",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:15",
+      "end": "00:15",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:15",
+      "end": "00:16",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:19",
+      "end": "00:19",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:21",
+      "end": "00:26",
+      "seconds": 294,
+      "minutes": 4,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:26",
+      "end": "00:26",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:26",
+      "end": "00:26",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:26",
+      "end": "00:27",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:27",
+      "end": "00:27",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:28",
+      "end": "00:28",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:28",
+      "end": "00:28",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:28",
+      "end": "00:29",
+      "seconds": 48,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:34",
+      "end": "00:35",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:35",
+      "end": "00:36",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    }
+  ],
+  "deep_work_blocks": []
+}
