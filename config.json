@@ -14,7 +14,7 @@
       "Meetings": ["zoom", "google meet", "meet", "calendar"],
       "Research": ["chrome", "firefox", "safari"]
     },
-    "category_priority": ["Coding", "Design", "Research", "Communication", "Meetings", "Other"],
+    "category_priority": ["Coding", "Design", "Documentation", "Project Work", "Research", "Communication", "Meetings", "Other"],
     "domain_mapping": {
       "github.com": "Coding",
       "gitlab.com": "Coding",
