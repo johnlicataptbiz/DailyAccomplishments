@@ -228,7 +228,8 @@ def load_from_jsonl(jsonl_path: Path, config: Optional[Dict[str, Any]] = None) -
             if dom_text:
                 try:
                     host = urlparse(dom_text).netloc or dom_text
-                except Exception:
+                except ValueError:
+                    # Fallback to the original text if parsing fails.
                     host = dom_text
                 dom_cat = domain_resolver(host)
             if dom_cat:
