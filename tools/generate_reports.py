@@ -448,31 +448,56 @@ def _generate_headlines(report: dict) -> Tuple[List[str], Optional[str]]:
         if by_cat:
             top_cat = sorted(by_cat.items(), key=lambda kv: hhmm_to_minutes(kv[1]), reverse=True)[0][0]
 
-        # Rules produce concise headlines; vary wording and signals
-        if focus and focus >= 60:
-            variations.append(f"Focused: {seconds_to_hhmm(focus*60)} of focused time — great deep work")
-            if deep:
-                variations.append(f"Deep focus: {len(deep)} blocks (longest ~{deep[0].get('duration') or '—'}) — solid focus")
-        if meetings and meetings >= 60:
-            variations.append(f"Meetings: {seconds_to_hhmm(meetings*60)} — meetings took a significant share today")
-        if top_cat:
-            variations.append(f"Top category: {top_cat} today — tracked time by category")
-        # Add a balanced or encouraging variation
-        variations.append(f"Snapshot: {ov.get('focus_time','00:00')} focused • {ov.get('meetings_time','00:00')} meetings • {coverage}")
+        def mins_to_h(m):
+            if not m or m <= 0:
+                return '0m'
+            h = m // 60
+            mm = m % 60
+            if h and mm:
+                return f"{h}h {mm}m"
+            if h:
+                return f"{h}h"
+            return f"{mm}m"
 
-        # Keep variations unique and cap at 5
-        unique = []
-        for v in variations:
-            if v not in unique:
-                unique.append(v)
-        variations = unique[:5]
-        # Use timezone-aware UTC ISO timestamp for batch id
+        # Template pool (mix of factual, encouraging, and contextual variants)
+        pool = []
+        if focus >= 60:
+            pool.append(lambda: f"Focused: {mins_to_h(focus)} — sustained work, great momentum")
+            if deep:
+                pool.append(lambda: f"Deep-focus: {len(deep)} blocks (longest ~{deep[0].get('duration') or '—'}) — impressive focus")
+        if meetings >= 60:
+            pool.append(lambda: f"Meetings: {mins_to_h(meetings)} — meetings took a large share today")
+            pool.append(lambda: f"Meeting-heavy day: consider batching or blocking focus time")
+        if top_cat:
+            pool.append(lambda: f"Top category: {top_cat} was the most tracked activity today")
+        # Balanced / snapshot variants
+        pool.append(lambda: f"Snapshot: {ov.get('focus_time','00:00')} focused • {ov.get('meetings_time','00:00')} meetings • {coverage}")
+        pool.append(lambda: f"Daily summary: {ov.get('focus_time','00:00')} focused, {ov.get('meetings_time','00:00')} meetings")
+
+        # Build up to 5 distinct variations, preferring signal-driven ones first
+        out = []
+        for fn in pool:
+            try:
+                t = fn()
+            except Exception:
+                continue
+            if t and t not in out:
+                out.append(t)
+            if len(out) >= 5:
+                break
+
+        # If nothing was meaningful, include a gentle fallback
+        if not out:
+            out = [f"Day summary: {ov.get('focus_time','00:00')} focus • {ov.get('meetings_time','00:00')} meetings"]
+
+        # Batch id UTC timestamp
         try:
             from datetime import timezone
             batch_id = datetime.now(timezone.utc).isoformat()
         except Exception:
             batch_id = datetime.utcnow().isoformat() + 'Z'
-        return variations, batch_id
+
+        return out, batch_id
     except Exception:
         return [], None
 def seconds_to_hhmm(seconds: int) -> str:
