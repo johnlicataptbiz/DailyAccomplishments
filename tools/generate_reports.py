@@ -10,6 +10,7 @@ import csv
 BASE = Path(__file__).resolve().parents[1]
 DEFAULT_DATE = datetime.now(ZoneInfo('America/Chicago')).strftime('%Y-%m-%d')
 JSONL_INPUT = BASE / 'logs' / 'daily' / f'{DEFAULT_DATE}.jsonl'
+LEGACY_JSONL_INPUT = BASE / 'logs' / f'activity-{DEFAULT_DATE}.jsonl'
 JSON_INPUT = BASE / f'ActivityReport-{DEFAULT_DATE}.json'
 LEGACY_JSONL_INPUT = BASE / 'logs' / f'activity-{DEFAULT_DATE}.jsonl'
 OUT_DIR = BASE
@@ -395,47 +396,27 @@ def load_data(date: str = None) -> dict:
     date_str = date or DEFAULT_DATE
     candidates = [
         BASE / 'logs' / 'daily' / f'{date_str}.jsonl',
-        BASE / 'logs' / f'activity-{date_str}.jsonl',
+        BASE / 'logs' / f'activity-{date_str}.jsonl'
     ]
-
-    if date is None:
+    if not date:
         candidates.insert(0, JSONL_INPUT)
         candidates.append(LEGACY_JSONL_INPUT)
-
-    seen = set()
-    unique_candidates = []
-    for candidate in candidates:
-        if candidate in seen:
-            continue
-        seen.add(candidate)
-        unique_candidates.append(candidate)
-    candidates = unique_candidates
 
     json_path = BASE / f'ActivityReport-{date_str}.json'
     archived_json_path = BASE / 'reports' / date_str / f'ActivityReport-{date_str}.json'
 
-    def try_load_json(path: Path):
-        if not path.exists():
-            return None
-        try:
-            print(f"Loading from JSON: {path}")
-            return json.loads(path.read_text())
-        except Exception as e:
-            print(f"Failed to parse JSON at {path}: {e}")
-            return None
-
     for jsonl_path in candidates:
-        if not jsonl_path.exists():
-            continue
-        data = load_from_jsonl(jsonl_path)
-        if data:
-            return data
-
+        if jsonl_path.exists():
+            data = load_from_jsonl(jsonl_path)
+            if data:
+                return data
     for path in (archived_json_path, json_path):
-        data = try_load_json(path)
-        if data:
-            return data
-
+        if path.exists():
+            try:
+                print(f"Loading from JSON: {path}")
+                return json.loads(path.read_text())
+            except Exception as e:
+                print(f"Failed to parse JSON at {path}: {e}")
     raise FileNotFoundError(f"No data found for date {date_str}")
 def main():
     date = sys.argv[1] if len(sys.argv) > 1 else None
@@ -446,8 +427,10 @@ def main():
         sys.exit(1)
     # Ensure outputs are placed under reports/<date>/ as canonical location
     date_str = data.get('date') or date or DEFAULT_DATE
-    out_dir = BASE / 'reports' / date_str
+    reports_root = BASE / 'reports'
+    out_dir = reports_root / date_str
     out_dir.mkdir(parents=True, exist_ok=True)
+    reports_root.mkdir(exist_ok=True)
 
     # Write canonical ActivityReport JSON into reports/<date>/
     try:
@@ -486,7 +469,10 @@ def main():
 
         (out_dir / f'ActivityReport-{date_str}.json').write_text(json.dumps(data, indent=2))
         # Also write the dashboard fallback name
-        (out_dir / f'daily-report-{date_str}.json').write_text(json.dumps(data, indent=2))
+        daily_report_json = json.dumps(data, indent=2)
+        (out_dir / f'daily-report-{date_str}.json').write_text(daily_report_json)
+        # Maintain legacy flat files consumed by dashboard fallbacks and automation
+        (reports_root / f'daily-report-{date_str}.json').write_text(daily_report_json)
         print(f"Wrote canonical ActivityReport JSON to {out_dir}")
     except Exception as e:
         print(f"Failed to write ActivityReport JSON to {out_dir}: {e}")
