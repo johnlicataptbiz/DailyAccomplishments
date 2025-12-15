@@ -386,7 +386,8 @@ def categorize_app(app: str) -> str:
         return 'Research'
     elif any(word in app_lower for word in ['code', 'terminal', 'iterm']):
         return 'Coding'
-    elif any(word in app_lower for word in ['slack', 'zoom']):
+    elif any(word in app_lower for word in ['slack', 'zoom', 'zoon']):
+        # accept common misspelling 'zoon' in logs as well as 'zoom'
         return 'Meetings'
     elif any(word in app_lower for word in ['mail', 'messages']):
         return 'Communication'
