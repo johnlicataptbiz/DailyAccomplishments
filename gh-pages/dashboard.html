@@ -758,7 +758,18 @@
                     pref = '0';
                 }
                 const autoResolveToday = (pref === '1');
-                await loadData(currentDate, { allowFallback: Boolean(autoResolveToday) });
+                // Detect reload navigation and avoid auto-resolving on hard refresh.
+                let isReload = false;
+                try {
+                    const navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+                    if (Array.isArray(navEntries) && navEntries[0] && navEntries[0].type === 'reload') {
+                        isReload = true;
+                    } else if (performance.navigation && performance.navigation.type === 1) {
+                        isReload = true;
+                    }
+                } catch (e) {}
+                const allowFallback = Boolean(autoResolveToday) && !isReload;
+                await loadData(currentDate, { allowFallback });
 	        }
 	        init();
 

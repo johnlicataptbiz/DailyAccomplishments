@@ -770,9 +770,22 @@
                     });
                 }
 
-                // On initial load: respect user preference. If enabled, allow falling back
-                // to recent reports so "Today" resolves to the most recent available.
-                await loadData(currentDate, { allowFallback: Boolean(autoResolveToday) });
+                // Detect if this load is a hard reload/navigation reload. If so, avoid
+                // auto-resolving to an older available report even when the user has
+                // enabled autoResolveToday — a hard refresh should preserve the
+                // requested date to avoid surprising navigation.
+                let isReload = false;
+                try {
+                    const navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+                    if (Array.isArray(navEntries) && navEntries[0] && navEntries[0].type === 'reload') {
+                        isReload = true;
+                    } else if (performance.navigation && performance.navigation.type === 1) {
+                        isReload = true; // older browsers
+                    }
+                } catch (e) {}
+
+                const allowFallback = Boolean(autoResolveToday) && !isReload;
+                await loadData(currentDate, { allowFallback });
             }
             init();
 
