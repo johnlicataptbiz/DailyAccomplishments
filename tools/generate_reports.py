@@ -12,6 +12,7 @@ DEFAULT_DATE = datetime.now(ZoneInfo('America/Chicago')).strftime('%Y-%m-%d')
 JSONL_INPUT = BASE / 'logs' / 'daily' / f'{DEFAULT_DATE}.jsonl'
 LEGACY_JSONL_INPUT = BASE / 'logs' / f'activity-{DEFAULT_DATE}.jsonl'
 JSON_INPUT = BASE / f'ActivityReport-{DEFAULT_DATE}.json'
+LEGACY_JSONL_INPUT = BASE / 'logs' / f'activity-{DEFAULT_DATE}.jsonl'
 OUT_DIR = BASE
 def hhmm_to_minutes(s):
     if not s or ':' not in s:

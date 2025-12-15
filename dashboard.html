@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Accomplishments</title>
   <script src="dashboard/vendor/chart.min.js"></script>
+    <script>
+        (function(){
+            // If local Chart.js isn't available (404), load from CDN as a fallback.
+            function loadCDN(){
+                var s = document.createElement('script');
+                s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js';
+                s.crossOrigin = 'anonymous';
+                s.onload = function(){ console.log('[cdn-fallback] loaded Chart.js from CDN'); };
+                s.onerror = function(){ console.warn('[cdn-fallback] failed to load Chart.js from CDN'); };
+                document.head.appendChild(s);
+            }
+            // If Chart isn't defined after a short delay, attempt CDN load.
+            setTimeout(function(){ if (typeof Chart === 'undefined') { console.warn('[cdn-fallback] local Chart.js missing, loading CDN'); loadCDN(); } }, 200);
+        })();
+    </script>
   <style>
         :root {
             --bg-primary: #0a0a0f;
@@ -663,7 +678,11 @@
                 <button id="prevDay">← Prev</button>
                 <input type="date" id="dateInput">
                 <button id="nextDay">Next →</button>
-                <button id="todayBtn" class="today-btn">Today</button>
+                                <button id="todayBtn" class="today-btn">Today</button>
+                                <label style="display:flex;align-items:center;gap:8px;margin-left:8px;font-size:13px;color:var(--text-muted);">
+                                    <input type="checkbox" id="autoResolveToggle" style="width:16px;height:16px;" />
+                                    <span style="color:var(--text);font-size:13px;font-weight:500;">Auto-resolve Today</span>
+                                </label>
             </div>
             <div class="creator-badge">
               <div class="creator-label">Created by</div>
@@ -732,14 +751,25 @@
 	            } catch {}
 	        }
 
-	        async function init() {
-	            await loadSettings();
-	            // On initial load allow falling back to recent days so "Today" can resolve to the
-	            // most recent available report. User-initiated navigation (date picker / arrows)
-	            // should not auto-resolve to a different date.
-	            await loadData(currentDate, { allowFallback: true });
-	        }
-	        init();
+            async function init() {
+                await loadSettings();
+                // Read user preference for auto-resolving "Today" to the most recent
+                // available report. Stored in localStorage as 'autoResolveToday' ('1' = on).
+                const elToggle = document.getElementById('autoResolveToggle');
+                const pref = localStorage.getItem('autoResolveToday');
+                const autoResolveToday = (pref === '1');
+                if (elToggle) {
+                    elToggle.checked = autoResolveToday;
+                    elToggle.addEventListener('change', (e) => {
+                        localStorage.setItem('autoResolveToday', e.target.checked ? '1' : '0');
+                    });
+                }
+
+                // On initial load: respect user preference. If enabled, allow falling back
+                // to recent reports so "Today" resolves to the most recent available.
+                await loadData(currentDate, { allowFallback: Boolean(autoResolveToday) });
+            }
+            init();
 
 	        let liveStoryInterval = null;
 	        let liveFetchInterval = null;
@@ -783,12 +813,18 @@
 	            }, refreshSeconds * 1000);
 	        }
 	        
-	        // Update URL when date changes (without reload)
-	        function updateUrl(date) {
-	            const url = new URL(window.location);
-	            url.searchParams.set('date', date);
-            window.history.pushState({date}, '', url);
-        }
+            // Update URL when date changes (without reload)
+            // If opts.replace is true, use replaceState to avoid creating extra history
+            // entries for automatic/fallback navigation.
+            function updateUrl(date, opts = { replace: false }) {
+                const url = new URL(window.location);
+                url.searchParams.set('date', date);
+                if (opts && opts.replace) {
+                    window.history.replaceState({ date }, '', url);
+                } else {
+                    window.history.pushState({ date }, '', url);
+                }
+            }
         
         // Handle browser back/forward buttons
         window.addEventListener('popstate', (e) => {
@@ -799,6 +835,29 @@
                 loadData(currentDate, { allowFallback: false });
             }
         });
+
+            // Debug overlay: log history mutations and popstate events to help diagnose
+            // unexpected navigation behavior in browsers. Remove in production.
+            (function enableHistoryLogging(){
+                try {
+                    const _push = window.history.pushState;
+                    const _replace = window.history.replaceState;
+                    window.history.pushState = function(state, title, url) {
+                        console.log('[history-debug] pushState', { state, title, url });
+                        return _push.apply(this, arguments);
+                    };
+                    window.history.replaceState = function(state, title, url) {
+                        console.log('[history-debug] replaceState', { state, title, url });
+                        return _replace.apply(this, arguments);
+                    };
+                    window.addEventListener('popstate', (e) => {
+                        console.log('[history-debug] popstate', e.state);
+                    });
+                    console.log('[history-debug] enabled');
+                } catch (err) {
+                    console.warn('[history-debug] failed to install history logging', err);
+                }
+            })();
 
         document.getElementById('prevDay').addEventListener('click', () => changeDate(-1));
         document.getElementById('nextDay').addEventListener('click', () => changeDate(1));
@@ -911,7 +970,11 @@
                         if (resolvedDate !== date) {
                             currentDate = resolvedDate;
                             dateInput.value = resolvedDate;
-                            updateUrl(resolvedDate);
+                            // This change is automatic (fallback to the most recent available report).
+                            // Replace the current history entry rather than push a new one so the
+                            // browser back/forward buttons don't step through these automatic
+                            // fallbacks and confuse navigation.
+                            updateUrl(resolvedDate, { replace: true });
                         }
                     } else {
                         const result = await fetchFirstOkFor(date);
@@ -1824,7 +1887,7 @@
                 <!-- Category Breakdown -->
                 <div class="timeline-section">
                     <div class="section-title">📊 Time by Category</div>
-                    ${renderBars(d.by_category || {})}
+                    ${typeof renderBars === 'function' ? renderBars(d.by_category || {}) : '<p style="color: var(--text-muted);">Category chart unavailable</p>'}
                 </div>
 
                 <!-- Data Sources Panel -->
