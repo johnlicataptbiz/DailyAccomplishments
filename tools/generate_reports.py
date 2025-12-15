@@ -420,7 +420,61 @@ def load_from_jsonl(jsonl_path: Path, config: Optional[Dict[str, Any]] = None) -
         deep_blocks.append({'start': current_block_start.strftime('%H:%M'), 'end': current_block_end.strftime('%H:%M'), 'duration': seconds_to_hhmm(secs), 'seconds': secs, 'minutes': int(secs/60)})
 
     report['deep_work_blocks'] = deep_blocks
+    # Generate a small batch of smart, data-driven headline variations and a batch id
+    try:
+        report['headline_variations'], report['headline_batch_id'] = _generate_headlines(report)
+    except Exception:
+        report['headline_variations'] = []
+        report['headline_batch_id'] = None
     return report
+
+
+def _generate_headlines(report: dict) -> Tuple[List[str], Optional[str]]:
+    """Create 3-5 headline variations driven by the report data.
+
+    Returns (variations, batch_id) where batch_id is an ISO timestamp string.
+    """
+    variations: List[str] = []
+    from datetime import datetime
+
+    try:
+        ov = report.get('overview', {}) or {}
+        by_cat = report.get('by_category', {}) or {}
+        deep = report.get('deep_work_blocks', []) or []
+        focus = hhmm_to_minutes(str(ov.get('focus_time') or '00:00'))
+        meetings = hhmm_to_minutes(str(ov.get('meetings_time') or '00:00'))
+        coverage = ov.get('coverage_window') or ''
+        top_cat = None
+        if by_cat:
+            top_cat = sorted(by_cat.items(), key=lambda kv: hhmm_to_minutes(kv[1]), reverse=True)[0][0]
+
+        # Rules produce concise headlines; vary wording and signals
+        if focus and focus >= 60:
+            variations.append(f"Focused: {seconds_to_hhmm(focus*60)} of focused time — great deep work")
+            if deep:
+                variations.append(f"Deep focus: {len(deep)} blocks (longest ~{deep[0].get('duration') or '—'}) — solid focus")
+        if meetings and meetings >= 60:
+            variations.append(f"Meetings: {seconds_to_hhmm(meetings*60)} — meetings took a significant share today")
+        if top_cat:
+            variations.append(f"Top category: {top_cat} today — tracked time by category")
+        # Add a balanced or encouraging variation
+        variations.append(f"Snapshot: {ov.get('focus_time','00:00')} focused • {ov.get('meetings_time','00:00')} meetings • {coverage}")
+
+        # Keep variations unique and cap at 5
+        unique = []
+        for v in variations:
+            if v not in unique:
+                unique.append(v)
+        variations = unique[:5]
+        # Use timezone-aware UTC ISO timestamp for batch id
+        try:
+            from datetime import timezone
+            batch_id = datetime.now(timezone.utc).isoformat()
+        except Exception:
+            batch_id = datetime.utcnow().isoformat() + 'Z'
+        return variations, batch_id
+    except Exception:
+        return [], None
 def seconds_to_hhmm(seconds: int) -> str:
     hours = seconds // 3600
     minutes = (seconds % 3600) // 60
