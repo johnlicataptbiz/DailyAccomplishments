@@ -783,12 +783,18 @@
 	            }, refreshSeconds * 1000);
 	        }
 	        
-	        // Update URL when date changes (without reload)
-	        function updateUrl(date) {
-	            const url = new URL(window.location);
-	            url.searchParams.set('date', date);
-            window.history.pushState({date}, '', url);
-        }
+            // Update URL when date changes (without reload)
+            // If opts.replace is true, use replaceState to avoid creating extra history
+            // entries for automatic/fallback navigation.
+            function updateUrl(date, opts = { replace: false }) {
+                const url = new URL(window.location);
+                url.searchParams.set('date', date);
+                if (opts && opts.replace) {
+                    window.history.replaceState({ date }, '', url);
+                } else {
+                    window.history.pushState({ date }, '', url);
+                }
+            }
         
         // Handle browser back/forward buttons
         window.addEventListener('popstate', (e) => {
@@ -911,7 +917,11 @@
                         if (resolvedDate !== date) {
                             currentDate = resolvedDate;
                             dateInput.value = resolvedDate;
-                            updateUrl(resolvedDate);
+                            // This change is automatic (fallback to the most recent available report).
+                            // Replace the current history entry rather than push a new one so the
+                            // browser back/forward buttons don't step through these automatic
+                            // fallbacks and confuse navigation.
+                            updateUrl(resolvedDate, { replace: true });
                         }
                     } else {
                         const result = await fetchFirstOkFor(date);
