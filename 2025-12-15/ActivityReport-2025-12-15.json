@@ -3,16 +3,16 @@
   "date": "2025-12-15",
   "title": "Daily Accomplishments \u2014 2025-12-15",
   "overview": {
-    "focus_time": "03:14",
-    "coverage_window": "00:00\u201309:29"
+    "focus_time": "04:18",
+    "coverage_window": "00:00\u201310:56"
   },
   "browser_highlights": {
     "top_domains": [],
     "top_pages": []
   },
   "by_category": {
-    "Research": "01:40",
-    "Coding": "01:34"
+    "Research": "01:58",
+    "Coding": "02:20"
   },
   "hourly_focus": [
     {
@@ -62,12 +62,12 @@
     },
     {
       "hour": 9,
-      "time": "00:22",
+      "time": "00:49",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:00",
+      "time": "00:37",
       "pct": "0%"
     },
     {
@@ -139,11 +139,18 @@
   "timeline": [],
   "deep_work_blocks": [],
   "top_apps": {
-    "Google Chrome": "01:40",
-    "VS Code": "01:11",
+    "Google Chrome": "01:58",
+    "VS Code": "01:57",
     "Terminal": "00:23"
   },
   "deep_work": [
+    {
+      "start": "08:43",
+      "end": "10:21",
+      "minutes": 85,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
     {
       "start": "00:01",
       "end": "01:01",
@@ -157,13 +164,6 @@
       "minutes": 38,
       "category": "Research",
       "label": "Google Chrome"
-    },
-    {
-      "start": "08:43",
-      "end": "09:29",
-      "minutes": 37,
-      "category": "Research",
-      "label": "Google Chrome"
     }
   ],
   "executive_summary": [
@@ -171,7 +171,8 @@
     "Coverage: 00:00\u201309:29 CST",
     "Screen Time: ~117 min foreground app usage",
     "Screen Time: ~179 min foreground app usage",
-    "Screen Time: ~249 min foreground app usage"
+    "Screen Time: ~249 min foreground app usage",
+    "Screen Time: ~320 min foreground app usage"
   ],
   "prepared_for_manager": [
     "Active Time: 00:00",
