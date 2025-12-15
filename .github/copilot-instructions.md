@@ -193,6 +193,7 @@ If "nothing to commit", stop and explain why (wrong files? already merged?)
 
 #### Prove What Railway is Serving Right Now
 ```bash
+# Replace <railway-url> with actual Railway deployment URL
 curl -I https://<railway-url>/dashboard.html
 curl -s https://<railway-url>/dashboard.html | head -n 40
 curl -s https://<railway-url>/dashboard.html | grep -n "raw.githubusercontent.com"

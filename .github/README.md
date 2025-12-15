@@ -28,7 +28,7 @@ Contains verification-first workflow rules including:
 - Railway deployment verification commands
 - Communication style guidelines
 
-**Status**: The key concepts from this file have been **integrated into copilot-instructions.md** as of December 2025. This file is retained as a reference for the workflow patterns.
+**Status**: The key concepts from this file have been **integrated into copilot-instructions.md** (December 15, 2025). This file is retained as a reference for the workflow patterns.
 
 ### agents/SuperAgent.agent.md
 **Custom agent definition**
