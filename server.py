@@ -2,6 +2,7 @@ import logging
 import os
 import re
 from flask import Flask, send_from_directory, redirect
+from urllib.parse import urlparse
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -26,7 +27,11 @@ def serve_static(path):
         # Redirect to the new URL structure
         new_url = f'/reports/{date}/ActivityReport-{date}.json'
         logging.info(f"Redirecting legacy report URL: /{path} -> {new_url}")
-        return redirect(new_url, code=301)
+        parsed = urlparse(new_url.replace('\\', ''))
+        if not parsed.scheme and not parsed.netloc:
+            return redirect(new_url, code=301)
+        logging.warning(f"Unsafe redirect target ({new_url}), redirecting to root.")
+        return redirect('/', code=302)
     
     # Serve the file from the static directory
     return send_from_directory(SITE_DIR, path)
