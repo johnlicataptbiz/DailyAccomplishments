@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Check recent reports and validate structure
         shell: bash
         run: |
@@ -19,7 +16,6 @@ jobs:
 
           python3 -m pip install --upgrade pip
           python3 -m pip install jsonschema
-
           missing=0
           invalid=0
           validated=0
@@ -77,7 +73,7 @@ jobs:
             exit 0
           fi
 
-          if [ "$invalid" -ne 0 ]; then
+          if [ "$missing" -ne 0 ] || [ "$invalid" -ne 0 ]; then
             echo "Report check failed. Missing: $missing, Invalid: $invalid, Validated: $validated"
             exit 1
           fi

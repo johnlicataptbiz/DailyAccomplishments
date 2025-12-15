@@ -9,6 +9,7 @@ on:
 
 jobs:
   generate-and-publish:
+    if: ${{ github.event_name != 'schedule' || vars.ENABLE_SCHEDULED_REPORTS == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

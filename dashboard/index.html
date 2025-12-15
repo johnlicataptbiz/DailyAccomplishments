@@ -7,18 +7,49 @@
     <style>
       html, body { height: 100%; margin: 0; }
       iframe { border: 0; width: 100%; height: 100%; }
+      .error {
+        align-items: center;
+        color: #e11d48;
+        display: flex;
+        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+        font-size: 18px;
+        justify-content: center;
+        padding: 24px;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
     <script>
       const t = Date.now();
-      const local = `../dashboard.html?t=${t}`;
-      const raw = `https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/dashboard.html?t=${t}`;
-      const src = local; // dashboard.html already has JSON fallback now
-      const f = document.createElement('iframe');
-      f.src = src;
-      f.onload = () => console.log('[build] iframe dashboard loaded', src);
-      f.onerror = () => { f.src = raw; console.log('[build] iframe fallback to raw', raw); };
+      const local = `/dashboard.html?t=${t}`;
+
+      const showError = () => {
+        const fallback = document.createElement("div");
+        fallback.style.cssText = `
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          background: #0a0a0f;
+          color: #f1f5f9;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+          text-align: center;
+          padding: 24px;
+        `;
+        fallback.innerHTML = `
+          <div>
+            <h1 style="margin: 0 0 12px; font-size: 20px;">Dashboard unavailable</h1>
+            <p style="margin: 0; color: #94a3b8;">We couldn't load the local dashboard. Please refresh to try again.</p>
+          </div>
+        `;
+        document.body.replaceChildren(fallback);
+      };
+
+      const f = document.createElement("iframe");
+      f.src = local;
+      f.onload = () => console.log("[entry] dashboard iframe loaded", local);
+      f.onerror = showError;
       document.body.appendChild(f);
     </script>
   </body>
