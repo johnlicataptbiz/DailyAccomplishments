@@ -9,48 +9,73 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-<<<<<<< HEAD
-
-=======
->>>>>>> copilot/continue-task-list-work
       - name: Check recent reports and validate structure
+        shell: bash
         run: |
           set -euo pipefail
+
           python3 -m pip install --upgrade pip
           python3 -m pip install jsonschema
-<<<<<<< HEAD
-
-          any_found=0
-=======
           missing=0
->>>>>>> copilot/continue-task-list-work
-          for i in 0 1 2; do
+          invalid=0
+          validated=0
+
+          regenerate_report() {
+            local date="$1"
+            local path="$2"
+
+            echo "Attempting regeneration for $date"
+
+            # Try daily generator first
+            if [ -f "scripts/generate_daily_json.py" ]; then
+              python3 scripts/generate_daily_json.py "$date"
+            # Fallback to JSONL-based generator if available
+            elif [ -f "tools/generate_reports.py" ] && [ -f "logs/daily/${date}.jsonl" ]; then
+              python3 tools/generate_reports.py "$date"
+            else
+              echo "No suitable generator found for $date"
+              return 1
+            fi
+
+            if [ -f "$path" ]; then
+              echo "Regeneration produced: $path"
+              return 0
+            fi
+
+            echo "Regeneration ran but did not produce: $path"
+            return 1
+          }
+
+          # Validate only completed UTC days (past 3)
+          for i in 1 2 3; do
             date=$(date -u -d "-$i day" +%F)
             path="reports/$date/ActivityReport-$date.json"
+
             if [ ! -f "$path" ]; then
-<<<<<<< HEAD
-              echo "MISSING (ok): $path"
-              continue
+              echo "MISSING: $path"
+              if ! regenerate_report "$date" "$path"; then
+                missing=$((missing+1))
+                continue
+              fi
             fi
-            any_found=1
-            echo "FOUND: $path"
-            python3 .github/scripts/validate_report_schema.py "$path"
+
+            echo "VALIDATING: $path"
+            if ! python3 .github/scripts/validate_report_schema.py "$path"; then
+              echo "INVALID: $path"
+              invalid=$((invalid+1))
+            else
+              validated=$((validated+1))
+            fi
           done
 
-          if [ "$any_found" -eq 0 ]; then
+          if [ "$validated" -eq 0 ]; then
             echo "No recent reports found to validate; skipping."
+            exit 0
           fi
-        shell: bash
-=======
-              echo "MISSING: $path"
-              missing=$((missing+1))
-              continue
-            fi
-            echo "FOUND: $path"
-            python3 .github/scripts/validate_report_schema.py "$path" || exit $?
-          done
-          if [ "$missing" -ne 0 ]; then
-            echo "Some recent reports are missing ($missing); failing workflow."
+
+          if [ "$missing" -ne 0 ] || [ "$invalid" -ne 0 ]; then
+            echo "Report check failed. Missing: $missing, Invalid: $invalid, Validated: $validated"
             exit 1
           fi
->>>>>>> copilot/continue-task-list-work
+
+          echo "Recent report validation complete. Missing: $missing, Invalid: $invalid, Validated: $validated"

@@ -18,7 +18,10 @@ from typing import Dict, List, Optional, Tuple, Any
 from zoneinfo import ZoneInfo
 from collections import defaultdict
 
-from daily_logger import read_daily_log, load_config, get_log_path, LOG_DIR
+try:
+    from .daily_logger import read_daily_log, load_config, get_log_path, LOG_DIR
+except ImportError:  # pragma: no cover
+    from daily_logger import read_daily_log, load_config, get_log_path, LOG_DIR
 
 logger = logging.getLogger(__name__)
 

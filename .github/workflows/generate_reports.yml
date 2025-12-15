@@ -2,8 +2,7 @@ name: Generate Daily Reports
 
 on:
   schedule:
-    - cron: "0 0 * * *"
-    - cron: "0 12 * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -11,6 +10,7 @@ permissions:
 
 jobs:
   generate:
+    if: ${{ github.event_name != 'schedule' || vars.ENABLE_SCHEDULED_REPORTS == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,15 +32,25 @@ jobs:
             python -m pip install -r requirements.txt || true
           fi
 
-      - name: Set target date (UTC)
-        run: echo "TARGET_DATE=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
+      - name: Set target dates (UTC)
+        run: |
+          echo "TARGET_DATE=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
+          echo "YESTERDAY_DATE=$(date -u -d 'yesterday' +%Y-%m-%d)" >> "$GITHUB_ENV"
 
-      - name: Generate ActivityReport for target date
+      - name: Generate ActivityReports (today + yesterday)
         id: generate
         run: |
-          set -e
-          echo "Generating ActivityReport for $TARGET_DATE"
-          if python scripts/generate_daily_json.py "$TARGET_DATE"; then
+          set -euo pipefail
+          any=0
+          for d in "$TARGET_DATE" "$YESTERDAY_DATE"; do
+            echo "Generating ActivityReport for $d"
+            if python scripts/generate_daily_json.py "$d"; then
+              any=1
+            else
+              echo "No logs available for $d (skipping)"
+            fi
+          done
+          if [ "$any" -eq 1 ]; then
             echo "generated=true" >> "$GITHUB_OUTPUT"
           else
             echo "generated=false" >> "$GITHUB_OUTPUT"
@@ -50,23 +60,26 @@ jobs:
         if: steps.generate.outputs.generated == 'true'
         env:
           TARGET_DATE: ${{ env.TARGET_DATE }}
+          YESTERDAY_DATE: ${{ env.YESTERDAY_DATE }}
         run: |
           set -e
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           changed=0
-          if [ -f "ActivityReport-${TARGET_DATE}.json" ]; then
-            git add "ActivityReport-${TARGET_DATE}.json" && changed=1 || true
-          fi
-          if [ -d "reports/${TARGET_DATE}" ]; then
-            git add -A "reports/${TARGET_DATE}" && changed=1 || true
-          fi
+          for d in "$TARGET_DATE" "$YESTERDAY_DATE"; do
+            if [ -f "ActivityReport-${d}.json" ]; then
+              git add "ActivityReport-${d}.json" && changed=1 || true
+            fi
+            if [ -d "reports/${d}" ]; then
+              git add -A "reports/${d}" && changed=1 || true
+            fi
+          done
 
           if [ "$changed" -eq 0 ]; then
             echo "No generated files to commit"
             exit 0
           fi
 
-          git commit -m "ci: add generated ActivityReport-${TARGET_DATE}.json [skip ci]" || echo "nothing to commit"
+          git commit -m "ci: update ActivityReports (UTC) [skip ci]" || echo "nothing to commit"
           git push origin HEAD:main

@@ -3,6 +3,7 @@ set -euo pipefail
 
 LABEL="com.dailyaccomplishments.reporter"
 PLIST_PATH="${HOME}/Library/LaunchAgents/${LABEL}.plist"
+INTERVAL_SECONDS="${INTERVAL_SECONDS:-1800}"
 
 REPO_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOG_DIR="${REPO_PATH}/logs"
@@ -26,7 +27,7 @@ cat > "${PLIST_PATH}" <<PLIST
   </array>
 
   <key>StartInterval</key>
-  <integer>900</integer>
+  <integer>${INTERVAL_SECONDS}</integer>
 
   <key>RunAtLoad</key>
   <true/>

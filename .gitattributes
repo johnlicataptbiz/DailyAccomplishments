@@ -2,7 +2,7 @@
 * text=auto eol=lf
 
 # Explicitly treat these as text with LF
-*.csv text eol=lf
+*.csv text eol=lf whitespace=-trailing
 *.json text eol=lf
 *.jsonl text eol=lf
 *.md text eol=lf
@@ -14,3 +14,4 @@
 *.png binary
 *.jpg binary
 *.jpeg binary
+*.pdf binary

@@ -1,35 +1,35 @@
 {
   "source_file": "ActivityReport-2025-12-01.html",
   "date": "2025-12-01",
-  "title": "Daily Accomplishments \u2014 2025-12-01",
+  "title": "Daily Accomplishments — 2025-12-01",
   "overview": {
     "focus_time": "08:54",
     "meetings_time": "01:15",
     "appointments": 2,
     "projects_count": 12,
-    "coverage_window": "08:00\u201320:45",
+    "coverage_window": "08:00–20:45",
     "tasks_updated": 40,
     "updates_made": 3
   },
   "prepared_for_manager": [
-    "Total focused time: 08:54 (Coverage: 08:00\u201320:45 CST)",
+    "Total focused time: 08:54 (Coverage: 08:00–20:45 CST)",
     "Top projects: Email/CRM (00:11), DailyAccomplishments (02:45), PT Biz: Calendar (00:06)",
     "Key tickets: profile:Profile 6 (02:52), weekly-2025 (01:07), ab-9390 (00:00)",
     "Top apps: Google Chrome (03:54), VS Code (02:45), Terminal (01:38)",
-    "Set 2 appt(s): [solid] Brad Neitzel; Discovery \u2014 Banfield Smith (moved from Game Plan Call)",
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
     "Evening session: Built DailyAccomplishments static site with GitHub Pages deployment"
   ],
   "executive_summary": [
-    "Set 2 appt(s): [solid] Brad Neitzel; Discovery \u2014 Banfield Smith (moved from Game Plan Call)",
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
     "Meeting: Slack Huddle (08:00; 00:15)",
     "Meeting: Sales Call (01:00)",
-    "Primary doc: Google Sheets \u2014 Project_783_updated_fit \u2014 (00:01)",
+    "Primary doc: Google Sheets — Project_783_updated_fit — (00:01)",
     "HubSpot: 1 deals updated",
     "Monday.com: 40 tasks updated, 3 updates, across 10 boards",
     "Screen Time: ~821 min foreground app usage"
   ],
   "client_summary": [
-    "Set 2 appt(s): [solid] Brad Neitzel; Discovery \u2014 Banfield Smith (moved from Game Plan Call)",
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery — Banfield Smith (moved from Game Plan Call)",
     "Meeting: Slack Huddle (08:00; 00:15)",
     "Meeting: Sales Call (01:00)"
   ],
@@ -71,13 +71,13 @@
     "Gmail": "00:00",
     "Google Drive": "00:00",
     "top_documents": [
-      "Project_783_updated_fit \u2014 00:01",
-      "783new \u2014 00:00",
-      "783 \u2014 00:00",
-      "Google Sheets \u2014 00:00",
-      "format this text into a table ... \u2014 00:00",
-      "Project_783_1764615540 \u2014 00:00",
-      "Untitled spreadsheet \u2014 00:00"
+      "Project_783_updated_fit — 00:01",
+      "783new — 00:00",
+      "783 — 00:00",
+      "Google Sheets — 00:00",
+      "format this text into a table ... — 00:00",
+      "Project_783_1764615540 — 00:00",
+      "Untitled spreadsheet — 00:00"
     ]
   },
   "browser_highlights": {
@@ -125,11 +125,11 @@
     ],
     "top_pages": [
       {
-        "page": "Daily Accomplishments \u2014 2025-12-01",
+        "page": "Daily Accomplishments — 2025-12-01",
         "visits": 5477
       },
       {
-        "page": "Weekly Roll-up \u2014 2025-11-25 to 2025-12-01",
+        "page": "Weekly Roll-up — 2025-11-25 to 2025-12-01",
         "visits": 4048
       },
       {
@@ -269,14 +269,14 @@
     }
   ],
   "suggested_tasks": [
-    "Focused on Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724 \u2014 01:11",
-    "Focused on Google Chrome \u2014 Google AI Studio \u2014 00:47",
-    "Focused on Google Chrome \u2014 Daily Accomplishments \u2014 00:47",
-    "Focused on Messages \u2014 00:24",
-    "Focused on Google Chrome \u2014 Project: 783 \u2014 00:23",
-    "Focused on Google Chrome \u2014 X \u2014 00:12",
-    "Focused on Google Chrome \u2014 Project 783 - Merge two files \u2014 00:12",
-    "Focused on Google Chrome \u2014 Google Gemini \u2014 00:11"
+    "Focused on Terminal — jacklicatamacbook — iChatDockTile — codex — 80×24 — 01:11",
+    "Focused on Google Chrome — Google AI Studio — 00:47",
+    "Focused on Google Chrome — Daily Accomplishments — 00:47",
+    "Focused on Messages — 00:24",
+    "Focused on Google Chrome — Project: 783 — 00:23",
+    "Focused on Google Chrome — X — 00:12",
+    "Focused on Google Chrome — Project 783 - Merge two files — 00:12",
+    "Focused on Google Chrome — Google Gemini — 00:11"
   ],
   "next_up": [
     "Send recap for 'Sales Call'",
@@ -293,16 +293,16 @@
     "App Store": "00:00"
   },
   "top_windows_preview": [
-    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 01:11",
-    "Google Chrome \u2014 Google AI Studio: 00:47",
-    "Google Chrome \u2014 Daily Accomplishments \u2014 00:47",
-    "Messages \u2014 [redacted]: 00:24",
-    "Google Chrome \u2014 Project: 783: 00:23",
-    "Google Chrome \u2014 X: 00:12",
-    "Google Chrome \u2014 Project 783 - Merge two files: 00:12",
-    "Google Chrome \u2014 Google Gemini: 00:11",
-    "Google Chrome \u2014 Activity Tracker Enhancements: 00:10",
-    "Terminal \u2014 jacklicatamacbook \u2014 -zsh: 00:08"
+    "Terminal — jacklicatamacbook — iChatDockTile — codex — 80×24: 01:11",
+    "Google Chrome — Google AI Studio: 00:47",
+    "Google Chrome — Daily Accomplishments — 00:47",
+    "Messages — [redacted]: 00:24",
+    "Google Chrome — Project: 783: 00:23",
+    "Google Chrome — X: 00:12",
+    "Google Chrome — Project 783 - Merge two files: 00:12",
+    "Google Chrome — Google Gemini: 00:11",
+    "Google Chrome — Activity Tracker Enhancements: 00:10",
+    "Terminal — jacklicatamacbook — -zsh: 00:08"
   ],
   "notes": [
     "Meeting: Sales Call (01:00)",
@@ -325,18 +325,18 @@
         "time": "Sales Call"
       },
       {
-        "name": "Discovery \u2014 Banfield Smith",
+        "name": "Discovery — Banfield Smith",
         "time": "moved from Game Plan Call"
       }
     ],
     "meetings_today": [
       {
         "name": "Slack Huddle",
-        "time": "08:00\u201308:15"
+        "time": "08:00–08:15"
       },
       {
         "name": "Sales Call",
-        "time": "09:30\u201310:30"
+        "time": "09:30–10:30"
       }
     ]
   },
@@ -486,7 +486,7 @@
         "updated_at": "2025-12-01T16:44:59Z",
         "updates_today": [
           {
-            "body": "<p>\ufeffLaunch Ads for starter kit</p>",
+            "body": "<p>﻿Launch Ads for starter kit</p>",
             "creator": "Justin Pfluger",
             "created_at": "2025-12-01T16:43:09.000Z"
           }
@@ -504,7 +504,7 @@
         "updated_at": "2025-12-01T16:44:54Z",
         "updates_today": [
           {
-            "body": "<p>\ufeffwork with Kait to develop monthly hand raiser email</p>",
+            "body": "<p>﻿work with Kait to develop monthly hand raiser email</p>",
             "creator": "Justin Pfluger",
             "created_at": "2025-12-01T16:44:35.000Z"
           }
@@ -534,7 +534,7 @@
         "updated_at": "2025-12-01T16:47:26Z",
         "updates_today": [
           {
-            "body": "<p>\ufeffLaunching more ad copy variations for lead magnets and book funnel</p>",
+            "body": "<p>﻿Launching more ad copy variations for lead magnets and book funnel</p>",
             "creator": "Justin Pfluger",
             "created_at": "2025-12-01T19:05:10.000Z"
           }
@@ -640,7 +640,7 @@
       {
         "id": "18243984768",
         "name": "November",
-        "board": "\ud83d\udfe2 [ACQ] New Prospects",
+        "board": "🟢 [ACQ] New Prospects",
         "board_id": "18243916010",
         "status": "",
         "state": "active",
@@ -712,7 +712,7 @@
       {
         "id": "10608104391",
         "name": "m-trailer for megan tour",
-        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board": "Subitems of 📱IG OS",
         "board_id": "10038593065",
         "status": "Working on it",
         "state": "active",
@@ -724,7 +724,7 @@
       {
         "id": "10608104234",
         "name": "m- last blk friday post",
-        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board": "Subitems of 📱IG OS",
         "board_id": "10038593065",
         "status": "Done",
         "state": "active",
@@ -736,7 +736,7 @@
       {
         "id": "10608104166",
         "name": "t- carousel",
-        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board": "Subitems of 📱IG OS",
         "board_id": "10038593065",
         "status": "Working on it",
         "state": "active",
@@ -748,7 +748,7 @@
       {
         "id": "10608104180",
         "name": "t-podcast share",
-        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board": "Subitems of 📱IG OS",
         "board_id": "10038593065",
         "status": "Working on it",
         "state": "active",
@@ -760,7 +760,7 @@
       {
         "id": "10608117732",
         "name": "w-",
-        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board": "Subitems of 📱IG OS",
         "board_id": "10038593065",
         "status": null,
         "state": "active",
@@ -772,7 +772,7 @@
       {
         "id": "10608101193",
         "name": "th-",
-        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board": "Subitems of 📱IG OS",
         "board_id": "10038593065",
         "status": null,
         "state": "active",
@@ -784,7 +784,7 @@
       {
         "id": "10550872523",
         "name": "Nov 24-30 2025",
-        "board": "\ud83d\udcf1IG OS",
+        "board": "📱IG OS",
         "board_id": "9954941373",
         "status": null,
         "state": "active",
@@ -795,10 +795,10 @@
       },
       {
         "id": "9750292880",
-        "name": "\u2b50\ufe0f Instagram Reach Project",
+        "name": "⭐️ Instagram Reach Project",
         "board": "Subitems of acq",
         "board_id": "9643127424",
-        "status": "\u2463 Reduce Acquisition Costs",
+        "status": "④ Reduce Acquisition Costs",
         "state": "active",
         "created_at": "2025-08-05T17:55:59Z",
         "updated_at": "2025-12-01T16:44:01Z",
@@ -810,7 +810,7 @@
         "name": "Email Marketing",
         "board": "Subitems of acq",
         "board_id": "9643127424",
-        "status": "\u2460 Lead \u2192 Call",
+        "status": "① Lead → Call",
         "state": "active",
         "created_at": "2025-12-01T16:43:53Z",
         "updated_at": "2025-12-01T16:46:58Z",
@@ -822,7 +822,7 @@
         "name": "Short Form Editor Project",
         "board": "Subitems of acq",
         "board_id": "9643127424",
-        "status": "\u2463 Reduce Acquisition Costs",
+        "status": "④ Reduce Acquisition Costs",
         "state": "active",
         "created_at": "2025-12-01T16:44:20Z",
         "updated_at": "2025-12-01T16:45:19Z",
@@ -834,7 +834,7 @@
         "name": "Megan DC Tour Launch",
         "board": "Subitems of acq",
         "board_id": "9643127424",
-        "status": "\u2463 Reduce Acquisition Costs",
+        "status": "④ Reduce Acquisition Costs",
         "state": "active",
         "created_at": "2025-12-01T16:47:25Z",
         "updated_at": "2025-12-01T17:01:58Z",
@@ -907,7 +907,7 @@
         "Dana LaPeze",
         "Bettie Bruce"
       ],
-      "\ud83d\udfe2 [ACQ] New Prospects": [
+      "🟢 [ACQ] New Prospects": [
         "November"
       ],
       "Project: 783": [
@@ -917,7 +917,7 @@
         "Justin Wu",
         "Francisco Padilla"
       ],
-      "Subitems of \ud83d\udcf1IG OS": [
+      "Subitems of 📱IG OS": [
         "m-trailer for megan tour",
         "m- last blk friday post",
         "t- carousel",
@@ -925,11 +925,11 @@
         "w-",
         "th-"
       ],
-      "\ud83d\udcf1IG OS": [
+      "📱IG OS": [
         "Nov 24-30 2025"
       ],
       "Subitems of acq": [
-        "\u2b50\ufe0f Instagram Reach Project",
+        "⭐️ Instagram Reach Project",
         "Email Marketing",
         "Short Form Editor Project",
         "Megan DC Tour Launch"
@@ -942,5 +942,7 @@
         "Kelli Fernicola"
       ]
     }
-  }
+  },
+  "timeline": [],
+  "deep_work_blocks": []
 }

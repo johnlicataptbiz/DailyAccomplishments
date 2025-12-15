@@ -14,7 +14,10 @@ from datetime import datetime, timedelta
 from typing import Optional, Dict, Any
 from zoneinfo import ZoneInfo
 
-from daily_logger import log_activity, load_config
+try:
+    from .daily_logger import log_activity, load_config
+except ImportError:  # pragma: no cover
+    from daily_logger import log_activity, load_config
 
 logger = logging.getLogger(__name__)
 

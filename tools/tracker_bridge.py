@@ -8,10 +8,25 @@ to log events to the daily logging system.
 """
 
 import logging
-from typing import Dict, Any, Optional
+from typing import Callable, Dict, Any, Optional
 from datetime import datetime
 # Import from daily_logger in the same tools directory
-from daily_logger import log_activity, initialize_daily_log, midnight_reset, load_config, get_current_date
+try:
+    from .daily_logger import (
+        log_activity,
+        initialize_daily_log,
+        midnight_reset,
+        load_config,
+        get_current_date,
+    )
+except ImportError:  # pragma: no cover
+    from daily_logger import (  # type: ignore
+        log_activity,
+        initialize_daily_log,
+        midnight_reset,
+        load_config,
+        get_current_date,
+    )
 
 logger = logging.getLogger(__name__)
 
@@ -19,7 +34,11 @@ logger = logging.getLogger(__name__)
 class ActivityTrackerBridge:
     """Bridge between activity tracker and daily logger"""
 
-    def __init__(self):
+    def __init__(
+        self,
+        cache_window_seconds: Optional[int] = None,
+        now_fn: Optional[Callable[[], datetime]] = None,
+    ):
         """Initialize the bridge"""
         self.config = load_config()
         self.last_app = None
@@ -27,11 +46,14 @@ class ActivityTrackerBridge:
         self.last_event_time = None
         self.event_cache = []  # Deduplication cache
         # Load cache_window_seconds from config, with a default of 2 seconds
-        self.cache_window_seconds = self.config.get('tracking', {}).get('cache_window_seconds', 2)
+        default_window = self.config.get('tracking', {}).get('cache_window_seconds', 2)
+        self.cache_window_seconds = cache_window_seconds or default_window
+        # Allow dependency injection for timekeeping to make cache tests deterministic
+        self._now: Callable[[], datetime] = now_fn or datetime.now
 
     def _is_duplicate(self, event_type: str, data: Dict[str, Any]) -> bool:
         """Check if this is a duplicate event"""
-        now = datetime.now()
+        now = self._now()
 
         # Clean old entries from cache
         self.event_cache = [
