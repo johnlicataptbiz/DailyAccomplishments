@@ -1,8 +1,8 @@
 #!/bin/bash
-# Cron Report and Push
-# Single publisher: generates report, runs integrations, enriches, then commits and pushes.
-
 set -euo pipefail
+
+# Optional date argument (defaults to today) for backfilling
+DATE="${1:-$(date +%F)}"
 
 SCRIPT_SOURCE="${BASH_SOURCE[0]:-$0}"
 SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_SOURCE")" && pwd)"
@@ -15,10 +15,8 @@ echo "[$(date)] DEBUG: script dir=$SCRIPT_DIR"
 echo "[$(date)] DEBUG: git work-tree=$(git rev-parse --is-inside-work-tree 2>/dev/null || echo 'no')"
 echo "[$(date)] DEBUG: branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo 'unknown')"
 
-git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
-  echo "[$(date)] ERROR: Not inside a git work tree: $(pwd)" >&2
-  exit 1
-}
+# Generate the daily JSON report from local activity logs
+python3 "$SCRIPT_DIR/generate_daily_json.py" "$DATE" 2>/dev/null || true
 
 # Guard against detached HEAD (LaunchAgent can do this)
 git fetch origin >/dev/null 2>&1 || true
