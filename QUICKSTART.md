@@ -357,8 +357,8 @@ Once everything is working:
 
 - **Complete Guide**: `INTEGRATION_GUIDE.md`
 - **API Reference**: `examples/README.md`
-- **Feature Overview**: `DELIVERY_SUMMARY.md`
-- **Technical Details**: `IMPROVEMENTS.md`
+- **Feature Overview (Legacy)**: `docs/legacy/DELIVERY_SUMMARY.md`
+- **Technical Details**: `docs/design/IMPROVEMENTS.md`
 
 ## Support
 

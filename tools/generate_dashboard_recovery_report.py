@@ -81,7 +81,7 @@ def build_report(output_path: Path) -> Path:
         "Next Steps": [
             "Run python tools/auto_report.py after the next sync window to confirm metrics match recovered data.",
             "Share the regenerated PDF with stakeholders and store it alongside the release artifacts.",
-            "Track any new edge cases discovered during recovery in IMPROVEMENTS.md for future sprints.",
+            "Track any new edge cases discovered during recovery in docs/design/IMPROVEMENTS.md for future sprints.",
         ],
     }
 

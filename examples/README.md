@@ -292,5 +292,5 @@ open http://localhost:8000/dashboard.html
 
 For detailed integration instructions, see:
 - `INTEGRATION_GUIDE.md` — Complete setup guide
-- `IMPROVEMENTS.md` — Technical architecture
+- `docs/design/IMPROVEMENTS.md` — Technical architecture
 - `tools/tracker_bridge.py` — Full API source code

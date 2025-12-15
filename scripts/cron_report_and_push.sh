@@ -35,32 +35,52 @@ else
   echo "[$(date)] WARN: Not on main (current: $CUR). Will commit locally but skip push."
 fi
 
-TARGET_DATE="${1:-$(date +%F)}"
+DATE_ARG="${1:-}"
+TARGET_DATE="${DATE_ARG:-$(date +%F)}"
 
-# 1) Generate the base daily JSON report from local activity logs
-python3 "$SCRIPT_DIR/generate_daily_json.py" "$TARGET_DATE" 2>/dev/null || true
-
-# 2) Run integrations but DO NOT push. This prevents drift.
-if [ -f "$SCRIPT_DIR/sync_all.py" ]; then
-  echo "[$(date)] Syncing integrations (no-push) for $TARGET_DATE..."
-  python3 "$SCRIPT_DIR/sync_all.py" "$TARGET_DATE" --no-push 2>/dev/null || true
+# If running on a schedule without an explicit date, also refresh yesterday shortly
+# after midnight so the prior day's report finalizes cleanly.
+EXTRA_DATES=""
+if [ -z "$DATE_ARG" ]; then
+  HOUR="$(date +%H)"
+  if [ "${HOUR#0}" -lt 3 ]; then
+    YESTERDAY="$(python3 - <<'PY'
+from datetime import date, timedelta
+print((date.today() - timedelta(days=1)).isoformat())
+PY
+)"
+    EXTRA_DATES="$YESTERDAY"
+  fi
 fi
 
-# 3) Enrichers run AFTER integrations so the committed report includes them
-python3 "$SCRIPT_DIR/import_screentime.py" --date "$TARGET_DATE" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
+for D in "$TARGET_DATE" $EXTRA_DATES; do
+  echo "[$(date)] Generating report for $D"
 
-if [ -f "$REPO_ROOT/credentials/calendar.ics" ]; then
-  python3 "$SCRIPT_DIR/import_calendar_ics.py" --date "$TARGET_DATE" --ics "$REPO_ROOT/credentials/calendar.ics" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
-fi
+  # 1) Generate the base daily JSON report from local activity logs
+  python3 "$SCRIPT_DIR/generate_daily_json.py" "$D" 2>/dev/null || true
 
-python3 "$SCRIPT_DIR/import_browser_history.py" --date "$TARGET_DATE" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
+  # 2) Run integrations but DO NOT push. This prevents drift.
+  if [ -f "$SCRIPT_DIR/sync_all.py" ]; then
+    echo "[$(date)] Syncing integrations (no-push) for $D..."
+    python3 "$SCRIPT_DIR/sync_all.py" "$D" --no-push 2>/dev/null || true
+  fi
 
-# 4) Charts and archives
-if python3 -c "import matplotlib" 2>/dev/null; then
-  python3 tools/generate_reports.py "$TARGET_DATE" 2>/dev/null || true
-fi
+  # 3) Enrichers run AFTER integrations so the committed report includes them
+  python3 "$SCRIPT_DIR/import_screentime.py" --date "$D" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
 
-"$SCRIPT_DIR"/archive_outputs.sh "$TARGET_DATE" 2>/dev/null || true
+  if [ -f "$REPO_ROOT/credentials/calendar.ics" ]; then
+    python3 "$SCRIPT_DIR/import_calendar_ics.py" --date "$D" --ics "$REPO_ROOT/credentials/calendar.ics" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
+  fi
+
+  python3 "$SCRIPT_DIR/import_browser_history.py" --date "$D" --update-report --repo "$REPO_ROOT" 2>/dev/null || true
+
+  # 4) Charts and archives
+  if python3 -c "import matplotlib" 2>/dev/null; then
+    python3 tools/generate_reports.py "$D" 2>/dev/null || true
+  fi
+
+  "$SCRIPT_DIR"/archive_outputs.sh "$D" 2>/dev/null || true
+done
 
 # 5) Copy files to gh-pages worktree if it exists
 GH_PAGES="$REPO_ROOT/gh-pages"

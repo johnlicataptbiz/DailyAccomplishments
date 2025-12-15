@@ -74,6 +74,34 @@ open http://localhost:8000/dashboard.html
 bash scripts/smoke_railway.sh https://dailyaccomplishments.up.railway.app
 ```
 
+### Near Real-Time Updates (every 30 minutes)
+
+If you’re generating reports from local logs and pushing to GitHub (so Railway redeploys), install the macOS LaunchAgent:
+
+```bash
+# default: every 1800s (30 min)
+bash scripts/install_launchagents.sh
+
+# override interval (seconds)
+INTERVAL_SECONDS=900 bash scripts/install_launchagents.sh
+```
+
+The dashboard live headline updates every minute, and it will poll for new report JSON every 5 minutes by default (configurable via `config.json`).
+
+### Backfill Reports (no placeholders)
+
+If you have historical logs in `logs/daily/YYYY-MM-DD.jsonl`, generate real reports for a date range:
+
+```bash
+python3 scripts/backfill_reports.py --start 2025-12-01 --end 2025-12-31 --archive --include-backups
+```
+
+If your logs are in a recovered folder (example: `recovered_artifacts/logs/`), point the backfill tool at it:
+
+```bash
+python3 scripts/backfill_reports.py --start 2025-12-01 --end 2025-12-31 --archive --logs-root recovered_artifacts/logs
+```
+
 ### Integration (3 Lines)
 
 ```python
@@ -98,7 +126,8 @@ bridge.on_focus_change("VS Code", "main.py", 120)  # 2 minutes
 
 ### Configurable Category Priority
 - **Flexible Attribution**: You can now control how overlapping activities are attributed by defining a priority order for categories.
-- **Easy Configuration**: Simply edit the `category_priority` array in your `config.json` file. The generator will use this order to decide which activity "wins" when overlaps occur.
+- **Easy Configuration**: Edit `analytics.category_priority` in `config.json` (see `config.json.example`). The generator uses this order to decide which activity "wins" when overlaps occur.
+- **Configurable Categorization**: You can also override categorization via `analytics.category_mapping` (keyword lists matched against app/window strings).
 
 ## 📖 Documentation
 
@@ -106,9 +135,10 @@ bridge.on_focus_change("VS Code", "main.py", 120)  # 2 minutes
 |----------|-------------|
 | **[QUICKSTART.md](QUICKSTART.md)** | Step-by-step checklist (45 minutes to complete setup) |
 | **[INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md)** | Complete integration guide with code examples |
+| **[docs/index/README.md](docs/index/README.md)** | Documentation map (what’s current vs. archived) |
 | **[examples/README.md](examples/README.md)** | API reference and integration examples |
-| **[DELIVERY_SUMMARY.md](DELIVERY_SUMMARY.md)** | Feature overview and what was delivered |
-| **[IMPROVEMENTS.md](IMPROVEMENTS.md)** | Technical architecture and design decisions |
+| **[docs/design/IMPROVEMENTS.md](docs/design/IMPROVEMENTS.md)** | Technical architecture and design decisions |
+| **[docs/legacy/DELIVERY_SUMMARY.md](docs/legacy/DELIVERY_SUMMARY.md)** | Legacy delivery summary (archived) |
 
 ## 🎯 Use Cases
 
@@ -181,12 +211,12 @@ Score: 85/100 (Excellent) 🎉
 
 ### Core Modules (3,000+ lines of Python)
 
-- **`daily_logger.py`** (380 lines): Robust JSONL logging with error handling
-- **`tracker_bridge.py`** (220 lines): Integration API with deduplication
-- **`analytics.py`** (600 lines): Productivity analytics engine
-- **`idle_detection.py`** (400 lines): Cross-platform idle monitoring
-- **`auto_report.py`** (300 lines): Automated report generation
-- **`notifications.py`** (500 lines): Email and Slack delivery
+- **`tools/daily_logger.py`**: Robust JSONL logging with error handling
+- **`tools/tracker_bridge.py`**: Integration API with deduplication
+- **`tools/analytics.py`**: Productivity analytics engine
+- **`tools/idle_detection.py`**: Cross-platform idle monitoring
+- **`tools/auto_report.py`**: Automated report generation
+- **`tools/notifications.py`**: Email and Slack delivery
 - **`dashboard.html`** (400 lines): Interactive web UI with Chart.js
 
 ### Data Flow
@@ -236,6 +266,8 @@ Edit `config.json`:
 }
 ```
 
+For all available settings (including `analytics.category_mapping` / `analytics.category_priority`), see `config.json.example`.
+
 ## 📝 Event Types
 
 | Event Type | Description | API Method |
@@ -254,7 +286,23 @@ Edit `config.json`:
 
 ### Categories
 
-Edit `tools/analytics.py`:
+Prefer `config.json` (`analytics.category_mapping` and `analytics.category_priority`) for categorization and overlap attribution:
+
+```json
+{
+  "analytics": {
+    "category_mapping": {
+      "Coding": ["VS Code", "Terminal", "GitHub"],
+      "Meetings": ["Zoom", "Google Meet", "Microsoft Teams"],
+      "Research": ["Chrome", "Safari", "Documentation"],
+      "Other": []
+    },
+    "category_priority": ["Meetings", "Coding", "Research", "Other"]
+  }
+}
+```
+
+For deeper scoring logic, edit `tools/analytics.py`:
 
 ```python
 CATEGORY_MAPPING = {
