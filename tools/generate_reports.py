@@ -10,6 +10,7 @@ import csv
 BASE = Path(__file__).resolve().parents[1]
 DEFAULT_DATE = datetime.now(ZoneInfo('America/Chicago')).strftime('%Y-%m-%d')
 JSONL_INPUT = BASE / 'logs' / 'daily' / f'{DEFAULT_DATE}.jsonl'
+LEGACY_JSONL_INPUT = BASE / 'logs' / f'activity-{DEFAULT_DATE}.jsonl'
 JSON_INPUT = BASE / f'ActivityReport-{DEFAULT_DATE}.json'
 OUT_DIR = BASE
 def hhmm_to_minutes(s):
@@ -135,7 +136,11 @@ def load_from_jsonl(jsonl_path: Path, config: Optional[Dict[str, Any]] = None) -
     mapping, priority_list = _load_category_settings(config)
     category_resolver = _build_categorizer(mapping)
     priority_func = _build_priority_func(priority_list)
-    date_str = jsonl_path.stem if jsonl_path and jsonl_path.exists() else DEFAULT_DATE
+    if jsonl_path and jsonl_path.exists():
+        stem = jsonl_path.stem
+        date_str = stem.split('activity-')[-1] if stem.startswith('activity-') else stem
+    else:
+        date_str = DEFAULT_DATE
     report = {
         'date': date_str,
         'overview': {
@@ -387,39 +392,31 @@ def categorize_app(app: str) -> str:
     else:
         return 'Other'
 def load_data(date: str = None) -> dict:
-    if date:
-        jsonl_path = BASE / 'logs' / 'daily' / f'{date}.jsonl'
-        json_path = BASE / f'ActivityReport-{date}.json'
-        archived_json_path = BASE / 'reports' / date / f'ActivityReport-{date}.json'
-    else:
-        jsonl_path = JSONL_INPUT
-        json_path = JSON_INPUT
-        archived_json_path = BASE / 'reports' / DEFAULT_DATE / f'ActivityReport-{DEFAULT_DATE}.json'
+    date_str = date or DEFAULT_DATE
+    candidates = [
+        BASE / 'logs' / 'daily' / f'{date_str}.jsonl',
+        BASE / 'logs' / f'activity-{date_str}.jsonl'
+    ]
+    if not date:
+        candidates.insert(0, JSONL_INPUT)
+        candidates.append(LEGACY_JSONL_INPUT)
 
-    def try_load_json(path: Path):
-        if not path.exists():
-            return None
-        try:
-            print(f"Loading from JSON: {path}")
-            return json.loads(path.read_text())
-        except Exception as e:
-            print(f"Failed to parse JSON at {path}: {e}")
-            return None
+    json_path = BASE / f'ActivityReport-{date_str}.json'
+    archived_json_path = BASE / 'reports' / date_str / f'ActivityReport-{date_str}.json'
 
-    if jsonl_path.exists():
-        data = load_from_jsonl(jsonl_path)
-        if data:
-            return data
-
-    # Prefer archived reports/<date>/ActivityReport-<date>.json when present.
-    data = try_load_json(archived_json_path)
-    if data:
-        return data
-
-    data = try_load_json(json_path)
-    if data:
-        return data
-    raise FileNotFoundError(f"No data found for date {date or DEFAULT_DATE}")
+    for jsonl_path in candidates:
+        if jsonl_path.exists():
+            data = load_from_jsonl(jsonl_path)
+            if data:
+                return data
+    for path in (archived_json_path, json_path):
+        if path.exists():
+            try:
+                print(f"Loading from JSON: {path}")
+                return json.loads(path.read_text())
+            except Exception as e:
+                print(f"Failed to parse JSON at {path}: {e}")
+    raise FileNotFoundError(f"No data found for date {date_str}")
 def main():
     date = sys.argv[1] if len(sys.argv) > 1 else None
     try:
