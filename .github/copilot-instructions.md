@@ -1,3 +1,81 @@
+## Copilot / AI agent guidance — DailyAccomplishments (concise)
+
+Purpose: quick, repo-specific rules to get an AI coding agent productive. Keep changes small, verifiable, and reversible.
+
+Big picture
+- Data flow: trackers → `tools/tracker_bridge.py` → `tools/daily_logger.py` (newline JSONL in `logs/daily/YYYY-MM-DD.jsonl`) → `tools/analytics.py` → `tools/auto_report.py` → `reports/` + `gh-pages/` dashboard. See `README.md` "Data Flow".
+
+Key files to read first
+- `config.json` / `config.json.example` (timezone, analytics settings)
+- `tools/tracker_bridge.py`, `tools/daily_logger.py`, `tools/analytics.py`, `tools/auto_report.py`
+- `activity_tracker.py`, `mac_tracker_adapter.py`, `tracker_bridge.py`, `tracker_cli.py` (collection adapters)
+- `gh-pages/dashboard.html`, `reports/`, and `ActivityReport-*.json` (UI contract)
+
+Quick dev commands (most useful)
+- Install deps: `pip install -r requirements.txt`
+- Smoke ingest: `python3 examples/integration_example.py` (generates sample `logs/daily/*.jsonl`)
+- Generate reports: `python3 tools/auto_report.py` or `./generate_reports.sh`
+- Serve dashboard locally: `python -m http.server -d gh-pages 8000` and open `/dashboard.html`
+- Run tests: `pytest`
+
+Project-specific conventions (do not change lightly)
+- Event format: newline-delimited JSONL under `logs/daily/` — tools assume this exact shape.
+- Timezone default: `America/Chicago` (check `config.json` before changing date logic).
+- Category mapping & priority: `config.json` keys `analytics.category_mapping` and `analytics.category_priority` drive attribution in `tools/analytics.py`.
+- CSV artifacts may contain trailing whitespace (handled by repo config). Prefer non-binary outputs (SVG charts) and avoid committing new binary images.
+
+Verification & smoke tests
+- Quick end-to-end: run `python3 examples/integration_example.py` then `python3 tools/auto_report.py` and inspect `reports/daily-report-*.json` and `gh-pages/dashboard.html`.
+- Before changing aggregation/visualization: run `./verify_installation.py` and `pytest`.
+
+Integrations & external dependencies
+- Notifications: `tools/notifications.py` (SMTP, Slack webhooks) — examples in `examples/`.
+- Calendar, browser, and macOS knowledgeC adapters live in `mac_tracker_adapter.py`, `tracker_bridge.py`.
+- Charting requires system libs (e.g., freetype) — see `Dockerfile` and `requirements.txt` for runtime requirements.
+
+Deploy / hosting notes
+- `gh-pages/` must expose `reports/*.json` or the UI falls back to raw GitHub URLs (see `docs/RAILWAY_DEPLOY.md`).
+- ActivityReport-*.json files are the contract the frontend expects; preserve their schema when changing report generation.
+
+Git & patch discipline (required)
+- Make small, focused change-sets. Show `git diff` after edits and stage only intended paths: `git add path/to/file` (never `git add -A`).
+- When asked to prove changes, include raw command outputs (this repo requires reproducible verification).
+
+Secrets & credentials
+- `credentials/` is gitignored. Do not add secrets to `config.json`; use env vars or the `credentials/` pattern.
+
+If something here is unclear or you want a small patch walkthrough (e.g., `tools/analytics.py`), tell me which area to expand.
+## Copilot / AI agent guidance — concise reference
+
+This file gives quickly-actionable rules for an AI coding agent working on DailyAccomplishments. Keep edits small, verifiable, and reproducible.
+
+- Big picture: data flows from trackers → `tools/tracker_bridge.py` → `tools/daily_logger.py` (JSONL files in `logs/daily/`) → `tools/analytics.py` → `tools/auto_report.py` → `reports/` + `gh-pages/` dashboard. See `README.md` "Data Flow" and `tools/` for examples.
+- Key files to read first: `config.json`, `config.json.example`, `tools/tracker_bridge.py`, `tools/daily_logger.py`, `tools/analytics.py`, `tools/auto_report.py`, `gh-pages/dashboard.html`, `README.md` (top-level).
+- Local dev commands (most useful):
+  - Install deps: `pip install -r requirements.txt`
+  - Run example ingestion: `python3 examples/integration_example.py`
+  - Generate a report: `python3 tools/auto_report.py`
+  - Serve dashboard: `python3 -m http.server 8000` and open `/dashboard.html`
+  - Backfill: `python3 scripts/backfill_reports.py --start 2025-12-01 --end 2025-12-31`
+- Conventions specific to this repo:
+  - Event storage: newline-delimited JSONL in `logs/daily/YYYY-MM-DD.jsonl` (tools expect this format).
+  - CSV files may contain trailing whitespace (handled by .gitattributes) — do not strip blindly in bulk.
+  - Charts: prefer SVG outputs; avoid committing new binary images.
+  - Timezone default: `America/Chicago` — verify conversions when editing analytics or report code.
+  - Category configuration lives in `config.json` (`analytics.category_mapping` and `analytics.category_priority`) and drives overlap attribution logic in `tools/analytics.py`.
+- Integrations and deploy hooks to be aware of:
+  - Notifications: `tools/notifications.py` (email via SMTP, Slack webhook). Tests/examples under `examples/` and `README.md`.
+  - Hosted static site: `gh-pages/` is used for dashboard publishing and must include `reports/*.json` or fallbacks to raw GitHub URLs (see `docs/RAILWAY_DEPLOY.md`).
+- Git/patch discipline (required):
+  - Make small, single-feature change-sets. Show `git diff` after edits. Stage only intended files: `git add <paths>` (never `git add -A`).
+  - For any git/network step paste raw command output when requested. Keep commits focused and reversible.
+- Testing and verification pointers:
+  - Use `examples/integration_example.py` for smoke tests and `tools/auto_report.py` to validate report generation end-to-end.
+  - When changing parsing/aggregation, run a short synthetic day via the example and inspect `reports/daily-report-*.json` and `logs/daily/*.jsonl`.
+- Safety and secrets:
+  - Credentials live in `credentials/` (gitignored). Never add secrets to code or `config.json`; use environment variables where possible.
+
+If anything in this concise guide is unclear or you want more examples (e.g., a small patch walkthrough for `tools/analytics.py`), tell me which area to expand.
 # GitHub Copilot Instructions for DailyAccomplishments
 
 ## Project Overview
@@ -18,232 +96,47 @@ DailyAccomplishments is a production-ready productivity tracking and analytics s
 
 ### Planned Integrations (see ROADMAP.md)
 - **HubSpot**: CRM activity tracking
-- **Aloware**: Communication platform  
-- **Monday.com**: Project management boards
+ # GitHub Copilot instructions — DailyAccomplishments
 
-## Project Structure
+Keep guidance short, actionable, and repository-specific. The items below are patterns and commands an AI coding agent should follow to be productive here.
 
-### Configuration Files
-- **config.json**: Main configuration file containing:
-  - Tracking settings (hours, timezone, categories)
-  - Integration credentials and settings
-  - Report generation preferences
-  - Notification settings (email, Slack webhooks)
-  - Data retention policies
+1. Big picture
+  - Data collectors & adapters: `mac_tracker_adapter.py`, `tracker_bridge.py`, `tracker_cli.py`, `activity_tracker.py` produce raw events and JSON reports (`ActivityReport-YYYY-MM-DD.json`).
+  - Processing & tools: `tools/`, `analyze_branches.py`, `extract_diff.py`, `generate_reports.sh` transform data into CSVs and SVG charts saved under `reports/` and `gh-pages/`.
+  - Dashboard & hosting: static UI under `gh-pages/` and `dashboard/`; gh-pages must continue to expose ActivityReport JSON fallbacks (see `docs/RAILWAY_DEPLOY.md`).
 
-### File Handling
-- **CSV files**: Data files that may contain trailing whitespace (configured in .gitattributes)
-- **Visualizations**: Prefer SVG charts; avoid committing new binary image artifacts in PRs
-- **Credentials**: Stored in `credentials/` directory (excluded from git)
-- **Logs**: Stored in `logs/daily` and `logs/archive` directories
+2. Key files & examples (search these when changing behavior)
+  - `config.json` — canonical runtime settings (timezone default: America/Chicago).
+  - `credentials/` — never commit; use env vars for CI.
+  - `ActivityReport-*.json`, `reports/`, `gh-pages/dashboard.html` — primary UX/outputs. Treat them as the contract the UI expects.
 
-## Build and Deployment
+3. Developer workflows (commands you should run / recommend)
+  - Local server for dashboard: `python -m http.server -d gh-pages 8000` or use Docker:
+    - `docker build -t daily-accomplishments .`
+    - `docker run -p 8000:8000 daily-accomplishments`
+  - Regenerate reports: `./generate_reports.sh` then open `gh-pages/dashboard.html`.
+  - Tests: run `pytest` (project includes `pytest.ini` and `tests/`).
 
-### Docker
-The application uses Docker for deployment:
-```bash
-docker build -t daily-accomplishments .
-docker run -p 8000:8000 daily-accomplishments
-```
+4. Project-specific conventions
+  - Keep diffs small and focused; the repo enforces a disciplined patch workflow (stage exact files only).
+  - CSVs may contain trailing whitespace — `.gitattributes` allows it. Avoid normalizing CSV whitespace in bulk commits.
+  - Visual artifacts should be SVG (see `generate_charts.sh` / `tools/`); do not add new binary images in PRs.
+  - Timezone and daily-cutoff logic live in `activity_tracker.py`/`tools/` — update tests when changing cutoff behavior.
 
-### Dependencies
-- **Python 3.12**: Runtime environment
-- **matplotlib**: For generating charts and visualizations
-- System dependencies (installed in Docker): matplotlib runtime deps (freetype, etc.)
+5. Integrations & external dependencies
+  - Integrations documented in `INTEGRATION_GUIDE.md` (Google Calendar, Slack, macOS KnowledgeC). Use `config.json` toggles and `credentials/` for secrets.
+  - Docker and system libs (freetype for matplotlib) are required for chart generation — see `Dockerfile` and `requirements.txt`.
 
-### Web Server
-- Default port: 8000
-- Serves reports and dashboard via Python's built-in HTTP server
-- Static files served from `gh-pages/` directory
+6. Git + CI expectations for automated agents
+  - Never run a sweeping `git add -A`. Stage precise paths: `git add path/to/file`.
+  - Provide exact command outputs when claiming changes (follow repo's verification checklist). When proposing changes, include the minimal `git diff` for review.
 
-## Coding Standards and Conventions
+7. Safety checks before edits
+  - Run `./verify_installation.py` and `pytest` if modifying processors or visualization code.
+  - If changing public-facing artifacts in `gh-pages/`, ensure `ActivityReport-*.json` fallback URLs still work.
 
-### Python Code
-- Use Python 3.12+ features
-- Follow PEP 8 style guide
-- Use type hints where appropriate
-- Keep functions focused and modular
+8. Examples to copy into PR descriptions
+  - How to build/run locally: `docker build -t daily-accomplishments . && docker run -p 8000:8000 daily-accomplishments`
+  - How to regenerate outputs: `./generate_reports.sh && python -m http.server -d gh-pages 8000`
 
-### Configuration Management
-- All API credentials should be configurable via config.json
-- Never hardcode credentials or API keys
-- Use environment variables for sensitive data when possible
-- Validate configuration on startup
-
-### Data Files
-- CSV files are configured with `text eol=lf -whitespace` in .gitattributes, which allows trailing whitespace (this is expected for data files)
-- Other text files use `text eol=lf` for consistent line endings
-- If binary files are present, they are marked as binary in .gitattributes to prevent patch errors
-
-### Git Practices
-- CSV files are configured to ignore trailing whitespace errors
-- Binary files are marked as binary to prevent patch errors
-- See .gitattributes for file type handling rules
-- Use .gitignore to exclude build artifacts, credentials, and temporary files
-
-## Testing and Validation
-
-### Before Committing
-1. Ensure config.json is valid JSON
-2. Verify Docker build succeeds: `docker build -t test .`
-3. Test report generation if modifying visualization code
-4. Verify integrations don't break if modifying API code
-
-### Local Development
-- Use virtual environments for Python dependencies
-- Test with sample data before using production credentials
-- Verify timezone handling (default: America/Chicago)
-
-## Common Tasks
-
-### Adding New Integrations
-1. Add configuration section to config.json
-2. Include `enabled` flag for toggling
-3. Store credentials securely
-4. Add error handling for API failures
-5. Document the integration in this file
-
-### Modifying Reports
-1. Update visualization code in tools/ directory
-2. Test with matplotlib dependencies
-3. Ensure charts are saved as SVG (avoid committing binary image artifacts in PRs)
-4. Update dashboard HTML if needed
-
-### Changing Tracking Settings
-1. Modify tracking section in config.json
-2. Verify timezone handling
-3. Test daily cutoff logic
-4. Validate category priority ordering
-
-## Important Notes
-
-- **Timezone**: Default is America/Chicago - handle timezone conversions carefully
-- **Data Retention**: Configured retention policies in config.json should be respected
-- **Privacy**: This is a personal productivity tool - handle user data carefully
-- **Error Handling**: API integrations should fail gracefully with helpful error messages
-- **Credentials**: Never commit credentials to git - use credentials/ directory or environment variables
-
-## File Patterns to Recognize
-
-- `*.csv` - Data files (may have trailing whitespace)
-- `*.svg` - Vector visualization files (preferred; avoid committing binaries in PRs)
-- `config.json` - Main configuration (validate JSON syntax)
-- `tools/*.py` - Python modules for data processing and reporting
-- `gh-pages/` - Static web dashboard files
-- `credentials/` - Sensitive credential files (never commit)
-- `logs/` - Application logs and archives
-
-## Best Practices for This Repository
-
-1. **Minimal Changes**: Make surgical, focused changes to existing functionality
-2. **Preserve Configuration**: Don't remove or modify working configuration options
-3. **Test Integrations**: If changing integration code, verify it doesn't break existing setups
-4. **Document Changes**: Update this file if adding new features or changing conventions
-5. **Security First**: Always validate credentials handling and never log sensitive data
-6. **Docker Compatibility**: Ensure changes work within the Docker container environment
-
-## Git Workflow and Verification
-
-### Non-Negotiables
-
-#### No Unverifiable Claims
-- Never say "pushed", "deployed", "fixed", "verified", "complete", or "made changes" unless you show the exact raw command output proving it
-
-#### Always Show Raw Outputs
-- For any git/deploy/network step, paste raw output exactly as printed (no paraphrase)
-- If output is long, paste the relevant section plus command + exit code
-
-#### One Change-Set at a Time
-- Do not bundle multiple unrelated modifications
-- Keep diffs small, focused, and reversible
-
-#### Never git add -A
-- Always stage targeted paths only
-- If you must stage multiple files, list them explicitly
-
-#### Trust but Verify
-- Every "fix" ends with a verification checklist (commands + outputs)
-- No verification = not done
-
-### Standard Workflow
-
-#### A) Diagnose Before Changing Anything
-Run and paste raw outputs:
-```bash
-pwd
-git status -sb
-git rev-parse --abbrev-ref HEAD
-git rev-parse HEAD
-git log -1 --oneline --decorate
-git diff --name-status
-```
-
-#### B) Make the Change (Patch Discipline)
-- Prefer minimal edits
-- After editing, always show: `git diff`
-
-#### C) Stage + Commit
-Stage only intended files:
-```bash
-git add <exact paths>
-git status --porcelain
-git commit -m "<message>"
-```
-If "nothing to commit", stop and explain why (wrong files? already merged?)
-
-## Railway Deployment Verification
-
-### When Diagnosing "Site Still Old / Blank"
-
-#### Prove What Railway is Serving Right Now
-```bash
-# Replace <railway-url> with actual Railway deployment URL
-curl -I https://<railway-url>/dashboard.html
-curl -s https://<railway-url>/dashboard.html | head -n 40
-curl -s https://<railway-url>/dashboard.html | grep -n "raw.githubusercontent.com"
-```
-
-#### Verify JSON Availability from GitHub Raw
-```bash
-curl -I https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/ActivityReport-$(date +%Y-%m-%d).json
-```
-
-#### Important Notes
-- If Railway uses Docker static serving, assume redeploy is required for file changes to show up
-- Railway auto-deploys when the `main` branch is updated (see docs/RAILWAY_DEPLOY.md)
-
-## Frontend Robustness (Dashboard)
-
-The dashboard implements the following fallback strategy (already implemented in gh-pages/dashboard.html):
-
-1. Try same-origin `/ActivityReport-${date}.json`
-2. Try same-origin `/reports/daily-report-${date}.json`
-3. Fallback to GitHub raw: `https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/ActivityReport-${date}.json`
-
-All requests include:
-- `cache: 'no-store'` header
-- `?t=${Date.now()}` cache buster
-
-The "View Raw Data" link points to the URL that actually succeeded.
-
-**Important**: Never break gh-pages publishing; do not ignore ActivityReport-*.json.
-
-## Reliability and Failure Handling
-
-### Command Failures
-- If a command fails, paste the full stderr and exit code
-- If output is truncated, rerun inside bash -lc and pipe to a log:
-  ```bash
-  LOG=/tmp/agent_run.log; { <commands>; } 2>&1 | tee "$LOG"
-  ```
-
-### Authentication/Network Issues
-- If auth/network prevents push/deploy, say so explicitly and provide the exact error
-
-## Communication Style
-
-When working on this repository:
-- **Be short and concrete** - no fluff
-- **Use checklists** to track progress
-- **End each work block with**: "Next command I will run:" followed by exactly one command block
-- **Show proof** - always paste raw command outputs for verification
+If any area is unclear or you'd like more examples (unit tests, a sample Docker-based dev script, or a checklist for dashboard changes), tell me which part to expand.
