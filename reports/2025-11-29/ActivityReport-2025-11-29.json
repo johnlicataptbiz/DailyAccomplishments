@@ -136,7 +136,12 @@
       "pct": "0%"
     }
   ],
+<<<<<<< HEAD
   "executive_summary": [],
   "timeline": [],
   "deep_work_blocks": []
 }
+=======
+  "executive_summary": []
+}
+>>>>>>> 69315c7 (Update legacy reports and cron script)
