@@ -795,7 +795,7 @@
                     if (dashboard && String(dashboard.innerHTML || '').includes('Loading your day')) {
                         dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Timed out while loading. Try refreshing, or pick another date.</p></div>`;
                         try {
-                            document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
+                            document.getElementById('jsonLink').href = `reports/${date}/ActivityReport-${date}.json`;
                         } catch {}
                     }
                 }, 4000);
@@ -815,10 +815,12 @@
                         const candidates = [
                             { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
                             { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
-                            { url: `reports/daily-report-${d}.json`, timeoutMs: 1500 },
                             { url: `${RAW_BASE}reports/${d}/ActivityReport-${d}.json`, timeoutMs: 2000 },
                             { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
-                            { url: `${RAW_BASE}reports/daily-report-${d}.json`, timeoutMs: 2000 },
+                            // Legacy (optional): if present, accept it, but do not probe it first
+                            // to avoid noise (many dates do not have this file).
+                            { url: `reports/daily-report-${d}.json`, timeoutMs: 1200 },
+                            { url: `${RAW_BASE}reports/daily-report-${d}.json`, timeoutMs: 1500 },
                         ];
 
                         let lastResponse = null;
@@ -842,7 +844,7 @@
 
                     let resolvedDate = date;
                     let response = null;
-                    let usedUrl = `reports/daily-report-${date}.json`;
+                    let usedUrl = `reports/${date}/ActivityReport-${date}.json`;
 
                     if (allowFallback) {
                         for (let back = 0; back <= tryDaysBack; back++) {
@@ -887,7 +889,7 @@
                 } catch (error) {
                     console.error('[loadData] Failed to load dashboard data:', error);
                     try {
-                        document.getElementById('jsonLink').href = `reports/daily-report-${date}.json`;
+                        document.getElementById('jsonLink').href = `reports/${date}/ActivityReport-${date}.json`;
                     } catch {}
                     dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
                 } finally {
@@ -904,9 +906,11 @@
                 dd.setDate(d.getDate() - i);
                 const key = localDateKey(dd);
                 try {
-                    let r = await fetchWithTimeout(`reports/daily-report-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
-                    if (!r.ok) r = await fetchWithTimeout(`reports/${key}/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
+                    // Prefer ActivityReport JSONs for baseline computations; avoid probing legacy
+                    // daily-report JSON files which often do not exist and generate lots of 404 noise.
+                    let r = await fetchWithTimeout(`reports/${key}/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
                     if (!r.ok) r = await fetchWithTimeout(`ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
+                    if (!r.ok) r = await fetchWithTimeout(`${RAW_BASE}reports/${key}/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1500);
                     if (!r.ok) r = await fetchWithTimeout(`${RAW_BASE}ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1500);
                     if (!r.ok) continue;
                     const j = await r.json();
