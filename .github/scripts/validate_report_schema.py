@@ -264,5 +264,6 @@ def main(argv: list[str]) -> int:
     if any_usage_or_setup_error:
         return 2
     return 0 if all_ok else 3
-if __name__ == "__main__":
+<<<<<<< HEAD
+if __name__ == '__main__':
     sys.exit(main(sys.argv))
