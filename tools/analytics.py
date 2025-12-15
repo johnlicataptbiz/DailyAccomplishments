@@ -446,15 +446,73 @@ class ProductivityAnalytics:
     
     def generate_report(self) -> Dict[str, Any]:
         """Generate comprehensive analytics report"""
+        # Build timeline and deep_work_blocks for compatibility with ActivityReport schema
+        timeline = self._build_timeline()
+        deep_blocks = self._build_deep_work_blocks()
+
         return {
             'date': self.date.strftime('%Y-%m-%d'),
             'deep_work_sessions': self.detect_deep_work_sessions(),
+            'deep_work_blocks': deep_blocks,
+            'timeline': timeline,
             'interruption_analysis': self.analyze_interruptions(),
             'productivity_score': self.calculate_productivity_score(),
             'category_trends': self.analyze_category_trends(),
             'meeting_efficiency': self.analyze_meeting_efficiency(),
             'focus_windows': self.suggest_focus_windows()
         }
+
+    def _build_timeline(self) -> List[Dict[str, Any]]:
+        """Convert raw events into a simple timeline export compatible with reports."""
+        out: List[Dict[str, Any]] = []
+        for ev in self.events:
+            ts = ev.get('timestamp')
+            if not ts:
+                continue
+            try:
+                start_dt = datetime.fromisoformat(ts)
+            except Exception:
+                continue
+            duration = ev.get('data', {}).get('duration_seconds', ev.get('duration_seconds', 0))
+            seconds = int(duration) if isinstance(duration, (int, float)) else 0
+            minutes = int(seconds / 60)
+            app = ev.get('data', {}).get('app') or ev.get('app') or 'Unknown'
+            category = self._categorize_app(app)
+            out.append({
+                'start': start_dt.strftime('%H:%M'),
+                'end': (start_dt + timedelta(seconds=seconds)).strftime('%H:%M'),
+                'seconds': seconds,
+                'minutes': minutes,
+                'category': category,
+                'app': app,
+                'type': ev.get('type')
+            })
+        return out
+
+    def _build_deep_work_blocks(self) -> List[Dict[str, Any]]:
+        """Create deep_work_blocks from detected deep work sessions.
+
+        This mirrors the schema used by scripts/generate_daily_json.py (start/end in HH:MM,
+        duration string, seconds, minutes).
+        """
+        blocks: List[Dict[str, Any]] = []
+        sessions = self.detect_deep_work_sessions()
+        for s in sessions:
+            try:
+                start_dt = datetime.fromisoformat(s['start_time'])
+                end_dt = datetime.fromisoformat(s['end_time'])
+            except Exception:
+                continue
+            secs = int((end_dt - start_dt).total_seconds())
+            mins = int(secs / 60)
+            blocks.append({
+                'start': start_dt.strftime('%H:%M'),
+                'end': end_dt.strftime('%H:%M'),
+                'duration': f"{mins//60:02d}:{mins%60:02d}",
+                'seconds': secs,
+                'minutes': mins,
+            })
+        return blocks
 
 
 def compare_trends(start_date: datetime, end_date: datetime) -> Dict[str, Any]:
