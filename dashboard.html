@@ -806,6 +806,29 @@
             }
         });
 
+            // Debug overlay: log history mutations and popstate events to help diagnose
+            // unexpected navigation behavior in browsers. Remove in production.
+            (function enableHistoryLogging(){
+                try {
+                    const _push = window.history.pushState;
+                    const _replace = window.history.replaceState;
+                    window.history.pushState = function(state, title, url) {
+                        console.log('[history-debug] pushState', { state, title, url });
+                        return _push.apply(this, arguments);
+                    };
+                    window.history.replaceState = function(state, title, url) {
+                        console.log('[history-debug] replaceState', { state, title, url });
+                        return _replace.apply(this, arguments);
+                    };
+                    window.addEventListener('popstate', (e) => {
+                        console.log('[history-debug] popstate', e.state);
+                    });
+                    console.log('[history-debug] enabled');
+                } catch (err) {
+                    console.warn('[history-debug] failed to install history logging', err);
+                }
+            })();
+
         document.getElementById('prevDay').addEventListener('click', () => changeDate(-1));
         document.getElementById('nextDay').addEventListener('click', () => changeDate(1));
         document.getElementById('todayBtn').addEventListener('click', () => {
