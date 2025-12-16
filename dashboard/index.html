@@ -5,52 +5,100 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Daily Accomplishments</title>
     <style>
-      html, body { height: 100%; margin: 0; }
+      html, body { height: 100%; margin: 0; background: #0a0a0f; }
       iframe { border: 0; width: 100%; height: 100%; }
-      .error {
-        align-items: center;
-        color: #e11d48;
+      .screen {
         display: flex;
-        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
-        font-size: 18px;
+        align-items: center;
         justify-content: center;
-        padding: 24px;
+        height: 100%;
+        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
         text-align: center;
+        padding: 24px;
+        color: #f1f5f9;
       }
+      .muted { color: #94a3b8; }
+      .spinner {
+        width: 18px;
+        height: 18px;
+        border: 2px solid rgba(148,163,184,.35);
+        border-top-color: rgba(241,245,249,.9);
+        border-radius: 999px;
+        margin: 0 auto 14px;
+        animation: spin .9s linear infinite;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
     </style>
   </head>
   <body>
+    <div id="screen" class="screen">
+      <div>
+        <div class="spinner"></div>
+        <div style="font-size: 18px; margin-bottom: 8px;">Loading dashboard…</div>
+        <div class="muted" style="font-size: 14px;">If this takes more than a few seconds, we’ll retry.</div>
+      </div>
+    </div>
+
     <script>
       const t = Date.now();
-      const local = `/dashboard.html?t=${t}`;
 
-      const showError = () => {
-        const fallback = document.createElement("div");
-        fallback.style.cssText = `
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100%;
-          background: #0a0a0f;
-          color: #f1f5f9;
-          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-          text-align: center;
-          padding: 24px;
-        `;
-        fallback.innerHTML = `
-          <div>
+      // Try a few likely locations (current setup is the first one).
+      const candidates = [
+        `/dashboard.html?t=${t}`,
+        `/dashboard/dashboard.html?t=${t}`,
+        `/site/dashboard.html?t=${t}`,
+      ];
+
+      const screen = document.getElementById("screen");
+
+      const showError = (details) => {
+        const box = document.createElement("div");
+        box.innerHTML = `
+          <div style="max-width: 640px;">
             <h1 style="margin: 0 0 12px; font-size: 20px;">Dashboard unavailable</h1>
-            <p style="margin: 0; color: #94a3b8;">We couldn't load the local dashboard. Please refresh to try again.</p>
+            <p style="margin: 0 0 10px;" class="muted">
+              We couldn't load the dashboard page. Please refresh to try again.
+            </p>
+            ${details ? `<p style="margin: 0; font-size: 12px;" class="muted">${details}</p>` : ""}
           </div>
         `;
-        document.body.replaceChildren(fallback);
+        screen.replaceChildren(box);
       };
 
-      const f = document.createElement("iframe");
-      f.src = local;
-      f.onload = () => console.log("[entry] dashboard iframe loaded", local);
-      f.onerror = showError;
-      document.body.appendChild(f);
+      const loadIntoIframe = (url, attempt) => {
+        const f = document.createElement("iframe");
+        f.src = url;
+        f.loading = "eager";
+        f.referrerPolicy = "no-referrer";
+        f.onload = () => {
+          console.log("[entry] dashboard iframe loaded", url);
+          // Swap out the loading screen for the iframe.
+          document.body.replaceChildren(f);
+        };
+        f.onerror = () => {
+          console.warn("[entry] dashboard iframe failed", url);
+          // Retry once by moving to next candidate.
+          tryNext(attempt + 1);
+        };
+        // Start loading in the background while we keep the loading screen visible.
+        document.body.appendChild(f);
+        // But remove it immediately unless it succeeds (we don't want a blank iframe showing).
+        f.style.display = "none";
+      };
+
+      const tryNext = (i) => {
+        if (i >= candidates.length) {
+          showError("Tried: " + candidates.join(" , "));
+          return;
+        }
+        // On the first failure, update the message.
+        if (i === 1) {
+          screen.querySelector(".muted").textContent = "Retrying…";
+        }
+        loadIntoIframe(candidates[i], i);
+      };
+
+      tryNext(0);
     </script>
   </body>
 </html>
