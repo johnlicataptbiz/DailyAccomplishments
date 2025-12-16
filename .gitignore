@@ -76,3 +76,8 @@ cache/
 # Local artifacts
 DAILYACCOMPLISHMENTS_CACHE_SNAPSHOT/
 compare_snapshot_to_repo.sh
+
+# Allow daily log JSONL files to be committed (needed for GitHub Actions)
+!logs/
+!logs/daily/
+!logs/daily/*.jsonl
