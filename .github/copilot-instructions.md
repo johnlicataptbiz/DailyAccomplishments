@@ -130,6 +130,8 @@ Keep guidance short, actionable, and repository-specific. The items below are pa
 6. Git + CI expectations for automated agents
   - Never run a sweeping `git add -A`. Stage precise paths: `git add path/to/file`.
   - Provide exact command outputs when claiming changes (follow repo's verification checklist). When proposing changes, include the minimal `git diff` for review.
+  - **Git worktrees:** If using worktrees, never run `git checkout main` from feature worktree. See `docs/ops/SAFE_HISTORICAL_COMMIT_EXTRACTION.md` for safe worktree workflows.
+  - **Historical commits:** To extract code from large historical commits without generated artifacts, follow `docs/ops/SAFE_HISTORICAL_COMMIT_EXTRACTION.md`.
 
 7. Safety checks before edits
   - Run `./verify_installation.py` and `pytest` if modifying processors or visualization code.
