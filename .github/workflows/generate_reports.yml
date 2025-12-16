@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: generate-daily-reports
+  cancel-in-progress: true
+
 jobs:
   generate:
     if: ${{ github.event_name != 'schedule' || vars.ENABLE_SCHEDULED_REPORTS == 'true' }}
@@ -29,7 +33,7 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y libfreetype6-dev libpng-dev libjpeg-dev || true
             python -m pip install --upgrade pip
-            python -m pip install -r requirements.txt || true
+            python -m pip install -r requirements.txt
           fi
 
       - name: Set target dates (UTC)
@@ -41,16 +45,20 @@ jobs:
         id: generate
         run: |
           set -euo pipefail
-          any=0
+          generated=0
+
           for d in "$TARGET_DATE" "$YESTERDAY_DATE"; do
             echo "Generating ActivityReport for $d"
-            if python scripts/generate_daily_json.py "$d"; then
-              any=1
+            python scripts/generate_daily_json.py "$d" || true
+
+            if [ -f "ActivityReport-${d}.json" ] || [ -d "reports/${d}" ]; then
+              generated=1
             else
-              echo "No logs available for $d (skipping)"
+              echo "No outputs for $d (skipping)"
             fi
           done
-          if [ "$any" -eq 1 ]; then
+
+          if [ "$generated" -eq 1 ]; then
             echo "generated=true" >> "$GITHUB_OUTPUT"
           else
             echo "generated=false" >> "$GITHUB_OUTPUT"
@@ -58,21 +66,18 @@ jobs:
 
       - name: Commit and push generated files to main
         if: steps.generate.outputs.generated == 'true'
-        env:
-          TARGET_DATE: ${{ env.TARGET_DATE }}
-          YESTERDAY_DATE: ${{ env.YESTERDAY_DATE }}
         run: |
-          set -e
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           changed=0
           for d in "$TARGET_DATE" "$YESTERDAY_DATE"; do
             if [ -f "ActivityReport-${d}.json" ]; then
-              git add "ActivityReport-${d}.json" && changed=1 || true
+              git add "ActivityReport-${d}.json" && changed=1
             fi
             if [ -d "reports/${d}" ]; then
-              git add -A "reports/${d}" && changed=1 || true
+              git add -A "reports/${d}" && changed=1
             fi
           done
 
@@ -81,5 +86,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "ci: update ActivityReports (UTC) [skip ci]" || echo "nothing to commit"
+          git commit -m "ci: update ActivityReports (UTC) [skip ci]" || exit 0
           git push origin HEAD:main
