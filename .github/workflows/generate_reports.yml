@@ -64,27 +64,29 @@ jobs:
             echo "generated=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Commit and push generated files to main
+      - name: Prepare publish directory (reports + ActivityReport JSON)
         if: steps.generate.outputs.generated == 'true'
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          changed=0
-          for d in "$TARGET_DATE" "$YESTERDAY_DATE"; do
-            if [ -f "ActivityReport-${d}.json" ]; then
-              git add "ActivityReport-${d}.json" && changed=1
-            fi
-            if [ -d "reports/${d}" ]; then
-              git add -A "reports/${d}" && changed=1
-            fi
-          done
+          rm -rf _publish
+          mkdir -p _publish
 
-          if [ "$changed" -eq 0 ]; then
-            echo "No generated files to commit"
-            exit 0
+          # Include generated reports folder (if present)
+          if [ -d "reports" ]; then
+            cp -R reports _publish/reports
           fi
 
-          git commit -m "ci: update ActivityReports (UTC) [skip ci]" || exit 0
-          git push origin HEAD:main
+          # Include the root ActivityReport-*.json files (if present)
+          cp -f ActivityReport-*.json _publish/ 2>/dev/null || true
+
+      - name: Deploy generated output to reports-gh-pages (no main commits)
+        if: steps.generate.outputs.generated == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_publish
+          publish_branch: reports-gh-pages
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit_message: "ci: scheduled reports update (no main commit)"
