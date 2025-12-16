@@ -68,3 +68,7 @@ reports/**/*.png
 
 # Git worktrees
 .worktrees/
+
+# Local cache (never commit)
+cache/
+
