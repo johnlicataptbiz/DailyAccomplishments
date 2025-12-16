@@ -72,16 +72,3 @@ reports/**/*.png
 # Local cache (never commit)
 cache/
 
-
-# Local cache snapshots, reports, and large artifacts
-DAILYACCOMPLISHMENTS_CACHE_SNAPSHOT/
-*.zip
-*.har
-*.pdf
-*.rtf
-*.png
-*.ico
-*.pack
-*.idx
-*.rev
-graph-*.graph
