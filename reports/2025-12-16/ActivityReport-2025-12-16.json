@@ -1,21 +1,46 @@
 {
   "date": "2025-12-16",
   "overview": {
-    "focus_time": "00:00",
+    "focus_time": "04:43",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 0,
-    "coverage_window": "06:00\u201323:59"
+    "coverage_window": "08:01\u201316:14"
   },
-  "by_category": {},
-  "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+  "debug_appointments": {
+    "appointments_today": [],
+    "meetings_today": []
+  },
+  "by_category": {
+    "Research": "04:36",
+    "Coding": "00:06",
+    "Communication": "00:04",
+    "Other": "00:06"
+  },
+  "by_project": {
+    "physicaltherapybiz.com": "00:08",
+    "AI Research": "00:00"
+  },
+  "top_apps": {
+    "Google Chrome": "04:36",
+    "Messages": "00:04",
+    "Terminal": "00:01",
+    "Finder": "00:01",
+    "com.apple.VoiceMemos": "00:01"
+  },
+  "top_windows": {
+    "Google Chrome \u2014 Disable Europe region deployment - Google Chrome - Jack (physicaltherapybiz.com)": "00:08",
+    "Terminal \u2014 revenue-signal-router \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724": "00:04",
+    "Messages \u2014 +1 (214) 228-6130": "00:04",
+    "Terminal \u2014 DailyAccomplishments-repo \u2014 iChatDockTile \u2014 -zsh \u2014 94\u00d724": "00:01",
+    "Google Chrome \u2014 Page Unresponsive": "00:00",
+    "Terminal \u2014 DailyAccomplishments-repo \u2014 iChatDockTile \u2014 launchctl kickstart -k gui/501/com.a": "00:00",
+    "Terminal \u2014 DailyAccomplishments-repo \u2014 iChatDockTile \u2014 sleep 10 \u2014 94\u00d724": "00:00",
+    "Google Chrome \u2014 (no title)": "00:00"
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:00",
+      "time": "00:20",
       "pct": "0%"
     },
     {
@@ -55,47 +80,47 @@
     },
     {
       "hour": 8,
-      "time": "00:00",
+      "time": "00:37",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:00",
+      "time": "00:44",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:00",
+      "time": "00:30",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:00",
+      "time": "00:40",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:00",
+      "time": "00:22",
       "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:00",
+      "time": "00:53",
       "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:00",
+      "time": "00:23",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:00",
+      "time": "00:30",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:00",
+      "time": "00:04",
       "pct": "0%"
     },
     {
@@ -134,6 +159,64 @@
       "pct": "0%"
     }
   ],
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "chatgpt.com",
+        "visits": 22
+      }
+    ],
+    "top_pages": [
+      {
+        "domain": "chatgpt.com",
+        "title": "Disable Europe region deployment",
+        "visits": 18
+      },
+      {
+        "domain": "chatgpt.com",
+        "title": "Page Unresponsive",
+        "visits": 3
+      },
+      {
+        "domain": "chatgpt.com",
+        "title": "chatgpt.com",
+        "visits": 1
+      }
+    ]
+  },
   "timeline": [],
-  "deep_work_blocks": []
+  "deep_work_blocks": [],
+  "deep_work": [
+    {
+      "start": "12:56",
+      "end": "14:08",
+      "minutes": 64,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "09:18",
+      "end": "10:16",
+      "minutes": 51,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "15:29",
+      "end": "16:05",
+      "minutes": 31,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "08:02",
+      "end": "08:39",
+      "minutes": 29,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "executive_summary": [
+    "Screen Time: ~401 min foreground app usage"
+  ]
 }
