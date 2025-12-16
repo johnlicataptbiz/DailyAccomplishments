@@ -1,0 +1,182 @@
+{
+  "date": "2025-11-24",
+  "debug_appointments": {
+    "meetings_today": []
+  },
+  "by_category": {
+    "Research": "04:21",
+    "Coding": "01:46",
+    "Other": "00:01"
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:05",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:44",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:40",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:25",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:45",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:42",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:14",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:06",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:02",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "04:21",
+    "Terminal": "01:46",
+    "Messages": "00:01"
+  },
+  "deep_work": [
+    {
+      "start": "09:41",
+      "end": "10:31",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:13",
+      "end": "15:07",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "10:54",
+      "end": "11:53",
+      "minutes": 41,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:32",
+      "end": "14:10",
+      "minutes": 32,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "15:22",
+      "end": "15:55",
+      "minutes": 26,
+      "category": "Coding",
+      "label": "Terminal"
+    }
+  ],
+  "overview": {
+    "focus_time": "06:08",
+    "coverage_window": "07:13\u201321:22"
+  },
+  "executive_summary": [
+    "Screen Time: ~639 min foreground app usage"
+  ]
+}
