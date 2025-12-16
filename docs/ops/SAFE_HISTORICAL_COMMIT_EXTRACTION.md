@@ -12,7 +12,7 @@
 - Historical commit: `53d18c6` ("UI: Deep Work overlay + integration highlights; Screen Time top apps; privacy + baselines; roadmap")
 - Contains: Code changes (dashboard.html, tools/, scripts/) + generated artifacts
 - Current main: Has newer schema, auto-updates → cherry-pick causes conflicts
-- Repository uses: git worktrees (main in root, feature branch in `.worktrees/main`)
+- Repository uses: git worktrees (main branch checked out in repo root, feature branch checked out in `.worktrees/main` subdirectory)
 
 ### Goal
 Extract only code/docs from `53d18c6` → avoid conflicts → verify generation → merge safely

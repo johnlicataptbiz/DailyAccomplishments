@@ -6,7 +6,7 @@
 - ✅ ActivityReport JSON files (30+ files, ~5KB each) - **KEEP THESE**
 - ❌ CSV reports (category_distribution, hourly_focus, top_domains) - **SHOULD IGNORE**
 - ❌ SVG charts (matching CSV reports) - **SHOULD IGNORE**
-- ❌ PNG charts (focus_summary, etc.) - **ALREADY IGNORED**
+- ⚠️ PNG charts (focus_summary, etc.) - **PARTIALLY IGNORED** (some patterns in .gitignore, but not all)
 
 ---
 
