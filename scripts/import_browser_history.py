@@ -1,180 +1,546 @@
 #!/usr/bin/env python3
 """
-Import browser history for a given date and update ActivityReport-YYYY-MM-DD.json.
+Import browser history from Chrome and Safari for today.
+Reads directly from macOS SQLite databases - no API keys needed.
 
-Chrome: reads from the newest available Chrome profile History DB
-Safari: reads from Safari History.db (if available)
-
-This script is the ONLY trusted source for browser_highlights.
-Do not infer domains from window titles in generate_daily_json.py.
+Usage:
+    python3 scripts/import_browser_history.py [--date YYYY-MM-DD]
 """
 
-import argparse
+import os
+import sys
 import json
-import shutil
 import sqlite3
+import shutil
 import tempfile
-from collections import Counter
 from datetime import datetime, timedelta
 from pathlib import Path
+from collections import defaultdict
 from urllib.parse import urlparse
+from typing import Optional, Dict, Any
 
-CHROME_BASE = Path.home() / "Library" / "Application Support" / "Google" / "Chrome"
-SAFARI_DB = Path.home() / "Library" / "Safari" / "History.db"
+# Chrome stores timestamps as microseconds since 1601-01-01
+CHROME_EPOCH = datetime(1601, 1, 1)
 
-
-def _chrome_history_candidates() -> list[Path]:
-    candidates = []
-    if not CHROME_BASE.exists():
-        return candidates
-    for p in CHROME_BASE.iterdir():
-        if not p.is_dir():
-            continue
-        if p.name == "Default" or p.name.startswith("Profile "):
-            h = p / "History"
-            if h.exists():
-                candidates.append(h)
-    return candidates
+# Safari stores timestamps as seconds since 2001-01-01
+SAFARI_EPOCH = datetime(2001, 1, 1)
 
 
-def _pick_newest_chrome_history() -> Path | None:
-    candidates = _chrome_history_candidates()
-    if not candidates:
+def get_chrome_history_path() -> Path:
+    """Get Chrome history database path on macOS."""
+    return Path.home() / "Library/Application Support/Google/Chrome/Default/History"
+
+
+def get_safari_history_path() -> Path:
+    """Get Safari history database path on macOS."""
+    return Path.home() / "Library/Safari/History.db"
+
+
+def chrome_time_to_datetime(chrome_timestamp: int) -> datetime:
+    """Convert Chrome timestamp to datetime."""
+    return CHROME_EPOCH + timedelta(microseconds=chrome_timestamp)
+
+
+def safari_time_to_datetime(safari_timestamp: float) -> datetime:
+    """Convert Safari timestamp to datetime."""
+    return SAFARI_EPOCH + timedelta(seconds=safari_timestamp)
+
+
+def copy_db_safely(db_path: Path) -> Optional[str]:
+    """Copy database to temp location (browsers lock their DBs)."""
+    if not db_path.exists():
         return None
-    # pick by mtime (most recently updated)
-    return sorted(candidates, key=lambda p: p.stat().st_mtime, reverse=True)[0]
+    
+    temp_file = tempfile.NamedTemporaryFile(delete=False, suffix='.db')
+    temp_path = temp_file.name
+    temp_file.close()
+    
+    shutil.copy2(db_path, temp_path)
+    return temp_path
 
 
-def _copy_sqlite(src: Path) -> Path:
-    tmpdir = Path(tempfile.mkdtemp(prefix="da-browser-"))
-    dst = tmpdir / src.name
-    shutil.copy2(src, dst)
-    return dst
-
-
-def _read_chrome_urls_for_date(date_str: str) -> list[str]:
-    history = _pick_newest_chrome_history()
-    if not history:
-        return []
-
-    db_path = _copy_sqlite(history)
-    start = datetime.fromisoformat(date_str)
-    end = start + timedelta(days=1)
-
-    def to_chrome_time(dt: datetime) -> int:
-        # Chrome stores microseconds since 1601-01-01
-        epoch = datetime(1601, 1, 1)
-        return int((dt - epoch).total_seconds() * 1_000_000)
-
-    start_us = to_chrome_time(start)
-    end_us = to_chrome_time(end)
-
-    urls: list[str] = []
+def get_chrome_history(target_date: datetime) -> list:
+    """Get Chrome history for a specific date."""
+    history = []
+    db_path = get_chrome_history_path()
+    
+    if not db_path.exists():
+        print(f"Chrome history not found at {db_path}")
+        return history
+    
+    temp_db = copy_db_safely(db_path)
+    if not temp_db:
+        return history
+    
     try:
-        conn = sqlite3.connect(str(db_path))
-        cur = conn.cursor()
-        cur.execute(
-            """
-            SELECT urls.url
-            FROM visits
-            JOIN urls ON visits.url = urls.id
-            WHERE visits.visit_time >= ? AND visits.visit_time < ?
-            """,
-            (start_us, end_us),
-        )
-        rows = cur.fetchall()
-        urls = [r[0] for r in rows if r and r[0]]
+        conn = sqlite3.connect(temp_db)
+        cursor = conn.cursor()
+        
+        # Get start and end of target date in Chrome timestamp format
+        start_of_day = datetime(target_date.year, target_date.month, target_date.day)
+        end_of_day = start_of_day + timedelta(days=1)
+        
+        # Convert to Chrome microseconds since 1601
+        start_chrome = int((start_of_day - CHROME_EPOCH).total_seconds() * 1_000_000)
+        end_chrome = int((end_of_day - CHROME_EPOCH).total_seconds() * 1_000_000)
+        
+        cursor.execute("""
+            SELECT url, title, visit_count, last_visit_time
+            FROM urls
+            WHERE last_visit_time >= ? AND last_visit_time < ?
+            ORDER BY last_visit_time DESC
+        """, (start_chrome, end_chrome))
+        
+        for row in cursor.fetchall():
+            url, title, visit_count, last_visit_time = row
+            visit_dt = chrome_time_to_datetime(last_visit_time)
+            
+            history.append({
+                'browser': 'Chrome',
+                'url': url,
+                'title': title or url,
+                'visit_count': visit_count,
+                'last_visit': visit_dt.isoformat(),
+                'hour': visit_dt.hour
+            })
+        
         conn.close()
-    except Exception:
-        urls = []
-    return urls
+    except Exception as e:
+        print(f"Error reading Chrome history: {e}")
+    finally:
+        os.unlink(temp_db)
+    
+    return history
 
 
-def _read_safari_urls_for_date(date_str: str) -> list[str]:
-    if not SAFARI_DB.exists():
-        return []
-
-    db_path = _copy_sqlite(SAFARI_DB)
-    start = datetime.fromisoformat(date_str)
-    end = start + timedelta(days=1)
-
-    urls: list[str] = []
+def get_safari_history(target_date: datetime) -> list:
+    """Get Safari history for a specific date."""
+    history = []
+    db_path = get_safari_history_path()
+    
+    if not db_path.exists():
+        print(f"Safari history not found at {db_path}")
+        return history
+    
+    temp_db = copy_db_safely(db_path)
+    if not temp_db:
+        return history
+    
     try:
-        conn = sqlite3.connect(str(db_path))
-        cur = conn.cursor()
-        # Safari uses CoreData timestamps; easiest is to filter by visit date strings if present.
-        # We'll do a best-effort query that works on common Safari schemas.
-        cur.execute(
-            """
-            SELECT history_items.url
+        conn = sqlite3.connect(temp_db)
+        cursor = conn.cursor()
+        
+        # Get start and end of target date in Safari timestamp format
+        start_of_day = datetime(target_date.year, target_date.month, target_date.day)
+        end_of_day = start_of_day + timedelta(days=1)
+        
+        # Convert to Safari seconds since 2001
+        start_safari = (start_of_day - SAFARI_EPOCH).total_seconds()
+        end_safari = (end_of_day - SAFARI_EPOCH).total_seconds()
+        
+        cursor.execute("""
+            SELECT 
+                history_items.url,
+                history_visits.title,
+                history_visits.visit_time
             FROM history_visits
             JOIN history_items ON history_visits.history_item = history_items.id
             WHERE history_visits.visit_time >= ? AND history_visits.visit_time < ?
-            """,
-            (start.timestamp(), end.timestamp()),
-        )
-        rows = cur.fetchall()
-        urls = [r[0] for r in rows if r and r[0]]
+            ORDER BY history_visits.visit_time DESC
+        """, (start_safari, end_safari))
+        
+        for row in cursor.fetchall():
+            url, title, visit_time = row
+            visit_dt = safari_time_to_datetime(visit_time)
+            
+            history.append({
+                'browser': 'Safari',
+                'url': url,
+                'title': title or url,
+                'visit_count': 1,  # Safari doesn't aggregate like Chrome
+                'last_visit': visit_dt.isoformat(),
+                'hour': visit_dt.hour
+            })
+        
         conn.close()
-    except Exception:
-        urls = []
-    return urls
+    except Exception as e:
+        print(f"Error reading Safari history: {e}")
+    finally:
+        os.unlink(temp_db)
+    
+    return history
 
 
-def _domain(url: str) -> str | None:
+def extract_domain(url: str) -> str:
+    """Extract domain from URL."""
     try:
-        host = urlparse(url).netloc.lower()
-        if host.startswith("www."):
-            host = host[4:]
-        return host or None
-    except Exception:
-        return None
+        parsed = urlparse(url)
+        domain = parsed.netloc.lower()
+        # Remove www. prefix
+        if domain.startswith('www.'):
+            domain = domain[4:]
+        return domain
+    except:
+        return 'unknown'
 
 
-def _load_report(repo: Path, date_str: str) -> tuple[Path, dict]:
-    f = repo / f"ActivityReport-{date_str}.json"
-    if not f.exists():
-        raise SystemExit(f"Missing report: {f}")
-    return f, json.loads(f.read_text())
+def categorize_url(url: str, title: str) -> str:
+    """Categorize a URL into activity categories."""
+    domain = extract_domain(url).lower()
+    title_lower = (title or '').lower()
+    url_lower = url.lower()
+    
+    # Communication
+    if any(x in domain for x in ['slack.com', 'mail.google.com', 'gmail.com', 'outlook', 
+                                   'messages', 'teams.microsoft', 'zoom.us', 'meet.google']):
+        return 'Communication'
+    
+    # Meetings
+    if any(x in domain for x in ['zoom.us', 'meet.google.com', 'teams.microsoft.com', 
+                                   'calendly.com', 'hubspot.com/meetings']):
+        return 'Meetings'
+    
+    # Coding/Development
+    if any(x in domain for x in ['github.com', 'gitlab.com', 'stackoverflow.com', 
+                                   'developer.', 'docs.python', 'npmjs.com', 'localhost']):
+        return 'Coding'
+    
+    # Research/Learning
+    if any(x in domain for x in ['google.com/search', 'bing.com', 'wikipedia.org', 
+                                   'medium.com', 'dev.to', 'youtube.com']):
+        return 'Research'
+    
+    # CRM/Sales
+    if any(x in domain for x in ['hubspot.com', 'salesforce.com', 'pipedrive.com']):
+        return 'CRM'
+    
+    # Docs/Productivity
+    if any(x in domain for x in ['docs.google.com', 'sheets.google.com', 'notion.so',
+                                   'airtable.com', 'asana.com', 'trello.com', 'monday.com']):
+        return 'Docs'
+    
+    # Calendar
+    if any(x in domain for x in ['calendar.google.com', 'outlook.office.com/calendar']):
+        return 'Calendar'
+    
+    # Social (potential distraction)
+    if any(x in domain for x in ['twitter.com', 'x.com', 'facebook.com', 'instagram.com',
+                                   'linkedin.com', 'reddit.com', 'tiktok.com']):
+        return 'Social'
+    
+    return 'Other'
+
+
+def load_privacy_config(repo_path: Path) -> Dict[str, Any]:
+    """Load privacy settings from config.json if present.
+
+    Structure:
+      {
+        "privacy": {
+          "mode": "exclude" | "anonymize",
+          "blocked_domains": ["example.com", ...],
+          "blocked_keywords": ["porn", "xxx", ...]
+        }
+      }
+    Defaults to exclude and a small adult keyword set.
+    """
+    defaults = {
+        "mode": "exclude",
+        "blocked_domains": [],
+        "blocked_keywords": [
+            "porn", "xxx", "nsfw", "onlyfans", "xvideos", "xnxx",
+            "redtube", "youporn", "pornhub", "brazzers", "camgirl",
+            "camwhores", "hentai"
+        ],
+    }
+    candidates = [repo_path / 'config.json', Path.home() / 'DailyAccomplishments' / 'config.json']
+    for c in candidates:
+        try:
+            if c.exists():
+                with open(c) as f:
+                    cfg = json.load(f)
+                p = cfg.get('privacy') or {}
+                return {
+                    "mode": p.get('mode', defaults['mode']),
+                    "blocked_domains": p.get('blocked_domains', defaults['blocked_domains']),
+                    "blocked_keywords": p.get('blocked_keywords', defaults['blocked_keywords']),
+                }
+        except Exception:
+            continue
+    return defaults
+
+
+def is_unsavory(domain: str, title: str, privacy: Dict[str, Any]) -> bool:
+    d = (domain or '').lower()
+    t = (title or '').lower()
+    if any(bd in d for bd in (privacy.get('blocked_domains') or [])):
+        return True
+    if any(kw in d or kw in t for kw in (privacy.get('blocked_keywords') or [])):
+        return True
+    return False
+
+
+def analyze_history(history: list, privacy: Dict[str, Any]) -> dict:
+    """Analyze browser history and generate stats."""
+    if not history:
+        return {}
+    
+    # Domain visits
+    domain_visits = defaultdict(int)
+    domain_titles = {}
+    
+    # Hourly distribution
+    hourly_visits = defaultdict(int)
+    
+    # Category breakdown
+    category_visits = defaultdict(int)
+    category_domains = defaultdict(set)
+    
+    # Page visits
+    page_visits = defaultdict(int)
+    page_titles = {}
+    
+    for item in history:
+        domain = extract_domain(item['url'])
+        title = item['title']
+        if is_unsavory(domain, title, privacy):
+            # Drop or anonymize
+            if privacy.get('mode') == 'anonymize':
+                domain = 'private'
+                title = 'Private'
+            else:
+                continue
+        hour = item['hour']
+        category = categorize_url(item['url'], title)
+        if domain == 'private':
+            category = 'Private'
+        
+        domain_visits[domain] += item.get('visit_count', 1)
+        domain_titles[domain] = title
+        
+        hourly_visits[hour] += 1
+        
+        category_visits[category] += 1
+        category_domains[category].add(domain)
+        
+        # Track individual pages (truncate long titles)
+        page_key = item['url'][:100]
+        page_visits[page_key] += 1
+        page_titles[page_key] = (title or item['url'])[:80]
+    
+    # Sort domains by visits
+    top_domains = sorted(domain_visits.items(), key=lambda x: -x[1])[:20]
+    
+    # Sort pages by visits
+    top_pages = sorted(page_visits.items(), key=lambda x: -x[1])[:20]
+    
+    # Coverage window
+    if history:
+        times = [datetime.fromisoformat(h['last_visit']) for h in history]
+        earliest = min(times)
+        latest = max(times)
+        coverage = f"{earliest.strftime('%H:%M')}–{latest.strftime('%H:%M')}"
+    else:
+        coverage = "No data"
+    
+    return {
+        'total_visits': len(history),
+        'unique_domains': len(domain_visits),
+        'coverage_window': coverage,
+        'top_domains': [
+            {'domain': d, 'visits': v, 'sample_title': domain_titles.get(d, '')}
+            for d, v in top_domains
+        ],
+        'top_pages': [
+            {'page': page_titles.get(url, url), 'url': url, 'visits': v}
+            for url, v in top_pages
+        ],
+        'hourly_distribution': dict(sorted(hourly_visits.items())),
+        'by_category': dict(sorted(category_visits.items(), key=lambda x: -x[1])),
+        'category_domains': {k: list(v)[:5] for k, v in category_domains.items()}
+    }
+
+
+def _parse_coverage_window(s: str):
+    """Extract HH:MM start/end from a coverage window string.
+
+    Accepts formats like "HH:MM–HH:MM", optionally with timezone or notes.
+    Returns (start_min, end_min) or (None, None) if not found.
+    """
+    import re
+    if not s:
+        return (None, None)
+    # Find first two HH:MM occurrences
+    times = re.findall(r"(\d{2}:\d{2})", s)
+    if len(times) < 2:
+        return (None, None)
+    def to_min(t):
+        h, m = map(int, t.split(':'))
+        return h*60 + m
+    return to_min(times[0]), to_min(times[1])
+
+
+def _format_coverage_window(start_min: int, end_min: int):
+    """Format minutes since midnight as HH:MM–HH:MM."""
+    def fmt(m):
+        h = m // 60
+        mm = m % 60
+        return f"{h:02d}:{mm:02d}"
+    return f"{fmt(start_min)}–{fmt(end_min)}"
+
+
+def update_activity_report(date_str: str, browser_data: dict, repo_path: Path):
+    """Update the ActivityReport JSON with browser data."""
+    report_file = repo_path / f"ActivityReport-{date_str}.json"
+    
+    report: dict  # type hint for Pylance
+    if report_file.exists():
+        with open(report_file) as f:
+            report = json.load(f)
+    else:
+        report = {
+            "source_file": f"ActivityReport-{date_str}.json",
+            "date": date_str,
+            "title": f"Daily Accomplishments — {date_str}",
+            "overview": {},
+            "browser_highlights": {},
+            "by_category": {},
+            "hourly_focus": []
+        }
+    
+    # Update browser highlights
+    report['browser_highlights'] = {
+        'total_visits': browser_data.get('total_visits', 0),
+        'unique_domains': browser_data.get('unique_domains', 0),
+        'top_domains': browser_data.get('top_domains', []),
+        'top_pages': browser_data.get('top_pages', []),
+        'by_category': browser_data.get('by_category', {}),
+        'coverage_window': browser_data.get('coverage_window', '')
+    }
+    
+    # Merge category data
+    if 'by_category' not in report:
+        report['by_category'] = {}
+    existing_categories = report['by_category']
+    for cat, count in browser_data.get('by_category', {}).items():
+        # Convert visit count to rough time estimate (30 sec per visit)
+        minutes = count // 2
+        time_str = f"{minutes // 60:02d}:{minutes % 60:02d}"
+        if cat not in existing_categories:
+            existing_categories[cat] = time_str
+    
+    # Update coverage window to include browser data (union of windows)
+    if browser_data.get('coverage_window'):
+        if 'overview' not in report:
+            report['overview'] = {}
+        overview = report['overview']
+        existing_coverage = overview.get('coverage_window', '')
+        browser_coverage = browser_data['coverage_window']
+
+        e_start, e_end = _parse_coverage_window(existing_coverage)
+        b_start, b_end = _parse_coverage_window(browser_coverage)
+
+        if b_start is not None and b_end is not None:
+            if e_start is None or e_end is None:
+                # No existing coverage, adopt browser coverage
+                overview['coverage_window'] = _format_coverage_window(b_start, b_end)
+            else:
+                # Union of time ranges
+                overview['coverage_window'] = _format_coverage_window(min(e_start, b_start), max(e_end, b_end))
+    
+    # Add browser stats to executive summary
+    if 'executive_summary' not in report:
+        report['executive_summary'] = []
+    exec_summary = report['executive_summary']
+    browser_summary = f"Visited {browser_data.get('unique_domains', 0)} unique domains ({browser_data.get('total_visits', 0)} page views)"
+    if browser_summary not in exec_summary:
+        exec_summary.append(browser_summary)
+    
+    # Save
+    with open(report_file, 'w') as f:
+        json.dump(report, f, indent=2)
+    
+    print(f"Updated {report_file}")
+    return report_file
 
 
 def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--date", required=True, help="YYYY-MM-DD")
-    ap.add_argument("--repo", default=str(Path(__file__).parent.parent))
-    ap.add_argument("--update-report", action="store_true")
-    args = ap.parse_args()
-
-    repo = Path(args.repo)
-    date_str = args.date
-
-    chrome_urls = _read_chrome_urls_for_date(date_str)
-    safari_urls = _read_safari_urls_for_date(date_str)
-    urls = chrome_urls + safari_urls
-
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Import browser history')
+    parser.add_argument('--date', type=str, help='Date to import (YYYY-MM-DD), defaults to today')
+    parser.add_argument('--output', type=str, help='Output JSON file')
+    parser.add_argument('--update-report', action='store_true', help='Update ActivityReport JSON')
+    parser.add_argument('--repo', type=str, default=os.path.expanduser('~/DailyAccomplishments'),
+                        help='Path to repo')
+    args = parser.parse_args()
+    
+    # Parse date
+    if args.date:
+        target_date = datetime.strptime(args.date, '%Y-%m-%d')
+    else:
+        target_date = datetime.now()
+    
+    date_str = target_date.strftime('%Y-%m-%d')
     print(f"Importing browser history for {date_str}...")
-    print(f"  Chrome: {len(chrome_urls)} entries")
-    print(f"  Safari: {len(safari_urls)} entries")
-    print(f"  Total: {len(urls)} entries")
-
-    if not urls:
+    
+    # Get history from both browsers
+    chrome_history = get_chrome_history(target_date)
+    print(f"  Chrome: {len(chrome_history)} entries")
+    
+    safari_history = get_safari_history(target_date)
+    print(f"  Safari: {len(safari_history)} entries")
+    
+    # Combine and analyze
+    all_history = chrome_history + safari_history
+    print(f"  Total: {len(all_history)} entries")
+    
+    if not all_history:
         print("No browser history found for this date.")
         return
-
-    domains = [d for d in (_domain(u) for u in urls) if d]
-    top_domains = Counter(domains).most_common(10)
-    top_pages = Counter(urls).most_common(10)
-
-    report_path, report = _load_report(repo, date_str)
-    report["browser_highlights"] = {
-        "top_domains": [{"domain": d, "visits": n} for d, n in top_domains],
-        "top_pages": [{"page": p, "visits": n} for p, n in top_pages],
-    }
-
+    
+    # Analyze
+    privacy = load_privacy_config(Path(args.repo))
+    analysis = analyze_history(all_history, privacy)
+    
+    # Output
+    if args.output:
+        output_path = Path(args.output)
+    else:
+        repo_path = Path(args.repo)
+        repo_path.mkdir(parents=True, exist_ok=True)
+        output_path = repo_path / 'logs' / f'browser-history-{date_str}.json'
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    with open(output_path, 'w') as f:
+        json.dump({
+            'date': date_str,
+            'raw_entries': len(all_history),
+            'analysis': analysis,
+            'entries': all_history[:100]  # Keep first 100 for reference
+        }, f, indent=2)
+    
+    print(f"\nSaved to {output_path}")
+    
+    # Print summary
+    print(f"\n=== Browser History Summary for {date_str} ===")
+    print(f"Coverage: {analysis.get('coverage_window', 'N/A')}")
+    print(f"Total visits: {analysis.get('total_visits', 0)}")
+    print(f"Unique domains: {analysis.get('unique_domains', 0)}")
+    
+    print("\nTop 10 Domains:")
+    for i, d in enumerate(analysis.get('top_domains', [])[:10], 1):
+        print(f"  {i}. {d['domain']} ({d['visits']} visits)")
+    
+    print("\nBy Category:")
+    for cat, count in analysis.get('by_category', {}).items():
+        print(f"  {cat}: {count} visits")
+    
+    # Update ActivityReport if requested
     if args.update_report:
-        report_path.write_text(json.dumps(report, indent=2))
-        print(f"Updated {report_path}")
+        repo_path = Path(args.repo)
+        update_activity_report(date_str, analysis, repo_path)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

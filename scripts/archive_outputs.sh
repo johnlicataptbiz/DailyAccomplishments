@@ -19,7 +19,7 @@ for f in hourly_focus.csv category_distribution.csv top_domains.csv; do
   fi
 done
 # Charts
-for f in hourly_focus.svg category_distribution.svg; do
+for f in hourly_focus.png hourly_focus.svg category_distribution.png category_distribution.svg; do
   base="${f%.*}"; ext="${f##*.}"
   if [ -f "$REPO_ROOT/$f" ]; then
     cp -f "$REPO_ROOT/$f" "$OUT_DIR/${base}-$DATE.$ext"
@@ -32,8 +32,8 @@ done
 cat > "$OUT_DIR/README.txt" <<EON
 Archived outputs for $DATE
 - ActivityReport-$DATE.json
-- hourly_focus-$DATE.csv/svg
-- category_distribution-$DATE.csv/svg
+- hourly_focus-$DATE.csv/png/svg
+- category_distribution-$DATE.csv/png/svg
 - top_domains-$DATE.csv
 EON
 echo "Archived to $OUT_DIR"
