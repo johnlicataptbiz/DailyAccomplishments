@@ -726,6 +726,30 @@
             return new Date(y, (m || 1) - 1, d || 1, 12, 0, 0); // noon avoids DST edges
         }
 
+        // Date fallback helpers for auto-resolving to latest available report
+        function fmtDateUTC(d) {
+            const yyyy = d.getUTCFullYear();
+            const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
+            const dd = String(d.getUTCDate()).padStart(2, "0");
+            return `${yyyy}-${mm}-${dd}`;
+        }
+
+        async function pickLatestAvailableDateUTC(maxDaysBack = 14) {
+            const now = new Date();
+            for (let i = 0; i <= maxDaysBack; i++) {
+                const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+                d.setUTCDate(d.getUTCDate() - i);
+                const dateStr = fmtDateUTC(d);
+                const url = `reports/${dateStr}/ActivityReport-${dateStr}.json?probe=${Date.now()}`;
+
+                try {
+                    const r = await fetch(url, { cache: "no-store" });
+                    if (r.ok) return dateStr;
+                } catch {}
+            }
+            return fmtDateUTC(new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - 1)));
+        }
+
         function getCssVar(name, fallback) {
             const val = getComputedStyle(document.documentElement).getPropertyValue(name);
             return (val || fallback || '').trim();
@@ -754,7 +778,7 @@
             }
         }
         const urlParams = new URLSearchParams(window.location.search);
-        let currentDate = urlParams.get('date') || localDateKey();
+        let currentDate = urlParams.get('date') || null; // Will be set by init()
         let data = null;
 
         function fetchWithTimeout(url, opts = {}, ms = 2000) {
@@ -794,6 +818,19 @@
 
             async function init() {
                 await loadSettings();
+                
+                // If no date specified in URL, use the auto-fallback logic to find
+                // the latest available report (checking up to 30 days back).
+                if (!currentDate) {
+                    const dateStr = await pickLatestAvailableDateUTC(30);
+                    currentDate = dateStr;
+                    window.__DEFAULT_REPORT_DATE__ = dateStr;
+                    console.log("[date] using report date", dateStr);
+                }
+                
+                // Set the date input to the resolved date
+                dateInput.value = currentDate;
+                
                 // Read user preference for auto-resolving "Today" to the most recent
                 // available report. Stored in localStorage as 'autoResolveToday' ('1' = on).
                 const elToggle = document.getElementById('autoResolveToggle');
