@@ -1,17 +1,17 @@
 {
   "date": "2025-12-16",
   "overview": {
-    "focus_time": "04:43",
+    "focus_time": "04:45",
     "meetings_time": "00:00",
     "appointments": 0,
-    "coverage_window": "08:01\u201316:14"
+    "coverage_window": "08:01\u201316:28"
   },
   "debug_appointments": {
     "appointments_today": [],
     "meetings_today": []
   },
   "by_category": {
-    "Research": "04:36",
+    "Research": "04:38",
     "Coding": "00:06",
     "Communication": "00:04",
     "Other": "00:06"
@@ -21,7 +21,7 @@
     "AI Research": "00:00"
   },
   "top_apps": {
-    "Google Chrome": "04:36",
+    "Google Chrome": "04:38",
     "Messages": "00:04",
     "Terminal": "00:01",
     "Finder": "00:01",
@@ -120,7 +120,7 @@
     },
     {
       "hour": 16,
-      "time": "00:04",
+      "time": "00:06",
       "pct": "0%"
     },
     {
@@ -217,12 +217,13 @@
     }
   ],
   "executive_summary": [
-    "Active: 00:00 | Focus: 04:43",
-    "Coverage: 08:01\u201316:14 CST"
+    "Active: 00:00 | Focus: 04:45",
+    "Coverage: 08:01\u201316:28 CST",
+    "Screen Time: ~415 min foreground app usage"
   ],
   "prepared_for_manager": [
     "Active Time: 00:00",
-    "Focus Time: 04:43",
+    "Focus Time: 04:45",
     "Meeting Time: 00:00",
     "Top Apps: Google Chrome, Messages, Terminal"
   ]
