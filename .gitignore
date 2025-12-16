@@ -72,7 +72,3 @@ reports/**/*.png
 # Local cache (never commit)
 cache/
 
-
-# Generated reports (do not commit)
-reports/
-ActivityReport-*.json
