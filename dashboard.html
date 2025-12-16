@@ -825,11 +825,7 @@
 
                 // On initial load: respect user preference. If enabled, allow falling back
                 // to recent reports so "Today" resolves to the most recent available.
-                // However, if the URL explicitly contains a `date=` parameter, do not
-                // auto-resolve so a hard refresh preserves the currently viewed date.
-                const hadDateParam = Boolean(urlParams.get('date'));
-                const allowFallbackOnInit = hadDateParam ? false : Boolean(autoResolveToday);
-                await loadData(currentDate, { allowFallback: allowFallbackOnInit });
+                await loadData(currentDate, { allowFallback: Boolean(autoResolveToday) });
             }
             init();
 
@@ -1860,13 +1856,8 @@
                             <span>${escapeHtml(dayType.label)}</span>
                         </span>
                     </div>
-                    <h2 class="story-headline" id="headlineText">${escapeHtml(story.executive)}</h2>
-                    <p class="story-summary" id="headlineSummary">${escapeHtml(story.narrative)}</p>
-
-                    <div style="margin-top:8px; font-size:12px; color:var(--text-muted);">
-                        <button id="cycleHeadlineBtn" style="background:transparent;border:1px solid var(--border);padding:6px;border-radius:8px;color:var(--text);cursor:pointer">Next headline</button>
-                        <span id="headlineMeta" style="margin-left:12px"></span>
-                    </div>
+                    <h2 class="story-headline">${escapeHtml(story.executive)}</h2>
+                    <p class="story-summary">${escapeHtml(story.narrative)}</p>
 
                     <div class="story-metrics" style="margin-top:16px;">
                         <div class="metric highlight-metric" data-tooltip="Focus time, adjusted for meeting overlay credit.">
@@ -1985,40 +1976,6 @@
                 // Setup data sources panel
 	                try { setupDataSourcesPanel(d); } catch (err) { console.warn('setupDataSourcesPanel error', err); }
 	            }, 100);
-
-            // Headline cycler (same behavior as gh-pages): use server-provided variations
-            (function initHeadlineCycler(){
-                const variations = d.headline_variations || [];
-                const batch = d.headline_batch_id || null;
-                const dateKey = date;
-                const headlineText = document.getElementById('headlineText');
-                const headlineSummary = document.getElementById('headlineSummary');
-                const cycleBtn = document.getElementById('cycleHeadlineBtn');
-                const meta = document.getElementById('headlineMeta');
-                if (!variations.length) {
-                    if (meta) meta.textContent = '';
-                    return;
-                }
-                const storageKey = `da_headline_${dateKey}`;
-                let stored = localStorage.getItem(storageKey);
-                let idx = 0;
-                let storedBatch = null;
-                if (stored) {
-                    try { const o = JSON.parse(stored); idx = o.idx || 0; storedBatch = o.batch || null; } catch(e){}
-                }
-                if (batch && batch !== storedBatch) { idx = 0; }
-                const show = (i) => {
-                    headlineText.textContent = variations[i] || headlineText.textContent;
-                    if (meta) meta.textContent = `variant ${i+1} / ${variations.length}`;
-                };
-                show(idx % variations.length);
-                if (cycleBtn) cycleBtn.addEventListener('click', () => {
-                    idx = (idx + 1) % variations.length;
-                    show(idx);
-                    localStorage.setItem(storageKey, JSON.stringify({ idx, batch }));
-                });
-                localStorage.setItem(storageKey, JSON.stringify({ idx, batch }));
-            })();
 
 	            window.__lastDashboardState = { d, date, baseline };
 	            try { startLiveTimers(date); } catch {}
