@@ -1,0 +1,190 @@
+{
+  "source_file": "ActivityReport-2025-12-08.json",
+  "date": "2025-12-08",
+  "title": "Daily Accomplishments \u2014 2025-12-08",
+  "overview": {
+    "active_time": "06:35",
+    "focus_time": "06:35",
+    "meetings_time": "00:00",
+    "coverage_time": "05:30",
+    "coverage_window": "09:00\u201314:30 CST",
+    "appointments": 0,
+    "projects_count": 4
+  },
+  "prepared_for_manager": [
+    "Active Time: 06:35",
+    "Focus Time: 06:35",
+    "Meeting Time: 00:00",
+    "Top Apps: VS Code, Terminal, Notion"
+  ],
+  "executive_summary": [
+    "Active: 06:35 | Focus: 06:35",
+    "Coverage: 09:00\u201314:30 CST"
+  ],
+  "accomplishments_today": [
+    "Focused on VS Code (02:45)",
+    "Focused on Terminal (02:00)",
+    "Focused on Notion (01:00)",
+    "Focused on Google Chrome (00:20)",
+    "Focused on Unknown (00:15)"
+  ],
+  "by_category": {
+    "Coding": "04:45",
+    "Other": "01:15",
+    "Research": "00:20",
+    "Communication": "00:15"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": [
+      {
+        "page": "Python documentation",
+        "visits": 1
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "02:05",
+      "pct": "96%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "01:05",
+      "pct": "50%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "01:15",
+      "pct": "57%"
+    },
+    {
+      "hour": 14,
+      "time": "02:10",
+      "pct": "100%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "VS Code": "02:45",
+    "Terminal": "02:00",
+    "Notion": "01:00",
+    "Google Chrome": "00:20",
+    "Unknown": "00:15",
+    "Gmail": "00:10",
+    "Slack": "00:05"
+  },
+  "top_windows_preview": [
+    "Terminal \u2014 ~/code/DailyAccomplishments: 02:00",
+    "VS Code \u2014 tracker_bridge.py: 01:30",
+    "Notion \u2014 Integration Guide: 01:00",
+    "VS Code \u2014 daily_logger.py: 00:45",
+    "VS Code \u2014 analytics.py \u2014 DailyAccomplishments: 00:30",
+    "Google Chrome \u2014 Python documentation: 00:20",
+    "Unknown: 00:15",
+    "Gmail \u2014 Inbox: 00:10",
+    "Slack \u2014 #engineering: 00:05",
+    "VS Code: 00:00"
+  ],
+  "foot": "Auto-generated (Redesign v1)"
+}

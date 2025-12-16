@@ -1,0 +1,188 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Accomplishments — 2025-12-01</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 24px; color: #1f2937; background:#fff; }
+    body.dark { background:#0b1220; color:#e5e7eb; }
+    h1 { font-size: 20px; margin: 0 0 8px; }
+    .meta { color: #6b7280; margin-bottom: 16px; }
+    body.dark .meta { color:#9ca3af; }
+    h2 { font-size: 16px; margin: 20px 0 8px; }
+    ul { margin: 0 0 12px 18px; }
+    .muted { color: #9ca3af; }
+    .time { font-variant-numeric: tabular-nums; }
+    .foot { margin-top: 20px; font-size: 12px; color: #6b7280; }
+    code { background: #f3f4f6; padding: 0 4px; border-radius: 4px; }
+    body.dark code { background:#111827; color:#d1d5db; }
+    .toolbar { display:flex; gap:8px; margin-bottom:12px; }
+    .btn { font-size:12px; padding:6px 10px; border-radius:6px; border:1px solid #cbd5e1; background:#fff; color:#111827; cursor:pointer; }
+    body.dark .btn { background:#0f172a; color:#e5e7eb; border-color:#293241; }
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+    .hb { display:flex; align-items:center; gap:8px; margin:2px 0; }
+    .hbL { width:32px; text-align:right; opacity:.7; font-size:12px; }
+    .hbB { flex:1; background:#e5e7eb; height:10px; border-radius:6px; overflow:hidden; }
+    body.dark .hbB { background:#1f2937; }
+    .hbF { height:100%; background:#2563eb; }
+    body.dark .hbF { background:#60a5fa; }
+    .hbT { width:48px; text-align:left; opacity:.7; font-size:12px; }
+    .cards { display:grid; grid-template-columns: repeat(4, minmax(120px,1fr)); gap:12px; margin: 12px 0 4px; }
+    .card { border:1px solid #e5e7eb; border-radius:10px; padding:10px 12px; }
+    body.dark .card { border-color:#1f2937; }
+    .card .v { font-size:18px; font-variant-numeric: tabular-nums; }
+    .card .k { color:#6b7280; font-size:12px; }
+    .toc { display:flex; flex-wrap:wrap; gap:10px; margin: 8px 0; }
+    .chip { font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid #cbd5e1; cursor:pointer; }
+    body.dark .chip { border-color:#293241; }
+    .badge { display:inline-block; padding:1px 6px; margin-right:4px; border-radius:10px; font-size:11px; background:#e5e7eb; }
+    body.dark .badge { background:#1f2937; }
+    table.ptable { width:100%; border-collapse: collapse; margin:8px 0; }
+    table.ptable th, table.ptable td { border:1px solid #e5e7eb; padding:6px 8px; text-align:left; }
+    body.dark table.ptable th, body.dark table.ptable td { border-color:#1f2937; }
+    @media print {
+      body { background:#fff; color:#000; }
+      .toolbar, .toc, .btn { display:none !important; }
+      .badge { border:1px solid #000; background:#fff; }
+      code { background:#eee; color:#000; }
+    }
+  </style>
+  <script>
+    (function() {
+      const key = 'at-theme';
+      function apply(theme){
+        document.body.classList.toggle('dark', theme === 'dark');
+      }
+      function load(){ return localStorage.getItem(key) || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+      function save(t){ localStorage.setItem(key, t); }
+      window.toggleTheme = function(){ const cur = load(); const next = cur==='dark'?'light':'dark'; apply(next); save(next); };
+      window.copyPrepared = function(){
+        try {
+          const txt = document.getElementById('pm-text')?.textContent || '';
+          navigator.clipboard.writeText(txt);
+        } catch (e) {}
+      };
+window.copyList = function(id){ try { const ul=document.getElementById(id); if(!ul) return; const t=[...ul.querySelectorAll('li')].map(li=>li.textContent.trim()).join('\n'); navigator.clipboard.writeText(t); } catch(e){} };
+      document.addEventListener('DOMContentLoaded', function(){ apply(load()); });
+    })();
+  </script>
+</head>
+<body>
+  <a id="top"></a>
+  <div class="toolbar">
+    <button class="btn" onclick="toggleTheme()">Toggle Dark Mode</button>
+  </div>
+  <h1>Daily Accomplishments — 2025-12-01 (cutoff 4pm CST/CDT)</h1>
+  <div class="cards">
+    <div class="card"><div class="v">06:09</div><div class="k">Focus</div></div>
+    <div class="card"><div class="v">01:15</div><div class="k">Meetings</div></div>
+    <div class="card"><div class="v">1</div><div class="k">Appointments</div></div>
+    <div class="card"><div class="v">11</div><div class="k">Projects</div></div>
+  </div>
+  <div class="toc">
+    <a class="chip" href="#exec">Exec</a>
+    <a class="chip" href="#next">Next Up</a>
+    <a class="chip" href="#proj">Projects</a>
+    <a class="chip" href="#gws">GWS</a>
+    <a class="chip" href="#browser">Browser</a>
+    <a class="chip" href="#apps">Apps</a>
+    <a class="chip" href="#windows">Windows</a>
+    <a class="chip" href="#notes">Notes</a>
+  </div>
+  <h2>Prepared for Manager</h2>
+  <ul>
+    <li>Total focused time: 06:09 (Coverage: 12:22–17:51 CST)</li><li>Top projects: Email/CRM (00:11), PT Biz: Calendar (00:06), Google Workspace (00:05)</li><li>Key tickets: profile:Profile 6 (02:52), weekly-2025 (01:07), ab-9390 (00:00)</li><li>Top apps: Google Chrome (03:54), Terminal (01:38), Messages (00:26)</li>
+  </ul>
+  <button class="btn" onclick="copyPrepared()">Copy bullets</button>
+  <pre id="pm-text" style="position:absolute;left:-9999px;opacity:0;height:0;">- Total focused time: 06:09 (Coverage: 12:22–17:51 CST)
+- Top projects: Email/CRM (00:11), PT Biz: Calendar (00:06), Google Workspace (00:05)
+- Key tickets: profile:Profile 6 (02:52), weekly-2025 (01:07), ab-9390 (00:00)
+- Top apps: Google Chrome (03:54), Terminal (01:38), Messages (00:26)</pre>
+  <h2 id="exec">Executive Summary <button class="btn" onclick="copyList('exec-list')">Copy</button></h2>
+  <ul id="exec-list">
+    <li>Set 1 appt(s): <span class=badge title='visits 25 • Sales Call'>[solid]</span> Brad Neitzel</li><li>Meeting: Sales Call (01:00)</li><li>Meeting: Game Plan Call With Jack and Banfield Smith (00:15)</li><li>Primary doc: Google Sheets — Project_783_updated_fit - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com) (00:01)</li>
+  </ul>
+  <div class="meta muted">1 appt • 2 mtg • focus 06:09</div>
+  <h2>Client Summary (3 bullets) <button class="btn" onclick="copyList('client-list')">Copy</button></h2>
+  <ul id="client-list">
+    <li>Set 1 appt(s): <span class=badge title='visits 25 • Sales Call'>[solid]</span> Brad Neitzel</li><li>Meeting: Sales Call (01:00)</li><li>Meeting: Game Plan Call With Jack and Banfield Smith (00:15)</li>
+  </ul>
+  <h2>Accomplishments Today</h2>
+  <ul>
+    <li>Worked on Email/CRM (00:11)</li><li>HubSpot activity (87 visits)</li><li>Google Workspace activity (74 visits)</li><li>Meetings activity (27 visits)</li><li>Google Workspace activity (9 visits)</li><li>Email/CRM activity (8 visits)</li><li>HubSpot activity (3 visits)</li><li>Meeting: Sales Call (01:00)</li>
+  </ul>
+  <div class="meta">
+    <div>Total focused time: <span class="time">06:09</span></div>
+    <div>Coverage window: 12:22–17:51 CST</div>
+  </div>
+  <div class="grid">
+    <div>
+      <h2>By Category</h2>
+      <ul><li><strong>Research</strong>: 03:54</li><li><strong>Coding</strong>: 01:38</li><li><strong>Meetings</strong>: 01:15</li><li><strong>Communication</strong>: 00:30</li><li><strong>Other</strong>: 00:05</li><li><strong>Docs</strong>: 00:00</li></ul>
+      <h2>By Project</h2>
+      <ul><li><strong>Email/CRM</strong>: 00:11</li><li><strong>PT Biz: Calendar</strong>: 00:06</li><li><strong>Google Workspace</strong>: 00:05</li><li><strong>PT Biz: Gmail</strong>: 00:00</li><li><strong>PT Biz: Drive</strong>: 00:00</li><li><strong>Facebook Community</strong>: 00:00</li><li><strong>aistudio.google.com</strong>: 00:00</li><li><strong>monday.com</strong>: 00:00</li><li><strong>grok.com</strong>: 00:00</li><li><strong>developers.google.com</strong>: 00:00</li><li><strong>x.com</strong>: 00:00</li></ul>
+      <h2>Google Workspace</h2>
+      <h3>By Service</h3>
+      <ul><li><strong>Google</strong>: 00:17</li><li><strong>Google Sheets</strong>: 00:05</li><li><strong>Google Calendar</strong>: 00:04</li><li><strong>Gmail</strong>: 00:00</li><li><strong>Google Drive</strong>: 00:00</li></ul>
+      <h3>Top Documents</h3>
+      <ul><li>Google Sheets — Project_783_updated_fit - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com): 00:01</li><li>Google Sheets — 783new - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com): 00:00</li><li>Google Sheets — 783 - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com): 00:00</li><li>Google Sheets — Google Sheets - Google Chrome - Jack (physicaltherapybiz.com): 00:00</li><li>Google Sheets — format this text into a table: are any missing ad... - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com): 00:00</li><li>Google Sheets — Project_783_1764615540 - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com): 00:00</li><li>Google Sheets — Untitled spreadsheet - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com): 00:00</li></ul>
+      <h2>Browser Highlights</h2>
+      <h3>Top Domains (by visits)</h3>
+      <ul>
+        <li><strong>grok.com</strong>: 109 visits</li><li><strong>app.hubspot.com</strong>: 87 visits</li><li><strong>docs.google.com</strong>: 74 visits</li><li><strong>developers.google.com</strong>: 69 visits</li><li><strong>app.slack.com</strong>: 59 visits</li><li><strong>physical-therapy-biz.monday.com</strong>: 57 visits</li><li><strong>aistudio.google.com</strong>: 37 visits</li><li><strong>www.amazon.com</strong>: 34 visits</li><li><strong>github.com</strong>: 31 visits</li><li><strong>chatgpt.com</strong>: 29 visits</li><li><strong>gemini.google.com</strong>: 29 visits</li><li><strong>calendar.google.com</strong>: 27 visits</li><li><strong>www.audible.com</strong>: 23 visits</li><li><strong>accounts.google.com</strong>: 19 visits</li><li><strong>www.google.com</strong>: 13 visits</li><li><strong>share.streamlit.io</strong>: 10 visits</li><li><strong>drive.google.com</strong>: 9 visits</li><li><strong>docs.slack.dev</strong>: 9 visits</li><li><strong>the-cash-based-practice-accelerator.circle.so</strong>: 8 visits</li><li><strong>mail.google.com</strong>: 8 visits</li><li><strong>pt-biz-workspace.slack.com</strong>: 6 visits</li><li><strong>freecash.com</strong>: 5 visits</li><li><strong>geminicli.com</strong>: 5 visits</li><li><strong>ai.google.dev</strong>: 5 visits</li><li><strong>app.aloware.com</strong>: 4 visits</li>
+      </ul>
+      <h3>Top Pages (by visits)</h3>
+      <ul>
+        <li>Daily Accomplishments — 2025-12-01 <span class="muted">()</span>: 5477 visits</li><li>Weekly Roll-up — 2025-11-25 to 2025-12-01 <span class="muted">()</span>: 4048 visits</li><li>Project: 783 <span class="muted">(physical-therapy-biz.monday.com)</span>: 46 visits</li><li>Google AI Studio <span class="muted">(aistudio.google.com)</span>: 36 visits</li><li>Brad Neitzel <span class="muted">(app.hubspot.com)</span>: 25 visits</li><li>Grok <span class="muted">(grok.com)</span>: 23 visits</li><li>Google Gemini <span class="muted">(gemini.google.com)</span>: 23 visits</li><li>Physical Therapy Biz - Calendar - Week of November 30, 2025 <span class="muted">(calendar.google.com)</span>: 21 visits</li><li>Google Docs <span class="muted">(docs.google.com)</span>: 20 visits</li><li>Rows with Address Count - Grok <span class="muted">(grok.com)</span>: 17 visits</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Hourly Focus</h2>
+      <div class=hb><div class=hbL>00</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>01</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>02</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>03</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>04</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>05</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>06</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>07</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>08</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>09</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>10</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>11</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>12</div><div class=hbB><div class=hbF style="width:43%"></div></div><div class=hbT>00:36</div></div><div class=hb><div class=hbL>13</div><div class=hbB><div class=hbF style="width:70%"></div></div><div class=hbT>00:58</div></div><div class=hb><div class=hbL>14</div><div class=hbB><div class=hbF style="width:90%"></div></div><div class=hbT>01:15</div></div><div class=hb><div class=hbL>15</div><div class=hbB><div class=hbF style="width:100%"></div></div><div class=hbT>01:23</div></div><div class=hb><div class=hbL>16</div><div class=hbB><div class=hbF style="width:70%"></div></div><div class=hbT>00:58</div></div><div class=hb><div class=hbL>17</div><div class=hbB><div class=hbF style="width:68%"></div></div><div class=hbT>00:56</div></div><div class=hb><div class=hbL>18</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>19</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>20</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>21</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>22</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div><div class=hb><div class=hbL>23</div><div class=hbB><div class=hbF style="width:0%"></div></div><div class=hbT>00:00</div></div>
+    </div>
+  </div>
+  <h2>Suggested Tasks</h2>
+  <ul>
+    <li>Focused on Terminal — jacklicatamacbook — iChatDockTile — codex — 80×24 — 01:11</li><li>Focused on Google Chrome — Google AI Studio - Google Chrome - Jack (physicaltherapybiz.com) — 00:47</li><li>Focused on Google Chrome — Daily Accomplishments — [redacted] - Google Chrome - Jack (physicaltherapybiz.com) — 00:47</li><li>Focused on Messages — [redacted] — 00:24</li><li>Focused on Google Chrome — Project: 783 - Google Chrome - Jack (physicaltherapybiz.com) — 00:23</li><li>Focused on Google Chrome — X - Google Chrome - Jack — 00:12</li><li>Focused on Google Chrome — Project 783 - Merge two files - Google Chrome - Jack (physicaltherapybiz.com) — 00:12</li><li>Focused on Google Chrome — Google Gemini - Google Chrome - Jack (physicaltherapybiz.com) — 00:11</li>
+  </ul>
+  <h2>Next Up <button class="btn" onclick="copyList('next-list')">Copy</button></h2>
+  <ul id="next-list">
+    <li>Send recap for &#39;Sales Call&#39;</li><li>Send recap for &#39;Game Plan Call With Jack and Banfield Smith&#39;</li>
+  </ul>
+  <h2>Top Apps</h2>
+  <ul>
+    <li><strong>Google Chrome</strong>: 03:54</li><li><strong>Terminal</strong>: 01:38</li><li><strong>Messages</strong>: 00:26</li><li><strong>Slack</strong>: 00:04</li><li><strong>Finder</strong>: 00:03</li><li><strong>System Preferences</strong>: 00:01</li><li><strong>TextEdit</strong>: 00:00</li><li><strong>App Store</strong>: 00:00</li>
+  </ul>
+  <h2>Top Windows</h2>
+  <details>
+    <summary>Show Top Windows (219)</summary>
+    <ul>
+      <li>Terminal — jacklicatamacbook — iChatDockTile — codex — 80×24: 01:11</li><li>Google Chrome — Google AI Studio - Google Chrome: 00:47</li><li>Google Chrome — Daily Accomplishments — [redacted] - Google Chrome: 00:47</li><li>Messages — [redacted]: 00:24</li><li>Google Chrome — Project: 783 - Google Chrome: 00:23</li><li>Google Chrome — X - Google Chrome - Jack: 00:12</li><li>Google Chrome — Project 783 - Merge two files - Google Chrome: 00:12</li><li>Google Chrome — Google Gemini - Google Chrome: 00:11</li><li>Google Chrome — Activity Tracker Enhancements: Google, HubSpot - Grok - Google Chrome: 00:10</li><li>Terminal — jacklicatamacbook — iChatDockTile — -zsh — 80×24: 00:08</li><li>Terminal — jacklicatamacbook — Gemini - jacklicatamacbook — node ◂ node ~/.nvm/versions/node/v24.11.1/bin/gemini — 80×24: 00:07</li><li>Google Chrome — Justin Pfluger (DM) - PT Biz - Slack - Google Chrome: 00:06</li><li>Google Chrome — Rows with Address Count - Grok - Google Chrome: 00:05</li><li>Terminal — jacklicatamacbook — Gemini - jacklicatamacbook                                                       — node ◂ node ~/.nvm/versions/node/v24.11.1/bin/gemini — 80×24: 00:04</li><li>Google Chrome — Hot Leads Digest - Google Chrome: 00:04</li>
+    </ul>
+  </details>
+  <h2>Notes</h2>
+  <ul>
+    <li>Meeting: Sales Call (01:00)</li><li>Meeting: Game Plan Call With Jack and Banfield Smith (00:15)</li><li>Worked on Google Sheets: Project_783_updated_fit - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com) (00:01)</li><li>Worked on Google Sheets: 783new - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com) (00:00)</li><li>Worked on Google Sheets: 783 - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com) (00:00)</li><li>Worked on Google Sheets: Google Sheets - Google Chrome - Jack (physicaltherapybiz.com) (00:00)</li><li>Worked on Google Sheets: format this text into a table: are any missing ad... - Google Sheets - Google Chrome - Jack (physicaltherapybiz.com) (00:00)</li><li>HubSpot browsing: app.hubspot.com (87 visits)</li><li>Google Workspace browsing: docs.google.com (74 visits)</li><li>Touched xterm-256 (00:00)</li><li>Set appointment with Brad Neitzel: Sales Call (HubSpot 25 visits)</li>
+  </ul>
+  <details>
+    <summary>Debug: Appointments</summary>
+    <h3>Contact Visits (top)</h3>
+    <ul><li>Brad Neitzel: 25 visits</li></ul>
+    <h3>Meetings (today)</h3>
+    <ul><li>Sales Call (09:30–10:30)</li><li>Game Plan Call With Jack and Banfield Smith (11:00–11:15)</li></ul>
+    <h3>Slack Booked (checks by you)</h3>
+    <ul><li>—</li></ul>
+  </details>
+  <h2>Confidence Legend</h2>
+  <ul>
+    <li>[solid]: high evidence (HubSpot visits well above threshold + meeting keyword)</li>
+    <li>[likely]: medium evidence (visits over threshold and/or meeting keyword)</li>
+    <li>[weak]: low evidence (borderline signals)</li>
+  </ul>
+  <div class="foot">Shared copy</div>
+</body>
+</html>

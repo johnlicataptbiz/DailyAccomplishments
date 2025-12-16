@@ -1,0 +1,35 @@
+name: Validate Reports
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  check-reports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check recent reports and validate structure
+        run: |
+          set -euo pipefail
+          python3 -m pip install --upgrade pip
+          python3 -m pip install jsonschema
+
+          any_found=0
+          for i in 0 1 2; do
+            date=$(date -u -d "-$i day" +%F)
+            path="reports/$date/ActivityReport-$date.json"
+            if [ ! -f "$path" ]; then
+              echo "MISSING (ok): $path"
+              continue
+            fi
+            any_found=1
+            echo "FOUND: $path"
+            python3 .github/scripts/validate_report_schema.py "$path"
+          done
+
+          if [ "$any_found" -eq 0 ]; then
+            echo "No recent reports found to validate; skipping."
+          fi
+        shell: bash

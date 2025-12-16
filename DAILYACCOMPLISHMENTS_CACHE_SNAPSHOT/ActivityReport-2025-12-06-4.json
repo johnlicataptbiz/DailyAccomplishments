@@ -1,0 +1,260 @@
+{
+  "source_file": "ActivityReport-2025-12-06.json",
+  "date": "2025-12-06",
+  "title": "Daily Accomplishments — 2025-12-06",
+  "overview": {
+    "active_time": "01:21",
+    "focus_time": "10:17",
+    "meetings_time": "00:00",
+    "coverage_time": "22:31",
+    "coverage_window": "00:00–22:31",
+    "appointments": 0,
+    "projects_count": 4
+  },
+  "prepared_for_manager": [
+    "Active Time: 01:21",
+    "Focus Time: 01:21",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, Messages, TextEdit"
+  ],
+  "executive_summary": [
+    "Active: 01:21 | Focus: 01:21",
+    "Coverage: 00:00–22:31 CST",
+    "Screen Time: ~664 min foreground app usage"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (01:19)",
+    "Focused on Messages (00:01)",
+    "Focused on TextEdit (00:00)"
+  ],
+  "by_category": {
+    "Research": "10:10",
+    "Communication": "00:01",
+    "Other": "00:07",
+    "Coding": "00:00"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 874
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 518
+      },
+      {
+        "page": "Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 44
+      },
+      {
+        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 34
+      },
+      {
+        "page": "Daily Accomplishments Website Exploration - Grok - Google Chrome - Jack (physica",
+        "visits": 32
+      },
+      {
+        "page": "DailyAccomplishments - Colab - High memory usage - 1.2 GB - Google Chrome - Jack",
+        "visits": 31
+      },
+      {
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 23
+      },
+      {
+        "page": "TensorFlow with GPU - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 19
+      },
+      {
+        "page": "Branch · Dashboard UI review - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 18
+      },
+      {
+        "page": "ChatGPT - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 17
+      },
+      {
+        "page": "Google Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 13
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:05",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:22",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:05",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:03",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:42",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:50",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:58",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:58",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:39",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:51",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:32",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:26",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:05",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:03",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "10:10",
+    "Messages": "00:07"
+  },
+  "top_windows_preview": [
+    "Google Chrome — DailyAccomplishments - Colab - Google Chrome - Jac: 00:43",
+    "Google Chrome: 00:04",
+    "Google Chrome — Dashboard UI review - Google Chrome - Jack (physic: 00:03",
+    "Google Chrome — DailyAccomplishments - Colab - High memory usage -: 00:03",
+    "Google Chrome — Repo review and upgrades - Google Chrome - Jack (p: 00:02",
+    "Google Chrome — Daily Accomplishments Website Exploration - Grok -: 00:02",
+    "Google Chrome — Daily Accomplishments - Google Chrome - Jack (phys: 00:01",
+    "Google Chrome — TensorFlow with GPU - Colab - Google Chrome - Jack: 00:01",
+    "Messages — Lover Bird: 00:01",
+    "Google Chrome — Branch · Dashboard UI review - Google Chrome - Jac: 00:01"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "deep_work": [
+    {
+      "start": "08:27",
+      "end": "13:04",
+      "minutes": 251,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:24",
+      "end": "15:37",
+      "minutes": 133,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "17:37",
+      "end": "19:26",
+      "minutes": 108,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "16:33",
+      "end": "17:31",
+      "minutes": 58,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "debug_appointments": {
+    "meetings_today": []
+  },
+  "timeline": [],
+  "deep_work_blocks": []
+}

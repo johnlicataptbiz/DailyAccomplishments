@@ -1,0 +1,155 @@
+{
+  "date": "2025-11-25",
+  "debug_appointments": {
+    "meetings_today": [
+      {
+        "name": "Meeting",
+        "time": "08:45\u201309:00"
+      }
+    ]
+  },
+  "by_category": {
+    "Research": "00:38"
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:15",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:23",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "00:38"
+  },
+  "deep_work": [
+    {
+      "start": "08:44",
+      "end": "09:13",
+      "minutes": 29,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "overview": {
+    "focus_time": "00:38",
+    "coverage_window": "08:44\u201309:24"
+  },
+  "executive_summary": [
+    "Screen Time: ~43 min foreground app usage"
+  ]
+}

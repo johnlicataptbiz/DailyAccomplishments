@@ -1,0 +1,718 @@
+{
+  "date": "2025-12-02",
+  "raw_entries": 76,
+  "analysis": {
+    "total_visits": 76,
+    "unique_domains": 10,
+    "coverage_window": "13:19\u201313:50",
+    "top_domains": [
+      {
+        "domain": "app.slack.com",
+        "visits": 21,
+        "sample_title": "* acquisition (Channel) - PT Biz - Slack"
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 21,
+        "sample_title": "ChatGPT"
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 13,
+        "sample_title": "ChatGPT"
+      },
+      {
+        "domain": "auth.openai.com",
+        "visits": 6,
+        "sample_title": "ChatGPT"
+      },
+      {
+        "domain": "pt-biz-workspace.slack.com",
+        "visits": 5,
+        "sample_title": "Slack"
+      },
+      {
+        "domain": "slack.com",
+        "visits": 4,
+        "sample_title": "Slack"
+      },
+      {
+        "domain": "thebetterbiz.slack.com",
+        "visits": 2,
+        "sample_title": "Sign in - Google Accounts"
+      },
+      {
+        "domain": "accounts.youtube.com",
+        "visits": 2,
+        "sample_title": "Sign in - Google Accounts"
+      },
+      {
+        "domain": "oauth2.slack.com",
+        "visits": 1,
+        "sample_title": "Login | Slack"
+      },
+      {
+        "domain": "",
+        "visits": 1,
+        "sample_title": "Daily Accomplishments \u2014 2025-12-02"
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "ChatGPT",
+        "url": "https://chatgpt.com/#settings/Connectors",
+        "visits": 4
+      },
+      {
+        "page": "Slack",
+        "url": "https://app.slack.com/client/T042BPAJ5TJ",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/o/oauth2/v2/auth?client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/v3/signin/accountchooser?access_type=offline&client_id=606092904014-s1u3",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/CheckCookie?continue=https://accounts.google.com/signin/oauth/consent?au",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/InteractiveLogin?authuser=0&continue=https://accounts.google.com/signin/",
+        "visits": 2
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hANePFec2mLZ6XDmlr4D662wMGFmR2n",
+        "visits": 2
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://auth.openai.com/api/oauth/oauth2/auth?audience=https%3A%2F%2Fapi.openai.com%2Fv1&auth_sessio",
+        "visits": 2
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://chatgpt.com/#settings/DataControls",
+        "visits": 2
+      },
+      {
+        "page": "ChatGPT",
+        "url": "https://chatgpt.com/",
+        "visits": 2
+      },
+      {
+        "page": "Slack Biz (DM) - PT Biz - Slack",
+        "url": "https://app.slack.com/client/TJ3QQ76KV/D09TMCWS1M1",
+        "visits": 2
+      },
+      {
+        "page": "* acquisition (Channel) - PT Biz - Slack",
+        "url": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
+        "visits": 2
+      },
+      {
+        "page": "Dave (DM) - better. - Slack",
+        "url": "https://app.slack.com/client/T042BPAJ5TJ/search",
+        "visits": 1
+      },
+      {
+        "page": "Slack",
+        "url": "https://thebetterbiz.slack.com/?redir=%2Fgantry%2Fclient",
+        "visits": 1
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://thebetterbiz.slack.com/workspace-signin/oauth/google/start?redir=%2Fgantry%2Fclient&is_ssb_b",
+        "visits": 1
+      },
+      {
+        "page": "Sign in to continue to Slack",
+        "url": "https://accounts.google.com/v3/signin/identifier?access_type=offline&app_domain=https%3A%2F%2Foauth2",
+        "visits": 1
+      },
+      {
+        "page": "Hi Jack",
+        "url": "https://accounts.google.com/v3/signin/challenge/pwd?TL=ANzgctQjlK9sLLK1ZvgG-Q2qQqeY3qHT21yCO3-hmjplv",
+        "visits": 1
+      },
+      {
+        "page": "Redirecting",
+        "url": "https://accounts.youtube.com/accounts/SetSID?ssdc=1&sidt=ALWU2cuysQXk48o3JhV5Aewx0inMKKpL4Bw8v6CtNeF",
+        "visits": 1
+      },
+      {
+        "page": "Sign in - Google Accounts",
+        "url": "https://accounts.youtube.com/accounts/SetSID",
+        "visits": 1
+      }
+    ],
+    "hourly_minutes": {
+      "13": 18.4
+    },
+    "by_category": {
+      "Communication": 12.9,
+      "Other": 5.5
+    },
+    "category_domains": {
+      "Communication": [
+        "thebetterbiz.slack.com",
+        "slack.com",
+        "app.slack.com",
+        "pt-biz-workspace.slack.com"
+      ],
+      "Other": [
+        "",
+        "auth.openai.com",
+        "accounts.google.com",
+        "chatgpt.com"
+      ]
+    }
+  },
+  "entries": [
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/T042BPAJ5TJ",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:19:37.598088",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/T042BPAJ5TJ/search",
+      "title": "Dave (DM) - better. - Slack",
+      "last_visit": "2025-12-02T13:19:42.111014",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://thebetterbiz.slack.com/?redir=%2Fgantry%2Fclient",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:19:51.150972",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://thebetterbiz.slack.com/workspace-signin/oauth/google/start?redir=%2Fgantry%2Fclient&is_ssb_browser_signin=",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:19:53.861083",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/o/oauth2/v2/auth?client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Foauth2.slack.com%2Fworkspace-signin%2Foauth%2Fgoogle%2Fend&scope=openid+email+profile&response_type=code&access_type=offline&state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22workspace-signin%22%2C%22timestamp%22%3A1764681593%2C%22visitor%22%3A%22.dae28837660882d9ffc4dafbecbe18d1%22%2C%22team%22%3A%22T042BPAJ5TJ%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22redir%22%3A%22%5C%2Fgantry%5C%2Fclient%22%7D%7D%7D%7C698dc1dc1efb0c727ab5d6c9237e4897644862246fd4a2a9d31e2a75dd67ae30&prompt=consent",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:19:53.861083",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/v3/signin/accountchooser?access_type=offline&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&prompt=consent&redirect_uri=https%3A%2F%2Foauth2.slack.com%2Fworkspace-signin%2Foauth%2Fgoogle%2Fend&response_type=code&scope=openid+email+profile&state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22workspace-signin%22%2C%22timestamp%22%3A1764681593%2C%22visitor%22%3A%22.dae28837660882d9ffc4dafbecbe18d1%22%2C%22team%22%3A%22T042BPAJ5TJ%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22redir%22%3A%22%5C%2Fgantry%5C%2Fclient%22%7D%7D%7D%7C698dc1dc1efb0c727ab5d6c9237e4897644862246fd4a2a9d31e2a75dd67ae30&dsh=S-1306407533%3A1764681593618303&o2v=2&service=lso&flowName=GeneralOAuthFlow&opparams=%253F&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y64rqxVNMNhrSFulFz9bDxAKwS4lfM0nT3biJ0cdNwuGzuCFs1ru6KEA2VPVZ0NRtAa5PD2m31wEYrfTwUM8X7hrXKiLOd72OheU6ndyn9CU1qdnM2O2O0UlYzDYaCEFuiRfrGM3ZWwp0cwIUwOqYWxFAymQb3r6b_wVHJD15ycLFEDaP_duIYttdAFzDYKZxF_QrUEhAGF_oauHmBxy48Gj9WnxUr7x8JgMD85dk2XI0CE6c6w1XP4RAybCJM3FvKkJB3-MrnaF2KF3dwyphwL5kMqpR1-tDPJ_jmP4p1Sz_w9T6qTE9Qu003G8uMH-JqbJ2-1n3izeZVAKyGWcedlSzh3fTQIJcOoEA7-6am1iF-eScYMhWgTgcVZYRAAb-1dnEig19uHgPF8zMF1UxmEcVga2mnjKmACnKSMTnpJP4eYsW9vWD9pScA6Z8odw%26flowName%3DGeneralOAuthFlow%26as%3DS-1306407533%253A1764681593618303%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&app_domain=https%3A%2F%2Foauth2.slack.com",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:19:53.861083",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/v3/signin/identifier?access_type=offline&app_domain=https%3A%2F%2Foauth2.slack.com&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y64rqxVNMNhrSFulFz9bDxAKwS4lfM0nT3biJ0cdNwuGzuCFs1ru6KEA2VPVZ0NRtAa5PD2m31wEYrfTwUM8X7hrXKiLOd72OheU6ndyn9CU1qdnM2O2O0UlYzDYaCEFuiRfrGM3ZWwp0cwIUwOqYWxFAymQb3r6b_wVHJD15ycLFEDaP_duIYttdAFzDYKZxF_QrUEhAGF_oauHmBxy48Gj9WnxUr7x8JgMD85dk2XI0CE6c6w1XP4RAybCJM3FvKkJB3-MrnaF2KF3dwyphwL5kMqpR1-tDPJ_jmP4p1Sz_w9T6qTE9Qu003G8uMH-JqbJ2-1n3izeZVAKyGWcedlSzh3fTQIJcOoEA7-6am1iF-eScYMhWgTgcVZYRAAb-1dnEig19uHgPF8zMF1UxmEcVga2mnjKmACnKSMTnpJP4eYsW9vWD9pScA6Z8odw%26flowName%3DGeneralOAuthFlow%26as%3DS-1306407533%253A1764681593618303%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&dsh=S-1306407533%3A1764681593618303&flowName=GeneralOAuthFlow&o2v=2&opparams=%253F&prompt=consent&redirect_uri=https%3A%2F%2Foauth2.slack.com%2Fworkspace-signin%2Foauth%2Fgoogle%2Fend&response_type=code&scope=openid%20email%20profile&service=lso&state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22workspace-signin%22%2C%22timestamp%22%3A1764681593%2C%22visitor%22%3A%22.dae28837660882d9ffc4dafbecbe18d1%22%2C%22team%22%3A%22T042BPAJ5TJ%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22redir%22%3A%22%5C%2Fgantry%5C%2Fclient%22%7D%7D%7D%7C698dc1dc1efb0c727ab5d6c9237e4897644862246fd4a2a9d31e2a75dd67ae30",
+      "title": "Sign in to continue to Slack",
+      "last_visit": "2025-12-02T13:19:55.397108",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/v3/signin/challenge/pwd?TL=ANzgctQjlK9sLLK1ZvgG-Q2qQqeY3qHT21yCO3-hmjplvc_O-fnM8q4OIIL6mKHp&access_type=offline&app_domain=https%3A%2F%2Foauth2.slack.com&checkConnection=youtube%3A104&checkedDomains=youtube&cid=1&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y64rqxVNMNhrSFulFz9bDxAKwS4lfM0nT3biJ0cdNwuGzuCFs1ru6KEA2VPVZ0NRtAa5PD2m31wEYrfTwUM8X7hrXKiLOd72OheU6ndyn9CU1qdnM2O2O0UlYzDYaCEFuiRfrGM3ZWwp0cwIUwOqYWxFAymQb3r6b_wVHJD15ycLFEDaP_duIYttdAFzDYKZxF_QrUEhAGF_oauHmBxy48Gj9WnxUr7x8JgMD85dk2XI0CE6c6w1XP4RAybCJM3FvKkJB3-MrnaF2KF3dwyphwL5kMqpR1-tDPJ_jmP4p1Sz_w9T6qTE9Qu003G8uMH-JqbJ2-1n3izeZVAKyGWcedlSzh3fTQIJcOoEA7-6am1iF-eScYMhWgTgcVZYRAAb-1dnEig19uHgPF8zMF1UxmEcVga2mnjKmACnKSMTnpJP4eYsW9vWD9pScA6Z8odw%26flowName%3DGeneralOAuthFlow%26as%3DS-1306407533%253A1764681593618303%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&dsh=S-1306407533%3A1764681593618303&flowName=GeneralOAuthFlow&o2v=2&opparams=%253F&prompt=consent&pstMsg=1&redirect_uri=https%3A%2F%2Foauth2.slack.com%2Fworkspace-signin%2Foauth%2Fgoogle%2Fend&response_type=code&scope=openid%20email%20profile&service=lso&state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22workspace-signin%22%2C%22timestamp%22%3A1764681593%2C%22visitor%22%3A%22.dae28837660882d9ffc4dafbecbe18d1%22%2C%22team%22%3A%22T042BPAJ5TJ%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22redir%22%3A%22%5C%2Fgantry%5C%2Fclient%22%7D%7D%7D%7C698dc1dc1efb0c727ab5d6c9237e4897644862246fd4a2a9d31e2a75dd67ae30",
+      "title": "Hi Jack",
+      "last_visit": "2025-12-02T13:20:02.120508",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/CheckCookie?continue=https://accounts.google.com/signin/oauth/consent?authuser%3Dunknown%26part%3DAJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y64rqxVNMNhrSFulFz9bDxAKwS4lfM0nT3biJ0cdNwuGzuCFs1ru6KEA2VPVZ0NRtAa5PD2m31wEYrfTwUM8X7hrXKiLOd72OheU6ndyn9CU1qdnM2O2O0UlYzDYaCEFuiRfrGM3ZWwp0cwIUwOqYWxFAymQb3r6b_wVHJD15ycLFEDaP_duIYttdAFzDYKZxF_QrUEhAGF_oauHmBxy48Gj9WnxUr7x8JgMD85dk2XI0CE6c6w1XP4RAybCJM3FvKkJB3-MrnaF2KF3dwyphwL5kMqpR1-tDPJ_jmP4p1Sz_w9T6qTE9Qu003G8uMH-JqbJ2-1n3izeZVAKyGWcedlSzh3fTQIJcOoEA7-6am1iF-eScYMhWgTgcVZYRAAb-1dnEig19uHgPF8zMF1UxmEcVga2mnjKmACnKSMTnpJP4eYsW9vWD9pScA6Z8odw%26flowName%3DGeneralOAuthFlow%26as%3DS-1306407533%253A1764681593618303%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&service=lso&checkedDomains=youtube&checkConnection=youtube:104&pstMsg=1&flowName=GeneralOAuthFlow&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&redirect_uri=https://oauth2.slack.com/workspace-signin/oauth/google/end&scope=openid+email+profile&o2v=2&chtml=LoginDoneHtml&gidl=EgIIAA",
+      "title": "Redirecting",
+      "last_visit": "2025-12-02T13:20:39.062032",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.youtube.com/accounts/SetSID?ssdc=1&sidt=ALWU2cuysQXk48o3JhV5Aewx0inMKKpL4Bw8v6CtNeFaI/xHmHTbZKqQ%2BMVstjdxohEnWFkCy4MJISv%2BgKrXXaEsjIo0C1TM8zrTH7cAH78tIe7SOOfBk1SzTAtzTmzLg%2BzF2DtvFbZVbyS1%2BAm71qIVsKUN5MZc1tSD/LWi9GAbsSiFnzw1fjmvccI/xvEpV6ynNbrfXEMcWYBykSHealhnILR%2BWC7KQLoQCbkZShHZE8jiN/m9ueyAH%2BElpzUd7FfUfqSSo7DXPp%2BqVUFiXK0ck/Qurn9LWTG0UewQoNRdXEmxHTqk8shy7G5ygjWBKaLApQPXXN5Yj4rqXoEOHlXW1thYqVAgpy8pZkBbRNbHEZPI%2Bcj20lM%2B26faW9z2NQ7hutEH0v3mYAMb/6XcbnvhUc6njY3cy8JReWPn0uAbTjNw/kkIRNrisC4lDnlmgQoO6dq8R5DK8XRe8vKqbr/Uqq6SQCpVQsnQpbV/PhbCfJVrXn1mypi7NH/6YhldjIY9%2B6sZIBQZ%2BcFWkvabbUMbfm7Qe26O6V8EncHY0C6oHMfXCatNrBRSgqHExByyzCNjHIngvU8JbnUGGjs8ax1nBEyJbO0G3BiWk28BhbEegSulFsRHAgQQDpQCzmZZffArJoRzoHhOJvufxoouGUZOIXw0et7gkS0i8bBmPkz8vWpB2ArHpUq99vQ3hzWjq6Ld3X1sf7CFxYqPYDBof5hwV8Zy5qU97DIQUG%2BP1mE9pWCw7wMu4fMuVqXu0p71cmYMlrerZlIKV13ERpEpIlWTeEfDzVczuuZOn650kI/jQbCy6JDRdWYeuQ18Bq3/KEwcUeiW6hLP4M8exQO9a5QKiiLfvxESteWpRiue2itKKXdL%2BLTr9%2B/tgllA1pbGSSBHO09y4An8X4FwBnEKB5FuxqGSct2v1Bx9p8Bap/%2BCE5GNONkEOVpH1Jbg9w/b39YqUclXo5kOn4bPEl414GxlLtnFLhy1L%2BuDX7EWNq8AG6gPqTm2IfNQefl6Kfum4gk/Pn%2BvMXDnwZnzNBzv0zc4MH95qvSilCP65uUgH2wza1oAhQtrcrJY6oWlDqbryBKswLPjFj/6AHkJkyXvajN1qw%2B8VOZxpXYG8NYhJig9paZe8UysFJD/CM4gkMOYj3rz5R0LNhZWKvCIiag77rvbUTig5XreknWQPUSnj80toFjyYZuxmyJdqwcS8xvykjahNgVGRjldguArVSfgl374T6Hq2w5qZaQgTeFCjS9i7ems3H9ozs2zVGkGAPnFO59DD7%2Bpei5W2QIrPS8%2BlFvCFiKe95ZiOL5ZowlXwaSx3FLkQStjZ/kCtljsEjcKr9CJm0GvFzCFmL1oxt8AYZYesQMa6I%2BTI%2B2v1l/OqzCEPaZnWzZ%2BM6F7dIViS/BhU9BqD%2BjXqqD7yYp0UtcsYlxEU4M1fxXxneXftAPY6jvBhVP%2BZVIDQn2bRwuPWt%2BklNEANNtl5xi8d6fTfDcnOHMZGhqj/4%2ByHyEvFwoiSvbRxAe%2BMCqgo5Flc4hCeKEs%2BJ%2BbQi%2BaZHB5ih%2BuaF/2LZJF5QI13WKEPzG702llgvktvLD3UX9TtGvaP4kyBXxJsy1kHEqWpXCWhISY5yRdJpbJWHsqb4H1h6hwq2SiuOVD0486DU/xcE4h59NErIOzMEw2LnUMvBA1ELYhcsoEc0511LWc0Eyj5wA3y0FuK8XmW18JIu1gbfMUIbq7PdkM8RotiIRVFsd3viC65kn6jEsVOiDwQsuVnG4ELe2/b9AmOA0YaVRDgYikcYTYqc1NWzZpL8SaDBkSaEmFty93uDm7YJo0Z0TiRDvuyyiMXANOXfoUJlG81q6nyLz1JvvH6d2ZXQshQcQDilNeQ4snvRg8bFlrA4OzHVAD15OmEkfkQdswuyY7QmASDuQQ0QvjB%2Bv6a3mukdBTiGc4zyOozHiJIZ7G5Zc2HysDfsSzJ7e245P8/lTZBxCWAQoT3BaiUIs62HHP29v9U6u4PA2yx2%2BB%2BEv0UWH8ZtStM1HPBkNavGuGyElcW9QUebbTAKVkZVWfN0Qk3OnJIrOBGPaFZJuNUN599%2BMT4JMkhrGjnfJ3ooJDRoPgAIByUv4PhRjq28hvGNB6QotAWPtApS/3PfpQrKc22u15MrGP7CL4Cate/NhvIux7pKjJGGGw6jVc4V/rkNtKbvM4lopl/BGPAFmNlIvzrcGbx27l67Dk96EGV/K8sihAUh9NjU5DhWqbD6hFBrMDNqJaxIiHjwdsWyWTGkeHV1QsNNEJM2KP6HdGNaT2EAN5vkeYBL0i8BQj/sSzB4zjgeRS8FbmGmnUDVpjr8hS4DP4Agv6jbCCnx0Z/dMpGFwOkDTmj0VPlo0OSUgbvXmiJun1wjIuqmOFMlb3bLAK7P5HrV8HL7s6MbLHC0U3ar7ihNt7XtHZm89v/nsS%2BX8NEbFF9k9Ls1TMRT0gAZYONZDD15g05hTOnYEYXRgCnOgoixvAiCKzCefgBAik%2B370UO/tSxHQkwHhQQeAy9lKAJvyMlRzYkN8x7KdnODSc1mq6EnxuwJX4v1nCs19XNIRx86m7r8K9%2Bmv%2BtMlx2DARl4TfBnDs7YZMUPLuYqrxkEsMebhPsuQRxxMeJ66vK1kcZlkzkL0LA7i3ATECbvfJitNGkBsgOfiVsT1RiNczy/FBKs%3D&continue=https://accounts.google.com/signin/oauth/consent?authuser%3D0%26part%3DAJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y64rqxVNMNhrSFulFz9bDxAKwS4lfM0nT3biJ0cdNwuGzuCFs1ru6KEA2VPVZ0NRtAa5PD2m31wEYrfTwUM8X7hrXKiLOd72OheU6ndyn9CU1qdnM2O2O0UlYzDYaCEFuiRfrGM3ZWwp0cwIUwOqYWxFAymQb3r6b_wVHJD15ycLFEDaP_duIYttdAFzDYKZxF_QrUEhAGF_oauHmBxy48Gj9WnxUr7x8JgMD85dk2XI0CE6c6w1XP4RAybCJM3FvKkJB3-MrnaF2KF3dwyphwL5kMqpR1-tDPJ_jmP4p1Sz_w9T6qTE9Qu003G8uMH-JqbJ2-1n3izeZVAKyGWcedlSzh3fTQIJcOoEA7-6am1iF-eScYMhWgTgcVZYRAAb-1dnEig19uHgPF8zMF1UxmEcVga2mnjKmACnKSMTnpJP4eYsW9vWD9pScA6Z8odw%26flowName%3DGeneralOAuthFlow%26as%3DS-1306407533:1764681593618303%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D/signin/oauth/consent%23&tcc=1",
+      "title": "Redirecting",
+      "last_visit": "2025-12-02T13:20:39.062032",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.youtube.com/accounts/SetSID",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:20:39.085048",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y64rqxVNMNhrSFulFz9bDxAKwS4lfM0nT3biJ0cdNwuGzuCFs1ru6KEA2VPVZ0NRtAa5PD2m31wEYrfTwUM8X7hrXKiLOd72OheU6ndyn9CU1qdnM2O2O0UlYzDYaCEFuiRfrGM3ZWwp0cwIUwOqYWxFAymQb3r6b_wVHJD15ycLFEDaP_duIYttdAFzDYKZxF_QrUEhAGF_oauHmBxy48Gj9WnxUr7x8JgMD85dk2XI0CE6c6w1XP4RAybCJM3FvKkJB3-MrnaF2KF3dwyphwL5kMqpR1-tDPJ_jmP4p1Sz_w9T6qTE9Qu003G8uMH-JqbJ2-1n3izeZVAKyGWcedlSzh3fTQIJcOoEA7-6am1iF-eScYMhWgTgcVZYRAAb-1dnEig19uHgPF8zMF1UxmEcVga2mnjKmACnKSMTnpJP4eYsW9vWD9pScA6Z8odw&flowName=GeneralOAuthFlow&as=S-1306407533:1764681593618303&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&requestPath=/signin/oauth/consent#",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:20:39.886846",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/ServiceLogin?rart=ANgoxceT6tnb221D_aXE7X4ZfGfVay0ffnWpHIIQqNNNRBIDyXKUnEHr3iejyxnhEcjViJ944tNI1KkPUid2dJ9wSn76hiMupixzn3oewCUbxaeZN5kj1iQ&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3D0%26part%3DAJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y64rqxVNMNhrSFulFz9bDxAKwS4lfM0nT3biJ0cdNwuGzuCFs1ru6KEA2VPVZ0NRtAa5PD2m31wEYrfTwUM8X7hrXKiLOd72OheU6ndyn9CU1qdnM2O2O0UlYzDYaCEFuiRfrGM3ZWwp0cwIUwOqYWxFAymQb3r6b_wVHJD15ycLFEDaP_duIYttdAFzDYKZxF_QrUEhAGF_oauHmBxy48Gj9WnxUr7x8JgMD85dk2XI0CE6c6w1XP4RAybCJM3FvKkJB3-MrnaF2KF3dwyphwL5kMqpR1-tDPJ_jmP4p1Sz_w9T6qTE9Qu003G8uMH-JqbJ2-1n3izeZVAKyGWcedlSzh3fTQIJcOoEA7-6am1iF-eScYMhWgTgcVZYRAAb-1dnEig19uHgPF8zMF1UxmEcVga2mnjKmACnKSMTnpJP4eYsW9vWD9pScA6Z8odw%26flowName%3DGeneralOAuthFlow%26as%3DS-1306407533%253A1764681593618303%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent&authuser=0",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:20:39.886846",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/InteractiveLogin?authuser=0&continue=https://accounts.google.com/signin/oauth/consent?authuser%3D0%26part%3DAJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y64rqxVNMNhrSFulFz9bDxAKwS4lfM0nT3biJ0cdNwuGzuCFs1ru6KEA2VPVZ0NRtAa5PD2m31wEYrfTwUM8X7hrXKiLOd72OheU6ndyn9CU1qdnM2O2O0UlYzDYaCEFuiRfrGM3ZWwp0cwIUwOqYWxFAymQb3r6b_wVHJD15ycLFEDaP_duIYttdAFzDYKZxF_QrUEhAGF_oauHmBxy48Gj9WnxUr7x8JgMD85dk2XI0CE6c6w1XP4RAybCJM3FvKkJB3-MrnaF2KF3dwyphwL5kMqpR1-tDPJ_jmP4p1Sz_w9T6qTE9Qu003G8uMH-JqbJ2-1n3izeZVAKyGWcedlSzh3fTQIJcOoEA7-6am1iF-eScYMhWgTgcVZYRAAb-1dnEig19uHgPF8zMF1UxmEcVga2mnjKmACnKSMTnpJP4eYsW9vWD9pScA6Z8odw%26flowName%3DGeneralOAuthFlow%26as%3DS-1306407533%253A1764681593618303%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent&rart=ANgoxceT6tnb221D_aXE7X4ZfGfVay0ffnWpHIIQqNNNRBIDyXKUnEHr3iejyxnhEcjViJ944tNI1KkPUid2dJ9wSn76hiMupixzn3oewCUbxaeZN5kj1iQ&dsh=S589961666:1764681639189858&ifkv=ARESoU0McZLoaqjMLMzId7hE6_fVTCNQ20EucMMvA2hfiRH71MJ0gfpxsRUx0Jg_0OdhvzQUKeZE",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:20:39.886846",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hAPN3ZktdDJBFfWonQaA41ww2bM8G3y64rqxVNMNhrSFulFz9bDxAKwS4lfM0nT3biJ0cdNwuGzuCFs1ru6KEA2VPVZ0NRtAa5PD2m31wEYrfTwUM8X7hrXKiLOd72OheU6ndyn9CU1qdnM2O2O0UlYzDYaCEFuiRfrGM3ZWwp0cwIUwOqYWxFAymQb3r6b_wVHJD15ycLFEDaP_duIYttdAFzDYKZxF_QrUEhAGF_oauHmBxy48Gj9WnxUr7x8JgMD85dk2XI0CE6c6w1XP4RAybCJM3FvKkJB3-MrnaF2KF3dwyphwL5kMqpR1-tDPJ_jmP4p1Sz_w9T6qTE9Qu003G8uMH-JqbJ2-1n3izeZVAKyGWcedlSzh3fTQIJcOoEA7-6am1iF-eScYMhWgTgcVZYRAAb-1dnEig19uHgPF8zMF1UxmEcVga2mnjKmACnKSMTnpJP4eYsW9vWD9pScA6Z8odw&flowName=GeneralOAuthFlow&as=S-1306407533%3A1764681593618303&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&requestPath=%2Fsignin%2Foauth%2Fconsent&pli=1&rapt=AEjHL4OsfmvwzZ6o0Nv3vqtHXTUod1_Xt_H-IW8_6PqUURZXvMUB1pfVt8IeZnta6xROfngS7l5w0EcFNwOKwb_GOo7eDsOJjopQLTcJ1HxCj2v5u7-tz-E",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:20:39.886846",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/signin/oauth/id?authuser=0&part=AJi8hAPbe4IqbmvMlXX0Ww3uyM81d1VXDholI-d4wgT77htM6V_YwXlZVVGLt5WoMjnQrBN9x45qz9WkEMXfnl5VpItJH99HheGjwRh3yiLyDInsSZmpXInG6Z2dJJBWGlMLiK5H-ZJjy87jtwqoS6MJCTDQcadHc2dBjifQfhl8AopNOFFRXfIKlB_giqtc5vlXOu27tk1g65rjoAEokeqJRrSkHwaXAskA7s3s1deOiZ2lYFLfhPxP6uh4msvyfVAPNtZvpsNh28KtIn_KGHsDeBsPqUMfk-ehdvJzI_RoS6lD6fDSQ8a4tubGWBH7Wm-9pw-RoYoxbIqwjETMjYdLcuqxW8JzqFayaVLO4Pvng8oU4GwnM3RZNvqbhjadcXkhTOa6Ob5H4l0Y2KWf7MhjQSsn_SVgeZDqIcd9oW4ggUCVG27g2GLGgm6-9-mGg31_hYxXs48NN8lCxVQyV21wKHvW-WrHeXL0A9ezlO3S9DYurIUNST5udMdFuzeuG4ot52PIUB4U85akIv6iX1KiBucgX6S-VNr9sVkNyUozfzUOJLKLlMA61YI9ohU98qYP7IF0DVDUGb-6KFWKQvMsqp5nr0copLIkO_eEDMuk4w4AOwJWSfDU-FhCWn1KC_wyweJQSmPn2Y_-w2NGYhnmbHTpZj1k8mHZby9DOOMq-cD0f0Xy_KEuNdwr7DdYdcab9ftmVyKF2bk1khbpnzDzwWg0MXF9pBj84f9CUJ43VOVWzK3PX3dIAxVAgfMBSDiZj22JHhSxuODkWEIT1YlKsC_mSGbSZnFmyCd2-oYI1oOqTy3si5tMAn1v0Ogl_cZaubKVUB1xTGBCgiudDOx7b5Z38z7w5Epes-dcsPgkXim2MEpW6sN5tn_HIX6EO9Z2p6YWAPp1D6h0SDY3EpwhQiEuYx1RqRzcmzc4jbCpTuh3M7ZnlY55vrMJestQBLO90Biyk80GZ-OCiY25t24C1hjeOrNQ_NvcjV7Ako-TbrNA0ncB8yg&flowName=GeneralOAuthFlow&as=S-1306407533%3A1764681593618303&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&rapt=AEjHL4OsfmvwzZ6o0Nv3vqtHXTUod1_Xt_H-IW8_6PqUURZXvMUB1pfVt8IeZnta6xROfngS7l5w0EcFNwOKwb_GOo7eDsOJjopQLTcJ1HxCj2v5u7-tz-E&requestPath=%2Fsignin%2Foauth%2Fconsent#",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:20:39.886846",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/T042BPAJ5TJ",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:22:28.152969",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/workspace-signin?redir=%2Fgantry%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D",
+      "title": "Find your workspace | Slack",
+      "last_visit": "2025-12-02T13:22:29.570947",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/get-started?redir=%2Fgantry%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D#/find",
+      "title": "Login | Slack",
+      "last_visit": "2025-12-02T13:22:33.811164",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://slack.com/get-started/oauth/google/start?entry_point=default_oauth&redir=%2Fgantry%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:22:36.049566",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/o/oauth2/v2/auth?client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Foauth2.slack.com%2Fget-started%2Foauth%2Fgoogle%2Fend&scope=openid+email+profile&response_type=code&access_type=offline&state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22get-started%22%2C%22timestamp%22%3A1764681755%2C%22visitor%22%3A%22.dae28837660882d9ffc4dafbecbe18d1%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22entry_point%22%3A%22default_oauth%22%2C%22redir%22%3A%22%5C%2Fgantry%5C%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D%22%7D%7D%7D%7C9bcda136a7839058dcf2338b7ad52d3bc506b7e789a572627b1452ddbefa93e7&prompt=consent&entry_point=default_oauth",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:22:36.049566",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/v3/signin/accountchooser?access_type=offline&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&entry_point=default_oauth&prompt=consent&redirect_uri=https%3A%2F%2Foauth2.slack.com%2Fget-started%2Foauth%2Fgoogle%2Fend&response_type=code&scope=openid+email+profile&state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22get-started%22%2C%22timestamp%22%3A1764681755%2C%22visitor%22%3A%22.dae28837660882d9ffc4dafbecbe18d1%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22entry_point%22%3A%22default_oauth%22%2C%22redir%22%3A%22%5C%2Fgantry%5C%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D%22%7D%7D%7D%7C9bcda136a7839058dcf2338b7ad52d3bc506b7e789a572627b1452ddbefa93e7&dsh=S-432289334%3A1764681755808636&o2v=2&service=lso&flowName=GeneralOAuthFlow&opparams=%253Fentry_point%253Ddefault_oauth&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hANePFec2mLZ6XDmlr4D662wMGFmR2nHuKyZ687LkrGiWofSeuDcsEI9Dypu01fn1dUx4YlwtXrV2shSPbnXvmbwFt0AeGM2jyVSrU5W8arMks9FatQm505moE_-R2JmsyHufSXksG42VfWDWQHBBorihIOjJJjTn4XxRdjr_lGGFYh_ehSBuAk_tYHcV-OkED2GhEp8u13W4iZIQUF2fAkBDk1ABLrE5vKv9EF-GNLjt-qDbfKRe0vHxrQjHRfpmpIteih9gE-rEToNJYrr5cJZIp0i2f5dpbhGyPfXeJj7XeyKpgwqWShphevtPclAk1dpanEXBejCxWuaSfUTWHM16RFKaBOxbIBwNnpxbvhC1CSzZv7W9zcFvUemplCyIVOA4Sqi23k0QOmB51pKFHUoqEfRffX3tqhy7LgAdAt-7i9ByzXDR7gRGfmgEzSs2gCXFoEDvlLebBd82PWv0aNYS-Pfzg%26flowName%3DGeneralOAuthFlow%26as%3DS-432289334%253A1764681755808636%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&app_domain=https%3A%2F%2Foauth2.slack.com",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:22:36.049566",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/v3/signin/challenge/pwd?TL=ANzgctTpsKSJAl8mWy8sf9mwrtna6cq_DqNia1PLA5dpjAwrUJL5RwOHFqAHP1Ej&access_type=offline&app_domain=https%3A%2F%2Foauth2.slack.com&cid=1&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hANePFec2mLZ6XDmlr4D662wMGFmR2nHuKyZ687LkrGiWofSeuDcsEI9Dypu01fn1dUx4YlwtXrV2shSPbnXvmbwFt0AeGM2jyVSrU5W8arMks9FatQm505moE_-R2JmsyHufSXksG42VfWDWQHBBorihIOjJJjTn4XxRdjr_lGGFYh_ehSBuAk_tYHcV-OkED2GhEp8u13W4iZIQUF2fAkBDk1ABLrE5vKv9EF-GNLjt-qDbfKRe0vHxrQjHRfpmpIteih9gE-rEToNJYrr5cJZIp0i2f5dpbhGyPfXeJj7XeyKpgwqWShphevtPclAk1dpanEXBejCxWuaSfUTWHM16RFKaBOxbIBwNnpxbvhC1CSzZv7W9zcFvUemplCyIVOA4Sqi23k0QOmB51pKFHUoqEfRffX3tqhy7LgAdAt-7i9ByzXDR7gRGfmgEzSs2gCXFoEDvlLebBd82PWv0aNYS-Pfzg%26flowName%3DGeneralOAuthFlow%26as%3DS-432289334%253A1764681755808636%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&dsh=S-432289334%3A1764681755808636&flowName=GeneralOAuthFlow&o2v=2&opparams=%253Fentry_point%253Ddefault_oauth&prompt=consent&redirect_uri=https%3A%2F%2Foauth2.slack.com%2Fget-started%2Foauth%2Fgoogle%2Fend&response_type=code&scope=openid%20email%20profile&service=lso&state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22get-started%22%2C%22timestamp%22%3A1764681755%2C%22visitor%22%3A%22.dae28837660882d9ffc4dafbecbe18d1%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22entry_point%22%3A%22default_oauth%22%2C%22redir%22%3A%22%5C%2Fgantry%5C%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D%22%7D%7D%7D%7C9bcda136a7839058dcf2338b7ad52d3bc506b7e789a572627b1452ddbefa93e7",
+      "title": "Hi Jack",
+      "last_visit": "2025-12-02T13:22:37.863139",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/CheckCookie?continue=https://accounts.google.com/signin/oauth/consent?authuser%3Dunknown%26part%3DAJi8hANePFec2mLZ6XDmlr4D662wMGFmR2nHuKyZ687LkrGiWofSeuDcsEI9Dypu01fn1dUx4YlwtXrV2shSPbnXvmbwFt0AeGM2jyVSrU5W8arMks9FatQm505moE_-R2JmsyHufSXksG42VfWDWQHBBorihIOjJJjTn4XxRdjr_lGGFYh_ehSBuAk_tYHcV-OkED2GhEp8u13W4iZIQUF2fAkBDk1ABLrE5vKv9EF-GNLjt-qDbfKRe0vHxrQjHRfpmpIteih9gE-rEToNJYrr5cJZIp0i2f5dpbhGyPfXeJj7XeyKpgwqWShphevtPclAk1dpanEXBejCxWuaSfUTWHM16RFKaBOxbIBwNnpxbvhC1CSzZv7W9zcFvUemplCyIVOA4Sqi23k0QOmB51pKFHUoqEfRffX3tqhy7LgAdAt-7i9ByzXDR7gRGfmgEzSs2gCXFoEDvlLebBd82PWv0aNYS-Pfzg%26flowName%3DGeneralOAuthFlow%26as%3DS-432289334%253A1764681755808636%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&service=lso&flowName=GeneralOAuthFlow&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&redirect_uri=https://oauth2.slack.com/get-started/oauth/google/end&scope=openid+email+profile&o2v=2&chtml=LoginDoneHtml&gidl=EgIIAA",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:22:45.325394",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hANePFec2mLZ6XDmlr4D662wMGFmR2nHuKyZ687LkrGiWofSeuDcsEI9Dypu01fn1dUx4YlwtXrV2shSPbnXvmbwFt0AeGM2jyVSrU5W8arMks9FatQm505moE_-R2JmsyHufSXksG42VfWDWQHBBorihIOjJJjTn4XxRdjr_lGGFYh_ehSBuAk_tYHcV-OkED2GhEp8u13W4iZIQUF2fAkBDk1ABLrE5vKv9EF-GNLjt-qDbfKRe0vHxrQjHRfpmpIteih9gE-rEToNJYrr5cJZIp0i2f5dpbhGyPfXeJj7XeyKpgwqWShphevtPclAk1dpanEXBejCxWuaSfUTWHM16RFKaBOxbIBwNnpxbvhC1CSzZv7W9zcFvUemplCyIVOA4Sqi23k0QOmB51pKFHUoqEfRffX3tqhy7LgAdAt-7i9ByzXDR7gRGfmgEzSs2gCXFoEDvlLebBd82PWv0aNYS-Pfzg&flowName=GeneralOAuthFlow&as=S-432289334:1764681755808636&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&requestPath=/signin/oauth/consent#",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:22:45.325394",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/ServiceLogin?rart=ANgoxccrgquxORwhPN8UajQL_VqmL_43Oa8Ctb2fbwh4YqO-h28wasQ8hEG8opoei_HVozcWPQRruDPzM8Ewcr2eJD4qMYIKa22cS7kHAVOIkfDA5cOSEiE&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3D0%26part%3DAJi8hANePFec2mLZ6XDmlr4D662wMGFmR2nHuKyZ687LkrGiWofSeuDcsEI9Dypu01fn1dUx4YlwtXrV2shSPbnXvmbwFt0AeGM2jyVSrU5W8arMks9FatQm505moE_-R2JmsyHufSXksG42VfWDWQHBBorihIOjJJjTn4XxRdjr_lGGFYh_ehSBuAk_tYHcV-OkED2GhEp8u13W4iZIQUF2fAkBDk1ABLrE5vKv9EF-GNLjt-qDbfKRe0vHxrQjHRfpmpIteih9gE-rEToNJYrr5cJZIp0i2f5dpbhGyPfXeJj7XeyKpgwqWShphevtPclAk1dpanEXBejCxWuaSfUTWHM16RFKaBOxbIBwNnpxbvhC1CSzZv7W9zcFvUemplCyIVOA4Sqi23k0QOmB51pKFHUoqEfRffX3tqhy7LgAdAt-7i9ByzXDR7gRGfmgEzSs2gCXFoEDvlLebBd82PWv0aNYS-Pfzg%26flowName%3DGeneralOAuthFlow%26as%3DS-432289334%253A1764681755808636%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent&authuser=0",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:22:45.325394",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/InteractiveLogin?authuser=0&continue=https://accounts.google.com/signin/oauth/consent?authuser%3D0%26part%3DAJi8hANePFec2mLZ6XDmlr4D662wMGFmR2nHuKyZ687LkrGiWofSeuDcsEI9Dypu01fn1dUx4YlwtXrV2shSPbnXvmbwFt0AeGM2jyVSrU5W8arMks9FatQm505moE_-R2JmsyHufSXksG42VfWDWQHBBorihIOjJJjTn4XxRdjr_lGGFYh_ehSBuAk_tYHcV-OkED2GhEp8u13W4iZIQUF2fAkBDk1ABLrE5vKv9EF-GNLjt-qDbfKRe0vHxrQjHRfpmpIteih9gE-rEToNJYrr5cJZIp0i2f5dpbhGyPfXeJj7XeyKpgwqWShphevtPclAk1dpanEXBejCxWuaSfUTWHM16RFKaBOxbIBwNnpxbvhC1CSzZv7W9zcFvUemplCyIVOA4Sqi23k0QOmB51pKFHUoqEfRffX3tqhy7LgAdAt-7i9ByzXDR7gRGfmgEzSs2gCXFoEDvlLebBd82PWv0aNYS-Pfzg%26flowName%3DGeneralOAuthFlow%26as%3DS-432289334%253A1764681755808636%26client_id%3D606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent&rart=ANgoxccrgquxORwhPN8UajQL_VqmL_43Oa8Ctb2fbwh4YqO-h28wasQ8hEG8opoei_HVozcWPQRruDPzM8Ewcr2eJD4qMYIKa22cS7kHAVOIkfDA5cOSEiE&dsh=S1662916724:1764681764571867&ifkv=ARESoU1aOLj5IRk4bunQ6EOjgZFk1dxz-4guKsiP6u3wBZuzWQXKVqyecPCrlPrIfyPlkkNIa78lxQ",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:22:45.325394",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hANePFec2mLZ6XDmlr4D662wMGFmR2nHuKyZ687LkrGiWofSeuDcsEI9Dypu01fn1dUx4YlwtXrV2shSPbnXvmbwFt0AeGM2jyVSrU5W8arMks9FatQm505moE_-R2JmsyHufSXksG42VfWDWQHBBorihIOjJJjTn4XxRdjr_lGGFYh_ehSBuAk_tYHcV-OkED2GhEp8u13W4iZIQUF2fAkBDk1ABLrE5vKv9EF-GNLjt-qDbfKRe0vHxrQjHRfpmpIteih9gE-rEToNJYrr5cJZIp0i2f5dpbhGyPfXeJj7XeyKpgwqWShphevtPclAk1dpanEXBejCxWuaSfUTWHM16RFKaBOxbIBwNnpxbvhC1CSzZv7W9zcFvUemplCyIVOA4Sqi23k0QOmB51pKFHUoqEfRffX3tqhy7LgAdAt-7i9ByzXDR7gRGfmgEzSs2gCXFoEDvlLebBd82PWv0aNYS-Pfzg&flowName=GeneralOAuthFlow&as=S-432289334%3A1764681755808636&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&requestPath=%2Fsignin%2Foauth%2Fconsent&pli=1&rapt=AEjHL4OxdFeb6tXe6h2jA5AFDzLJz0HcBvJVXuIoEa59wREEVxqyefQTTi42aOho0x6EnoM8sFcFf7uf1kC1ppygVclmk0f0cZQk1cB67i_5YDblmXveOPM",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:22:45.325394",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/signin/oauth/id?authuser=0&part=AJi8hAP59Vn0v1YZhKvfsF-XZwHBVLCJXsMkLH4ehcxCpZgQtuRih8EcsNnRKMsANLVexw4J2LljFefcRbj0K3tmmkQteTcy_1CEzOTFa4U6YJWju-RsVuk_68-1ePBo7cVkTmZ90uA4y5dYevyFvAwerD4PIly1UdXJnsaM6cL6C8IVsIg-SW1ERRFwneIKNbr0d5KC1olW5j3ABAHk4cjajQggygNE0jkZChxXfh525dNK2YGJxDtc_huF5sOeZVYaUtUb3ofVEnY3NAaESfymrRr3m76NVs_y6LTpwuwe9C35mV7ubiw2CBT3mJ5mqriQd9p8nDhBd2Sdn_LTF_Uv1tkL1O9n1N9-ULNQw42QIKV1TLv1lgpIYpstoL0Xpnw1a2lyCe6_KcTyvWqiox9eHwGr6jIQymbG-U8kGmWIlq03_TnDgSbGsSHIsrjiFM44trBpcxZtRh-unX69Ii1Lz29ReTX7HwlX1T73BBo0IkdIxHIen1ipxKFqkUNQF220KGFUSsm7VltNwrI6PTXmFMvs8cC24koJ7PSvj4nB22golMxgGmv8b4jeTdu3xAk0OROqrRe9gn-KvWOq_EUUrfR0j-E4cZQQrWUHDqBoLIkNFdk3aIB3GIpqXhV4XBXU68rUy8UchgE4XIk5v6Z_b9_c5BxUFfweXRUiTz8g9mzduAm8OQCoJbdKTPGL3MMhNQjm-Q7mq1cRU73SFXAuQ60-2eGMSUiJhSID-xSkB0uT9yfHQF-zJG4zVErlNoQ6OEppGaAEo5anuLzELDgeYUKZ844xN-1-GWKc0WEZjsXI-bPQiEreZaZy9bElgonrzYFrzHaj25Uqk0vOUPhEqj0bvC-JDkpi-dqqTz4ICe9vlcVxmFfmQ3SPke7XWJ4a3TV9shF6KE-hQvbtpYYvc2mDS6D6QZgeVBh3QUpUS1QiSkAd7Je4T74Jv1m_QGyvfvBPSpv51REgYUKIZ87Wd1y0UL0COuhAelhbgRzfG9x1DBzl6eg&flowName=GeneralOAuthFlow&as=S-432289334%3A1764681755808636&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&rapt=AEjHL4OxdFeb6tXe6h2jA5AFDzLJz0HcBvJVXuIoEa59wREEVxqyefQTTi42aOho0x6EnoM8sFcFf7uf1kC1ppygVclmk0f0cZQk1cB67i_5YDblmXveOPM&requestPath=%2Fsignin%2Foauth%2Fconsent#",
+      "title": "Sign in - Google Accounts",
+      "last_visit": "2025-12-02T13:22:45.325394",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/signin/oauth/consent?as=S-432289334%3A1764681755808636&authuser=0&client_id=606092904014-s1u3idjanlbhr4ns5b1hcjgfn63cr9nh.apps.googleusercontent.com&flowName=GeneralOAuthFlow&part=AJi8hAOdL0WKdUrmQcVUtjougPhzmpoI9YWb3UXRHlRJhGwjdSAE8av0s5M7yABQJVwllCqyzQ7zsbDEe5xGcfKVEElsfODLIWh0VN5hg0V10bTTcmjCYUAFrjwYT5tirGRO3Xzt9WRi8sc3mpP_8pihOHVJ5LvOHGz4-VafsGV0EHBcF2TB9QiplcfOKy_B9yegB_pyNdD_vV07ZlaOa3-VqwiHSFnhyTWwty1F4Z-troMs6Ku9kwIoEivHiD7eNuMD8rS12ZeE0JWek22Qy989n2wC2vDI9iXyYNPu9rhDkmcm1uBMPHOqelDPxbz1VTLpCaFtFPiFg-KPuYJzJc2P1knNAKsFacIsiGKVDyHzR6m5-1E6shT6rE736sZr7NL6Q-_NCg8aDRIl_K9TbHZPiYHbJTE5bhQ41H7wvmeu5p6PAmgG5_Azhb8H4j7eTS16TNKlzw7D1OgFBtesGUOE7UkYYzpVfNw6e-ele7NcVzgoQ989x7hjnL5G8lZIaGsUfhXt89nptfUlxsaC0AUTyXJFWAjVkoNgtdEucQLhrpvQre4CE3tl-tVsOhvE6Av4VCMEntJcQZ0uj0mp2Offhm8cvhyJ2W_T5u5N20sAj3VSvUWGaR9xQFwSR3KXQuoYqra6VOvc472ATxZp8dsHDVDkND6KVkGTCUDlzangCPFHyEjlVevpU_kmTpG2Sr5s3Jm8qcMuArmIXTm6dyIN6zKGd7umvNbxA9-e2PhE-eYRxDh84VCM-2C78ytI63JshVHzvbL66-1l9bUCKImx7C6bKpWyxV8-yzNMocKxTxPzLwPDRfnilGZpFIsHH0QoQNWszNUep2bQ8nchgS8u5eIB7Tm1gmwjreokzMao2h0H_RljBEAystRJ0O55WoxjFWTQjSHu6E4k61-h8Nlx7euYRXZTA_OwkW8t7HO2znDxO90q7o-nYy78Od7S4LkuPNadnXX1tcEfZcih_YYxHvtVaW3lIUicEIlPSZhyzIYlhYM903g&rapt=AEjHL4OxdFeb6tXe6h2jA5AFDzLJz0HcBvJVXuIoEa59wREEVxqyefQTTi42aOho0x6EnoM8sFcFf7uf1kC1ppygVclmk0f0cZQk1cB67i_5YDblmXveOPM&xsrf=AHxBXvLrpz9eKdVeBFlyoIXegISQ%3A1764681765222",
+      "title": "Login | Slack",
+      "last_visit": "2025-12-02T13:22:49.676187",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://oauth2.slack.com/get-started/oauth/google/end?state=%7B%22provider%22%3A%22google%22%2C%22origin%22%3A%22get-started%22%2C%22timestamp%22%3A1764681755%2C%22visitor%22%3A%22.dae28837660882d9ffc4dafbecbe18d1%22%2C%22extra%22%3A%7B%22params%22%3A%7B%22entry_point%22%3A%22default_oauth%22%2C%22redir%22%3A%22%5C%2Fgantry%5C%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D%22%7D%7D%7D%7C9bcda136a7839058dcf2338b7ad52d3bc506b7e789a572627b1452ddbefa93e7&code=4%2F0Ab32j9055Gn7D4ROGBEeZt-Q9jYFZwepWtJMRCDoKwna-kuXXcfTorGcPe0nE2lzK_uo1g&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&hd=physicaltherapybiz.com&prompt=consent",
+      "title": "Login | Slack",
+      "last_visit": "2025-12-02T13:22:49.676187",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://slack.com/get-started?entry_point=default_oauth&redir=%2Fgantry%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D#landing",
+      "title": "Login | Slack",
+      "last_visit": "2025-12-02T13:22:49.676187",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/t/pt-biz-workspace/login/z-app-615840244675-10028230197043-ce2923d849342ea14894472fccf2bf4c3dc4c2267d874875c98ab996ecfc4e18?entry_point=default_oauth&redir=%2Fgantry%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D%26selected_team_id%3DTJ3QQ76KV&_gl=1*1jwt1r8*_gcl_au*MzM2MDY5NzQ3LjE3NTgxNDAxODM.",
+      "title": "Enter your authentication code | Slack",
+      "last_visit": "2025-12-02T13:22:55.322486",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://pt-biz-workspace.slack.com/app-redir/login/z-app-615840244675-10028230197043-ce2923d849342ea14894472fccf2bf4c3dc4c2267d874875c98ab996ecfc4e18?entry_point=default_oauth&redir=%2Fgantry%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D%26selected_team_id%3DTJ3QQ76KV&_gl=1*1jwt1r8*_gcl_au*MzM2MDY5NzQ3LjE3NTgxNDAxODM.",
+      "title": "Enter your authentication code | Slack",
+      "last_visit": "2025-12-02T13:22:55.322486",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://pt-biz-workspace.slack.com/z-app-615840244675-10028230197043-ce2923d849342ea14894472fccf2bf4c3dc4c2267d874875c98ab996ecfc4e18?entry_point=default_oauth&redir=%2Fgantry%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D%26selected_team_id%3DTJ3QQ76KV&_gl=1*1jwt1r8*_gcl_au*MzM2MDY5NzQ3LjE3NTgxNDAxODM.",
+      "title": "Enter your authentication code | Slack",
+      "last_visit": "2025-12-02T13:22:55.322486",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://slack.com/checkcookie?redir=%2Fgantry%2Fauth%3Fapp%3Dclient%26lc%3D1764681590%26return_to%3D%252Fclient%252FT042BPAJ5TJ%26teams%3D%26selected_team_id%3DTJ3QQ76KV",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:23:02.495408",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://slack.com/gantry/auth?app=client&lc=1764681590&return_to=%2Fclient%2FT042BPAJ5TJ&teams=&selected_team_id=TJ3QQ76KV",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:23:02.495408",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/auth?app=client&lc=1764681590&return_to=%2Fclient%2FT042BPAJ5TJ&teams=&selected_team_id=TJ3QQ76KV",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:23:02.495408",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/T042BPAJ5TJ?selected_team_id=TJ3QQ76KV",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:23:02.620648",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/workspace-signin?redir=%2Fgantry%2Fauth%3Fselected_team_id%3DTJ3QQ76KV%26app%3Dclient%26lc%3D1764681782%26return_to%3D%252Fclient%252FT042BPAJ5TJ%253Fselected_team_id%253DTJ3QQ76KV%26teams%3D",
+      "title": "Find your workspace | Slack",
+      "last_visit": "2025-12-02T13:23:04.066696",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://pt-biz-workspace.slack.com/ssb/redirect?redir=%2Fgantry%2Fauth%3Fselected_team_id%3DTJ3QQ76KV%26app%3Dclient%26lc%3D1764681782%26return_to%3D%252Fclient%252FT042BPAJ5TJ%253Fselected_team_id%253DTJ3QQ76KV%26teams%3D&entry_point=workspace_signin",
+      "title": "Redirecting\u2026 | Slack",
+      "last_visit": "2025-12-02T13:23:06.522105",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://pt-biz-workspace.slack.com/",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:23:12.329761",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://pt-biz-workspace.slack.com/messages",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:23:12.329761",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV",
+      "title": "Slack",
+      "last_visit": "2025-12-02T13:23:12.329761",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/CJ3RMRHV0",
+      "title": "pt-biz (Channel) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:23:14.690693",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/C01DWHJ2K39",
+      "title": "pt-biz (Channel) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:23:19.077260",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/C07T66SNEMP",
+      "title": "setter-updates (Channel) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:23:19.640637",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/C062R7J0CCE",
+      "title": "sales-team-updates (Channel) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:23:20.132371",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/C09ULGH1BEC",
+      "title": "alowaresmsupdates (Channel) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:23:35.658544",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/D09TTPFJ7NW",
+      "title": "PT Biz's ChatGPT Agent (DM) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:24:25.317471",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/#settings/Connectors",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:08.811737",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/auth/login?next=%2F%23settings%2FConnectors",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:10.887869",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://auth.openai.com/api/accounts/authorize?client_id=app_X8zY6vW2pQ9tR3dE7nK1jL5gH&scope=openid%20email%20profile%20offline_access%20model.request%20model.read%20organization.read%20organization.write&response_type=code&redirect_uri=https%3A%2F%2Fchatgpt.com%2Fapi%2Fauth%2Fcallback%2Fopenai&audience=https%3A%2F%2Fapi.openai.com%2Fv1&device_id=8a48d6a7-4ed5-444d-b8c7-33f78c954d62&prompt=login&screen_hint=login_or_signup&ext-oai-did=8a48d6a7-4ed5-444d-b8c7-33f78c954d62&auth_session_logging_id=2bceb65b-3922-41e3-84c8-9342393a32ac&state=XIpix3XNTuCgv-rENvfx3BIv2LVLnv1zA_1bCP7w3fI",
+      "title": "Log in or sign up - OpenAI",
+      "last_visit": "2025-12-02T13:25:12.857082",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://auth.openai.com/log-in-or-create-account",
+      "title": "Log in or sign up - OpenAI",
+      "last_visit": "2025-12-02T13:25:12.857082",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=799222349882-ne3i0s9jdm5s0p7ll2d7tlsi1vc1halt.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fauth.openai.com%2Fapi%2Faccounts%2Fcallback%2Fgoogle&scope=openid+profile+email&state=875befdb-911b-45dd-aa2e-8748398c7f6f&audience=799222349882-ne3i0s9jdm5s0p7ll2d7tlsi1vc1halt.apps.googleusercontent.com&nonce=0GnxNHSu1ZhpJurQdtfW",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:22.238573",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://auth.openai.com/api/accounts/callback/google?state=875befdb-911b-45dd-aa2e-8748398c7f6f&code=4%2F0Ab32j91l9xS4Duv89u4FmwFPpdNbKHcVJXmcWy6rrVzdE_pzwnCQaUPnR_pG9wXK8uxs0A&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&hd=physicaltherapybiz.com&prompt=none",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:22.238573",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://auth.openai.com/api/oauth/oauth2/auth?audience=https%3A%2F%2Fapi.openai.com%2Fv1&auth_session_logging_id=2bceb65b-3922-41e3-84c8-9342393a32ac&client_id=app_X8zY6vW2pQ9tR3dE7nK1jL5gH&device_id=8a48d6a7-4ed5-444d-b8c7-33f78c954d62&ext-oai-did=8a48d6a7-4ed5-444d-b8c7-33f78c954d62&login_verifier=1WoSvwyT4k8rq36VAYq5XCopkyRZ7SxOAPM9xxHr5cUHHuJhFXLFYJ9T2Km1lc_LO6HNCeXfjtxEpSVBLekLsSqY9MsnJDS3SLdnLFNF-zKBOuW9rP9HHzajsheU7ChzMJk571-ltrfd9Ewyyu4jl6xwO-H6V4linnSqr44sShcxdyDk9S4po1IAEIqrBqbC_0MV9qUsszMVTnR2JYE508XG6oyYQVLBsTXzWv4ZY_cuzHKDL7KexUzf3Y-xDJVqdljC5wWnth-zpCnejegC7X3yzJu6fgUGaAgVwUvFF6KHtAEIrgaAIVvBAy6XhdsqwkBsHIhBmzWn6jYP-3XYYUCcX9Gm_v4hXZhAiTfBU7wFiDM024kNq2XSymdqfklH6NFXI3F6JDRFURQ3XrggQtf_Hl3wyPpAYcRpQmvlZF52bf7B_4jcfFxcqewGQ7Sdj9r9aNGorprrZzrxnuSmCSaBfRj0yL5qEXkB2kUJnKFhaACNqT91G98hhgFCYiqG7UR9B5aFEW8sbALdCHlpgKpxdJ4z04-fxizwheN9r2_LFwUsosG86PQx7Sjw3dpjNIScuKZK_H9mZdwJXgNVAtxIM4h3vW9c8nvj-0NqTMpF8Oc4v7EmcI7rxwIwrLqDJSI1rMjRCExlm_Fd-XxdeqE6TFF5fQCvk71PV9p-7FN6tj8sFPgkmeK1tMGYEkGsfys8Ji7XeKWVJB-6vQZLnXPNPEWIKZne-30T6-uU97K64lBrx6GinMKN0NC5yRWZf8fkL2nFlmIEV7l2imWeOrhSDwkIfcIKVwJ3L38hVZriEEfie5gwaQQSLlLLEJO0VupUXLa3mOBK-pMXN752i_wP_rqL06_TVNl4ykW4zykMi8f_7HZBzICSkA1uRimZiF5M4G-OwzJoFpLwoHBJYSIZP8DMsT3eTM6GDIRuW_4Bq5W6XOm0B96BwOYyrG_B_MNQufQxNPaBNq0PknywFnFUqBOnay9_PkkphHALvxo46mV3lFgSqaqCKHRsVVPoUB6Ye153ItQDMyfIDBqLzGLhOk13p0K5_rItfrY3hlKsZ16B8vLtsOPRtqWVJJ6ahitEYrHYJUXg1MviKPCaIP5JBRs2V19UE3So1mEIH-6x6stYWchUb0vNguYGwwG7B413NWohA1hgEhz_unrA0Gb8Umbq-i42hjSZPlUYM4z6gWCFLt05sOPEku_zqrOIgXbFLRq8v_IKtu0zwoc3IRDMZeRf5c0wbkqWRh3Qak0sGpKANIVItXrLK1tA6mvLJbyCA2b2ZThY_1qMbZ5uTWFF-OiG0Gouh3-bAQNj7Ew4QpQh38dV0Ueywypu7J7NgHu9DA-K1awPPgaPA1OZ3VVD7VOj98ASAgtQ9rXNAlHpXpr79Eezu6d2XJppQc23_c-7NTw0OwVxksr2os1V2YKWIBUtyt-d_F2Yn000l_O2-WAWzjALqttUvQpcW_iAk3pBqztT73XgPGHtKI-IgLTVrR5gZV3y1j4f8EdQkioYdXBXIv58YQgCqZP4GiSopj3grZzyP06Q_tJTZeP2c0C-dFdwcs78Mqe1xLtc-3KAasjvDzCLDgIuHktQ2oYFWJ2NOymqVU3klNtcTYEx4SAMcL11rcmpq-0ZdP6uiETIEPKhGRklTAXrwlyzuG3x2REtIKM0392C4sIB9PhhQ0F0hOA8JHDIyFIo1G0nio1_APgorxZknGhAPkTXQZw0lee7Z7A8Ld-wX50F1C4hTlJ2KvtAKTIhGwc3sV_JAe8Eq5zt717v0ucySQeKt9dSICTPQQZXMZv4yOY8L3x60TPbpnPwhx4IkhP0hZ3aXAGFZY8HnMZtiQePVfFJTtzaGbdSiSpgNFnJk7oXf9EPqhmyfmcnyxXIsRpBt5BGfLkHX-sgwAIMeNVBvyprdLXVKbi6s_-j82MTkMYAjLwAuEVSgxuqvEAGQ8FxE-RMbzcI1I9W-K-mIC7YTpvlHWPJoU_UyPLFsP5sjwoIhjj617sXESFxiZcMj6vmK861Ie5FkWqNLQLzS4W4RwGTCWzk6eEmcDF1yYzn1cE0u1v8pAQzjdcVdSuRDVhyDZlnMLrIAX1r1mSU6Fs0ZTddqnlRsA4c_oGJG-vOV9usOnoczJIDKJ8iozIxZEsupGuITQQDICR8HjDHYqexKlLdr4EmP3zSLfEdrrdT0nautdkrw_5XVqLN3EdXNYJnauLty_wOz3lmXFyH9et-pGpGwcoHnobJHvWw088u73MtJLb5FPiYJQCpuZCmfg25LlPDmux0FjZQF5g4QanNU915GhFF2uBBAPHi92IA9rAcDjxGyBmyzgSl34FKJNcoN7SVHdSkR_P2G1EwluWZi3YwA25dStek1_AASy--21xTIVFfdTtaT70OxLeUoSxSphlM-dHLC_xFI3JMErkwwcfzNdYTRtcNjnmx1smHbU5iatZQJ1zrTBEbv6zpe-VUS-e92Eh3cC76v3R9qUeubS1wRXS3cPPThX3qVtpEoo6QdURKGVabqy9Vli5z0TIc1_fHc5KfqpzQSS07H8KeUpbbPpRx9AwodZeEQL6EEPFOBYchqgtwA4BcyQjUqmAfTBqWgIQnswqPsPUluGuin9YB9sU4sbWP-rNhc7ctQCM8a0agZt8qxcMO8APYcihakS89bY7z1QJBABuQE30Yoi2lc4BsJPJxAvwS4D_TG11NJuhSDaZBPhkoMsHUEhhPbrwdfHjCelqVRmHO_1LZXr2gYIyEV6K9-Pky_OlMRRWMt8OiydiRXLf5yUJwhe5l&prompt=login&redirect_uri=https%3A%2F%2Fchatgpt.com%2Fapi%2Fauth%2Fcallback%2Fopenai&response_type=code&scope=openid+email+profile+offline_access+model.request+model.read+organization.read+organization.write&screen_hint=login_or_signup&state=XIpix3XNTuCgv-rENvfx3BIv2LVLnv1zA_1bCP7w3fI",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:22.238573",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://auth.openai.com/api/accounts/consent?consent_challenge=vqJOhq2h7fkKRNlgb74EFw1YHSihxSyTlmLVM3B11Ht8ctbmJjuz27D1y2QwBpajKRnVx9EgTV8wMKvtEMVHcJVsVmuPPvdNrUBcIXuy4uiOXf_rEGMYWdeosQX86_9qHJNhOLQ5t6uRuLtOWrF6Q_pWCqNzO9I5JmVVFcNA4jL3TY_afOG0AQAPem5g7fw1Ytwqr7PxRQoAhqstLzWdeK1mVdYdXLV0dKer393meHqrqQRCxDJ5eff3Oe_oMbJa8J4nye-RCgPrabwDmXSz4eKbJdPJN3IaFy11bRArk7UiSL9E0q78lAjwLCRHGotwKTSHSkYfhGfCFTU2pVT0aYK7v0G2B10otC4E4p498LuaArJdIuZNgrvD0HiwFAjYKsw7bah3T2tc9PPMxI7CQZO15P6sLyxQ5Sowc_asbUWja1-Qtn7CgFCIY_zSoisK9aIz7DJJ7LfvxswLwRT9wzYT3b2yyS8-lAWcAE5Q0pZyFyWBGffe-S2U5w9EXxPV6OTlQAGpqN9jbMLX4DcLvyhmU68OpsL_u6UbBWCVp4G4jl0GjI-gqadEqtY45hdFvrZlhBhx77afTTIhdl_NZfJ2pG7e7PiTrNFVBQ6edJ7JJZauMzS7b_s0Z2F_90uwOH6n7fZUJVlSXpAnK9ktzaZHqfaJoHvSOuhqnlKcVt7vqTdu3NqbIm2O5WPId-KaYWAZMG4GaEtTzgPRgq5aosFLGEfRMcuyrfm78xDMgaJ_tsfTqeE17UKWajFh3h0jUZ5MH9226N5auIXIcekq9o54OuU9l5AgrftIZQZGe_rGjW_uWVY91ZaeMY37uuYgctC1bieqqzUN36HwiWGp_PKzSHLSeLmgZ_2BwWlWrEPEHH23r1KgBwi2o13rWr-EeZdsGsZc5x8UnSKwNhWrGBlj-5tyT3KJyFt1TusJgJjWFaF8b6zWH42m6lL75_z-vOKDb21AjeiJrFjz1CH77ozlS1Rw_TcklDo9xRlG1q4E6jUMjM0LYI7Uu1XhMY5eeHP3fQDKxejft012MrOi9WoJSw6QSc0bNwtJ0RrzlOYQqvXpPajTd_cFxcgCto5pK_J-TjMncab6y7WF0iMfwcDzwaYOqPmutmYkwKzL_rFJNm2Ma3QwapTnIUJ3qf35Sl6q4iikqb23hSvN-VCHyfPjYLu9_vB4dpw-cAWat3v11OYeglqmpTYpBn13vGenNk5rWRAHeG7y8UGLj3j63bVlwMLCfoHBO3RPThkHNV-CZqxHvqGvZGXLEY_q4LWEwTuMSAFapl35NM6eFzEOZbAMegAaqLrPeIjtBXA05fiSsxSyV8OiGxFMQgmXZuq4zu8SNSR2UXqHQ7C3jNUnbLKd95m4HgmIu7erStVVEF-UUYBzXbbV6FWX4GcO_3aTEIVBzbo0aPRbSDDM1By3bYmdhS8s314X-11659wVLX_KPhlg4XADLJRlmN0p5DIgzGekhEJURzqy7u_q9HF-FTrJWRFzYHIKNlXIi2QsVj5aUgnhyGUknScSMCOwAJa7zmaIGUwBl0YjOLesEw1LSPuYeTGpEY7Q6GbjZm3W6SfZBuOdN5dBhLjvXC48DyU_DxEKJn0P8C0l1rhv0YEii-N4xMFAJZsvpUqL_DyEDwPg9Pxs3BjSzVU4HzlsxbVFrcpu6ny1ddB0KwPveIc5LjCs5mobdTJRQSRTDDdSzbSaRleqTfroYC4Kpeo_Uzbi9gFu17l_jrVs4YFUFZhDyTV08ATRoxv2o92_2YySGJ9T_irwnpPIibzNh0dGQMNWOjihHypKf4BDkcN8Y6DYKwzthJb7p9Gi5I3Kvz0wR8HJj8u1qqYTYVIrotK2O9A13EevwD5b0CTiE9m2Lu3HKEL0Fa2pwpfGq-QveT_bq_tH5Cpb8DWvuzAJFAiVLbcshUqeeUhJOIWSAXHzmom2wEAKpA4d25OpQarGHUZDi8GdyDouEX-o2mTORKVCo5DD7gl4jTJ3zK7qIhcnQRDnG09qfrncr_pxi_QgiNa1NXIroSQckUaNgeQeaPcdN9Qg8mrGQ6jdtv-CbdYbzxJrK1mqNLkKYoLZWI3oinMRXfyTelf12dqCCln1_aES7C6Kg-stFFsAuKWDGXo1i0w00dkWF2e06hR0Df_sb4encPdBf10bTmc8M264ZFJ3E2QbWamE4DdrY0rEb3FCjj5kX4zWajxwWpFMbyCy6ZoDzLIRYX5ODWLfY4_AhbJCFjGrsdkJr5WFEGOQIZuqRKQag2jBtDihfA_vkMbQZUdM5BXCKo_GuVtopLWx9m0SFhh8Bz8LiW6rmWr9C3C77uGr2C3fbjjgfyTn1j3iJQjoShV1IL08Mtwh-FVuZX9qR4CJJLt5MxDEivZEVI3SvCgTVRD9mpCZzfsYYitY_QUxbFO9DMrSaLraSN2s_kjMzF3KMcuKPmyz9y2yKmZKxxy7rSedcKELDLEO_KBeNc2snpZKboJWIzSSp1PE2nV8wZGj9-v5Vtja98VrRvPK5lS5ECIesdXXthVYjJwsfYIQxP1Et8sJUIFDKe7642MGfVQyOkvKXX1V1aNxQqzmwT7Gaog53TeJ7zn8jV7TnHlGAwqCpyyfX1n8Ja192g3qLdbvf3WIQUzNnoLHDjxbtU9FCI8N5aFNPt6ePUgd9FgaukHbYtWjfwyMD-mUEvT0G_uWLSdpKDBNikZf2vcbddU9_LjQdfy7MIjm7V6MBqMa37JPliJBB3qriHAahhOPqI1PNgfBJ1aSwlsxxZ8Gd2p1BedkzGhK8KXrKk3Yu3Z37Nk6GGj-pBZAleA6MyAa8a6LNEj_VsZFbOrxEueDZDYAo5ZpOVxMFjwRL25HBvYc2_VE",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:22.238573",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://auth.openai.com/api/oauth/oauth2/auth?audience=https%3A%2F%2Fapi.openai.com%2Fv1&auth_session_logging_id=2bceb65b-3922-41e3-84c8-9342393a32ac&client_id=app_X8zY6vW2pQ9tR3dE7nK1jL5gH&consent_verifier=-nUhYdsUByLYvhUcjDKzcG9zoEGqGYJFdIwhMtccrWd-f6oVhhbWv0fl27ljudVtRLk7pz-K___EwkBVbp2njrMennctUQwG2jeV7NJYqIyIDKn3_lDub0G-M0promShSmkho_5SxatzBKROX_9gOevZVxn12BHX_k5xoBFSfVEVuvSkaLaQuIzFJtisUzxHRTvCJkMmUsDcoGqIWfjGejzGZeO2YMG5Zbf5F-tK_1F9awmeKW0itp6qfZ7yiHp21R4TbKl0RnTk-yVWTOPNRHWZi_txYX9cLeZmwTyOGYsUqeg8S0ReZwZxtiMEE05MAFKEV8Yrszlt16djT9wbLOvheDnFcvB9ljHURzJy8qKeQbBRYfEbS8JtKSLoLWkxWIIgPwTHUC0UHfO4_Nvr7YrneYgQ1-ok4_PIPCQ8X9IEuUlwrV1mh8vmchubs4RpVO4QtjZdOCbUg84RVxdZaNMYxiIspu61vnLEret7K8CqM-w1dLwTqHDMBPmb-aXMygX41acsbcvaltL244_Ju9d9IDWy_z_0BvHOGRYo6FUYjWlpbclXLcNQ4M6wmB8Ma4RQ1v0PXs8wcs_D3eWmUE0r9e6-LmeCalDANNzTjAdxbrn6-pKSZB5WpNyP6gBRqmcbQJb6tZ5AZZrPPpveFJLl0CleJRo2tbdt3qYNp_kCB4GYAc3b3gUfyvvE8QhAUfXFMHExWWSciPZkpa9g5OZF0WjODrlYyhj4LiTPvSw9HqnWZci42-84WE0bEII_Nsu-YxnHkhmsBWK3Sjs788Q-Qj7-YE5SKDILm8fwVeklnwcvf8nj1g9PxvAOMZJUl1N5U2Id-S3nl5rvvJ_PIfD7UMArKX0QsR9Teuc18IdoT_NcX15nDs6Roq--WHR5FJlTKm_Pngvn32LskuTlGXE7EWPlZQzDQ_30QQ8qr-kYrY83mCpuLRll0X_JhZklh9zBI6DBgZfoadPrKfHtorIpVAX0pcAENg-g0jZrDFNTZp3wWxQGsL0_YrccD9y1-H-VOA-20vH3IJMwoertErqWw9JZ3sS96qciSYbN1z84rFp-HT91v9588MOT-a8i9LGdur-xNGnwEGK0ygHNPJ5ggMA3N5KCTtnuf02uZ7jvGbOLk-k-3LAEQXBoQHIynLZiLmHzEql11g519bcGvCbOCnwRjC30RN7UQfBtIHymSidCI_FT4gmWku5JRTkAEJlVVObSFqg-FVwM91ey7yVhFWoapXjifI2r5UKL_RgpdQNahKTFV5dWUkttX9sf6cIbvTW-EmiVW2JXa1WA7GLLgy__o5-hOaFDrHFU9SXikpxRjoNnjVRpsEA4W1FqpZPLMQa4NaR76Px2HCj9tdbQ89xAA2Gh__UTI4v0F1shFmhpIWoSk2u0Zno1liHiJFWvjOf-JFzv1WkmvYRhiqybIfVCBZayT7NxEBGINVT3Ipu8GcQa8oS7kbbzRArkfW_B0UFm7F-wuO236DVeROi8T6_uMV3RN_ifOAqOPLkavTH0cKz7AkII--hCHZKpR8DvvhQhIf-3P0Z5622uNRuzaH151Adryi0qthFi0ywJa1t8-ffCloUtZU6lp4QY4fXI9Kz8vZzndtNPzcglh0hK9gEdtNp4HptnIvlX6hHMOgnJ0ASPQRwCFdyFcs669y_Me0dbWvme6eC1BYmkXytLhAA5t9JeS1lXCJJi2UTtP2PLM4bYXIEpnnMIJK9ClByDQx8niFpRrIFLvCxGVC5O9PMv70Fj--vBuXsxTZ0Lo_x_F3QQynBqDomwQ7zJ0A8mFay-w3EYGhCjr8MeJ4KMusBBbZ4OWovdeLOys-DTdy1rM0GBMKzq_qkFADoFt3kaeGWNlIk8cSYGJq3m24PZVrxxuFllIajpOkmF4IQZGgugOZ87gaaSNS7m-iHUnAlbGPSKxRpRSKiBhyVKcNgz1yXmxgzyZQIqNrNwNo-okV-dxtgIFyXjSEbQCS5nYJ1iWjwLQGYSx67xs4nUYI_qAvcQpOZSqCwwjMWQ3Vq94yJBY-59wvEHT-HlmZhdIczjqU6gGrLC6lVGmjfhl-LtDdRE-pUQkGfSEN4V9Vf9Eap7NQVJvl7_EcfxV5D2rBG8V4UAQeetLYx1lQPlbNH7wKFNk6ri-2Wncgn7OwwRpck8cO31N2MfjwBzkQX9i-FNeyAeJZGh63I9WVvMjseEXwJzBVikJsKFPfYSmxe7ShLy6Fp40pNpqSBe-RkDBq6BFWB8L-IhrwRHnBhKPhRhvY7A-toHEq5wFAmJ9et2ltabilQYnJYhKeGX9ity2inoEZ37pib04cDLJWM-wOJKHaC6SI0mXykLyG-2Dekt-d6fPuPeZNb6NysaBefXTq1hVVyuxYenrsWGE0_OMWPExwRgXLvJkuekbv3C9TJwHh-lttQe3M-96cMNg00YtGRAlMXjomz_xbU0MdfjtXkslffDBLXpiKXUSFZesWQtI7IGFRkJINW0bZu48rsmv0YyDXQSpETYTQ31qfcWZFuGgoOwvWtpyUqTQGVFgWH2-HxcEBI_qCUXROm5bw610-Ks_WsWxJfJ0CEoG-OlwgDkGdeRkbd8cGXSRkVtXn9W82csoqjVtH8EegLv_oAVOB9T19AfsM2Moc0aIwo0oYgJ1c05i7e23hIvt5iCViU-URnxBC9EKV6RKqyIRQ5XnvQu1am6di2LGWfg3i3m5H7-txEXiVaapDj_MpFOor0Eh2CtOheaWAiEnW0iK3nuKWtmokQ8WlHfnaukuz6w75lhQa-pD8yDmzQB2_uYr2uR-aC1fPbdPz4h_ezBTP5g1lOHfj-1RxY2yodcXC5oZvbR-ujLHu_rGnArut93NzqkQ8LuOP7QC4YQYAUMxNZCB1aIEHRfm5FWrI6vMS_9NhZOCq0b7MP5I-9Z8Nb8uRDDvvmveEDqRAsS4qX80-pfYA%3D%3D&device_id=8a48d6a7-4ed5-444d-b8c7-33f78c954d62&ext-oai-did=8a48d6a7-4ed5-444d-b8c7-33f78c954d62&prompt=login&redirect_uri=https%3A%2F%2Fchatgpt.com%2Fapi%2Fauth%2Fcallback%2Fopenai&response_type=code&scope=openid+email+profile+offline_access+model.request+model.read+organization.read+organization.write&screen_hint=login_or_signup&state=XIpix3XNTuCgv-rENvfx3BIv2LVLnv1zA_1bCP7w3fI",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:22.238573",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/api/auth/callback/openai?code=ac_jgXsDi-pLX66Al2kj6IngUFtf8jTg5bSioKS0SHci4g.qm2pfUjM-fL2iMe-uow-ApPj_-SYRgbcjq0yf0xrTcU&scope=openid+email+profile+offline_access+model.request+model.read+organization.read+organization.write&state=XIpix3XNTuCgv-rENvfx3BIv2LVLnv1zA_1bCP7w3fI",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:22.238573",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/#settings/Connectors",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:22.238573",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/#settings/DataControls",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:24.156754",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/#settings/DataControls",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:24.170785",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:26.290276",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/?refresh_account=true",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:28.831976",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:29.033414",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/#settings",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:36.828731",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/#settings/Connectors",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:38.485679",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/#settings/Connectors",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:38.494680",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://chatgpt.com/#settings/Connectors?connector=connector_0f9c9d4592e54d0a9a12b3f44a1e2010",
+      "title": "ChatGPT",
+      "last_visit": "2025-12-02T13:25:40.916463",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/D0A0M3CNDGB",
+      "title": "Zoom (DM) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:27:01.437885",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/D09TMCWS1M1",
+      "title": "Slack Biz (DM) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:27:01.911646",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/D09TMCWS1M1",
+      "title": "Slack Biz (DM) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:27:10.104368",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
+      "title": "* acquisition (Channel) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:27:14.435361",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
+      "title": "* acquisition (Channel) - PT Biz - Slack",
+      "last_visit": "2025-12-02T13:27:22.014605",
+      "hour": 13
+    },
+    {
+      "browser": "Chrome",
+      "url": "file:///Users/jacklicatamacbook/Library/Application%20Support/ActivityTracker/reports/2025-12-02.html",
+      "title": "Daily Accomplishments \u2014 2025-12-02",
+      "last_visit": "2025-12-02T13:50:15.125424",
+      "hour": 13
+    }
+  ]
+}

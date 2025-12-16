@@ -1,0 +1,316 @@
+{
+  "source_file": "ActivityReport-2025-12-08.json",
+  "date": "2025-12-08",
+  "title": "Daily Accomplishments \u2014 2025-12-08",
+  "overview": {
+    "active_time": "04:49",
+    "focus_time": "14:47",
+    "meetings_time": "00:00",
+    "coverage_time": "23:59",
+    "coverage_window": "00:00\u201323:59",
+    "appointments": 0,
+    "projects_count": 4
+  },
+  "prepared_for_manager": [
+    "Active Time: 04:49",
+    "Focus Time: 04:49",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, Electron, GitKraken"
+  ],
+  "executive_summary": [
+    "Active: 04:49 | Focus: 04:49",
+    "Coverage: 00:00\u201323:59 CST",
+    "Screen Time: ~1477 min foreground app usage"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (02:59)",
+    "Focused on Electron (01:35)",
+    "Focused on GitKraken (00:04)",
+    "Focused on Finder (00:03)",
+    "Focused on app_mode_loader (00:02)"
+  ],
+  "by_category": {
+    "Research": "08:05",
+    "Other": "01:48",
+    "Coding": "06:04",
+    "Communication": "00:00"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 1803
+      },
+      {
+        "domain": "dailyaccomplishmentsptbiz.up",
+        "visits": 5
+      },
+      {
+        "domain": "gitlab.com",
+        "visits": 2
+      },
+      {
+        "domain": "monday.com",
+        "visits": 1
+      },
+      {
+        "domain": "physicaltherapybiz.com",
+        "visits": 1
+      },
+      {
+        "domain": "atlassian.com",
+        "visits": 1
+      },
+      {
+        "domain": "notion.com",
+        "visits": 1
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Home \u00b7 GitLab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 33
+      },
+      {
+        "page": "GitKraken.dev - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 33
+      },
+      {
+        "page": "Add secret scanning infrastructure and security configuration \u00b7 johnlicataptbiz/",
+        "visits": 31
+      },
+      {
+        "page": "Gemini",
+        "visits": 30
+      },
+      {
+        "page": "Emails: Scheduling and Collaboration Assistance - Grok - Google Chrome - Jack (p",
+        "visits": 28
+      },
+      {
+        "page": "Untitled - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 25
+      },
+      {
+        "page": "DailyAccomplishments ",
+        "visits": 24
+      },
+      {
+        "page": "ActTrack \u00b7 GitLab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 23
+      },
+      {
+        "page": "Fwd: You've been booked by: Claudia Maimone <claudia.maimone@neu.fit> - jack@phy",
+        "visits": 22
+      },
+      {
+        "page": "Groups \u00b7 GitLab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 21
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:23",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:48",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:55",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:43",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:23",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:39",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:43",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:50",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:40",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:35",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:55",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:16",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:06",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:15",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:45",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:22",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:44",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "08:05",
+    "VS Code": "06:04",
+    "com.axosoft.gitkraken": "00:30",
+    "com.github.GitHubClient": "00:04",
+    "Finder": "00:03",
+    "TextEdit": "00:01"
+  },
+  "top_windows_preview": [
+    "Google Chrome: 00:07",
+    "GitKraken \u2014 GitKraken Desktop: 00:04",
+    "Google Chrome \u2014 Add secret scanning infrastructure and security co: 00:03",
+    "Electron \u2014 Untitled-1.ipynb \u2014 DailyAccomplishments [Codespace: 00:02",
+    "Google Chrome \u2014 Home \u00b7 GitLab - Google Chrome - Jack (physicalther: 00:02",
+    "Google Chrome \u2014 GitKraken.dev - Google Chrome - Jack (physicalther: 00:02",
+    "Electron \u2014 Commit Composer (Preview) \u2014 DailyAccomplishments [: 00:02",
+    "Google Chrome \u2014 Gemini: 00:02",
+    "Electron \u2014 Updating Copilot instructions for codebase product: 00:02",
+    "Google Chrome \u2014 Emails: Scheduling and Collaboration Assistance - : 00:02"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "deep_work": [
+    {
+      "start": "08:42",
+      "end": "10:36",
+      "minutes": 95,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "03:32",
+      "end": "04:45",
+      "minutes": 64,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:24",
+      "end": "15:16",
+      "minutes": 52,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "05:23",
+      "end": "06:08",
+      "minutes": 41,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "11:19",
+      "end": "12:07",
+      "minutes": 41,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "23:13",
+      "end": "00:00",
+      "minutes": 40,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "02:03",
+      "end": "02:51",
+      "minutes": 39,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "16:53",
+      "end": "17:31",
+      "minutes": 37,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "debug_appointments": {
+    "meetings_today": []
+  }
+}

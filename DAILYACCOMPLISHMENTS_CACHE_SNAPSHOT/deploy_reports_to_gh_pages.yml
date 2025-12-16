@@ -1,0 +1,34 @@
+name: Deploy Reports to gh-pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Check for reports
+        id: check
+        run: |
+          if [ -d reports ] && [ "$(find reports -type f | wc -l)" -gt 0 ]; then
+            echo "has_reports=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_reports=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy reports to reports-gh-pages
+        if: steps.check.outputs.has_reports == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports
+          publish_branch: reports-gh-pages
+          user_name: 'github-actions[bot]'
+          user_email: '41898282+github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy reports to reports-gh-pages'

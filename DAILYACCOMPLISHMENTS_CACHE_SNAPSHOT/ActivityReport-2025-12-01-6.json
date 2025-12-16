@@ -1,0 +1,978 @@
+{
+  "source_file": "ActivityReport-2025-12-01.html",
+  "date": "2025-12-01",
+  "title": "Daily Accomplishments \u2014 2025-12-01",
+  "overview": {
+    "focus_time": "10:17",
+    "meetings_time": "01:15",
+    "appointments": 2,
+    "projects_count": 12,
+    "coverage_window": "07:09\u201323:14",
+    "tasks_updated": 40,
+    "updates_made": 3
+  },
+  "prepared_for_manager": [
+    "Total focused time: 08:54 (Coverage: 08:00\u201320:45 CST)",
+    "Top projects: Email/CRM (00:11), DailyAccomplishments (02:45), PT Biz: Calendar (00:06)",
+    "Key tickets: profile:Profile 6 (02:52), weekly-2025 (01:07), ab-9390 (00:00)",
+    "Top apps: Google Chrome (03:54), VS Code (02:45), Terminal (01:38)",
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery \u2014 Banfield Smith (moved from Game Plan Call)",
+    "Evening session: Built DailyAccomplishments static site with GitHub Pages deployment"
+  ],
+  "executive_summary": [
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery \u2014 Banfield Smith (moved from Game Plan Call)",
+    "Meeting: Slack Huddle (08:00; 00:15)",
+    "Meeting: Sales Call (01:00)",
+    "Primary doc: Google Sheets \u2014 Project_783_updated_fit \u2014 (00:01)",
+    "HubSpot: 1 deals updated",
+    "Monday.com: 40 tasks updated, 3 updates, across 10 boards",
+    "Screen Time: ~821 min foreground app usage",
+    "Screen Time: ~1254 min foreground app usage"
+  ],
+  "client_summary": [
+    "Set 2 appt(s): [solid] Brad Neitzel; Discovery \u2014 Banfield Smith (moved from Game Plan Call)",
+    "Meeting: Slack Huddle (08:00; 00:15)",
+    "Meeting: Sales Call (01:00)"
+  ],
+  "accomplishments_today": [
+    "Worked on Email/CRM (00:11)",
+    "HubSpot activity (87 visits)",
+    "Google Workspace activity (74 visits)",
+    "Meetings activity (27 visits)",
+    "Google Workspace activity (9 visits)",
+    "Email/CRM activity (8 visits)",
+    "HubSpot activity (3 visits)",
+    "Meeting: Sales Call (01:00)"
+  ],
+  "by_category": {
+    "Research": "07:46",
+    "Communication": "00:03",
+    "Coding": "02:09",
+    "Other": "00:19"
+  },
+  "by_project": {
+    "Email/CRM": "00:11",
+    "PT Biz: Calendar": "00:06",
+    "Google Workspace": "00:05",
+    "PT Biz: Gmail": "00:00",
+    "PT Biz: Drive": "00:00",
+    "Facebook Community": "00:00",
+    "aistudio.google.com": "00:00",
+    "monday.com": "00:00",
+    "grok.com": "00:00",
+    "developers.google.com": "00:00",
+    "x.com": "00:00"
+  },
+  "google_workspace": {
+    "Google": "00:17",
+    "Google Sheets": "00:05",
+    "Google Calendar": "00:04",
+    "Gmail": "00:00",
+    "Google Drive": "00:00",
+    "top_documents": [
+      "Project_783_updated_fit \u2014 00:01",
+      "783new \u2014 00:00",
+      "783 \u2014 00:00",
+      "Google Sheets \u2014 00:00",
+      "format this text into a table ... \u2014 00:00",
+      "Project_783_1764615540 \u2014 00:00",
+      "Untitled spreadsheet \u2014 00:00"
+    ]
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "grok.com",
+        "visits": 109
+      },
+      {
+        "domain": "app.hubspot.com",
+        "visits": 87
+      },
+      {
+        "domain": "docs.google.com",
+        "visits": 74
+      },
+      {
+        "domain": "developers.google.com",
+        "visits": 69
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 59
+      },
+      {
+        "domain": "physical-therapy-biz.monday.com",
+        "visits": 57
+      },
+      {
+        "domain": "aistudio.google.com",
+        "visits": 37
+      },
+      {
+        "domain": "www.amazon.com",
+        "visits": 34
+      },
+      {
+        "domain": "github.com",
+        "visits": 31
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 29
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Daily Accomplishments \u2014 2025-12-01",
+        "visits": 5477
+      },
+      {
+        "page": "Weekly Roll-up \u2014 2025-11-25 to 2025-12-01",
+        "visits": 4048
+      },
+      {
+        "page": "Project: 783 (physical-therapy-biz.monday.com)",
+        "visits": 46
+      },
+      {
+        "page": "Google AI Studio (aistudio.google.com)",
+        "visits": 36
+      },
+      {
+        "page": "Brad Neitzel (app.hubspot.com)",
+        "visits": 25
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:32",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:31",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:54",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:43",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:27",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:31",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:38",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:34",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:25",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:46",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:46",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:38",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:46",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:21",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:05",
+      "pct": "0%"
+    }
+  ],
+  "suggested_tasks": [
+    "Focused on Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724 \u2014 01:11",
+    "Focused on Google Chrome \u2014 Google AI Studio \u2014 00:47",
+    "Focused on Google Chrome \u2014 Daily Accomplishments \u2014 00:47",
+    "Focused on Messages \u2014 00:24",
+    "Focused on Google Chrome \u2014 Project: 783 \u2014 00:23",
+    "Focused on Google Chrome \u2014 X \u2014 00:12",
+    "Focused on Google Chrome \u2014 Project 783 - Merge two files \u2014 00:12",
+    "Focused on Google Chrome \u2014 Google Gemini \u2014 00:11"
+  ],
+  "next_up": [
+    "Send recap for 'Sales Call'",
+    "Send recap for 'Game Plan Call With Jack and Banfield Smith'"
+  ],
+  "top_apps": {
+    "Google Chrome": "07:46",
+    "VS Code": "01:22",
+    "Terminal": "00:47",
+    "Messages": "00:17",
+    "Slack": "00:03",
+    "com.github.GitHubClient": "00:01",
+    "Finder": "00:01"
+  },
+  "top_windows_preview": [
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 01:11",
+    "Google Chrome \u2014 Google AI Studio: 00:47",
+    "Google Chrome \u2014 Daily Accomplishments \u2014 00:47",
+    "Messages \u2014 [redacted]: 00:24",
+    "Google Chrome \u2014 Project: 783: 00:23",
+    "Google Chrome \u2014 X: 00:12",
+    "Google Chrome \u2014 Project 783 - Merge two files: 00:12",
+    "Google Chrome \u2014 Google Gemini: 00:11",
+    "Google Chrome \u2014 Activity Tracker Enhancements: 00:10",
+    "Terminal \u2014 jacklicatamacbook \u2014 -zsh: 00:08"
+  ],
+  "notes": [
+    "Meeting: Sales Call (01:00)",
+    "Meeting: Slack Huddle (08:00; 00:15)",
+    "Worked on Google Sheets: Project_783_updated_fit (00:01)",
+    "HubSpot browsing: app.hubspot.com (87 visits)",
+    "Google Workspace browsing: docs.google.com (74 visits)",
+    "Set appointment with Brad Neitzel: Sales Call (HubSpot 25 visits)"
+  ],
+  "debug_appointments": {
+    "contact_visits_top": [
+      {
+        "name": "Brad Neitzel",
+        "visits": 25
+      }
+    ],
+    "appointments_today": [
+      {
+        "name": "Brad Neitzel",
+        "time": "Sales Call"
+      },
+      {
+        "name": "Discovery \u2014 Banfield Smith",
+        "time": "moved from Game Plan Call"
+      }
+    ],
+    "meetings_today": [
+      {
+        "name": "Meeting",
+        "time": "08:00\u201308:15"
+      },
+      {
+        "name": "Meeting",
+        "time": "09:30\u201310:30"
+      },
+      {
+        "name": "Meeting",
+        "time": "11:00\u201311:15"
+      }
+    ]
+  },
+  "confidence_legend": {
+    "solid": "high evidence (HubSpot visits well above threshold + meeting keyword)",
+    "likely": "medium evidence (visits over threshold and/or meeting keyword)",
+    "weak": "low evidence (borderline signals)"
+  },
+  "foot": "Shared copy",
+  "hubspot": {
+    "date": "2025-12-01",
+    "meetings": [],
+    "deals": [
+      {
+        "id": "9088686151",
+        "name": "Paul Peeler - New Deal",
+        "amount": "18000",
+        "stage": "closedwon",
+        "pipeline": "default",
+        "close_date": "2022-06-02T12:17:15.453Z",
+        "modified": "2025-12-01T19:01:41.484Z",
+        "created_today": false,
+        "type": "deal"
+      }
+    ],
+    "contacts": [],
+    "calls": [],
+    "tasks": [],
+    "booked_appointments": [],
+    "emails": [],
+    "summary": {
+      "meetings_count": 0,
+      "deals_updated": 1,
+      "new_contacts": 0,
+      "calls_made": 0,
+      "tasks_due": 0,
+      "emails_sent": 0
+    }
+  },
+  "monday": {
+    "date": "2025-12-01",
+    "items": [
+      {
+        "id": "10674024955",
+        "name": "Publish Youtube Podcast 171",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T18:25:21Z",
+        "updated_at": "2025-12-01T18:25:55Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10674027375",
+        "name": "Publish Youtube Podcast 172",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T18:25:43Z",
+        "updated_at": "2025-12-01T18:31:58Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10674036360",
+        "name": "Optimize Blog Post for 12/2/25",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T18:26:19Z",
+        "updated_at": "2025-12-01T18:28:26Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10674038610",
+        "name": "Optimize Blog Post for 12/4/25",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T18:26:27Z",
+        "updated_at": "2025-12-01T18:28:26Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10674035933",
+        "name": "Publish Megan Video Youtube",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T18:26:53Z",
+        "updated_at": "2025-12-01T18:28:26Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10674036146",
+        "name": "Ship (2) planners",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T18:27:16Z",
+        "updated_at": "2025-12-01T18:28:26Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10674047662",
+        "name": "The Ultimate PT Entrepreneur Starter Kit",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T18:28:11Z",
+        "updated_at": "2025-12-01T18:28:35Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10674092072",
+        "name": "New PT Biz Website",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T18:32:14Z",
+        "updated_at": "2025-12-01T18:32:14Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672211984",
+        "name": "The Ultimate PT Entrepreneur Starter Kit",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T16:18:57Z",
+        "updated_at": "2025-12-01T16:44:59Z",
+        "updates_today": [
+          {
+            "body": "<p>\ufeffLaunch Ads for starter kit</p>",
+            "creator": "Justin Pfluger",
+            "created_at": "2025-12-01T16:43:09.000Z"
+          }
+        ],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672211821",
+        "name": "Hand Raise Email Campaign",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-01T16:18:58Z",
+        "updated_at": "2025-12-01T16:44:54Z",
+        "updates_today": [
+          {
+            "body": "<p>\ufeffwork with Kait to develop monthly hand raiser email</p>",
+            "creator": "Justin Pfluger",
+            "created_at": "2025-12-01T16:44:35.000Z"
+          }
+        ],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672217530",
+        "name": "Mail Project 783 Perfect Fits",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Working on it",
+        "state": "active",
+        "created_at": "2025-12-01T16:18:58Z",
+        "updated_at": "2025-12-01T16:42:29Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672211822",
+        "name": "Testing Ad copy variations",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Working on it",
+        "state": "active",
+        "created_at": "2025-12-01T16:18:58Z",
+        "updated_at": "2025-12-01T16:47:26Z",
+        "updates_today": [
+          {
+            "body": "<p>\ufeffLaunching more ad copy variations for lead magnets and book funnel</p>",
+            "creator": "Justin Pfluger",
+            "created_at": "2025-12-01T19:05:10.000Z"
+          }
+        ],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10674494600",
+        "name": "Canva Creative for Lead Magnets",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Working on it",
+        "state": "active",
+        "created_at": "2025-12-01T19:05:13Z",
+        "updated_at": "2025-12-01T19:07:13Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672271714",
+        "name": "Webinar",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Done",
+        "state": "active",
+        "created_at": "2025-12-01T16:24:13Z",
+        "updated_at": "2025-12-01T16:41:45Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672286503",
+        "name": "BFCM",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Done",
+        "state": "active",
+        "created_at": "2025-12-01T16:24:21Z",
+        "updated_at": "2025-12-01T16:41:47Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672551462",
+        "name": "Managing Cashflow LM",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Done",
+        "state": "active",
+        "created_at": "2025-12-01T16:41:56Z",
+        "updated_at": "2025-12-01T19:04:16Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672536896",
+        "name": "Superbill LM",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Done",
+        "state": "active",
+        "created_at": "2025-12-01T16:42:01Z",
+        "updated_at": "2025-12-01T19:04:18Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672544838",
+        "name": "E'an Book Funnel Creative from Atlanta",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Done",
+        "state": "active",
+        "created_at": "2025-12-01T16:42:17Z",
+        "updated_at": "2025-12-01T19:04:21Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10666545389",
+        "name": "Dana LaPeze",
+        "board": "2025 Winter Virtual Event-FINAL",
+        "board_id": "18298003054",
+        "status": "Yes",
+        "state": "active",
+        "created_at": "2025-12-01T02:40:41Z",
+        "updated_at": "2025-12-01T02:40:41Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10676180199",
+        "name": "Bettie Bruce",
+        "board": "2025 Winter Virtual Event-FINAL",
+        "board_id": "18298003054",
+        "status": "Yes",
+        "state": "active",
+        "created_at": "2025-12-01T21:20:17Z",
+        "updated_at": "2025-12-01T21:20:17Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18243984768",
+        "name": "November",
+        "board": "\ud83d\udfe2 [ACQ] New Prospects",
+        "board_id": "18243916010",
+        "status": "",
+        "state": "active",
+        "created_at": "2025-10-22T14:14:29Z",
+        "updated_at": "2025-12-01T13:42:12Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18233220611",
+        "name": "Derrek Nye",
+        "board": "Project: 783",
+        "board_id": "18233219062",
+        "status": "PERFECT FIT",
+        "state": "active",
+        "created_at": "2025-10-21T13:31:48Z",
+        "updated_at": "2025-12-01T18:47:06Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18233220811",
+        "name": "Casey Hampton",
+        "board": "Project: 783",
+        "board_id": "18233219062",
+        "status": "PERFECT FIT",
+        "state": "active",
+        "created_at": "2025-10-21T13:31:49Z",
+        "updated_at": "2025-12-01T18:47:06Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18233220952",
+        "name": "Amy Powers",
+        "board": "Project: 783",
+        "board_id": "18233219062",
+        "status": "PERFECT FIT",
+        "state": "active",
+        "created_at": "2025-10-21T13:31:49Z",
+        "updated_at": "2025-12-01T18:47:07Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18233226694",
+        "name": "Justin Wu",
+        "board": "Project: 783",
+        "board_id": "18233219062",
+        "status": "PERFECT FIT",
+        "state": "active",
+        "created_at": "2025-10-21T13:32:09Z",
+        "updated_at": "2025-12-01T18:47:07Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18233228951",
+        "name": "Francisco Padilla",
+        "board": "Project: 783",
+        "board_id": "18233219062",
+        "status": "PERFECT FIT",
+        "state": "active",
+        "created_at": "2025-10-21T13:32:16Z",
+        "updated_at": "2025-12-01T18:47:08Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10608104391",
+        "name": "m-trailer for megan tour",
+        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board_id": "10038593065",
+        "status": "Working on it",
+        "state": "active",
+        "created_at": "2025-11-20T20:27:14Z",
+        "updated_at": "2025-12-01T19:15:31Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10608104234",
+        "name": "m- last blk friday post",
+        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board_id": "10038593065",
+        "status": "Done",
+        "state": "active",
+        "created_at": "2025-11-20T20:27:15Z",
+        "updated_at": "2025-12-01T16:31:53Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10608104166",
+        "name": "t- carousel",
+        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board_id": "10038593065",
+        "status": "Working on it",
+        "state": "active",
+        "created_at": "2025-11-20T20:27:15Z",
+        "updated_at": "2025-12-01T16:31:56Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10608104180",
+        "name": "t-podcast share",
+        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board_id": "10038593065",
+        "status": "Working on it",
+        "state": "active",
+        "created_at": "2025-11-20T20:27:16Z",
+        "updated_at": "2025-12-01T19:15:37Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10608117732",
+        "name": "w-",
+        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board_id": "10038593065",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-11-20T20:27:14Z",
+        "updated_at": "2025-12-01T16:32:07Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10608101193",
+        "name": "th-",
+        "board": "Subitems of \ud83d\udcf1IG OS",
+        "board_id": "10038593065",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-11-20T20:27:14Z",
+        "updated_at": "2025-12-01T16:32:10Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10550872523",
+        "name": "Nov 24-30 2025",
+        "board": "\ud83d\udcf1IG OS",
+        "board_id": "9954941373",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-11-12T19:39:42Z",
+        "updated_at": "2025-12-01T16:11:01Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9750292880",
+        "name": "\u2b50\ufe0f Instagram Reach Project",
+        "board": "Subitems of acq",
+        "board_id": "9643127424",
+        "status": "\u2463 Reduce Acquisition Costs",
+        "state": "active",
+        "created_at": "2025-08-05T17:55:59Z",
+        "updated_at": "2025-12-01T16:44:01Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672578167",
+        "name": "Email Marketing",
+        "board": "Subitems of acq",
+        "board_id": "9643127424",
+        "status": "\u2460 Lead \u2192 Call",
+        "state": "active",
+        "created_at": "2025-12-01T16:43:53Z",
+        "updated_at": "2025-12-01T16:46:58Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672580610",
+        "name": "Short Form Editor Project",
+        "board": "Subitems of acq",
+        "board_id": "9643127424",
+        "status": "\u2463 Reduce Acquisition Costs",
+        "state": "active",
+        "created_at": "2025-12-01T16:44:20Z",
+        "updated_at": "2025-12-01T16:45:19Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672632470",
+        "name": "Megan DC Tour Launch",
+        "board": "Subitems of acq",
+        "board_id": "9643127424",
+        "status": "\u2463 Reduce Acquisition Costs",
+        "state": "active",
+        "created_at": "2025-12-01T16:47:25Z",
+        "updated_at": "2025-12-01T17:01:58Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10672469168",
+        "name": "DECEMBER 2025",
+        "board": "acq",
+        "board_id": "9643005061",
+        "status": "",
+        "state": "active",
+        "created_at": "2025-12-01T16:37:06Z",
+        "updated_at": "2025-12-01T16:49:09Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18335239055",
+        "name": "NOVEMBER 2025",
+        "board": "acq",
+        "board_id": "9643005061",
+        "status": "",
+        "state": "active",
+        "created_at": "2025-11-03T17:55:28Z",
+        "updated_at": "2025-12-01T16:49:09Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10671113313",
+        "name": "Kelli Fernicola",
+        "board": "Foundational Rainmaker Touchpoints",
+        "board_id": "9251446904",
+        "status": "Waiting",
+        "state": "active",
+        "created_at": "2025-12-01T15:03:49Z",
+        "updated_at": "2025-12-01T15:03:57Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      }
+    ],
+    "items_updated": 40,
+    "updates_count": 3,
+    "by_board": {
+      "TRAMPIS - Project Management": [
+        "Publish Youtube Podcast 171",
+        "Publish Youtube Podcast 172",
+        "Optimize Blog Post for 12/2/25",
+        "Optimize Blog Post for 12/4/25",
+        "Publish Megan Video Youtube",
+        "Ship (2) planners",
+        "The Ultimate PT Entrepreneur Starter Kit",
+        "New PT Biz Website"
+      ],
+      "JUSTIN - Project Management": [
+        "The Ultimate PT Entrepreneur Starter Kit",
+        "Hand Raise Email Campaign",
+        "Mail Project 783 Perfect Fits",
+        "Testing Ad copy variations",
+        "Canva Creative for Lead Magnets",
+        "Webinar",
+        "BFCM",
+        "Managing Cashflow LM",
+        "Superbill LM",
+        "E'an Book Funnel Creative from Atlanta"
+      ],
+      "2025 Winter Virtual Event-FINAL": [
+        "Dana LaPeze",
+        "Bettie Bruce"
+      ],
+      "\ud83d\udfe2 [ACQ] New Prospects": [
+        "November"
+      ],
+      "Project: 783": [
+        "Derrek Nye",
+        "Casey Hampton",
+        "Amy Powers",
+        "Justin Wu",
+        "Francisco Padilla"
+      ],
+      "Subitems of \ud83d\udcf1IG OS": [
+        "m-trailer for megan tour",
+        "m- last blk friday post",
+        "t- carousel",
+        "t-podcast share",
+        "w-",
+        "th-"
+      ],
+      "\ud83d\udcf1IG OS": [
+        "Nov 24-30 2025"
+      ],
+      "Subitems of acq": [
+        "\u2b50\ufe0f Instagram Reach Project",
+        "Email Marketing",
+        "Short Form Editor Project",
+        "Megan DC Tour Launch"
+      ],
+      "acq": [
+        "DECEMBER 2025",
+        "NOVEMBER 2025"
+      ],
+      "Foundational Rainmaker Touchpoints": [
+        "Kelli Fernicola"
+      ]
+    }
+  },
+  "deep_work": [
+    {
+      "start": "09:33",
+      "end": "10:56",
+      "minutes": 77,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "07:09",
+      "end": "07:56",
+      "minutes": 47,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "19:05",
+      "end": "19:46",
+      "minutes": 34,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "18:32",
+      "end": "19:03",
+      "minutes": 29,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ]
+}
