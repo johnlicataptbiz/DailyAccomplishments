@@ -72,3 +72,7 @@ reports/**/*.png
 # Local cache (never commit)
 cache/
 
+
+# Local artifacts
+DAILYACCOMPLISHMENTS_CACHE_SNAPSHOT/
+compare_snapshot_to_repo.sh
