@@ -1,154 +1,152 @@
 {
-  "by_category": {
-    "Coding": "00:02",
-    "Research": "00:25"
-  },
   "date": "2025-11-22",
   "debug_appointments": {
     "meetings_today": []
   },
-  "deep_work": [
-    {
-      "category": "Research",
-      "end": "01:27",
-      "label": "Google Chrome",
-      "minutes": 25,
-      "start": "00:58"
-    }
-  ],
-  "deep_work_blocks": [],
-  "executive_summary": [
-    "Screen Time: ~44 min foreground app usage"
-  ],
+  "by_category": {
+    "Research": "00:25",
+    "Coding": "00:02"
+  },
   "hourly_focus": [
     {
       "hour": 0,
-      "pct": "0%",
-      "time": "00:01"
+      "time": "00:01",
+      "pct": "0%"
     },
     {
       "hour": 1,
-      "pct": "0%",
-      "time": "00:26"
+      "time": "00:26",
+      "pct": "0%"
     },
     {
       "hour": 2,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 3,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 4,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 5,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 6,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 7,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 8,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 9,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 10,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 11,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 12,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 13,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 14,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 15,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 16,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 17,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 18,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 19,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 20,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 21,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 22,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 23,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     }
   ],
-  "overview": {
-    "coverage_window": "00:32\u201301:31",
-    "focus_time": "00:27"
-  },
-  "timeline": [],
   "top_apps": {
     "Google Chrome": "00:25",
     "Terminal": "00:02"
-  }
+  },
+  "deep_work": [
+    {
+      "start": "00:58",
+      "end": "01:27",
+      "minutes": 25,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "overview": {
+    "focus_time": "00:27",
+    "coverage_window": "00:32\u201301:31"
+  },
+  "executive_summary": [
+    "Screen Time: ~44 min foreground app usage"
+  ]
 }
