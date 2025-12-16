@@ -34,7 +34,9 @@ COPY gh-pages/dashboard.html ./dashboard.html
 COPY railway-start.sh /app/railway-start.sh
 
 # Install Python dependencies
-RUN pip install --no-cache-dir matplotlib pillow
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose a default port for local development; production platforms (e.g. Railway)
 # usually provide the port to listen on via the $PORT environment variable.
