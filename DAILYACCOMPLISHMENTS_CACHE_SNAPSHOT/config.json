@@ -1,8 +1,0 @@
-{
-  "weights": {
-    "meeting_credit": 0.25
-  },
-  "dashboard": {
-    "auto_refresh_seconds": 300
-  }
-}
