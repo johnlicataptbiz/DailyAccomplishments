@@ -23,6 +23,7 @@ WORKDIR /app
 
 # Copy only necessary files for report generation and web serving
 COPY tools/ ./tools/
+COPY *.py ./
 COPY *.json ./
 COPY server.py ./server.py
 COPY *.csv ./
