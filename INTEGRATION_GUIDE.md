@@ -338,38 +338,6 @@ You should receive an HTML email with:
       "webhook_url": "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXX",
       "channel": "#productivity",
       "username": "Productivity Bot"
-
----
-
-## macOS: Install & run the collector (launchd)
-
-Use the included plist template and installer script to run the collector as a LaunchAgent. This will start `activity_tracker.py` as a persistent background job and write logs to `~/Library/Application Support/ActivityTracker/logs`.
-
-Quick steps:
-
-1. Render & install the plist (from the repo root):
-
-```bash
-# Installs to $HOME/Library/LaunchAgents and loads via launchctl
-bash scripts/install_launchd.sh /path/to/your/repo
-```
-
-2. Verify the job is loaded and running:
-
-```bash
-launchctl list | grep com.activitytracker.daemon
-tail -n 40 "$HOME/Library/Logs/ActivityTracker.out.log"
-ls -la "$HOME/Library/Application Support/ActivityTracker/logs"
-```
-
-3. Run the diagnostics helper (optional):
-
-```bash
-# From the repo root
-bash scripts/collector_diagnostics.sh
-```
-
-If you prefer manual installation, copy `scripts/com.activitytracker.daemon.plist.template` to `~/Library/LaunchAgents/com.activitytracker.daemon.plist`, replace `__REPO_DIR__` with your repo path, then `launchctl load -w ~/Library/LaunchAgents/com.activitytracker.daemon.plist`.
     }
   }
 }
