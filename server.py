@@ -9,7 +9,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 app = Flask(__name__)
 
-@app.route("/healthz")def healthz():
+@app.route("/healthz")
+
+def healthz():
     return "ok", 200
 
 SITE_DIR = os.environ.get("SITE_DIR", "site")
