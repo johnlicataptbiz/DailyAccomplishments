@@ -3,7 +3,7 @@
 import json
 import sys
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import csv
 
@@ -12,6 +12,7 @@ BASE = Path(__file__).resolve().parents[1]
 DEFAULT_DATE = datetime.now(ZoneInfo('America/Chicago')).strftime('%Y-%m-%d')
 JSONL_INPUT = BASE / 'logs' / 'daily' / f'{DEFAULT_DATE}.jsonl'
 JSON_INPUT = BASE / f'ActivityReport-{DEFAULT_DATE}.json'
+# OUT_DIR will be set based on the date being processed
 OUT_DIR = BASE
 
 def hhmm_to_minutes(s):
@@ -33,7 +34,7 @@ def write_csv(path, rows, headers):
             w.writerow(r)
 
 def load_from_jsonl(jsonl_path: Path) -> dict:
-    """Load and convert JSONL log to report format"""
+    """Load and convert JSONL log to report format with interval merging"""
     print(f"Loading from JSONL: {jsonl_path}")
     
     if not jsonl_path.exists():
@@ -58,9 +59,7 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         print(f"Error reading JSONL: {e}")
         return None
     
-    # Convert events to report format
-    # This is a simplified converter - full implementation would
-    # aggregate by category, project, hourly buckets, etc.
+    # Convert events to report format with timeline reconstruction
     report = {
         'date': metadata.get('date') if metadata else DEFAULT_DATE,
         'overview': {
@@ -83,10 +82,9 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
             'pct': '0%'
         })
     
-    # Aggregate events
-    hourly_seconds = [0] * 24
-    category_seconds = {}
-    total_focus_seconds = 0
+    # Build timeline with intervals to merge overlaps
+    # Format: (start_time, end_time, category, app)
+    intervals = []
     total_meeting_seconds = 0
     
     for event in events:
@@ -96,24 +94,89 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         
         try:
             dt = datetime.fromisoformat(timestamp)
-            hour = dt.hour
         except:
-            hour = 0
+            continue
         
         if event_type == 'focus_change':
             duration = data.get('duration_seconds', 0)
-            total_focus_seconds += duration
-            hourly_seconds[hour] += duration
-            
-            # Categorize by app (simple heuristic)
-            app = data.get('app', '')
-            category = categorize_app(app)
-            category_seconds[category] = category_seconds.get(category, 0) + duration
+            if duration > 0:
+                app = data.get('app', '')
+                category = categorize_app(app)
+                end_dt = dt + timedelta(seconds=duration)
+                intervals.append((dt, end_dt, category))
         
         elif event_type in ['meeting_start', 'meeting_end']:
             if event_type == 'meeting_end':
                 duration = data.get('duration_seconds', 0)
                 total_meeting_seconds += duration
+    
+    # Sort intervals by start time
+    intervals.sort(key=lambda x: x[0])
+    
+    # Merge overlapping intervals and attribute by category priority
+    # Load category priority from config if available
+    try:
+        config_path = BASE / 'config.json'
+        if config_path.exists():
+            with open(config_path) as f:
+                config = json.load(f)
+                category_priority = config.get('analytics', {}).get('category_priority', [])
+        else:
+            category_priority = []
+    except:
+        category_priority = []
+    
+    if not category_priority:
+        category_priority = ['Coding', 'Design', 'Documentation', 'Project Work', 'Research', 'Communication', 'Meetings', 'Other']
+    
+    # Merge overlapping intervals with priority-based attribution
+    merged_intervals = []
+    for start, end, category in intervals:
+        # Check for overlaps and merge
+        overlaps = []
+        non_overlaps = []
+        for i, (m_start, m_end, m_cat) in enumerate(merged_intervals):
+            if start < m_end and end > m_start:
+                overlaps.append(i)
+            else:
+                non_overlaps.append((m_start, m_end, m_cat))
+        
+        if not overlaps:
+            # No overlap, add as-is
+            merged_intervals.append((start, end, category))
+        else:
+            # Merge with overlapping intervals using priority
+            all_cats = [category] + [merged_intervals[i][2] for i in overlaps]
+            # Pick highest priority category
+            priority_cat = min(all_cats, key=lambda c: category_priority.index(c) if c in category_priority else 999)
+            
+            # Compute merged time range
+            all_starts = [start] + [merged_intervals[i][0] for i in overlaps]
+            all_ends = [end] + [merged_intervals[i][1] for i in overlaps]
+            merged_start = min(all_starts)
+            merged_end = max(all_ends)
+            
+            # Rebuild merged_intervals without overlapped items
+            merged_intervals = non_overlaps + [(merged_start, merged_end, priority_cat)]
+    
+    # Aggregate by category and hour
+    hourly_seconds = [0] * 24
+    category_seconds = {}
+    total_focus_seconds = 0
+    
+    for start, end, category in merged_intervals:
+        duration_secs = int((end - start).total_seconds())
+        total_focus_seconds += duration_secs
+        category_seconds[category] = category_seconds.get(category, 0) + duration_secs
+        
+        # Distribute across hours
+        current = start
+        while current < end:
+            next_hour = current.replace(minute=0, second=0, microsecond=0) + timedelta(hours=1)
+            segment_end = min(end, next_hour)
+            segment_secs = int((segment_end - current).total_seconds())
+            hourly_seconds[current.hour] += segment_secs
+            current = segment_end
     
     # Convert to HH:MM format
     report['overview']['focus_time'] = seconds_to_hhmm(total_focus_seconds)
@@ -187,6 +250,13 @@ def main():
     except FileNotFoundError as e:
         print(f"Error: {e}")
         sys.exit(1)
+
+    # Determine output directory with date subdirectory
+    report_date = data.get('date') or date or DEFAULT_DATE
+    global OUT_DIR
+    OUT_DIR = BASE / 'reports' / report_date
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    print(f"Saving outputs to {OUT_DIR}")
 
     # Hourly focus CSV
     hf = data.get('hourly_focus', [])
