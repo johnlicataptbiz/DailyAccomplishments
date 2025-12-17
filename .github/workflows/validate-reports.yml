@@ -26,14 +26,11 @@ jobs:
 
             echo "Attempting regeneration for $date"
 
-            # Try daily generator first
-            if [ -f "scripts/generate_daily_json.py" ]; then
+            # Generate ActivityReport JSON from JSONL logs
+            if [ -f "scripts/generate_daily_json.py" ] && [ -f "logs/daily/${date}.jsonl" ]; then
               python3 scripts/generate_daily_json.py "$date"
-            # Fallback to JSONL-based generator if available
-            elif [ -f "tools/generate_reports.py" ] && [ -f "logs/daily/${date}.jsonl" ]; then
-              python3 tools/generate_reports.py "$date"
             else
-              echo "No suitable generator found for $date"
+              echo "No suitable generator found for $date (need scripts/generate_daily_json.py and logs/daily/${date}.jsonl)"
               return 1
             fi
 
