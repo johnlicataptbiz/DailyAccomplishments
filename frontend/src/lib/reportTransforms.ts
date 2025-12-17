@@ -1,5 +1,11 @@
 import type { BulletItem, ProofEntry, TodayReport } from '../types/report';
+import { parseDurationToMinutes } from '../utils/time';
 
+/**
+ * Generate candidate paths for fetching a report for a given date.
+ * Matches the documented fetch order: try /reports/<DATE>/ActivityReport-<DATE>.json first,
+ * then fallback to /ActivityReport-<DATE>.json
+ */
 export function candidateReportPaths(date: string): string[] {
   return [
     `/reports/${date}/ActivityReport-${date}.json`,
@@ -7,20 +13,15 @@ export function candidateReportPaths(date: string): string[] {
   ];
 }
 
-function parseHHMM(value?: string): number {
-  if (!value) return 0;
-  const match = value.match(/\b(\d{1,2}):(\d{2})\b/);
-  if (!match) return 0;
-  const hours = Number(match[1]);
-  const minutes = Number(match[2]);
-  if (Number.isNaN(hours) || Number.isNaN(minutes)) return 0;
-  return hours * 60 + minutes;
-}
-
+/**
+ * Build bullet items from a TodayReport.
+ * Converts accomplishments_today into editable bullets with proof entries from deep_work.
+ */
 export function buildBulletItems(report: TodayReport): BulletItem[] {
   const accomplishments = report.accomplishments_today ?? [];
 
-  const deepWorkProof: ProofEntry[] =
+  // Build proof entries primarily from deep_work
+  const deepProof: ProofEntry[] =
     report.deep_work?.map((entry, idx) => ({
       id: `deep-${idx}`,
       title: entry.label || entry.category || 'Deep work',
@@ -30,14 +31,25 @@ export function buildBulletItems(report: TodayReport): BulletItem[] {
       label: entry.label,
     })) ?? [];
 
-  const focusMinutes = parseHHMM(report.overview?.focus_time);
+  // Extract focus time from overview
+  const defaultMinutes = report.overview?.focus_time
+    ? parseDurationToMinutes(report.overview.focus_time)
+    : 0;
 
-  return accomplishments.map((text, idx) => ({
+  // Convert accomplishments to bullet items
+  const bullets: BulletItem[] = accomplishments.map((text, idx) => ({
     id: `bullet-${idx}`,
     title: text,
-    durationMinutes: idx === 0 ? focusMinutes : 0,
+    durationMinutes: 0,
     category: undefined,
-    proof: deepWorkProof,
+    proof: deepProof,
     source: 'report',
   }));
+
+  // If we have bullets and focus time, assign the focus time to the first bullet
+  if (bullets.length > 0 && defaultMinutes > 0) {
+    bullets[0] = { ...bullets[0], durationMinutes: defaultMinutes };
+  }
+
+  return bullets;
 }
