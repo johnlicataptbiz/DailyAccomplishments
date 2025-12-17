@@ -37,21 +37,18 @@ export function buildBulletItems(report: TodayReport): BulletItem[] {
     : 0;
 
   // Convert accomplishments to bullet items
-  const bullets = accomplishments.map((text, idx) => ({
+  const bullets: BulletItem[] = accomplishments.map((text, idx) => ({
     id: `bullet-${idx}`,
     title: text,
-    durationMinutes: 0, // Keep editable; can be improved with parsing later
+    durationMinutes: 0,
     category: undefined,
     proof: deepProof,
-    source: 'report' as const,
+    source: 'report',
   }));
 
   // If we have bullets and focus time, assign the focus time to the first bullet
   if (bullets.length > 0 && defaultMinutes > 0) {
-    bullets[0] = {
-      ...bullets[0],
-      durationMinutes: defaultMinutes,
-    };
+    bullets[0] = { ...bullets[0], durationMinutes: defaultMinutes };
   }
 
   return bullets;
