@@ -4,7 +4,7 @@
     "meetings_today": [
       {
         "name": "Meeting",
-        "time": "08:45–09:00"
+        "time": "08:45\u201309:00"
       }
     ]
   },
@@ -146,30 +146,14 @@
     }
   ],
   "overview": {
-<<<<<<< Updated upstream
-    "coverage_window": "08:44–09:24",
-    "focus_time": "00:38",
-    "meetings_time": "00:00",
-    "appointments": 0,
-    "projects_count": 0
-=======
     "focus_time": "00:38",
     "coverage_window": "08:44\u201309:24"
->>>>>>> Stashed changes
   },
   "executive_summary": [
     "Screen Time: ~43 min foreground app usage",
     "Screen Time: ~41 min foreground app usage"
   ],
   "timeline": [],
-<<<<<<< Updated upstream
-  "top_apps": {
-    "Google Chrome": "00:38"
-  },
-  "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
-=======
   "deep_work_blocks": [],
   "browser_highlights": {
     "top_domains": [
@@ -256,6 +240,5 @@
         "visits": 1
       }
     ]
->>>>>>> Stashed changes
   }
 }
