@@ -25,7 +25,7 @@ import sqlite3
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Optional, Tuple
 
 
@@ -58,7 +58,8 @@ def _copy_db_safely(src: Path) -> Optional[Path]:
 
 def _ts_from_apple_epoch(val: float) -> datetime:
     # Apple epoch: 2001-01-01 00:00:00 UTC
-    return datetime(2001, 1, 1) + timedelta(seconds=float(val))
+    dt_utc = datetime(2001, 1, 1, tzinfo=timezone.utc) + timedelta(seconds=float(val))
+    return dt_utc.astimezone()  # Converts to local system timezone
 
 
 def _within_day(start: datetime, end: datetime, day0: datetime, day1: datetime) -> Tuple[datetime, datetime]:
@@ -69,8 +70,37 @@ def _within_day(start: datetime, end: datetime, day0: datetime, day1: datetime) 
     return start, end
 
 
+def _union_foreground_minutes(usages: List[AppUsage]) -> int:
+    """
+    Merge overlapping intervals to prevent double-counting.
+    Returns total foreground minutes across all apps.
+    """
+    if not usages:
+        return 0
+    
+    # Convert to intervals (start, end) sorted by start time
+    intervals = [(u.start, u.end) for u in usages]
+    intervals.sort(key=lambda x: x[0])
+    
+    # Merge overlapping intervals
+    merged = []
+    for start, end in intervals:
+        if merged and start <= merged[-1][1]:
+            # Overlapping or adjacent - extend the last interval
+            merged[-1] = (merged[-1][0], max(merged[-1][1], end))
+        else:
+            # Non-overlapping - add new interval
+            merged.append((start, end))
+    
+    # Sum total minutes
+    total_seconds = sum((end - start).total_seconds() for start, end in merged)
+    return int(math.ceil(total_seconds / 60))
+
+
 def query_app_usage(db: Path, date_str: str) -> List[AppUsage]:
-    day0 = datetime.strptime(date_str, "%Y-%m-%d")
+    # Parse as naive datetime, then make timezone-aware in local timezone
+    day0_naive = datetime.strptime(date_str, "%Y-%m-%d")
+    day0 = day0_naive.replace(tzinfo=datetime.now().astimezone().tzinfo)
     day1 = day0 + timedelta(days=1)
     results: List[AppUsage] = []
 
@@ -141,8 +171,8 @@ def query_app_usage(db: Path, date_str: str) -> List[AppUsage]:
         ),
     ]
 
-    # Convert day bounds to Apple epoch seconds (2001)
-    apple_epoch = datetime(2001, 1, 1)
+    # Convert day bounds to Apple epoch seconds (2001 UTC)
+    apple_epoch = datetime(2001, 1, 1, tzinfo=timezone.utc)
     day0_apple = (day0 - apple_epoch).total_seconds()
     day1_apple = (day1 - apple_epoch).total_seconds()
 
@@ -433,7 +463,7 @@ def merge_into_activity_report(date_str: str, usages: List[AppUsage], repo_path:
     # Executive summary note
     exec_sum = report.setdefault('executive_summary', [])
     if usages:
-        total_min = sum(int(math.ceil(u.seconds/60)) for u in usages)
+        total_min = _union_foreground_minutes(usages)
         summary = f"Screen Time: ~{total_min} min foreground app usage"
         if summary not in exec_sum:
             exec_sum.append(summary)
@@ -474,7 +504,7 @@ def main():
             pass
 
     print(f"Found {len(usages)} usage records for {date_str}")
-    total_min = sum(int(math.ceil(u.seconds/60)) for u in usages)
+    total_min = _union_foreground_minutes(usages)
     print(f"Approx foreground minutes: ~{total_min}")
     if usages[:5]:
         print("Sample:")

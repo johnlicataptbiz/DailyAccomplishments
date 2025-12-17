@@ -2,7 +2,7 @@
 # Cron Report and Push - Run every 15 minutes by LaunchAgent
 # Generates daily JSON report, syncs integrations, and optionally pushes to GitHub
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"
@@ -55,7 +55,7 @@ if git diff --quiet && git diff --cached --quiet; then
 else
     DATE=$(date +%Y-%m-%d)
     TIME=$(date +%H:%M)
-    git add -A
+    git add .
     git commit -m "Auto-update: $DATE $TIME" || true
     echo "[$(date)] Changes committed to main"
 
@@ -73,7 +73,7 @@ if [ -d "$GH_PAGES" ] && [ -f "$GH_PAGES/.git" ]; then
     if ! git diff --quiet || ! git diff --cached --quiet; then
         DATE=$(date +%Y-%m-%d)
         TIME=$(date +%H:%M)
-        git add -A
+        git add .
         git commit -m "Dashboard update: $DATE $TIME" || true
         if git push origin gh-pages 2>/dev/null; then
             echo "[$(date)] Pushed to gh-pages"

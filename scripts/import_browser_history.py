@@ -8,7 +8,6 @@ Usage:
 """
 
 import os
-import sys
 import json
 import sqlite3
 import shutil
@@ -180,7 +179,7 @@ def extract_domain(url: str) -> str:
         if domain.startswith('www.'):
             domain = domain[4:]
         return domain
-    except:
+    except Exception:
         return 'unknown'
 
 
