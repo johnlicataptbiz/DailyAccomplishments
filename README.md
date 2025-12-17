@@ -457,3 +457,17 @@ If you are running the scheduled publisher on macOS via launchd, the canonical o
 The expected launchd label is:
 
   com.dailyaccomplishments.reporter
+
+## 🖥️ Today Brief React Dashboard
+
+The production SPA lives in `frontend/` (React + TypeScript, Tailwind). It fetches the latest `ActivityReport-<DATE>.json` from `/reports/<DATE>/` or the repository root and presents editable headline bullets with proof receipts.
+
+- **Local dev:**
+  ```bash
+  cd frontend
+  npm install
+  npm run dev  # served at http://localhost:5173/#/today
+  ```
+- **Build for Railway/Flask:** `npm run build` creates `frontend/dist/`. The entrypoint script copies that directory into `site/` so Flask serves `index.html` and hashed assets at `/`.
+- **Features:** inline rename, hide, and merge for bullets; proof drawer per summary; copy-to-Slack helper; localStorage persistence keyed by report date.
+

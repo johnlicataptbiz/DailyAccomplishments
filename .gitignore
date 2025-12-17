@@ -85,3 +85,8 @@ compare_snapshot_to_repo.sh
 # local scratch
 scripts/patch_load_data.sh
 tools/generate_reports.py.bak.*
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
