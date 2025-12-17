@@ -1,0 +1,300 @@
+{
+  "source_file": "ActivityReport-2025-12-15.json",
+  "date": "2025-12-15",
+  "title": "Daily Accomplishments \u2014 2025-12-15",
+  "overview": {
+    "active_time": "02:00",
+    "focus_time": "02:00",
+    "meetings_time": "00:00",
+    "coverage_time": "00:00",
+    "coverage_window": "10:04\u201310:04 CST",
+    "appointments": 0,
+    "projects_count": 2
+  },
+  "prepared_for_manager": [
+    "Active Time: 02:00",
+    "Focus Time: 02:00",
+    "Meeting Time: 00:00",
+    "Top Apps: Manual Entry, VS Code, Safari"
+  ],
+  "executive_summary": [
+    "Active: 02:00 | Focus: 02:00",
+    "Coverage: 10:04\u201310:04 CST"
+  ],
+  "accomplishments_today": [
+    "Focused on Manual Entry (02:00)",
+    "Focused on VS Code (00:03)",
+    "Focused on Safari (00:01)",
+    "Focused on Slack (00:01)",
+    "Focused on Unknown (00:00)"
+  ],
+  "by_category": {
+    "Other": "01:59",
+    "Coding": "00:01"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "02:05",
+      "pct": "100%"
+    },
+    {
+      "hour": 11,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Manual Entry": "02:00",
+    "VS Code": "00:03",
+    "Safari": "00:01",
+    "Slack": "00:01",
+    "Unknown": "00:00"
+  },
+  "top_windows_preview": [
+    "Manual Entry \u2014 Development - Focus Session: 02:00",
+    "VS Code \u2014 main.py \u2014 DailyAccomplishments: 00:01",
+    "Safari \u2014 Python Documentation: 00:01",
+    "VS Code \u2014 tracker_bridge.py: 00:01",
+    "Slack \u2014 #engineering: 00:01",
+    "VS Code \u2014 analytics.py: 00:01",
+    "VS Code: 00:00",
+    "Unknown: 00:00",
+    "Safari: 00:00",
+    "Slack: 00:00"
+  ],
+  "timeline": [
+    {
+      "start": "10:04",
+      "end": "10:05",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Coding",
+      "app": "VS Code",
+      "type": "focus_change"
+    },
+    {
+      "start": "10:04",
+      "end": "10:04",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "VS Code",
+      "type": "app_switch"
+    },
+    {
+      "start": "10:04",
+      "end": "10:05",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Safari",
+      "type": "focus_change"
+    },
+    {
+      "start": "10:04",
+      "end": "10:04",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Unknown",
+      "type": "browser_visit"
+    },
+    {
+      "start": "10:04",
+      "end": "10:04",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Safari",
+      "type": "app_switch"
+    },
+    {
+      "start": "10:04",
+      "end": "10:05",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Coding",
+      "app": "VS Code",
+      "type": "focus_change"
+    },
+    {
+      "start": "10:04",
+      "end": "10:04",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "VS Code",
+      "type": "app_switch"
+    },
+    {
+      "start": "10:04",
+      "end": "10:05",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Communication",
+      "app": "Slack",
+      "type": "focus_change"
+    },
+    {
+      "start": "10:04",
+      "end": "10:04",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Communication",
+      "app": "Slack",
+      "type": "app_switch"
+    },
+    {
+      "start": "10:04",
+      "end": "10:05",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Coding",
+      "app": "VS Code",
+      "type": "focus_change"
+    },
+    {
+      "start": "10:04",
+      "end": "12:04",
+      "seconds": 7200,
+      "minutes": 120,
+      "category": "Other",
+      "app": "Manual Entry",
+      "type": "manual_entry"
+    },
+    {
+      "start": "10:04",
+      "end": "10:05",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Unknown",
+      "type": "meeting_start"
+    }
+  ],
+  "deep_work_blocks": [
+    {
+      "start": "10:04",
+      "end": "12:04",
+      "duration": "02:00",
+      "seconds": 7204,
+      "minutes": 120
+    }
+  ],
+  "foot": "Auto-generated (Redesign v1)"
+}

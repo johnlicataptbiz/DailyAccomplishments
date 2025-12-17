@@ -1,0 +1,889 @@
+{
+  "source_file": "ActivityReport-2025-12-02.json",
+  "date": "2025-12-02",
+  "title": "Daily Accomplishments \u2014 2025-12-02",
+  "overview": {
+    "focus_time": "06:59",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 3,
+    "coverage_window": "00:02\u201320:44",
+    "tasks_updated": 39,
+    "updates_made": 2
+  },
+  "prepared_for_manager": [
+    "Total focused time: 00:04 (Coverage: 13:13\u201313:24 CST)",
+    "Top apps: Google Chrome (00:01), app_mode_loader (00:01), Terminal (00:01)"
+  ],
+  "executive_summary": [
+    "Worked across 3 applications",
+    "Top category: Coding",
+    "HubSpot: 1 deals updated",
+    "Monday.com: 39 tasks updated, 2 updates, across 8 boards",
+    "Visited 10 unique domains (68 page views)",
+    "Screen Time: ~1875 min foreground app usage",
+    "Screen Time: ~707 min foreground app usage"
+  ],
+  "client_summary": [],
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:01)",
+    "Focused on app_mode_loader (00:01)",
+    "Focused on Terminal (00:01)"
+  ],
+  "by_category": {
+    "Coding": "03:18",
+    "Other": "00:19",
+    "Research": "14:51",
+    "Communication": "00:15"
+  },
+  "by_project": {},
+  "google_workspace": {
+    "Google": "00:00",
+    "Google Sheets": "00:00",
+    "Google Calendar": "00:00",
+    "Gmail": "00:00",
+    "Google Drive": "00:00",
+    "top_documents": []
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "app.hubspot.com",
+        "visits": 274
+      },
+      {
+        "domain": "railway.com",
+        "visits": 217
+      },
+      {
+        "domain": "github.com",
+        "visits": 177
+      },
+      {
+        "domain": "johnlicataptbiz.github.io",
+        "visits": 123
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 109
+      },
+      {
+        "domain": "grok.com",
+        "visits": 73
+      },
+      {
+        "domain": "orange-palm-tree-q7j77pgg9wjp2pj-3000.app.github.dev",
+        "visits": 57
+      },
+      {
+        "domain": "jacksptbizhubspotassistant.up.railway.app",
+        "visits": 41
+      },
+      {
+        "domain": "mail.google.com",
+        "visits": 25
+      },
+      {
+        "domain": "orange-palm-tree-q7j77pgg9wjp2pj.github.dev",
+        "visits": 24
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://johnlicataptbiz.github.io/DailyAccomplishments/",
+        "visits": 56
+      },
+      {
+        "page": "https://johnlicataptbiz.github.io/DailyAccomplishments/dashboard.html",
+        "visits": 43
+      },
+      {
+        "page": "https://orange-palm-tree-q7j77pgg9wjp2pj-3000.app.github.dev/",
+        "visits": 33
+      },
+      {
+        "page": "https://jacksptbizhubspotassistant.up.railway.app/",
+        "visits": 32
+      },
+      {
+        "page": "https://railway.com/project/ed32e92f-9fdf-4ed6-9f0f-052a28008689/service/b0afe6cb-540c-4687-8641-3ad86e705ebb?environmentId=0617812f-31d0-4a57-9aae-388aeb678e34",
+        "visits": 29
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments",
+        "visits": 24
+      },
+      {
+        "page": "https://johnlicataptbiz.github.io/DailyAccomplishments/?v=2",
+        "visits": 20
+      },
+      {
+        "page": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
+        "visits": 19
+      },
+      {
+        "page": "https://app.hubspot.com/email/22001532/details/199992246186/performance",
+        "visits": 18
+      },
+      {
+        "page": "https://orange-palm-tree-q7j77pgg9wjp2pj.github.dev/",
+        "visits": 18
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:42",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:10",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:41",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:54",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:46",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:31",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:11",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:22",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:45",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:44",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:34",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:35",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "01:00",
+      "pct": "0%"
+    }
+  ],
+  "suggested_tasks": [],
+  "next_up": [],
+  "top_apps": {
+    "Google Chrome": "06:43",
+    "Terminal": "00:13",
+    "Messages": "00:02",
+    "System Settings": "00:01"
+  },
+  "top_windows_preview": [
+    "app_mode_loader \u2014 missing value: 00:01",
+    "Google Chrome \u2014 HS-Biz-Agent : 00:00",
+    "Google Chrome \u2014 dashboard.html \u2014 DailyAccomplishments [Codespaces:: 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724: 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 bash \u25c2 codex \u2014: 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 sleep \u25c2 codex : 00:00",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 sed \u25c2 codex \u2014 : 00:00",
+    "Google Chrome \u2014 502 Bad Gateway - Google Chrome - physicaltherapyb: 00:00",
+    "Google Chrome \u2014 cron_report_and_push.sh \u2014 DailyAccomplishments [Co: 00:00",
+    "Google Chrome: 00:00"
+  ],
+  "notes": [],
+  "debug_appointments": {
+    "contact_visits_top": [],
+    "appointments_today": [],
+    "meetings_today": []
+  },
+  "foot": "Auto-generated",
+  "hubspot": {
+    "date": "2025-12-02",
+    "meetings": [],
+    "deals": [
+      {
+        "id": "9144421280",
+        "name": "Shana Blackman",
+        "amount": "18000",
+        "stage": "closedlost",
+        "pipeline": "default",
+        "close_date": "2022-06-28T16:04:36.371Z",
+        "modified": "2025-12-02T00:25:33.300Z",
+        "created_today": false,
+        "type": "deal"
+      }
+    ],
+    "contacts": [],
+    "calls": [],
+    "tasks": [],
+    "booked_appointments": [],
+    "emails": [],
+    "summary": {
+      "meetings_count": 0,
+      "deals_updated": 1,
+      "new_contacts": 0,
+      "calls_made": 0,
+      "tasks_due": 0,
+      "emails_sent": 0
+    }
+  },
+  "monday": {
+    "date": "2025-12-02",
+    "items": [
+      {
+        "id": "10680652391",
+        "name": "Create Thumbnail for Megan Video",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-02T12:12:22Z",
+        "updated_at": "2025-12-02T12:12:22Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10680632308",
+        "name": "Order CPFM and TCC",
+        "board": "TRAMPIS - Project Management",
+        "board_id": "18390482462",
+        "status": "Done",
+        "state": "active",
+        "created_at": "2025-12-02T12:12:32Z",
+        "updated_at": "2025-12-02T12:12:34Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10682807764",
+        "name": "Post Webinar Replay in Free Community",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-12-02T15:31:34Z",
+        "updated_at": "2025-12-02T15:31:34Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10686985374",
+        "name": "Research  Winning Customer Journey Formula",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Working on it",
+        "state": "active",
+        "created_at": "2025-12-02T20:47:00Z",
+        "updated_at": "2025-12-02T20:49:25Z",
+        "updates_today": [
+          {
+            "body": "<p>\ufeffUse HubSpot reports to find the BEST order of touchpoints to generate a customer. Then create a marketing plan that rolls out that formula.\u00a0</p>",
+            "creator": "Justin Pfluger",
+            "created_at": "2025-12-02T20:49:20.000Z"
+          }
+        ],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10684296134",
+        "name": "Testing Meta AI Images (Lead Magnets)",
+        "board": "JUSTIN - Project Management",
+        "board_id": "18390462065",
+        "status": "Working on it",
+        "state": "active",
+        "created_at": "2025-12-02T17:06:22Z",
+        "updated_at": "2025-12-02T20:19:11Z",
+        "updates_today": [
+          {
+            "body": "<p>\ufeffHiring Guide\u00a0\u2705</p><p>\ufeffWorkshop Playbook\ufeff\u2705</p>",
+            "creator": "Justin Pfluger",
+            "created_at": "2025-12-02T20:19:33.000Z"
+          }
+        ],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10677920963",
+        "name": "Matthew Szymanski",
+        "board": "2025 Winter Virtual Event-FINAL",
+        "board_id": "18298003054",
+        "status": "Yes",
+        "state": "active",
+        "created_at": "2025-12-02T01:14:33Z",
+        "updated_at": "2025-12-02T01:14:33Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18058118532",
+        "name": "Chris Ricardo",
+        "board": "Q4 Modular Tracker",
+        "board_id": "18058114972",
+        "status": "Mastermind",
+        "state": "active",
+        "created_at": "2025-09-27T13:34:43Z",
+        "updated_at": "2025-12-02T20:13:19Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18280407301",
+        "name": "James Yoder",
+        "board": "Q4 Modular Tracker",
+        "board_id": "18058114972",
+        "status": "Mastermind",
+        "state": "active",
+        "created_at": "2025-10-27T18:25:31Z",
+        "updated_at": "2025-12-02T20:13:32Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18280414936",
+        "name": "Allison Beale",
+        "board": "Q4 Modular Tracker",
+        "board_id": "18058114972",
+        "status": "Mastermind",
+        "state": "active",
+        "created_at": "2025-10-27T18:26:00Z",
+        "updated_at": "2025-12-02T20:13:37Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18280426729",
+        "name": "Sieara Hinshaw",
+        "board": "Q4 Modular Tracker",
+        "board_id": "18058114972",
+        "status": "Mastermind",
+        "state": "active",
+        "created_at": "2025-10-27T18:26:39Z",
+        "updated_at": "2025-12-02T20:14:10Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18280430289",
+        "name": "Laura Herget",
+        "board": "Q4 Modular Tracker",
+        "board_id": "18058114972",
+        "status": "Mastermind",
+        "state": "active",
+        "created_at": "2025-10-27T18:26:51Z",
+        "updated_at": "2025-12-02T20:14:20Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18280436031",
+        "name": "Stephanie Irwin",
+        "board": "Q4 Modular Tracker",
+        "board_id": "18058114972",
+        "status": "Mastermind",
+        "state": "active",
+        "created_at": "2025-10-27T18:27:18Z",
+        "updated_at": "2025-12-02T20:14:25Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681299618",
+        "name": "Melissa Allen",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:28Z",
+        "updated_at": "2025-12-02T13:30:28Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681309362",
+        "name": "Ashleigh Miller",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:27Z",
+        "updated_at": "2025-12-02T13:30:27Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681290790",
+        "name": "Amy Campbell",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:26Z",
+        "updated_at": "2025-12-02T13:30:26Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681299461",
+        "name": "Gwendolyne Aquije",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:27Z",
+        "updated_at": "2025-12-02T13:30:27Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681290953",
+        "name": "Steve Gabbara",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "WON",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:27Z",
+        "updated_at": "2025-12-02T13:33:35Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681299754",
+        "name": "Justin Kinkead",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:28Z",
+        "updated_at": "2025-12-02T13:30:28Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681299638",
+        "name": "Madison Bazyk",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:28Z",
+        "updated_at": "2025-12-02T13:30:28Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681309101",
+        "name": "Blake Matlock",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:30Z",
+        "updated_at": "2025-12-02T13:30:30Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681309365",
+        "name": "Gabe Theurer",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:29Z",
+        "updated_at": "2025-12-02T13:30:29Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681307047",
+        "name": "Matthew Morici",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:29Z",
+        "updated_at": "2025-12-02T13:30:29Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681309229",
+        "name": "Brandon Learned",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:29Z",
+        "updated_at": "2025-12-02T13:30:29Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10681299687",
+        "name": "Deepti Manepali",
+        "board": "Jack Set Calls",
+        "board_id": "10029059942",
+        "status": "Moved to Discovery",
+        "state": "active",
+        "created_at": "2025-12-02T13:30:29Z",
+        "updated_at": "2025-12-02T13:30:29Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "10531409107",
+        "name": "Grind",
+        "board": "\ud83d\udcf1IG OS",
+        "board_id": "9954941373",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-11-10T18:18:13Z",
+        "updated_at": "2025-12-02T20:16:09Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9213938656",
+        "name": "January",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T17:18:32Z",
+        "updated_at": "2025-12-02T20:26:25Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9213938818",
+        "name": "February",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T17:18:33Z",
+        "updated_at": "2025-12-02T20:26:35Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9213941354",
+        "name": "December",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T17:18:52Z",
+        "updated_at": "2025-12-02T20:26:12Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214526263",
+        "name": "January",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:06:45Z",
+        "updated_at": "2025-12-02T20:34:12Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214526644",
+        "name": "February",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:06:47Z",
+        "updated_at": "2025-12-02T20:34:23Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214528967",
+        "name": "January",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:06:59Z",
+        "updated_at": "2025-12-02T20:36:39Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214529317",
+        "name": "February",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:07:02Z",
+        "updated_at": "2025-12-02T20:36:54Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214529937",
+        "name": "December",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:07:05Z",
+        "updated_at": "2025-12-02T20:34:00Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214532549",
+        "name": "January",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:07:17Z",
+        "updated_at": "2025-12-02T20:37:16Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214532871",
+        "name": "February",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:07:19Z",
+        "updated_at": "2025-12-02T20:37:28Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214533195",
+        "name": "January",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:07:20Z",
+        "updated_at": "2025-12-02T20:38:24Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214533548",
+        "name": "February",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:07:22Z",
+        "updated_at": "2025-12-02T20:38:38Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "9214537526",
+        "name": "December",
+        "board": "Subitems of ACC Call Schedule",
+        "board_id": "9213886992",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-05-22T18:07:39Z",
+        "updated_at": "2025-12-02T20:37:50Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      },
+      {
+        "id": "18375231163",
+        "name": "LIVE! September 2026; 23-25",
+        "board": "ACC Call Schedule",
+        "board_id": "9213668287",
+        "status": null,
+        "state": "active",
+        "created_at": "2025-11-12T00:06:37Z",
+        "updated_at": "2025-12-02T23:03:20Z",
+        "updates_today": [],
+        "source": "Monday.com"
+      }
+    ],
+    "items_updated": 39,
+    "updates_count": 2,
+    "by_board": {
+      "TRAMPIS - Project Management": [
+        "Create Thumbnail for Megan Video",
+        "Order CPFM and TCC"
+      ],
+      "JUSTIN - Project Management": [
+        "Post Webinar Replay in Free Community",
+        "Research  Winning Customer Journey Formula",
+        "Testing Meta AI Images (Lead Magnets)"
+      ],
+      "2025 Winter Virtual Event-FINAL": [
+        "Matthew Szymanski"
+      ],
+      "Q4 Modular Tracker": [
+        "Chris Ricardo",
+        "James Yoder",
+        "Allison Beale",
+        "Sieara Hinshaw",
+        "Laura Herget",
+        "Stephanie Irwin"
+      ],
+      "Jack Set Calls": [
+        "Melissa Allen",
+        "Ashleigh Miller",
+        "Amy Campbell",
+        "Gwendolyne Aquije",
+        "Steve Gabbara",
+        "Justin Kinkead",
+        "Madison Bazyk",
+        "Blake Matlock",
+        "Gabe Theurer",
+        "Matthew Morici",
+        "Brandon Learned",
+        "Deepti Manepali"
+      ],
+      "\ud83d\udcf1IG OS": [
+        "Grind"
+      ],
+      "Subitems of ACC Call Schedule": [
+        "January",
+        "February",
+        "December",
+        "January",
+        "February",
+        "January",
+        "February",
+        "December",
+        "January",
+        "February",
+        "January",
+        "February",
+        "December"
+      ],
+      "ACC Call Schedule": [
+        "LIVE! September 2026; 23-25"
+      ]
+    }
+  },
+  "timeline": [],
+  "deep_work_blocks": [],
+  "deep_work": [
+    {
+      "start": "08:45",
+      "end": "09:37",
+      "minutes": 46,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "07:53",
+      "end": "08:44",
+      "minutes": 45,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "17:38",
+      "end": "18:14",
+      "minutes": 34,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "09:41",
+      "end": "10:20",
+      "minutes": 33,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ]
+}
