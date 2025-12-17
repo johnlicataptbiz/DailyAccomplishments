@@ -7,13 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        surface: '#0b0f1a',
-        panel: '#11182a',
-        accent: '#7dd3fc',
-        muted: '#9ca3af',
+        surface: '#f5f6fb',
+        panel: '#ffffff',
+        soft: '#eef2ff',
+        accent: '#4f46e5',
+        muted: '#64748b',
       },
       boxShadow: {
-        panel: '0 15px 30px rgba(0, 0, 0, 0.35)',
+        panel: '0 18px 45px rgba(15, 23, 42, 0.08)',
       },
     },
   },

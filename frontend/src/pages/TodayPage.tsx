@@ -157,7 +157,7 @@ export default function TodayPage() {
 
   if (error) {
     return (
-      <div className="glass-panel p-8 max-w-4xl mx-auto flex items-center gap-3 text-red-200">
+      <div className="glass-panel p-8 max-w-4xl mx-auto flex items-center gap-3 text-red-700 bg-red-50 border-red-200">
         <AlertCircle className="h-5 w-5" />
         {error}
       </div>
@@ -169,7 +169,7 @@ export default function TodayPage() {
       <div className="glass-panel p-5 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-muted">{fallbackUsed ? 'Yesterday fallback' : 'Today'} report</p>
-          <h2 className="text-2xl font-semibold text-white">{report?.title || `Daily Accomplishments — ${reportDate}`}</h2>
+          <h2 className="text-2xl font-semibold text-slate-900">{report?.title || `Daily Accomplishments — ${reportDate}`}</h2>
           <p className="text-sm text-muted">Data pulled from {reportDate}{fallbackUsed ? ' (today not found)' : ''}.</p>
           {report?.prepared_for_manager && (
             <p className="text-xs text-muted mt-1">Manager summary: {report.prepared_for_manager[0]}</p>
@@ -180,7 +180,7 @@ export default function TodayPage() {
             type="button"
             onClick={() => setMergeMode((prev) => !prev)}
             className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border transition-colors ${
-              mergeMode ? 'bg-accent/20 border-accent/60 text-white' : 'bg-white/5 border-white/10 text-muted hover:border-accent/50'
+              mergeMode ? 'bg-soft border-accent/40 text-slate-900' : 'bg-panel border-slate-200 text-slate-600 hover:border-accent/40'
             }`}
           >
             <Merge className="h-4 w-4" />
@@ -190,7 +190,7 @@ export default function TodayPage() {
             type="button"
             onClick={handleMerge}
             disabled={!mergeMode || selectedIds.length < 2}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border border-white/10 bg-white/5 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border border-slate-200 bg-panel text-slate-900 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <ClipboardCheck className="h-4 w-4" />
             Merge selected
@@ -198,8 +198,8 @@ export default function TodayPage() {
           <button
             type="button"
             onClick={handleCopy}
-            className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border ${
-              copied ? 'bg-emerald-500/20 border-emerald-400/60 text-white' : 'bg-white/5 border-white/10 text-white hover:border-accent/60'
+            className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border transition-colors ${
+              copied ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : 'bg-panel border-slate-200 text-slate-900 hover:border-accent/40'
             }`}
           >
             {copied ? <ClipboardCheck className="h-4 w-4" /> : <Clipboard className="h-4 w-4" />}
@@ -208,7 +208,7 @@ export default function TodayPage() {
           <button
             type="button"
             onClick={handleResetEdits}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border border-white/10 text-muted hover:text-white hover:border-accent/60"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-accent/40"
           >
             <Undo className="h-4 w-4" />
             Reset edits
@@ -221,10 +221,10 @@ export default function TodayPage() {
           {summaryStats.map((item) => (
             <div
               key={item.label}
-              className="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 border border-white/10"
+              className="flex items-center gap-2 rounded-full bg-soft px-3 py-1 border border-slate-200"
             >
               <span className="uppercase text-[10px] tracking-[0.2em] text-accent">{item.label}</span>
-              <span className="text-white font-semibold">{item.value}</span>
+              <span className="text-slate-900 font-semibold">{item.value}</span>
             </div>
           ))}
         </div>
@@ -234,7 +234,7 @@ export default function TodayPage() {
         <p className="text-xs uppercase tracking-[0.25em] text-muted">Headline bullets</p>
         {visibleBullets.length === 0 && (
           <div className="glass-panel p-6 space-y-3">
-            <div className="flex items-center gap-2 text-amber-200">
+            <div className="flex items-center gap-2 text-orange-700">
               <AlertCircle className="h-5 w-5" />
               <p className="font-medium">{hiddenBullets.length ? 'All bullets are hidden' : 'No bullets available'}</p>
             </div>

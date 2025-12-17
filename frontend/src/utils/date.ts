@@ -11,3 +11,10 @@ export function yesterdayLocalISO(): string {
   d.setDate(d.getDate() - 1);
   return formatDateISO(d);
 }
+
+export function addDaysISO(dateISO: string, deltaDays: number): string {
+  const [year, month, day] = dateISO.split('-').map((v) => Number(v));
+  const d = new Date(year, (month || 1) - 1, day || 1);
+  d.setDate(d.getDate() + deltaDays);
+  return formatDateISO(d);
+}

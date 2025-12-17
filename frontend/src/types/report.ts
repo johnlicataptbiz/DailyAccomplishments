@@ -27,10 +27,26 @@ export interface TimelineEntry {
   start?: string;
   end?: string;
   minutes?: number;
+  seconds?: number;
   category?: string;
   label?: string;
   app?: string;
   details?: string;
+  type?: string;
+}
+
+export interface HourlyFocusEntry {
+  hour: number;
+  time: string;
+  pct?: string;
+}
+
+export interface DeepWorkBlock {
+  start: string;
+  end: string;
+  duration?: string;
+  seconds?: number;
+  minutes?: number;
 }
 
 export interface TodayReport {
@@ -60,6 +76,25 @@ export interface TodayReport {
   browser_highlights?: unknown;
   timeline?: TimelineEntry[];
   deep_work?: DeepWorkEntry[];
+
+  // Extended legacy fields used by the static dashboard
+  hourly_focus?: HourlyFocusEntry[];
+  deep_work_blocks?: DeepWorkBlock[];
+  top_apps?: Record<string, string>;
+  top_windows_preview?: string[];
+
+  // Optional integration payloads (shape varies by source)
+  google_workspace?: unknown;
+  hubspot?: unknown;
+  monday?: unknown;
+  slack?: unknown;
+  aloware?: unknown;
+
+  // Optional narrative helpers
+  client_summary?: unknown;
+  next_up?: unknown;
+  suggested_tasks?: unknown;
+  notes?: unknown;
 }
 
 export interface ProofEntry {
