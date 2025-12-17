@@ -25,8 +25,11 @@ export function candidateReportPaths(date: string): string[] {
  * This ensures the UI never shows "No bullets available" unless user explicitly deletes all.
  */
 export function buildBulletItems(report: TodayReport): BulletItem[] {
-  // Build proof entries primarily from deep_work
+  // Build proof entries:
+  // - Prefer schema v2 proof blocks when available.
+  // - Fall back to legacy deep_work entries otherwise.
   const deepProof: ProofEntry[] =
+    report.proof?.deep_work ??
     report.deep_work?.map((entry, idx) => ({
       id: `deep-${idx}`,
       title: entry.label || entry.category || 'Deep work',
@@ -34,7 +37,8 @@ export function buildBulletItems(report: TodayReport): BulletItem[] {
       timeRange: entry.start && entry.end ? `${entry.start}-${entry.end}` : undefined,
       category: entry.category,
       label: entry.label,
-    })) ?? [];
+    })) ??
+    [];
 
   // Extract focus time from overview (handle both v1 string and v2 number formats)
   const focusMinutes = 
