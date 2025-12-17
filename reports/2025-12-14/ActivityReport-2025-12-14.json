@@ -1,0 +1,4411 @@
+{
+  "date": "2025-12-14",
+  "overview": {
+    "focus_time": "13:34",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0,
+    "coverage_window": "00:53\u201323:59",
+    "active_time": "13:34"
+  },
+  "by_category": {
+    "Research": "03:24",
+    "Other": "02:59",
+    "Coding": "03:29",
+    "Communication": "00:07"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 501
+      },
+      {
+        "domain": "dailyaccomplishments.up.railway.app",
+        "visits": 320
+      },
+      {
+        "domain": "myaccount.google.com",
+        "visits": 105
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 67
+      },
+      {
+        "domain": "railway.com",
+        "visits": 42
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 32
+      },
+      {
+        "domain": "auth.openai.com",
+        "visits": 9
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 8
+      },
+      {
+        "domain": "google.com",
+        "visits": 7
+      },
+      {
+        "domain": "myactivity.google.com",
+        "visits": 5
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://dailyaccomplishments.up.railway.app/",
+        "visits": 82
+      },
+      {
+        "page": "https://dailyaccomplishments.up.railway.app/reports/daily-report-2025-12-08.json",
+        "visits": 71
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 54
+      },
+      {
+        "page": "https://dailyaccomplishments.up.railway.app/dashboard.html?t=1765738195634",
+        "visits": 19
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/issues",
+        "visits": 16
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/49",
+        "visits": 15
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/49/commits",
+        "visits": 12
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 12
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34/settings?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 12
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/49/commits/f30ebd755aba9373c24bd0eebdf8eebda8221daf",
+        "visits": 12
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:02",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:18",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:04",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:44",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:03",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:01",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:06",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "01:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "01:00",
+      "pct": "0%"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "00:53",
+      "end": "00:54",
+      "seconds": 35,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:07",
+      "end": "01:08",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:08",
+      "end": "01:09",
+      "seconds": 53,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:09",
+      "end": "01:12",
+      "seconds": 131,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:12",
+      "end": "01:14",
+      "seconds": 134,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:14",
+      "end": "01:16",
+      "seconds": 110,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:17",
+      "end": "01:18",
+      "seconds": 95,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:25",
+      "end": "01:25",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:25",
+      "end": "01:25",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:27",
+      "end": "01:34",
+      "seconds": 377,
+      "minutes": 6,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:34",
+      "end": "01:35",
+      "seconds": 40,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:37",
+      "end": "01:38",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:38",
+      "end": "01:38",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:40",
+      "end": "01:43",
+      "seconds": 141,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:43",
+      "end": "01:43",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:43",
+      "end": "01:43",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:47",
+      "end": "01:48",
+      "seconds": 65,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:49",
+      "end": "01:53",
+      "seconds": 240,
+      "minutes": 4,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:53",
+      "end": "01:55",
+      "seconds": 95,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:56",
+      "end": "01:57",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:57",
+      "end": "01:57",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:58",
+      "end": "01:58",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:58",
+      "end": "01:58",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:59",
+      "end": "01:59",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:01",
+      "end": "02:01",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:02",
+      "end": "02:02",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:03",
+      "end": "02:03",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:05",
+      "end": "02:05",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:06",
+      "end": "02:06",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:06",
+      "end": "02:06",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:06",
+      "end": "02:07",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:08",
+      "end": "02:08",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:09",
+      "end": "02:09",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:10",
+      "end": "02:13",
+      "seconds": 155,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:14",
+      "end": "02:14",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:15",
+      "end": "02:15",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:15",
+      "end": "02:18",
+      "seconds": 171,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:22",
+      "end": "02:22",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:26",
+      "end": "02:26",
+      "seconds": 40,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:26",
+      "end": "02:31",
+      "seconds": 260,
+      "minutes": 4,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:31",
+      "end": "02:34",
+      "seconds": 115,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:34",
+      "end": "02:35",
+      "seconds": 90,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:35",
+      "end": "02:36",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:36",
+      "end": "02:36",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:37",
+      "end": "02:37",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:37",
+      "end": "02:37",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:37",
+      "end": "02:38",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:39",
+      "end": "02:39",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:40",
+      "end": "02:40",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:40",
+      "end": "02:40",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:41",
+      "end": "02:42",
+      "seconds": 50,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:42",
+      "end": "02:44",
+      "seconds": 120,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:44",
+      "end": "02:48",
+      "seconds": 226,
+      "minutes": 3,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:49",
+      "end": "02:49",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:49",
+      "end": "02:49",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:50",
+      "end": "02:50",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "02:50",
+      "end": "02:56",
+      "seconds": 275,
+      "minutes": 4,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:56",
+      "end": "02:56",
+      "seconds": 35,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "02:58",
+      "end": "03:01",
+      "seconds": 215,
+      "minutes": 3,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:02",
+      "end": "03:04",
+      "seconds": 105,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:04",
+      "end": "03:05",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:05",
+      "end": "03:05",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:06",
+      "end": "03:06",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:06",
+      "end": "03:07",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:07",
+      "end": "03:07",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:08",
+      "end": "03:09",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:09",
+      "end": "03:09",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:09",
+      "end": "03:10",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:10",
+      "end": "03:10",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:10",
+      "end": "03:10",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:10",
+      "end": "03:11",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:11",
+      "end": "03:11",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:11",
+      "end": "03:11",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:11",
+      "end": "03:11",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:11",
+      "end": "03:12",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:12",
+      "end": "03:12",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:12",
+      "end": "03:12",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:12",
+      "end": "03:12",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:12",
+      "end": "03:12",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:12",
+      "end": "03:13",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:13",
+      "end": "03:14",
+      "seconds": 90,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:15",
+      "end": "03:16",
+      "seconds": 85,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:16",
+      "end": "03:18",
+      "seconds": 70,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:18",
+      "end": "03:18",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:18",
+      "end": "03:19",
+      "seconds": 55,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:19",
+      "end": "03:20",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:20",
+      "end": "03:22",
+      "seconds": 125,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:22",
+      "end": "03:23",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:25",
+      "end": "03:25",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:25",
+      "end": "03:25",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:26",
+      "end": "03:26",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:26",
+      "end": "03:26",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:27",
+      "end": "03:27",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:28",
+      "end": "03:29",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:29",
+      "end": "03:29",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:29",
+      "end": "03:30",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:31",
+      "end": "03:32",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:32",
+      "end": "03:32",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:32",
+      "end": "03:32",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:33",
+      "end": "03:33",
+      "seconds": 26,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:34",
+      "end": "03:35",
+      "seconds": 68,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:36",
+      "end": "03:36",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:36",
+      "end": "03:36",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:36",
+      "end": "03:39",
+      "seconds": 120,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:39",
+      "end": "03:39",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:39",
+      "end": "03:40",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:42",
+      "end": "03:42",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:42",
+      "end": "03:44",
+      "seconds": 133,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:45",
+      "end": "03:45",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:45",
+      "end": "03:47",
+      "seconds": 86,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:47",
+      "end": "03:48",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:48",
+      "end": "03:48",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:49",
+      "end": "03:49",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:49",
+      "end": "03:52",
+      "seconds": 152,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:52",
+      "end": "03:52",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:53",
+      "end": "03:53",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:54",
+      "end": "03:55",
+      "seconds": 55,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:55",
+      "end": "03:55",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "03:55",
+      "end": "03:56",
+      "seconds": 40,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:00",
+      "end": "04:00",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:00",
+      "end": "04:00",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:00",
+      "end": "04:01",
+      "seconds": 40,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:01",
+      "end": "04:02",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:02",
+      "end": "04:02",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:02",
+      "end": "04:02",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:02",
+      "end": "04:03",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:03",
+      "end": "04:07",
+      "seconds": 205,
+      "minutes": 3,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:07",
+      "end": "04:08",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:08",
+      "end": "04:08",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:08",
+      "end": "04:09",
+      "seconds": 35,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:09",
+      "end": "04:09",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:09",
+      "end": "04:10",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:10",
+      "end": "04:10",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:10",
+      "end": "04:12",
+      "seconds": 105,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:12",
+      "end": "04:13",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:13",
+      "end": "04:16",
+      "seconds": 130,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:16",
+      "end": "04:17",
+      "seconds": 37,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:17",
+      "end": "04:24",
+      "seconds": 361,
+      "minutes": 6,
+      "category": "Other",
+      "app": "Unknown"
+    },
+    {
+      "start": "04:24",
+      "end": "04:25",
+      "seconds": 72,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:25",
+      "end": "04:26",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:26",
+      "end": "04:26",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:26",
+      "end": "04:27",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:27",
+      "end": "04:27",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:28",
+      "end": "04:28",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:29",
+      "end": "04:30",
+      "seconds": 47,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:30",
+      "end": "04:31",
+      "seconds": 42,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:31",
+      "end": "04:32",
+      "seconds": 85,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:33",
+      "end": "04:33",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:33",
+      "end": "04:34",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:34",
+      "end": "04:34",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:34",
+      "end": "04:34",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:34",
+      "end": "04:36",
+      "seconds": 83,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:36",
+      "end": "04:36",
+      "seconds": 35,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:37",
+      "end": "04:41",
+      "seconds": 251,
+      "minutes": 4,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:41",
+      "end": "04:46",
+      "seconds": 228,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:46",
+      "end": "04:48",
+      "seconds": 111,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:48",
+      "end": "04:49",
+      "seconds": 40,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:49",
+      "end": "04:51",
+      "seconds": 76,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:51",
+      "end": "04:51",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:51",
+      "end": "04:52",
+      "seconds": 26,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:52",
+      "end": "04:52",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:52",
+      "end": "04:54",
+      "seconds": 67,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:54",
+      "end": "04:54",
+      "seconds": 35,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:54",
+      "end": "04:54",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:54",
+      "end": "04:56",
+      "seconds": 83,
+      "minutes": 1,
+      "category": "Other",
+      "app": "TextEdit"
+    },
+    {
+      "start": "04:56",
+      "end": "04:56",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:56",
+      "end": "04:57",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:57",
+      "end": "04:59",
+      "seconds": 71,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "04:59",
+      "end": "04:59",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:59",
+      "end": "05:00",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:00",
+      "end": "05:01",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:01",
+      "end": "05:02",
+      "seconds": 95,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:03",
+      "end": "05:03",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:03",
+      "end": "05:04",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:04",
+      "end": "05:04",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:04",
+      "end": "05:08",
+      "seconds": 206,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:08",
+      "end": "05:09",
+      "seconds": 26,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:09",
+      "end": "05:10",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:10",
+      "end": "05:10",
+      "seconds": 33,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:10",
+      "end": "05:13",
+      "seconds": 135,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:13",
+      "end": "05:17",
+      "seconds": 203,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:17",
+      "end": "05:18",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:18",
+      "end": "05:20",
+      "seconds": 83,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:20",
+      "end": "05:21",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:22",
+      "end": "05:22",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:22",
+      "end": "05:23",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:23",
+      "end": "05:23",
+      "seconds": 41,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:24",
+      "end": "05:25",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:25",
+      "end": "05:26",
+      "seconds": 21,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:26",
+      "end": "05:27",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:27",
+      "end": "05:27",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:27",
+      "end": "05:28",
+      "seconds": 51,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:28",
+      "end": "05:28",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:29",
+      "end": "05:29",
+      "seconds": 26,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:30",
+      "end": "05:30",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:30",
+      "end": "05:31",
+      "seconds": 47,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:31",
+      "end": "05:31",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:31",
+      "end": "05:38",
+      "seconds": 333,
+      "minutes": 5,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:38",
+      "end": "05:38",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:38",
+      "end": "05:39",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:39",
+      "end": "05:39",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:39",
+      "end": "05:39",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:39",
+      "end": "05:39",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:39",
+      "end": "05:39",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:39",
+      "end": "05:39",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:39",
+      "end": "05:40",
+      "seconds": 57,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:40",
+      "end": "05:42",
+      "seconds": 68,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:42",
+      "end": "05:43",
+      "seconds": 68,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:43",
+      "end": "05:44",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:44",
+      "end": "05:46",
+      "seconds": 95,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:49",
+      "end": "05:49",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "05:49",
+      "end": "05:49",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:57",
+      "end": "05:57",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "05:59",
+      "end": "06:00",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:01",
+      "end": "06:01",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:02",
+      "end": "06:02",
+      "seconds": 21,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:02",
+      "end": "06:02",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "06:02",
+      "end": "06:03",
+      "seconds": 39,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:05",
+      "end": "06:06",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:06",
+      "end": "06:06",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:16",
+      "end": "06:16",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:16",
+      "end": "06:16",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "06:16",
+      "end": "06:16",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:18",
+      "end": "06:18",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:18",
+      "end": "06:19",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "06:19",
+      "end": "06:19",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "11:31",
+      "end": "11:31",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "11:31",
+      "end": "11:31",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:37",
+      "end": "12:37",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:37",
+      "end": "12:37",
+      "seconds": 26,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:37",
+      "end": "12:38",
+      "seconds": 32,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:38",
+      "end": "12:38",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:38",
+      "end": "12:39",
+      "seconds": 26,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:39",
+      "end": "12:39",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:39",
+      "end": "12:39",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:39",
+      "end": "12:39",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:39",
+      "end": "12:40",
+      "seconds": 48,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:40",
+      "end": "12:41",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:41",
+      "end": "12:41",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:41",
+      "end": "12:42",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:42",
+      "end": "12:42",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Finder"
+    },
+    {
+      "start": "12:42",
+      "end": "12:42",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:42",
+      "end": "12:43",
+      "seconds": 64,
+      "minutes": 1,
+      "category": "Other",
+      "app": "TextEdit"
+    },
+    {
+      "start": "12:43",
+      "end": "12:45",
+      "seconds": 113,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:46",
+      "end": "12:46",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:46",
+      "end": "12:48",
+      "seconds": 112,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Finder"
+    },
+    {
+      "start": "12:48",
+      "end": "12:49",
+      "seconds": 65,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:49",
+      "end": "12:49",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:49",
+      "end": "12:51",
+      "seconds": 104,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:51",
+      "end": "12:52",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:52",
+      "end": "12:53",
+      "seconds": 104,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:53",
+      "end": "12:54",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:54",
+      "end": "12:54",
+      "seconds": 42,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:54",
+      "end": "12:55",
+      "seconds": 39,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:55",
+      "end": "12:58",
+      "seconds": 130,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:58",
+      "end": "12:58",
+      "seconds": 23,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "12:58",
+      "end": "13:00",
+      "seconds": 73,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:00",
+      "end": "13:00",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:00",
+      "end": "13:00",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:00",
+      "end": "13:01",
+      "seconds": 44,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:01",
+      "end": "13:01",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:01",
+      "end": "13:01",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:01",
+      "end": "13:01",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:01",
+      "end": "13:02",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:02",
+      "end": "13:03",
+      "seconds": 73,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:03",
+      "end": "13:04",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:04",
+      "end": "13:04",
+      "seconds": 32,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:04",
+      "end": "13:05",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:05",
+      "end": "13:05",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:05",
+      "end": "13:06",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:06",
+      "end": "13:08",
+      "seconds": 124,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:08",
+      "end": "13:09",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:09",
+      "end": "13:10",
+      "seconds": 52,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:10",
+      "end": "13:11",
+      "seconds": 26,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:11",
+      "end": "13:12",
+      "seconds": 43,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:12",
+      "end": "13:13",
+      "seconds": 76,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:13",
+      "end": "13:13",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:13",
+      "end": "13:14",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:14",
+      "end": "13:14",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:14",
+      "end": "13:15",
+      "seconds": 62,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:15",
+      "end": "13:18",
+      "seconds": 117,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:18",
+      "end": "13:20",
+      "seconds": 77,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:20",
+      "end": "13:20",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:20",
+      "end": "13:20",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:21",
+      "end": "13:22",
+      "seconds": 71,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:22",
+      "end": "13:22",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:22",
+      "end": "13:26",
+      "seconds": 193,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:26",
+      "end": "13:26",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:26",
+      "end": "13:27",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:27",
+      "end": "13:27",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:27",
+      "end": "13:29",
+      "seconds": 148,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:29",
+      "end": "13:30",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:30",
+      "end": "13:35",
+      "seconds": 289,
+      "minutes": 4,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:35",
+      "end": "13:35",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:35",
+      "end": "13:38",
+      "seconds": 113,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:38",
+      "end": "13:38",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:38",
+      "end": "13:38",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:39",
+      "end": "13:40",
+      "seconds": 55,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:40",
+      "end": "13:44",
+      "seconds": 241,
+      "minutes": 4,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:44",
+      "end": "13:44",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:44",
+      "end": "13:46",
+      "seconds": 87,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:46",
+      "end": "13:46",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:46",
+      "end": "13:48",
+      "seconds": 76,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:48",
+      "end": "13:48",
+      "seconds": 47,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:49",
+      "end": "13:50",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:50",
+      "end": "13:50",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:50",
+      "end": "13:50",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:50",
+      "end": "13:51",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:51",
+      "end": "13:51",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:51",
+      "end": "13:52",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:52",
+      "end": "13:53",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:53",
+      "end": "13:53",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:53",
+      "end": "13:53",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:53",
+      "end": "13:54",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:54",
+      "end": "13:54",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:55",
+      "end": "13:55",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:55",
+      "end": "13:55",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:55",
+      "end": "13:55",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:56",
+      "end": "13:56",
+      "seconds": 40,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:56",
+      "end": "13:57",
+      "seconds": 21,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:58",
+      "end": "13:58",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:59",
+      "end": "13:59",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "13:59",
+      "end": "13:59",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Other",
+      "app": "TextEdit"
+    },
+    {
+      "start": "13:59",
+      "end": "14:00",
+      "seconds": 35,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:00",
+      "end": "14:00",
+      "seconds": 17,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:01",
+      "end": "14:02",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:02",
+      "end": "14:02",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:02",
+      "end": "14:03",
+      "seconds": 43,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:03",
+      "end": "14:03",
+      "seconds": 22,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:04",
+      "end": "14:04",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:04",
+      "end": "14:04",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:04",
+      "end": "14:04",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:06",
+      "end": "14:06",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:07",
+      "end": "14:07",
+      "seconds": 33,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:07",
+      "end": "14:08",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:08",
+      "end": "14:08",
+      "seconds": 42,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:12",
+      "end": "14:12",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:13",
+      "end": "14:14",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:14",
+      "end": "14:14",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:14",
+      "end": "14:15",
+      "seconds": 86,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:15",
+      "end": "14:16",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:16",
+      "end": "14:16",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:16",
+      "end": "14:16",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:16",
+      "end": "14:18",
+      "seconds": 74,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:18",
+      "end": "14:23",
+      "seconds": 277,
+      "minutes": 4,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:23",
+      "end": "14:24",
+      "seconds": 73,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:25",
+      "end": "14:27",
+      "seconds": 119,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:27",
+      "end": "14:27",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:28",
+      "end": "14:29",
+      "seconds": 97,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:29",
+      "end": "14:30",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:30",
+      "end": "14:30",
+      "seconds": 23,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:30",
+      "end": "14:32",
+      "seconds": 118,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:32",
+      "end": "14:32",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:32",
+      "end": "14:33",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:33",
+      "end": "14:33",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:33",
+      "end": "14:33",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:33",
+      "end": "14:33",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:33",
+      "end": "14:35",
+      "seconds": 77,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:35",
+      "end": "14:35",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:35",
+      "end": "14:36",
+      "seconds": 28,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:36",
+      "end": "14:36",
+      "seconds": 21,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:36",
+      "end": "14:36",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:36",
+      "end": "14:37",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Communication",
+      "app": "Mail"
+    },
+    {
+      "start": "14:37",
+      "end": "14:37",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:37",
+      "end": "14:38",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:38",
+      "end": "14:38",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:38",
+      "end": "14:38",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:38",
+      "end": "14:38",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:38",
+      "end": "14:38",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:39",
+      "end": "14:40",
+      "seconds": 32,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:40",
+      "end": "14:41",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:41",
+      "end": "14:41",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:41",
+      "end": "14:41",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:41",
+      "end": "14:41",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:42",
+      "end": "14:42",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:42",
+      "end": "14:42",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:43",
+      "end": "14:45",
+      "seconds": 126,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "14:45",
+      "end": "14:46",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "15:55",
+      "end": "15:55",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "15:56",
+      "end": "15:56",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "15:56",
+      "end": "15:56",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "17:38",
+      "end": "17:38",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "17:38",
+      "end": "17:38",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "17:38",
+      "end": "17:39",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "21:11",
+      "end": "21:11",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "21:11",
+      "end": "21:12",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:13",
+      "end": "21:15",
+      "seconds": 144,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:15",
+      "end": "21:16",
+      "seconds": 65,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:17",
+      "end": "21:18",
+      "seconds": 66,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:19",
+      "end": "21:22",
+      "seconds": 168,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:22",
+      "end": "21:23",
+      "seconds": 54,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:24",
+      "end": "21:24",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:24",
+      "end": "21:25",
+      "seconds": 42,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:25",
+      "end": "21:25",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "21:25",
+      "end": "21:27",
+      "seconds": 96,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:27",
+      "end": "21:35",
+      "seconds": 391,
+      "minutes": 6,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:35",
+      "end": "21:46",
+      "seconds": 642,
+      "minutes": 10,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:47",
+      "end": "21:47",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:47",
+      "end": "21:47",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "21:47",
+      "end": "21:53",
+      "seconds": 288,
+      "minutes": 4,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:53",
+      "end": "21:53",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "21:53",
+      "end": "21:55",
+      "seconds": 114,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:55",
+      "end": "21:56",
+      "seconds": 53,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "21:58",
+      "end": "21:58",
+      "seconds": 40,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "21:58",
+      "end": "21:59",
+      "seconds": 41,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "21:59",
+      "end": "21:59",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "21:59",
+      "end": "22:00",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:00",
+      "end": "22:00",
+      "seconds": 28,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:01",
+      "end": "22:01",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:01",
+      "end": "22:02",
+      "seconds": 29,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:02",
+      "end": "22:03",
+      "seconds": 87,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:04",
+      "end": "22:05",
+      "seconds": 61,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:06",
+      "end": "22:08",
+      "seconds": 114,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:08",
+      "end": "22:09",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:09",
+      "end": "22:12",
+      "seconds": 133,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:12",
+      "end": "22:12",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:12",
+      "end": "22:14",
+      "seconds": 106,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:14",
+      "end": "22:14",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:14",
+      "end": "22:16",
+      "seconds": 101,
+      "minutes": 1,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:16",
+      "end": "22:18",
+      "seconds": 81,
+      "minutes": 1,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:20",
+      "end": "22:20",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:20",
+      "end": "22:22",
+      "seconds": 95,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:22",
+      "end": "22:22",
+      "seconds": 19,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:22",
+      "end": "22:23",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:23",
+      "end": "22:24",
+      "seconds": 28,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:24",
+      "end": "22:24",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:24",
+      "end": "22:24",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Unknown"
+    },
+    {
+      "start": "22:25",
+      "end": "22:25",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:25",
+      "end": "22:27",
+      "seconds": 72,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:27",
+      "end": "22:27",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:27",
+      "end": "22:28",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:28",
+      "end": "22:28",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Communication",
+      "app": "Messages"
+    },
+    {
+      "start": "22:29",
+      "end": "22:29",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Communication",
+      "app": "Messages"
+    },
+    {
+      "start": "22:29",
+      "end": "22:29",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:31",
+      "end": "22:31",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:32",
+      "end": "22:32",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:32",
+      "end": "22:33",
+      "seconds": 42,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:36",
+      "end": "22:37",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:37",
+      "end": "22:38",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:39",
+      "end": "22:40",
+      "seconds": 72,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:42",
+      "end": "22:43",
+      "seconds": 48,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "22:43",
+      "end": "22:43",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:43",
+      "end": "22:49",
+      "seconds": 355,
+      "minutes": 5,
+      "category": "Communication",
+      "app": "Messages"
+    },
+    {
+      "start": "22:50",
+      "end": "22:50",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:50",
+      "end": "22:50",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:50",
+      "end": "22:50",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:51",
+      "end": "22:52",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:52",
+      "end": "22:52",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:52",
+      "end": "22:54",
+      "seconds": 84,
+      "minutes": 1,
+      "category": "Communication",
+      "app": "Messages"
+    },
+    {
+      "start": "22:54",
+      "end": "22:54",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:58",
+      "end": "22:58",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "22:58",
+      "end": "22:58",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:59",
+      "end": "22:59",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:59",
+      "end": "22:59",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "22:59",
+      "end": "23:00",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:00",
+      "end": "23:00",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:01",
+      "end": "23:01",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:01",
+      "end": "23:01",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:02",
+      "end": "23:02",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:02",
+      "end": "23:02",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:02",
+      "end": "23:02",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:03",
+      "end": "23:03",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:03",
+      "end": "23:03",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:03",
+      "end": "23:03",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:04",
+      "end": "23:04",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:04",
+      "end": "23:04",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:04",
+      "end": "23:04",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:04",
+      "end": "23:04",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:05",
+      "end": "23:05",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:05",
+      "end": "23:05",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "23:05",
+      "end": "23:06",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:06",
+      "end": "23:06",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:06",
+      "end": "23:07",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "23:07",
+      "end": "23:07",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:07",
+      "end": "23:08",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:09",
+      "end": "23:09",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:10",
+      "end": "23:10",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:10",
+      "end": "23:12",
+      "seconds": 90,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "23:12",
+      "end": "23:12",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:12",
+      "end": "23:13",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "23:13",
+      "end": "23:13",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:18",
+      "end": "23:18",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:19",
+      "end": "23:19",
+      "seconds": 48,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:21",
+      "end": "23:21",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:23",
+      "end": "23:26",
+      "seconds": 132,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:26",
+      "end": "23:26",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:27",
+      "end": "23:29",
+      "seconds": 114,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:29",
+      "end": "23:30",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:30",
+      "end": "23:33",
+      "seconds": 162,
+      "minutes": 2,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:33",
+      "end": "23:34",
+      "seconds": 48,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:35",
+      "end": "23:35",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:35",
+      "end": "23:37",
+      "seconds": 96,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:37",
+      "end": "23:37",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:37",
+      "end": "23:38",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "23:38",
+      "end": "23:38",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:38",
+      "end": "23:39",
+      "seconds": 55,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:40",
+      "end": "23:42",
+      "seconds": 92,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:42",
+      "end": "23:42",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:42",
+      "end": "23:42",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "23:42",
+      "end": "23:43",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "23:43",
+      "end": "23:43",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:43",
+      "end": "23:44",
+      "seconds": 66,
+      "minutes": 1,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "23:44",
+      "end": "23:44",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "23:44",
+      "end": "23:44",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:44",
+      "end": "23:45",
+      "seconds": 42,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "23:45",
+      "end": "23:48",
+      "seconds": 139,
+      "minutes": 2,
+      "category": "Other",
+      "app": "TextEdit"
+    },
+    {
+      "start": "23:48",
+      "end": "23:48",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:55",
+      "end": "23:59",
+      "seconds": 232,
+      "minutes": 3,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:59",
+      "end": "23:59",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "23:59",
+      "end": "23:59",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    }
+  ],
+  "deep_work_blocks": [
+    {
+      "start": "04:00",
+      "end": "05:46",
+      "duration": "01:46",
+      "seconds": 6403,
+      "minutes": 106
+    },
+    {
+      "start": "12:37",
+      "end": "13:57",
+      "duration": "01:20",
+      "seconds": 4809,
+      "minutes": 80
+    },
+    {
+      "start": "14:12",
+      "end": "14:46",
+      "duration": "00:33",
+      "seconds": 2003,
+      "minutes": 33
+    },
+    {
+      "start": "21:19",
+      "end": "21:56",
+      "duration": "00:37",
+      "seconds": 2223,
+      "minutes": 37
+    },
+    {
+      "start": "23:23",
+      "end": "23:48",
+      "duration": "00:25",
+      "seconds": 1502,
+      "minutes": 25
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "03:24",
+    "VS Code": "03:18",
+    "Terminal": "00:11",
+    "Messages": "00:08"
+  },
+  "deep_work": [
+    {
+      "start": "21:11",
+      "end": "22:27",
+      "minutes": 66,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "05:04",
+      "end": "06:24",
+      "minutes": 64,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "02:17",
+      "end": "03:20",
+      "minutes": 53,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "12:54",
+      "end": "13:59",
+      "minutes": 46,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "22:54",
+      "end": "23:41",
+      "minutes": 37,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "01:07",
+      "end": "01:47",
+      "minutes": 33,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "04:21",
+      "end": "04:54",
+      "minutes": 31,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:00",
+      "end": "14:32",
+      "minutes": 27,
+      "category": "Coding",
+      "label": "VS Code"
+    }
+  ],
+  "executive_summary": [
+    "Screen Time: ~529 min foreground app usage"
+  ]
+}
