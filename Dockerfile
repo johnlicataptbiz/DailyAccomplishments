@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 # Multi-stage Dockerfile for DailyAccomplishments with React build + Flask static serving
 
-FROM node:18-bookworm AS frontend-build
+FROM node:22-bookworm AS frontend-build
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
 RUN npm ci
