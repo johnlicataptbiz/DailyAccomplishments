@@ -62,4 +62,18 @@ if [ ! -f "${SITE_DIR}/index.html" ]; then
 fi
 
 echo "Serving ${ROOT_DIR}/${SITE_DIR} on 0.0.0.0:${PORT}"
-exec python3 "${ROOT_DIR}/server.py"
+
+# Use a production WSGI server on Railway (the Flask dev server logs to stderr and
+# is not recommended for production).
+WEB_CONCURRENCY="${WEB_CONCURRENCY:-2}"
+GUNICORN_THREADS="${GUNICORN_THREADS:-4}"
+GUNICORN_TIMEOUT="${GUNICORN_TIMEOUT:-60}"
+
+exec python3 -m gunicorn \
+  --bind "0.0.0.0:${PORT}" \
+  --workers "${WEB_CONCURRENCY}" \
+  --threads "${GUNICORN_THREADS}" \
+  --timeout "${GUNICORN_TIMEOUT}" \
+  --access-logfile "-" \
+  --error-logfile "-" \
+  "server:app"
