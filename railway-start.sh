@@ -21,6 +21,11 @@ elif [ -f "${ROOT_DIR}/dashboard.html" ]; then
   cp -f "${ROOT_DIR}/dashboard.html" "${SITE_DIR}/dashboard.html"
 fi
 
+# Copy dashboard assets (chart.min.js, etc.) for legacy dashboard
+if [ -d "${ROOT_DIR}/dashboard" ]; then
+  cp -R "${ROOT_DIR}/dashboard" "${SITE_DIR}/dashboard"
+fi
+
 if [ -f "${ROOT_DIR}/config.json" ]; then
   cp -f "${ROOT_DIR}/config.json" "${SITE_DIR}/config.json"
 fi
@@ -57,5 +62,4 @@ if [ ! -f "${SITE_DIR}/index.html" ]; then
 fi
 
 echo "Serving ${ROOT_DIR}/${SITE_DIR} on 0.0.0.0:${PORT}"
-cd "${SITE_DIR}"
 exec python3 "${ROOT_DIR}/server.py"
