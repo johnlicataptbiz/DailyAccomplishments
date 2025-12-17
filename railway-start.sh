@@ -3,7 +3,7 @@ set -eu
 
 ROOT_DIR="$(pwd)"
 SITE_DIR="${SITE_DIR:-site}"
-PORT="${PORT:-8000}"
+PORT="${PORT:-8080}"
 FRONTEND_DIST="${ROOT_DIR}/frontend/dist"
 
 rm -rf "${SITE_DIR}"

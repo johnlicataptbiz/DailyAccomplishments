@@ -48,7 +48,7 @@ COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 8080
 
 RUN chmod +x /app/entrypoint.sh /app/railway-start.sh
 ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
