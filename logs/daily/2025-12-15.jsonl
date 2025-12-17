@@ -1,0 +1,13 @@
+{"type": "metadata", "data": {"date": "2025-12-15", "start_time": "2025-12-15T06:00:00-06:00", "timezone": "America/Chicago", "coverage_start": "05:00", "coverage_end": "23:59", "initialized_at": "2025-12-15T10:04:50.618252-06:00", "version": "2.0"}}
+{"type": "focus_change", "timestamp": "2025-12-15T10:04:50.617915-06:00", "data": {"app": "VS Code", "window_title": "main.py \u2014 DailyAccomplishments", "duration_seconds": 60}}
+{"type": "app_switch", "timestamp": "2025-12-15T10:04:51.620871-06:00", "data": {"from_app": "VS Code", "to_app": "Safari"}}
+{"type": "focus_change", "timestamp": "2025-12-15T10:04:51.622626-06:00", "data": {"app": "Safari", "window_title": "Python Documentation", "duration_seconds": 60}}
+{"type": "browser_visit", "timestamp": "2025-12-15T10:04:51.624209-06:00", "data": {"domain": "docs.python.org", "url": "https://docs.python.org/3/library/datetime.html", "page_title": "datetime \u2014 Basic date and time types"}}
+{"type": "app_switch", "timestamp": "2025-12-15T10:04:52.625497-06:00", "data": {"from_app": "Safari", "to_app": "VS Code"}}
+{"type": "focus_change", "timestamp": "2025-12-15T10:04:52.627656-06:00", "data": {"app": "VS Code", "window_title": "tracker_bridge.py", "duration_seconds": 60}}
+{"type": "app_switch", "timestamp": "2025-12-15T10:04:53.629289-06:00", "data": {"from_app": "VS Code", "to_app": "Slack"}}
+{"type": "focus_change", "timestamp": "2025-12-15T10:04:53.631278-06:00", "data": {"app": "Slack", "window_title": "#engineering", "duration_seconds": 60}}
+{"type": "app_switch", "timestamp": "2025-12-15T10:04:54.632888-06:00", "data": {"from_app": "Slack", "to_app": "VS Code"}}
+{"type": "focus_change", "timestamp": "2025-12-15T10:04:54.634661-06:00", "data": {"app": "VS Code", "window_title": "analytics.py", "duration_seconds": 60}}
+{"type": "manual_entry", "timestamp": "2025-12-15T10:04:54.635779-06:00", "data": {"description": "Development - Focus Session", "duration_seconds": 7200, "category": "Development"}}
+{"type": "meeting_start", "timestamp": "2025-12-15T10:04:56.639656-06:00", "data": {"name": "Daily Standup", "scheduled_duration_seconds": 900}}
