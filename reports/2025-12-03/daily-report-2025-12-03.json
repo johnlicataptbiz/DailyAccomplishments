@@ -1,19 +1,50 @@
 {
   "date": "2025-12-03",
   "overview": {
-    "focus_time": "00:00",
+    "focus_time": "15:47",
     "meetings_time": "00:00",
     "appointments": 0,
-    "projects_count": 0,
-    "coverage_window": "19:47\u201319:47",
-    "active_time": "00:00"
+    "coverage_window": "01:18\u201323:20"
+  },
+  "debug_appointments": {
+    "appointments_today": [],
+    "meetings_today": []
   },
   "by_category": {
-    "Other": "00:00"
+    "Research": "09:12",
+    "Other": "02:59",
+    "Communication": "02:07",
+    "Coding": "02:42",
+    "Docs": "00:01"
   },
-  "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+  "by_project": {
+    "physicaltherapybiz.com": "06:18",
+    "Email/CRM": "00:00",
+    "Slack": "00:00",
+    "GitHub": "00:00"
+  },
+  "top_apps": {
+    "Google Chrome": "05:41",
+    "Terminal": "01:56",
+    "VS Code": "00:46",
+    "Messages": "00:07"
+  },
+  "top_windows": {
+    "Google Chrome \u2014 (no title)": "03:39",
+    "app_mode_loader \u2014 missing value": "01:58",
+    "Terminal \u2014 jacklicatamacbook \u2014 iChatDockTile \u2014 codex \u2014 80\u00d724": "01:14",
+    "Messages \u2014 +1 (817) 505-7977": "01:07",
+    "Google Chrome \u2014 applications (Channel) - PT Biz - Slack - Google Chrome - physicaltherapybiz.com": "00:35",
+    "Electron \u2014 Add valid .vscode/launch.json \u2026 \u2014 DailyAccomplishments [Codespaces: fluffy winne": "00:34",
+    "Google Chrome \u2014 HubSpot AI Optimizer: Features and Analysis - Grok - Google Chrome - physicalthe": "00:28",
+    "Electron \u2014 DailyAccomplishments [Codespaces: fluffy winner]": "00:13",
+    "Google Chrome \u2014 Test website features - Google Chrome - physicaltherapybiz.com": "00:12",
+    "Google Chrome \u2014 Banfield Smith - Google Chrome - physicaltherapybiz.com": "00:11",
+    "Google Chrome \u2014 Property settings - Google Chrome - physicaltherapybiz.com": "00:11",
+    "Google Chrome \u2014 \ud83d\udfe2 Sales Team Calls - Google Chrome - physicaltherapybiz.com": "00:10",
+    "Messages \u2014 Lover Bird": "00:09",
+    "Google Chrome \u2014 Journey Analytics - Google Chrome - physicaltherapybiz.com": "00:09",
+    "Google Chrome \u2014 Jack Set Calls - Google Chrome - physicaltherapybiz.com": "00:08"
   },
   "hourly_focus": [
     {
@@ -23,120 +54,232 @@
     },
     {
       "hour": 1,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 2,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 3,
-      "time": "00:00",
+      "time": "00:56",
       "pct": "0%"
     },
     {
       "hour": 4,
-      "time": "00:00",
+      "time": "00:57",
       "pct": "0%"
     },
     {
       "hour": 5,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 6,
-      "time": "00:00",
+      "time": "01:00",
       "pct": "0%"
     },
     {
       "hour": 7,
-      "time": "00:00",
+      "time": "00:45",
       "pct": "0%"
     },
     {
       "hour": 8,
-      "time": "00:00",
+      "time": "00:59",
       "pct": "0%"
     },
     {
       "hour": 9,
-      "time": "00:00",
+      "time": "00:58",
       "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "00:00",
+      "time": "00:58",
       "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "00:00",
+      "time": "00:57",
       "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "00:00",
+      "time": "00:58",
       "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "00:00",
+      "time": "00:57",
       "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "00:00",
+      "time": "00:59",
       "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:00",
+      "time": "00:35",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:00",
+      "time": "00:30",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:00",
+      "time": "00:20",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:00",
+      "time": "00:16",
       "pct": "0%"
     },
     {
       "hour": 19,
-      "time": "00:00",
-      "pct": "100%"
+      "time": "00:27",
+      "pct": "0%"
     },
     {
       "hour": 20,
-      "time": "00:00",
+      "time": "00:43",
       "pct": "0%"
     },
     {
       "hour": 21,
-      "time": "00:00",
+      "time": "00:45",
       "pct": "0%"
     },
     {
       "hour": 22,
-      "time": "00:00",
+      "time": "00:50",
       "pct": "0%"
     },
     {
       "hour": 23,
-      "time": "00:00",
+      "time": "00:11",
       "pct": "0%"
     }
   ],
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "app.hubspot.com",
+        "visits": 431
+      },
+      {
+        "domain": "grok.com",
+        "visits": 194
+      },
+      {
+        "domain": "railway.com",
+        "visits": 91
+      },
+      {
+        "domain": "github.com",
+        "visits": 41
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 35
+      },
+      {
+        "domain": "talk.aloware.com",
+        "visits": 35
+      },
+      {
+        "domain": "aistudio.google.com",
+        "visits": 34
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 31
+      },
+      {
+        "domain": "console.cloud.google.com",
+        "visits": 31
+      },
+      {
+        "domain": "jacksptbizhubspotassistant.up.railway.app",
+        "visits": 28
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://jacksptbizhubspotassistant.up.railway.app/",
+        "visits": 25
+      },
+      {
+        "page": "https://railway.com/project/ed32e92f-9fdf-4ed6-9f0f-052a28008689/service/b0afe6cb-540c-4687-8641-3ad86e705ebb?environmentId=0617812f-31d0-4a57-9aae-388aeb678e34",
+        "visits": 21
+      },
+      {
+        "page": "https://app.hubspot.com/global-search-ui/22001532/?isMinifiedSearch=true",
+        "visits": 18
+      },
+      {
+        "page": "https://app.slack.com/client/TJ3QQ76KV/C07B7R1290F",
+        "visits": 15
+      },
+      {
+        "page": "https://app.hubspot.com/contacts/22001532/record/0-1/166353582625",
+        "visits": 14
+      },
+      {
+        "page": "https://app.hubspot.com/contacts/22001532/record/0-1/178663835819",
+        "visits": 14
+      },
+      {
+        "page": "https://mail.google.com/mail/u/0/#inbox",
+        "visits": 11
+      },
+      {
+        "page": "https://orange-palm-tree-q7j77pgg9wjp2pj.github.dev/",
+        "visits": 9
+      },
+      {
+        "page": "https://app.hubspot.com/contacts/22001532/record/0-1/179343119620",
+        "visits": 9
+      },
+      {
+        "page": "https://www.facebook.com/groups/ptentrepreneur",
+        "visits": 8
+      }
+    ]
+  },
+  "timeline": [],
   "deep_work_blocks": [],
-  "timeline": []
+  "deep_work": [
+    {
+      "start": "09:02",
+      "end": "11:15",
+      "minutes": 132,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:17",
+      "end": "15:04",
+      "minutes": 32,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:47",
+      "end": "14:17",
+      "minutes": 25,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "executive_summary": [
+    "Screen Time: ~762 min foreground app usage"
+  ]
 }

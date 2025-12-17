@@ -9,25 +9,107 @@
     "active_time": "17:48"
   },
   "by_category": {
-    "Coding": "00:30",
-    "Research": "05:15",
+    "Coding": "03:04",
+    "Research": "05:45",
     "Other": "02:48",
     "Communication": "00:00"
   },
   "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 1321
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 199
+      },
+      {
+        "domain": "railway.com",
+        "visits": 129
+      },
+      {
+        "domain": "grok.com",
+        "visits": 126
+      },
+      {
+        "domain": "dailyaccomplishments.up.railway.app",
+        "visits": 67
+      },
+      {
+        "domain": "gitkraken.dev",
+        "visits": 65
+      },
+      {
+        "domain": "dailyaccomplishmentsptbiz.up.railway.app",
+        "visits": 52
+      },
+      {
+        "domain": "auth.openai.com",
+        "visits": 40
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 27
+      },
+      {
+        "domain": "docs.github.com",
+        "visits": 17
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 45
+      },
+      {
+        "page": "https://dailyaccomplishments.up.railway.app/",
+        "visits": 42
+      },
+      {
+        "page": "https://chatgpt.com/codex",
+        "visits": 37
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/issues",
+        "visits": 35
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13",
+        "visits": 33
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13/commits",
+        "visits": 32
+      },
+      {
+        "page": "https://dailyaccomplishmentsptbiz.up.railway.app/",
+        "visits": 30
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 29
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34/settings?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 21
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/edit/main/.github/workflows/validate-reports.yml",
+        "visits": 20
+      }
+    ]
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "01:47",
-      "pct": "91%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 1,
-      "time": "01:24",
-      "pct": "72%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 2,
@@ -37,16 +119,16 @@
     {
       "hour": 3,
       "time": "00:16",
-      "pct": "14%"
+      "pct": "0%"
     },
     {
       "hour": 4,
       "time": "00:41",
-      "pct": "35%"
+      "pct": "0%"
     },
     {
       "hour": 5,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     },
     {
@@ -67,47 +149,47 @@
     {
       "hour": 9,
       "time": "00:21",
-      "pct": "18%"
+      "pct": "0%"
     },
     {
       "hour": 10,
-      "time": "01:56",
-      "pct": "100%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 11,
-      "time": "01:53",
-      "pct": "97%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 12,
-      "time": "01:47",
-      "pct": "91%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "01:53",
-      "pct": "97%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "01:52",
-      "pct": "96%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "01:48",
-      "pct": "93%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "01:18",
-      "pct": "66%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 17,
       "time": "00:31",
-      "pct": "26%"
+      "pct": "0%"
     },
     {
       "hour": 18,
@@ -116,13 +198,13 @@
     },
     {
       "hour": 19,
-      "time": "00:10",
-      "pct": "9%"
+      "time": "00:12",
+      "pct": "0%"
     },
     {
       "hour": 20,
       "time": "00:50",
-      "pct": "43%"
+      "pct": "0%"
     },
     {
       "hour": 21,
@@ -4784,5 +4866,64 @@
       "seconds": 2683,
       "minutes": 44
     }
+  ],
+  "top_apps": {
+    "Google Chrome": "05:45",
+    "VS Code": "02:44",
+    "Terminal": "00:20"
+  },
+  "deep_work": [
+    {
+      "start": "15:15",
+      "end": "17:17",
+      "minutes": 114,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "12:23",
+      "end": "14:28",
+      "minutes": 103,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "11:04",
+      "end": "12:18",
+      "minutes": 55,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "00:55",
+      "end": "01:52",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:29",
+      "end": "15:15",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "04:14",
+      "end": "04:47",
+      "minutes": 29,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "20:14",
+      "end": "20:51",
+      "minutes": 28,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "executive_summary": [
+    "Screen Time: ~678 min foreground app usage"
   ]
 }

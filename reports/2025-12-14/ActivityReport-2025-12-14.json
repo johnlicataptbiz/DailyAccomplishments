@@ -9,50 +9,132 @@
     "active_time": "13:34"
   },
   "by_category": {
-    "Research": "03:04",
+    "Research": "03:24",
     "Other": "02:59",
-    "Coding": "00:14",
+    "Coding": "03:29",
     "Communication": "00:07"
   },
   "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 501
+      },
+      {
+        "domain": "dailyaccomplishments.up.railway.app",
+        "visits": 320
+      },
+      {
+        "domain": "myaccount.google.com",
+        "visits": 105
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 67
+      },
+      {
+        "domain": "railway.com",
+        "visits": 42
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 32
+      },
+      {
+        "domain": "auth.openai.com",
+        "visits": 9
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 8
+      },
+      {
+        "domain": "google.com",
+        "visits": 7
+      },
+      {
+        "domain": "myactivity.google.com",
+        "visits": 5
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://dailyaccomplishments.up.railway.app/",
+        "visits": 82
+      },
+      {
+        "page": "https://dailyaccomplishments.up.railway.app/reports/daily-report-2025-12-08.json",
+        "visits": 71
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 54
+      },
+      {
+        "page": "https://dailyaccomplishments.up.railway.app/dashboard.html?t=1765738195634",
+        "visits": 19
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/issues",
+        "visits": 16
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/49",
+        "visits": 15
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/49/commits",
+        "visits": 12
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 12
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34/settings?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 12
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/49/commits/f30ebd755aba9373c24bd0eebdf8eebda8221daf",
+        "visits": 12
+      }
+    ]
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:01",
-      "pct": "1%"
+      "time": "00:02",
+      "pct": "0%"
     },
     {
       "hour": 1,
       "time": "01:00",
-      "pct": "57%"
+      "pct": "0%"
     },
     {
       "hour": 2,
-      "time": "01:12",
-      "pct": "68%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 3,
-      "time": "01:18",
-      "pct": "74%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 4,
-      "time": "01:41",
-      "pct": "95%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 5,
-      "time": "01:24",
-      "pct": "80%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 6,
-      "time": "00:10",
-      "pct": "9%"
+      "time": "00:18",
+      "pct": "0%"
     },
     {
       "hour": 7,
@@ -76,38 +158,38 @@
     },
     {
       "hour": 11,
-      "time": "00:00",
+      "time": "00:04",
       "pct": "0%"
     },
     {
       "hour": 12,
       "time": "00:44",
-      "pct": "42%"
+      "pct": "0%"
     },
     {
       "hour": 13,
-      "time": "01:45",
-      "pct": "100%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 14,
-      "time": "01:09",
-      "pct": "65%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 15,
-      "time": "00:00",
+      "time": "00:03",
       "pct": "0%"
     },
     {
       "hour": 16,
-      "time": "00:00",
+      "time": "00:01",
       "pct": "0%"
     },
     {
       "hour": 17,
-      "time": "00:02",
-      "pct": "2%"
+      "time": "00:06",
+      "pct": "0%"
     },
     {
       "hour": 18,
@@ -126,18 +208,18 @@
     },
     {
       "hour": 21,
-      "time": "01:28",
-      "pct": "83%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 22,
-      "time": "01:12",
-      "pct": "68%"
+      "time": "01:00",
+      "pct": "0%"
     },
     {
       "hour": 23,
-      "time": "01:13",
-      "pct": "69%"
+      "time": "01:00",
+      "pct": "0%"
     }
   ],
   "timeline": [
@@ -4258,5 +4340,72 @@
       "seconds": 1502,
       "minutes": 25
     }
+  ],
+  "top_apps": {
+    "Google Chrome": "03:24",
+    "VS Code": "03:18",
+    "Terminal": "00:11",
+    "Messages": "00:08"
+  },
+  "deep_work": [
+    {
+      "start": "21:11",
+      "end": "22:27",
+      "minutes": 66,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "05:04",
+      "end": "06:24",
+      "minutes": 64,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "02:17",
+      "end": "03:20",
+      "minutes": 53,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "12:54",
+      "end": "13:59",
+      "minutes": 46,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "22:54",
+      "end": "23:41",
+      "minutes": 37,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "01:07",
+      "end": "01:47",
+      "minutes": 33,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "04:21",
+      "end": "04:54",
+      "minutes": 31,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:00",
+      "end": "14:32",
+      "minutes": 27,
+      "category": "Coding",
+      "label": "VS Code"
+    }
+  ],
+  "executive_summary": [
+    "Screen Time: ~529 min foreground app usage"
   ]
 }

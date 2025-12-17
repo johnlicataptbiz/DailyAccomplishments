@@ -1,156 +1,167 @@
 {
+  "date": "2025-11-26",
+  "debug_appointments": {
+    "meetings_today": []
+  },
   "by_category": {
     "Coding": "00:29",
     "Other": "00:13",
     "Research": "00:20"
   },
-  "date": "2025-11-26",
-  "debug_appointments": {
-    "meetings_today": []
-  },
-  "deep_work": [
-    {
-      "category": "Research",
-      "end": "18:32",
-      "label": "Google Chrome",
-      "minutes": 36,
-      "start": "17:51"
-    }
-  ],
-  "deep_work_blocks": [],
-  "executive_summary": [
-    "Screen Time: ~89 min foreground app usage"
-  ],
   "hourly_focus": [
     {
       "hour": 0,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 1,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 2,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 3,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 4,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 5,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 6,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 7,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 8,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 9,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 10,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 11,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 12,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 13,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 14,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 15,
-      "pct": "0%",
-      "time": "00:14"
+      "time": "00:14",
+      "pct": "0%"
     },
     {
       "hour": 16,
-      "pct": "0%",
-      "time": "00:02"
+      "time": "00:02",
+      "pct": "0%"
     },
     {
       "hour": 17,
-      "pct": "0%",
-      "time": "00:18"
+      "time": "00:18",
+      "pct": "0%"
     },
     {
       "hour": 18,
-      "pct": "0%",
-      "time": "00:28"
+      "time": "00:28",
+      "pct": "0%"
     },
     {
       "hour": 19,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 20,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 21,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 22,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 23,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Terminal": "00:29",
+    "Google Chrome": "00:20",
+    "Messages": "00:13"
+  },
+  "deep_work": [
+    {
+      "start": "17:51",
+      "end": "18:32",
+      "minutes": 36,
+      "category": "Research",
+      "label": "Google Chrome"
     }
   ],
   "overview": {
+<<<<<<< Updated upstream
     "coverage_window": "15:34–18:32",
     "focus_time": "01:02",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 0
+=======
+    "focus_time": "01:02",
+    "coverage_window": "15:34\u201318:32"
+>>>>>>> Stashed changes
   },
+  "executive_summary": [
+    "Screen Time: ~89 min foreground app usage",
+    "Screen Time: ~71 min foreground app usage"
+  ],
   "timeline": [],
+<<<<<<< Updated upstream
   "top_apps": {
     "Google Chrome": "00:20",
     "Messages": "00:13",
@@ -159,5 +170,81 @@
   "browser_highlights": {
     "top_domains": [],
     "top_pages": []
+=======
+  "deep_work_blocks": [],
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "ai.google.dev",
+        "visits": 12
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 8
+      },
+      {
+        "domain": "status.hubspot.com",
+        "visits": 4
+      },
+      {
+        "domain": "aistudio.google.com",
+        "visits": 3
+      },
+      {
+        "domain": "grok.com",
+        "visits": 1
+      },
+      {
+        "domain": "calendar.google.com",
+        "visits": 1
+      },
+      {
+        "domain": "developers.hubspot.com",
+        "visits": 1
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://ai.google.dev/",
+        "visits": 5
+      },
+      {
+        "page": "https://status.hubspot.com/",
+        "visits": 4
+      },
+      {
+        "page": "https://grok.com/c/7688d1b5-8e82-4a86-9373-d6a978b2b815",
+        "visits": 1
+      },
+      {
+        "page": "https://calendar.google.com/calendar/u/0/r/week",
+        "visits": 1
+      },
+      {
+        "page": "https://developers.hubspot.com/docs/api-reference/webhooks-webhooks-v3/guide",
+        "visits": 1
+      },
+      {
+        "page": "http://ai.google.dev/",
+        "visits": 1
+      },
+      {
+        "page": "https://ai.google.dev/oauth2authorize?return_url=https%3A%2F%2Fai.google.dev%2F&prompt=none&auto_signin=True&scopes=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdeveloperprofiles+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdeveloperprofiles.award",
+        "visits": 1
+      },
+      {
+        "page": "https://accounts.google.com/o/oauth2/v2/auth?client_id=157101835696-ooapojlodmuabs2do2vuhhnf90bccmoi.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fai.google.dev%2Foauth2callback&scope=openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdeveloperprofiles+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdeveloperprofiles.award+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgoogledevelopers+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&access_type=online&response_type=code&state=%7B%22csrf_token%22%3A+%22283ef697a2f9b8fa5017fb0fbfc3fa9d3051d9b0041e5fc343e11e8a5fe47977%22%2C+%22return_url%22%3A+%22https%3A%2F%2Fai.google.dev%2F%22%7D&prompt=none&auto_signin=True",
+        "visits": 1
+      },
+      {
+        "page": "https://ai.google.dev/oauth2callback?state=%7B%22csrf_token%22%3A+%22283ef697a2f9b8fa5017fb0fbfc3fa9d3051d9b0041e5fc343e11e8a5fe47977%22%2C+%22return_url%22%3A+%22https%3A%2F%2Fai.google.dev%2F%22%7D&error_subtype=access_denied&error=interaction_required",
+        "visits": 1
+      },
+      {
+        "page": "https://ai.google.dev/_d/signin?continue=https%3A%2F%2Fai.google.dev%2F&prompt=select_account",
+        "visits": 1
+      }
+    ]
+>>>>>>> Stashed changes
   }
 }

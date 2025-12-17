@@ -1,28 +1,32 @@
 {
   "date": "2025-12-16",
   "overview": {
-    "focus_time": "00:20",
+    "focus_time": "06:35",
     "meetings_time": "00:00",
     "appointments": 0,
-    "coverage_window": "10:36\u201310:56 CST"
+    "coverage_window": "08:01\u201323:05"
   },
   "debug_appointments": {
     "appointments_today": [],
     "meetings_today": []
   },
   "by_category": {
-    "Research": "00:09",
-    "Coding": "00:06",
-    "Communication": "00:04"
+    "Research": "05:53",
+    "Coding": "00:34",
+    "Communication": "00:04",
+    "Other": "00:08"
   },
   "by_project": {
     "physicaltherapybiz.com": "00:08",
     "AI Research": "00:00"
   },
   "top_apps": {
-    "Google Chrome": "00:09",
-    "Terminal": "00:06",
-    "Messages": "00:04"
+    "Google Chrome": "05:53",
+    "VS Code": "00:33",
+    "Messages": "00:06",
+    "Terminal": "00:01",
+    "Finder": "00:01",
+    "com.apple.VoiceMemos": "00:01"
   },
   "top_windows": {
     "Google Chrome \u2014 Disable Europe region deployment - Google Chrome - Jack (physicaltherapybiz.com)": "00:08",
@@ -36,34 +40,253 @@
   },
   "hourly_focus": [
     {
-      "hour": 10,
+      "hour": 0,
       "time": "00:20",
-      "pct": "33%"
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:37",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:44",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:30",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:40",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:22",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:23",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:30",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:24",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:07",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:45",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:39",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:01",
+      "pct": "0%"
     }
   ],
   "browser_highlights": {
     "top_domains": [
       {
+        "domain": "github.com",
+        "visits": 494
+      },
+      {
+        "domain": "app.hubspot.com",
+        "visits": 147
+      },
+      {
+        "domain": "dailyaccomplishments.up.railway.app",
+        "visits": 136
+      },
+      {
+        "domain": "railway.com",
+        "visits": 128
+      },
+      {
+        "domain": "mail.google.com",
+        "visits": 99
+      },
+      {
         "domain": "chatgpt.com",
-        "visits": 22
+        "visits": 72
+      },
+      {
+        "domain": "console.cloud.google.com",
+        "visits": 42
+      },
+      {
+        "domain": "facebook.com",
+        "visits": 25
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 21
+      },
+      {
+        "domain": "grok.com",
+        "visits": 14
       }
     ],
     "top_pages": [
       {
-        "domain": "chatgpt.com",
-        "title": "Disable Europe region deployment",
-        "visits": 18
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/actions/workflows/generate_reports.yml",
+        "visits": 49
       },
       {
-        "domain": "chatgpt.com",
-        "title": "Page Unresponsive",
-        "visits": 3
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 43
       },
       {
-        "domain": "chatgpt.com",
-        "title": "chatgpt.com",
-        "visits": 1
+        "page": "https://dailyaccomplishments.up.railway.app/",
+        "visits": 38
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/actions",
+        "visits": 38
+      },
+      {
+        "page": "https://mail.google.com/mail/u/0/#label/1%3A+to+respond",
+        "visits": 29
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 26
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34/settings?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 17
+      },
+      {
+        "page": "https://console.cloud.google.com/cloud-build/builds/f0131c40-44e7-4c16-a7ba-f396575c990d?project=activitytracker-480123",
+        "visits": 17
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments",
+        "visits": 13
+      },
+      {
+        "page": "https://chatgpt.com/c/69416b49-0b10-8325-ae03-e95e23d926fc",
+        "visits": 13
       }
     ]
-  }
+  },
+  "timeline": [],
+  "deep_work_blocks": [],
+  "deep_work": [
+    {
+      "start": "12:56",
+      "end": "14:08",
+      "minutes": 64,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "09:18",
+      "end": "10:16",
+      "minutes": 51,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "21:03",
+      "end": "21:40",
+      "minutes": 32,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "15:29",
+      "end": "16:05",
+      "minutes": 31,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "08:02",
+      "end": "08:39",
+      "minutes": 29,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "executive_summary": [
+    "Screen Time: ~566 min foreground app usage",
+    "Screen Time: ~582 min foreground app usage"
+  ]
 }

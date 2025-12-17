@@ -1,0 +1,580 @@
+{"type": "focus_change", "timestamp": "2025-12-13T00:00:00-06:00", "data": {"app": "Terminal", "duration_seconds": 10}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:00:10-06:00", "data": {"app": "Google Chrome", "duration_seconds": 65}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:15-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:18-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:21-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:23-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:26-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:27-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:30-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:31-06:00", "data": {"app": "Google Chrome", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:38-06:00", "data": {"app": "Terminal", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:01:45-06:00", "data": {"app": "Google Chrome", "duration_seconds": 85}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:10-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:16-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:19-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:22-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:25-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:28-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:30-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:35-06:00", "data": {"app": "Google Chrome", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:42-06:00", "data": {"app": "Terminal", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:03:51-06:00", "data": {"app": "Google Chrome", "duration_seconds": 78}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:05:09-06:00", "data": {"app": "Terminal", "duration_seconds": 17}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:05:26-06:00", "data": {"app": "Google Chrome", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:05:32-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:05:36-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:05:38-06:00", "data": {"app": "Terminal", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:05:46-06:00", "data": {"app": "Google Chrome", "duration_seconds": 64}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:06:50-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:06:53-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:06:56-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:06:58-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:07:03-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:07:05-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:07:07-06:00", "data": {"app": "Terminal", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:07:20-06:00", "data": {"app": "Google Chrome", "duration_seconds": 105}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:09:05-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:09:09-06:00", "data": {"app": "Google Chrome", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:09:15-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:09:19-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:09:23-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:09:26-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:09:29-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:09:34-06:00", "data": {"app": "Google Chrome", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:09:40-06:00", "data": {"app": "Terminal", "duration_seconds": 87}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:11:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 15}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:11:22-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:11:28-06:00", "data": {"app": "Google Chrome", "duration_seconds": 52}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:12:20-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:12:23-06:00", "data": {"app": "Google Chrome", "duration_seconds": 11}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:12:34-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:12:36-06:00", "data": {"app": "Google Chrome", "duration_seconds": 11}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:12:47-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:12:48-06:00", "data": {"app": "Google Chrome", "duration_seconds": 31}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:13:19-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:13:22-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:13:27-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:13:30-06:00", "data": {"app": "Google Chrome", "duration_seconds": 22}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:13:52-06:00", "data": {"app": "Terminal", "duration_seconds": 27}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:14:19-06:00", "data": {"app": "Google Chrome", "duration_seconds": 74}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:15:33-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:15:39-06:00", "data": {"app": "Google Chrome", "duration_seconds": 20}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:15:59-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:16:02-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:16:05-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:16:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:16:11-06:00", "data": {"app": "Terminal", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:16:20-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:16:22-06:00", "data": {"app": "Terminal", "duration_seconds": 14}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:16:36-06:00", "data": {"app": "Google Chrome", "duration_seconds": 86}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:18:02-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:18:06-06:00", "data": {"app": "Google Chrome", "duration_seconds": 23}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:18:29-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:18:33-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:18:36-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:18:39-06:00", "data": {"app": "Google Chrome", "duration_seconds": 15}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:18:54-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:18:57-06:00", "data": {"app": "Google Chrome", "duration_seconds": 28}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:19:25-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:19:27-06:00", "data": {"app": "Google Chrome", "duration_seconds": 10}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:19:37-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:19:40-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:19:43-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:19:46-06:00", "data": {"app": "Google Chrome", "duration_seconds": 16}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:20:02-06:00", "data": {"app": "System Settings", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:20:03-06:00", "data": {"app": "System Settings", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:20:05-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:20:09-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:20:13-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:20:16-06:00", "data": {"app": "Google Chrome", "duration_seconds": 30}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:20:46-06:00", "data": {"app": "Terminal", "duration_seconds": 23}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:21:09-06:00", "data": {"app": "Google Chrome", "duration_seconds": 83}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:22:32-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:22:37-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:22:42-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:22:44-06:00", "data": {"app": "Google Chrome", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:22:52-06:00", "data": {"app": "com.apple.AppStore", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:22:54-06:00", "data": {"app": "Google Chrome", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:22:55-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:22:57-06:00", "data": {"app": "Google Chrome", "duration_seconds": 19}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:23:16-06:00", "data": {"app": "Terminal", "duration_seconds": 18}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:23:34-06:00", "data": {"app": "Google Chrome", "duration_seconds": 196}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:26:50-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:26:55-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:27:00-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:27:03-06:00", "data": {"app": "Google Chrome", "duration_seconds": 21}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:27:24-06:00", "data": {"app": "Terminal", "duration_seconds": 21}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:27:45-06:00", "data": {"app": "Google Chrome", "duration_seconds": 64}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:28:49-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:28:53-06:00", "data": {"app": "Google Chrome", "duration_seconds": 15}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:29:08-06:00", "data": {"app": "Terminal", "duration_seconds": 19}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:29:27-06:00", "data": {"app": "Google Chrome", "duration_seconds": 95}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:31:02-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:31:08-06:00", "data": {"app": "Google Chrome", "duration_seconds": 145}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:33:33-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:33:37-06:00", "data": {"app": "Google Chrome", "duration_seconds": 10}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:33:47-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:33:53-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:33:55-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:34:01-06:00", "data": {"app": "Google Chrome", "duration_seconds": 53}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:34:54-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:34:59-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:01-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:20-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:23-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:27-06:00", "data": {"app": "Terminal", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:36-06:00", "data": {"app": "Google Chrome", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:45-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:47-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:49-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:50-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:53-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:35:55-06:00", "data": {"app": "Google Chrome", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:36:03-06:00", "data": {"app": "Terminal", "duration_seconds": 44}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:36:47-06:00", "data": {"app": "Google Chrome", "duration_seconds": 39}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:37:26-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:37:30-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:37:35-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:37:40-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:37:45-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:37:47-06:00", "data": {"app": "Google Chrome", "duration_seconds": 62}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:38:49-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:38:52-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:38:56-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:38:58-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:02-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:04-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:06-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:09-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:11-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:13-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:16-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:18-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:21-06:00", "data": {"app": "Terminal", "duration_seconds": 14}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:39:35-06:00", "data": {"app": "Google Chrome", "duration_seconds": 35}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:40:10-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:40:15-06:00", "data": {"app": "Google Chrome", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:40:21-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:40:26-06:00", "data": {"app": "Google Chrome", "duration_seconds": 75}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:41:41-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:41:45-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:41:49-06:00", "data": {"app": "Terminal", "duration_seconds": 11}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:42:00-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:42:04-06:00", "data": {"app": "Terminal", "duration_seconds": 72}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:43:16-06:00", "data": {"app": "Google Chrome", "duration_seconds": 28}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:43:44-06:00", "data": {"app": "Terminal", "duration_seconds": 25}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:44:09-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:44:11-06:00", "data": {"app": "Terminal", "duration_seconds": 12}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:44:23-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:44:28-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:44:33-06:00", "data": {"app": "Google Chrome", "duration_seconds": 25}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:44:58-06:00", "data": {"app": "Terminal", "duration_seconds": 14}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:45:12-06:00", "data": {"app": "Google Chrome", "duration_seconds": 23}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:45:35-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:45:40-06:00", "data": {"app": "Google Chrome", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:45:46-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:45:49-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:45:52-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:45:55-06:00", "data": {"app": "Google Chrome", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:45:56-06:00", "data": {"app": "Terminal", "duration_seconds": 19}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:46:15-06:00", "data": {"app": "Google Chrome", "duration_seconds": 14}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:46:29-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:46:35-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:46:39-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:46:43-06:00", "data": {"app": "Google Chrome", "duration_seconds": 20}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:47:03-06:00", "data": {"app": "Terminal", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:47:11-06:00", "data": {"app": "Google Chrome", "duration_seconds": 27}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:47:38-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:47:44-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:47:49-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:47:53-06:00", "data": {"app": "Google Chrome", "duration_seconds": 24}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:48:17-06:00", "data": {"app": "Terminal", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:48:26-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:48:31-06:00", "data": {"app": "Terminal", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:48:40-06:00", "data": {"app": "Google Chrome", "duration_seconds": 20}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:49:00-06:00", "data": {"app": "Terminal", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:49:08-06:00", "data": {"app": "Google Chrome", "duration_seconds": 22}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:49:30-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:49:36-06:00", "data": {"app": "Google Chrome", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:49:42-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:49:47-06:00", "data": {"app": "Google Chrome", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:49:54-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:49:57-06:00", "data": {"app": "Google Chrome", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:50:05-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:50:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:50:20-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:50:25-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:50:27-06:00", "data": {"app": "Terminal", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:50:35-06:00", "data": {"app": "Google Chrome", "duration_seconds": 12}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:50:47-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:50:48-06:00", "data": {"app": "Google Chrome", "duration_seconds": 24}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:51:12-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:51:16-06:00", "data": {"app": "Google Chrome", "duration_seconds": 62}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:52:18-06:00", "data": {"app": "Terminal", "duration_seconds": 39}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:52:57-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:53:00-06:00", "data": {"app": "Terminal", "duration_seconds": 15}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:53:15-06:00", "data": {"app": "Google Chrome", "duration_seconds": 126}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:55:21-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:55:22-06:00", "data": {"app": "System Settings", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:55:27-06:00", "data": {"app": "Google Chrome", "duration_seconds": 200}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:58:47-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:58:51-06:00", "data": {"app": "Google Chrome", "duration_seconds": 65}}
+{"type": "focus_change", "timestamp": "2025-12-13T00:59:56-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:00:02-06:00", "data": {"app": "Google Chrome", "duration_seconds": 101}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:01:43-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:01:47-06:00", "data": {"app": "Google Chrome", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:01:56-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:02:00-06:00", "data": {"app": "Google Chrome", "duration_seconds": 63}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:03:03-06:00", "data": {"app": "Terminal", "duration_seconds": 22}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:03:25-06:00", "data": {"app": "Google Chrome", "duration_seconds": 105}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:05:10-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:05:16-06:00", "data": {"app": "Google Chrome", "duration_seconds": 61}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:06:17-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:06:19-06:00", "data": {"app": "Google Chrome", "duration_seconds": 131}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:08:30-06:00", "data": {"app": "Terminal", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:08:43-06:00", "data": {"app": "Google Chrome", "duration_seconds": 178}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:11:41-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:11:47-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:11:52-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:11:55-06:00", "data": {"app": "Google Chrome", "duration_seconds": 218}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:15:33-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:15:39-06:00", "data": {"app": "Google Chrome", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:15:45-06:00", "data": {"app": "Terminal", "duration_seconds": 33}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:16:18-06:00", "data": {"app": "Google Chrome", "duration_seconds": 135}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:18:33-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:18:36-06:00", "data": {"app": "Google Chrome", "duration_seconds": 11}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:18:47-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:18:49-06:00", "data": {"app": "Google Chrome", "duration_seconds": 238}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:22:47-06:00", "data": {"app": "Terminal", "duration_seconds": 12}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:22:59-06:00", "data": {"app": "Google Chrome", "duration_seconds": 141}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:25:20-06:00", "data": {"app": "Terminal", "duration_seconds": 12}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:25:32-06:00", "data": {"app": "Google Chrome", "duration_seconds": 45}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:26:17-06:00", "data": {"app": "Terminal", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:26:24-06:00", "data": {"app": "Google Chrome", "duration_seconds": 58}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:27:22-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:27:25-06:00", "data": {"app": "Google Chrome", "duration_seconds": 46}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:28:11-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:28:14-06:00", "data": {"app": "Google Chrome", "duration_seconds": 34}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:28:48-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:28:53-06:00", "data": {"app": "Google Chrome", "duration_seconds": 17}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:29:10-06:00", "data": {"app": "Terminal", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:29:17-06:00", "data": {"app": "Google Chrome", "duration_seconds": 175}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:32:12-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:32:13-06:00", "data": {"app": "Google Chrome", "duration_seconds": 286}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:36:59-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:37:04-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:37:08-06:00", "data": {"app": "Terminal", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:37:16-06:00", "data": {"app": "Google Chrome", "duration_seconds": 209}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:40:45-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:40:50-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:40:55-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:40:59-06:00", "data": {"app": "Google Chrome", "duration_seconds": 125}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:43:04-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:43:09-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:43:14-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:43:19-06:00", "data": {"app": "Google Chrome", "duration_seconds": 65}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:44:24-06:00", "data": {"app": "Terminal", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:44:32-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:44:34-06:00", "data": {"app": "Terminal", "duration_seconds": 10}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:44:44-06:00", "data": {"app": "Google Chrome", "duration_seconds": 66}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:45:50-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T01:45:53-06:00", "data": {"app": "Google Chrome", "duration_seconds": 426}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:08:54-06:00", "data": {"app": "Google Chrome", "duration_seconds": 17}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:09:11-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:09:13-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:09:16-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:09:18-06:00", "data": {"app": "Google Chrome", "duration_seconds": 19}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:09:37-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:09:41-06:00", "data": {"app": "Google Chrome", "duration_seconds": 209}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:13:10-06:00", "data": {"app": "Terminal", "duration_seconds": 38}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:13:48-06:00", "data": {"app": "Google Chrome", "duration_seconds": 16}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:14:04-06:00", "data": {"app": "Terminal", "duration_seconds": 18}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:14:22-06:00", "data": {"app": "Google Chrome", "duration_seconds": 32}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:14:54-06:00", "data": {"app": "System Settings", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:14:55-06:00", "data": {"app": "Google Chrome", "duration_seconds": 101}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:16:36-06:00", "data": {"app": "Terminal", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:16:49-06:00", "data": {"app": "Google Chrome", "duration_seconds": 19}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:17:08-06:00", "data": {"app": "Terminal", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:17:14-06:00", "data": {"app": "Google Chrome", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T03:17:20-06:00", "data": {"app": "Terminal", "duration_seconds": 262}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:14:05-06:00", "data": {"app": "Terminal", "duration_seconds": 147}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:16:32-06:00", "data": {"app": "Google Chrome", "duration_seconds": 14}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:16:46-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:16:49-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:16:54-06:00", "data": {"app": "Terminal", "duration_seconds": 254}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:21:08-06:00", "data": {"app": "Google Chrome", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:21:21-06:00", "data": {"app": "Terminal", "duration_seconds": 122}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:23:23-06:00", "data": {"app": "Google Chrome", "duration_seconds": 117}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:25:20-06:00", "data": {"app": "Terminal", "duration_seconds": 117}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:27:17-06:00", "data": {"app": "Google Chrome", "duration_seconds": 15}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:27:32-06:00", "data": {"app": "Terminal", "duration_seconds": 23}}
+{"type": "focus_change", "timestamp": "2025-12-13T04:27:55-06:00", "data": {"app": "Google Chrome", "duration_seconds": 1171}}
+{"type": "focus_change", "timestamp": "2025-12-13T05:18:49-06:00", "data": {"app": "Google Chrome", "duration_seconds": 305}}
+{"type": "focus_change", "timestamp": "2025-12-13T09:49:02-06:00", "data": {"app": "Google Chrome", "duration_seconds": 22}}
+{"type": "focus_change", "timestamp": "2025-12-13T09:49:24-06:00", "data": {"app": "VS Code", "duration_seconds": 168}}
+{"type": "focus_change", "timestamp": "2025-12-13T09:52:12-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T09:52:17-06:00", "data": {"app": "VS Code", "duration_seconds": 328}}
+{"type": "focus_change", "timestamp": "2025-12-13T09:57:45-06:00", "data": {"app": "Finder", "duration_seconds": 15}}
+{"type": "focus_change", "timestamp": "2025-12-13T09:58:00-06:00", "data": {"app": "com.apple.Preview", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T09:58:05-06:00", "data": {"app": "VS Code", "duration_seconds": 41}}
+{"type": "focus_change", "timestamp": "2025-12-13T09:58:46-06:00", "data": {"app": "Google Chrome", "duration_seconds": 64}}
+{"type": "focus_change", "timestamp": "2025-12-13T09:59:50-06:00", "data": {"app": "VS Code", "duration_seconds": 66}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:00:56-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:01:00-06:00", "data": {"app": "VS Code", "duration_seconds": 109}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:02:49-06:00", "data": {"app": "Google Chrome", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:02:56-06:00", "data": {"app": "VS Code", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:02:58-06:00", "data": {"app": "Google Chrome", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:02:59-06:00", "data": {"app": "VS Code", "duration_seconds": 386}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:09:25-06:00", "data": {"app": "Google Chrome", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:09:31-06:00", "data": {"app": "VS Code", "duration_seconds": 85}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:10:56-06:00", "data": {"app": "Google Chrome", "duration_seconds": 168}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:13:44-06:00", "data": {"app": "VS Code", "duration_seconds": 100}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:15:24-06:00", "data": {"app": "Google Chrome", "duration_seconds": 37}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:16:01-06:00", "data": {"app": "VS Code", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:16:04-06:00", "data": {"app": "Google Chrome", "duration_seconds": 19}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:16:23-06:00", "data": {"app": "VS Code", "duration_seconds": 87}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:17:50-06:00", "data": {"app": "Google Chrome", "duration_seconds": 38}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:18:28-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:18:30-06:00", "data": {"app": "VS Code", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:18:32-06:00", "data": {"app": "com.google.antigravity", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:18:35-06:00", "data": {"app": "VS Code", "duration_seconds": 15}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:18:50-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:18:53-06:00", "data": {"app": "VS Code", "duration_seconds": 62}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:19:55-06:00", "data": {"app": "Google Chrome", "duration_seconds": 30}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:20:25-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:20:27-06:00", "data": {"app": "VS Code", "duration_seconds": 14}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:20:41-06:00", "data": {"app": "Google Chrome", "duration_seconds": 29}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:10-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:11-06:00", "data": {"app": "VS Code", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:16-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:20-06:00", "data": {"app": "VS Code", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:25-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:30-06:00", "data": {"app": "VS Code", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:33-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:36-06:00", "data": {"app": "VS Code", "duration_seconds": 11}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:47-06:00", "data": {"app": "Google Chrome", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:21:55-06:00", "data": {"app": "VS Code", "duration_seconds": 23}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:22:18-06:00", "data": {"app": "Google Chrome", "duration_seconds": 27}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:22:45-06:00", "data": {"app": "VS Code", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:22:53-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:22:55-06:00", "data": {"app": "VS Code", "duration_seconds": 10}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:23:05-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:23:08-06:00", "data": {"app": "VS Code", "duration_seconds": 57}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:24:05-06:00", "data": {"app": "Google Chrome", "duration_seconds": 80}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:25:25-06:00", "data": {"app": "VS Code", "duration_seconds": 120}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:27:25-06:00", "data": {"app": "Finder", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:27:33-06:00", "data": {"app": "Google Chrome", "duration_seconds": 20}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:27:53-06:00", "data": {"app": "VS Code", "duration_seconds": 30}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:28:23-06:00", "data": {"app": "Google Chrome", "duration_seconds": 22}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:28:45-06:00", "data": {"app": "VS Code", "duration_seconds": 445}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:36:10-06:00", "data": {"app": "Google Chrome", "duration_seconds": 453}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:43:43-06:00", "data": {"app": "VS Code", "duration_seconds": 132}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:45:55-06:00", "data": {"app": "Google Chrome", "duration_seconds": 18}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:46:13-06:00", "data": {"app": "VS Code", "duration_seconds": 148}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:48:41-06:00", "data": {"app": "Google Chrome", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:48:54-06:00", "data": {"app": "VS Code", "duration_seconds": 85}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:50:19-06:00", "data": {"app": "Finder", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T10:50:23-06:00", "data": {"app": "VS Code", "duration_seconds": 801}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:03:44-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:03:47-06:00", "data": {"app": "Finder", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:03:49-06:00", "data": {"app": "com.apple.Preview", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:04:02-06:00", "data": {"app": "VS Code", "duration_seconds": 546}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:13:08-06:00", "data": {"app": "Terminal", "duration_seconds": 33}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:13:41-06:00", "data": {"app": "Google Chrome", "duration_seconds": 25}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:14:06-06:00", "data": {"app": "VS Code", "duration_seconds": 43}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:14:49-06:00", "data": {"app": "Google Chrome", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:14:58-06:00", "data": {"app": "Terminal", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:15:01-06:00", "data": {"app": "VS Code", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:15:04-06:00", "data": {"app": "Google Chrome", "duration_seconds": 23}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:15:27-06:00", "data": {"app": "VS Code", "duration_seconds": 64}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:16:31-06:00", "data": {"app": "Google Chrome", "duration_seconds": 32}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:17:03-06:00", "data": {"app": "VS Code", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:17:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 24}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:17:31-06:00", "data": {"app": "VS Code", "duration_seconds": 450}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:25:01-06:00", "data": {"app": "Google Chrome", "duration_seconds": 40}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:25:41-06:00", "data": {"app": "VS Code", "duration_seconds": 206}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:29:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 145}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:31:32-06:00", "data": {"app": "VS Code", "duration_seconds": 208}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:35:00-06:00", "data": {"app": "Google Chrome", "duration_seconds": 41}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:35:41-06:00", "data": {"app": "VS Code", "duration_seconds": 24}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:36:05-06:00", "data": {"app": "Terminal", "duration_seconds": 17}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:36:22-06:00", "data": {"app": "VS Code", "duration_seconds": 19}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:36:41-06:00", "data": {"app": "Google Chrome", "duration_seconds": 22}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:37:03-06:00", "data": {"app": "VS Code", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:37:10-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:37:14-06:00", "data": {"app": "VS Code", "duration_seconds": 10}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:37:24-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:37:28-06:00", "data": {"app": "VS Code", "duration_seconds": 18}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:37:46-06:00", "data": {"app": "Google Chrome", "duration_seconds": 101}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:39:27-06:00", "data": {"app": "VS Code", "duration_seconds": 69}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:40:36-06:00", "data": {"app": "Google Chrome", "duration_seconds": 159}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:43:15-06:00", "data": {"app": "VS Code", "duration_seconds": 10}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:43:25-06:00", "data": {"app": "Google Chrome", "duration_seconds": 520}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:52:05-06:00", "data": {"app": "VS Code", "duration_seconds": 44}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:52:49-06:00", "data": {"app": "Google Chrome", "duration_seconds": 84}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:54:13-06:00", "data": {"app": "VS Code", "duration_seconds": 8}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:54:21-06:00", "data": {"app": "Google Chrome", "duration_seconds": 39}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:55:00-06:00", "data": {"app": "VS Code", "duration_seconds": 68}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:56:08-06:00", "data": {"app": "Google Chrome", "duration_seconds": 111}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:57:59-06:00", "data": {"app": "VS Code", "duration_seconds": 78}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:59:17-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:59:19-06:00", "data": {"app": "VS Code", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T11:59:24-06:00", "data": {"app": "Google Chrome", "duration_seconds": 181}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:02:25-06:00", "data": {"app": "VS Code", "duration_seconds": 54}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:03:19-06:00", "data": {"app": "Google Chrome", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:03:20-06:00", "data": {"app": "VS Code", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:03:24-06:00", "data": {"app": "Google Chrome", "duration_seconds": 25}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:03:49-06:00", "data": {"app": "VS Code", "duration_seconds": 20}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:04:09-06:00", "data": {"app": "Google Chrome", "duration_seconds": 10}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:04:19-06:00", "data": {"app": "VS Code", "duration_seconds": 16}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:04:35-06:00", "data": {"app": "Google Chrome", "duration_seconds": 478}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:12:33-06:00", "data": {"app": "VS Code", "duration_seconds": 29}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:13:02-06:00", "data": {"app": "Google Chrome", "duration_seconds": 224}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:16:46-06:00", "data": {"app": "VS Code", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:16:50-06:00", "data": {"app": "Google Chrome", "duration_seconds": 90}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:18:20-06:00", "data": {"app": "VS Code", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:18:21-06:00", "data": {"app": "com.apple.FaceTime", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:18:26-06:00", "data": {"app": "VS Code", "duration_seconds": 130}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:20:36-06:00", "data": {"app": "Google Chrome", "duration_seconds": 14}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:20:50-06:00", "data": {"app": "VS Code", "duration_seconds": 40}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:21:30-06:00", "data": {"app": "Google Chrome", "duration_seconds": 44}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:22:14-06:00", "data": {"app": "VS Code", "duration_seconds": 43}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:22:57-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:22:59-06:00", "data": {"app": "VS Code", "duration_seconds": 12}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:23:11-06:00", "data": {"app": "Messages", "duration_seconds": 17}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:23:28-06:00", "data": {"app": "Google Chrome", "duration_seconds": 517}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:32:05-06:00", "data": {"app": "VS Code", "duration_seconds": 178}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:35:03-06:00", "data": {"app": "Google Chrome", "duration_seconds": 413}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:41:56-06:00", "data": {"app": "VS Code", "duration_seconds": 129}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:44:05-06:00", "data": {"app": "Google Chrome", "duration_seconds": 44}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:44:49-06:00", "data": {"app": "VS Code", "duration_seconds": 48}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:45:37-06:00", "data": {"app": "Google Chrome", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:45:38-06:00", "data": {"app": "VS Code", "duration_seconds": 123}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:47:41-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:47:46-06:00", "data": {"app": "VS Code", "duration_seconds": 83}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:49:09-06:00", "data": {"app": "Terminal", "duration_seconds": 20}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:49:29-06:00", "data": {"app": "VS Code", "duration_seconds": 232}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:53:21-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:53:26-06:00", "data": {"app": "VS Code", "duration_seconds": 159}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:56:05-06:00", "data": {"app": "Google Chrome", "duration_seconds": 91}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:57:36-06:00", "data": {"app": "VS Code", "duration_seconds": 46}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:58:22-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:58:25-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:58:26-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T12:58:28-06:00", "data": {"app": "VS Code", "duration_seconds": 232}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:02:20-06:00", "data": {"app": "Google Chrome", "duration_seconds": 183}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:05:23-06:00", "data": {"app": "VS Code", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:05:32-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:05:34-06:00", "data": {"app": "VS Code", "duration_seconds": 27}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:06:01-06:00", "data": {"app": "Google Chrome", "duration_seconds": 196}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:09:17-06:00", "data": {"app": "VS Code", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:09:22-06:00", "data": {"app": "Google Chrome", "duration_seconds": 170}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:12:12-06:00", "data": {"app": "VS Code", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:12:13-06:00", "data": {"app": "Google Chrome", "duration_seconds": 150}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:14:43-06:00", "data": {"app": "VS Code", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:14:44-06:00", "data": {"app": "Google Chrome", "duration_seconds": 925}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:30:09-06:00", "data": {"app": "VS Code", "duration_seconds": 53}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:31:02-06:00", "data": {"app": "Google Chrome", "duration_seconds": 186}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:34:08-06:00", "data": {"app": "VS Code", "duration_seconds": 27}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:34:35-06:00", "data": {"app": "Google Chrome", "duration_seconds": 441}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:41:56-06:00", "data": {"app": "VS Code", "duration_seconds": 56}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:42:52-06:00", "data": {"app": "Google Chrome", "duration_seconds": 97}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:44:29-06:00", "data": {"app": "VS Code", "duration_seconds": 27}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:44:56-06:00", "data": {"app": "Google Chrome", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:45:00-06:00", "data": {"app": "VS Code", "duration_seconds": 29}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:45:29-06:00", "data": {"app": "Google Chrome", "duration_seconds": 28}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:45:57-06:00", "data": {"app": "VS Code", "duration_seconds": 201}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:49:18-06:00", "data": {"app": "Google Chrome", "duration_seconds": 168}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:52:06-06:00", "data": {"app": "VS Code", "duration_seconds": 57}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:53:03-06:00", "data": {"app": "Google Chrome", "duration_seconds": 236}}
+{"type": "focus_change", "timestamp": "2025-12-13T13:56:59-06:00", "data": {"app": "VS Code", "duration_seconds": 545}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:06:04-06:00", "data": {"app": "Google Chrome", "duration_seconds": 574}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:15:38-06:00", "data": {"app": "Google Chrome", "duration_seconds": 370}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:21:48-06:00", "data": {"app": "VS Code", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:21:51-06:00", "data": {"app": "Google Chrome", "duration_seconds": 24}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:22:15-06:00", "data": {"app": "VS Code", "duration_seconds": 9}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:22:24-06:00", "data": {"app": "Google Chrome", "duration_seconds": 79}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:23:43-06:00", "data": {"app": "VS Code", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:23:48-06:00", "data": {"app": "Google Chrome", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:23:53-06:00", "data": {"app": "VS Code", "duration_seconds": 285}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:28:38-06:00", "data": {"app": "com.facebook.archon.developerID", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:28:39-06:00", "data": {"app": "VS Code", "duration_seconds": 6}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:28:45-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:28:47-06:00", "data": {"app": "Messages", "duration_seconds": 26}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:29:13-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:29:14-06:00", "data": {"app": "Google Chrome", "duration_seconds": 19}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:29:33-06:00", "data": {"app": "VS Code", "duration_seconds": 476}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:37:29-06:00", "data": {"app": "Google Chrome", "duration_seconds": 252}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:41:41-06:00", "data": {"app": "VS Code", "duration_seconds": 86}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:43:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 475}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:51:02-06:00", "data": {"app": "Terminal", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T14:51:03-06:00", "data": {"app": "Google Chrome", "duration_seconds": 1437}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:15:00-06:00", "data": {"app": "com.apple.FaceTime", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:15:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 107}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:16:54-06:00", "data": {"app": "VS Code", "duration_seconds": 60}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:17:54-06:00", "data": {"app": "Google Chrome", "duration_seconds": 1878}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:49:12-06:00", "data": {"app": "VS Code", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:49:15-06:00", "data": {"app": "Terminal", "duration_seconds": 11}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:49:26-06:00", "data": {"app": "Google Chrome", "duration_seconds": 94}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:51:00-06:00", "data": {"app": "Terminal", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:51:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 69}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:52:16-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:52:18-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:52:20-06:00", "data": {"app": "Terminal", "duration_seconds": 68}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:53:28-06:00", "data": {"app": "Google Chrome", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:53:35-06:00", "data": {"app": "Terminal", "duration_seconds": 4}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:53:39-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:53:42-06:00", "data": {"app": "VS Code", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:53:55-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:54:00-06:00", "data": {"app": "Google Chrome", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:54:03-06:00", "data": {"app": "Terminal", "duration_seconds": 210}}
+{"type": "focus_change", "timestamp": "2025-12-13T15:57:33-06:00", "data": {"app": "Google Chrome", "duration_seconds": 159}}
+{"type": "focus_change", "timestamp": "2025-12-13T16:00:12-06:00", "data": {"app": "Terminal", "duration_seconds": 60}}
+{"type": "focus_change", "timestamp": "2025-12-13T16:01:12-06:00", "data": {"app": "Google Chrome", "duration_seconds": 1481}}
+{"type": "focus_change", "timestamp": "2025-12-13T16:25:53-06:00", "data": {"app": "VS Code", "duration_seconds": 96}}
+{"type": "focus_change", "timestamp": "2025-12-13T16:27:29-06:00", "data": {"app": "Google Chrome", "duration_seconds": 11}}
+{"type": "focus_change", "timestamp": "2025-12-13T16:27:40-06:00", "data": {"app": "VS Code", "duration_seconds": 1545}}
+{"type": "focus_change", "timestamp": "2025-12-13T16:54:39-06:00", "data": {"app": "VS Code", "duration_seconds": 252}}
+{"type": "focus_change", "timestamp": "2025-12-13T16:58:51-06:00", "data": {"app": "Google Chrome", "duration_seconds": 13}}
+{"type": "focus_change", "timestamp": "2025-12-13T16:59:04-06:00", "data": {"app": "VS Code", "duration_seconds": 442}}
+{"type": "focus_change", "timestamp": "2025-12-13T17:06:26-06:00", "data": {"app": "Google Chrome", "duration_seconds": 675}}
+{"type": "focus_change", "timestamp": "2025-12-13T17:52:36-06:00", "data": {"app": "Google Chrome", "duration_seconds": 144}}
+{"type": "focus_change", "timestamp": "2025-12-13T17:55:00-06:00", "data": {"app": "VS Code", "duration_seconds": 313}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:40:08-06:00", "data": {"app": "VS Code", "duration_seconds": 301}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:50:59-06:00", "data": {"app": "VS Code", "duration_seconds": 252}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:55:11-06:00", "data": {"app": "Google Chrome", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:55:18-06:00", "data": {"app": "VS Code", "duration_seconds": 20}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:55:38-06:00", "data": {"app": "Google Chrome", "duration_seconds": 42}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:56:20-06:00", "data": {"app": "Terminal", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:56:25-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:56:27-06:00", "data": {"app": "VS Code", "duration_seconds": 3}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:56:30-06:00", "data": {"app": "VS Code", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:56:31-06:00", "data": {"app": "Google Chrome", "duration_seconds": 141}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:58:52-06:00", "data": {"app": "Terminal", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T19:58:54-06:00", "data": {"app": "Google Chrome", "duration_seconds": 145}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:01:19-06:00", "data": {"app": "VS Code", "duration_seconds": 1}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:01:20-06:00", "data": {"app": "Google Chrome", "duration_seconds": 371}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:13:04-06:00", "data": {"app": "Google Chrome", "duration_seconds": 25}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:13:29-06:00", "data": {"app": "Messages", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:13:34-06:00", "data": {"app": "Google Chrome", "duration_seconds": 35}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:14:09-06:00", "data": {"app": "Messages", "duration_seconds": 5}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:14:14-06:00", "data": {"app": "Google Chrome", "duration_seconds": 316}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:24:15-06:00", "data": {"app": "Google Chrome", "duration_seconds": 985}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:40:40-06:00", "data": {"app": "VS Code", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:40:42-06:00", "data": {"app": "Google Chrome", "duration_seconds": 350}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:46:32-06:00", "data": {"app": "VS Code", "duration_seconds": 48}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:47:20-06:00", "data": {"app": "Google Chrome", "duration_seconds": 25}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:47:45-06:00", "data": {"app": "VS Code", "duration_seconds": 14}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:47:59-06:00", "data": {"app": "Google Chrome", "duration_seconds": 16}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:48:15-06:00", "data": {"app": "VS Code", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:48:22-06:00", "data": {"app": "Google Chrome", "duration_seconds": 17}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:48:39-06:00", "data": {"app": "VS Code", "duration_seconds": 179}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:51:38-06:00", "data": {"app": "Google Chrome", "duration_seconds": 7}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:51:45-06:00", "data": {"app": "VS Code", "duration_seconds": 34}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:52:19-06:00", "data": {"app": "Google Chrome", "duration_seconds": 2}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:52:21-06:00", "data": {"app": "VS Code", "duration_seconds": 46}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:53:07-06:00", "data": {"app": "Google Chrome", "duration_seconds": 45}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:53:52-06:00", "data": {"app": "VS Code", "duration_seconds": 11}}
+{"type": "focus_change", "timestamp": "2025-12-13T20:54:03-06:00", "data": {"app": "Google Chrome", "duration_seconds": 17}}

@@ -1,24 +1,108 @@
 {
-  "source_file": "ActivityReport-2025-12-15.json",
   "date": "2025-12-15",
-  "title": "Daily Accomplishments \u2014 2025-12-15",
   "overview": {
-    "focus_time": "07:49",
-    "coverage_window": "00:00\u201317:33"
-  },
-  "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
+    "focus_time": "09:31",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0,
+    "coverage_window": "00:00\u201323:53",
+    "active_time": "00:43"
   },
   "by_category": {
-    "Research": "03:39",
-    "Coding": "03:55",
-    "Other": "00:15"
+    "Coding": "04:08",
+    "Research": "04:13",
+    "Other": "01:10"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 602
+      },
+      {
+        "domain": "dailyaccomplishments.up.railway.app",
+        "visits": 316
+      },
+      {
+        "domain": "console.cloud.google.com",
+        "visits": 177
+      },
+      {
+        "domain": "amazon.com",
+        "visits": 98
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 71
+      },
+      {
+        "domain": "app.hubspot.com",
+        "visits": 71
+      },
+      {
+        "domain": "railway.com",
+        "visits": 69
+      },
+      {
+        "domain": "grok.com",
+        "visits": 48
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 32
+      },
+      {
+        "domain": "npmjs.com",
+        "visits": 18
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://dailyaccomplishments.up.railway.app/",
+        "visits": 81
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 62
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/91",
+        "visits": 18
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 14
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/90/commits",
+        "visits": 13
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34/settings?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 13
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls?q=is%3Apr+is%3Aclosed",
+        "visits": 12
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/91/changes/8dc661e578dddef4a277eead0e604c8545555c32",
+        "visits": 12
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/77",
+        "visits": 10
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/actions",
+        "visits": 10
+      }
+    ]
   },
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:44",
+      "time": "00:45",
       "pct": "0%"
     },
     {
@@ -103,12 +187,12 @@
     },
     {
       "hour": 17,
-      "time": "00:24",
+      "time": "00:40",
       "pct": "0%"
     },
     {
       "hour": 18,
-      "time": "00:00",
+      "time": "00:03",
       "pct": "0%"
     },
     {
@@ -123,27 +207,301 @@
     },
     {
       "hour": 21,
-      "time": "00:00",
+      "time": "00:10",
       "pct": "0%"
     },
     {
       "hour": 22,
-      "time": "00:00",
+      "time": "00:33",
       "pct": "0%"
     },
     {
       "hour": 23,
-      "time": "00:00",
+      "time": "00:40",
       "pct": "0%"
     }
   ],
-  "timeline": [],
+  "timeline": [
+    {
+      "start": "00:00",
+      "end": "00:00",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:00",
+      "end": "00:01",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:01",
+      "end": "00:03",
+      "seconds": 102,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:03",
+      "end": "00:04",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:04",
+      "end": "00:05",
+      "seconds": 66,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:05",
+      "end": "00:05",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:05",
+      "end": "00:07",
+      "seconds": 114,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:07",
+      "end": "00:07",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:07",
+      "end": "00:07",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:07",
+      "end": "00:08",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:08",
+      "end": "00:10",
+      "seconds": 132,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:10",
+      "end": "00:10",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:13",
+      "end": "00:13",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:13",
+      "end": "00:14",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:14",
+      "end": "00:15",
+      "seconds": 36,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:15",
+      "end": "00:15",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:15",
+      "end": "00:15",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:15",
+      "end": "00:16",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:19",
+      "end": "00:19",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:21",
+      "end": "00:26",
+      "seconds": 294,
+      "minutes": 4,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:26",
+      "end": "00:26",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:26",
+      "end": "00:26",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:26",
+      "end": "00:27",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:27",
+      "end": "00:27",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:28",
+      "end": "00:28",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Electron"
+    },
+    {
+      "start": "00:28",
+      "end": "00:28",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:28",
+      "end": "00:29",
+      "seconds": 48,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:34",
+      "end": "00:35",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Coding",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:35",
+      "end": "00:36",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Coding",
+      "app": "Terminal"
+    }
+  ],
   "deep_work_blocks": [],
   "top_apps": {
-    "Google Chrome": "03:39",
-    "VS Code": "03:27",
-    "Terminal": "00:28",
-    "Finder": "00:15"
+    "Google Chrome": "04:13",
+    "VS Code": "03:36",
+    "Messages": "00:38",
+    "Terminal": "00:32",
+    "Finder": "00:32"
   },
   "deep_work": [
     {
@@ -190,25 +548,6 @@
     }
   ],
   "executive_summary": [
-    "Active: 00:00 | Focus: 07:31",
-    "Coverage: 00:00\u201317:07 CST",
-    "Screen Time: ~117 min foreground app usage",
-    "Screen Time: ~179 min foreground app usage",
-    "Screen Time: ~249 min foreground app usage",
-    "Screen Time: ~320 min foreground app usage",
-    "Screen Time: ~354 min foreground app usage",
-    "Screen Time: ~389 min foreground app usage",
-    "Screen Time: ~419 min foreground app usage",
-    "Screen Time: ~463 min foreground app usage",
-    "Screen Time: ~509 min foreground app usage",
-    "Screen Time: ~540 min foreground app usage",
-    "Screen Time: ~567 min foreground app usage",
-    "Screen Time: ~593 min foreground app usage"
-  ],
-  "prepared_for_manager": [
-    "Active Time: 00:00",
-    "Focus Time: 07:31",
-    "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, VS Code, Terminal"
+    "Screen Time: ~763 min foreground app usage"
   ]
 }

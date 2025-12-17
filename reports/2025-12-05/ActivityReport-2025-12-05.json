@@ -1,115 +1,32 @@
 {
-  "source_file": "ActivityReport-2025-12-05.json",
   "date": "2025-12-05",
-  "title": "Daily Accomplishments \u2014 2025-12-05",
   "overview": {
-    "active_time": "03:10",
-    "focus_time": "08:56",
+    "focus_time": "10:44",
     "meetings_time": "00:00",
-    "coverage_time": "23:48",
-    "coverage_window": "00:00\u201323:49",
     "appointments": 0,
-    "projects_count": 5
+    "coverage_window": "01:22\u201300:00"
   },
-  "prepared_for_manager": [
-    "Active Time: 03:10",
-    "Focus Time: 03:10",
-    "Meeting Time: 00:00",
-    "Top Apps: Google Chrome, Terminal, Electron"
-  ],
-  "executive_summary": [
-    "Active: 03:10 | Focus: 03:10",
-    "Coverage: 00:00\u201323:49 CST",
-    "Screen Time: ~1731 min foreground app usage"
-  ],
-  "accomplishments_today": [
-    "Focused on Google Chrome (02:18)",
-    "Focused on Terminal (00:47)",
-    "Focused on Electron (00:01)",
-    "Focused on Messages (00:00)",
-    "Focused on TextEdit (00:00)"
-  ],
+  "debug_appointments": {
+    "appointments_today": [],
+    "meetings_today": []
+  },
   "by_category": {
-    "Research": "08:06",
-    "Coding": "01:15",
-    "Other": "00:02",
-    "Communication": "00:00",
-    "Email/CRM": "00:00"
+    "Research": "09:54",
+    "Coding": "00:49",
+    "Other": "00:01"
   },
-  "browser_highlights": {
-    "top_domains": [
-      {
-        "domain": "jack (physicaltherapybiz.com)",
-        "visits": 1442
-      },
-      {
-        "domain": "circle.so",
-        "visits": 3
-      },
-      {
-        "domain": "physicaltherapybiz.com",
-        "visits": 2
-      },
-      {
-        "domain": "app.hubspot",
-        "visits": 1
-      },
-      {
-        "domain": "www.kaggle",
-        "visits": 1
-      },
-      {
-        "domain": "console.cloud",
-        "visits": 1
-      }
-    ],
-    "top_pages": [
-      {
-        "page": "Troubleshooting Directory Navigation Git - Grok - Google Chrome - Jack (physical",
-        "visits": 210
-      },
-      {
-        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 208
-      },
-      {
-        "page": "Exit Vim editor - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 133
-      },
-      {
-        "page": "Google Gemini - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 99
-      },
-      {
-        "page": "Code - Grok - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 92
-      },
-      {
-        "page": "Git Rebase Stability Fixes - Grok - Google Chrome - Jack (physicaltherapybiz.com",
-        "visits": 85
-      },
-      {
-        "page": "DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual Studio Code - Google C",
-        "visits": 84
-      },
-      {
-        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 61
-      },
-      {
-        "page": "Untitled prompt - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
-        "visits": 45
-      },
-      {
-        "page": "validate-reports.yml \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014 Visual",
-        "visits": 37
-      }
-    ]
+  "by_project": {},
+  "top_apps": {
+    "Google Chrome": "09:54",
+    "Terminal": "00:45",
+    "VS Code": "00:04",
+    "Finder": "00:01"
   },
+  "top_windows": {},
   "hourly_focus": [
     {
       "hour": 0,
-      "time": "00:03",
+      "time": "00:00",
       "pct": "0%"
     },
     {
@@ -169,7 +86,7 @@
     },
     {
       "hour": 12,
-      "time": "00:20",
+      "time": "00:13",
       "pct": "0%"
     },
     {
@@ -214,44 +131,120 @@
     },
     {
       "hour": 21,
-      "time": "00:00",
+      "time": "00:05",
       "pct": "0%"
     },
     {
       "hour": 22,
-      "time": "00:06",
+      "time": "00:45",
       "pct": "0%"
     },
     {
       "hour": 23,
-      "time": "00:07",
+      "time": "00:58",
       "pct": "0%"
     }
   ],
-  "top_apps": {
-    "Google Chrome": "08:06",
-    "Terminal": "00:45",
-    "VS Code": "00:04",
-    "Finder": "00:01"
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "dailyaccomplishments-production.up.railway.app",
+        "visits": 1701
+      },
+      {
+        "domain": "grok.com",
+        "visits": 670
+      },
+      {
+        "domain": "app.hubspot.com",
+        "visits": 318
+      },
+      {
+        "domain": "colab.research.google.com",
+        "visits": 59
+      },
+      {
+        "domain": "github.com",
+        "visits": 28
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 27
+      },
+      {
+        "domain": "railway.com",
+        "visits": 24
+      },
+      {
+        "domain": "localhost:8001",
+        "visits": 24
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 21
+      },
+      {
+        "domain": "gemini.google.com",
+        "visits": 20
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/dashboard",
+        "visits": 773
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/?date=2025-12-04",
+        "visits": 40
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/?date=2025-12-05",
+        "visits": 35
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/?date=2025-12-03",
+        "visits": 25
+      },
+      {
+        "page": "https://app.hubspot.com/prospecting-agent-ui/22001532/assignments",
+        "visits": 25
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/?date=2025-12-02",
+        "visits": 19
+      },
+      {
+        "page": "https://app.hubspot.com/prospecting-agent-ui/22001532/settings/100325376/description",
+        "visits": 17
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/",
+        "visits": 13
+      },
+      {
+        "page": "https://fluffy-winner-jjvjjqww4x6rhqqjg.github.dev/",
+        "visits": 13
+      },
+      {
+        "page": "https://app.hubspot.com/prospecting-agent-ui/22001532/overview",
+        "visits": 11
+      }
+    ]
   },
-  "top_windows_preview": [
-    "Google Chrome \u2014 Troubleshooting Directory Navigation Git - Grok - : 00:17",
-    "Google Chrome \u2014 DailyAccomplishments - Colab - Google Chrome - Jac: 00:17",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d72: 00:13",
-    "Terminal \u2014 DailyAccomplishments \u2014 iChatDockTile \u2014 -zsh \u2014 102\u00d7: 00:11",
-    "Google Chrome \u2014 Exit Vim editor - Google Chrome - Jack (physicalth: 00:11",
-    "Google Chrome \u2014 Google Gemini - Google Chrome - Jack (physicalther: 00:08",
-    "Google Chrome \u2014 Code - Grok - Google Chrome - Jack (physicaltherap: 00:07",
-    "Google Chrome \u2014 Git Rebase Stability Fixes - Grok - Google Chrome : 00:07",
-    "Google Chrome \u2014 DailyAccomplishments [Codespaces: fluffy winner] \u2014: 00:06",
-    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:05"
-  ],
-  "foot": "Auto-generated (Redesign v1)",
+  "timeline": [],
+  "deep_work_blocks": [],
   "deep_work": [
     {
       "start": "16:50",
       "end": "19:17",
       "minutes": 137,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "22:14",
+      "end": "23:19",
+      "minutes": 64,
       "category": "Research",
       "label": "Google Chrome"
     },
@@ -277,6 +270,13 @@
       "label": "Google Chrome"
     },
     {
+      "start": "23:20",
+      "end": "00:00",
+      "minutes": 39,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
       "start": "20:04",
       "end": "20:41",
       "minutes": 36,
@@ -289,18 +289,9 @@
       "minutes": 33,
       "category": "Research",
       "label": "Google Chrome"
-    },
-    {
-      "start": "14:02",
-      "end": "14:36",
-      "minutes": 32,
-      "category": "Research",
-      "label": "Google Chrome"
     }
   ],
-  "debug_appointments": {
-    "meetings_today": []
-  },
-  "timeline": [],
-  "deep_work_blocks": []
+  "executive_summary": [
+    "Screen Time: ~886 min foreground app usage"
+  ]
 }

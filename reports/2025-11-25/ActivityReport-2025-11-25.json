@@ -1,7 +1,4 @@
 {
-  "by_category": {
-    "Research": "00:38"
-  },
   "date": "2025-11-25",
   "debug_appointments": {
     "meetings_today": [
@@ -11,154 +8,254 @@
       }
     ]
   },
-  "deep_work": [
-    {
-      "category": "Research",
-      "end": "09:13",
-      "label": "Google Chrome",
-      "minutes": 29,
-      "start": "08:44"
-    }
-  ],
-  "deep_work_blocks": [],
-  "executive_summary": [
-    "Screen Time: ~43 min foreground app usage"
-  ],
+  "by_category": {
+    "Research": "00:38"
+  },
   "hourly_focus": [
     {
       "hour": 0,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 1,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 2,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 3,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 4,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 5,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 6,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 7,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 8,
-      "pct": "0%",
-      "time": "00:15"
+      "time": "00:15",
+      "pct": "0%"
     },
     {
       "hour": 9,
-      "pct": "0%",
-      "time": "00:23"
+      "time": "00:23",
+      "pct": "0%"
     },
     {
       "hour": 10,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 11,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 12,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 13,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 14,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 15,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 16,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 17,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 18,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 19,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 20,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 21,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 22,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
     },
     {
       "hour": 23,
-      "pct": "0%",
-      "time": "00:00"
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "00:38"
+  },
+  "deep_work": [
+    {
+      "start": "08:44",
+      "end": "09:13",
+      "minutes": 29,
+      "category": "Research",
+      "label": "Google Chrome"
     }
   ],
   "overview": {
+<<<<<<< Updated upstream
     "coverage_window": "08:44–09:24",
     "focus_time": "00:38",
     "meetings_time": "00:00",
     "appointments": 0,
     "projects_count": 0
+=======
+    "focus_time": "00:38",
+    "coverage_window": "08:44\u201309:24"
+>>>>>>> Stashed changes
   },
+  "executive_summary": [
+    "Screen Time: ~43 min foreground app usage",
+    "Screen Time: ~41 min foreground app usage"
+  ],
   "timeline": [],
+<<<<<<< Updated upstream
   "top_apps": {
     "Google Chrome": "00:38"
   },
   "browser_highlights": {
     "top_domains": [],
     "top_pages": []
+=======
+  "deep_work_blocks": [],
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "youtube.com",
+        "visits": 10
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 9
+      },
+      {
+        "domain": "docs.google.com",
+        "visits": 7
+      },
+      {
+        "domain": "grok.com",
+        "visits": 6
+      },
+      {
+        "domain": "calendar.google.com",
+        "visits": 5
+      },
+      {
+        "domain": "app.aloware.com",
+        "visits": 4
+      },
+      {
+        "domain": "mail.google.com",
+        "visits": 4
+      },
+      {
+        "domain": "status.hubspot.com",
+        "visits": 3
+      },
+      {
+        "domain": "aloware.com",
+        "visits": 2
+      },
+      {
+        "domain": "google.com",
+        "visits": 1
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://grok.com/c/7688d1b5-8e82-4a86-9373-d6a978b2b815",
+        "visits": 4
+      },
+      {
+        "page": "https://status.hubspot.com/",
+        "visits": 3
+      },
+      {
+        "page": "https://grok.com/c/81af855d-1869-48ae-ae80-89995101f67c",
+        "visits": 2
+      },
+      {
+        "page": "https://app.slack.com/client/TJ3QQ76KV/activity",
+        "visits": 2
+      },
+      {
+        "page": "https://calendar.google.com/calendar/u/0/r",
+        "visits": 2
+      },
+      {
+        "page": "https://www.youtube.com/",
+        "visits": 2
+      },
+      {
+        "page": "https://mail.google.com/mail/u/0/#inbox",
+        "visits": 2
+      },
+      {
+        "page": "https://mail.google.com/mail/u/0/#all/FMfcgzQcqQzRBDnRqGkgZTgZJZBwqhhP",
+        "visits": 2
+      },
+      {
+        "page": "https://app.slack.com/client/TJ3QQ76KV/C04S0EC61T7",
+        "visits": 1
+      },
+      {
+        "page": "https://app.slack.com/client/TJ3QQ76KV/D09QHFY6ZRQ",
+        "visits": 1
+      }
+    ]
+>>>>>>> Stashed changes
   }
 }
