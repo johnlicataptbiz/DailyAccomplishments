@@ -8,6 +8,13 @@ mkdir -p "$OUT_DIR"
 if [ -f "$REPO_ROOT/ActivityReport-$DATE.json" ]; then
   cp -f "$REPO_ROOT/ActivityReport-$DATE.json" "$OUT_DIR/"
 fi
+
+# Normalize archived report JSON to match repo schema requirements, especially for
+# historical/legacy reports that may not include newer fields.
+if [ -f "$OUT_DIR/ActivityReport-$DATE.json" ] && [ -f "$REPO_ROOT/.github/scripts/fix_old_reports.py" ]; then
+  python3 "$REPO_ROOT/.github/scripts/fix_old_reports.py" "$DATE" >/dev/null || true
+fi
+
 # Ensure dated CSVs exist and copy
 for f in hourly_focus.csv category_distribution.csv top_domains.csv; do
   base="${f%.*}"; ext="${f##*.}"
