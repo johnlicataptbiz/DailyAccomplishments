@@ -57,5 +57,4 @@ if [ ! -f "${SITE_DIR}/index.html" ]; then
 fi
 
 echo "Serving ${ROOT_DIR}/${SITE_DIR} on 0.0.0.0:${PORT}"
-cd "${SITE_DIR}"
 exec python3 "${ROOT_DIR}/server.py"
