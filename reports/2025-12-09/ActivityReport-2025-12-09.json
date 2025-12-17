@@ -144,19 +144,6 @@
       "pct": "0%"
     }
   ],
-<<<<<<< Updated upstream
-  "overview": {
-    "appointments": 0,
-    "coverage_window": "—",
-    "focus_time": "00:00",
-    "meetings_time": "00:00",
-    "projects_count": 0
-  },
-  "timeline": [],
-  "top_apps": {},
-  "top_windows": {}
-}
-=======
   "browser_highlights": {
     "top_domains": [
       {
@@ -307,4 +294,3 @@
     "Screen Time: ~714 min foreground app usage"
   ]
 }
->>>>>>> Stashed changes

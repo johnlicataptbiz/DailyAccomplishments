@@ -77,7 +77,7 @@ jobs:
             for p in logs/daily/*.jsonl; do
               d=$(basename "$p" .jsonl)
               echo "Generating reports for date: $d"
-              python3 tools/generate_reports.py "$d"
+              python3 scripts/generate_daily_json.py "$d"
               generated_any=1
             done
           elif [ -f "scripts/generate_daily_json.py" ]; then

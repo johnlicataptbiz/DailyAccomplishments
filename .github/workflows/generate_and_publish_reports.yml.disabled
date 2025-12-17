@@ -32,7 +32,7 @@ jobs:
             [ -e "$p" ] || continue
             d=$(basename "$p" .jsonl)
             echo "Generating reports for $d"
-            python3 tools/generate_reports.py "$d"
+            python3 scripts/generate_daily_json.py "$d"
           done
 
       - name: Publish reports to reports-gh-pages
