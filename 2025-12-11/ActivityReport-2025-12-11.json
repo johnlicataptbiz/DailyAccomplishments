@@ -39,7 +39,7 @@
         "visits": 24
       },
       {
-        "page": "Vertex AI \u2013 ActivityTracker \u2013 Google Cloud console - Google Chrome - Jack (physi",
+        "page": "Vertex AI – ActivityTracker – Google Cloud console - Google Chrome - Jack (physi",
         "visits": 20
       },
       {
@@ -111,7 +111,7 @@
   "deep_work_blocks": [],
   "executive_summary": [
     "Active: 02:08 | Focus: 02:08",
-    "Coverage: 07:54\u201321:46 CST",
+    "Coverage: 07:54–21:46 CST",
     "Screen Time: ~981 min foreground app usage"
   ],
   "foot": "Auto-generated (Redesign v1)",
@@ -241,7 +241,7 @@
     "active_time": "02:08",
     "appointments": 0,
     "coverage_time": "13:51",
-    "coverage_window": "07:54\u201321:46",
+    "coverage_window": "07:54–21:46",
     "focus_time": "07:04",
     "meetings_time": "00:00",
     "projects_count": 5
@@ -254,7 +254,7 @@
   ],
   "source_file": "ActivityReport-2025-12-11.json",
   "timeline": [],
-  "title": "Daily Accomplishments \u2014 2025-12-11",
+  "title": "Daily Accomplishments — 2025-12-11",
   "top_apps": {
     "Finder": "00:01",
     "Google Chrome": "03:59",
@@ -264,14 +264,14 @@
   },
   "top_windows_preview": [
     "Google Chrome: 00:08",
-    "Google Chrome \u2014 ChatGPT - Lead Replies - Google Chrome - Jack (phy: 00:04",
-    "Electron \u2014 csswrapped: 00:04",
-    "Electron \u2014 generate-copy.js \u2014 ai-slot-scout: 00:03",
-    "Terminal \u2014 ai-slot-scout \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:03",
-    "Google Chrome \u2014 Extensions - Google Chrome - Jack (physicaltherapy: 00:02",
-    "Electron \u2014 ai-slot-scout: 00:02",
-    "Google Chrome \u2014 DevTools - chrome-extension://bcaaodnameedffgfnced: 00:02",
-    "Google Chrome \u2014 Lead Generation and Follow-Up Strategies - Grok - : 00:02",
-    "Electron \u2014 index.html \u2014 ai-slot-scout: 00:02"
+    "Google Chrome — ChatGPT - Lead Replies - Google Chrome - Jack (phy: 00:04",
+    "Electron — csswrapped: 00:04",
+    "Electron — generate-copy.js — ai-slot-scout: 00:03",
+    "Terminal — ai-slot-scout — iChatDockTile — -zsh — 80×24: 00:03",
+    "Google Chrome — Extensions - Google Chrome - Jack (physicaltherapy: 00:02",
+    "Electron — ai-slot-scout: 00:02",
+    "Google Chrome — DevTools - chrome-extension://bcaaodnameedffgfnced: 00:02",
+    "Google Chrome — Lead Generation and Follow-Up Strategies - Grok - : 00:02",
+    "Electron — index.html — ai-slot-scout: 00:02"
   ]
 }

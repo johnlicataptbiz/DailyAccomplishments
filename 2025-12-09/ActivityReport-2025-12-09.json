@@ -1,34 +1,21 @@
 {
-  "by_category": {
-    "Research": "00:38"
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
   },
-  "date": "2025-11-25",
+  "by_category": {},
+  "by_project": {},
+  "date": "2025-12-09",
   "debug_appointments": {
-    "meetings_today": [
-      {
-        "name": "Meeting",
-        "time": "08:45\u201309:00"
-      }
-    ]
+    "appointments_today": [],
+    "meetings_today": []
   },
-  "deep_work": [
-    {
-      "category": "Research",
-      "end": "09:13",
-      "label": "Google Chrome",
-      "minutes": 29,
-      "start": "08:44"
-    }
-  ],
   "deep_work_blocks": [],
-  "executive_summary": [
-    "Screen Time: ~43 min foreground app usage"
-  ],
   "hourly_focus": [
     {
       "hour": 0,
       "pct": "0%",
-      "time": "00:00"
+      "time": "00:20"
     },
     {
       "hour": 1,
@@ -68,47 +55,47 @@
     {
       "hour": 8,
       "pct": "0%",
-      "time": "00:15"
+      "time": "00:37"
     },
     {
       "hour": 9,
       "pct": "0%",
-      "time": "00:23"
+      "time": "00:44"
     },
     {
       "hour": 10,
       "pct": "0%",
-      "time": "00:00"
+      "time": "00:30"
     },
     {
       "hour": 11,
       "pct": "0%",
-      "time": "00:00"
+      "time": "00:40"
     },
     {
       "hour": 12,
       "pct": "0%",
-      "time": "00:00"
+      "time": "00:22"
     },
     {
       "hour": 13,
       "pct": "0%",
-      "time": "00:00"
+      "time": "00:53"
     },
     {
       "hour": 14,
       "pct": "0%",
-      "time": "00:00"
+      "time": "00:23"
     },
     {
       "hour": 15,
       "pct": "0%",
-      "time": "00:00"
+      "time": "00:30"
     },
     {
       "hour": 16,
       "pct": "0%",
-      "time": "00:00"
+      "time": "00:04"
     },
     {
       "hour": 17,
@@ -147,11 +134,13 @@
     }
   ],
   "overview": {
-    "coverage_window": "08:44\u201309:24",
-    "focus_time": "00:38"
+    "appointments": 0,
+    "coverage_window": "—",
+    "focus_time": "00:00",
+    "meetings_time": "00:00",
+    "projects_count": 0
   },
   "timeline": [],
-  "top_apps": {
-    "Google Chrome": "00:38"
-  }
+  "top_apps": {},
+  "top_windows": {}
 }
