@@ -4,23 +4,21 @@ set -eu
 ROOT_DIR="$(pwd)"
 SITE_DIR="${SITE_DIR:-site}"
 PORT="${PORT:-8000}"
+FRONTEND_DIST="${ROOT_DIR}/frontend/dist"
 
+rm -rf "${SITE_DIR}"
 mkdir -p "${SITE_DIR}"
 
-# Always serve a single, consistent web root that contains:
-# - dashboard.html
-# - config.json
-# - reports/ (symlinked)
-# - ActivityReport-*.json (symlinked, if present)
+if [ -d "${FRONTEND_DIST}" ]; then
+  echo "Copying React build from ${FRONTEND_DIST}"
+  cp -R "${FRONTEND_DIST}/". "${SITE_DIR}/"
+fi
 
-rm -f "${SITE_DIR}/dashboard.html"
+# Keep legacy dashboard available if present
 if [ -f "${ROOT_DIR}/gh-pages/dashboard.html" ]; then
   cp -f "${ROOT_DIR}/gh-pages/dashboard.html" "${SITE_DIR}/dashboard.html"
 elif [ -f "${ROOT_DIR}/dashboard.html" ]; then
   cp -f "${ROOT_DIR}/dashboard.html" "${SITE_DIR}/dashboard.html"
-else
-  echo "ERROR: dashboard.html not found (expected gh-pages/dashboard.html or dashboard.html in ${ROOT_DIR})" >&2
-  exit 1
 fi
 
 if [ -f "${ROOT_DIR}/config.json" ]; then
@@ -45,8 +43,17 @@ if [ -f "${ROOT_DIR}/favicon.ico" ]; then
   rm -f "${SITE_DIR}/favicon.ico"
   ln -s "${ROOT_DIR}/favicon.ico" "${SITE_DIR}/favicon.ico"
 fi
-if [ -f "${ROOT_DIR}/index.html" ]; then
-  cp -f "${ROOT_DIR}/index.html" "${SITE_DIR}/index.html"
+
+# Ensure an index.html exists for Flask to serve
+if [ ! -f "${SITE_DIR}/index.html" ]; then
+  if [ -f "${ROOT_DIR}/index.html" ]; then
+    cp -f "${ROOT_DIR}/index.html" "${SITE_DIR}/index.html"
+  elif [ -f "${SITE_DIR}/dashboard.html" ]; then
+    cp -f "${SITE_DIR}/dashboard.html" "${SITE_DIR}/index.html"
+  else
+    echo "ERROR: No index.html available for serving" >&2
+    exit 1
+  fi
 fi
 
 echo "Serving ${ROOT_DIR}/${SITE_DIR} on 0.0.0.0:${PORT}"

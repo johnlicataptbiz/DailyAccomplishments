@@ -1,7 +1,14 @@
 # syntax=docker/dockerfile:1
-# Highly specific Dockerfile for DailyAccomplishments
+# Multi-stage Dockerfile for DailyAccomplishments with React build + Flask static serving
 
-FROM python:3.12-slim
+FROM node:18-bookworm AS frontend-build
+WORKDIR /app/frontend
+COPY frontend/package*.json ./
+RUN npm ci
+COPY frontend/ ./
+RUN npm run build
+
+FROM python:3.12-slim AS runtime
 
 # Install system dependencies for matplotlib and Pillow
 RUN apt-get update && \
@@ -18,10 +25,9 @@ RUN apt-get update && \
         ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# Set workdir
 WORKDIR /app
 
-# Copy only necessary files for report generation and web serving
+# Copy application files
 COPY tools/ ./tools/
 COPY *.py ./
 COPY *.json ./
@@ -31,24 +37,18 @@ COPY *.html ./
 COPY favicon.ico ./
 COPY dashboard/ ./dashboard/
 COPY reports/ ./reports/
-# Ensure the published dashboard from gh-pages is served from the static root
 COPY gh-pages/dashboard.html ./dashboard.html
 COPY railway-start.sh /app/railway-start.sh
+COPY entrypoint.sh /app/entrypoint.sh
+
+# Frontend build artifacts
+COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 
 # Install Python dependencies
 COPY requirements.txt .
-
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose a default port for local development; production platforms (e.g. Railway)
-# usually provide the port to listen on via the $PORT environment variable.
 EXPOSE 8000
 
-# Default command: serve dashboard and reports. Use the PORT env var if present
-# so the container will work correctly on platforms that set $PORT (Railway,
-# Heroku-style platforms). Fall back to 8000 for local runs.
-# Copy and use an entrypoint script that logs env and starts the server
-COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh /app/railway-start.sh
-
 ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
