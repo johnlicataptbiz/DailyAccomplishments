@@ -129,26 +129,10 @@
       "pct": "0%"
     }
   ],
-<<<<<<< Updated upstream
-  "overview": {
-    "coverage_window": "00:32–01:31",
-    "focus_time": "00:27",
-    "meetings_time": "00:00",
-    "appointments": 0,
-    "projects_count": 0
-  },
-  "timeline": [],
-=======
->>>>>>> Stashed changes
   "top_apps": {
     "Google Chrome": "00:25",
     "Terminal": "00:02"
   },
-<<<<<<< Updated upstream
-  "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
-=======
   "deep_work": [
     {
       "start": "00:58",
@@ -253,6 +237,5 @@
         "visits": 4
       }
     ]
->>>>>>> Stashed changes
   }
 }

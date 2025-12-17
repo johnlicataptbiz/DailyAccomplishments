@@ -173,32 +173,14 @@
     }
   ],
   "overview": {
-<<<<<<< Updated upstream
-    "coverage_window": "07:13–21:22",
-    "focus_time": "06:08",
-    "meetings_time": "00:00",
-    "appointments": 0,
-    "projects_count": 0
-=======
     "focus_time": "06:08",
     "coverage_window": "07:13\u201321:22"
->>>>>>> Stashed changes
   },
   "executive_summary": [
     "Screen Time: ~639 min foreground app usage",
     "Screen Time: ~465 min foreground app usage"
   ],
   "timeline": [],
-<<<<<<< Updated upstream
-  "top_apps": {
-    "Google Chrome": "04:21",
-    "Messages": "00:01",
-    "Terminal": "01:46"
-  },
-  "browser_highlights": {
-    "top_domains": [],
-    "top_pages": []
-=======
   "deep_work_blocks": [],
   "browser_highlights": {
     "top_domains": [
@@ -285,6 +267,5 @@
         "visits": 8
       }
     ]
->>>>>>> Stashed changes
   }
 }
