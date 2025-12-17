@@ -31,6 +31,9 @@ from typing import Dict, List, Optional, Tuple
 
 KNOWLEDGEC = Path.home() / "Library/Application Support/Knowledge/knowledgeC.db"
 
+# Cache local timezone to avoid repeated calls
+LOCAL_TZ = datetime.now().astimezone().tzinfo
+
 
 @dataclass
 class AppUsage:
@@ -100,7 +103,7 @@ def _union_foreground_minutes(usages: List[AppUsage]) -> int:
 def query_app_usage(db: Path, date_str: str) -> List[AppUsage]:
     # Parse as naive datetime, then make timezone-aware in local timezone
     day0_naive = datetime.strptime(date_str, "%Y-%m-%d")
-    day0 = day0_naive.replace(tzinfo=datetime.now().astimezone().tzinfo)
+    day0 = day0_naive.replace(tzinfo=LOCAL_TZ)
     day1 = day0 + timedelta(days=1)
     results: List[AppUsage] = []
 

@@ -3,7 +3,7 @@
 import json
 import sys
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 import csv
 
@@ -102,7 +102,7 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
             if duration > 0:
                 app = data.get('app', '')
                 category = categorize_app(app)
-                end_dt = dt + __import__('datetime').timedelta(seconds=duration)
+                end_dt = dt + timedelta(seconds=duration)
                 intervals.append((dt, end_dt, category))
         
         elif event_type in ['meeting_start', 'meeting_end']:
@@ -172,7 +172,7 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         # Distribute across hours
         current = start
         while current < end:
-            next_hour = current.replace(minute=0, second=0, microsecond=0) + __import__('datetime').timedelta(hours=1)
+            next_hour = current.replace(minute=0, second=0, microsecond=0) + timedelta(hours=1)
             segment_end = min(end, next_hour)
             segment_secs = int((segment_end - current).total_seconds())
             hourly_seconds[current.hour] += segment_secs
