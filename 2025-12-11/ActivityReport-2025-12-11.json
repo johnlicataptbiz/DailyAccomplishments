@@ -1,0 +1,576 @@
+{
+<<<<<<< Updated upstream
+  "accomplishments_today": [
+    "Focused on Google Chrome (01:13)",
+    "Focused on Electron (00:38)",
+    "Focused on Terminal (00:08)",
+    "Focused on Finder (00:06)",
+    "Focused on Google Chrome for Testing (00:01)"
+  ],
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 640
+      },
+      {
+        "domain": "aistudio.google",
+        "visits": 1
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "ChatGPT - Lead Replies - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 54
+      },
+      {
+        "page": "Extensions - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 35
+      },
+      {
+        "page": "DevTools - chrome-extension://bcaaodnameedffgfncedhhdhdclpbcea/index.html - Jack",
+        "visits": 33
+      },
+      {
+        "page": "Lead Generation and Follow-Up Strategies - Grok - Google Chrome - Jack (physical",
+        "visits": 32
+      },
+      {
+        "page": "Google AI Studio - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 24
+      },
+      {
+        "page": "Vertex AI – ActivityTracker – Google Cloud console - Google Chrome - Jack (physi",
+        "visits": 20
+      },
+      {
+        "page": "DJ Green - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 17
+      },
+      {
+        "page": "New Tab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 16
+      },
+      {
+        "page": "Untitled4.ipynb - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 16
+      },
+      {
+        "page": "Format facebook group leads - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 14
+      }
+    ]
+  },
+  "by_category": {
+    "Coding": "02:29",
+    "Communication": "00:00",
+    "Email/CRM": "00:00",
+    "Other": "00:46",
+    "Research": "03:59"
+  },
+  "date": "2025-12-11",
+  "debug_appointments": {
+    "meetings_today": []
+  },
+  "deep_work": [
+    {
+      "category": "Research",
+      "end": "10:15",
+      "label": "Google Chrome",
+      "minutes": 77,
+      "start": "08:57"
+    },
+    {
+      "category": "Coding",
+      "end": "11:15",
+      "label": "VS Code",
+      "minutes": 54,
+      "start": "10:18"
+    },
+    {
+      "category": "Research",
+      "end": "08:36",
+      "label": "Google Chrome",
+      "minutes": 40,
+      "start": "07:55"
+    },
+    {
+      "category": "Coding",
+      "end": "19:21",
+      "label": "VS Code",
+      "minutes": 36,
+      "start": "18:39"
+    },
+    {
+      "category": "Research",
+      "end": "21:28",
+      "label": "Google Chrome",
+      "minutes": 31,
+      "start": "20:54"
+    }
+  ],
+  "deep_work_blocks": [],
+  "executive_summary": [
+    "Active: 02:08 | Focus: 02:08",
+    "Coverage: 07:54–21:46 CST",
+    "Screen Time: ~981 min foreground app usage"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 1,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 2,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 3,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 4,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 5,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 6,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 7,
+      "pct": "0%",
+      "time": "00:04"
+    },
+    {
+      "hour": 8,
+      "pct": "0%",
+      "time": "00:53"
+    },
+    {
+      "hour": 9,
+      "pct": "0%",
+      "time": "00:58"
+    },
+    {
+      "hour": 10,
+      "pct": "0%",
+      "time": "00:53"
+    },
+    {
+      "hour": 11,
+      "pct": "0%",
+      "time": "00:35"
+    },
+    {
+      "hour": 12,
+      "pct": "0%",
+      "time": "00:26"
+    },
+    {
+      "hour": 13,
+      "pct": "0%",
+      "time": "00:35"
+    },
+    {
+      "hour": 14,
+      "pct": "0%",
+      "time": "00:32"
+    },
+    {
+      "hour": 15,
+      "pct": "0%",
+      "time": "00:18"
+    },
+    {
+      "hour": 16,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 17,
+      "pct": "0%",
+      "time": "00:17"
+    },
+    {
+      "hour": 18,
+      "pct": "0%",
+      "time": "00:22"
+    },
+    {
+      "hour": 19,
+      "pct": "0%",
+      "time": "00:20"
+    },
+    {
+      "hour": 20,
+      "pct": "0%",
+      "time": "00:21"
+    },
+    {
+      "hour": 21,
+      "pct": "0%",
+      "time": "00:30"
+    },
+    {
+      "hour": 22,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 23,
+      "pct": "0%",
+      "time": "00:00"
+    }
+  ],
+  "overview": {
+    "active_time": "02:08",
+    "appointments": 0,
+    "coverage_time": "13:51",
+    "coverage_window": "07:54–21:46",
+=======
+  "source_file": "ActivityReport-2025-12-11.json",
+  "date": "2025-12-11",
+  "title": "Daily Accomplishments \u2014 2025-12-11",
+  "overview": {
+    "active_time": "02:08",
+>>>>>>> Stashed changes
+    "focus_time": "07:04",
+    "meetings_time": "00:00",
+    "coverage_time": "13:51",
+    "coverage_window": "07:54\u201321:46",
+    "appointments": 0,
+    "projects_count": 5
+  },
+  "prepared_for_manager": [
+    "Active Time: 02:08",
+    "Focus Time: 02:08",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, Electron, Terminal"
+  ],
+<<<<<<< Updated upstream
+  "source_file": "ActivityReport-2025-12-11.json",
+  "timeline": [],
+  "title": "Daily Accomplishments — 2025-12-11",
+=======
+  "executive_summary": [
+    "Active: 02:08 | Focus: 02:08",
+    "Coverage: 07:54\u201321:46 CST",
+    "Screen Time: ~981 min foreground app usage",
+    "Screen Time: ~565 min foreground app usage"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (01:13)",
+    "Focused on Electron (00:38)",
+    "Focused on Terminal (00:08)",
+    "Focused on Finder (00:06)",
+    "Focused on Google Chrome for Testing (00:01)"
+  ],
+  "by_category": {
+    "Research": "03:59",
+    "Other": "00:46",
+    "Coding": "02:29",
+    "Communication": "00:00",
+    "Email/CRM": "00:00"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 219
+      },
+      {
+        "domain": "grok.com",
+        "visits": 52
+      },
+      {
+        "domain": "developer.chrome.com",
+        "visits": 48
+      },
+      {
+        "domain": "app.hubspot.com",
+        "visits": 46
+      },
+      {
+        "domain": "gitlab.com",
+        "visits": 42
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 35
+      },
+      {
+        "domain": "linkedin.com",
+        "visits": 28
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 24
+      },
+      {
+        "domain": "meetings.hubspot.com",
+        "visits": 24
+      },
+      {
+        "domain": "aistudio.google.com",
+        "visits": 23
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://app.hubspot.com/contacts/22001532/record/0-1/10833901",
+        "visits": 11
+      },
+      {
+        "page": "https://meetings.hubspot.com/pt-biz/discovery-call-jack",
+        "visits": 11
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/ai-slot-scout/pull/5",
+        "visits": 11
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/ai-slot-scout/pulls",
+        "visits": 10
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/28/commits",
+        "visits": 9
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 8
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/issues",
+        "visits": 8
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13/commits",
+        "visits": 7
+      },
+      {
+        "page": "https://aistudio.google.com/apps",
+        "visits": 7
+      },
+      {
+        "page": "https://app.hubspot.com/user-guide/22001532?via=home",
+        "visits": 7
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:04",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:58",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:35",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:26",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:35",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:32",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:18",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:17",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:22",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:20",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:21",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:30",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+>>>>>>> Stashed changes
+  "top_apps": {
+    "Google Chrome": "03:59",
+    "VS Code": "02:27",
+    "com.google.antigravity": "00:35",
+    "Terminal": "00:02",
+    "Finder": "00:01"
+  },
+  "top_windows_preview": [
+    "Google Chrome: 00:08",
+<<<<<<< Updated upstream
+    "Google Chrome — ChatGPT - Lead Replies - Google Chrome - Jack (phy: 00:04",
+    "Electron — csswrapped: 00:04",
+    "Electron — generate-copy.js — ai-slot-scout: 00:03",
+    "Terminal — ai-slot-scout — iChatDockTile — -zsh — 80×24: 00:03",
+    "Google Chrome — Extensions - Google Chrome - Jack (physicaltherapy: 00:02",
+    "Electron — ai-slot-scout: 00:02",
+    "Google Chrome — DevTools - chrome-extension://bcaaodnameedffgfnced: 00:02",
+    "Google Chrome — Lead Generation and Follow-Up Strategies - Grok - : 00:02",
+    "Electron — index.html — ai-slot-scout: 00:02"
+  ]
+}
+=======
+    "Google Chrome \u2014 ChatGPT - Lead Replies - Google Chrome - Jack (phy: 00:04",
+    "Electron \u2014 csswrapped: 00:04",
+    "Electron \u2014 generate-copy.js \u2014 ai-slot-scout: 00:03",
+    "Terminal \u2014 ai-slot-scout \u2014 iChatDockTile \u2014 -zsh \u2014 80\u00d724: 00:03",
+    "Google Chrome \u2014 Extensions - Google Chrome - Jack (physicaltherapy: 00:02",
+    "Electron \u2014 ai-slot-scout: 00:02",
+    "Google Chrome \u2014 DevTools - chrome-extension://bcaaodnameedffgfnced: 00:02",
+    "Google Chrome \u2014 Lead Generation and Follow-Up Strategies - Grok - : 00:02",
+    "Electron \u2014 index.html \u2014 ai-slot-scout: 00:02"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "deep_work": [
+    {
+      "start": "08:57",
+      "end": "10:15",
+      "minutes": 77,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "10:18",
+      "end": "11:15",
+      "minutes": 54,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "07:55",
+      "end": "08:36",
+      "minutes": 40,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "18:39",
+      "end": "19:21",
+      "minutes": 36,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "20:54",
+      "end": "21:28",
+      "minutes": 31,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "debug_appointments": {
+    "meetings_today": []
+  },
+  "timeline": [],
+  "deep_work_blocks": []
+}
+>>>>>>> Stashed changes

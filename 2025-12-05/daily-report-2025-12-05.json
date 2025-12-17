@@ -1,0 +1,297 @@
+{
+  "date": "2025-12-05",
+  "overview": {
+    "focus_time": "10:44",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "coverage_window": "01:22\u201300:00"
+  },
+  "debug_appointments": {
+    "appointments_today": [],
+    "meetings_today": []
+  },
+  "by_category": {
+    "Research": "09:54",
+    "Coding": "00:49",
+    "Other": "00:01"
+  },
+  "by_project": {},
+  "top_apps": {
+    "Google Chrome": "09:54",
+    "Terminal": "00:45",
+    "VS Code": "00:04",
+    "Finder": "00:01"
+  },
+  "top_windows": {},
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:15",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:26",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:13",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:22",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:28",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:41",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:19",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:13",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:55",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:57",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:36",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:54",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:55",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:17",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:36",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:05",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:45",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:58",
+      "pct": "0%"
+    }
+  ],
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "dailyaccomplishments-production.up.railway.app",
+        "visits": 1701
+      },
+      {
+        "domain": "grok.com",
+        "visits": 670
+      },
+      {
+        "domain": "app.hubspot.com",
+        "visits": 318
+      },
+      {
+        "domain": "colab.research.google.com",
+        "visits": 59
+      },
+      {
+        "domain": "github.com",
+        "visits": 28
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 27
+      },
+      {
+        "domain": "railway.com",
+        "visits": 24
+      },
+      {
+        "domain": "localhost:8001",
+        "visits": 24
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 21
+      },
+      {
+        "domain": "gemini.google.com",
+        "visits": 20
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/dashboard",
+        "visits": 773
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/?date=2025-12-04",
+        "visits": 40
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/?date=2025-12-05",
+        "visits": 35
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/?date=2025-12-03",
+        "visits": 25
+      },
+      {
+        "page": "https://app.hubspot.com/prospecting-agent-ui/22001532/assignments",
+        "visits": 25
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/?date=2025-12-02",
+        "visits": 19
+      },
+      {
+        "page": "https://app.hubspot.com/prospecting-agent-ui/22001532/settings/100325376/description",
+        "visits": 17
+      },
+      {
+        "page": "https://dailyaccomplishments-production.up.railway.app/",
+        "visits": 13
+      },
+      {
+        "page": "https://fluffy-winner-jjvjjqww4x6rhqqjg.github.dev/",
+        "visits": 13
+      },
+      {
+        "page": "https://app.hubspot.com/prospecting-agent-ui/22001532/overview",
+        "visits": 11
+      }
+    ]
+  },
+  "timeline": [],
+  "deep_work_blocks": [],
+  "deep_work": [
+    {
+      "start": "16:50",
+      "end": "19:17",
+      "minutes": 137,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "22:14",
+      "end": "23:19",
+      "minutes": 64,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:36",
+      "end": "15:31",
+      "minutes": 54,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "10:09",
+      "end": "11:12",
+      "minutes": 43,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "15:46",
+      "end": "16:33",
+      "minutes": 40,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "23:20",
+      "end": "00:00",
+      "minutes": 39,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "20:04",
+      "end": "20:41",
+      "minutes": 36,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:00",
+      "end": "13:38",
+      "minutes": 33,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "executive_summary": [
+    "Screen Time: ~886 min foreground app usage"
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "date": "2025-12-09",
+  "overview": {
+    "focus_time": "10:05",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "coverage_window": "00:11\u201323:38"
+  },
+  "debug_appointments": {
+    "appointments_today": [],
+    "meetings_today": []
+  },
+  "by_category": {
+    "Coding": "05:08",
+    "Research": "04:54",
+    "Other": "00:03"
+  },
+  "by_project": {},
+  "top_apps": {
+    "VS Code": "05:08",
+    "Google Chrome": "04:54",
+    "Messages": "00:03"
+  },
+  "top_windows": {},
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:17",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:14",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:50",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:02",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:52",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:52",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:52",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:45",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:59",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:41",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:46",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:54",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:12",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:09",
+      "pct": "0%"
+    }
+  ],
+<<<<<<< Updated upstream
+  "overview": {
+    "appointments": 0,
+    "coverage_window": "—",
+    "focus_time": "00:00",
+    "meetings_time": "00:00",
+    "projects_count": 0
+  },
+  "timeline": [],
+  "top_apps": {},
+  "top_windows": {}
+}
+=======
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 489
+      },
+      {
+        "domain": "gitlab.com",
+        "visits": 258
+      },
+      {
+        "domain": "docs.github.com",
+        "visits": 92
+      },
+      {
+        "domain": "grok.com",
+        "visits": 51
+      },
+      {
+        "domain": "docs.cloud.google.com",
+        "visits": 49
+      },
+      {
+        "domain": "signup.live.com",
+        "visits": 41
+      },
+      {
+        "domain": "console.cloud.google.com",
+        "visits": 37
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 34
+      },
+      {
+        "domain": "mail.google.com",
+        "visits": 26
+      },
+      {
+        "domain": "login.live.com",
+        "visits": 23
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/models",
+        "visits": 23
+      },
+      {
+        "page": "https://signup.live.com/signup?ne=1&id=68692&contextid=2A1A7C8599D877F1&opid=A5D6B0F2C3E7353F&bk=1765315920&sru=https://login.live.com/login.srf%3fid%3d68692%26id%3d68692%26contextid%3d2A1A7C8599D877F1%26opid%3dA5D6B0F2C3E7353F%26mkt%3dEN-US%26lc%3d1033%26bk%3d1765315920%26uaid%3de7bd64fc5afd4329a06b174f5a68f93e&uiflavor=web&fluent=2&lic=1&mkt=EN-US&lc=1033&uaid=e7bd64fc5afd4329a06b174f5a68f93e",
+        "visits": 15
+      },
+      {
+        "page": "https://signup.live.com/signup?ne=1&id=68692&contextid=2A1A7C8599D877F1&opid=A5D6B0F2C3E7353F&bk=1765315949&sru=https://login.live.com/login.srf%3fid%3d68692%26id%3d68692%26contextid%3d2A1A7C8599D877F1%26opid%3dA5D6B0F2C3E7353F%26mkt%3dEN-US%26lc%3d1033%26bk%3d1765315949%26uaid%3de7bd64fc5afd4329a06b174f5a68f93e&uiflavor=web&fluent=2&lic=1&mkt=EN-US&lc=1033&uaid=e7bd64fc5afd4329a06b174f5a68f93e&username=jack%40physicaltherapybiz.com&login_hint=jack%40physicaltherapybiz.com",
+        "visits": 12
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments",
+        "visits": 10
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 10
+      },
+      {
+        "page": "https://docs.cloud.google.com/",
+        "visits": 9
+      },
+      {
+        "page": "https://gitlab.com/acttrack/DailyAccomplishments/DailyAccomplishments/-/merge_requests/25",
+        "visits": 9
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/issues",
+        "visits": 8
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/23",
+        "visits": 8
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/blob/fd9827ed8b205c51de31151f13bcdec7eff36a0e/.github/workflows/codeql.yml",
+        "visits": 8
+      }
+    ]
+  },
+  "timeline": [],
+  "deep_work_blocks": [],
+  "deep_work": [
+    {
+      "start": "15:59",
+      "end": "17:56",
+      "minutes": 110,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "12:43",
+      "end": "14:31",
+      "minutes": 96,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "14:32",
+      "end": "15:59",
+      "minutes": 67,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "20:47",
+      "end": "22:01",
+      "minutes": 67,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "17:56",
+      "end": "19:12",
+      "minutes": 63,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "02:04",
+      "end": "02:57",
+      "minutes": 46,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "12:02",
+      "end": "12:43",
+      "minutes": 39,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "19:59",
+      "end": "20:33",
+      "minutes": 26,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "executive_summary": [
+    "Screen Time: ~714 min foreground app usage"
+  ]
+}
+>>>>>>> Stashed changes

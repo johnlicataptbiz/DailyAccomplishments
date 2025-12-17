@@ -1,0 +1,290 @@
+{
+  "date": "2025-11-24",
+  "debug_appointments": {
+    "meetings_today": []
+  },
+  "by_category": {
+    "Research": "04:21",
+    "Coding": "01:46",
+    "Other": "00:01"
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:05",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:44",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:40",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:25",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:45",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:42",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:14",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:06",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:02",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "top_apps": {
+    "Google Chrome": "04:21",
+    "Terminal": "01:46",
+    "Messages": "00:01"
+  },
+  "deep_work": [
+    {
+      "start": "09:41",
+      "end": "10:31",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:13",
+      "end": "15:07",
+      "minutes": 42,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "10:54",
+      "end": "11:53",
+      "minutes": 41,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "13:32",
+      "end": "14:10",
+      "minutes": 32,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "15:22",
+      "end": "15:55",
+      "minutes": 26,
+      "category": "Coding",
+      "label": "Terminal"
+    }
+  ],
+  "overview": {
+<<<<<<< Updated upstream
+    "coverage_window": "07:13–21:22",
+    "focus_time": "06:08",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0
+=======
+    "focus_time": "06:08",
+    "coverage_window": "07:13\u201321:22"
+>>>>>>> Stashed changes
+  },
+  "executive_summary": [
+    "Screen Time: ~639 min foreground app usage",
+    "Screen Time: ~465 min foreground app usage"
+  ],
+  "timeline": [],
+<<<<<<< Updated upstream
+  "top_apps": {
+    "Google Chrome": "04:21",
+    "Messages": "00:01",
+    "Terminal": "01:46"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
+=======
+  "deep_work_blocks": [],
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "app.hubspot.com",
+        "visits": 344
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 73
+      },
+      {
+        "domain": "developers.hubspot.com",
+        "visits": 60
+      },
+      {
+        "domain": "aistudio.google.com",
+        "visits": 54
+      },
+      {
+        "domain": "the-cash-based-practice-accelerator.circle.so",
+        "visits": 37
+      },
+      {
+        "domain": "developers.openai.com",
+        "visits": 25
+      },
+      {
+        "domain": "platform.openai.com",
+        "visits": 24
+      },
+      {
+        "domain": "facebook.com",
+        "visits": 17
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 16
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 12
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://app.hubspot.com/developer/22001532/application/24816408",
+        "visits": 26
+      },
+      {
+        "page": "https://app.hubspot.com/legacy-apps/22001532",
+        "visits": 13
+      },
+      {
+        "page": "https://the-cash-based-practice-accelerator.circle.so/c/general/happy-friday-free-resource",
+        "visits": 12
+      },
+      {
+        "page": "https://app.hubspot.com/developer-overview/22001532",
+        "visits": 9
+      },
+      {
+        "page": "https://app.hubspot.com/personal-access-key/22001532",
+        "visits": 9
+      },
+      {
+        "page": "https://app.hubspot.com/developer/22001532/application/24816408/monitoring/api",
+        "visits": 9
+      },
+      {
+        "page": "https://aistudio.google.com/apps",
+        "visits": 8
+      },
+      {
+        "page": "https://app.hubspot.com/developer-projects/22001532/",
+        "visits": 8
+      },
+      {
+        "page": "https://app.hubspot.com/developer/22001532/application/24816408/monitoring",
+        "visits": 8
+      },
+      {
+        "page": "https://aistudio.google.com/apps/drive/1KDI38bxIQeXnPCXyJK_6EMIDSTGW9hhw?showAssistant=true&resourceKey=&showPreview=true",
+        "visits": 8
+      }
+    ]
+>>>>>>> Stashed changes
+  }
+}

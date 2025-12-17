@@ -1,0 +1,4402 @@
+{
+  "date": "2025-12-13",
+  "overview": {
+    "focus_time": "41:47",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0,
+    "coverage_window": "00:00\u201320:54",
+    "active_time": "41:47"
+  },
+  "by_category": {
+    "Development": "06:47",
+    "Research": "14:03",
+    "Other": "00:01",
+    "Communication": "00:00"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "02:03",
+      "pct": "100%"
+    },
+    {
+      "hour": 1,
+      "time": "02:00",
+      "pct": "98%"
+    },
+    {
+      "hour": 2,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 3,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 4,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 5,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 6,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 7,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 8,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 9,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 10,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 11,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 12,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 13,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 14,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 15,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 16,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 17,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 18,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 19,
+      "time": "02:00",
+      "pct": "97%"
+    },
+    {
+      "hour": 20,
+      "time": "01:48",
+      "pct": "87%"
+    },
+    {
+      "hour": 21,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+  "timeline": [
+    {
+      "start": "00:00",
+      "end": "00:00",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:00",
+      "end": "00:01",
+      "seconds": 65,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:01",
+      "end": "00:01",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:01",
+      "end": "00:03",
+      "seconds": 85,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:03",
+      "end": "00:03",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:03",
+      "end": "00:03",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:03",
+      "end": "00:03",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:03",
+      "end": "00:03",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:03",
+      "end": "00:03",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:03",
+      "end": "00:03",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:03",
+      "end": "00:03",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:03",
+      "end": "00:03",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:03",
+      "end": "00:03",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:03",
+      "end": "00:05",
+      "seconds": 78,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:05",
+      "end": "00:05",
+      "seconds": 17,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:05",
+      "end": "00:05",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:05",
+      "end": "00:05",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:05",
+      "end": "00:05",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:05",
+      "end": "00:05",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:05",
+      "end": "00:06",
+      "seconds": 64,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:06",
+      "end": "00:06",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:06",
+      "end": "00:06",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:06",
+      "end": "00:06",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:06",
+      "end": "00:07",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:07",
+      "end": "00:07",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:07",
+      "end": "00:07",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:07",
+      "end": "00:07",
+      "seconds": 13,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:07",
+      "end": "00:09",
+      "seconds": 105,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:09",
+      "end": "00:09",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:09",
+      "end": "00:09",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:09",
+      "end": "00:09",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:09",
+      "end": "00:09",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:09",
+      "end": "00:09",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:09",
+      "end": "00:09",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:09",
+      "end": "00:09",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:09",
+      "end": "00:09",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:09",
+      "end": "00:11",
+      "seconds": 87,
+      "minutes": 1,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:11",
+      "end": "00:11",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:11",
+      "end": "00:11",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:11",
+      "end": "00:12",
+      "seconds": 52,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:12",
+      "end": "00:12",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:12",
+      "end": "00:12",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:12",
+      "end": "00:12",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:12",
+      "end": "00:12",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:12",
+      "end": "00:13",
+      "seconds": 31,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:13",
+      "end": "00:13",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:13",
+      "end": "00:13",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:13",
+      "end": "00:13",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:13",
+      "end": "00:13",
+      "seconds": 22,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:13",
+      "end": "00:14",
+      "seconds": 27,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:14",
+      "end": "00:15",
+      "seconds": 74,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:15",
+      "end": "00:15",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:15",
+      "end": "00:15",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:15",
+      "end": "00:16",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:16",
+      "end": "00:16",
+      "seconds": 14,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:16",
+      "end": "00:18",
+      "seconds": 86,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:18",
+      "end": "00:18",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:18",
+      "end": "00:18",
+      "seconds": 23,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:18",
+      "end": "00:18",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:18",
+      "end": "00:18",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:18",
+      "end": "00:18",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:18",
+      "end": "00:18",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:18",
+      "end": "00:18",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:18",
+      "end": "00:19",
+      "seconds": 28,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:19",
+      "end": "00:19",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:19",
+      "end": "00:19",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:19",
+      "end": "00:19",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:19",
+      "end": "00:19",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:19",
+      "end": "00:19",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:19",
+      "end": "00:20",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:20",
+      "end": "00:20",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Other",
+      "app": "System Settings"
+    },
+    {
+      "start": "00:20",
+      "end": "00:20",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:20",
+      "end": "00:20",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:20",
+      "end": "00:20",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:20",
+      "end": "00:20",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:20",
+      "end": "00:21",
+      "seconds": 23,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:21",
+      "end": "00:22",
+      "seconds": 83,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:22",
+      "end": "00:22",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:22",
+      "end": "00:22",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:22",
+      "end": "00:22",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:22",
+      "end": "00:22",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:22",
+      "end": "00:22",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Other",
+      "app": "com.apple.AppStore"
+    },
+    {
+      "start": "00:22",
+      "end": "00:22",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:22",
+      "end": "00:23",
+      "seconds": 19,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:23",
+      "end": "00:23",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:23",
+      "end": "00:26",
+      "seconds": 196,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:26",
+      "end": "00:26",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:26",
+      "end": "00:27",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:27",
+      "end": "00:27",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:27",
+      "end": "00:27",
+      "seconds": 21,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:27",
+      "end": "00:27",
+      "seconds": 21,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:27",
+      "end": "00:28",
+      "seconds": 64,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:28",
+      "end": "00:28",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:28",
+      "end": "00:29",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:29",
+      "end": "00:29",
+      "seconds": 19,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:29",
+      "end": "00:31",
+      "seconds": 95,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:31",
+      "end": "00:31",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:31",
+      "end": "00:33",
+      "seconds": 145,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:33",
+      "end": "00:33",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:33",
+      "end": "00:33",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:33",
+      "end": "00:33",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:33",
+      "end": "00:33",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:33",
+      "end": "00:34",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:34",
+      "end": "00:34",
+      "seconds": 53,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:34",
+      "end": "00:34",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:34",
+      "end": "00:35",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 13,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:35",
+      "end": "00:35",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:35",
+      "end": "00:36",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:36",
+      "end": "00:36",
+      "seconds": 44,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:36",
+      "end": "00:37",
+      "seconds": 39,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:37",
+      "end": "00:37",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:37",
+      "end": "00:37",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:37",
+      "end": "00:37",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:37",
+      "end": "00:37",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:37",
+      "end": "00:37",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:37",
+      "end": "00:38",
+      "seconds": 62,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:38",
+      "end": "00:38",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:38",
+      "end": "00:38",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:38",
+      "end": "00:38",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:38",
+      "end": "00:39",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:39",
+      "end": "00:39",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:39",
+      "end": "00:39",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:39",
+      "end": "00:39",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:39",
+      "end": "00:39",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:39",
+      "end": "00:39",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:39",
+      "end": "00:39",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:39",
+      "end": "00:39",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:39",
+      "end": "00:39",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:39",
+      "end": "00:39",
+      "seconds": 14,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:39",
+      "end": "00:40",
+      "seconds": 35,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:40",
+      "end": "00:40",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:40",
+      "end": "00:40",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:40",
+      "end": "00:40",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:40",
+      "end": "00:41",
+      "seconds": 75,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:41",
+      "end": "00:41",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:41",
+      "end": "00:41",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:41",
+      "end": "00:42",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:42",
+      "end": "00:42",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:42",
+      "end": "00:43",
+      "seconds": 72,
+      "minutes": 1,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:43",
+      "end": "00:43",
+      "seconds": 28,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:43",
+      "end": "00:44",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:44",
+      "end": "00:44",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:44",
+      "end": "00:44",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:44",
+      "end": "00:44",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:44",
+      "end": "00:44",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:44",
+      "end": "00:44",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:44",
+      "end": "00:45",
+      "seconds": 14,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:45",
+      "end": "00:45",
+      "seconds": 23,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:45",
+      "end": "00:45",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:45",
+      "end": "00:45",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:45",
+      "end": "00:45",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:45",
+      "end": "00:45",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:45",
+      "end": "00:45",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:45",
+      "end": "00:46",
+      "seconds": 19,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:46",
+      "end": "00:46",
+      "seconds": 14,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:46",
+      "end": "00:46",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:46",
+      "end": "00:46",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:46",
+      "end": "00:46",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:46",
+      "end": "00:47",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:47",
+      "end": "00:47",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:47",
+      "end": "00:47",
+      "seconds": 27,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:47",
+      "end": "00:47",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:47",
+      "end": "00:47",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:47",
+      "end": "00:47",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:47",
+      "end": "00:48",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:48",
+      "end": "00:48",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:48",
+      "end": "00:48",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:48",
+      "end": "00:48",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:48",
+      "end": "00:49",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:49",
+      "end": "00:49",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:49",
+      "end": "00:49",
+      "seconds": 22,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:49",
+      "end": "00:49",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:49",
+      "end": "00:49",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:49",
+      "end": "00:49",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:49",
+      "end": "00:49",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:49",
+      "end": "00:49",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:49",
+      "end": "00:50",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:50",
+      "end": "00:50",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:50",
+      "end": "00:50",
+      "seconds": 13,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:50",
+      "end": "00:50",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:50",
+      "end": "00:50",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:50",
+      "end": "00:50",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:50",
+      "end": "00:50",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:50",
+      "end": "00:51",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:51",
+      "end": "00:51",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:51",
+      "end": "00:52",
+      "seconds": 62,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:52",
+      "end": "00:52",
+      "seconds": 39,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:52",
+      "end": "00:53",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:53",
+      "end": "00:53",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:53",
+      "end": "00:55",
+      "seconds": 126,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:55",
+      "end": "00:55",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "System Settings"
+    },
+    {
+      "start": "00:55",
+      "end": "00:58",
+      "seconds": 200,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:58",
+      "end": "00:58",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "00:58",
+      "end": "00:59",
+      "seconds": 65,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "00:59",
+      "end": "01:00",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:00",
+      "end": "01:01",
+      "seconds": 101,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:01",
+      "end": "01:01",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:01",
+      "end": "01:01",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:01",
+      "end": "01:02",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:02",
+      "end": "01:03",
+      "seconds": 63,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:03",
+      "end": "01:03",
+      "seconds": 22,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:03",
+      "end": "01:05",
+      "seconds": 105,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:05",
+      "end": "01:05",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:05",
+      "end": "01:06",
+      "seconds": 61,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:06",
+      "end": "01:06",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:06",
+      "end": "01:08",
+      "seconds": 131,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:08",
+      "end": "01:08",
+      "seconds": 13,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:08",
+      "end": "01:11",
+      "seconds": 178,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:11",
+      "end": "01:11",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:11",
+      "end": "01:11",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:11",
+      "end": "01:11",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:11",
+      "end": "01:15",
+      "seconds": 218,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:15",
+      "end": "01:15",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:15",
+      "end": "01:15",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:15",
+      "end": "01:16",
+      "seconds": 33,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:16",
+      "end": "01:18",
+      "seconds": 135,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:18",
+      "end": "01:18",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:18",
+      "end": "01:18",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:18",
+      "end": "01:18",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:18",
+      "end": "01:22",
+      "seconds": 238,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:22",
+      "end": "01:22",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:22",
+      "end": "01:25",
+      "seconds": 141,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:25",
+      "end": "01:25",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:25",
+      "end": "01:26",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:26",
+      "end": "01:26",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:26",
+      "end": "01:27",
+      "seconds": 58,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:27",
+      "end": "01:27",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:27",
+      "end": "01:28",
+      "seconds": 46,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:28",
+      "end": "01:28",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:28",
+      "end": "01:28",
+      "seconds": 34,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:28",
+      "end": "01:28",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:28",
+      "end": "01:29",
+      "seconds": 17,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:29",
+      "end": "01:29",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:29",
+      "end": "01:32",
+      "seconds": 175,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:32",
+      "end": "01:36",
+      "seconds": 286,
+      "minutes": 4,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:36",
+      "end": "01:37",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:37",
+      "end": "01:37",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:37",
+      "end": "01:37",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:37",
+      "end": "01:40",
+      "seconds": 209,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:40",
+      "end": "01:40",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:40",
+      "end": "01:40",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:40",
+      "end": "01:40",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:40",
+      "end": "01:43",
+      "seconds": 125,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:43",
+      "end": "01:43",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:43",
+      "end": "01:43",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:43",
+      "end": "01:43",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:43",
+      "end": "01:44",
+      "seconds": 65,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:44",
+      "end": "01:44",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:44",
+      "end": "01:44",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:44",
+      "end": "01:44",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:44",
+      "end": "01:45",
+      "seconds": 66,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "01:45",
+      "end": "01:45",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "01:45",
+      "end": "03:09",
+      "seconds": 4998,
+      "minutes": 83,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:09",
+      "end": "03:09",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:09",
+      "end": "03:09",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:09",
+      "end": "03:09",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:09",
+      "end": "03:09",
+      "seconds": 19,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:09",
+      "end": "03:09",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:09",
+      "end": "03:13",
+      "seconds": 209,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:13",
+      "end": "03:13",
+      "seconds": 38,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:13",
+      "end": "03:14",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:14",
+      "end": "03:14",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:14",
+      "end": "03:14",
+      "seconds": 32,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:14",
+      "end": "03:16",
+      "seconds": 101,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:16",
+      "end": "03:16",
+      "seconds": 13,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:16",
+      "end": "03:17",
+      "seconds": 19,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:17",
+      "end": "03:17",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "03:17",
+      "end": "03:17",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "03:17",
+      "end": "04:16",
+      "seconds": 3552,
+      "minutes": 59,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "04:16",
+      "end": "04:16",
+      "seconds": 14,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:16",
+      "end": "04:16",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "04:16",
+      "end": "04:16",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:16",
+      "end": "04:21",
+      "seconds": 254,
+      "minutes": 4,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "04:21",
+      "end": "04:21",
+      "seconds": 13,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:21",
+      "end": "04:23",
+      "seconds": 122,
+      "minutes": 2,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "04:23",
+      "end": "04:25",
+      "seconds": 117,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:25",
+      "end": "04:27",
+      "seconds": 117,
+      "minutes": 1,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "04:27",
+      "end": "04:27",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "04:27",
+      "end": "04:27",
+      "seconds": 23,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "04:27",
+      "end": "09:49",
+      "seconds": 19289,
+      "minutes": 321,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "09:49",
+      "end": "09:52",
+      "seconds": 168,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "09:52",
+      "end": "09:52",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "09:52",
+      "end": "09:57",
+      "seconds": 328,
+      "minutes": 5,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "09:57",
+      "end": "09:58",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Finder"
+    },
+    {
+      "start": "09:58",
+      "end": "09:58",
+      "seconds": 41,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "09:58",
+      "end": "09:59",
+      "seconds": 64,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "09:59",
+      "end": "10:00",
+      "seconds": 66,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:00",
+      "end": "10:01",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:01",
+      "end": "10:02",
+      "seconds": 109,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:02",
+      "end": "10:02",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:02",
+      "end": "10:02",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:02",
+      "end": "10:09",
+      "seconds": 386,
+      "minutes": 6,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:09",
+      "end": "10:09",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:09",
+      "end": "10:10",
+      "seconds": 85,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:10",
+      "end": "10:13",
+      "seconds": 168,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:13",
+      "end": "10:15",
+      "seconds": 100,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:15",
+      "end": "10:16",
+      "seconds": 37,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:16",
+      "end": "10:16",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:16",
+      "end": "10:16",
+      "seconds": 19,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:16",
+      "end": "10:17",
+      "seconds": 87,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:17",
+      "end": "10:18",
+      "seconds": 38,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:18",
+      "end": "10:18",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "10:18",
+      "end": "10:18",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Other",
+      "app": "com.google.antigravity"
+    },
+    {
+      "start": "10:18",
+      "end": "10:18",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:18",
+      "end": "10:18",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:18",
+      "end": "10:19",
+      "seconds": 62,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:19",
+      "end": "10:20",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:20",
+      "end": "10:20",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "10:20",
+      "end": "10:21",
+      "seconds": 29,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:21",
+      "end": "10:21",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:21",
+      "end": "10:21",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:21",
+      "end": "10:21",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:21",
+      "end": "10:21",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:21",
+      "end": "10:21",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:21",
+      "end": "10:21",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:21",
+      "end": "10:21",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:21",
+      "end": "10:21",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:21",
+      "end": "10:22",
+      "seconds": 23,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:22",
+      "end": "10:22",
+      "seconds": 27,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:22",
+      "end": "10:22",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:22",
+      "end": "10:22",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:22",
+      "end": "10:23",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:23",
+      "end": "10:23",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:23",
+      "end": "10:24",
+      "seconds": 57,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:24",
+      "end": "10:25",
+      "seconds": 80,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:25",
+      "end": "10:27",
+      "seconds": 120,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:27",
+      "end": "10:27",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Finder"
+    },
+    {
+      "start": "10:27",
+      "end": "10:27",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:27",
+      "end": "10:28",
+      "seconds": 30,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:28",
+      "end": "10:28",
+      "seconds": 22,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:28",
+      "end": "10:36",
+      "seconds": 445,
+      "minutes": 7,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:36",
+      "end": "10:43",
+      "seconds": 453,
+      "minutes": 7,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:43",
+      "end": "10:45",
+      "seconds": 132,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:45",
+      "end": "10:46",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:46",
+      "end": "10:48",
+      "seconds": 148,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:48",
+      "end": "10:48",
+      "seconds": 13,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "10:48",
+      "end": "10:50",
+      "seconds": 85,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "10:50",
+      "end": "10:50",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Finder"
+    },
+    {
+      "start": "10:50",
+      "end": "11:03",
+      "seconds": 801,
+      "minutes": 13,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:03",
+      "end": "11:03",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:03",
+      "end": "11:04",
+      "seconds": 15,
+      "minutes": 0,
+      "category": "Other",
+      "app": "Finder"
+    },
+    {
+      "start": "11:04",
+      "end": "11:13",
+      "seconds": 579,
+      "minutes": 9,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:13",
+      "end": "11:14",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:14",
+      "end": "11:14",
+      "seconds": 43,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:14",
+      "end": "11:14",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:14",
+      "end": "11:15",
+      "seconds": 6,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "11:15",
+      "end": "11:15",
+      "seconds": 23,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:15",
+      "end": "11:16",
+      "seconds": 64,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:16",
+      "end": "11:17",
+      "seconds": 32,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:17",
+      "end": "11:17",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:17",
+      "end": "11:17",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:17",
+      "end": "11:25",
+      "seconds": 450,
+      "minutes": 7,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:25",
+      "end": "11:25",
+      "seconds": 40,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:25",
+      "end": "11:29",
+      "seconds": 206,
+      "minutes": 3,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:29",
+      "end": "11:31",
+      "seconds": 145,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:31",
+      "end": "11:35",
+      "seconds": 208,
+      "minutes": 3,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:35",
+      "end": "11:35",
+      "seconds": 41,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:35",
+      "end": "11:36",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:36",
+      "end": "11:37",
+      "seconds": 22,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:37",
+      "end": "11:37",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:37",
+      "end": "11:37",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:37",
+      "end": "11:37",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:37",
+      "end": "11:37",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:37",
+      "end": "11:37",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:37",
+      "end": "11:39",
+      "seconds": 101,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:39",
+      "end": "11:40",
+      "seconds": 69,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:40",
+      "end": "11:43",
+      "seconds": 159,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:43",
+      "end": "11:43",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:43",
+      "end": "11:52",
+      "seconds": 520,
+      "minutes": 8,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:52",
+      "end": "11:52",
+      "seconds": 44,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:52",
+      "end": "11:54",
+      "seconds": 84,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:54",
+      "end": "11:54",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:54",
+      "end": "11:55",
+      "seconds": 39,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:55",
+      "end": "11:56",
+      "seconds": 68,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:56",
+      "end": "11:57",
+      "seconds": 111,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:57",
+      "end": "11:59",
+      "seconds": 78,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:59",
+      "end": "11:59",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "11:59",
+      "end": "11:59",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "11:59",
+      "end": "12:02",
+      "seconds": 181,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:02",
+      "end": "12:03",
+      "seconds": 54,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:03",
+      "end": "12:03",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:03",
+      "end": "12:03",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:03",
+      "end": "12:04",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:04",
+      "end": "12:04",
+      "seconds": 10,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:04",
+      "end": "12:04",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:04",
+      "end": "12:12",
+      "seconds": 478,
+      "minutes": 7,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:12",
+      "end": "12:13",
+      "seconds": 29,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:13",
+      "end": "12:16",
+      "seconds": 224,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:16",
+      "end": "12:16",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:16",
+      "end": "12:18",
+      "seconds": 90,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:18",
+      "end": "12:18",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Other",
+      "app": "com.apple.FaceTime"
+    },
+    {
+      "start": "12:18",
+      "end": "12:20",
+      "seconds": 130,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:20",
+      "end": "12:20",
+      "seconds": 14,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:20",
+      "end": "12:21",
+      "seconds": 40,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:21",
+      "end": "12:22",
+      "seconds": 44,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:22",
+      "end": "12:22",
+      "seconds": 43,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:22",
+      "end": "12:22",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:22",
+      "end": "12:23",
+      "seconds": 12,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:23",
+      "end": "12:23",
+      "seconds": 17,
+      "minutes": 0,
+      "category": "Communication",
+      "app": "Messages"
+    },
+    {
+      "start": "12:23",
+      "end": "12:32",
+      "seconds": 517,
+      "minutes": 8,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:32",
+      "end": "12:35",
+      "seconds": 178,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:35",
+      "end": "12:41",
+      "seconds": 413,
+      "minutes": 6,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:41",
+      "end": "12:44",
+      "seconds": 129,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:44",
+      "end": "12:44",
+      "seconds": 44,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:44",
+      "end": "12:45",
+      "seconds": 48,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:45",
+      "end": "12:47",
+      "seconds": 123,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:47",
+      "end": "12:47",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:47",
+      "end": "12:53",
+      "seconds": 335,
+      "minutes": 5,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:53",
+      "end": "12:53",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:53",
+      "end": "12:56",
+      "seconds": 159,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:56",
+      "end": "12:57",
+      "seconds": 91,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:57",
+      "end": "12:58",
+      "seconds": 46,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "12:58",
+      "end": "12:58",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:58",
+      "end": "12:58",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "12:58",
+      "end": "13:02",
+      "seconds": 232,
+      "minutes": 3,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:02",
+      "end": "13:05",
+      "seconds": 183,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:05",
+      "end": "13:05",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:05",
+      "end": "13:05",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:05",
+      "end": "13:06",
+      "seconds": 27,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:06",
+      "end": "13:09",
+      "seconds": 196,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:09",
+      "end": "13:09",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:09",
+      "end": "13:12",
+      "seconds": 170,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:12",
+      "end": "13:14",
+      "seconds": 150,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:14",
+      "end": "13:30",
+      "seconds": 925,
+      "minutes": 15,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:30",
+      "end": "13:31",
+      "seconds": 53,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:31",
+      "end": "13:34",
+      "seconds": 186,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:34",
+      "end": "13:34",
+      "seconds": 27,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:34",
+      "end": "13:41",
+      "seconds": 441,
+      "minutes": 7,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:41",
+      "end": "13:42",
+      "seconds": 56,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:42",
+      "end": "13:44",
+      "seconds": 97,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:44",
+      "end": "13:44",
+      "seconds": 27,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:44",
+      "end": "13:45",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:45",
+      "end": "13:45",
+      "seconds": 29,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:45",
+      "end": "13:45",
+      "seconds": 28,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:45",
+      "end": "13:49",
+      "seconds": 201,
+      "minutes": 3,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:49",
+      "end": "13:52",
+      "seconds": 168,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:52",
+      "end": "13:53",
+      "seconds": 57,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "13:53",
+      "end": "13:56",
+      "seconds": 236,
+      "minutes": 3,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "13:56",
+      "end": "14:06",
+      "seconds": 545,
+      "minutes": 9,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "14:06",
+      "end": "14:21",
+      "seconds": 944,
+      "minutes": 15,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:21",
+      "end": "14:21",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "14:21",
+      "end": "14:22",
+      "seconds": 24,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:22",
+      "end": "14:22",
+      "seconds": 9,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "14:22",
+      "end": "14:23",
+      "seconds": 79,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:23",
+      "end": "14:23",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "14:23",
+      "end": "14:23",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:23",
+      "end": "14:28",
+      "seconds": 285,
+      "minutes": 4,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "14:28",
+      "end": "14:28",
+      "seconds": 8,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "14:28",
+      "end": "14:29",
+      "seconds": 26,
+      "minutes": 0,
+      "category": "Communication",
+      "app": "Messages"
+    },
+    {
+      "start": "14:29",
+      "end": "14:29",
+      "seconds": 19,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:29",
+      "end": "14:37",
+      "seconds": 476,
+      "minutes": 7,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "14:37",
+      "end": "14:41",
+      "seconds": 252,
+      "minutes": 4,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:41",
+      "end": "14:43",
+      "seconds": 86,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "14:43",
+      "end": "14:51",
+      "seconds": 475,
+      "minutes": 7,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "14:51",
+      "end": "15:15",
+      "seconds": 1437,
+      "minutes": 23,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "15:15",
+      "end": "15:15",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Other",
+      "app": "com.apple.FaceTime"
+    },
+    {
+      "start": "15:15",
+      "end": "15:16",
+      "seconds": 107,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "15:16",
+      "end": "15:17",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "15:17",
+      "end": "15:49",
+      "seconds": 1878,
+      "minutes": 31,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "15:49",
+      "end": "15:49",
+      "seconds": 14,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "15:49",
+      "end": "15:51",
+      "seconds": 94,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "15:51",
+      "end": "15:51",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "15:51",
+      "end": "15:52",
+      "seconds": 69,
+      "minutes": 1,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "15:52",
+      "end": "15:52",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "15:52",
+      "end": "15:52",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "15:52",
+      "end": "15:53",
+      "seconds": 68,
+      "minutes": 1,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "15:53",
+      "end": "15:53",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "15:53",
+      "end": "15:53",
+      "seconds": 4,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "15:53",
+      "end": "15:53",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "15:53",
+      "end": "15:54",
+      "seconds": 18,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "15:54",
+      "end": "15:54",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "15:54",
+      "end": "15:57",
+      "seconds": 210,
+      "minutes": 3,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "15:57",
+      "end": "16:00",
+      "seconds": 159,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "16:00",
+      "end": "16:01",
+      "seconds": 60,
+      "minutes": 1,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "16:01",
+      "end": "16:25",
+      "seconds": 1481,
+      "minutes": 24,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "16:25",
+      "end": "16:27",
+      "seconds": 96,
+      "minutes": 1,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "16:27",
+      "end": "16:27",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "16:27",
+      "end": "16:58",
+      "seconds": 1871,
+      "minutes": 31,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "16:58",
+      "end": "16:59",
+      "seconds": 13,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "16:59",
+      "end": "17:06",
+      "seconds": 442,
+      "minutes": 7,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "17:06",
+      "end": "17:55",
+      "seconds": 2914,
+      "minutes": 48,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "17:55",
+      "end": "19:55",
+      "seconds": 7211,
+      "minutes": 120,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "19:55",
+      "end": "19:55",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "19:55",
+      "end": "19:55",
+      "seconds": 20,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "19:55",
+      "end": "19:56",
+      "seconds": 42,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "19:56",
+      "end": "19:56",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "19:56",
+      "end": "19:56",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "19:56",
+      "end": "19:56",
+      "seconds": 3,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "19:56",
+      "end": "19:58",
+      "seconds": 141,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "19:58",
+      "end": "19:58",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "Terminal"
+    },
+    {
+      "start": "19:58",
+      "end": "20:01",
+      "seconds": 145,
+      "minutes": 2,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:01",
+      "end": "20:13",
+      "seconds": 729,
+      "minutes": 12,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:13",
+      "end": "20:13",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Communication",
+      "app": "Messages"
+    },
+    {
+      "start": "20:13",
+      "end": "20:14",
+      "seconds": 35,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:14",
+      "end": "20:14",
+      "seconds": 5,
+      "minutes": 0,
+      "category": "Communication",
+      "app": "Messages"
+    },
+    {
+      "start": "20:14",
+      "end": "20:40",
+      "seconds": 1586,
+      "minutes": 26,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:40",
+      "end": "20:40",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "20:40",
+      "end": "20:46",
+      "seconds": 350,
+      "minutes": 5,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:46",
+      "end": "20:47",
+      "seconds": 48,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "20:47",
+      "end": "20:47",
+      "seconds": 25,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:47",
+      "end": "20:47",
+      "seconds": 14,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "20:47",
+      "end": "20:48",
+      "seconds": 16,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:48",
+      "end": "20:48",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "20:48",
+      "end": "20:48",
+      "seconds": 17,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:48",
+      "end": "20:51",
+      "seconds": 179,
+      "minutes": 2,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "20:51",
+      "end": "20:51",
+      "seconds": 7,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:51",
+      "end": "20:52",
+      "seconds": 34,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "20:52",
+      "end": "20:52",
+      "seconds": 2,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:52",
+      "end": "20:53",
+      "seconds": 46,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    },
+    {
+      "start": "20:53",
+      "end": "20:53",
+      "seconds": 45,
+      "minutes": 0,
+      "category": "Research",
+      "app": "Google Chrome"
+    },
+    {
+      "start": "20:53",
+      "end": "20:54",
+      "seconds": 11,
+      "minutes": 0,
+      "category": "Development",
+      "app": "VS Code"
+    }
+  ],
+  "deep_work_blocks": [
+    {
+      "start": "00:00",
+      "end": "20:54",
+      "duration": "20:54",
+      "seconds": 75243,
+      "minutes": 1254
+    }
+  ]
+}

@@ -1,0 +1,546 @@
+{
+<<<<<<< Updated upstream
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:18)",
+    "Focused on Finder (00:01)",
+    "Focused on app_mode_loader (00:01)",
+    "Focused on Electron (00:00)",
+    "Focused on TextEdit (00:00)"
+  ],
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "jack (physicaltherapybiz.com)",
+        "visits": 182
+      },
+      {
+        "domain": "untitled1.ipynb",
+        "visits": 7
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "Untitled1.ipynb - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 39
+      },
+      {
+        "page": "ChatGPT - PT Biz Setter v2 - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 17
+      },
+      {
+        "page": "DailyAccomplishments - Colab - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 11
+      },
+      {
+        "page": "Cloud Shell - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 10
+      },
+      {
+        "page": "Daily Accomplishments - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 8
+      },
+      {
+        "page": "Repo review and upgrades - Google Chrome - Jack (physicaltherapybiz.com)",
+        "visits": 7
+      },
+      {
+        "page": "Find in page\n    Untitled1.ipynb - Colab",
+        "visits": 7
+      },
+      {
+        "page": "[Preview] README.md — DailyAccomplishments [Codespaces: fluffy winner] — Visual ",
+        "visits": 6
+      },
+      {
+        "page": "What is Cloud Run  ",
+        "visits": 5
+      },
+      {
+        "page": "johnlicataptbiz/DailyAccomplishments - Google Chrome - Jack (physicaltherapybiz.",
+        "visits": 5
+      }
+    ]
+  },
+  "by_category": {
+    "Coding": "00:01",
+    "Email/CRM": "00:00",
+    "Other": "00:03",
+    "Research": "00:46"
+  },
+  "date": "2025-12-10",
+  "debug_appointments": {
+    "meetings_today": []
+  },
+  "deep_work_blocks": [],
+  "executive_summary": [
+    "Active: 00:22 | Focus: 00:22",
+    "Coverage: 16:29–22:45 CST",
+    "Screen Time: ~57 min foreground app usage"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 1,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 2,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 3,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 4,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 5,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 6,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 7,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 8,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 9,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 10,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 11,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 12,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 13,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 14,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 15,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 16,
+      "pct": "0%",
+      "time": "00:19"
+    },
+    {
+      "hour": 17,
+      "pct": "0%",
+      "time": "00:16"
+    },
+    {
+      "hour": 18,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 19,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 20,
+      "pct": "0%",
+      "time": "00:00"
+    },
+    {
+      "hour": 21,
+      "pct": "0%",
+      "time": "00:12"
+    },
+    {
+      "hour": 22,
+      "pct": "0%",
+      "time": "00:11"
+    },
+    {
+      "hour": 23,
+      "pct": "0%",
+      "time": "00:00"
+    }
+  ],
+  "overview": {
+    "active_time": "00:22",
+    "appointments": 0,
+    "coverage_time": "06:16",
+    "coverage_window": "16:29–22:45",
+    "focus_time": "00:47",
+=======
+  "source_file": "ActivityReport-2025-12-10.json",
+  "date": "2025-12-10",
+  "title": "Daily Accomplishments \u2014 2025-12-10",
+  "overview": {
+    "active_time": "00:22",
+    "focus_time": "10:30",
+>>>>>>> Stashed changes
+    "meetings_time": "00:00",
+    "coverage_time": "06:16",
+    "coverage_window": "00:14\u201322:45",
+    "appointments": 0,
+    "projects_count": 4
+  },
+  "prepared_for_manager": [
+    "Active Time: 00:22",
+    "Focus Time: 00:22",
+    "Meeting Time: 00:00",
+    "Top Apps: Google Chrome, Finder, app_mode_loader"
+  ],
+<<<<<<< Updated upstream
+  "source_file": "ActivityReport-2025-12-10.json",
+  "timeline": [],
+  "title": "Daily Accomplishments — 2025-12-10",
+=======
+  "executive_summary": [
+    "Active: 00:22 | Focus: 00:22",
+    "Coverage: 16:29\u201322:45 CST",
+    "Screen Time: ~57 min foreground app usage",
+    "Screen Time: ~791 min foreground app usage"
+  ],
+  "accomplishments_today": [
+    "Focused on Google Chrome (00:18)",
+    "Focused on Finder (00:01)",
+    "Focused on app_mode_loader (00:01)",
+    "Focused on Electron (00:00)",
+    "Focused on TextEdit (00:00)"
+  ],
+  "by_category": {
+    "Research": "03:53",
+    "Other": "01:33",
+    "Coding": "05:04",
+    "Email/CRM": "00:00"
+  },
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "github.com",
+        "visits": 655
+      },
+      {
+        "domain": "gitlab.com",
+        "visits": 520
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 102
+      },
+      {
+        "domain": "gitkraken.dev",
+        "visits": 94
+      },
+      {
+        "domain": "app.hubspot.com",
+        "visits": 86
+      },
+      {
+        "domain": "railway.com",
+        "visits": 72
+      },
+      {
+        "domain": "dailyaccomplishmentsptbiz.up.railway.app",
+        "visits": 66
+      },
+      {
+        "domain": "mail.google.com",
+        "visits": 40
+      },
+      {
+        "domain": "grok.com",
+        "visits": 38
+      },
+      {
+        "domain": "app.slack.com",
+        "visits": 33
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments",
+        "visits": 30
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/13",
+        "visits": 20
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 20
+      },
+      {
+        "page": "https://gitlab.com/",
+        "visits": 19
+      },
+      {
+        "page": "https://gitlab.com/johnlicataptbiz-group/DailyAccomplishments/-/merge_requests/1",
+        "visits": 19
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/issues",
+        "visits": 17
+      },
+      {
+        "page": "https://github.com/",
+        "visits": 16
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/models",
+        "visits": 16
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/blob/fd9827ed8b205c51de31151f13bcdec7eff36a0e/.github/workflows/codeql.yml",
+        "visits": 13
+      },
+      {
+        "page": "https://mail.google.com/mail/u/0/#inbox",
+        "visits": 13
+      }
+    ]
+  },
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:31",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:12",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:12",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:41",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:33",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:21",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:19",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:48",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:46",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:44",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:50",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:54",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:18",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:37",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:48",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:35",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:32",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:12",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:11",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:00",
+      "pct": "0%"
+    }
+  ],
+>>>>>>> Stashed changes
+  "top_apps": {
+    "VS Code": "05:03",
+    "Google Chrome": "03:53",
+    "com.google.antigravity": "01:31",
+    "Messages": "00:02",
+    "Terminal": "00:01"
+  },
+  "top_windows_preview": [
+    "Google Chrome — Untitled1.ipynb - Colab - Google Chrome - Jack (ph: 00:03",
+    "Google Chrome — ChatGPT - PT Biz Setter v2 - Google Chrome - Jack : 00:01",
+    "app_mode_loader — missing value: 00:01",
+    "Google Chrome — DailyAccomplishments - Colab - Google Chrome - Jac: 00:00",
+    "Google Chrome: 00:00",
+<<<<<<< Updated upstream
+    "Google Chrome — Cloud Shell - Google Chrome - Jack (physicaltherap: 00:00",
+    "Google Chrome — Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
+    "Google Chrome — dailyaccomplishments-production.up.railway.app/Act: 00:00",
+    "Google Chrome — Repo review and upgrades - Google Chrome - Jack (p: 00:00",
+    "Google Chrome — Find in page\n    Untitled1.ipynb - Colab: 00:00"
+=======
+    "Google Chrome \u2014 Cloud Shell - Google Chrome - Jack (physicaltherap: 00:00",
+    "Google Chrome \u2014 Daily Accomplishments - Google Chrome - Jack (phys: 00:00",
+    "Google Chrome \u2014 dailyaccomplishments-production.up.railway.app/Act: 00:00",
+    "Google Chrome \u2014 Repo review and upgrades - Google Chrome - Jack (p: 00:00",
+    "Google Chrome \u2014 Find in page\n    Untitled1.ipynb - Colab: 00:00"
+  ],
+  "foot": "Auto-generated (Redesign v1)",
+  "debug_appointments": {
+    "meetings_today": []
+  },
+  "timeline": [],
+  "deep_work_blocks": [],
+  "deep_work": [
+    {
+      "start": "11:59",
+      "end": "13:21",
+      "minutes": 70,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "10:22",
+      "end": "11:23",
+      "minutes": 54,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "14:11",
+      "end": "15:08",
+      "minutes": 48,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "17:21",
+      "end": "18:05",
+      "minutes": 44,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "13:22",
+      "end": "14:01",
+      "minutes": 37,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "18:59",
+      "end": "19:29",
+      "minutes": 26,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "04:48",
+      "end": "05:13",
+      "minutes": 25,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+>>>>>>> Stashed changes
+  ]
+}

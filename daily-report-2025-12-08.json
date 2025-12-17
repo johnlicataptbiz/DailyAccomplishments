@@ -1,0 +1,299 @@
+{
+  "date": "2025-12-08",
+  "overview": {
+    "focus_time": "14:47",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "coverage_window": "00:35\u201300:00"
+  },
+  "debug_appointments": {
+    "appointments_today": [],
+    "meetings_today": []
+  },
+  "by_category": {
+    "Research": "08:05",
+    "Coding": "06:04",
+    "Other": "00:38"
+  },
+  "by_project": {},
+  "top_apps": {
+    "Google Chrome": "08:05",
+    "VS Code": "06:04",
+    "com.axosoft.gitkraken": "00:30",
+    "com.github.GitHubClient": "00:04",
+    "Finder": "00:03",
+    "TextEdit": "00:01"
+  },
+  "top_windows": {},
+  "hourly_focus": [
+    {
+      "hour": 0,
+      "time": "00:16",
+      "pct": "0%"
+    },
+    {
+      "hour": 1,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 2,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 3,
+      "time": "00:48",
+      "pct": "0%"
+    },
+    {
+      "hour": 4,
+      "time": "00:55",
+      "pct": "0%"
+    },
+    {
+      "hour": 5,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 6,
+      "time": "00:43",
+      "pct": "0%"
+    },
+    {
+      "hour": 7,
+      "time": "00:23",
+      "pct": "0%"
+    },
+    {
+      "hour": 8,
+      "time": "00:39",
+      "pct": "0%"
+    },
+    {
+      "hour": 9,
+      "time": "00:49",
+      "pct": "0%"
+    },
+    {
+      "hour": 10,
+      "time": "00:43",
+      "pct": "0%"
+    },
+    {
+      "hour": 11,
+      "time": "00:50",
+      "pct": "0%"
+    },
+    {
+      "hour": 12,
+      "time": "00:40",
+      "pct": "0%"
+    },
+    {
+      "hour": 13,
+      "time": "00:35",
+      "pct": "0%"
+    },
+    {
+      "hour": 14,
+      "time": "00:55",
+      "pct": "0%"
+    },
+    {
+      "hour": 15,
+      "time": "00:16",
+      "pct": "0%"
+    },
+    {
+      "hour": 16,
+      "time": "00:06",
+      "pct": "0%"
+    },
+    {
+      "hour": 17,
+      "time": "00:53",
+      "pct": "0%"
+    },
+    {
+      "hour": 18,
+      "time": "00:47",
+      "pct": "0%"
+    },
+    {
+      "hour": 19,
+      "time": "00:15",
+      "pct": "0%"
+    },
+    {
+      "hour": 20,
+      "time": "00:00",
+      "pct": "0%"
+    },
+    {
+      "hour": 21,
+      "time": "00:45",
+      "pct": "0%"
+    },
+    {
+      "hour": 22,
+      "time": "00:22",
+      "pct": "0%"
+    },
+    {
+      "hour": 23,
+      "time": "00:44",
+      "pct": "0%"
+    }
+  ],
+  "browser_highlights": {
+    "top_domains": [
+      {
+        "domain": "gitlab.com",
+        "visits": 991
+      },
+      {
+        "domain": "github.com",
+        "visits": 679
+      },
+      {
+        "domain": "console.cloud.google.com",
+        "visits": 271
+      },
+      {
+        "domain": "gitkraken.dev",
+        "visits": 220
+      },
+      {
+        "domain": "docs.gitlab.com",
+        "visits": 109
+      },
+      {
+        "domain": "accounts.google.com",
+        "visits": 93
+      },
+      {
+        "domain": "railway.com",
+        "visits": 88
+      },
+      {
+        "domain": "docs.cloud.google.com",
+        "visits": 85
+      },
+      {
+        "domain": "chatgpt.com",
+        "visits": 83
+      },
+      {
+        "domain": "grok.com",
+        "visits": 71
+      }
+    ],
+    "top_pages": [
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/4",
+        "visits": 54
+      },
+      {
+        "page": "https://gitlab.com/",
+        "visits": 46
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments",
+        "visits": 34
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pull/1",
+        "visits": 32
+      },
+      {
+        "page": "https://search.google.com/search-console/welcome?domain=dailyaccomplishmentsptbiz.up.railway.app",
+        "visits": 25
+      },
+      {
+        "page": "https://railway.com/project/c5ea1eeb-e8e6-4b3d-9e80-43ac5e6e916b/service/e655d8cc-3339-412e-b8ef-edbdf4613c34?environmentId=a82b7e9b-cb38-43d3-85a6-56ba1b5c0fad",
+        "visits": 23
+      },
+      {
+        "page": "https://gitkraken.dev/drafts/c0f3e176-5c90-4422-afc8-e4a64c1be163?file=ActivityReport-2025-12-08.json",
+        "visits": 21
+      },
+      {
+        "page": "https://gitlab.com/dashboard/groups",
+        "visits": 20
+      },
+      {
+        "page": "https://github.com/johnlicataptbiz/DailyAccomplishments/pulls",
+        "visits": 19
+      },
+      {
+        "page": "https://gitlab.com/johnlicataptbiz-group/DailyAccomplishments",
+        "visits": 17
+      }
+    ]
+  },
+  "timeline": [],
+  "deep_work_blocks": [],
+  "deep_work": [
+    {
+      "start": "08:42",
+      "end": "10:36",
+      "minutes": 95,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "03:32",
+      "end": "04:45",
+      "minutes": 64,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "14:24",
+      "end": "15:16",
+      "minutes": 52,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "05:23",
+      "end": "06:08",
+      "minutes": 41,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "11:19",
+      "end": "12:07",
+      "minutes": 41,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "23:13",
+      "end": "00:00",
+      "minutes": 40,
+      "category": "Research",
+      "label": "Google Chrome"
+    },
+    {
+      "start": "02:03",
+      "end": "02:51",
+      "minutes": 39,
+      "category": "Coding",
+      "label": "VS Code"
+    },
+    {
+      "start": "16:53",
+      "end": "17:31",
+      "minutes": 37,
+      "category": "Research",
+      "label": "Google Chrome"
+    }
+  ],
+  "executive_summary": [
+    "Screen Time: ~1092 min foreground app usage"
+  ]
+}
