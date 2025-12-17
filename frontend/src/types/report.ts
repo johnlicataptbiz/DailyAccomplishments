@@ -1,6 +1,13 @@
 export interface Overview {
+  // Schema v2 fields (numeric)
+  date?: string;
+  focusMinutes?: number;
+  meetingMinutes?: number;
+  activeMinutes?: number;
+  coverageMinutes?: number;
+  // Schema v1 fields (string HH:MM format) - kept for backwards compatibility
   active_time?: string;
-  focus_time?: string;
+  focus_time?: string | number;  // Can be string (v1) or number (v2)
   meetings_time?: string;
   coverage_time?: string;
   coverage_window?: string;
@@ -27,6 +34,9 @@ export interface TimelineEntry {
 }
 
 export interface TodayReport {
+  // Schema versioning
+  schema_version?: number;
+  
   source_file?: string;
   date: string;
   title?: string;
@@ -34,6 +44,18 @@ export interface TodayReport {
   prepared_for_manager?: string[];
   executive_summary?: string[];
   accomplishments_today?: string[];
+  
+  // Schema v2 fields
+  headline_bullets?: string[];
+  proof?: {
+    deep_work?: ProofEntry[];
+    timeline?: ProofEntry[];
+    apps?: ProofEntry[];
+    meetings?: ProofEntry[];
+  };
+  raw?: Record<string, unknown>;
+  
+  // Legacy fields
   by_category?: Record<string, string>;
   browser_highlights?: unknown;
   timeline?: TimelineEntry[];

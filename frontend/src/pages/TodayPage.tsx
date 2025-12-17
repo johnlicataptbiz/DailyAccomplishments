@@ -233,9 +233,16 @@ export default function TodayPage() {
       <div className="space-y-4">
         <p className="text-xs uppercase tracking-[0.25em] text-muted">Headline bullets</p>
         {visibleBullets.length === 0 && (
-          <div className="glass-panel p-6 text-muted flex items-center gap-2">
-            <AlertCircle className="h-4 w-4" />
-            No bullets available. Try resetting edits or regenerating reports.
+          <div className="glass-panel p-6 space-y-3">
+            <div className="flex items-center gap-2 text-amber-200">
+              <AlertCircle className="h-5 w-5" />
+              <p className="font-medium">{hiddenBullets.length ? 'All bullets are hidden' : 'No bullets available'}</p>
+            </div>
+            <p className="text-sm text-muted">
+              {hiddenBullets.length
+                ? 'This report has time stats, but all accomplishments are currently hidden. Try resetting edits to restore the original bullets.'
+                : 'Try resetting edits or regenerating reports if data is missing.'}
+            </p>
           </div>
         )}
         <div className="space-y-4">
