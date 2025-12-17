@@ -34,6 +34,9 @@ export interface TimelineEntry {
 }
 
 export interface TodayReport {
+  // Schema versioning
+  schema_version?: number;
+  
   source_file?: string;
   date: string;
   title?: string;
@@ -41,6 +44,18 @@ export interface TodayReport {
   prepared_for_manager?: string[];
   executive_summary?: string[];
   accomplishments_today?: string[];
+  
+  // Schema v2 fields
+  headline_bullets?: string[];
+  proof?: {
+    deep_work?: ProofEntry[];
+    timeline?: ProofEntry[];
+    apps?: ProofEntry[];
+    meetings?: ProofEntry[];
+  };
+  raw?: Record<string, unknown>;
+  
+  // Legacy fields
   by_category?: Record<string, string>;
   browser_highlights?: unknown;
   timeline?: TimelineEntry[];

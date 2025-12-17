@@ -1,5 +1,5 @@
 import type { BulletItem, ProofEntry, TodayReport } from '../types/report';
-import { parseDurationToMinutes } from '../utils/time';
+import { parseDurationToMinutes, formatMinutes } from '../utils/time';
 
 /**
  * Generate candidate paths for fetching a report for a given date.
@@ -45,7 +45,7 @@ export function buildBulletItems(report: TodayReport): BulletItem[] {
         : 0;
 
   // Try headline_bullets first (schema v2)
-  const headlines = (report as any).headline_bullets ?? report.accomplishments_today ?? [];
+  const headlines = report.headline_bullets ?? report.accomplishments_today ?? [];
 
   // 1) If accomplishments/headlines exist, use them
   if (headlines.length > 0) {
@@ -68,7 +68,7 @@ export function buildBulletItems(report: TodayReport): BulletItem[] {
   // 2) If no accomplishments, generate a starter bullet from focus time or proof
   const fallbackTitle =
     focusMinutes > 0
-      ? `Focused work for ${Math.floor(focusMinutes / 60)}h ${focusMinutes % 60}m`
+      ? `Focused work for ${formatMinutes(focusMinutes)}`
       : deepProof.length > 0
         ? `Worked on ${deepProof[0].title}`
         : 'Add your first highlight';
