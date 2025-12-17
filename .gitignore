@@ -81,3 +81,7 @@ compare_snapshot_to_repo.sh
 !logs/
 !logs/daily/
 !logs/daily/*.jsonl
+
+# local scratch
+scripts/patch_load_data.sh
+tools/generate_reports.py.bak.*
