@@ -143,12 +143,19 @@
     }
   ],
   "overview": {
-    "coverage_window": "00:32\u201301:31",
-    "focus_time": "00:27"
+    "coverage_window": "00:32–01:31",
+    "focus_time": "00:27",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0
   },
   "timeline": [],
   "top_apps": {
     "Google Chrome": "00:25",
     "Terminal": "00:02"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
   }
 }

@@ -179,13 +179,20 @@
     }
   ],
   "overview": {
-    "coverage_window": "10:11\u201323:52",
-    "focus_time": "04:49"
+    "coverage_window": "10:11–23:52",
+    "focus_time": "04:49",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0
   },
   "timeline": [],
   "top_apps": {
     "Google Chrome": "04:44",
     "Messages": "00:01",
     "Slack": "00:04"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
   }
 }

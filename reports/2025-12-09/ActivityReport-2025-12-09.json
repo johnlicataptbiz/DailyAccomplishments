@@ -135,9 +135,10 @@
   ],
   "overview": {
     "appointments": 0,
-    "coverage_window": "\u2014",
+    "coverage_window": "—",
     "focus_time": "00:00",
-    "meetings_time": "00:00"
+    "meetings_time": "00:00",
+    "projects_count": 0
   },
   "timeline": [],
   "top_apps": {},

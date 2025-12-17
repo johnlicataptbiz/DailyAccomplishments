@@ -27,9 +27,109 @@ def fmt_hhmm(minutes):
     m = minutes % 60
     return f"{h:02d}:{m:02d}"
 
+def _default_hourly_focus():
+    return [{"hour": h, "time": "00:00", "pct": "0%"} for h in range(24)]
+
+
+def _normalize_hourly_focus(hf):
+    """
+    Return a 24-item hourly_focus list.
+
+    Accepts legacy shapes:
+      - [] / missing
+      - list of strings ("HH:MM")
+      - list of numbers (minutes)
+      - list of dicts with hour/time
+      - list of dicts without hour (position-based)
+    """
+    out = _default_hourly_focus()
+    if not isinstance(hf, list) or not hf:
+        return out
+
+    # First pass: honor explicit "hour" when present.
+    used_by_hour = set()
+    for item in hf:
+        if not isinstance(item, dict):
+            continue
+        hour = item.get("hour")
+        try:
+            hour_i = int(hour)
+        except Exception:
+            continue
+        if 0 <= hour_i <= 23:
+            out[hour_i] = item
+            used_by_hour.add(hour_i)
+
+    # Second pass: fill remaining by position for items without an explicit hour.
+    pos = 0
+    for item in hf:
+        if isinstance(item, dict) and "hour" in item:
+            continue
+        while pos < 24 and pos in used_by_hour:
+            pos += 1
+        if pos >= 24:
+            break
+        out[pos] = item if isinstance(item, dict) else {"hour": pos, "time": item, "pct": "0%"}
+        used_by_hour.add(pos)
+        pos += 1
+
+    # Final pass: ensure each entry is a dict with an hour.
+    for i in range(24):
+        item = out[i]
+        if isinstance(item, dict):
+            # Ensure hour is present and normalized
+            item.setdefault("hour", i)
+            # Normalize time: accept numeric minutes, numeric-strings, or HH:MM
+            t = item.get("time")
+            if isinstance(t, (int, float)):
+                item["time"] = fmt_hhmm(int(t))
+            elif isinstance(t, str):
+                ts = t.strip()
+                # pure digits -> minutes value
+                if ts.isdigit():
+                    item["time"] = fmt_hhmm(int(ts))
+                else:
+                    # leave as-is (expecting HH:MM); fallback to 00:00 if unparsable
+                    if parse_hhmm(ts) == 0 and ts not in ("00:00", "0:00", "0"):
+                        item["time"] = "00:00"
+                    else:
+                        item["time"] = ts
+            else:
+                item["time"] = "00:00"
+
+            # Normalize pct to a percent string
+            p = item.get("pct")
+            if isinstance(p, (int, float)):
+                try:
+                    item["pct"] = f"{int(p)}%"
+                except Exception:
+                    item["pct"] = "0%"
+            elif isinstance(p, str):
+                ps = p.strip()
+                if ps.endswith("%"):
+                    item["pct"] = ps
+                elif ps.isdigit():
+                    item["pct"] = f"{ps}%"
+                else:
+                    item["pct"] = "0%"
+            else:
+                item["pct"] = "0%"
+
+            out[i] = item
+        elif isinstance(item, str):
+            out[i] = {"hour": i, "time": item, "pct": "0%"}
+        elif isinstance(item, (int, float)):
+            out[i] = {"hour": i, "time": fmt_hhmm(int(item)), "pct": "0%"}
+        else:
+            out[i] = {"hour": i, "time": "00:00", "pct": "0%"}
+
+    return out
+
 
 def fix_report(path: Path):
     j = json.loads(path.read_text())
+    # Ensure schema-required hourly_focus shape exists before computing totals.
+    j["hourly_focus"] = _normalize_hourly_focus(j.get("hourly_focus"))
     # compute sum of hourly_focus times
     total_min = 0
     hf = j.get("hourly_focus", [])

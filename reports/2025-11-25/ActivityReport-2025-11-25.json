@@ -7,7 +7,7 @@
     "meetings_today": [
       {
         "name": "Meeting",
-        "time": "08:45\u201309:00"
+        "time": "08:45–09:00"
       }
     ]
   },
@@ -147,11 +147,18 @@
     }
   ],
   "overview": {
-    "coverage_window": "08:44\u201309:24",
-    "focus_time": "00:38"
+    "coverage_window": "08:44–09:24",
+    "focus_time": "00:38",
+    "meetings_time": "00:00",
+    "appointments": 0,
+    "projects_count": 0
   },
   "timeline": [],
   "top_apps": {
     "Google Chrome": "00:38"
+  },
+  "browser_highlights": {
+    "top_domains": [],
+    "top_pages": []
   }
 }
