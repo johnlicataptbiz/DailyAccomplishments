@@ -26,8 +26,9 @@ jobs:
         run: |
           if [ -x ./generate_reports.sh ]; then
             ./generate_reports.sh
-          elif [ -f ./tools/generate_reports.py ]; then
-            python3 ./tools/generate_reports.py
+          elif [ -f ./scripts/generate_daily_json.py ]; then
+            # Fallback: generate report for today
+            python3 ./scripts/generate_daily_json.py "$(date -u +%F)"
           else
             echo "No report generator found" && exit 1
           fi
