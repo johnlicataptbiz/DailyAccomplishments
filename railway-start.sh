@@ -21,6 +21,11 @@ elif [ -f "${ROOT_DIR}/dashboard.html" ]; then
   cp -f "${ROOT_DIR}/dashboard.html" "${SITE_DIR}/dashboard.html"
 fi
 
+# Copy dashboard assets (chart.min.js, etc.) for legacy dashboard
+if [ -d "${ROOT_DIR}/dashboard" ]; then
+  cp -R "${ROOT_DIR}/dashboard" "${SITE_DIR}/dashboard"
+fi
+
 if [ -f "${ROOT_DIR}/config.json" ]; then
   cp -f "${ROOT_DIR}/config.json" "${SITE_DIR}/config.json"
 fi
