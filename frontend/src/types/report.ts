@@ -1,6 +1,13 @@
 export interface Overview {
+  // Schema v2 fields (numeric)
+  date?: string;
+  focusMinutes?: number;
+  meetingMinutes?: number;
+  activeMinutes?: number;
+  coverageMinutes?: number;
+  // Schema v1 fields (string HH:MM format) - kept for backwards compatibility
   active_time?: string;
-  focus_time?: string;
+  focus_time?: string | number;  // Can be string (v1) or number (v2)
   meetings_time?: string;
   coverage_time?: string;
   coverage_window?: string;

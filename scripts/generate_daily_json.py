@@ -560,14 +560,64 @@ def generate_report(date_str: Optional[str] = None, logs_dir: Optional[Path] = N
         coverage = "Unknown"
         coverage_dur = 0
 
-    # Build Report
+    # Generate accomplishments from top apps
+    accomplishments = [
+        f"Focused on {app} ({minutes_to_time_str(mins)})" 
+        for app, mins in sorted(app_time.items(), key=lambda x: -x[1])[:5]
+    ]
+    
+    # Build deep_work proof entries
+    deep_work_entries = []
+    for idx, block in enumerate(timeline.detect_deep_work_blocks()):
+        deep_work_entries.append({
+            "id": f"deep-{idx}",
+            "source": "deep_work",
+            "title": f"Deep work session",
+            "durationMinutes": block.get("minutes", 0),
+            "timeRange": f"{block.get('start', '')}-{block.get('end', '')}",
+            "category": "Focus"
+        })
+    
+    # Build timeline proof entries
+    timeline_entries = []
+    for idx, item in enumerate(timeline.export_timeline()[:20]):  # Limit to top 20
+        timeline_entries.append({
+            "id": f"timeline-{idx}",
+            "source": "timeline",
+            "title": item.get("app", "Activity"),
+            "durationMinutes": item.get("minutes", 0),
+            "timeRange": f"{item.get('start', '')}-{item.get('end', '')}",
+            "category": item.get("category", "Other"),
+            "label": item.get("app", "")
+        })
+    
+    # Build apps proof entries
+    app_entries = []
+    for idx, (app, mins) in enumerate(sorted(app_time.items(), key=lambda x: -x[1])[:10]):
+        app_entries.append({
+            "id": f"app-{idx}",
+            "source": "apps",
+            "title": app,
+            "durationMinutes": int(mins),
+            "category": "App Usage"
+        })
+    
+    # Build Report (Schema v2 with v1 backwards compatibility)
     report = {
+        # Schema v2 fields
+        "schema_version": 2,
         "source_file": f"ActivityReport-{date_str}.json",
         "date": date_str,
         "title": f"Daily Accomplishments — {date_str}",
+        
+        # Schema v2: Normalized overview with numeric minutes
         "overview": {
-            # UI: Rename "Active" to "Total Active Time" in frontend if needed, 
-            # but here we provide the precise data.
+            "date": date_str,
+            "focusMinutes": int(metrics['focus_minutes']),
+            "meetingMinutes": int(metrics['meeting_minutes']),
+            "activeMinutes": int(metrics['active_minutes']),
+            "coverageMinutes": int(coverage_dur),
+            # Keep v1 fields for backwards compatibility
             "active_time": minutes_to_time_str(metrics['active_minutes']),
             "focus_time": minutes_to_time_str(metrics['focus_minutes']),
             "meetings_time": minutes_to_time_str(metrics['meeting_minutes']),
@@ -576,6 +626,18 @@ def generate_report(date_str: Optional[str] = None, logs_dir: Optional[Path] = N
             "appointments": 0,
             "projects_count": len(category_time)
         },
+        
+        # Schema v2: headline_bullets (canonical UI source)
+        "headline_bullets": accomplishments,
+        
+        # Schema v2: Structured proof blocks
+        "proof": {
+            "deep_work": deep_work_entries,
+            "timeline": timeline_entries,
+            "apps": app_entries
+        },
+        
+        # Legacy v1 fields (kept for backwards compatibility)
         "prepared_for_manager": [
             f"Active Time: {minutes_to_time_str(metrics['active_minutes'])}",
             f"Focus Time: {minutes_to_time_str(metrics['focus_minutes'])}",
@@ -586,10 +648,7 @@ def generate_report(date_str: Optional[str] = None, logs_dir: Optional[Path] = N
             f"Active: {minutes_to_time_str(metrics['active_minutes'])} | Focus: {minutes_to_time_str(metrics['focus_minutes'])}",
             f"Coverage: {coverage}",
         ],
-        "accomplishments_today": [
-            f"Focused on {app} ({minutes_to_time_str(mins)})" 
-            for app, mins in sorted(app_time.items(), key=lambda x: -x[1])[:5]
-        ],
+        "accomplishments_today": accomplishments,
         "by_category": {
             cat: minutes_to_time_str(mins) 
             for cat, mins in sorted(category_time.items(), key=lambda x: -x[1])
@@ -615,7 +674,13 @@ def generate_report(date_str: Optional[str] = None, logs_dir: Optional[Path] = N
         ],
         "timeline": timeline.export_timeline(),
         "deep_work_blocks": timeline.detect_deep_work_blocks(),
-        "foot": "Auto-generated (Redesign v1)"
+        
+        # Raw data for debugging
+        "raw": {
+            "generator_version": "Redesign v2",
+            "category_priority": category_priority,
+            "metrics": metrics
+        }
     }
     
     output_file = REPO_ROOT / f"ActivityReport-{date_str}.json"
