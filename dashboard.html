@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Accomplishments Dashboard</title>
-<script
-  src="dashboard/vendor/chart.min.js"
-  onerror="this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';"
-></script>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Accomplishments</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
         :root {
-            --base-font-size: 16px;
             --bg-primary: #0a0a0f;
             --bg-card: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
             --border: rgba(255,255,255,0.06);
@@ -20,44 +17,19 @@
             --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             --gradient-warning: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-active: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --green: #10b981;
             --blue: #3b82f6;
             --purple: #8b5cf6;
+            --orange: #f97316;
             --hubspot: #ff7a59;
             --monday: #0073ea;
         }
 
-        .light-theme {
-            --bg-primary: #f8fafc;
-            --bg-card: linear-gradient(180deg, #ffffff, #f8fafc);
-            --border: rgba(2,6,23,0.06);
-            --text: #0f172a;
-            --text-muted: #475569;
-            --text-dim: #64748b;
-            --gradient-primary: linear-gradient(135deg, #0369a1 0%, #7c3aed 100%);
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        .creator-badge {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-muted);
-            background: none;
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .creator-badge strong {
-            color: var(--text);
-            font-weight: 700;
-            font-size: 20px;
-        }
 
         html, body {
             min-height: 100vh;
-            font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg-primary);
             background-image: 
                 radial-gradient(ellipse at 20% 0%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
@@ -70,10 +42,11 @@
 
         header {
             display: flex;
-            align-items: flex-start;
             justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 28px;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
         }
 
         .brand { display: flex; align-items: center; gap: 16px; }
@@ -97,16 +70,6 @@
         .sub { color: var(--text-muted); font-size: 13px; margin-top: 2px; }
 
         .date-nav { display: flex; align-items: center; gap: 8px; }
-        .theme-toggle {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 8px 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .theme-toggle:focus { outline: 3px solid rgba(99,102,241,0.18); }
 
         .date-nav button {
             background: var(--bg-card);
@@ -162,37 +125,7 @@
             font-size: 14px;
             color: var(--text-muted);
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
-
-        .daytype-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 600;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--text);
-            cursor: help;
-            user-select: none;
-        }
-        .daytype-badge .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--purple);
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
-        }
-        .daytype-badge.focus .dot { background: #38ef7d; box-shadow: 0 0 0 3px rgba(56, 239, 125, 0.12); }
-        .daytype-badge.meetings .dot { background: #60a5fa; box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.12); }
-        .daytype-badge.fragmented .dot { background: #f97316; box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12); }
-        .daytype-badge.light .dot { background: #94a3b8; box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.12); }
-        .daytype-badge.overload .dot { background: #f43f5e; box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.12); }
 
         .story-headline {
             font-size: 32px;
@@ -221,39 +154,6 @@
             max-width: 700px;
         }
 
-        details.evidence {
-            margin-top: 18px;
-            border-top: 1px solid var(--border);
-            padding-top: 14px;
-        }
-        details.evidence summary {
-            cursor: pointer;
-            user-select: none;
-            color: var(--text);
-            font-size: 13px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .evidence-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 12px;
-        }
-        @media (max-width: 1100px) { .evidence-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 700px) { .evidence-grid { grid-template-columns: 1fr; } }
-        .evidence-item {
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 14px;
-            background: rgba(255,255,255,0.02);
-        }
-        .evidence-k { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.4px; }
-        .evidence-v { font-size: 16px; font-weight: 700; margin-top: 6px; }
-        .evidence-meta { font-size: 12px; color: var(--text-muted); margin-top: 4px; line-height: 1.5; }
-
         .story-metrics {
             display: flex;
             gap: 32px;
@@ -276,12 +176,6 @@
 
         .metric.highlight-metric .metric-value {
             background: var(--gradient-success);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .metric.active-metric .metric-value {
-            background: var(--gradient-active);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -382,41 +276,6 @@
             margin-bottom: 28px;
         }
 
-        .svg-timeline-wrap {
-            margin-bottom: 14px;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 12px 12px 10px;
-            background: rgba(255,255,255,0.02);
-        }
-        .svg-timeline-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-        .svg-timeline-title .label {
-            font-size: 12px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .svg-timeline-title .meta {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-        .svg-timeline {
-            width: 100%;
-            height: 64px;
-            display: block;
-        }
-        .svg-timeline-empty {
-            color: var(--text-muted);
-            font-size: 13px;
-            padding: 10px 2px 2px;
-        }
-
         .section-title {
             font-size: 18px;
             font-weight: 600;
@@ -472,22 +331,6 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-        }
-
-        /* Tooltip */
-        .tooltip {
-            position: fixed;
-            z-index: 9999;
-            pointer-events: none;
-            background: rgba(17, 24, 39, 0.95);
-            border: 1px solid var(--border);
-            color: var(--text);
-            font-size: 12px;
-            padding: 8px 10px;
-            border-radius: 8px;
-            box-shadow: 0 10px 24px rgba(0,0,0,0.3);
-            display: none;
-            max-width: 260px;
         }
 
         /* Wins & Actions */
@@ -546,9 +389,7 @@
             padding: 24px;
         }
 
-        .chart-wrapper { height: 320px; }
-        @media (max-width: 900px) { .chart-wrapper { height: 260px; } }
-        @media (max-width: 520px) { .chart-wrapper { height: 200px; } }
+        .chart-wrapper { height: 220px; }
 
         /* App/Category bars */
         .bar-row {
@@ -616,64 +457,6 @@
         }
 
         .error h3 { color: #f87171; margin-bottom: 12px; }
-        /* Data Sources Panel */
-        .data-sources-panel {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 24px;
-            margin-top: 28px;
-        }
-        .data-sources-panel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text);
-        }
-        .data-sources-panel-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding-top: 0;
-        }
-        .data-sources-panel-content.expanded {
-            max-height: 1000px; /* Adjust as needed */
-            padding-top: 16px;
-        }
-        .data-sources-panel-header .toggle-arrow {
-            transition: transform 0.3s ease;
-            display: inline-block;
-        }
-        .data-sources-panel-header.expanded .toggle-arrow {
-            transform: rotate(90deg);
-        }
-        .data-source-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        .data-source-table th,
-        .data-source-table td {
-            padding: 8px 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            text-align: left;
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-        .data-source-table th {
-            color: var(--text-dim);
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 12px;
-        }
-        .data-source-summary-item {
-            padding: 6px 0;
-            font-size: 14px;
-            color: var(--text-muted);
-        }
     </style>
 </head>
 <body>
@@ -690,16 +473,7 @@
                 <button id="prevDay">← Prev</button>
                 <input type="date" id="dateInput">
                 <button id="nextDay">Next →</button>
-                                <button id="todayBtn" class="today-btn">Today</button>
-                                <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle theme">🌙</button>
-                                <label style="display:flex;align-items:center;gap:8px;margin-left:8px;font-size:13px;color:var(--text-muted);">
-                                    <input type="checkbox" id="autoResolveToggle" style="width:16px;height:16px;" />
-                                    <span style="color:var(--text);font-size:13px;font-weight:500;">Auto-resolve Today</span>
-                                </label>
-            </div>
-            <div class="creator-badge">
-              <div class="creator-label">Created by</div>
-              <div class="creator-name">Gemini</div>
+                <button id="todayBtn" class="today-btn">Today</button>
             </div>
         </header>
 
@@ -707,423 +481,99 @@
 
         <footer>
             <div id="footer"><a href="#" id="jsonLink">View Raw Data</a></div>
+            <div>Created by <strong>Jack Licata</strong></div>
         </footer>
     </div>
 
     <script>
-        console.log("[build] f8b45640 dashboard raw fallback enabled");
         // Support shareable URLs: dashboard.html?date=2025-12-01
-        // Local date helper (avoid UTC date rollovers)
-        function localDateKey(d = new Date()) {
-            const tz = d.getTimezoneOffset();
-            const local = new Date(d.getTime() - tz * 60000);
-            return local.toISOString().split('T')[0];
-        }
-
-        function parseLocalDate(key) {
-            // Parse YYYY-MM-DD as a local date (avoid UTC parsing)
-            const [y, m, d] = key.split('-').map(Number);
-            return new Date(y, (m || 1) - 1, d || 1, 12, 0, 0); // noon avoids DST edges
-        }
-
-        // Date fallback helpers for auto-resolving to latest available report
-        function fmtDateUTC(d) {
-            const yyyy = d.getUTCFullYear();
-            const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
-            const dd = String(d.getUTCDate()).padStart(2, "0");
-            return `${yyyy}-${mm}-${dd}`;
-        }
-
-        async function pickLatestAvailableDateUTC(maxDaysBack = 14) {
-            const now = new Date();
-            for (let i = 0; i <= maxDaysBack; i++) {
-                const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
-                d.setUTCDate(d.getUTCDate() - i);
-                const dateStr = fmtDateUTC(d);
-                const url = `reports/${dateStr}/ActivityReport-${dateStr}.json?probe=${Date.now()}`;
-
-                try {
-                    const r = await fetch(url, { cache: "no-store" });
-                    if (r.ok) return dateStr;
-                } catch {}
-            }
-            return fmtDateUTC(new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - 1)));
-        }
-
-        function getCssVar(name, fallback) {
-            const val = getComputedStyle(document.documentElement).getPropertyValue(name);
-            return (val || fallback || '').trim();
-        }
-
-        function initTheme() {
-            const saved = localStorage.getItem('da_theme');
-            if (saved === 'light') {
-                document.documentElement.classList.add('light-theme');
-                const tbtn = document.getElementById('themeToggle');
-                if (tbtn) { tbtn.textContent = '☀️'; tbtn.setAttribute('aria-pressed','true'); }
-            }
-            const btn = document.getElementById('themeToggle');
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    const isLight = document.documentElement.classList.toggle('light-theme');
-                    btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
-                    btn.textContent = isLight ? '☀️' : '🌙';
-                    localStorage.setItem('da_theme', isLight ? 'light' : 'dark');
-                    if (window.__lastDashboardState) {
-                        const s = window.__lastDashboardState;
-                        try { renderHourlyChart(s.d.hourly_focus || [], s.d); } catch (e) {}
-                        try { renderCategoryChart(s.d.by_category || {}); } catch (e) {}
-                    }
-                });
-            }
-        }
         const urlParams = new URLSearchParams(window.location.search);
-        let currentDate = urlParams.get('date') || null; // Will be set by init()
+        let currentDate = urlParams.get('date') || new Date().toISOString().split('T')[0];
         let data = null;
-
-        function fetchWithTimeout(url, opts = {}, ms = 2000) {
-            const c = new AbortController();
-            const t = setTimeout(() => c.abort(), ms);
-            return fetch(url, { ...opts, signal: c.signal }).finally(() => clearTimeout(t));
-        }
-
         let hourlyChart = null;
         let categoryChart = null;
-        // Settings with sensible defaults
-        window.meetingCredit = 0.25; // 25% of meeting minutes count as focus
 
         const dashboard = document.getElementById('dashboard');
         const dateInput = document.getElementById('dateInput');
         dateInput.value = currentDate;
-
-	        async function loadSettings() {
-	            try {
-	                const r = await fetchWithTimeout('config.json', { cache: 'no-store' }, 2000);
-	                if (!r.ok) return;
-	                const cfg = await r.json();
-	                const mc = cfg?.weights?.meeting_credit;
-	                if (typeof mc === 'number' && mc >= 0 && mc <= 1) {
-	                    window.meetingCredit = mc;
-	                }
-	                const ar = cfg?.dashboard?.auto_refresh_seconds;
-	                if (typeof ar === 'number' && ar >= 60 && ar <= 3600) {
-	                    window.dashboardAutoRefreshSeconds = ar;
-	                }
-	                const cp = cfg?.analytics?.category_priority;
-	                if (Array.isArray(cp) && cp.length) {
-	                    window.categoryPriority = cp;
-	                }
-	            } catch {}
-	        }
-
-            async function init() {
-                await loadSettings();
-                
-                // If no date specified in URL, use the auto-fallback logic to find
-                // the latest available report (checking up to 30 days back).
-                if (!currentDate) {
-                    const dateStr = await pickLatestAvailableDateUTC(30);
-                    currentDate = dateStr;
-                    window.__DEFAULT_REPORT_DATE__ = dateStr;
-                    console.log("[date] using report date", dateStr);
-                }
-                
-                // Set the date input to the resolved date
-                dateInput.value = currentDate;
-                
-                // Read user preference for auto-resolving "Today" to the most recent
-                // available report. Stored in localStorage as 'autoResolveToday' ('1' = on).
-                const elToggle = document.getElementById('autoResolveToggle');
-                let pref = localStorage.getItem('autoResolveToday');
-                if (pref === null) {
-                    // Default to disabled to avoid surprising auto-navigation on hard refresh.
-                    localStorage.setItem('autoResolveToday', '0');
-                    pref = '0';
-                }
-                const autoResolveToday = (pref === '1');
-                if (elToggle) {
-                    elToggle.checked = autoResolveToday;
-                    elToggle.addEventListener('change', (e) => {
-                        localStorage.setItem('autoResolveToday', e.target.checked ? '1' : '0');
-                    });
-                }
-
-                // On initial load: respect user preference. If enabled, allow falling back
-                // to recent reports so "Today" resolves to the most recent available.
-                await loadData(currentDate, { allowFallback: Boolean(autoResolveToday) });
-            }
-            init();
-
-	        let liveStoryInterval = null;
-	        let liveFetchInterval = null;
-
-	        function stopLiveTimers() {
-	            if (liveStoryInterval) clearInterval(liveStoryInterval);
-	            if (liveFetchInterval) clearInterval(liveFetchInterval);
-	            liveStoryInterval = null;
-	            liveFetchInterval = null;
-	        }
-
-	        function updateLiveStoryOnly() {
-	            const state = window.__lastDashboardState;
-	            if (!state || !state.d || !state.date) return;
-	            if (state.date !== localDateKey()) return;
-	            const analysis = analyzeDay(state.d);
-	            const dayType = classifyDayType(analysis, state.baseline);
-	            const story = buildNarrative(analysis, state.baseline, dayType, state.date, state.d);
-	            const h = document.querySelector('.story-headline');
-	            const p = document.querySelector('.story-summary');
-	            if (h) h.textContent = story.executive || '';
-	            if (p) p.textContent = story.narrative || '';
-	        }
-
-	        function startLiveTimers(dateStr) {
-	            stopLiveTimers();
-	            if (dateStr !== localDateKey()) return;
-
-	            // 1) Recompute the headline/summary as the hour changes (no network)
-	            updateLiveStoryOnly();
-	            liveStoryInterval = setInterval(updateLiveStoryOnly, 60 * 1000);
-
-	            // 2) Pull fresh report JSON periodically (picks up new data published every ~30 min)
-	            const refreshSeconds = (typeof window.dashboardAutoRefreshSeconds === 'number')
-	                ? window.dashboardAutoRefreshSeconds
-	                : 300;
-	            liveFetchInterval = setInterval(() => {
-	                if (currentDate === localDateKey()) {
-	                    loadData(currentDate, { allowFallback: false, silent: true });
-	                }
-	            }, refreshSeconds * 1000);
-	        }
-	        
-            // Update URL when date changes (without reload)
-            // If opts.replace is true, use replaceState to avoid creating extra history
-            // entries for automatic/fallback navigation.
-            function updateUrl(date, opts = { replace: false }) {
-                const url = new URL(window.location);
-                url.searchParams.set('date', date);
-                if (opts && opts.replace) {
-                    window.history.replaceState({ date }, '', url);
-                } else {
-                    window.history.pushState({ date }, '', url);
-                }
-            }
+        loadData(currentDate);
+        
+        // Update URL when date changes (without reload)
+        function updateUrl(date) {
+            const url = new URL(window.location);
+            url.searchParams.set('date', date);
+            window.history.pushState({date}, '', url);
+        }
         
         // Handle browser back/forward buttons
         window.addEventListener('popstate', (e) => {
             if (e.state?.date) {
                 currentDate = e.state.date;
                 dateInput.value = currentDate;
-                // Popstate is user navigation; do not silently fall back to a prior day.
-                loadData(currentDate, { allowFallback: false });
+                loadData(currentDate);
             }
         });
-
-            // Debug overlay: log history mutations and popstate events to help diagnose
-            // unexpected navigation behavior in browsers. Remove in production.
-            (function enableHistoryLogging(){
-                try {
-                    const _push = window.history.pushState;
-                    const _replace = window.history.replaceState;
-                    window.history.pushState = function(state, title, url) {
-                        console.log('[history-debug] pushState', { state, title, url });
-                        return _push.apply(this, arguments);
-                    };
-                    window.history.replaceState = function(state, title, url) {
-                        console.log('[history-debug] replaceState', { state, title, url });
-                        return _replace.apply(this, arguments);
-                    };
-                    window.addEventListener('popstate', (e) => {
-                        console.log('[history-debug] popstate', e.state);
-                    });
-                    console.log('[history-debug] enabled');
-                } catch (err) {
-                    console.warn('[history-debug] failed to install history logging', err);
-                }
-            })();
 
         document.getElementById('prevDay').addEventListener('click', () => changeDate(-1));
         document.getElementById('nextDay').addEventListener('click', () => changeDate(1));
         document.getElementById('todayBtn').addEventListener('click', () => {
-            currentDate = localDateKey();
+            currentDate = new Date().toISOString().split('T')[0];
             dateInput.value = currentDate;
             updateUrl(currentDate);
-            // User-triggered: do not fall back to an earlier date automatically
-            loadData(currentDate, { allowFallback: false });
+            loadData(currentDate);
         });
         dateInput.addEventListener('change', (e) => {
             updateUrl(e.target.value);
-            // User-selected date: keep that date or show a clear error if missing
-            loadData(e.target.value, { allowFallback: false });
+            loadData(e.target.value);
         });
 
         function changeDate(delta) {
-            const date = parseLocalDate(currentDate);
+            const date = new Date(currentDate);
             date.setDate(date.getDate() + delta);
-            currentDate = localDateKey(date);
+            currentDate = date.toISOString().split('T')[0];
             dateInput.value = currentDate;
             updateUrl(currentDate);
-            // User-triggered navigation; don't backfill
-            loadData(currentDate, { allowFallback: false });
+            loadData(currentDate);
         }
 
-        const RAW_BASE = 'https://raw.githubusercontent.com/johnlicataptbiz/DailyAccomplishments/main/';
+        async function loadData(date) {
+            currentDate = date;
+            dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
 
-	            async function loadData(date, opts = { allowFallback: true, silent: false }) {
-	                const allowFallback = Boolean(opts && opts.allowFallback);
-	                const silent = Boolean(opts && opts.silent);
-	                currentDate = date;
-	                if (!silent) {
-	                    dashboard.innerHTML = '<div class="loading">Loading your day...</div>';
-	                }
+            try {
+                let response = await fetch(`ActivityReport-${date}.json`);
+                if (!response.ok) response = await fetch(`reports/daily-report-${date}.json`);
+                if (!response.ok) throw new Error('Report not found');
 
-                console.log(`[loadData] Attempting to load data for date: ${date} allowFallback=${allowFallback}`);
-
-                // Hard guarantee: never spin forever (e.g., network hang / slow upstream).
-                const loadStartedAt = Date.now();
-	                const watchdog = silent ? null : setTimeout(() => {
-	                    if (dashboard && String(dashboard.innerHTML || '').includes('Loading your day')) {
-	                        dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Timed out while loading. Try refreshing, or pick another date.</p></div>`;
-	                        try {
-	                            document.getElementById('jsonLink').href = `reports/${date}/ActivityReport-${date}.json`;
-	                        } catch {}
-	                    }
-	                }, 4000);
-
-                try {
-                    const cacheSuffix = `?t=${Date.now()}`;
-                    const tryDaysBack = 14;
-                    const deadlineMs = 4500;
-
-                    function minusDays(dateStr, n) {
-                        const dt = parseLocalDate(dateStr);
-                        dt.setDate(dt.getDate() - n);
-                        return localDateKey(dt);
-                    }
-
-	                    async function fetchFirstOkFor(d) {
-	                        const candidates = [
-	                            { url: `reports/${d}/ActivityReport-${d}.json`, timeoutMs: 1500 },
-	                            { url: `ActivityReport-${d}.json`, timeoutMs: 1500 },
-	                            { url: `${RAW_BASE}reports/${d}/ActivityReport-${d}.json`, timeoutMs: 2000 },
-	                            { url: `${RAW_BASE}ActivityReport-${d}.json`, timeoutMs: 2000 },
-	                        ];
-
-                        let lastResponse = null;
-                        let lastUrl = candidates[candidates.length - 1].url;
-
-                        for (const c of candidates) {
-                            if (Date.now() - loadStartedAt > deadlineMs) break;
-                            lastUrl = c.url;
-                            console.log(`[loadData] Trying: ${c.url}`);
-                            try {
-                                lastResponse = await fetchWithTimeout(`${c.url}${cacheSuffix}`, { cache: 'no-store' }, c.timeoutMs);
-                            } catch (e) {
-                                console.log(`[loadData] Fetch failed: ${c.url} (${e?.name || 'error'})`);
-                                lastResponse = null;
-                            }
-                            if (lastResponse && lastResponse.ok) return { response: lastResponse, usedUrl: c.url };
-                        }
-
-                        return { response: lastResponse, usedUrl: lastUrl };
-                    }
-
-                    let resolvedDate = date;
-                    let response = null;
-                    let usedUrl = `reports/${date}/ActivityReport-${date}.json`;
-
-                    if (allowFallback) {
-                        for (let back = 0; back <= tryDaysBack; back++) {
-                            if (Date.now() - loadStartedAt > deadlineMs) break;
-                            const d = back === 0 ? date : minusDays(date, back);
-                            const result = await fetchFirstOkFor(d);
-                            response = result.response;
-                            usedUrl = result.usedUrl;
-                            if (response && response.ok) {
-                                resolvedDate = d;
-                                break;
-                            }
-                        }
-
-                        if (!response || !response.ok) {
-                            const status = response ? `${response.status} ${response.statusText}` : 'no response';
-                            throw new Error(`Report not found for ${date} or the prior ${tryDaysBack} days. Last attempt: ${usedUrl} (${status})`);
-                        }
-
-                        if (resolvedDate !== date) {
-                            currentDate = resolvedDate;
-                            dateInput.value = resolvedDate;
-                            // This change is automatic (fallback to the most recent available report).
-                            // Replace the current history entry rather than push a new one so the
-                            // browser back/forward buttons don't step through these automatic
-                            // fallbacks and confuse navigation.
-                            updateUrl(resolvedDate, { replace: true });
-                        }
-                    } else {
-                        const result = await fetchFirstOkFor(date);
-                        response = result.response;
-                        usedUrl = result.usedUrl;
-                        if (!response || !response.ok) {
-                            const status = response ? `${response.status} ${response.statusText}` : 'no response';
-                            throw new Error(`No report for ${date}. Last attempt: ${usedUrl} (${status})`);
-                        }
-                    }
-
-                    data = await response.json();
-	                    console.log('[loadData] Data fetched successfully:', data);
-	                    document.getElementById('headerSub').textContent = formatDateFriendly(resolvedDate);
-	                    // Set the raw data link to whichever URL actually succeeded
-	                    document.getElementById('jsonLink').href = usedUrl;
-	                    const baseline = await loadBaseline(resolvedDate);
-	                    renderDashboard(data, resolvedDate, baseline);
-	                } catch (error) {
-	                    console.error('[loadData] Failed to load dashboard data:', error);
-	                    if (!silent) {
-	                        try {
-	                            document.getElementById('jsonLink').href = `reports/${date}/ActivityReport-${date}.json`;
-	                        } catch {}
-	                        dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet. Error: ${error.message}</p></div>`;
-	                    }
-	                } finally {
-	                    if (watchdog) clearTimeout(watchdog);
-	                }
-	                }
+                data = await response.json();
+                document.getElementById('headerSub').textContent = formatDateFriendly(date);
+                document.getElementById('jsonLink').href = `ActivityReport-${date}.json`;
+                const baseline = await loadBaseline(date);
+                renderDashboard(data, date, baseline);
+            } catch (error) {
+                dashboard.innerHTML = `<div class="error"><h3>📭 No report for ${date}</h3><p style="color: var(--text-muted);">Data collection may not have run yet.</p></div>`;
+            }
+        }
 
         async function loadBaseline(dateStr) {
-            const base = { days: 0, focusMins: 0, meetingMins: 0, coverageMins: 0 };
+            const base = { days: 0, focusMins: 0, meetingMins: 0 };
             const d = new Date(dateStr + 'T12:00:00');
-            const cacheSuffix = `?t=${Date.now()}`;
             for (let i = 1; i <= 6; i++) {
                 const dd = new Date(d);
                 dd.setDate(d.getDate() - i);
-                const key = localDateKey(dd);
+                const key = dd.toISOString().split('T')[0];
                 try {
-                    // Prefer ActivityReport JSONs for baseline computations; avoid probing legacy
-                    // daily-report JSON files which often do not exist and generate lots of 404 noise.
-                    let r = await fetchWithTimeout(`reports/${key}/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
-                    if (!r.ok) r = await fetchWithTimeout(`ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1200);
-                    if (!r.ok) r = await fetchWithTimeout(`${RAW_BASE}reports/${key}/ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1500);
-                    if (!r.ok) r = await fetchWithTimeout(`${RAW_BASE}ActivityReport-${key}.json${cacheSuffix}`, { cache: 'no-store' }, 1500);
+                    let r = await fetch(`ActivityReport-${key}.json`);
+                    if (!r.ok) r = await fetch(`reports/daily-report-${key}.json`);
                     if (!r.ok) continue;
                     const j = await r.json();
                     base.focusMins += timeToMinutes(j.overview?.focus_time || '00:00');
                     base.meetingMins += timeToMinutes(j.overview?.meetings_time || '00:00');
-                    try {
-                        const cov = String(j.overview?.coverage_window || '');
-                        const parts = cov.split(/\s*[–—-]\s*/);
-                        if (parts.length === 2) {
-                            const toMin = (s)=>{ const [h,m]=s.split(':').map(Number); return (isNaN(h)||isNaN(m))?0:h*60+m; };
-                            const a = toMin(parts[0]);
-                            const b = toMin(parts[1]);
-                            if (b > a) base.coverageMins += (b - a);
-                        }
-                    } catch {}
                     base.days++;
                 } catch {}
             }
             base.focusAvg = base.days ? Math.round(base.focusMins / base.days) : 0;
             base.meetingAvg = base.days ? Math.round(base.meetingMins / base.days) : 0;
-            base.coverageAvg = base.days ? Math.round(base.coverageMins / base.days) : 0;
             return base;
         }
 
@@ -1133,8 +583,8 @@
             const yesterday = new Date(today);
             yesterday.setDate(yesterday.getDate() - 1);
             
-            if (dateStr === localDateKey(today)) return 'Today';
-            if (dateStr === localDateKey(yesterday)) return 'Yesterday';
+            if (dateStr === today.toISOString().split('T')[0]) return 'Today';
+            if (dateStr === yesterday.toISOString().split('T')[0]) return 'Yesterday';
             return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
         }
 
@@ -1153,460 +603,113 @@
         }
 
         function analyzeDay(d) {
-            // Prefer union from hourly buckets (capped at 60 per hour) to avoid double counting.
+            const focusMins = timeToMinutes(d.overview?.focus_time || '00:00');
+            const meetingMins = timeToMinutes(d.overview?.meetings_time || '00:00');
+            const appointments = d.overview?.appointments || 0;
+            const meetings = d.debug_appointments?.meetings_today?.length || 0;
+            
+            // YOUR Monday.com boards - the stuff that matters
+            const monday = d.monday || {};
+            const byBoard = monday.by_board || {};
+            const allItems = monday.items || [];
+            
+            // Jack Set Calls - YOUR appointments
+            const jackSetCalls = byBoard['Jack Set Calls'] || [];
+            const jackSetItems = allItems.filter(i => i.board === 'Jack Set Calls');
+            const jackWonCalls = jackSetItems.filter(i => i.status === 'WON');
+            const jackMovedToDiscovery = jackSetItems.filter(i => i.status === 'Moved to Discovery');
+            
+            // Sales Team Calls with "Set by Jack Licata" - YOUR closed deals
+            const salesTeamCalls = allItems.filter(i => 
+                i.board?.toLowerCase().includes('sales') && 
+                i.board?.toLowerCase().includes('call')
+            );
+            
+            // Q4 Modular Tracker - prospects you're managing
+            const modularTracker = byBoard['Q4 Modular Tracker'] || [];
+            
+            // General task updates
+            const tasksUpdated = monday.items_updated || 0;
+            const boards = Object.keys(byBoard);
+            const updatesCount = monday.updates_count || 0;
+            
+            // Slack analysis
+            const slackSent = d.slack?.stats?.total_sent || 0;
+            const slackReceived = d.slack?.stats?.total_received || 0;
+            
+            // HubSpot - DE-PRIORITIZED (not your closes unless tagged)
+            const hubspot = d.hubspot || {};
+            const hubspotCalls = hubspot.calls?.length || 0;
+            const hubspotEmails = hubspot.emails?.length || 0;
+            
+            // Hourly analysis - extended 5am to midnight
             const hourly = d.hourly_focus || [];
-            const focusByHour = [];
-            for (let h = 0; h < 24; h++) {
-                const found = hourly.find(x => x.hour === h);
-                focusByHour[h] = found ? timeToMinutes(found.time || '00:00') : 0;
-            }
-
-            // Meeting overlay per hour (0s when not available).
-            const meetingArr = computeMeetingsByHour(d);
-            const meetingOverlayMins = meetingArr.reduce((a,b)=>a+(b||0),0);
-
-            // Meeting credit: count a portion of meeting minutes toward focus (best-effort).
-            const MEETING_CREDIT = (typeof window.meetingCredit === 'number') ? window.meetingCredit : 0.25;
-            const focusAdj = focusByHour.reduce((sum, v, h) => {
-                const meet = meetingArr[h] || 0;
-                const subtract = Math.max(0, Math.round(meet * (1 - MEETING_CREDIT)));
-                return sum + Math.max(0, (v || 0) - subtract);
-            }, 0);
-            const focusMins = focusAdj > 0 ? focusAdj : focusByHour.reduce((a,b)=>a+(b||0),0);
-
-            // Prefer overlay sum for meeting minutes; fallback to overview.
-            const meetingMins = meetingOverlayMins || timeToMinutes(d.overview?.meetings_time || '00:00');
-
-            // Active time = per-hour union of focus + meetings overlay (capped at 60 per hour).
-            const activeMins = focusByHour.reduce((sum, v, h) => sum + Math.min(60, (v || 0) + (meetingArr[h] || 0)), 0);
-
-            // Coverage minutes from coverage_window (e.g., "07:12–23:05").
-            let coverageMins = 0;
-            try {
-                const cov = String(d.overview?.coverage_window || '');
-                const parts = cov.split(/\s*[–—-]\s*/);
-                if (parts.length === 2) {
-                    const toMin = (s)=>{ const [h,m]=s.split(':').map(Number); return (isNaN(h)||isNaN(m))?0:h*60+m; };
-                    const a = toMin(parts[0]);
-                    const b = toMin(parts[1]);
-                    if (b > a) coverageMins = b - a;
-                }
-            } catch {}
-
-            // Hourly analysis (5am–midnight).
-            const hourlyData = d.hourly_focus || [];
-            const workHours = hourlyData.filter(h => h.hour >= 5 && h.hour <= 23);
+            const workHours = hourly.filter(h => h.hour >= 5 && h.hour <= 23);
             const peakHour = workHours.reduce((max, h) => timeToMinutes(h.time) > timeToMinutes(max.time) ? h : max, { hour: 0, time: '00:00' });
             const morningFocus = workHours.filter(h => h.hour >= 5 && h.hour < 12).reduce((sum, h) => sum + timeToMinutes(h.time), 0);
             const afternoonFocus = workHours.filter(h => h.hour >= 12 && h.hour < 17).reduce((sum, h) => sum + timeToMinutes(h.time), 0);
             const eveningFocus = workHours.filter(h => h.hour >= 17 && h.hour <= 23).reduce((sum, h) => sum + timeToMinutes(h.time), 0);
-
-            // Categories.
+            
+            // Categories
             const categories = d.by_category || {};
             const topCategory = Object.entries(categories).sort((a, b) => timeToMinutes(b[1]) - timeToMinutes(a[1]))[0];
+            
+            // Apps
+            const apps = d.top_apps || {};
+            const topApp = Object.entries(apps).sort((a, b) => timeToMinutes(b[1]) - timeToMinutes(a[1]))[0];
+            
+            // SLACK appointments - authoritative source
+            const slackAppointments = d.debug_appointments?.appointments_today || [];
+            const slackAppointmentsCount = slackAppointments.length;
+            const slackAppointmentsNames = slackAppointments.map(a => a.name).join(', ');
 
-            // Timeline-derived signals (best effort).
-            const timeline = Array.isArray(d.timeline) ? d.timeline : [];
-            let contextSwitches = null;
-            if (timeline.length >= 2) {
-                let switches = 0;
-                for (let i = 1; i < timeline.length; i++) {
-                    const a = timeline[i - 1] || {};
-                    const b = timeline[i] || {};
-                    if ((a.category && b.category && a.category !== b.category) || (a.app && b.app && a.app !== b.app)) switches++;
-                }
-                contextSwitches = switches;
-            }
+            // Monday/Jack Set Calls for context only
+            const yourClosedDeals = jackWonCalls.length;
+            const yourAppointmentsSet = slackAppointmentsCount; // Use Slack as main source
+            const yourProspectsManaged = modularTracker.length;
+            const yourMeetings = meetings;
 
-            // Deep work blocks (schema: deep_work_blocks; legacy: deep_work).
-            const deepWorkBlocks = Array.isArray(d.deep_work_blocks) ? d.deep_work_blocks : (Array.isArray(d.deep_work) ? d.deep_work : []);
-            const deepWorkMins = deepWorkBlocks.reduce((sum, b) => sum + Math.round((Number(b.seconds) || 0) / 60), 0);
-            const maxDeepWorkMins = deepWorkBlocks.reduce((m, b) => Math.max(m, Math.round((Number(b.seconds) || 0) / 60)), 0);
+            // Productivity based on YOUR contributions, not just screen time
+            const contributionScore = Math.min(100,
+                (yourClosedDeals * 30) +
+                (yourAppointmentsSet * 15) + // Slack appts weighted higher
+                (tasksUpdated * 2) +
+                (Math.min(focusMins / 480, 1) * 20) +
+                (updatesCount * 5)
+            );
 
-            const totalSignalMins = (coverageMins || activeMins || (focusMins + meetingMins) || 0);
-            const hasLimitedSignals = totalSignalMins < 120 || (focusMins === 0 && meetingMins === 0);
+            // Story flags
+            const hasClosedDeals = yourClosedDeals > 0;
+            const hasActiveProspecting = yourAppointmentsSet >= 1;
+            const hasStrongEngagement = tasksUpdated >= 10;
+            const hasDeepWork = peakHour && timeToMinutes(peakHour.time) >= 45;
+            const isMorningPerson = morningFocus > afternoonFocus && morningFocus > eveningFocus;
+            const isCollaborative = slackSent > 20 || meetings > 2;
+            const hasLimitedTracking = focusMins < 30;
 
             return {
-                focusMins,
-                meetingMins,
-                coverageMins,
-                activeMins,
-                contextSwitches,
-                workHours,
-                peakHour,
-                morningFocus,
-                afternoonFocus,
-                eveningFocus,
-                categories,
-                topCategory,
-                deepWorkBlocks,
-                deepWorkMins,
-                maxDeepWorkMins,
-                hasLimitedSignals,
-                timelineCount: timeline.length
+                focusMins, meetingMins, appointments, meetings,
+                // SLACK appointments
+                slackAppointments, slackAppointmentsCount, slackAppointmentsNames,
+                // Monday.com context
+                yourClosedDeals, yourAppointmentsSet, yourProspectsManaged,
+                jackSetCalls, jackWonCalls, jackMovedToDiscovery,
+                modularTracker, salesTeamCalls,
+                // Monday.com
+                tasksUpdated, boards, updatesCount, allItems, byBoard,
+                // Communication
+                slackSent, slackReceived, hubspotCalls, hubspotEmails,
+                // Time analysis
+                workHours, peakHour, morningFocus, afternoonFocus, eveningFocus,
+                categories, topCategory, apps, topApp,
+                // Scores
+                contributionScore,
+                // Flags
+                hasClosedDeals, hasActiveProspecting, hasStrongEngagement,
+                hasDeepWork, isMorningPerson, isCollaborative, hasLimitedTracking,
+                // Deep work
+                deepWorkBlocks: d.deep_work || []
             };
-        }
-
-        function escapeHtml(s) {
-            return String(s ?? '')
-                .replace(/&/g,'&amp;')
-                .replace(/</g,'&lt;')
-                .replace(/>/g,'&gt;')
-                .replace(/\"/g,'&quot;')
-                .replace(/'/g,'&#039;');
-        }
-
-        function fmtVsAvgMins(mins, avg) {
-            if (!avg || avg <= 0) return null;
-            const delta = mins - avg;
-            const abs = Math.abs(delta);
-            const sign = delta > 0 ? '↑' : (delta < 0 ? '↓' : '•');
-            return `${sign} ${formatMinutes(abs)} vs recent avg`;
-        }
-
-	        function classifyDayType(analysis, baseline) {
-            const total = analysis.coverageMins || analysis.activeMins || (analysis.focusMins + analysis.meetingMins) || 1;
-            const focusShare = analysis.focusMins / total;
-            const meetingShare = analysis.meetingMins / total;
-
-            const focusAvg = baseline?.focusAvg || 0;
-            const meetingAvg = baseline?.meetingAvg || 0;
-            const coverageAvg = baseline?.coverageAvg || 0;
-
-            if (total < 120 || analysis.hasLimitedSignals) {
-                return {
-                    key: 'light',
-                    label: 'Light / Low-Activity Day',
-                    className: 'light',
-                    description: 'Low measured activity; analysis may be incomplete.',
-                };
-            }
-
-            if (coverageAvg && total >= Math.max(720, Math.round(coverageAvg * 1.5))) {
-                return {
-                    key: 'overload',
-                    label: 'Extended / Overload Day',
-                    className: 'overload',
-                    description: 'A longer-than-usual day by measured coverage.',
-                };
-            }
-
-            if ((meetingShare >= 0.5 && analysis.meetingMins >= 120) || (meetingAvg && analysis.meetingMins >= Math.max(120, Math.round(meetingAvg * 1.5)))) {
-                return {
-                    key: 'meetings',
-                    label: 'Meeting-Heavy Day',
-                    className: 'meetings',
-                    description: 'Meetings dominated the day and likely displaced solo focus.',
-                };
-            }
-
-            const deepFocusCandidate =
-                focusShare >= 0.5 &&
-                (focusAvg ? analysis.focusMins >= Math.round(focusAvg * 1.3) : analysis.focusMins >= 240) &&
-                (analysis.maxDeepWorkMins >= 120 || analysis.deepWorkBlocks.length >= 2);
-            if (deepFocusCandidate) {
-                return {
-                    key: 'focus',
-                    label: 'Deep Focus Day',
-                    className: 'focus',
-                    description: 'Sustained focus with limited fragmentation.',
-                };
-            }
-
-            if (analysis.contextSwitches != null) {
-                const switches = analysis.contextSwitches;
-                if (switches >= 50) {
-                    return {
-                        key: 'fragmented',
-                        label: 'Firefighting Day',
-                        className: 'fragmented',
-                        description: 'Very high task switching; reactive workflow.',
-                    };
-                }
-                if (switches >= 25) {
-                    return {
-                        key: 'fragmented',
-                        label: 'Fragmented Day',
-                        className: 'fragmented',
-                        description: 'Frequent task switching likely shortened focus blocks.',
-                    };
-                }
-            } else {
-                const nonzeroHours = analysis.workHours.filter(h => timeToMinutes(h.time) > 0).length;
-                const strongHours = analysis.workHours.filter(h => timeToMinutes(h.time) >= 45).length;
-                if (nonzeroHours >= 8 && strongHours <= 1 && analysis.focusMins >= 180) {
-                    return {
-                        key: 'fragmented',
-                        label: 'Fragmented Day',
-                        className: 'fragmented',
-                        description: 'Focus came in many small bursts across the day.',
-                    };
-                }
-            }
-
-	            return {
-	                key: 'balanced',
-	                label: 'Balanced Day',
-	                className: '',
-	                description: 'No single signal dominated; metrics were broadly steady.',
-	            };
-	        }
-
-	        function hhmmToMin(s) {
-	            const m = /^\s*(\d{1,2}):(\d{2})\s*$/.exec(String(s || ''));
-	            if (!m) return null;
-	            const hh = parseInt(m[1], 10);
-	            const mm = parseInt(m[2], 10);
-	            if (isNaN(hh) || isNaN(mm) || hh < 0 || hh > 23 || mm < 0 || mm > 59) return null;
-	            return hh * 60 + mm;
-	        }
-
-	        function computeWindowStatsFromTimeline(d, windowStartMin, windowEndMin) {
-	            const out = { meetingMins: 0, nonMeetingMins: 0, deepFocusMins: 0, switches: 0, lastEndMin: null };
-	            const timeline = Array.isArray(d?.timeline) ? d.timeline : [];
-	            const deepCats = new Set(['Coding', 'Docs', 'Research']);
-	            let prevKey = null;
-
-	            for (const seg of timeline) {
-	                const a0 = hhmmToMin(seg?.start);
-	                const b0 = hhmmToMin(seg?.end);
-	                if (a0 == null || b0 == null) continue;
-	                const a = Math.max(a0, windowStartMin);
-	                const b = Math.min(b0, windowEndMin);
-	                const overlap = Math.max(0, b - a);
-	                if (overlap <= 0) continue;
-
-	                out.lastEndMin = out.lastEndMin == null ? b0 : Math.max(out.lastEndMin, b0);
-
-	                const cat = String(seg?.category || '');
-	                const app = String(seg?.app || '');
-	                const key = `${cat}|${app}`;
-	                if (prevKey && key !== prevKey) out.switches += 1;
-	                prevKey = key;
-
-	                if (cat === 'Meetings') {
-	                    out.meetingMins += overlap;
-	                } else {
-	                    out.nonMeetingMins += overlap;
-	                    if (deepCats.has(cat)) out.deepFocusMins += overlap;
-	                }
-	            }
-	            return out;
-	        }
-
-	        function timeOfDayLabel(nowMin) {
-	            if (nowMin < 5 * 60) return 'Late night';
-	            if (nowMin < 12 * 60) return 'Morning';
-	            if (nowMin < 14 * 60) return 'Midday';
-	            if (nowMin < 17 * 60) return 'Afternoon';
-	            if (nowMin < 21 * 60) return 'Evening';
-	            return 'Late evening';
-	        }
-
-	        function buildLivePulse(d, dateStr) {
-	            if (!dateStr || dateStr !== localDateKey()) return null;
-	            const now = new Date();
-	            const nowMin = now.getHours() * 60 + now.getMinutes();
-	            const windowMins = 180;
-	            const windowStartMin = Math.max(0, nowMin - windowMins);
-	            const stats = computeWindowStatsFromTimeline(d, windowStartMin, nowMin);
-
-	            const total = stats.meetingMins + stats.nonMeetingMins;
-	            const tod = timeOfDayLabel(nowMin);
-	            const winLabel = `last ${Math.round(windowMins / 60)}h`;
-
-	            if (total < 15) {
-	                return {
-	                    label: `${tod} — low activity so far`,
-	                    detail: `In the ${winLabel}, minimal tracked activity was recorded.`,
-	                };
-	            }
-
-	            const meetingShare = stats.meetingMins / Math.max(1, total);
-	            let label = `${tod} — steady progress`;
-	            if (stats.meetingMins >= 45 && meetingShare >= 0.6) {
-	                label = `${tod} — meeting flurry`;
-	            } else if (stats.deepFocusMins >= 60 && stats.meetingMins <= 15) {
-	                label = `${tod} — deep work session`;
-	            } else if (stats.switches >= 12) {
-	                label = `${tod} — high context switching`;
-	            }
-
-	            const detailParts = [];
-	            if (stats.deepFocusMins > 0) detailParts.push(`${formatMinutes(stats.deepFocusMins)} deep-focus activity`);
-	            if (stats.nonMeetingMins > stats.deepFocusMins) detailParts.push(`${formatMinutes(stats.nonMeetingMins - stats.deepFocusMins)} other non-meeting activity`);
-	            if (stats.meetingMins > 0) detailParts.push(`${formatMinutes(stats.meetingMins)} meetings`);
-	            const detail = `In the ${winLabel}: ${detailParts.join(', ')}.`;
-
-	            return { label, detail };
-	        }
-
-	        function buildNarrative(analysis, baseline, dayType, dateStr, d) {
-	            const isToday = Boolean(dateStr && dateStr === localDateKey());
-	            const pulse = isToday ? buildLivePulse(d, dateStr) : null;
-	            const focusAvg = baseline?.focusAvg || 0;
-	            const meetingAvg = baseline?.meetingAvg || 0;
-
-	            const focusVs = fmtVsAvgMins(analysis.focusMins, focusAvg);
-	            const meetingVs = fmtVsAvgMins(analysis.meetingMins, meetingAvg);
-
-            const topCat = Array.isArray(analysis.topCategory) ? analysis.topCategory : null;
-            const topCatText = topCat ? `${topCat[0]} (${topCat[1]})` : null;
-
-            const total = analysis.coverageMins || analysis.activeMins || (analysis.focusMins + analysis.meetingMins) || 0;
-            const focusShare = total ? Math.round((analysis.focusMins / total) * 100) : null;
-            const meetingShare = total ? Math.round((analysis.meetingMins / total) * 100) : null;
-
-	            let executive = (pulse && pulse.label) ? `${pulse.label}.` : `${dayType.label}.`;
-	            const parts = [];
-	            if (analysis.focusMins) parts.push(`${isToday ? 'Focus so far' : 'Focus'} totaled ${formatMinutes(analysis.focusMins)}${focusVs ? ` (${focusVs})` : ''}.`);
-	            if (analysis.meetingMins) parts.push(`${isToday ? 'Meetings so far' : 'Meetings'} accounted for ${formatMinutes(analysis.meetingMins)}${meetingVs ? ` (${meetingVs})` : ''}.`);
-	            if (!analysis.meetingMins) parts.push(isToday ? 'Meetings were minimal so far.' : 'Meetings were minimal.');
-	            executive = `${executive} ${parts.join(' ')}`.trim();
-
-	            const structure = [];
-	            if (pulse && pulse.detail) structure.push(pulse.detail);
-	            if (focusShare != null && focusShare >= 55) structure.push(`Most of the day’s tracked time was focused work (${focusShare}%).`);
-	            if (meetingShare != null && meetingShare >= 45) structure.push(`Meetings took a large share of tracked time (${meetingShare}%).`);
-
-            if (analysis.contextSwitches != null) {
-                structure.push(`Task switching registered ${analysis.contextSwitches} changes across the recorded timeline.`);
-            } else if (analysis.timelineCount === 0) {
-                structure.push('Timeline-level detail was not available, so task-switching could not be measured directly.');
-            }
-
-            if (analysis.deepWorkBlocks.length) {
-                structure.push(`Deep-work blocks: ${analysis.deepWorkBlocks.length} (longest ~${formatMinutes(analysis.maxDeepWorkMins)}).`);
-            } else {
-                structure.push('No deep-work blocks were detected in the available signals.');
-            }
-
-            if (analysis.morningFocus > analysis.afternoonFocus * 1.4 && analysis.morningFocus >= 60) {
-                structure.push(`Focus skewed to the morning (${formatMinutes(analysis.morningFocus)} before noon).`);
-            } else if (analysis.eveningFocus > analysis.afternoonFocus * 1.4 && analysis.eveningFocus >= 60) {
-                structure.push(`Focus skewed later in the day (${formatMinutes(analysis.eveningFocus)} after 5 PM).`);
-            }
-
-            if (topCatText) structure.push(`Top category was ${topCatText}.`);
-
-	            let narrative = structure.join(' ');
-	            if (analysis.hasLimitedSignals) {
-	                narrative = `Limited signals were recorded (${formatMinutes(total)} total coverage). ${narrative}`;
-	            }
-	            return { executive, narrative };
-	        }
-
-        function generateHighlights(analysis, baseline, dayType) {
-            const highlights = [];
-
-            const focusAvg = baseline?.focusAvg || 0;
-            const meetingAvg = baseline?.meetingAvg || 0;
-
-            const focusVs = fmtVsAvgMins(analysis.focusMins, focusAvg);
-            const meetingVs = fmtVsAvgMins(analysis.meetingMins, meetingAvg);
-
-            highlights.push({
-                icon: '🧠',
-                title: 'Focus Time',
-                value: formatMinutes(analysis.focusMins),
-                detail: focusVs || (focusAvg ? `Recent avg: ${formatMinutes(focusAvg)}` : 'No baseline yet'),
-                class: dayType.key === 'focus' ? 'highlight' : ''
-            });
-
-            highlights.push({
-                icon: '📅',
-                title: 'Meetings',
-                value: formatMinutes(analysis.meetingMins),
-                detail: meetingVs || (meetingAvg ? `Recent avg: ${formatMinutes(meetingAvg)}` : 'No baseline yet'),
-                class: dayType.key === 'meetings' ? 'warning' : ''
-            });
-
-            if (analysis.contextSwitches != null) {
-                highlights.push({
-                    icon: '🔁',
-                    title: 'Task Switching',
-                    value: String(analysis.contextSwitches),
-                    detail: 'Counted from timeline app/category changes',
-                    class: dayType.key === 'fragmented' ? 'warning' : ''
-                });
-            } else {
-                highlights.push({
-                    icon: '🔁',
-                    title: 'Task Switching',
-                    value: '—',
-                    detail: analysis.timelineCount ? 'Timeline exists but is not detailed enough' : 'Timeline data not available',
-                    class: ''
-                });
-            }
-
-            const topCat = Array.isArray(analysis.topCategory) ? analysis.topCategory : null;
-            if (topCat) {
-                highlights.push({
-                    icon: '🧭',
-                    title: 'Top Category',
-                    value: topCat[0],
-                    detail: `${topCat[1]} tracked`,
-                    class: ''
-                });
-            }
-
-            if (analysis.deepWorkBlocks.length) {
-                highlights.push({
-                    icon: '⏱️',
-                    title: 'Deep Work',
-                    value: `${analysis.deepWorkBlocks.length} blocks`,
-                    detail: `Longest ~${formatMinutes(analysis.maxDeepWorkMins)}`,
-                    class: dayType.key === 'focus' ? 'highlight' : ''
-                });
-            }
-
-            if (analysis.hasLimitedSignals) {
-                highlights.push({
-                    icon: '🧾',
-                    title: 'Data Coverage',
-                    value: analysis.coverageMins ? formatMinutes(analysis.coverageMins) : '—',
-                    detail: 'Low measured coverage; take the story as directional',
-                    class: 'warning'
-                });
-            }
-
-            return highlights.slice(0, 6);
-        }
-
-        function buildEvidenceItems(d, analysis, baseline) {
-            const items = [];
-            items.push({
-                k: 'Focus',
-                v: formatMinutes(analysis.focusMins),
-                meta: `Source: hourly_focus (with meeting overlay credit) · overview.focus_time=${d.overview?.focus_time || '—'}${baseline?.days ? ` · recent avg=${formatMinutes(baseline.focusAvg)}` : ''}`
-            });
-            items.push({
-                k: 'Meetings',
-                v: formatMinutes(analysis.meetingMins),
-                meta: `Source: debug_appointments.meetings_today (hour overlay) or overview.meetings_time=${d.overview?.meetings_time || '—'}${baseline?.days ? ` · recent avg=${formatMinutes(baseline.meetingAvg)}` : ''}`
-            });
-            items.push({
-                k: 'Coverage',
-                v: analysis.coverageMins ? formatMinutes(analysis.coverageMins) : (d.overview?.coverage_window || '—'),
-                meta: `Source: overview.coverage_window${baseline?.days ? ` · recent avg=${formatMinutes(baseline.coverageAvg)}` : ''}`
-            });
-            items.push({
-                k: 'Deep Work',
-                v: analysis.deepWorkBlocks.length ? `${analysis.deepWorkBlocks.length} blocks` : '—',
-                meta: analysis.deepWorkBlocks.length ? `Longest ≈ ${formatMinutes(analysis.maxDeepWorkMins)} · Source: deep_work_blocks` : 'Source: deep_work_blocks (none detected)'
-            });
-            items.push({
-                k: 'Task Switching',
-                v: analysis.contextSwitches != null ? String(analysis.contextSwitches) : '—',
-                meta: analysis.contextSwitches != null ? `Derived from timeline transitions (n=${analysis.timelineCount} segments)` : 'Source: timeline (missing/empty)'
-            });
-            const topCat = Array.isArray(analysis.topCategory) ? analysis.topCategory : null;
-            items.push({
-                k: 'Top Category',
-                v: topCat ? topCat[0] : '—',
-                meta: topCat ? `Source: by_category · ${topCat[1]} tracked` : 'Source: by_category (missing/empty)'
-            });
-            return items;
         }
 
         function generateHeadline(analysis, date) {
@@ -1863,65 +966,65 @@
             return wins.slice(0, 5);
         }
 
-	        function renderDashboard(d, date, baseline) {
-	            try { stopLiveTimers(); } catch {}
-	            const analysis = analyzeDay(d);
-	            const dayType = classifyDayType(analysis, baseline);
-	            const story = buildNarrative(analysis, baseline, dayType, date, d);
-	            const insights = generateHighlights(analysis, baseline, dayType);
-	            const evidenceItems = buildEvidenceItems(d, analysis, baseline);
+        function renderDashboard(d, date, baseline) {
+            const analysis = analyzeDay(d);
+            const headline = generateHeadline(analysis, date);
+            const summary = generateSummary(analysis);
+            const insights = generateInsights(analysis);
+            const wins = generateWins(d, analysis);
             
             dashboard.innerHTML = `
                 <!-- Story Hero -->
                 <div class="story-hero">
-                    <div class="story-greeting">
-                        <span>${formatDateFriendly(date)}</span>
-                        <span class="daytype-badge ${dayType.className}" data-tooltip="${escapeHtml(dayType.description)}">
-                            <span class="dot"></span>
-                            <span>${escapeHtml(dayType.label)}</span>
-                        </span>
+                    <div class="story-greeting">${formatDateFriendly(date)}</div>
+                    <h2 class="story-headline">${headline}</h2>
+                    <p class="story-summary">${summary}</p>
+                    
+                    <div class="story-metrics">
+                        <div class="metric ${analysis.yourClosedDeals > 0 ? 'highlight-metric' : ''}">
+                            <div class="metric-value">${analysis.yourClosedDeals}</div>
+                            <div class="metric-label">Deals Closed</div>
+                        </div>
+                        <div class="metric ${analysis.yourAppointmentsSet >= 5 ? 'highlight-metric' : ''}">
+                            <div class="metric-value">${analysis.yourAppointmentsSet}</div>
+                            <div class="metric-label">Appts Set</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${analysis.yourProspectsManaged}</div>
+                            <div class="metric-label">Prospects</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${analysis.tasksUpdated}</div>
+                            <div class="metric-label">Tasks</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">${analysis.boards.length}</div>
+                            <div class="metric-label">Boards</div>
+                        </div>
                     </div>
-                    <h2 class="story-headline">${escapeHtml(story.executive)}</h2>
-                    <p class="story-summary">${escapeHtml(story.narrative)}</p>
 
                     <div class="story-metrics" style="margin-top:16px;">
-                        <div class="metric highlight-metric" data-tooltip="Focus time, adjusted for meeting overlay credit.">
+                        <div class="metric highlight-metric">
                             <div class="metric-value">${formatMinutes(analysis.focusMins)}</div>
                             <div class="metric-label">Focus ${baseline?.days ? `· ${deltaBadge(analysis.focusMins, baseline.focusAvg)}` : ''}</div>
                         </div>
-                        <div class="metric active-metric" data-tooltip="Union of focus + meeting overlay per hour (capped).">
-                            <div class="metric-value">${formatMinutes(analysis.activeMins)}</div>
-                            <div class="metric-label">Active</div>
-                        </div>
-                        <div class="metric" data-tooltip="Meeting minutes from meeting overlay (preferred) or overview.meetings_time.">
+                        <div class="metric">
                             <div class="metric-value">${formatMinutes(analysis.meetingMins)}</div>
                             <div class="metric-label">Meetings ${baseline?.days ? `· ${deltaBadge(analysis.meetingMins, baseline.meetingAvg, true)}` : ''}</div>
                         </div>
-                        <div class="metric" data-tooltip="Coverage window from overview.coverage_window (start–end).">
-                            <div class="metric-value">${analysis.coverageMins ? formatMinutes(analysis.coverageMins) : (d.overview?.coverage_window || '—')}</div>
-                            <div class="metric-label">Coverage ${d.overview?.coverage_window ? `· ${d.overview.coverage_window}` : ''}</div>
+                        <div class="metric">
+                            <div class="metric-value">${d.overview?.coverage_window || '—'}</div>
+                            <div class="metric-label">Coverage</div>
                         </div>
-                        <div class="metric" data-tooltip="Deep-work blocks from report.deep_work_blocks.">
-                            <div class="metric-value">${analysis.deepWorkBlocks.length || '—'}</div>
+                        <div class="metric">
+                            <div class="metric-value">${(analysis.deepWorkBlocks && analysis.deepWorkBlocks.length) || analysis.workHours.filter(h => timeToMinutes(h.time) >= 25).length}</div>
                             <div class="metric-label">Deep Work Blocks</div>
                         </div>
                     </div>
-
-                    <details class="evidence">
-                        <summary>🔎 Show evidence</summary>
-                        <div class="evidence-grid">
-                            ${evidenceItems.map(it => `
-                                <div class="evidence-item">
-                                    <div class="evidence-k">${escapeHtml(it.k)}</div>
-                                    <div class="evidence-v">${escapeHtml(it.v)}</div>
-                                    <div class="evidence-meta">${escapeHtml(it.meta)}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </details>
+                    ${privacyPill(d)}
                 </div>
 
-                <!-- Highlights -->
+                <!-- Insights Grid -->
                 <div class="insights-grid">
                     ${insights.map(i => `
                         <div class="insight-card ${i.class}">
@@ -1933,396 +1036,169 @@
                     `).join('')}
                 </div>
 
+                <!-- Integration Highlights -->
+                <div class="timeline-section">
+                    <div class="section-title">🔗 Integration Highlights</div>
+                    <div class="integrations-grid">${renderIntegrationHighlights(d)}</div>
+                </div>
+
                 <!-- Activity Timeline -->
                 <div class="timeline-section">
-                    <div class="section-title">🗓️ Day Pattern (5am – Midnight)</div>
-                    <div id="svgTimelineWrap" class="svg-timeline-wrap">
-                        <div class="svg-timeline-title">
-                            <div class="label">Activity Timeline (SVG)</div>
-                            <div class="meta">Hover for details</div>
-                        </div>
-                        <div id="svgTimeline"></div>
-                    </div>
+                    <div class="section-title">📊 Daily Activity (5am – Midnight)</div>
                     <div class="hourly-timeline">
-                        ${typeof renderHourlyTimeline === 'function' ? renderHourlyTimeline(analysis.workHours) : '<p style="color: var(--text-muted);">Hourly timeline unavailable</p>'}
+                        ${renderHourlyTimeline(analysis.workHours)}
                     </div>
                     ${renderDeepWorkChips(analysis.deepWorkBlocks)}
                 </div>
 
-                <!-- Visualizations (optional drill-down) -->
-                <div class="timeline-section">
-                    <div class="section-title">📈 Visualizations</div>
-                    <div style="color: var(--text-muted); font-size: 13px; margin-bottom: 12px;">
-                        Charts are secondary to the narrative; use them for drill-down.
+                <!-- Wins & Details -->
+                <div class="wins-section">
+                    ${wins.length > 0 ? `
+                    <div class="wins-card">
+                        <div class="section-title">🏆 Today's Wins</div>
+                        ${wins.map(w => `
+                            <div class="win-item">
+                                <div class="win-icon" style="background: ${w.iconBg}">${w.icon}</div>
+                                <div class="win-content">
+                                    <div class="win-title">${w.title}</div>
+                                    <div class="win-detail">${w.detail}</div>
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
-                    <div class="chart-section" style="margin-bottom: 0;">
-                        <div class="chart-card">
-                            <div class="section-title">Hourly Focus</div>
-                            <div class="chart-wrapper"><canvas id="hourlyChart"></canvas></div>
-                        </div>
-                        <div class="chart-card">
-                            <div class="section-title">Categories</div>
-                            <div class="chart-wrapper"><canvas id="categoryChart"></canvas></div>
-                        </div>
+                    ` : ''}
+                    
+                    <div class="wins-card">
+                        <div class="section-title">💻 Top Applications</div>
+                        ${renderBars(d.top_apps || {})}
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="chart-section">
+                    <div class="chart-card">
+                        <div class="section-title">📈 Hourly Focus</div>
+                        <div class="chart-wrapper"><canvas id="hourlyChart"></canvas></div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="section-title">🥧 Categories</div>
+                        <div class="chart-wrapper"><canvas id="categoryChart"></canvas></div>
                     </div>
                 </div>
 
                 <!-- Category Breakdown -->
                 <div class="timeline-section">
                     <div class="section-title">📊 Time by Category</div>
-                    ${typeof renderBars === 'function' ? renderBars(d.by_category || {}) : '<p style="color: var(--text-muted);">Category chart unavailable</p>'}
-                </div>
-
-                <!-- Data Sources Panel -->
-                <div class="data-sources-panel">
-                    <div class="data-sources-panel-header">
-                        <span>🔍 Data Sources</span>
-                        <span class="toggle-arrow">▶</span>
-                    </div>
-                    <div class="data-sources-panel-content">
-                        <!-- Content will be injected by JS -->
-                    </div>
+                    ${renderBars(d.by_category || {})}
                 </div>
             `;
 
-	            setTimeout(() => {
-                    try { renderSvgTimeline(d); } catch (err) { console.warn('renderSvgTimeline error', err); }
-                    try { initTheme(); } catch (err) {}
-                    renderHourlyChart(d.hourly_focus || [], d);
-                    renderCategoryChart(d.by_category || {});
-                // Attach generic tooltips for evidence-backed UI affordances
-                if (typeof attachGenericTooltips === 'function') {
-                    try { attachGenericTooltips(); } catch (err) { console.warn('attachGenericTooltips error', err); }
-                }
-                // Attach optional deep-work tooltips if available
-                if (typeof attachDeepWorkTooltips === 'function') {
-                    try { attachDeepWorkTooltips(); } catch (err) { console.warn('attachDeepWorkTooltips error', err); }
-                }
-                // Setup data sources panel
-	                try { setupDataSourcesPanel(d); } catch (err) { console.warn('setupDataSourcesPanel error', err); }
-	            }, 100);
-
-	            window.__lastDashboardState = { d, date, baseline };
-	            try { startLiveTimers(date); } catch {}
-	        }
-
-        function getCategoryPriority() {
-            const p = window.categoryPriority;
-            if (Array.isArray(p) && p.length) return p;
-            return ['Coding', 'Research', 'Docs', 'Communication', 'Meetings', 'Other'];
+            setTimeout(() => {
+                renderHourlyChart(d.hourly_focus || []);
+                renderCategoryChart(d.by_category || {});
+            }, 100);
         }
 
-        function categoryColor(cat) {
-            const c = String(cat || '').toLowerCase();
-            if (c.includes('coding') || c.includes('dev')) return '#3b82f6';
-            if (c.includes('research')) return '#8b5cf6';
-            if (c.includes('docs') || c.includes('writing')) return '#06b6d4';
-            if (c.includes('meet')) return '#10b981';
-            if (c.includes('comm') || c.includes('slack') || c.includes('email')) return '#f59e0b';
-            if (c.includes('design')) return '#ec4899';
-            return '#64748b';
-        }
-
-        function parseHHMM(hhmm) {
-            const m = /^\s*(\d{1,2}):(\d{2})\s*$/.exec(String(hhmm || ''));
-            if (!m) return null;
-            const hh = parseInt(m[1], 10), mm = parseInt(m[2], 10);
-            if (isNaN(hh) || isNaN(mm) || hh < 0 || hh > 23 || mm < 0 || mm > 59) return null;
-            return hh * 60 + mm;
-        }
-
-        function resolveTimelineSegments(raw, priorityList) {
-            const priority = {};
-            priorityList.forEach((c, i) => { priority[String(c).toLowerCase()] = i; });
-            const otherIdx = priority.other ?? priorityList.length;
-
-            const events = [];
-            for (const seg of raw) {
-                const a = parseHHMM(seg.start);
-                const b = parseHHMM(seg.end);
-                if (a == null || b == null || b <= a) continue;
-                const cat = seg.category || 'Other';
-                const app = seg.app || '';
-                events.push({ t: a, typ: 1, cat, app });
-                events.push({ t: b, typ: -1, cat, app });
+        function renderHourlyTimeline(hours) {
+            // Ensure full coverage from 5am to midnight (5-23)
+            const fullHours = [];
+            for (let h = 5; h <= 23; h++) {
+                const existing = hours.find(x => x.hour === h);
+                fullHours.push(existing || { hour: h, time: '00:00', pct: '0%' });
             }
-            if (!events.length) return [];
-            events.sort((x, y) => x.t - y.t || (y.typ - x.typ));
-
-            const active = [];
-            const out = [];
-            let current = events[0].t;
-
-            function winner() {
-                if (!active.length) return null;
-                let best = null;
-                let bestKey = null;
-                for (const it of active) {
-                    const idx = priority[String(it.cat).toLowerCase()] ?? otherIdx;
-                    const key = `${String(idx).padStart(4, '0')}-${String(999999999 - it.t).padStart(12, '0')}`;
-                    if (!bestKey || key < bestKey) { bestKey = key; best = it; }
-                }
-                return best;
-            }
-
-            let i = 0;
-            while (i < events.length) {
-                const t = events[i].t;
-                if (t > current) {
-                    const w = winner();
-                    if (w) out.push({ start: current, end: t, category: w.cat, app: w.app });
-                    current = t;
-                }
-                while (i < events.length && events[i].t === t) {
-                    const ev = events[i];
-                    if (ev.typ === 1) {
-                        active.push({ t: ev.t, cat: ev.cat, app: ev.app });
-                    } else {
-                        for (let j = active.length - 1; j >= 0; j--) {
-                            if (active[j].cat === ev.cat && active[j].app === ev.app) { active.splice(j, 1); break; }
-                        }
-                    }
-                    i++;
-                }
-            }
-
-            // Merge adjacent same-category segments (cleaner SVG).
-            const merged = [];
-            for (const s of out) {
-                const prev = merged[merged.length - 1];
-                if (prev && prev.category === s.category && prev.app === s.app && prev.end === s.start) {
-                    prev.end = s.end;
+            
+            const maxMins = Math.max(...fullHours.map(h => timeToMinutes(h.time)), 1);
+            
+            return fullHours.map(h => {
+                const mins = timeToMinutes(h.time);
+                const intensity = mins / maxMins;
+                let bg, textColor;
+                
+                if (mins === 0) {
+                    bg = 'rgba(255,255,255,0.02)';
+                    textColor = 'var(--text-dim)';
+                } else if (intensity >= 0.7) {
+                    bg = 'linear-gradient(135deg, rgba(16, 185, 129, 0.4), rgba(56, 239, 125, 0.3))';
+                    textColor = '#38ef7d';
+                } else if (intensity >= 0.4) {
+                    bg = 'linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(217, 70, 239, 0.2))';
+                    textColor = '#d946ef';
                 } else {
-                    merged.push({ ...s });
+                    bg = 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.15))';
+                    textColor = '#4facfe';
                 }
-            }
-            return merged;
-        }
-
-        function renderSvgTimeline(d) {
-            const mount = document.getElementById('svgTimeline');
-            const wrap = document.getElementById('svgTimelineWrap');
-            if (!mount || !wrap) return;
-
-            const raw = Array.isArray(d.timeline) ? d.timeline : [];
-            if (!raw.length) {
-                mount.innerHTML = `<div class="svg-timeline-empty">No timeline segments available for this day.</div>`;
-                return;
-            }
-
-            const startMin = 5 * 60;
-            const endMin = 24 * 60;
-            const width = 1140;
-            const height = 64;
-            const barY = 26;
-            const barH = 14;
-
-            const segments = resolveTimelineSegments(raw, getCategoryPriority())
-                .map(s => ({ ...s, start: Math.max(startMin, s.start), end: Math.min(endMin, s.end) }))
-                .filter(s => s.end > s.start);
-
-            const blocks = Array.isArray(d.deep_work_blocks) ? d.deep_work_blocks : [];
-            const overlays = blocks.map(b => {
-                const a = parseHHMM(b.start);
-                const c = parseHHMM(b.end);
-                if (a == null || c == null || c <= a) return null;
-                return { start: Math.max(startMin, a), end: Math.min(endMin, c) };
-            }).filter(Boolean);
-
-            const xFor = (m) => Math.round(((m - startMin) / (endMin - startMin)) * width);
-
-            const ticks = [];
-            for (let h = 5; h <= 24; h += 1) {
-                const x = xFor(h * 60);
-                if (h === 24) continue;
-                const label = h === 12 ? '12p' : (h < 12 ? `${h}a` : `${h - 12}p`);
-                if (h % 2 === 1) continue;
-                ticks.push(`<line x1="${x}" y1="8" x2="${x}" y2="56" stroke="rgba(255,255,255,0.06)" stroke-width="1" />`);
-                ticks.push(`<text x="${x}" y="16" font-size="10" fill="rgba(148,163,184,0.9)" text-anchor="middle">${label}</text>`);
-            }
-
-            const rects = segments.map(s => {
-                const x = xFor(s.start);
-                const w = Math.max(1, xFor(s.end) - x);
-                const fill = categoryColor(s.category);
-                const tip = `${s.category}${s.app ? ` • ${s.app}` : ''} • ${String(Math.floor(s.start/60)).padStart(2,'0')}:${String(s.start%60).padStart(2,'0')}–${String(Math.floor(s.end/60)).padStart(2,'0')}:${String(s.end%60).padStart(2,'0')}`;
-                return `<rect x="${x}" y="${barY}" width="${w}" height="${barH}" rx="6" fill="${fill}" data-tip="${escapeHtml(tip)}"></rect>`;
+                
+                const label = mins >= 45 ? '🔥' : mins >= 30 ? '✓' : '';
+                
+                return `
+                    <div class="hour-block" style="background: ${bg};" title="${h.hour}:00 - ${h.time}">
+                        <div class="time">${h.hour}:00</div>
+                        <div class="focus" style="color: ${textColor}">${h.time}</div>
+                        <div class="label">${label}</div>
+                    </div>
+                `;
             }).join('');
+        }
 
-            const dw = overlays.map(o => {
-                const x = xFor(o.start);
-                const w = Math.max(1, xFor(o.end) - x);
-                return `<rect x="${x}" y="${barY - 8}" width="${w}" height="${barH + 16}" rx="10" fill="rgba(56,239,125,0.14)" stroke="rgba(56,239,125,0.22)" stroke-width="1" pointer-events="none"></rect>`;
+        function renderBars(data) {
+            const entries = Object.entries(data).filter(([, t]) => t !== '00:00');
+            if (!entries.length) return '<p style="color: var(--text-muted);">No data</p>';
+            
+            const maxMins = Math.max(...entries.map(([, t]) => timeToMinutes(t)), 1);
+            const gradients = [
+                'linear-gradient(90deg, #11998e, #38ef7d)',
+                'linear-gradient(90deg, #667eea, #764ba2)',
+                'linear-gradient(90deg, #4facfe, #00f2fe)',
+                'linear-gradient(90deg, #f093fb, #f5576c)',
+                'linear-gradient(90deg, #fa709a, #fee140)',
+            ];
+            
+            return entries.slice(0, 8).map(([name, time], i) => {
+                const pct = (timeToMinutes(time) / maxMins) * 100;
+                return `
+                    <div class="bar-row">
+                        <div class="bar-name">${name}</div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: ${pct}%; background: ${gradients[i % gradients.length]};"></div>
+                        </div>
+                        <div class="bar-time">${time}</div>
+                    </div>
+                `;
             }).join('');
-
-            mount.innerHTML = `
-                <svg class="svg-timeline" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none">
-                    <rect x="0" y="0" width="${width}" height="${height}" fill="rgba(0,0,0,0)" />
-                    ${ticks.join('')}
-                    ${dw}
-                    ${rects}
-                </svg>
-            `;
-
-            // Hook hover tooltips for SVG rects.
-            const svg = mount.querySelector('svg');
-            if (!svg) return;
-            svg.querySelectorAll('rect[data-tip]').forEach(r => {
-                r.addEventListener('mouseenter', (e) => {
-                    const text = e.currentTarget.getAttribute('data-tip') || '';
-                    if (!text) return;
-                    dwTip.textContent = text;
-                    dwTip.style.display = 'block';
-                });
-                r.addEventListener('mousemove', (e) => positionTooltip(e));
-                r.addEventListener('mouseleave', hideTooltip);
-            });
         }
 
-        function setupDataSourcesPanel(d) {
-            const header = document.querySelector('.data-sources-panel-header');
-            const content = document.querySelector('.data-sources-panel-content');
-            if (!header || !content) return;
-
-            header.addEventListener('click', () => {
-                content.classList.toggle('expanded');
-                header.classList.toggle('expanded');
-            });
-
-            // Render the content for the data sources panel
-            content.innerHTML = renderDataSourcesContent(d);
-        }
-
-        function renderDataSourcesContent(d) {
-            const analysis = analyzeDay(d);
-            let html = '<h4>Signals Used for the Narrative</h4>';
-            html += `<div class="data-source-summary-item">Focus: ${formatMinutes(analysis.focusMins)} (overview.focus_time=${d.overview?.focus_time || '—'})</div>`;
-            html += `<div class="data-source-summary-item">Meetings: ${formatMinutes(analysis.meetingMins)} (overview.meetings_time=${d.overview?.meetings_time || '—'})</div>`;
-            html += `<div class="data-source-summary-item">Coverage: ${analysis.coverageMins ? formatMinutes(analysis.coverageMins) : (d.overview?.coverage_window || '—')}</div>`;
-            html += `<div class="data-source-summary-item">Deep-work blocks: ${analysis.deepWorkBlocks.length || 0}</div>`;
-            html += `<div class="data-source-summary-item">Task switching: ${analysis.contextSwitches != null ? analysis.contextSwitches : '—'} (timeline segments: ${analysis.timelineCount})</div>`;
-
-            html += '<h4 style="margin-top: 20px;">Per-Hour Focus (from report.hourly_focus)</h4>';
-            html += `
-                <table class="data-source-table">
-                    <thead>
-                        <tr>
-                            <th>Hour</th>
-                            <th>Minutes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${analysis.workHours.map(h => `
-                            <tr>
-                                <td>${h.hour}:00</td>
-                                <td>${timeToMinutes(h.time)}</td>
-                            </tr>
-                        `).join('')}
-                    </tbody>
-                </table>
-            `;
-
-            return html;
-        }
-
-        function computeMeetingsByHour(d) {
-            const byHour = new Array(24).fill(0);
-            const list = (d && d.debug_appointments && Array.isArray(d.debug_appointments.meetings_today))
-                ? d.debug_appointments.meetings_today
-                : [];
-            const toMin = (s) => {
-                const m = /^\s*(\d{1,2}):(\d{2})\s*$/.exec(String(s || ''));
-                if (!m) return null;
-                const hh = parseInt(m[1], 10), mm = parseInt(m[2], 10);
-                if (isNaN(hh) || isNaN(mm) || hh < 0 || hh > 23 || mm < 0 || mm > 59) return null;
-                return hh * 60 + mm;
-            };
-            list.forEach(ev => {
-                const t = (ev && ev.time) ? String(ev.time) : '';
-                const parts = t.split(/\s*[–—-]\s*/); // handles en dash/em dash/hyphen
-                if (parts.length !== 2) return;
-                const a = toMin(parts[0]);
-                const b = toMin(parts[1]);
-                if (a == null || b == null || b <= a) return;
-                const start = a, end = b;
-                const h0 = Math.floor(start / 60);
-                const h1 = Math.floor((end - 1) / 60);
-                for (let h = Math.max(0, h0); h <= Math.min(23, h1); h++) {
-                    const segStart = Math.max(start, h * 60);
-                    const segEnd = Math.min(end, (h + 1) * 60);
-                    const dur = Math.max(0, segEnd - segStart);
-                    byHour[h] += dur;
-                }
-            });
-            return byHour.map(v => Math.min(60, v));
-        }
-
-        function renderHourlyChart(hourly, fullData) {
+        function renderHourlyChart(hourly) {
             const ctx = document.getElementById('hourlyChart');
             if (!ctx) return;
-
             if (hourlyChart) hourlyChart.destroy();
 
+            // Extended hours: 5am to midnight
             const fullHours = [];
             for (let h = 5; h <= 23; h++) {
                 const existing = hourly.find(x => x.hour === h);
                 fullHours.push(existing || { hour: h, time: '00:00' });
             }
 
-            const meetingMins = computeMeetingsByHour(fullData);
-            const meetingSeries = [];
-            for (let h = 5; h <= 23; h++) meetingSeries.push(meetingMins[h] || 0);
-
-            const cssText = getCssVar('--text', '#f1f5f9');
-            const cssMuted = getCssVar('--text-muted', '#94a3b8');
-
             hourlyChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: fullHours.map(h => `${h.hour}`),
-                    datasets: [
-                        {
-                            label: 'Focus (mins)',
-                            type: 'bar',
-                            data: fullHours.map(h => timeToMinutes(h.time)),
-                            backgroundColor: fullHours.map(h => {
-                                const v = timeToMinutes(h.time);
-                                return v >= 45 ? 'rgba(34, 197, 94, 0.8)' : 
-                                       v >= 30 ? 'rgba(139, 92, 246, 0.8)' : 
-                                       v > 0 ? 'rgba(59, 130, 246, 0.6)' : 
-                                       'rgba(100, 116, 139, 0.2)';
-                            }),
-                            borderRadius: 4,
-                        },
-                        {
-                            label: 'Meetings (mins)',
-                            type: 'line',
-                            data: meetingSeries,
-                            borderColor: 'rgba(234, 88, 12, 0.9)',
-                            backgroundColor: 'rgba(234, 88, 12, 0.18)',
-                            tension: 0.3,
-                            yAxisID: 'y',
-                            fill: true,
-                            pointRadius: 2,
-                            pointHoverRadius: 3,
-                        }
-                    ]
+                    datasets: [{
+                        data: fullHours.map(h => timeToMinutes(h.time)),
+                        backgroundColor: fullHours.map(h => {
+                            const v = timeToMinutes(h.time);
+                            return v >= 45 ? 'rgba(34, 197, 94, 0.8)' : 
+                                   v >= 30 ? 'rgba(139, 92, 246, 0.8)' : 
+                                   v > 0 ? 'rgba(59, 130, 246, 0.6)' : 
+                                   'rgba(100, 116, 139, 0.2)';
+                        }),
+                        borderRadius: 4,
+                    }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: true, position: 'top', labels: { color: cssMuted, boxWidth: 14, padding: 10, font: { size: 13 } } },
-                        tooltip: {
-                            callbacks: {
-                                label: (ctx) => {
-                                    const label = ctx.dataset.label || '';
-                                    const val = ctx.parsed.y || 0;
-                                    return `${label}: ${val}m`;
-                                }
-                            }
-                        }
-                    },
+                    plugins: { legend: { display: false } },
                     scales: {
                         y: { beginAtZero: true, max: 60, grid: { color: 'rgba(255,255,255,0.05)' } },
                         x: { grid: { display: false } }
@@ -2338,9 +1214,6 @@
 
             const entries = Object.entries(categories).filter(([, t]) => t !== '00:00');
             
-            const cssMuted = getCssVar('--text-muted', '#94a3b8');
-            const legendPos = (window.innerWidth || 1024) < 700 ? 'bottom' : 'right';
-
             categoryChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
@@ -2363,8 +1236,8 @@
                     cutout: '65%',
                     plugins: {
                         legend: {
-                            position: legendPos,
-                            labels: { boxWidth: 14, padding: 12, font: { size: 12 }, color: cssMuted }
+                            position: 'right',
+                            labels: { boxWidth: 12, padding: 12, font: { size: 11 }, color: '#94a3b8' }
                         }
                     }
                 }
@@ -2384,7 +1257,7 @@
                 const trophy = (longest && b.minutes === longest.minutes && b.start === longest.start && b.end === longest.end) ? ' 🏆' : '';
                 const tt = `${b.label || b.category} — ${b.start}–${b.end} (${b.minutes}m)`;
                 return `
-                    <span class="dw-chip" title="${tt}" data-label="${(b.label||'').replace(/\"/g,'&quot;')}" data-category="${(b.category||'').replace(/\"/g,'&quot;')}" data-interval="${b.start}–${b.end}" data-minutes="${b.minutes}">
+                    <span class="dw-chip" title="${tt}">
                         <span class="dw-dot" style="background:${color}"></span>
                         ${b.label || b.category || 'Deep Work'} • ${b.start}–${b.end} (${b.minutes}m)${trophy}
                     </span>
@@ -2401,19 +1274,6 @@
             const sSent = sStats.total_sent || 0;
             const sRecv = sStats.total_received || 0;
             const appts = d.debug_appointments?.appointments_today || [];
-            let topChanLines = '';
-            try {
-                const topCh = slack.top_channels || {};
-                let entries = Object.entries(topCh);
-                if (!entries.length) {
-                    const ca = slack.channel_activity || {};
-                    entries = Object.entries(ca).map(([k, v]) => [k, (typeof v === 'number') ? v : (Array.isArray(v) ? v.length : 0)]);
-                }
-                if (entries.length) {
-                    entries.sort((a,b)=> (b[1]||0)-(a[1]||0));
-                    topChanLines = entries.slice(0,3).map(([name,count]) => `<div class="integration-detail">#${name} — ${count}</div>`).join('');
-                }
-            } catch {}
             if (sSent || sRecv || appts.length) {
                 cards.push(`
                     <div class="integration-card">
@@ -2421,7 +1281,6 @@
                         <div class="integration-title">Slack</div>
                         <div class="integration-value">${appts.length} appt${appts.length==1?'':'s'}</div>
                         <div class="integration-detail">${sSent} sent • ${sRecv} received</div>
-                        ${topChanLines}
                     </div>
                 `);
             }
@@ -2429,13 +1288,6 @@
             const monday = d.monday || {};
             const itemsUpdated = monday.items_updated || 0;
             const boards = Object.keys(monday.by_board || {});
-            let topBoards = '';
-            try {
-                const byBoard = monday.by_board || {};
-                let arr = Object.entries(byBoard).map(([name, items]) => [name, Array.isArray(items) ? items.length : 0]);
-                arr.sort((a,b)=> (b[1]||0)-(a[1]||0));
-                topBoards = arr.slice(0,3).map(([name,count]) => `<div class="integration-detail">${name} — ${count}</div>`).join('');
-            } catch {}
             if (itemsUpdated || boards.length) {
                 cards.push(`
                     <div class="integration-card">
@@ -2443,7 +1295,6 @@
                         <div class="integration-title">Monday</div>
                         <div class="integration-value">${itemsUpdated} tasks</div>
                         <div class="integration-detail">${boards.length} board${boards.length==1?'':'s'} touched</div>
-                        ${topBoards}
                     </div>
                 `);
             }
@@ -2451,20 +1302,13 @@
             const hubspot = d.hubspot || {};
             const hsCalls = (hubspot.calls || []).length;
             const hsEmails = (hubspot.emails || []).length;
-            let topDeals = '';
-            try {
-                const deals = Array.isArray(hubspot.deals) ? hubspot.deals : [];
-                deals.sort((a,b)=> new Date(b.modified||0) - new Date(a.modified||0));
-                topDeals = deals.slice(0,3).map(x => `<div class="integration-detail">${(x.name||'Deal')} — ${(x.stage||'')}</div>`).join('');
-            } catch {}
-            if (hsCalls || hsEmails || topDeals) {
+            if (hsCalls || hsEmails) {
                 cards.push(`
                     <div class="integration-card">
                         <div class="integration-accent" style="background: linear-gradient(90deg, #ff7a59, #ffb199);"></div>
                         <div class="integration-title">HubSpot</div>
                         <div class="integration-value">${hsCalls} calls</div>
                         <div class="integration-detail">${hsEmails} emails</div>
-                        ${topDeals}
                     </div>
                 `);
             }
@@ -2511,63 +1355,6 @@
             const arrow = change === 0 ? '•' : (change > 0 ? '▲' : '▼');
             const color = upGood ? '#22c55e' : '#f97316';
             return `<span style="color:${color}">${arrow} ${Math.abs(change)}%</span>`;
-        }
-
-        // Tooltip logic for deep work chips
-        const dwTip = document.createElement('div');
-        dwTip.className = 'tooltip';
-        document.addEventListener('DOMContentLoaded', () => {
-            document.body.appendChild(dwTip);
-            try { attachGenericTooltips(); } catch (err) { console.warn('attachGenericTooltips error', err); }
-        });
-
-        function attachGenericTooltips() {
-            const els = document.querySelectorAll('[data-tooltip]');
-            els.forEach(el => {
-                if (el.dataset.tooltipBound === '1') return;
-                el.dataset.tooltipBound = '1';
-                el.addEventListener('mouseenter', () => {
-                    const text = el.getAttribute('data-tooltip');
-                    if (!text) return;
-                    dwTip.textContent = text;
-                    dwTip.style.display = 'block';
-                });
-                el.addEventListener('mousemove', (e) => positionTooltip(e));
-                el.addEventListener('mouseleave', hideTooltip);
-            });
-        }
-
-        function attachDeepWorkTooltips() {
-            const chips = document.querySelectorAll('.dw-chip');
-            chips.forEach(ch => {
-                ch.addEventListener('mouseenter', (e) => showDWTooltip(e.currentTarget));
-                ch.addEventListener('mousemove', (e) => positionTooltip(e));
-                ch.addEventListener('mouseleave', hideTooltip);
-            });
-        }
-
-        function showDWTooltip(el) {
-            const label = el.getAttribute('data-label') || 'Deep Work';
-            const cat = el.getAttribute('data-category') || '';
-            const interval = el.getAttribute('data-interval') || '';
-            const minutes = el.getAttribute('data-minutes') || '';
-            dwTip.innerHTML = `<strong>${label}</strong><br>${cat ? (cat + ' • ') : ''}${interval} (${minutes}m)`;
-            dwTip.style.display = 'block';
-        }
-
-        function positionTooltip(evt) {
-            const pad = 10;
-            let x = evt.clientX + pad;
-            let y = evt.clientY + pad;
-            const rect = dwTip.getBoundingClientRect();
-            if (x + rect.width > window.innerWidth) x = evt.clientX - rect.width - pad;
-            if (y + rect.height > window.innerHeight) y = evt.clientY - rect.height - pad;
-            dwTip.style.left = x + 'px';
-            dwTip.style.top = y + 'px';
-        }
-
-        function hideTooltip() {
-            dwTip.style.display = 'none';
         }
     </script>
 </body>
