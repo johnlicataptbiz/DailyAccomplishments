@@ -33,8 +33,196 @@ def write_csv(path, rows, headers):
         for r in rows:
             w.writerow(r)
 
-def load_from_jsonl(jsonl_path: Path) -> dict:
-    """Load and convert JSONL log to report format with interval merging"""
+def _extract_domain(url: str) -> str | None:
+    if not url:
+        return None
+    try:
+        # keep this tiny and dependency-free; urlparse is fine too but this is enough
+        from urllib.parse import urlparse
+
+        parsed = urlparse(url)
+        host = (parsed.hostname or "").lower()
+        if host.startswith("www."):
+            host = host[4:]
+        return host or None
+    except Exception:
+        return None
+
+
+def _load_config(explicit_config: dict | None) -> dict:
+    if explicit_config is not None:
+        return explicit_config
+
+    try:
+        config_path = BASE / 'config.json'
+        if config_path.exists():
+            with open(config_path) as f:
+                return json.load(f)
+    except Exception:
+        pass
+    return {}
+
+
+def _get_category_priority(config: dict) -> list[str]:
+    category_priority = config.get('analytics', {}).get('category_priority', []) if config else []
+    if not category_priority:
+        category_priority = ['Coding', 'Design', 'Documentation', 'Project Work', 'Research', 'Communication', 'Meetings', 'Other']
+    return category_priority
+
+
+def _get_category_mapping(config: dict) -> dict[str, list[str]]:
+    mapping = config.get('analytics', {}).get('category_mapping', {}) if config else {}
+    # normalize mapping values to lists
+    out: dict[str, list[str]] = {}
+    for cat, apps in mapping.items():
+        if isinstance(apps, list):
+            out[cat] = [str(a) for a in apps]
+        elif apps:
+            out[cat] = [str(apps)]
+    return out
+
+
+def _get_domain_mapping(config: dict) -> dict[str, str]:
+    mapping = config.get('analytics', {}).get('domain_mapping', {}) if config else {}
+    out: dict[str, str] = {}
+    for domain, cat in mapping.items():
+        if domain and cat:
+            out[str(domain).lower()] = str(cat)
+    return out
+
+
+def categorize_event(event: dict, config: dict | None = None) -> str:
+    """
+    Categorize a raw activity event.
+    Supports:
+      - app-based mapping (analytics.category_mapping)
+      - domain-based mapping (analytics.domain_mapping) for browser URLs
+      - fallback heuristics via categorize_app()
+    """
+    app = str(event.get('app', '') or '')
+    app_lower = app.lower()
+
+    config = config or {}
+    category_mapping = _get_category_mapping(config)
+    for category, apps in category_mapping.items():
+        for mapped in apps:
+            if mapped and mapped.lower() in app_lower:
+                return category
+
+    # Domain mapping has priority for browser activity
+    url = (event.get('data') or {}).get('url') if isinstance(event.get('data'), dict) else None
+    domain = _extract_domain(str(url or ''))
+    domain_mapping = _get_domain_mapping(config)
+    if domain and domain in domain_mapping:
+        return domain_mapping[domain]
+
+    return categorize_app(app)
+
+
+def _sweep_timeline(intervals: list[tuple[datetime, datetime, str, str]], category_priority: list[str]):
+    """
+    Convert possibly-overlapping intervals into a timeline with priority-based attribution.
+    Returns: list of (start, end, category, label/app)
+    """
+    events: list[tuple[datetime, int, str, str]] = []
+    for start, end, category, label in intervals:
+        if end <= start:
+            continue
+        events.append((start, 1, category, label))
+        events.append((end, -1, category, label))
+    if not events:
+        return []
+
+    pr = {c.lower(): i for i, c in enumerate(category_priority)}
+    events.sort(key=lambda x: (x[0], -x[1]))  # start before end at same timestamp
+    active: list[tuple[datetime, str, str]] = []  # (start_time, category, label)
+
+    def pick_winner():
+        if not active:
+            return None
+        # priority then most-recent start wins ties
+        return min(active, key=lambda t: (pr.get(t[1].lower(), 10_000), -t[0].timestamp()))
+
+    current_time = events[0][0]
+    timeline: list[tuple[datetime, datetime, str, str]] = []
+
+    i = 0
+    while i < len(events):
+        t = events[i][0]
+        if t > current_time:
+            winner = pick_winner()
+            if winner:
+                seg_start = current_time
+                seg_end = t
+                _, cat, label = winner
+                if timeline and timeline[-1][2] == cat and timeline[-1][3] == label and timeline[-1][1] == seg_start:
+                    # extend last segment
+                    timeline[-1] = (timeline[-1][0], seg_end, cat, label)
+                else:
+                    timeline.append((seg_start, seg_end, cat, label))
+            current_time = t
+
+        while i < len(events) and events[i][0] == t:
+            _, typ, cat, label = events[i]
+            if typ == 1:
+                active.append((t, cat, label))
+            else:
+                # remove one matching active entry (best-effort)
+                for j in range(len(active) - 1, -1, -1):
+                    if active[j][1] == cat and active[j][2] == label:
+                        active.pop(j)
+                        break
+            i += 1
+
+    return timeline
+
+
+def _build_deep_work_blocks(timeline: list[tuple[datetime, datetime, str, str]], threshold_minutes: int = 25, gap_tolerance_seconds: int = 60):
+    threshold_seconds = threshold_minutes * 60
+    blocks = []
+    current_start = None
+    current_end = None
+
+    for start, end, category, _label in timeline:
+        if category.lower() == 'meetings':
+            continue
+        if current_start is None:
+            current_start, current_end = start, end
+            continue
+
+        gap = (start - current_end).total_seconds()
+        if gap <= gap_tolerance_seconds:
+            current_end = max(current_end, end)
+            continue
+
+        duration_seconds = int((current_end - current_start).total_seconds())
+        if duration_seconds >= threshold_seconds:
+            blocks.append({
+                "start": current_start.strftime("%H:%M"),
+                "end": current_end.strftime("%H:%M"),
+                "duration": seconds_to_hhmm(duration_seconds),
+                "seconds": duration_seconds,
+                "minutes": int(duration_seconds / 60),
+            })
+
+        current_start, current_end = start, end
+
+    if current_start is not None and current_end is not None:
+        duration_seconds = int((current_end - current_start).total_seconds())
+        if duration_seconds >= threshold_seconds:
+            blocks.append({
+                "start": current_start.strftime("%H:%M"),
+                "end": current_end.strftime("%H:%M"),
+                "duration": seconds_to_hhmm(duration_seconds),
+                "seconds": duration_seconds,
+                "minutes": int(duration_seconds / 60),
+            })
+
+    return blocks
+
+
+def load_from_jsonl(jsonl_path: Path, config: dict | None = None) -> dict:
+    """Load and convert JSONL log to report format with interval merging."""
     print(f"Loading from JSONL: {jsonl_path}")
     
     if not jsonl_path.exists():
@@ -58,11 +246,18 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
     except Exception as e:
         print(f"Error reading JSONL: {e}")
         return None
+
+    config = _load_config(config)
+    category_priority = _get_category_priority(config)
     
-    # Convert events to report format with timeline reconstruction
+    # Convert events to report format with timeline reconstruction.
+    # Supports two JSONL shapes:
+    #  - "typed" events: {"type": "focus_change", "timestamp": "...", "data": {...}}
+    #  - "raw samples": {"timestamp": "...", "app": "...", "idle_seconds": 0, "data": {...}}
     report = {
         'date': metadata.get('date') if metadata else DEFAULT_DATE,
         'overview': {
+            'active_time': '00:00',
             'focus_time': '00:00',
             'meetings_time': '00:00',
             'appointments': 0,
@@ -71,7 +266,9 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
         },
         'by_category': {},
         'browser_highlights': {'top_domains': [], 'top_pages': []},
-        'hourly_focus': []
+        'hourly_focus': [],
+        'timeline': [],
+        'deep_work_blocks': [],
     }
     
     # Initialize hourly buckets
@@ -82,105 +279,115 @@ def load_from_jsonl(jsonl_path: Path) -> dict:
             'pct': '0%'
         })
     
-    # Build timeline with intervals to merge overlaps
-    # Format: (start_time, end_time, category, app)
-    intervals = []
-    total_meeting_seconds = 0
+    # Build intervals for sweep-line attribution.
+    # Format: (start_dt, end_dt, category, label/app)
+    intervals: list[tuple[datetime, datetime, str, str]] = []
     
-    for event in events:
-        event_type = event.get('type')
-        data = event.get('data', {})
-        timestamp = event.get('timestamp', '')
-        
-        try:
-            dt = datetime.fromisoformat(timestamp)
-        except:
-            continue
-        
-        if event_type == 'focus_change':
-            duration = data.get('duration_seconds', 0)
-            if duration > 0:
-                app = data.get('app', '')
-                category = categorize_app(app)
-                end_dt = dt + timedelta(seconds=duration)
-                intervals.append((dt, end_dt, category))
-        
-        elif event_type in ['meeting_start', 'meeting_end']:
-            if event_type == 'meeting_end':
-                duration = data.get('duration_seconds', 0)
-                total_meeting_seconds += duration
+    # If "typed" events exist, build intervals from those. Otherwise, treat events as raw samples.
+    has_typed = any(isinstance(e, dict) and 'type' in e for e in events)
+    if has_typed:
+        for event in events:
+            event_type = event.get('type')
+            data = event.get('data', {}) if isinstance(event.get('data'), dict) else {}
+            timestamp = event.get('timestamp', '')
+
+            try:
+                dt = datetime.fromisoformat(timestamp)
+            except Exception:
+                continue
+
+            if event_type == 'focus_change':
+                duration = int(data.get('duration_seconds', 0) or 0)
+                if duration > 0:
+                    app = str(data.get('app', '') or '')
+                    category = categorize_event({'app': app, 'data': data}, config)
+                    end_dt = dt + timedelta(seconds=duration)
+                    intervals.append((dt, end_dt, category, app))
+            elif event_type == 'meeting_end':
+                duration = int(data.get('duration_seconds', 0) or 0)
+                if duration > 0:
+                    end_dt = dt
+                    start_dt = dt - timedelta(seconds=duration)
+                    intervals.append((start_dt, end_dt, 'Meetings', str(data.get('title', 'Meeting') or 'Meeting')))
+    else:
+        samples: list[tuple[datetime, dict]] = []
+        for event in events:
+            timestamp = event.get('timestamp', '')
+            try:
+                dt = datetime.fromisoformat(timestamp)
+            except Exception:
+                continue
+            samples.append((dt, event))
+
+        samples.sort(key=lambda x: x[0])
+        if samples:
+            # Interpret samples as point-in-time observations that last until the next sample.
+            # The final sample has no implied duration (avoids off-by-one minute in tests).
+            for idx in range(len(samples) - 1):
+                dt, event = samples[idx]
+                next_dt = samples[idx + 1][0]
+                if next_dt <= dt:
+                    continue
+                idle = int(event.get('idle_seconds', 0) or 0)
+                if idle >= int((next_dt - dt).total_seconds()):
+                    continue
+
+                app = str(event.get('app', '') or '')
+                category = categorize_event(event, config)
+                intervals.append((dt, next_dt, category, app))
+
+            report['date'] = samples[0][0].date().isoformat()
+            report['overview']['coverage_window'] = f"{samples[0][0].strftime('%H:%M')}–{samples[-1][0].strftime('%H:%M')}"
     
-    # Sort intervals by start time
+    # Attribute overlaps via sweep-line, producing a concrete timeline.
     intervals.sort(key=lambda x: x[0])
-    
-    # Merge overlapping intervals and attribute by category priority
-    # Load category priority from config if available
-    try:
-        config_path = BASE / 'config.json'
-        if config_path.exists():
-            with open(config_path) as f:
-                config = json.load(f)
-                category_priority = config.get('analytics', {}).get('category_priority', [])
-        else:
-            category_priority = []
-    except:
-        category_priority = []
-    
-    if not category_priority:
-        category_priority = ['Coding', 'Design', 'Documentation', 'Project Work', 'Research', 'Communication', 'Meetings', 'Other']
-    
-    # Merge overlapping intervals with priority-based attribution
-    merged_intervals = []
-    for start, end, category in intervals:
-        # Check for overlaps and merge
-        overlaps = []
-        non_overlaps = []
-        for i, (m_start, m_end, m_cat) in enumerate(merged_intervals):
-            if start < m_end and end > m_start:
-                overlaps.append(i)
-            else:
-                non_overlaps.append((m_start, m_end, m_cat))
-        
-        if not overlaps:
-            # No overlap, add as-is
-            merged_intervals.append((start, end, category))
-        else:
-            # Merge with overlapping intervals using priority
-            all_cats = [category] + [merged_intervals[i][2] for i in overlaps]
-            # Pick highest priority category
-            priority_cat = min(all_cats, key=lambda c: category_priority.index(c) if c in category_priority else 999)
-            
-            # Compute merged time range
-            all_starts = [start] + [merged_intervals[i][0] for i in overlaps]
-            all_ends = [end] + [merged_intervals[i][1] for i in overlaps]
-            merged_start = min(all_starts)
-            merged_end = max(all_ends)
-            
-            # Rebuild merged_intervals without overlapped items
-            merged_intervals = non_overlaps + [(merged_start, merged_end, priority_cat)]
-    
-    # Aggregate by category and hour
+    timeline_segments = _sweep_timeline(intervals, category_priority)
+
+    report['timeline'] = [
+        {
+            "start": start.strftime("%H:%M"),
+            "end": end.strftime("%H:%M"),
+            "minutes": int((end - start).total_seconds() / 60),
+            "category": category,
+            "label": label,
+        }
+        for start, end, category, label in timeline_segments
+        if end > start
+    ]
+
+    report['deep_work_blocks'] = _build_deep_work_blocks(timeline_segments)
+
+    # Aggregate by category and hour (use attributed timeline, not raw intervals)
     hourly_seconds = [0] * 24
-    category_seconds = {}
-    total_focus_seconds = 0
-    
-    for start, end, category in merged_intervals:
+    category_seconds: dict[str, int] = {}
+    meeting_seconds = 0
+    focus_seconds = 0
+    active_seconds = 0
+
+    for start, end, category, _label in timeline_segments:
         duration_secs = int((end - start).total_seconds())
-        total_focus_seconds += duration_secs
+        active_seconds += duration_secs
+        if category.lower() == 'meetings':
+            meeting_seconds += duration_secs
+        else:
+            focus_seconds += duration_secs
+
         category_seconds[category] = category_seconds.get(category, 0) + duration_secs
         
-        # Distribute across hours
-        current = start
-        while current < end:
-            next_hour = current.replace(minute=0, second=0, microsecond=0) + timedelta(hours=1)
-            segment_end = min(end, next_hour)
-            segment_secs = int((segment_end - current).total_seconds())
-            hourly_seconds[current.hour] += segment_secs
-            current = segment_end
+        # Distribute *focus* across hours (exclude meetings for hourly focus)
+        if category.lower() != 'meetings':
+            current = start
+            while current < end:
+                next_hour = current.replace(minute=0, second=0, microsecond=0) + timedelta(hours=1)
+                segment_end = min(end, next_hour)
+                segment_secs = int((segment_end - current).total_seconds())
+                hourly_seconds[current.hour] += segment_secs
+                current = segment_end
     
     # Convert to HH:MM format
-    report['overview']['focus_time'] = seconds_to_hhmm(total_focus_seconds)
-    report['overview']['meetings_time'] = seconds_to_hhmm(total_meeting_seconds)
+    report['overview']['active_time'] = seconds_to_hhmm(active_seconds)
+    report['overview']['focus_time'] = seconds_to_hhmm(focus_seconds)
+    report['overview']['meetings_time'] = seconds_to_hhmm(meeting_seconds)
     
     # Fill category distribution
     for cat, secs in category_seconds.items():
